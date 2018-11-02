@@ -1,0 +1,6 @@
+﻿  Assets\Sprite\test.png
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\BuildCustomizations\ImageContentTask.targets(66,5): error MSB4018: "ImageContentTask" タスクが予期せずに失敗しました。
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\BuildCustomizations\ImageContentTask.targets(66,5): error MSB4018: System.Exception: VsGraphics failed, error code 4317 returned.
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\BuildCustomizations\ImageContentTask.targets(66,5): error MSB4018:    場所 Microsoft.VisualStudio.Graphics.Api.VsgTask.Execute()
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\BuildCustomizations\ImageContentTask.targets(66,5): error MSB4018:    場所 Microsoft.Build.BackEnd.TaskExecutionHost.Microsoft.Build.BackEnd.ITaskExecutionHost.Execute()
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\BuildCustomizations\ImageContentTask.targets(66,5): error MSB4018:    場所 Microsoft.Build.BackEnd.TaskBuilder.<ExecuteInstantiatedTask>d__26.MoveNext()
