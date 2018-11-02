@@ -26,6 +26,6 @@ void SpriteRender::Update() {
 }
 
 void SpriteRender::PostRender() {
-	//m_sprite.Draw();
+	m_sprite.Draw();
 }
 
