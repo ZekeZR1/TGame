@@ -18,6 +18,7 @@ bool Game::Start() {
 	m_model = NewGO<SkinModelRender>(0, "model");
 	m_model->Init(L"Assets/modelData/Test.cmo");
 	m_model->SetPosition(CVector3::Zero());
+
 	m_sprite = NewGO<SpriteRender>(0,"sprite");
 	m_sprite->Init(L"Assets/Sprite/Test.dds", 500.f, 500.f);
 	m_sprite->SetPosition(CVector3::Zero());
