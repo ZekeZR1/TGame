@@ -195,6 +195,12 @@ private:
 	float m_lStickY = 0.0f;		//!<左スティックのY軸の入力量。
 	float m_rStickX = 0.0f;		//!<右スティックのX軸の入力量。
 	float m_rStickY = 0.0f;		//!<右スティックのY軸の入力量。
+
+	float m_mouseX = 0.0f;
+	float m_mouseY = 0.0f;
+	float oldx = 0.0f;
+	float oldy = 0.0f;
+
 };
 
 extern Pad g_pad[Pad::CONNECT_PAD_MAX];
