@@ -129,13 +129,6 @@ public:
 					T* p = dynamic_cast<T*>(go);
 					if (p == nullptr) {
 						//型変換に失敗。
-						/*
-						TK_WARNING_MESSAGE_BOX(
-							"FingGameObject ： 型変換に失敗しました。テンプレート引数を確認してください。typeName = %s, objectName = %s",
-							typeid(T).name(),
-							objectName
-						);
-						*/
 					}
 					return p;
 				}
