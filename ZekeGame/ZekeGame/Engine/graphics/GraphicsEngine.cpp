@@ -14,7 +14,7 @@ GraphicsEngine::~GraphicsEngine()
 }
 
 void GraphicsEngine::BegineRender() {
-	float ClearColor[4] = { 0.5f, 0.5f, 0.5f, 1.0f }; 
+	float ClearColor[4] = { 0.5f, 0.5f, 0.5f, 1.0f };
 	m_pd3dDeviceContext->OMSetRenderTargets(1, &m_backBuffer, m_depthStencilView);
 	m_pd3dDeviceContext->ClearRenderTargetView(m_backBuffer, ClearColor);
 	m_pd3dDeviceContext->ClearDepthStencilView(m_depthStencilView, D3D11_CLEAR_DEPTH, 1.0f, 0);
@@ -60,18 +60,18 @@ void GraphicsEngine::Release()
 void GraphicsEngine::InitDirectX(HWND hwnd) {
 	DXGI_SWAP_CHAIN_DESC sd;
 	ZeroMemory(&sd, sizeof(sd));
-	sd.BufferCount = 1;									
-	sd.BufferDesc.Width = (UINT)FRAME_BUFFER_W;			
-	sd.BufferDesc.Height = (UINT)FRAME_BUFFER_H;		
+	sd.BufferCount = 1;
+	sd.BufferDesc.Width = (UINT)FRAME_BUFFER_W;
+	sd.BufferDesc.Height = (UINT)FRAME_BUFFER_H;
 	sd.BufferDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
-	sd.BufferDesc.RefreshRate.Numerator = 60;			
-	sd.BufferDesc.RefreshRate.Denominator = 1;			
+	sd.BufferDesc.RefreshRate.Numerator = 60;
+	sd.BufferDesc.RefreshRate.Denominator = 1;
 	sd.BufferUsage = DXGI_USAGE_RENDER_TARGET_OUTPUT;
-	sd.OutputWindow = hwnd;								
-	sd.SampleDesc.Count = 1;						
-	sd.SampleDesc.Quality = 0;						
-	sd.Windowed = TRUE;									
-												
+	sd.OutputWindow = hwnd;
+	sd.SampleDesc.Count = 1;
+	sd.SampleDesc.Quality = 0;
+	sd.Windowed = TRUE;
+
 	D3D_FEATURE_LEVEL featureLevels[] =
 	{
 		D3D_FEATURE_LEVEL_11_0,
@@ -80,18 +80,18 @@ void GraphicsEngine::InitDirectX(HWND hwnd) {
 	};
 
 	D3D11CreateDeviceAndSwapChain(
-		NULL,											
-		D3D_DRIVER_TYPE_HARDWARE,																		
-		NULL,											
-		0,											
-		featureLevels,																																				
+		NULL,
+		D3D_DRIVER_TYPE_HARDWARE,
+		NULL,
+		0,
+		featureLevels,
 		sizeof(featureLevels) / sizeof(featureLevels[0]),
-		D3D11_SDK_VERSION,							
-		&sd,											
-		&m_pSwapChain,								
-		&m_pd3dDevice,									
-		&m_featureLevel,								
-		&m_pd3dDeviceContext						
+		D3D11_SDK_VERSION,
+		&sd,
+		&m_pSwapChain,
+		&m_pd3dDevice,
+		&m_featureLevel,
+		&m_pd3dDeviceContext
 	);
 	ID3D11Texture2D* pBackBuffer = NULL;
 	m_pSwapChain->GetBuffer(0, __uuidof(ID3D11Texture2D), (LPVOID*)&pBackBuffer);
@@ -137,4 +137,6 @@ void GraphicsEngine::InitDirectX(HWND hwnd) {
 	viewport.MaxDepth = 1.0f;
 	m_pd3dDeviceContext->RSSetViewports(1, &viewport);
 	m_pd3dDeviceContext->RSSetState(m_rasterizerState);
+
+	m_effectEngine.Init();
 }

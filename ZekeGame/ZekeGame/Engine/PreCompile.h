@@ -35,3 +35,6 @@
 #include "Engine/graphics/animation/Animation.h"
 #include "Engine/graphics/animation/AnimationClip.h"
 #include "Engine/graphics/Camera.h"
+#include "Engine/graphics/Effect/CEffectEngine.h"
+#include "Engine/graphics/Effect/CEffect.h"
+
