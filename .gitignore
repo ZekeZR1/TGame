@@ -3,3 +3,8 @@
 ################################################################################
 
 *.suo
+/.vs/MyGame/v15
+/.vs
+/ZekeGame/.vs/ZekeGame/v15/ipch
+/ZekeGame/x64/Release
+/ZekeGame/.vs/ZekeGame/v15
