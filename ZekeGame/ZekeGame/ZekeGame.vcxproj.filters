@@ -84,6 +84,9 @@
     <Filter Include="ソース ファイル\Engine\graphics\2D">
       <UniqueIdentifier>{59ee64ef-89d5-42ab-a58b-ff00fc1859a7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Engine\Network">
+      <UniqueIdentifier>{342bff3b-fffd-4d47-bf4b-3327bed028be}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\character\CharacterController.cpp">
@@ -274,6 +277,9 @@
     </ClCompile>
     <ClCompile Include="Engine\graphics\SpriteRender.cpp">
       <Filter>ソース ファイル\Engine\graphics\2D</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Network\NetworkLogic.cpp">
+      <Filter>ソース ファイル\Engine\Network</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -474,6 +480,9 @@
     </ClInclude>
     <ClInclude Include="Engine\graphics\SpriteRender.h">
       <Filter>ソース ファイル\Engine\graphics\2D</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Network\NetworkLogic.h">
+      <Filter>ソース ファイル\Engine\Network</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
