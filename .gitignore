@@ -17,6 +17,7 @@
 *.cmo
 *.dds
 
+
 bin/
 Debug/
 obj/
@@ -44,3 +45,6 @@ obj/
 *.pidb
 *.log
 *.scc
+
+*.filters
+*.gitignore
