@@ -281,6 +281,9 @@
     <ClCompile Include="Engine\Network\NetworkLogic.cpp">
       <Filter>ソース ファイル\Engine\Network</Filter>
     </ClCompile>
+    <ClCompile Include="Engine\Test.cpp">
+      <Filter>ソース ファイル\Engine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\character\CharacterController.h">
@@ -483,6 +486,9 @@
     </ClInclude>
     <ClInclude Include="Engine\Network\NetworkLogic.h">
       <Filter>ソース ファイル\Engine\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Test.h">
+      <Filter>ソース ファイル\Engine</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
