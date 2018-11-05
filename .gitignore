@@ -12,6 +12,7 @@
 
 # User-specific files
 *.suo
+*.vcxproj.user
 *.user
 *.sln.docstates
 *.cmo
@@ -19,6 +20,7 @@
 
 bin/
 Debug/
+Release/
 obj/
 
 *_i.c
