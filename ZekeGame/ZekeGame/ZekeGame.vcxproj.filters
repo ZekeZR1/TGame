@@ -296,6 +296,9 @@
     <ClCompile Include="Game\Monster\MonsterAction.cpp">
       <Filter>ソース ファイル\Game\Monster</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Monster\TestAction.cpp">
+      <Filter>ソース ファイル\Game\Monster</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\character\CharacterController.h">
@@ -806,6 +809,9 @@
       <Filter>ソース ファイル\Game\PythonBridge</Filter>
     </ClInclude>
     <ClInclude Include="Game\Monster\MonsterAction.h">
+      <Filter>ソース ファイル\Game\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\TestAction.h">
       <Filter>ソース ファイル\Game\Monster</Filter>
     </ClInclude>
   </ItemGroup>

@@ -3,6 +3,7 @@
 class MonsterAction
 {
 public:
-	virtual void Action() {};
+	virtual bool Action() { return false; };
 protected:
+	int ActionId = 0;
 };

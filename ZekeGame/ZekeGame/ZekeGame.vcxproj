@@ -217,6 +217,7 @@
     <ClCompile Include="Game\Monster\Monster.cpp" />
     <ClCompile Include="Game\Monster\MonsterAction.cpp" />
     <ClCompile Include="Game\Monster\MonsterAI.cpp" />
+    <ClCompile Include="Game\Monster\TestAction.cpp" />
     <ClCompile Include="Game\Monster\TestMons.cpp" />
     <ClCompile Include="stdafx.cpp" />
   </ItemGroup>
@@ -289,6 +290,7 @@
     <ClInclude Include="Game\Monster\Monster.h" />
     <ClInclude Include="Game\Monster\MonsterAction.h" />
     <ClInclude Include="Game\Monster\MonsterAI.h" />
+    <ClInclude Include="Game\Monster\TestAction.h" />
     <ClInclude Include="Game\Monster\TestMons.h" />
     <ClInclude Include="Game\PythonBridge\include\abstract.h" />
     <ClInclude Include="Game\PythonBridge\include\accu.h" />
