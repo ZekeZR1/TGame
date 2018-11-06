@@ -221,6 +221,7 @@
     <ClCompile Include="Game\Monster\MonsterAI.cpp" />
     <ClCompile Include="Game\Monster\TestAction.cpp" />
     <ClCompile Include="Game\Monster\TestMons.cpp" />
+    <ClCompile Include="Game\PythonBridge\PythonBridge.cpp" />
     <ClCompile Include="stdafx.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -395,6 +396,7 @@
     <ClInclude Include="Game\PythonBridge\include\unicodeobject.h" />
     <ClInclude Include="Game\PythonBridge\include\warnings.h" />
     <ClInclude Include="Game\PythonBridge\include\weakrefobject.h" />
+    <ClInclude Include="Game\PythonBridge\PythonBridge.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
