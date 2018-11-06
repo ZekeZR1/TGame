@@ -268,22 +268,22 @@ void Pad::Update()
 		m_rStickX = mx / 10;
 		m_rStickY = -my / 10;
 
-		if (pt.x > GetSystemMetrics(SM_CXSCREEN) - 5)
-		{
-			SetCursorPos(10, pt.y);
-		}
-		if (pt.y > GetSystemMetrics(SM_CYSCREEN) - 5)
-		{
-			SetCursorPos(pt.x, 10);
-		}
-		if (pt.x < 5)
-		{
-			SetCursorPos(GetSystemMetrics(SM_CXSCREEN) - 10, pt.y);
-		}
-		if (pt.y < 5)
-		{
-			SetCursorPos(pt.x, GetSystemMetrics(SM_CYSCREEN) - 10);
-		}
+		//if (pt.x > GetSystemMetrics(SM_CXSCREEN) - 5)
+		//{
+		//	SetCursorPos(10, pt.y);
+		//}
+		//if (pt.y > GetSystemMetrics(SM_CYSCREEN) - 5)
+		//{
+		//	SetCursorPos(pt.x, 10);
+		//}
+		//if (pt.x < 5)
+		//{
+		//	SetCursorPos(GetSystemMetrics(SM_CXSCREEN) - 10, pt.y);
+		//}
+		//if (pt.y < 5)
+		//{
+		//	SetCursorPos(pt.x, GetSystemMetrics(SM_CYSCREEN) - 10);
+		//}
 
 		GetCursorPos(&pt);
 		oldx = pt.x;

@@ -1,32 +1,9 @@
 ﻿  Assets\Sprite\Test.png
   Assets\modelData\Test.FBX
-  CharacterController.cpp
-  Engine.cpp
-  EngineStruct.cpp
-  FPSCounter.cpp
-  CTransform.cpp
-  GameObject.cpp
-  GameObjectManager.cpp
-  Animation.cpp
-  AnimationClip.cpp
-  AnimationPlayController.cpp
+  NetworkLogic.cpp
   Camera.cpp
-  CCameraCollisionSlover.cpp
-  CConstantBuffer.cpp
-  CIndexBuffer.cpp
-  CPrimitive.cpp
-  CRenderContext.cpp
-  CSamplerState.cpp
-  CShader.cpp
-  CShaderResource.cpp
-  CUnorderedAccessView.cpp
-  コードを生成中...
-  コンパイル中...
-  CUtil.cpp
-  CVertexBuffer.cpp
   CEffect.cpp
   CEffectEngine.cpp
-  CFONT.cpp
   CGPUBuffer.cpp
   GraphicsEngine.cpp
   RenderTarget.cpp
@@ -38,42 +15,41 @@
   SkinModelDataManager.cpp
   SkinModelEffect.cpp
   SkinModelRender.cpp
-  SkinModelShaderConst.cpp
   SpringCamera.cpp
   SpriteRender.cpp
   Effect.cpp
-  コードを生成中...
-  コンパイル中...
   SpBuffer.cpp
   Sprite.cpp
+  コードを生成中...
+  コンパイル中...
   StructedBuffer.cpp
   TScopedResource.cpp
-  Pad.cpp
+  Animation.cpp
+  AnimationClip.cpp
+  AnimationPlayController.cpp
+  CFONT.cpp
   Level.cpp
   MapChip.cpp
-  kMath.cpp
   Matrix.cpp
   Vector.cpp
-  NetworkLogic.cpp
-  CapsuleCollider.cpp
+  kMath.cpp
   CSphereCollider.cpp
+  CapsuleCollider.cpp
   MeshCollider.cpp
   Physics.cpp
   PhysicsStaticObject.cpp
   RigitBody.cpp
-  PreCompile.cpp
   SoundEngine.cpp
   Window.cpp
+  GameCamera.cpp
   コードを生成中...
   コンパイル中...
-  GameCamera.cpp
   Game.cpp
-  main.cpp
   Monster.cpp
-  MonsterAction.cpp
   MonsterAI.cpp
-  TestAction.cpp
+  MonsterAction.cpp
   TestMons.cpp
+  main.cpp
   stdafx.cpp
   コードを生成中...
 LinearMath_Debug.lib(btAlignedAllocator.obj) : warning LNK4099: PDB 'LinearMath.pdb' が 'LinearMath_Debug.lib(btAlignedAllocator.obj)' で、または 'C:\Users\Taiki.W\git\TGame\ZekeGame\x64\Debug\LinearMath.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
