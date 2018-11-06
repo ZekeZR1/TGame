@@ -214,6 +214,8 @@
     <ClCompile Include="Engine\sound\SoundEngine.cpp" />
     <ClCompile Include="Engine\window\Window.cpp" />
     <ClCompile Include="GameCamera.cpp" />
+    <ClCompile Include="Game\Game.cpp" />
+    <ClCompile Include="Game\main.cpp" />
     <ClCompile Include="Game\Monster\Monster.cpp" />
     <ClCompile Include="Game\Monster\MonsterAction.cpp" />
     <ClCompile Include="Game\Monster\MonsterAI.cpp" />
@@ -287,6 +289,7 @@
     <ClInclude Include="Engine\util\Util.h" />
     <ClInclude Include="Engine\window\Window.h" />
     <ClInclude Include="GameCamera.h" />
+    <ClInclude Include="Game\Game.h" />
     <ClInclude Include="Game\Monster\Monster.h" />
     <ClInclude Include="Game\Monster\MonsterAction.h" />
     <ClInclude Include="Game\Monster\MonsterAI.h" />

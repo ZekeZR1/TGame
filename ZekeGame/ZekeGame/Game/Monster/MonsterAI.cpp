@@ -3,3 +3,7 @@
 #include <vector>
 
 #include "MonsterAction.h"
+
+void MonsterAI::execute()
+{
+}

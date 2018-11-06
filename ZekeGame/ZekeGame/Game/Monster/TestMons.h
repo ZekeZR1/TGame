@@ -1,5 +1,5 @@
 #pragma once
-
+#include "Monster.h"
 class TestMons :public GameObject, Monster
 {
 public:

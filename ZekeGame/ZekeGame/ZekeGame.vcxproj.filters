@@ -299,6 +299,12 @@
     <ClCompile Include="Game\Monster\TestAction.cpp">
       <Filter>ソース ファイル\Game\Monster</Filter>
     </ClCompile>
+    <ClCompile Include="Game\main.cpp">
+      <Filter>ソース ファイル\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game.cpp">
+      <Filter>ソース ファイル\Game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\character\CharacterController.h">
@@ -814,6 +820,9 @@
     <ClInclude Include="Game\Monster\TestAction.h">
       <Filter>ソース ファイル\Game\Monster</Filter>
     </ClInclude>
+    <ClInclude Include="Game\Game.h">
+      <Filter>ソース ファイル\Game</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\Test.FBX">
@@ -831,14 +840,12 @@
     </ImageContentTask>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Game\dlllib\python36.dll">
-      <Filter>ソース ファイル\Game\dll</Filter>
-    </None>
-    <None Include="Game\dlllib\python36_d.dll">
-      <Filter>ソース ファイル\Game\dll</Filter>
-    </None>
     <None Include="Game\PythonBridge\include\pydtrace.d">
       <Filter>ソース ファイル\Game\PythonBridge</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <CopyFileToFolders Include="Game\dlllib\python36.dll" />
+    <CopyFileToFolders Include="Game\dlllib\python36_d.dll" />
   </ItemGroup>
 </Project>

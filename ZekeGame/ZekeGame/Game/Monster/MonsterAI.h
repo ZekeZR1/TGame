@@ -4,7 +4,7 @@ class MonsterAction;
 class MonsterAI
 {
 public:
-	void execute();
+	virtual void execute();
 protected:
 
 	std::vector<MonsterAction*> m_action;

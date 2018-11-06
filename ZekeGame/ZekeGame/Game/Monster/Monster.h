@@ -1,9 +1,9 @@
 #pragma once
-
+#include "MonsterAI.h"
 class Monster:public MonsterAI
 {
 public:
-	void execute() final override;
+	virtual void execute() final override;
 	enum State
 	{
 		NowLoading,
