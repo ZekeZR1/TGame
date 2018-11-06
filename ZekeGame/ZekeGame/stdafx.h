@@ -2,6 +2,8 @@
 
 #define  MRT_MAX  8
 
+#include "Game/PythonBridge/include/Python.h"
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <memory>
