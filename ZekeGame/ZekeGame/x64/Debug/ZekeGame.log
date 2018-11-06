@@ -1,11 +1,1 @@
-﻿  Assets\Sprite\Test.png
-  Assets\modelData\Test.FBX
-  Game.cpp
-  main.cpp
-  コードを生成中...
-LinearMath_Debug.lib(btAlignedAllocator.obj) : warning LNK4099: PDB 'LinearMath.pdb' が 'LinearMath_Debug.lib(btAlignedAllocator.obj)' で、または 'C:\Users\GC1821\source\repos\myTGame\ZekeGame\x64\Debug\LinearMath.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
-LinearMath_Debug.lib(btConvexHullComputer.obj) : warning LNK4099: PDB 'LinearMath.pdb' が 'LinearMath_Debug.lib(btConvexHullComputer.obj)' で、または 'C:\Users\GC1821\source\repos\myTGame\ZekeGame\x64\Debug\LinearMath.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
-LinearMath_Debug.lib(btGeometryUtil.obj) : warning LNK4099: PDB 'LinearMath.pdb' が 'LinearMath_Debug.lib(btGeometryUtil.obj)' で、または 'C:\Users\GC1821\source\repos\myTGame\ZekeGame\x64\Debug\LinearMath.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
-LinearMath_Debug.lib(btQuickprof.obj) : warning LNK4099: PDB 'LinearMath.pdb' が 'LinearMath_Debug.lib(btQuickprof.obj)' で、または 'C:\Users\GC1821\source\repos\myTGame\ZekeGame\x64\Debug\LinearMath.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
-LinearMath_Debug.lib(btVector3.obj) : warning LNK4099: PDB 'LinearMath.pdb' が 'LinearMath_Debug.lib(btVector3.obj)' で、または 'C:\Users\GC1821\source\repos\myTGame\ZekeGame\x64\Debug\LinearMath.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
-  ZekeGame.vcxproj -> C:\Users\GC1821\source\repos\myTGame\ZekeGame\x64\Debug\ZekeGame.exe
+﻿

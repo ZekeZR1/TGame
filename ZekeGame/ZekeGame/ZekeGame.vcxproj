@@ -399,9 +399,11 @@
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\Test.FBX" />
+    <MeshContentTask Include="Assets\modelData\testMons\tesEnemy2.fbx" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\modelData\boxTex.png" />
+    <Image Include="Assets\modelData\testMons\asu.png" />
     <ImageContentTask Include="Assets\Sprite\Test.png" />
   </ItemGroup>
   <ItemGroup>
