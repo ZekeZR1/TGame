@@ -1,36 +1,284 @@
-//#include "stdafx.h"
-//#include "NetworkLogic.h"
-//
-//NetworkLogic::NetworkLogic(const ExitGames::Common::JString& appID, const ExitGames::Common::JString& appVersion)
-//	: mLoadBalancingClient(mListener, appID, appVersion)
-//{
-//}
-//
-//NetworkLogic::~NetworkLogic()
-//{
-//}
-//
-//const ExitGames::Common::JString& appID;
-//const ExitGames::Common::JString& appVersion;
-//NetworkLogic networkLogic(appID, appVersion);
-//networkLogic.connect();
-////mainroop
-//networklogic.run
-//networklogic.disconenect;
-//
-//void NetworkLogic::connect(void)
-//{
-//	// connect() is asynchronous - the actual result arrives in the Listener::connectReturn() or the Listener::connectionErrorReturn() callback
-//	if (!mLoadBalancingClient.connect())
-//		EGLOG(ExitGames::Common::DebugLevel::ERRORS, L"Could not connect.");
-//}
-//
-//void NetworkLogic::run(void)
-//{
-//	mLoadBalancingClient.service(); // needs to be called regularly!
-//}
-//
-//void NetworkLogic::disconnect(void)
-//{
-//	mLoadBalancingClient.disconnect(); // disconnect() is asynchronous - the actual result arrives in the Listener::disconnectReturn() callback
-//}
+#include "stdafx.h"
+#include "NetworkLogic.h"
+
+static const ExitGames::Common::JString appID = L"548e2b85-0a39-45bb-a62b-d0e96ad8eb96"; 
+static const ExitGames::Common::JString appVersion = L"1.0";
+
+static ExitGames::Common::JString gameName = L"Basics";
+
+static const ExitGames::Common::JString PLAYER_NAME = L"user";
+static const int MAX_SENDCOUNT = 100;
+
+NetworkLogic::NetworkLogic(CListener* listener)
+#ifdef _EG_MS_COMPILER
+#	pragma warning(push)
+#	pragma warning(disable:4355)
+#endif
+	: mState(State::INITIALIZED)
+	, mLoadBalancingClient(*this, appID, appVersion, ExitGames::Photon::ConnectionProtocol::UDP, true)
+	, mpOutputListener(listener)
+	, mSendCount(0)
+	, mReceiveCount(0)
+#ifdef _EG_MS_COMPILER
+#	pragma warning(pop)
+#endif
+{
+	mLoadBalancingClient.setDebugOutputLevel(DEBUG_RELEASE(ExitGames::Common::DebugLevel::INFO, ExitGames::Common::DebugLevel::WARNINGS)); // that instance of LoadBalancingClient and its implementation details
+	mLogger.setListener(*this);
+	mLogger.setDebugOutputLevel(DEBUG_RELEASE(ExitGames::Common::DebugLevel::INFO, ExitGames::Common::DebugLevel::WARNINGS)); // this class
+	ExitGames::Common::Base::setListener(this);
+	ExitGames::Common::Base::setDebugOutputLevel(DEBUG_RELEASE(ExitGames::Common::DebugLevel::INFO, ExitGames::Common::DebugLevel::WARNINGS)); // all classes that inherit from Base
+}
+
+void NetworkLogic::update() {
+	switch (mState)
+	{
+	case State::INITIALIZED:
+		mLoadBalancingClient.connect(ExitGames::LoadBalancing::AuthenticationValues().setUserID(ExitGames::Common::JString() + GETTIMEMS()), PLAYER_NAME + GETTIMEMS());
+		mState = State::CONNECTING;
+		break;
+	case State::CONNECTED:
+		mLoadBalancingClient.opJoinOrCreateRoom(gameName);
+		mState = State::JOINING;
+		break;
+	case State::JOINED:
+		sendData();
+		break;
+	case State::RECEIVED_DATA:
+		mLoadBalancingClient.opLeaveRoom();
+		mState = State::LEAVING;
+		break;
+	case State::LEFT:
+		mLoadBalancingClient.disconnect();
+		mState = State::DISCONNECTING;
+		break;
+	case State::DISCONNECTED:
+		mState = State::INITIALIZED;
+		break;
+	default:
+		break;
+	}
+	mLoadBalancingClient.service();
+}
+
+
+ExitGames::Common::JString NetworkLogic::getStateString(void)
+{
+	switch (mState)
+	{
+	case State::INITIALIZED:
+		return L"disconnected";
+	case State::CONNECTING:
+		return L"connecting";
+	case State::CONNECTED:
+		return L"connected";
+	case State::JOINING:
+		return L"joining";
+	case State::JOINED:
+		return ExitGames::Common::JString(L"ingame\nsent event Nr. ") + mSendCount + L"\nreceived event Nr. " + mReceiveCount;
+	case State::SENT_DATA:
+		return ExitGames::Common::JString(L"sending completed") + L"\nreceived event Nr. " + mReceiveCount;
+	case State::RECEIVED_DATA:
+		return L"receiving completed";
+	case State::LEAVING:
+		return L"leaving";
+	case State::LEFT:
+		return L"left";
+	case State::DISCONNECTING:
+		return L"disconnecting";
+	case State::DISCONNECTED:
+		return L"disconnected";
+	default:
+		return L"unknown state";
+	}
+}
+
+void NetworkLogic::sendData(void)
+{
+	ExitGames::Common::Hashtable event;
+	event.put(static_cast<nByte>(0), ++mSendCount);
+	// send to ourselves only
+	int myPlayerNumber = mLoadBalancingClient.getLocalPlayer().getNumber();
+	mLoadBalancingClient.opRaiseEvent(true, event, 0, ExitGames::LoadBalancing::RaiseEventOptions().setTargetPlayers(&myPlayerNumber, 1));
+	if (mSendCount >= MAX_SENDCOUNT)
+		mState = State::SENT_DATA;
+}
+
+void NetworkLogic::debugReturn(int /*debugLevel*/, const ExitGames::Common::JString& string)
+{
+	mpOutputListener->writeString(string);
+}
+
+void NetworkLogic::connectionErrorReturn(int errorCode)
+{
+	EGLOG(ExitGames::Common::DebugLevel::ERRORS, L"code: %d", errorCode);
+	mpOutputListener->writeString(ExitGames::Common::JString(L"received connection error ") + errorCode);
+	mState = State::DISCONNECTED;
+}
+
+void NetworkLogic::clientErrorReturn(int errorCode)
+{
+	EGLOG(ExitGames::Common::DebugLevel::ERRORS, L"code: %d", errorCode);
+	mpOutputListener->writeString(ExitGames::Common::JString(L"received error ") + errorCode + L" from client");
+}
+
+void NetworkLogic::warningReturn(int warningCode)
+{
+	EGLOG(ExitGames::Common::DebugLevel::WARNINGS, L"code: %d", warningCode);
+	mpOutputListener->writeString(ExitGames::Common::JString(L"received warning ") + warningCode + L" from client");
+}
+
+void NetworkLogic::serverErrorReturn(int errorCode)
+{
+	EGLOG(ExitGames::Common::DebugLevel::ERRORS, L"code: %d", errorCode);
+	mpOutputListener->writeString(ExitGames::Common::JString(L"received error ") + errorCode + " from server");
+}
+
+void NetworkLogic::joinRoomEventAction(int playerNr, const ExitGames::Common::JVector<int>& /*playernrs*/, const ExitGames::LoadBalancing::Player& player)
+{
+	EGLOG(ExitGames::Common::DebugLevel::INFO, L"%ls joined the game", player.getName().cstr());
+	mpOutputListener->writeString(L"");
+	mpOutputListener->writeString(ExitGames::Common::JString(L"player ") + playerNr + L" " + player.getName() + L" has joined the game");
+}
+
+void NetworkLogic::leaveRoomEventAction(int playerNr, bool isInactive)
+{
+	EGLOG(ExitGames::Common::DebugLevel::INFO, L"");
+	mpOutputListener->writeString(L"");
+	mpOutputListener->writeString(ExitGames::Common::JString(L"player ") + playerNr + L" has left the game");
+}
+
+void NetworkLogic::customEventAction(int playerNr, nByte eventCode, const ExitGames::Common::Object& eventContentObj)
+{
+	ExitGames::Common::Hashtable eventContent = ExitGames::Common::ValueObject<ExitGames::Common::Hashtable>(eventContentObj).getDataCopy();
+	switch (eventCode)
+	{
+	case 0:
+		if (eventContent.getValue((nByte)0))
+			mReceiveCount = ((ExitGames::Common::ValueObject<int64>*)(eventContent.getValue((nByte)0)))->getDataCopy();
+		if (mState == State::SENT_DATA && mReceiveCount >= mSendCount)
+		{
+			mState = State::RECEIVED_DATA;
+			mSendCount = 0;
+			mReceiveCount = 0;
+		}
+		break;
+	default:
+		break;
+	}
+
+}
+
+void NetworkLogic::connectReturn(int errorCode, const ExitGames::Common::JString& errorString, const ExitGames::Common::JString& region, const ExitGames::Common::JString& cluster)
+{
+	EGLOG(ExitGames::Common::DebugLevel::INFO, L"connected to cluster " + cluster + L" of region " + region);
+	if (errorCode)
+	{
+		EGLOG(ExitGames::Common::DebugLevel::ERRORS, L"%ls", errorString.cstr());
+		mState = State::DISCONNECTING;
+		return;
+	}
+	mpOutputListener->writeString(L"connected to cluster " + cluster);
+	mState = State::CONNECTED;
+}
+
+void NetworkLogic::disconnectReturn(void)
+{
+	EGLOG(ExitGames::Common::DebugLevel::INFO, L"");
+	mpOutputListener->writeString(L"disconnected");
+	mState = State::DISCONNECTED;
+}
+
+void NetworkLogic::createRoomReturn(int localPlayerNr, const ExitGames::Common::Hashtable& /*gameProperties*/, const ExitGames::Common::Hashtable& /*playerProperties*/, int errorCode, const ExitGames::Common::JString& errorString)
+{
+	EGLOG(ExitGames::Common::DebugLevel::INFO, L"");
+	if (errorCode)
+	{
+		EGLOG(ExitGames::Common::DebugLevel::ERRORS, L"%ls", errorString.cstr());
+		mpOutputListener->writeString(L"opCreateRoom() failed: " + errorString);
+		mState = State::CONNECTED;
+		return;
+	}
+
+	EGLOG(ExitGames::Common::DebugLevel::INFO, L"localPlayerNr: %d", localPlayerNr);
+	mpOutputListener->writeString(L"... room " + mLoadBalancingClient.getCurrentlyJoinedRoom().getName() + " has been created");
+	mpOutputListener->writeString(L"regularly sending dummy events now");
+	mState = State::JOINED;
+}
+
+void NetworkLogic::joinOrCreateRoomReturn(int localPlayerNr, const ExitGames::Common::Hashtable& /*gameProperties*/, const ExitGames::Common::Hashtable& /*playerProperties*/, int errorCode, const ExitGames::Common::JString& errorString)
+{
+	EGLOG(ExitGames::Common::DebugLevel::INFO, L"");
+	if (errorCode)
+	{
+		EGLOG(ExitGames::Common::DebugLevel::ERRORS, L"%ls", errorString.cstr());
+		mpOutputListener->writeString(L"opJoinOrCreateRoom() failed: " + errorString);
+		mState = State::CONNECTED;
+		return;
+	}
+
+	EGLOG(ExitGames::Common::DebugLevel::INFO, L"localPlayerNr: %d", localPlayerNr);
+	mpOutputListener->writeString(L"... room " + mLoadBalancingClient.getCurrentlyJoinedRoom().getName() + " has been entered");
+	mpOutputListener->writeString(L"regularly sending dummy events now");
+	mState = State::JOINED;
+}
+
+void NetworkLogic::joinRoomReturn(int localPlayerNr, const ExitGames::Common::Hashtable& /*gameProperties*/, const ExitGames::Common::Hashtable& /*playerProperties*/, int errorCode, const ExitGames::Common::JString& errorString)
+{
+	EGLOG(ExitGames::Common::DebugLevel::INFO, L"");
+	if (errorCode)
+	{
+		EGLOG(ExitGames::Common::DebugLevel::ERRORS, L"%ls", errorString.cstr());
+		mpOutputListener->writeString(L"opJoinRoom() failed: " + errorString);
+		mState = State::CONNECTED;
+		return;
+	}
+	EGLOG(ExitGames::Common::DebugLevel::INFO, L"localPlayerNr: %d", localPlayerNr);
+	mpOutputListener->writeString(L"... room " + mLoadBalancingClient.getCurrentlyJoinedRoom().getName() + " has been successfully joined");
+	mpOutputListener->writeString(L"regularly sending dummy events now");
+
+	mState = State::JOINED;
+}
+
+void NetworkLogic::joinRandomRoomReturn(int localPlayerNr, const ExitGames::Common::Hashtable& /*gameProperties*/, const ExitGames::Common::Hashtable& /*playerProperties*/, int errorCode, const ExitGames::Common::JString& errorString)
+{
+	EGLOG(ExitGames::Common::DebugLevel::INFO, L"");
+	if (errorCode)
+	{
+		EGLOG(ExitGames::Common::DebugLevel::ERRORS, L"%ls", errorString.cstr());
+		mpOutputListener->writeString(L"opJoinRandomRoom() failed: " + errorString);
+		mState = State::CONNECTED;
+		return;
+	}
+
+	EGLOG(ExitGames::Common::DebugLevel::INFO, L"localPlayerNr: %d", localPlayerNr);
+	mpOutputListener->writeString(L"... room " + mLoadBalancingClient.getCurrentlyJoinedRoom().getName() + " has been successfully joined");
+	mpOutputListener->writeString(L"regularly sending dummy events now");
+	mState = State::JOINED;
+}
+
+void NetworkLogic::leaveRoomReturn(int errorCode, const ExitGames::Common::JString& errorString)
+{
+	EGLOG(ExitGames::Common::DebugLevel::INFO, L"");
+	if (errorCode)
+	{
+		EGLOG(ExitGames::Common::DebugLevel::ERRORS, L"%ls", errorString.cstr());
+		mpOutputListener->writeString(L"opLeaveRoom() failed: " + errorString);
+		mState = State::DISCONNECTING;
+		return;
+	}
+	mState = State::LEFT;
+	mpOutputListener->writeString(L"room has been successfully left");
+}
+
+void NetworkLogic::joinLobbyReturn(void)
+{
+	EGLOG(ExitGames::Common::DebugLevel::INFO, L"");
+	mpOutputListener->writeString(L"joined lobby");
+}
+
+void NetworkLogic::leaveLobbyReturn(void)
+{
+	EGLOG(ExitGames::Common::DebugLevel::INFO, L"");
+	mpOutputListener->writeString(L"left lobby");
+}

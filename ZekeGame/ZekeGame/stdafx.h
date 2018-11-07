@@ -2,7 +2,10 @@
 
 #define  MRT_MAX  8
 
+=======
+
 #include "Game/PythonBridge/include/Python.h"
+
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -22,4 +25,4 @@
 const float FRAME_BUFFER_W = 1280.0f;				
 const float FRAME_BUFFER_H = 720.0f;				
 static const int MAX_BONE = 512;
-//int MRT_MAX = 8;		//!<MRT�̍ő吔�B
+//int MRT_MAX = 8;		//!<MRT‚ÌÅ‘å”B
