@@ -2,8 +2,6 @@
 
 #define  MRT_MAX  8
 
-=======
-
 #include "Game/PythonBridge/include/Python.h"
 
 
