@@ -4,8 +4,8 @@
 
 TestMons::TestMons()
 {
-	HP = 10;
-	MP = 10;
+	m_HP = 10;
+	m_MP = 10;
 	
 }
 

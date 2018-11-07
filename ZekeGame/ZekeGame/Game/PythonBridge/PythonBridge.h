@@ -1,17 +1,15 @@
 #pragma once
 
+static Monster* g_mons[64];
+
+class Monster;
 class PythonBridge
 {
 public:
-	void SetVec1(CVector3 v)
+	void py_exe(Monster* meMons);
+	CVector3 GetMonsVec(int num)
 	{
-		g_vec1 = v;
-	}
-	CVector3 GetVec1()
-	{
-		return g_vec1;
+		return g_mons[num]->Getpos();
 	}
 private:
 };
-
-static CVector3 g_vec1;
