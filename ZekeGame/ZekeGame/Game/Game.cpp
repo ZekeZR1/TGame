@@ -2,6 +2,7 @@
 #include "Game.h"
 #include "GameCamera.h"
 
+#include "PythonBridge/PythonBridge.h"
 #include "Monster/TestMons.h"
 
 Game::Game()
@@ -16,6 +17,7 @@ Game::~Game()
 }
 
 bool Game::Start() {
+	NewGO<PythonBridge>(0, "PB");
 	m_model = NewGO<SkinModelRender>(0, "model");
 	m_model->Init(L"Assets/modelData/Test.cmo");
 	m_model->SetPosition(CVector3::Zero());

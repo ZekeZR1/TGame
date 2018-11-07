@@ -1,8 +1,8 @@
 #include "stdafx.h"
 #include "PythonBridge.h"
-#include "../Monster/Monster.h"
+//#include "../Monster/Monster.h"
 
-
+//使用しているMonsterのポジションを返します
 static PyObject* GetMyPosition(PyObject* self,PyObject* args)
 {
 	PyObject *x, *y, *z;
@@ -18,6 +18,11 @@ static PyObject* GetMyPosition(PyObject* self,PyObject* args)
 
 	pos = PyTuple_New(2);
 	PyTuple_SetItem(pos, 2, z);
+
+	Py_DECREF(x);
+	Py_DECREF(y);
+	Py_DECREF(z);
+
 	return pos;
 }
 
@@ -29,112 +34,67 @@ static PyObject* GetMyHP(PyObject* self, PyObject* args)
 
 static PyObject* GetAllBuddyPosition(PyObject* self, PyObject* args)
 {
-	PyObject *x1, *y1, *z1;
-	x1 = PyLong_FromDouble(g_mons[0]->Getpos().x);
-	y1 = PyLong_FromDouble(g_mons[0]->Getpos().y);
-	z1 = PyLong_FromDouble(g_mons[0]->Getpos().z);
-
-	PyObject* pos1 = PyTuple_New(0);
-	PyTuple_SetItem(pos1, 0, x1);
-
-	pos1 = PyTuple_New(1);
-	PyTuple_SetItem(pos1, 1, y1);
-
-	pos1 = PyTuple_New(2);
-	PyTuple_SetItem(pos1, 2, z1);
-
-	PyObject *x2, *y2, *z2;
-	x2 = PyLong_FromDouble(g_mons[1]->Getpos().x);
-	y2 = PyLong_FromDouble(g_mons[1]->Getpos().y);
-	z2 = PyLong_FromDouble(g_mons[1]->Getpos().z);
-
-	PyObject* pos2 = PyTuple_New(0);
-	PyTuple_SetItem(pos2, 0, x2);
-
-	pos2 = PyTuple_New(1);
-	PyTuple_SetItem(pos2, 1, y2);
-
-	pos2 = PyTuple_New(2);
-	PyTuple_SetItem(pos2, 2, z2);
-
-	PyObject *x3, *y3, *z3;
-	x3 = PyLong_FromDouble(g_mons[2]->Getpos().x);
-	y3 = PyLong_FromDouble(g_mons[2]->Getpos().y);
-	z3 = PyLong_FromDouble(g_mons[2]->Getpos().z);
-
-	PyObject* pos3 = PyTuple_New(0);
-	PyTuple_SetItem(pos3, 0, x3);
-
-	pos3 = PyTuple_New(1);
-	PyTuple_SetItem(pos3, 1, y3);
-
-	pos3 = PyTuple_New(2);
-	PyTuple_SetItem(pos3, 2, z3);
-
 	PyObject* poss = PyTuple_New(0);
-	PyTuple_SetItem(poss, 0, pos1);
-	poss = PyTuple_New(1);
-	PyTuple_SetItem(poss, 1, pos2);
-	poss = PyTuple_New(2);
-	PyTuple_SetItem(poss, 2, pos3);
+	for (int i = 0; i < buddyCount; i++)
+	{
+		PyObject *x, *y, *z;
+		x = PyLong_FromDouble(g_mons[i]->Getpos().x);
+		y = PyLong_FromDouble(g_mons[i]->Getpos().y);
+		z = PyLong_FromDouble(g_mons[i]->Getpos().z);
 
+		PyObject* pos = PyTuple_New(0);
+		PyTuple_SetItem(pos, 0, x);
+
+		pos = PyTuple_New(1);
+		PyTuple_SetItem(pos, 1, y);
+
+		pos = PyTuple_New(2);
+		PyTuple_SetItem(pos, 2, z);
+
+		poss = PyTuple_New(i);
+		PyTuple_SetItem(poss, i, pos);
+
+		Py_DECREF(x);
+		Py_DECREF(y);
+		Py_DECREF(z);
+		Py_DECREF(pos);
+	}
+	
 	return poss;
 }
 
 static PyObject* GetAllEnemyPosition(PyObject* self, PyObject* args)
 {
-	PyObject *x1, *y1, *z1;
-	x1 = PyLong_FromDouble(g_mons[3]->Getpos().x);
-	y1 = PyLong_FromDouble(g_mons[3]->Getpos().y);
-	z1 = PyLong_FromDouble(g_mons[3]->Getpos().z);
-
-	PyObject* pos1 = PyTuple_New(0);
-	PyTuple_SetItem(pos1, 0, x1);
-
-	pos1 = PyTuple_New(1);
-	PyTuple_SetItem(pos1, 1, y1);
-
-	pos1 = PyTuple_New(2);
-	PyTuple_SetItem(pos1, 2, z1);
-
-	PyObject *x2, *y2, *z2;
-	x2 = PyLong_FromDouble(g_mons[4]->Getpos().x);
-	y2 = PyLong_FromDouble(g_mons[4]->Getpos().y);
-	z2 = PyLong_FromDouble(g_mons[4]->Getpos().z);
-
-	PyObject* pos2 = PyTuple_New(0);
-	PyTuple_SetItem(pos2, 0, x2);
-
-	pos2 = PyTuple_New(1);
-	PyTuple_SetItem(pos2, 1, y2);
-
-	pos2 = PyTuple_New(2);
-	PyTuple_SetItem(pos2, 2, z2);
-
-	PyObject *x3, *y3, *z3;
-	x3 = PyLong_FromDouble(g_mons[5]->Getpos().x);
-	y3 = PyLong_FromDouble(g_mons[5]->Getpos().y);
-	z3 = PyLong_FromDouble(g_mons[5]->Getpos().z);
-
-	PyObject* pos3 = PyTuple_New(0);
-	PyTuple_SetItem(pos3, 0, x3);
-
-	pos3 = PyTuple_New(1);
-	PyTuple_SetItem(pos3, 1, y3);
-
-	pos3 = PyTuple_New(2);
-	PyTuple_SetItem(pos3, 2, z3);
-
 	PyObject* poss = PyTuple_New(0);
-	PyTuple_SetItem(poss, 0, pos1);
-	poss = PyTuple_New(1);
-	PyTuple_SetItem(poss, 1, pos2);
-	poss = PyTuple_New(2);
-	PyTuple_SetItem(poss, 2, pos3);
+	for (int i = buddyCount; i < buddyCount+enemyCount; i++)
+	{
+		PyObject *x, *y, *z;
+		x = PyLong_FromDouble(g_mons[i]->Getpos().x);
+		y = PyLong_FromDouble(g_mons[i]->Getpos().y);
+		z = PyLong_FromDouble(g_mons[i]->Getpos().z);
+
+		PyObject* pos = PyTuple_New(0);
+		PyTuple_SetItem(pos, 0, x);
+
+		pos = PyTuple_New(1);
+		PyTuple_SetItem(pos, 1, y);
+
+		pos = PyTuple_New(2);
+		PyTuple_SetItem(pos, 2, z);
+
+		poss = PyTuple_New(i);
+		PyTuple_SetItem(poss, i, pos);
+
+		Py_DECREF(x);
+		Py_DECREF(y);
+		Py_DECREF(z);
+		Py_DECREF(pos);
+	}
 
 	return poss;
 }
 
+//module内の関数たち
 static PyMethodDef methods[] =
 {
 	{"GetMyPosition",GetMyPosition,METH_NOARGS,"Jibun no position wo tuple de kaeshi masu."},
@@ -145,6 +105,7 @@ static PyMethodDef methods[] =
 	{NULL,NULL,0,NULL}
 };
 
+//module 本体
 static PyModuleDef pModule =
 {
 	PyModuleDef_HEAD_INIT,
@@ -158,6 +119,14 @@ static PyModuleDef pModule =
 	NULL
 };
 
+//moduleの初期化
+static PyObject* initModule()
+{
+	return PyModule_Create(&pModule);
+}
+
+
+//pythonを実行するゾ。
 void PythonBridge::py_exe(Monster* meMons)
 {
 	g_mons[0] = meMons;
@@ -168,6 +137,14 @@ void PythonBridge::py_exe(Monster* meMons)
 		{
 			g_mons[count] = obj;
 			count++;
+			if (obj->Getteam() == 0)
+			{
+				buddyCount++;
+			}
+			else
+			{
+				enemyCount++;
+			}
 		}
 		return true;
 	});
@@ -184,7 +161,26 @@ void PythonBridge::py_exe(Monster* meMons)
 		}
 	}
 
+	PyImport_AppendInittab("SendGame", initModule);
+
 	PyObject *pName, *pModule, *pFunction, *pArgs, *pValue;
 	
+	Py_Initialize();
+	pName = PyUnicode_DecodeFSDefault("testBrain");
+	pModule = PyImport_Import(pName);
+	Py_DECREF(pName);
+	pFunction = PyObject_GetAttrString(pModule, "Brain");
+	pArgs = PyTuple_New(0);
+	pValue = PyObject_CallObject(pFunction, pArgs);
+	Py_DECREF(pModule);
+	Py_DECREF(pFunction);
 
+	int vl = PyList_Size(pValue);
+	std::vector<float> actions;
+	for (int i = 0; i < vl; i++)
+	{
+		actions.push_back(PyLong_AsDouble(PyList_GetItem(pValue, i)));
+	}
+
+	Py_DECREF(pValue);
 }

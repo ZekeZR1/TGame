@@ -65,8 +65,15 @@ class GameData:
         self.me.HP = SendGame.GetMyHP();
 
         self.Buddy = []
+        poss = SendGame.GetAllBuddyPosition();
         for i in range(3):
-            for j in range(3):
-                mon = Monster()
-                poss = SendGame.GetAllBuddyPosition();
-        
+            mon = Monster()
+            mon.SetPosition(poss[i][0],poss[i][1],poss[i][2])
+            self.Buddy.append(mon)
+
+        self.Enemys = []
+        poss = SendGame.GetAllEnemyPosition();
+        for i in range(3):
+            mon = Monster()
+            mon.SetPosition(poss[i][0],poss[i][1],poss[i][2])
+            self.Enemys.append(mon)
