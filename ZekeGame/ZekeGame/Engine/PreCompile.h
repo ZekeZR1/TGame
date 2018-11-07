@@ -1,3 +1,4 @@
+#include <conio.h>
 
 #include "DirectXTK/Inc/Model.h"
 #include "DirectXTK/Inc/Effects.h"	
@@ -24,6 +25,7 @@
 #include "Engine/physics/Physics.h"
 #include "Engine/HID/Pad.h"
 
+#include "Network/CListener.h"
 #include "Network/NetworkLogic.h"
 
 #include "Engine/Engine.h"

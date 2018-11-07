@@ -37,8 +37,10 @@ void Engine::Update() {
 		pad.Update();
 	}
 
-	if (m_network != nullptr) {
-	}
+	//if (m_network != nullptr) {
+	//	m_network->update();
+	//	m_listener->writeString(m_network->getStateString());
+	//}
 
 	GameObjectManager().Execute();
 	//camera->Update();
@@ -49,12 +51,19 @@ void Engine::Update() {
 	OutputDebugStringA(message);
 }
 
-void Engine::CreateNetworkSystem() {
-
+void Engine::CreateNetworkSystem(CListener* listener) {
+	if (m_network != nullptr) {
+		m_network = new NetworkLogic(listener);
+		m_listener = listener;
+	}
 }
 
 void Engine::DestroyNetworkSystem() {
-
+	if (m_network != nullptr) {
+		delete m_network;
+		m_network = nullptr;
+		m_listener = nullptr;
+	}
 }
 
 void Engine::GameRoop() {

@@ -23,10 +23,11 @@ public:
 	{
 		return Engine::GetInstance();
 	}
-	void CreateNetworkSystem();
+	void CreateNetworkSystem(CListener* listener);
 	void DestroyNetworkSystem();
 private:
 	NetworkLogic* m_network = nullptr;
+	CListener* m_listener;
 };
 
 
