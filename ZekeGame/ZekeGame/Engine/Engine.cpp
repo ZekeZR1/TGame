@@ -5,6 +5,8 @@
 
 CFPSCounter* FPS = nullptr;
 GameCamera* camera = nullptr;
+NetworkLogic* m_network = nullptr;
+CListener* m_listener = nullptr;
 
 Engine::Engine()
 {
@@ -37,10 +39,10 @@ void Engine::Update() {
 		pad.Update();
 	}
 
-	//if (m_network != nullptr) {
-	//	m_network->update();
-	//	m_listener->writeString(m_network->getStateString());
-	//}
+	if (m_network != nullptr) {
+		m_network->update();
+		m_listener->writeString(m_network->getStateString());
+	}
 
 	GameObjectManager().Execute();
 	//camera->Update();
