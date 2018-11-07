@@ -1,4 +1,4 @@
-################################################################################
+﻿################################################################################
 # この .gitignore ファイルは Microsoft(R) Visual Studio によって自動的に作成されました。
 ################################################################################
 
@@ -6,6 +6,7 @@
 /.vs/MyGame/v15
 /.vs
 /ZekeGame/.vs/ZekeGame/v15/ipch
+/ZekeGame/x64/Debug
 /ZekeGame/x64/Release
 /ZekeGame/.vs/ZekeGame/v15
 
@@ -70,3 +71,5 @@ obj/
 *.log
 
 *.scc
+/ZekeGame/ZekeGame/Engine/PhotonEngine/LoadBalancing-cpp/vc15_debug_windows_md_x64/LoadBala.EA5D8C8B.tlog
+/ZekeGame/ZekeGame/Assets/modelData
