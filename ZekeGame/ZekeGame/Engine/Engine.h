@@ -23,7 +23,10 @@ public:
 	{
 		return Engine::GetInstance();
 	}
-
+	void CreateNetworkSystem();
+	void DestroyNetworkSystem();
+private:
+	NetworkLogic* m_network = nullptr;
 };
 
 

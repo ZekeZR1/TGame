@@ -70,3 +70,4 @@ obj/
 *.log
 
 *.scc
+/ZekeGame/ZekeGame/Engine/PhotonEngine/LoadBalancing-cpp/vc15_debug_windows_md_x64/LoadBala.EA5D8C8B.tlog

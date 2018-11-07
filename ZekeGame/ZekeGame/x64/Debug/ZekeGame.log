@@ -1,57 +1,5 @@
 ﻿  Assets\Sprite\Test.png
   Assets\modelData\Test.FBX
-  NetworkLogic.cpp
-  Camera.cpp
-  CEffect.cpp
-  CEffectEngine.cpp
-  CGPUBuffer.cpp
-  GraphicsEngine.cpp
-  RenderTarget.cpp
-  Shader.cpp
-  ShaderResouceView.cpp
-  ShaderResources.cpp
-  Skelton.cpp
-  SkinModel.cpp
-  SkinModelDataManager.cpp
-  SkinModelEffect.cpp
-  SkinModelRender.cpp
-  SpringCamera.cpp
-  SpriteRender.cpp
-  Effect.cpp
-  SpBuffer.cpp
-  Sprite.cpp
-  コードを生成中...
-  コンパイル中...
-  StructedBuffer.cpp
-  TScopedResource.cpp
-  Animation.cpp
-  AnimationClip.cpp
-  AnimationPlayController.cpp
-  CFONT.cpp
-  Level.cpp
-  MapChip.cpp
-  Matrix.cpp
-  Vector.cpp
-  kMath.cpp
-  CSphereCollider.cpp
-  CapsuleCollider.cpp
-  MeshCollider.cpp
-  Physics.cpp
-  PhysicsStaticObject.cpp
-  RigitBody.cpp
-  SoundEngine.cpp
-  Window.cpp
-  GameCamera.cpp
-  コードを生成中...
-  コンパイル中...
-  Game.cpp
-  Monster.cpp
-  MonsterAI.cpp
-  MonsterAction.cpp
-  TestMons.cpp
-  main.cpp
-  stdafx.cpp
-  コードを生成中...
 LinearMath_Debug.lib(btAlignedAllocator.obj) : warning LNK4099: PDB 'LinearMath.pdb' が 'LinearMath_Debug.lib(btAlignedAllocator.obj)' で、または 'C:\Users\Taiki.W\git\TGame\ZekeGame\x64\Debug\LinearMath.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
 LinearMath_Debug.lib(btConvexHullComputer.obj) : warning LNK4099: PDB 'LinearMath.pdb' が 'LinearMath_Debug.lib(btConvexHullComputer.obj)' で、または 'C:\Users\Taiki.W\git\TGame\ZekeGame\x64\Debug\LinearMath.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
 LinearMath_Debug.lib(btGeometryUtil.obj) : warning LNK4099: PDB 'LinearMath.pdb' が 'LinearMath_Debug.lib(btGeometryUtil.obj)' で、または 'C:\Users\Taiki.W\git\TGame\ZekeGame\x64\Debug\LinearMath.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。

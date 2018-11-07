@@ -37,6 +37,9 @@ void Engine::Update() {
 		pad.Update();
 	}
 
+	if (m_network != nullptr) {
+	}
+
 	GameObjectManager().Execute();
 	//camera->Update();
 	//output frame late to debug message
@@ -44,6 +47,14 @@ void Engine::Update() {
 	float fps = FPS->GetFPS();
 	sprintf_s(message, "%f\n", fps);
 	OutputDebugStringA(message);
+}
+
+void Engine::CreateNetworkSystem() {
+
+}
+
+void Engine::DestroyNetworkSystem() {
+
 }
 
 void Engine::GameRoop() {
