@@ -38,13 +38,17 @@ void GameCamera::Update() {
 	i_model = FindGO<SkinModelRender>("model");
 	m_target = i_model->GetPosition();
 
-	CVector3 toCameraPosOld = m_toCameraPos;
+	
 	float x = g_pad[0].GetRStickXF();
 	float y = g_pad[0].GetRStickYF();
 	//Y²ü‚è‚Ì‰ñ“]
 	CQuaternion qRot;
 	qRot.SetRotationDeg(CVector3::AxisY(), 2.0f * x);
 	qRot.Multiply(m_toCameraPos);
+
+
+	CVector3 toCameraPosOld = m_toCameraPos;
+
 	//X²ü‚è‚Ì‰ñ“]B
 	CVector3 axisX;
 	axisX.Cross(CVector3::AxisY(), m_toCameraPos);

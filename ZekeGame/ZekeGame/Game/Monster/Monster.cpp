@@ -6,4 +6,5 @@
 
 void Monster::execute()
 {
+
 }
