@@ -4,6 +4,8 @@
 
 #include "Game/PythonBridge/include/Python.h"
 
+#include <WinSock2.h>
+#include <ws2def.h>
 
 #include <stdio.h>
 #include <stdlib.h>

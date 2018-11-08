@@ -314,6 +314,12 @@
     <ClCompile Include="Game\PythonBridge\PythonBridge.cpp">
       <Filter>ソース ファイル\Game\PythonBridge</Filter>
     </ClCompile>
+    <ClCompile Include="Engine\Network\CListener.cpp">
+      <Filter>ソース ファイル\Engine\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Network\TestListener.cpp">
+      <Filter>ソース ファイル\Engine\Network</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\character\CharacterController.h">
@@ -834,6 +840,12 @@
     </ClInclude>
     <ClInclude Include="Game\PythonBridge\PythonBridge.h">
       <Filter>ソース ファイル\Game\PythonBridge</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Network\TestListener.h">
+      <Filter>ソース ファイル\Engine\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Network\CListener.h">
+      <Filter>ソース ファイル\Engine\Network</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
