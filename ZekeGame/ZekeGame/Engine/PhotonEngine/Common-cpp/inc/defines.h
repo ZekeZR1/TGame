@@ -7,7 +7,7 @@
 #pragma once
 
 #if !defined _EG_LINUX_PLATFORM && !defined _EG_MARMALADE_PLATFORM && !defined _EG_IPHONE_PLATFORM && !defined _EG_IMAC_PLATFORM && !defined _EG_WINDOWS_PLATFORM && !defined _EG_ANDROID_PLATFORM && !defined _EG_BLACKBERRY_PLATFORM && !defined _EG_PS3_PLATFORM && !defined _EG_PS4_PLATFORM && !defined _EG_WINDOWSSTORE_PLATFORM && !defined _EG_EMSCRIPTEN_PLATFORM && !defined _EG_XB1_PLATFORM && !defined _EG_PSVITA_PLATFORM && !defined _EG_SWITCH_PLATFORM
-#	include "Common-cpp/inc/platform_definition.h"
+#include "Common-cpp/inc/platform_definition.h"
 #endif
 
 #if defined _EG_IPHONE_PLATFORM || defined _EG_IMAC_PLATFORM
