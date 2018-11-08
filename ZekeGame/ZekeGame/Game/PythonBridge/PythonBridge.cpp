@@ -150,6 +150,8 @@ void PythonBridge::py_exe(Monster* meMons)
 	int count = 1;
 	QueryGOs<Monster>("monster", [&](Monster* obj)->bool
 	{
+		if (obj == nullptr)
+			return true;
 		if (obj != meMons)
 		{
 			g_mons[count] = obj;

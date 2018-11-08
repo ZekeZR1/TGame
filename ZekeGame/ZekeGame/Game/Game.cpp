@@ -24,6 +24,9 @@ bool Game::Start() {
 
 	TestMons* tm = NewGO<TestMons>(0, "monster");
 
+	TestMons* tm2 = NewGO<TestMons>(0, "monster");
+	tm2->Setpos({ 600,600,600 });
+
 	/*m_sprite = NewGO<SpriteRender>(0,"sprite");
 	m_sprite->Init(L"Assets/Sprite/Test.dds", 500.f, 500.f);
 	m_sprite->SetPosition(CVector3::Zero());*/

@@ -24,6 +24,10 @@ public:
 	{
 		return m_pos;
 	}
+	void Setpos(CVector3 v)
+	{
+		m_pos = v;
+	}
 	int Getteam()
 	{
 		return m_team;
@@ -31,8 +35,9 @@ public:
 
 protected:
 	int m_ID = 0;
+	int m_num = 0;
 	int m_team = 0;
-	
+	std::vector<int> m_useAction;
 
 	SkinModelRender* m_smr = nullptr;
 	int m_HP = 0;
