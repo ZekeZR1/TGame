@@ -4,6 +4,8 @@ class MonsterAction;
 class Monster:public GameObject
 {
 public:
+	bool Start();
+	void Update();
 	void execute();
 
 	enum en_State
@@ -11,6 +13,15 @@ public:
 		NowLoading,
 		Execute,
 	};
+
+	void SetpyFile(const char* st)
+	{
+		m_pyFile = st;
+	}
+	const char* GetpyFile()
+	{
+		return m_pyFile;
+	}
 
 	int GetHP()
 	{
@@ -32,8 +43,18 @@ public:
 	{
 		return m_team;
 	}
+	int Getnum()
+	{
+		return m_num;
+	}
+
+	Monster* Getmon()
+	{
+		return this;
+	}
 
 protected:
+	const char* m_pyFile = NULL;
 	int m_ID = 0;
 	int m_num = 0;
 	int m_team = 0;
@@ -43,6 +64,7 @@ protected:
 	int m_HP = 0;
 	int m_MP = 0;
 	float m_gravity = 50.0f;
+	CVector3 m_speed = CVector3::Zero();
 	CVector3 m_pos = CVector3::Zero();
 
 	std::vector<MonsterAction*> m_actions;

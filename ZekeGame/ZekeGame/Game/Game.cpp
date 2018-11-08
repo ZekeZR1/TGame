@@ -23,9 +23,10 @@ bool Game::Start() {
 	m_model->SetPosition(CVector3::Zero());
 
 	TestMons* tm = NewGO<TestMons>(0, "monster");
+	tm->SetpyFile("testBrain");
 
 	TestMons* tm2 = NewGO<TestMons>(0, "monster");
-	tm2->Setpos({ 600,600,600 });
+	tm2->Setpos({ 600,0,600 });
 
 	/*m_sprite = NewGO<SpriteRender>(0,"sprite");
 	m_sprite->Init(L"Assets/Sprite/Test.dds", 500.f, 500.f);

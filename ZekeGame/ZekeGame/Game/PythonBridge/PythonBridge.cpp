@@ -1,14 +1,24 @@
 #include "stdafx.h"
 #include "PythonBridge.h"
+#include "../Monster/MonsterAction.h"
 //#include "../Monster/Monster.h"
 
 //使用しているMonsterのポジションを返します
 static PyObject* GetMyPosition(PyObject* self,PyObject* args)
 {
+	Monster* mon;
+	for (Monster* obj : g_mons)
+	{
+		if (obj->Getnum() == g_meNum)
+		{
+			mon = obj;
+			break;
+		}
+	}
 	PyObject *x, *y, *z;
-	x = PyFloat_FromDouble(g_mons[0]->Getpos().x);
-	y = PyFloat_FromDouble(g_mons[0]->Getpos().y);
-	z = PyFloat_FromDouble(g_mons[0]->Getpos().z);
+	x = PyFloat_FromDouble(mon->Getpos().x);
+	y = PyFloat_FromDouble(mon->Getpos().y);
+	z = PyFloat_FromDouble(mon->Getpos().z);
 
 
 	PyObject* pos = PyList_New(3);
@@ -29,67 +39,113 @@ static PyObject* GetMyPosition(PyObject* self,PyObject* args)
 
 static PyObject* GetMyHP(PyObject* self, PyObject* args)
 {
-	PyObject* pHP = PyLong_FromLong(g_mons[0]->GetHP());
+	Monster* mon;
+	for (Monster* obj : g_mons)
+	{
+		if (obj->Getnum() == g_meNum)
+		{
+			mon = obj;
+			break;
+		}
+	}
+	PyObject* pHP = PyLong_FromLong(mon->GetHP());
 	return pHP;
+}
+
+static PyObject* GetMyMP(PyObject* self, PyObject* args)
+{
+	Monster* mon;
+	for (Monster* obj : g_mons)
+	{
+		if (obj->Getnum() == g_meNum)
+		{
+			mon = obj;
+			break;
+		}
+	}
+	PyObject* pMP = PyLong_FromLong(mon->GetMP());
+	return pMP;
+}
+
+static PyObject* GetMyTeam(PyObject* self, PyObject* args)
+{
+	PyObject* pTeam = PyLong_FromLong(g_meTeam);
+	return pTeam;
+}
+
+static PyObject* GetMyNum(PyObject* self, PyObject* args)
+{
+	PyObject* pNum = PyLong_FromLong(g_meNum);
+	return pNum;
 }
 
 static PyObject* GetAllBuddyPosition(PyObject* self, PyObject* args)
 {
-	PyObject* poss = PyTuple_New(buddyCount);
-	for (int i = 0; i < buddyCount; i++)
+	PyObject* poss = PyTuple_New(g_buddyCount);
+	int count = 0;
+	for (Monster* mon : g_mons)
 	{
+		if (mon->Getnum() == g_meNum || mon->Getteam() != 0)
+			continue;
 		PyObject *x, *y, *z;
-		x = PyLong_FromDouble(g_mons[i]->Getpos().x);
-		y = PyLong_FromDouble(g_mons[i]->Getpos().y);
-		z = PyLong_FromDouble(g_mons[i]->Getpos().z);
+		x = PyLong_FromDouble(mon->Getpos().x);
+		y = PyLong_FromDouble(mon->Getpos().y);
+		z = PyLong_FromDouble(mon->Getpos().z);
 
 		PyObject* pos = PyTuple_New(3);
 		PyTuple_SetItem(pos, 0, x);
 
-		//pos = PyTuple_New(1);
 		PyTuple_SetItem(pos, 1, y);
 
-		//pos = PyTuple_New(2);
 		PyTuple_SetItem(pos, 2, z);
 
-		//poss = PyTuple_New(i);
-		PyTuple_SetItem(poss, i, pos);
-
-		/*Py_DECREF(x);
-		Py_DECREF(y);
-		Py_DECREF(z);
-		Py_DECREF(pos);*/
+		PyTuple_SetItem(poss, count, pos);
+		count++;
 	}
 	
 	return poss;
 }
 
+static PyObject* GetAllBuddyNum(PyObject* self, PyObject* args)
+{
+	PyObject* nums = PyTuple_New(g_buddyCount);
+	int count = 0;
+	for (Monster* mon : g_mons)
+	{
+		if (mon->Getnum() == g_meNum || mon->Getteam() != 0)
+			continue;
+		PyObject* num = PyLong_FromLong(mon->Getnum());
+
+		PyTuple_SetItem(nums, count, num);
+		count++;
+	}
+
+	return nums;
+}
+
 static PyObject* GetAllEnemyPosition(PyObject* self, PyObject* args)
 {
-	PyObject* poss = PyTuple_New(enemyCount);
-	for (int i = buddyCount; i < buddyCount+enemyCount; i++)
+	PyObject* poss = PyTuple_New(g_enemyCount);
+
+	int count = 0;
+	for (Monster* mon : g_mons)
 	{
+		if (mon->Getnum() == g_meNum || mon->Getteam() == 0)
+			continue;
 		PyObject *x, *y, *z;
-		x = PyLong_FromDouble(g_mons[i]->Getpos().x);
-		y = PyLong_FromDouble(g_mons[i]->Getpos().y);
-		z = PyLong_FromDouble(g_mons[i]->Getpos().z);
+		x = PyLong_FromDouble(mon->Getpos().x);
+		y = PyLong_FromDouble(mon->Getpos().y);
+		z = PyLong_FromDouble(mon->Getpos().z);
 
 		PyObject* pos = PyTuple_New(3);
 		PyTuple_SetItem(pos, 0, x);
 
-		//pos = PyTuple_New(1);
 		PyTuple_SetItem(pos, 1, y);
 
-		//pos = PyTuple_New(2);
 		PyTuple_SetItem(pos, 2, z);
 
-		//poss = PyTuple_New(i);
-		PyTuple_SetItem(poss, i, pos);
-
-		/*Py_DECREF(x);
-		Py_DECREF(y);
-		Py_DECREF(z);
-		Py_DECREF(pos);*/
+		PyTuple_SetItem(poss, count, pos);
+		count++;
 	}
 
 	return poss;
@@ -98,14 +154,14 @@ static PyObject* GetAllEnemyPosition(PyObject* self, PyObject* args)
 //仲間の数を返す
 static PyObject* GetBuddyCount(PyObject* self, PyObject* args)
 {
-	PyObject* bc = PyLong_FromLong(buddyCount);
+	PyObject* bc = PyLong_FromLong(g_buddyCount);
 	return bc;
 }
 
 //エネミーの数を返す
 static PyObject* GetEnemyCount(PyObject* self, PyObject* args)
 {
-	PyObject* ec = PyLong_FromLong(enemyCount);
+	PyObject* ec = PyLong_FromLong(g_enemyCount);
 	return ec;
 }
 
@@ -114,9 +170,15 @@ static PyMethodDef methods[] =
 {
 	{"GetMyPosition",GetMyPosition,METH_NOARGS,"Jibun no position wo tuple de kaeshi masu."},
 	{"GetMyHP",GetMyHP,METH_NOARGS,"Jibun no HP wo kaeshi masu."},
+	{"GetMyMP",GetMyMP,METH_NOARGS,"Jibun no MP wo kaeshi masu."},
+	{"GetMyTeam",GetMyTeam,METH_NOARGS,"Jibun no Team wo kaeshi masu."},
+	{"GetMyNum",GetMyNum,METH_NOARGS,"Jibun no num wo kaeshi masu."},
 
 	{"GetAllBuddyPosition",GetAllBuddyPosition,METH_NOARGS,"Nakama zenin no position wo kaeshi masu."},
+	{"GetAllBuddyNum",GetAllBuddyNum,METH_NOARGS,"Nakama zenin no num wo kaeshi masu."},
+
 	{"GetAllEnemyPosition",GetAllEnemyPosition,METH_NOARGS,"Teki zenin no position wo kaeshi masu."},
+
 	{"GetBuddyCount",GetBuddyCount,METH_NOARGS,"mikata no kazu wo kaeshi masu."},
 	{"GetEnemyCount",GetEnemyCount,METH_NOARGS,"teki no kazu wo kaeshi masu."},
 	{NULL,NULL,0,NULL}
@@ -143,33 +205,18 @@ static PyObject* initModule(void)
 }
 
 
-//pythonを実行するゾ。
-void PythonBridge::py_exe(Monster* meMons)
+void PythonBridge::pbInit()
 {
-	g_mons[0] = meMons;
-	int count = 1;
+	int count = 0;
 	QueryGOs<Monster>("monster", [&](Monster* obj)->bool
 	{
-		if (obj == nullptr)
-			return true;
-		if (obj != meMons)
-		{
-			g_mons[count] = obj;
-			count++;
-			if (obj->Getteam() == 0)
-			{
-				buddyCount++;
-			}
-			else
-			{
-				enemyCount++;
-			}
-		}
+		g_mons[count] = obj;
+		count++;
 		return true;
 	});
 	for (int i = 1; i < count; i++)
 	{
-		for (int j = 1; i < count; j++)
+		for (int j = 1; j < count; j++)
 		{
 			if (g_mons[j]->Getteam() > g_mons[i]->Getteam())
 			{
@@ -179,13 +226,36 @@ void PythonBridge::py_exe(Monster* meMons)
 			}
 		}
 	}
+}
+
+//pythonを実行するゾ。
+void PythonBridge::py_exe(int num,int team,char* file)
+{
+	if (file == NULL)
+		return;
+	g_meNum = num;
+	g_meTeam = team;
+	g_buddyCount = 0;
+	g_enemyCount = 0;
+	QueryGOs<Monster>("monster", [&](Monster* obj)->bool
+	{
+		if (obj->Getteam() == team)
+		{
+			g_buddyCount++;
+		}
+		else
+		{
+			g_enemyCount++;
+		}
+		return true;
+	});
 
 	PyImport_AppendInittab("SendGame", initModule);
 
 	PyObject *pName, *pModule, *pFunction, *pArgs, *pValue;
 	
 	Py_Initialize();
-	pName = PyUnicode_DecodeFSDefault("testBrain");
+	pName = PyUnicode_DecodeFSDefault(file);
 	pModule = PyImport_Import(pName);
 	Py_DECREF(pName);
 	pFunction = PyObject_GetAttrString(pModule, "Brain");

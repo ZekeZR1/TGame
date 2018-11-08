@@ -46,10 +46,11 @@ class Vector3(object):
 class Monster:
     def __init__(self):
         self.position = Vector3()
-        self.ID = 0;
-        self.team = 0;
-        self.HP = 0;
-        self.MP = 0;
+        self.ID = 0
+        self.team = 0
+        self.num = 0
+        self.HP = 0
+        self.MP = 0
         self.state = 0
     def SetPosition(self,x,y,z):
         self.position.SetVector(x,y,z)
@@ -59,20 +60,25 @@ class GameData:
         pos = SendGame.GetMyPosition();
         self.me = Monster()
         self.me.SetPosition(pos[0],pos[1],pos[2])
-        self.me.HP = SendGame.GetMyHP();
+        self.me.HP = SendGame.GetMyHP()
+        self.me.MP = SendGame.GetMyMP()
+        self.me.num = SendGame.GetMyNum()
+        self.me.team = SendGame.GetMyTeam()
 
         self.buddyCount = SendGame.GetBuddyCount()
         self.enemyCount = SendGame.GetEnemyCount()
 
         self.Buddy = []
-        poss = SendGame.GetAllBuddyPosition();
+        poss = SendGame.GetAllBuddyPosition()
+        nums = SendGame.GetAllBuddyNum()
         for i in range(self.buddyCount):
             mon = Monster()
             mon.SetPosition(poss[i][0],poss[i][1],poss[i][2])
+            mon.num = nums[i]
             self.Buddy.append(mon)
 
         self.Enemys = []
-        poss = SendGame.GetAllEnemyPosition();
+        poss = SendGame.GetAllEnemyPosition()
         for i in range(self.enemyCount):
             mon = Monster()
             mon.SetPosition(poss[i][0],poss[i][1],poss[i][2])
