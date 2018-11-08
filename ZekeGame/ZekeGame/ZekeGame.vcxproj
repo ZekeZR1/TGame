@@ -428,12 +428,12 @@
     </CopyFileToFolders>
   </ItemGroup>
   <ItemGroup>
-    <CopyFileToFolders Include="python36.lib">
+    <CustomBuild Include="python36.lib">
       <FileType>Document</FileType>
-    </CopyFileToFolders>
-    <CopyFileToFolders Include="python36_d.lib">
+    </CustomBuild>
+    <CustomBuild Include="python36_d.lib">
       <FileType>Document</FileType>
-    </CopyFileToFolders>
+    </CustomBuild>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
