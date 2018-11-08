@@ -32,7 +32,7 @@ public:
 protected:
 	int m_ID = 0;
 	int m_team = 0;
-	std::vector<int> m_useActionList;
+	
 
 	SkinModelRender* m_smr = nullptr;
 	int m_HP = 0;
