@@ -6,22 +6,23 @@
 static PyObject* GetMyPosition(PyObject* self,PyObject* args)
 {
 	PyObject *x, *y, *z;
-	x = PyLong_FromDouble(g_mons[0]->Getpos().x);
-	y = PyLong_FromDouble(g_mons[0]->Getpos().y);
-	z = PyLong_FromDouble(g_mons[0]->Getpos().z);
+	x = PyFloat_FromDouble(g_mons[0]->Getpos().x);
+	y = PyFloat_FromDouble(g_mons[0]->Getpos().y);
+	z = PyFloat_FromDouble(g_mons[0]->Getpos().z);
 
-	PyObject* pos = PyTuple_New(0);
-	PyTuple_SetItem(pos, 0, x);
 
-	pos = PyTuple_New(1);
-	PyTuple_SetItem(pos, 1, y);
+	PyObject* pos = PyList_New(3);
+	PyList_SetItem(pos, 0, x);
 
-	pos = PyTuple_New(2);
-	PyTuple_SetItem(pos, 2, z);
+	//pos = PyList_New(1);
+	PyList_SetItem(pos, 1, y);
 
-	Py_DECREF(x);
+	//pos = PyList_New(2);
+	PyList_SetItem(pos, 2, z);
+
+	/*Py_DECREF(x);
 	Py_DECREF(y);
-	Py_DECREF(z);
+	Py_DECREF(z);*/
 
 	return pos;
 }
@@ -34,7 +35,7 @@ static PyObject* GetMyHP(PyObject* self, PyObject* args)
 
 static PyObject* GetAllBuddyPosition(PyObject* self, PyObject* args)
 {
-	PyObject* poss = PyTuple_New(0);
+	PyObject* poss = PyTuple_New(buddyCount);
 	for (int i = 0; i < buddyCount; i++)
 	{
 		PyObject *x, *y, *z;
@@ -42,22 +43,22 @@ static PyObject* GetAllBuddyPosition(PyObject* self, PyObject* args)
 		y = PyLong_FromDouble(g_mons[i]->Getpos().y);
 		z = PyLong_FromDouble(g_mons[i]->Getpos().z);
 
-		PyObject* pos = PyTuple_New(0);
+		PyObject* pos = PyTuple_New(3);
 		PyTuple_SetItem(pos, 0, x);
 
-		pos = PyTuple_New(1);
+		//pos = PyTuple_New(1);
 		PyTuple_SetItem(pos, 1, y);
 
-		pos = PyTuple_New(2);
+		//pos = PyTuple_New(2);
 		PyTuple_SetItem(pos, 2, z);
 
-		poss = PyTuple_New(i);
+		//poss = PyTuple_New(i);
 		PyTuple_SetItem(poss, i, pos);
 
-		Py_DECREF(x);
+		/*Py_DECREF(x);
 		Py_DECREF(y);
 		Py_DECREF(z);
-		Py_DECREF(pos);
+		Py_DECREF(pos);*/
 	}
 	
 	return poss;
@@ -65,7 +66,7 @@ static PyObject* GetAllBuddyPosition(PyObject* self, PyObject* args)
 
 static PyObject* GetAllEnemyPosition(PyObject* self, PyObject* args)
 {
-	PyObject* poss = PyTuple_New(0);
+	PyObject* poss = PyTuple_New(enemyCount);
 	for (int i = buddyCount; i < buddyCount+enemyCount; i++)
 	{
 		PyObject *x, *y, *z;
@@ -73,25 +74,39 @@ static PyObject* GetAllEnemyPosition(PyObject* self, PyObject* args)
 		y = PyLong_FromDouble(g_mons[i]->Getpos().y);
 		z = PyLong_FromDouble(g_mons[i]->Getpos().z);
 
-		PyObject* pos = PyTuple_New(0);
+		PyObject* pos = PyTuple_New(3);
 		PyTuple_SetItem(pos, 0, x);
 
-		pos = PyTuple_New(1);
+		//pos = PyTuple_New(1);
 		PyTuple_SetItem(pos, 1, y);
 
-		pos = PyTuple_New(2);
+		//pos = PyTuple_New(2);
 		PyTuple_SetItem(pos, 2, z);
 
-		poss = PyTuple_New(i);
+		//poss = PyTuple_New(i);
 		PyTuple_SetItem(poss, i, pos);
 
-		Py_DECREF(x);
+		/*Py_DECREF(x);
 		Py_DECREF(y);
 		Py_DECREF(z);
-		Py_DECREF(pos);
+		Py_DECREF(pos);*/
 	}
 
 	return poss;
+}
+
+//仲間の数を返す
+static PyObject* GetBuddyCount(PyObject* self, PyObject* args)
+{
+	PyObject* bc = PyLong_FromLong(buddyCount);
+	return bc;
+}
+
+//エネミーの数を返す
+static PyObject* GetEnemyCount(PyObject* self, PyObject* args)
+{
+	PyObject* ec = PyLong_FromLong(enemyCount);
+	return ec;
 }
 
 //module内の関数たち
@@ -102,6 +117,8 @@ static PyMethodDef methods[] =
 
 	{"GetAllBuddyPosition",GetAllBuddyPosition,METH_NOARGS,"Nakama zenin no position wo kaeshi masu."},
 	{"GetAllEnemyPosition",GetAllEnemyPosition,METH_NOARGS,"Teki zenin no position wo kaeshi masu."},
+	{"GetBuddyCount",GetBuddyCount,METH_NOARGS,"mikata no kazu wo kaeshi masu."},
+	{"GetEnemyCount",GetEnemyCount,METH_NOARGS,"teki no kazu wo kaeshi masu."},
 	{NULL,NULL,0,NULL}
 };
 
@@ -120,7 +137,7 @@ static PyModuleDef pModule =
 };
 
 //moduleの初期化
-static PyObject* initModule()
+static PyObject* initModule(void)
 {
 	return PyModule_Create(&pModule);
 }
@@ -179,7 +196,7 @@ void PythonBridge::py_exe(Monster* meMons)
 	std::vector<float> actions;
 	for (int i = 0; i < vl; i++)
 	{
-		actions.push_back(PyLong_AsDouble(PyList_GetItem(pValue, i)));
+		actions.push_back(PyFloat_AsDouble(PyList_GetItem(pValue, i)));
 	}
 
 	Py_DECREF(pValue);
