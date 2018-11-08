@@ -320,6 +320,9 @@
     <ClCompile Include="Engine\Network\TestListener.cpp">
       <Filter>ソース ファイル\Engine\Network</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Monster\ActionManeger.cpp">
+      <Filter>ソース ファイル\Game\Monster</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\character\CharacterController.h">
@@ -847,6 +850,9 @@
     <ClInclude Include="Engine\Network\CListener.h">
       <Filter>ソース ファイル\Engine\Network</Filter>
     </ClInclude>
+    <ClInclude Include="Game\Monster\ActionManeger.h">
+      <Filter>ソース ファイル\Game\Monster</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\Test.FBX">
@@ -876,10 +882,20 @@
     <CopyFileToFolders Include="Game\dlllib\python36.dll">
       <Filter>ソース ファイル\Game\dll</Filter>
     </CopyFileToFolders>
+    <CopyFileToFolders Include="CppBridge.py" />
+    <CopyFileToFolders Include="testBrain.py" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Game\PythonBridge\include\pydtrace.d">
       <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="exlib\Debug\python36_d.lib">
+      <Filter>ソース ファイル\Game</Filter>
+    </Library>
+    <Library Include="exlib\Release\python36.lib">
+      <Filter>ソース ファイル\Game</Filter>
+    </Library>
   </ItemGroup>
 </Project>

@@ -7,7 +7,7 @@ TestMons::TestMons()
 {
 	m_HP = 10;
 	m_MP = 10;
-	
+	m_useActionList.push_back(0);
 }
 
 bool TestMons::Start()
