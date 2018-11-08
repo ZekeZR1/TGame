@@ -6,7 +6,7 @@ class Monster:public GameObject
 public:
 	void execute();
 
-	enum State
+	enum en_State
 	{
 		NowLoading,
 		Execute,
@@ -24,8 +24,16 @@ public:
 	{
 		return m_pos;
 	}
+	int Getteam()
+	{
+		return m_team;
+	}
 
 protected:
+	int m_ID = 0;
+	int m_team = 0;
+	
+
 	SkinModelRender* m_smr = nullptr;
 	int m_HP = 0;
 	int m_MP = 0;
@@ -33,5 +41,5 @@ protected:
 	CVector3 m_pos = CVector3::Zero();
 
 	std::vector<MonsterAction*> m_actions;
-	State m_state = NowLoading;
+	en_State m_state = NowLoading;
 };
