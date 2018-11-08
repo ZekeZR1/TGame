@@ -876,10 +876,20 @@
     <CopyFileToFolders Include="Game\dlllib\python36.dll">
       <Filter>ソース ファイル\Game\dll</Filter>
     </CopyFileToFolders>
+    <CopyFileToFolders Include="CppBridge.py" />
+    <CopyFileToFolders Include="testBrain.py" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Game\PythonBridge\include\pydtrace.d">
       <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="exlib\Debug\python36_d.lib">
+      <Filter>ソース ファイル\Game</Filter>
+    </Library>
+    <Library Include="exlib\Release\python36.lib">
+      <Filter>ソース ファイル\Game</Filter>
+    </Library>
   </ItemGroup>
 </Project>
