@@ -320,6 +320,9 @@
     <ClCompile Include="Engine\Network\TestListener.cpp">
       <Filter>ソース ファイル\Engine\Network</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Monster\MonsterActionManeger.cpp">
+      <Filter>ソース ファイル\Game\Monster</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\character\CharacterController.h">
@@ -846,6 +849,9 @@
     </ClInclude>
     <ClInclude Include="Engine\Network\CListener.h">
       <Filter>ソース ファイル\Engine\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\MonsterActionManeger.h">
+      <Filter>ソース ファイル\Game\Monster</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

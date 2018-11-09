@@ -5,16 +5,12 @@
 
 bool tesAction::Action()
 {
-	Monster* mon;
-	QueryGOs<Monster>("monster", [&](Monster* obj)->bool
-	{
-		if (obj->Getnum() == m_targetNum)
-		{
-			mon = obj;
-			return false;
-		}
+	CVector3 v = m_target->Getpos() - m_me->Getpos();
+	if (v.Length() < 50)
 		return true;
-	});
 
+	v.Normalize();
+	v *= 50;
+	m_me->Setspeed(v);
 	return false;
 }

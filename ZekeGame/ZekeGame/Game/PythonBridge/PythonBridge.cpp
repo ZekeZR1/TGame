@@ -1,12 +1,13 @@
 #include "stdafx.h"
 #include "PythonBridge.h"
 #include "../Monster/MonsterAction.h"
+#include "../Monster/MonsterActionManeger.h"
 //#include "../Monster/Monster.h"
 
 //使用しているMonsterのポジションを返します
 static PyObject* GetMyPosition(PyObject* self,PyObject* args)
 {
-	Monster* mon;
+	Monster* mon = nullptr;
 	for (Monster* obj : g_mons)
 	{
 		if (obj->Getnum() == g_meNum)
@@ -39,7 +40,7 @@ static PyObject* GetMyPosition(PyObject* self,PyObject* args)
 
 static PyObject* GetMyHP(PyObject* self, PyObject* args)
 {
-	Monster* mon;
+	Monster* mon = nullptr;
 	for (Monster* obj : g_mons)
 	{
 		if (obj->Getnum() == g_meNum)
@@ -54,7 +55,7 @@ static PyObject* GetMyHP(PyObject* self, PyObject* args)
 
 static PyObject* GetMyMP(PyObject* self, PyObject* args)
 {
-	Monster* mon;
+	Monster* mon = nullptr;
 	for (Monster* obj : g_mons)
 	{
 		if (obj->Getnum() == g_meNum)
@@ -81,10 +82,12 @@ static PyObject* GetMyNum(PyObject* self, PyObject* args)
 
 static PyObject* GetAllBuddyPosition(PyObject* self, PyObject* args)
 {
-	PyObject* poss = PyTuple_New(g_buddyCount);
+	PyObject* poss = PyList_New(g_buddyCount-1);
 	int count = 0;
 	for (Monster* mon : g_mons)
 	{
+		if (mon == NULL)
+			break;
 		if (mon->Getnum() == g_meNum || mon->Getteam() != 0)
 			continue;
 		PyObject *x, *y, *z;
@@ -92,14 +95,14 @@ static PyObject* GetAllBuddyPosition(PyObject* self, PyObject* args)
 		y = PyLong_FromDouble(mon->Getpos().y);
 		z = PyLong_FromDouble(mon->Getpos().z);
 
-		PyObject* pos = PyTuple_New(3);
-		PyTuple_SetItem(pos, 0, x);
+		PyObject* pos = PyList_New(3);
+		PyList_SetItem(pos, 0, x);
 
-		PyTuple_SetItem(pos, 1, y);
+		PyList_SetItem(pos, 1, y);
 
-		PyTuple_SetItem(pos, 2, z);
+		PyList_SetItem(pos, 2, z);
 
-		PyTuple_SetItem(poss, count, pos);
+		PyList_SetItem(poss, count, pos);
 		count++;
 	}
 	
@@ -108,15 +111,17 @@ static PyObject* GetAllBuddyPosition(PyObject* self, PyObject* args)
 
 static PyObject* GetAllBuddyNum(PyObject* self, PyObject* args)
 {
-	PyObject* nums = PyTuple_New(g_buddyCount);
+	PyObject* nums = PyList_New(g_buddyCount);
 	int count = 0;
 	for (Monster* mon : g_mons)
 	{
+		if (mon == NULL)
+			break;
 		if (mon->Getnum() == g_meNum || mon->Getteam() != 0)
 			continue;
 		PyObject* num = PyLong_FromLong(mon->Getnum());
 
-		PyTuple_SetItem(nums, count, num);
+		PyList_SetItem(nums, count, num);
 		count++;
 	}
 
@@ -125,11 +130,13 @@ static PyObject* GetAllBuddyNum(PyObject* self, PyObject* args)
 
 static PyObject* GetAllEnemyPosition(PyObject* self, PyObject* args)
 {
-	PyObject* poss = PyTuple_New(g_enemyCount);
+	PyObject* poss = PyList_New(g_enemyCount);
 
 	int count = 0;
 	for (Monster* mon : g_mons)
 	{
+		if (mon == NULL)
+			break;
 		if (mon->Getnum() == g_meNum || mon->Getteam() == 0)
 			continue;
 		PyObject *x, *y, *z;
@@ -137,14 +144,14 @@ static PyObject* GetAllEnemyPosition(PyObject* self, PyObject* args)
 		y = PyLong_FromDouble(mon->Getpos().y);
 		z = PyLong_FromDouble(mon->Getpos().z);
 
-		PyObject* pos = PyTuple_New(3);
-		PyTuple_SetItem(pos, 0, x);
+		PyObject* pos = PyList_New(3);
+		PyList_SetItem(pos, 0, x);
 
-		PyTuple_SetItem(pos, 1, y);
+		PyList_SetItem(pos, 1, y);
 
-		PyTuple_SetItem(pos, 2, z);
+		PyList_SetItem(pos, 2, z);
 
-		PyTuple_SetItem(poss, count, pos);
+		PyList_SetItem(poss, count, pos);
 		count++;
 	}
 
@@ -207,6 +214,7 @@ static PyObject* initModule(void)
 
 void PythonBridge::pbInit()
 {
+	mam = FindGO<MonsterActionManeger>("MAM");
 	int count = 0;
 	QueryGOs<Monster>("monster", [&](Monster* obj)->bool
 	{
@@ -229,7 +237,7 @@ void PythonBridge::pbInit()
 }
 
 //pythonを実行するゾ。
-void PythonBridge::py_exe(int num,int team,char* file)
+void PythonBridge::py_exe(int num,int team,const char* file)
 {
 	if (file == NULL)
 		return;
@@ -237,8 +245,12 @@ void PythonBridge::py_exe(int num,int team,char* file)
 	g_meTeam = team;
 	g_buddyCount = 0;
 	g_enemyCount = 0;
+	Monster* me;
 	QueryGOs<Monster>("monster", [&](Monster* obj)->bool
 	{
+		if (obj->Getnum() == num)
+			me = obj;
+
 		if (obj->Getteam() == team)
 		{
 			g_buddyCount++;
@@ -272,4 +284,6 @@ void PythonBridge::py_exe(int num,int team,char* file)
 	}
 
 	Py_DECREF(pValue);
+
+	me->AddAction(mam->LoadAction(actions[0], actions[1]));
 }

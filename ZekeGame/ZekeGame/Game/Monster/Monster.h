@@ -1,12 +1,17 @@
 #pragma once
+#include "../../Engine/character/CharacterController.h"
 //#include "MonsterAI.h"
 class MonsterAction;
+//class CharacterController;
 class Monster:public GameObject
 {
 public:
-	bool Start();
+	//bool Start();
 	void Update();
 	void execute();
+
+	void Move();
+	void Turn();
 
 	enum en_State
 	{
@@ -39,6 +44,14 @@ public:
 	{
 		m_pos = v;
 	}
+	CVector3 Getspeed()
+	{
+		return m_speed;
+	}
+	void Setspeed(CVector3 v)
+	{
+		m_speed = v;
+	}
 	int Getteam()
 	{
 		return m_team;
@@ -47,11 +60,17 @@ public:
 	{
 		return m_num;
 	}
+	void Setnum(int num)
+	{
+		m_num = num;
+	}
 
 	Monster* Getmon()
 	{
 		return this;
 	}
+
+	void AddAction(MonsterAction* ma);
 
 protected:
 	const char* m_pyFile = NULL;
@@ -60,6 +79,7 @@ protected:
 	int m_team = 0;
 	std::vector<int> m_useAction;
 
+	CharacterController m_cc;
 	SkinModelRender* m_smr = nullptr;
 	int m_HP = 0;
 	int m_MP = 0;

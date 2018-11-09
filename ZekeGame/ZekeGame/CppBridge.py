@@ -71,7 +71,7 @@ class GameData:
         self.Buddy = []
         poss = SendGame.GetAllBuddyPosition()
         nums = SendGame.GetAllBuddyNum()
-        for i in range(self.buddyCount):
+        for i in range(self.buddyCount-1):
             mon = Monster()
             mon.SetPosition(poss[i][0],poss[i][1],poss[i][2])
             mon.num = nums[i]

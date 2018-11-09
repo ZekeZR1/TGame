@@ -8,6 +8,7 @@ static int g_meNum = 0;
 static int g_meTeam = 0;
 
 class Monster;
+class MonsterActionManeger;
 class PythonBridge:public GameObject
 {
 public:
@@ -19,4 +20,6 @@ public:
 		return g_mons[num]->Getpos();
 	}
 private:
+
+	MonsterActionManeger* mam = nullptr;
 };
