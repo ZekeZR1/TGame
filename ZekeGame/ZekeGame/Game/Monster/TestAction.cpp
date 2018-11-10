@@ -3,14 +3,16 @@
 //#include "MonsterAction.h"
 #include "Monster.h"
 
-bool tesAction::Action()
+bool tesAction::Action(Monster* me)
 {
-	CVector3 v = m_target->Getpos() - m_me->Getpos();
+	CVector3 v = m_target->Getpos() - me->Getpos();
 	if (v.Length() < 50)
+	{
+		me->Setspeed(CVector3::Zero());
 		return true;
-
+	}
 	v.Normalize();
 	v *= 50;
-	m_me->Setspeed(v);
+	me->Setspeed(v);
 	return false;
 }

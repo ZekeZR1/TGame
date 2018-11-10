@@ -293,9 +293,6 @@
     <ClCompile Include="Game\Monster\Monster.cpp">
       <Filter>ソース ファイル\Game\Monster</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Monster\MonsterAI.cpp">
-      <Filter>ソース ファイル\Game\Monster</Filter>
-    </ClCompile>
     <ClCompile Include="Game\Monster\TestMons.cpp">
       <Filter>ソース ファイル\Game\Monster</Filter>
     </ClCompile>
@@ -524,9 +521,6 @@
       <Filter>ソース ファイル\Engine\Network</Filter>
     </ClInclude>
     <ClInclude Include="Game\Monster\Monster.h">
-      <Filter>ソース ファイル\Game\Monster</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Monster\MonsterAI.h">
       <Filter>ソース ファイル\Game\Monster</Filter>
     </ClInclude>
     <ClInclude Include="Game\Monster\TestMons.h">

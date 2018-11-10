@@ -4,7 +4,7 @@ class Monster;
 class MonsterAction:public GameObject
 {
 public:
-	virtual bool Action() { return false; };
+	virtual bool Action(Monster* me) { return false; };
 	void Settarget(int num);
 protected:
 	int m_ActionId = 0;

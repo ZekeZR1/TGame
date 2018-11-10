@@ -6,7 +6,7 @@ class MonsterAction;
 class Monster:public GameObject
 {
 public:
-	//bool Start();
+	bool Start();
 	void Update();
 	void execute();
 

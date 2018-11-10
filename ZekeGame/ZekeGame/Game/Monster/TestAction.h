@@ -5,7 +5,7 @@ class Monster;
 class tesAction :public MonsterAction
 {
 public:
-	bool Action() override;
+	bool Action(Monster* me) override;
 private:
 	
 };
