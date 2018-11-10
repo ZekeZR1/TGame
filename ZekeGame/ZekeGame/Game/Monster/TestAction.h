@@ -5,8 +5,7 @@ class Monster;
 class tesAction :public MonsterAction
 {
 public:
-	bool Action() override;
+	bool Action(Monster* me) override;
 private:
-	int m_ID = 0;
-	Monster* m_target = nullptr;
+	
 };

@@ -3,6 +3,7 @@
 #include "GameCamera.h"
 
 #include "PythonBridge/PythonBridge.h"
+#include "Monster/MonsterActionManeger.h"
 #include "Monster/TestMons.h"
 
 Game::Game()
@@ -17,12 +18,20 @@ Game::~Game()
 }
 
 bool Game::Start() {
-	NewGO<PythonBridge>(0, "PB");
+	PythonBridge* pb = NewGO<PythonBridge>(0, "PB");
+	NewGO<MonsterActionManeger>(0, "MAM");
 	m_model = NewGO<SkinModelRender>(0, "model");
 	m_model->Init(L"Assets/modelData/Test.cmo");
 	m_model->SetPosition(CVector3::Zero());
 
 	TestMons* tm = NewGO<TestMons>(0, "monster");
+	tm->Setnum(1);
+	tm->SetpyFile("testBrain");
+
+	TestMons* tm2 = NewGO<TestMons>(0, "monster");
+	tm2->Setpos({ 600,0,600 });
+
+	pb->pbInit();
 
 	/*m_sprite = NewGO<SpriteRender>(0,"sprite");
 	m_sprite->Init(L"Assets/Sprite/Test.dds", 500.f, 500.f);
