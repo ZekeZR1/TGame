@@ -26,10 +26,14 @@ bool Game::Start() {
 
 	TestMons* tm = NewGO<TestMons>(0, "monster");
 	tm->Setnum(1);
-	tm->SetpyFile("testBrain");
+	tm->SetpyFile("testBrain1");
 
 	TestMons* tm2 = NewGO<TestMons>(0, "monster");
 	tm2->Setpos({ 600,0,600 });
+
+	TestMons* tm3 = NewGO<TestMons>(0, "monster");
+	tm3->Setpos({ -600,0,650 });
+	tm3->Setnum(2);
 
 	pb->pbInit();
 

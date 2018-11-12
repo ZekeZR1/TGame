@@ -1,5 +1,5 @@
 #coding: utf-8
-from enum import Enum
+from enum import IntEnum
 import SendGame
 
 
@@ -55,10 +55,9 @@ class Monster:
     def SetPosition(self,x,y,z):
         self.position.SetVector(x,y,z)
 
-class ACTION(Enum):
+class ACTION(IntEnum):
     Chase = 0
     Atack = 1
-
 
 class GameData:
     def __init__(self):
@@ -89,20 +88,129 @@ class GameData:
             mon.SetPosition(poss[i][0],poss[i][1],poss[i][2])
             self.Enemys.append(mon)
 
+    def GetFarMonster(self):
+        farmon = None
+        farlen = 0;
+        for mon in self.Buddy:
+            len = Vector3.Lenght(self.me.position - mon.position)
+            if len > farlen or farmon == None:
+                farlen = len
+                farmon = mon
+        for mon in self.Enemys:
+            len = Vector3.Lenght(self.me.position - mon.position)
+            if len > farlen or farmon == None:
+                farlen = len
+                farmon = mon
+        return farmon
+
+    def GetNeerMonster(self):
+        neermon = None
+        neerlen = 999999999999999999999999999999
+        for mon in self.Buddy:
+            len = Vector3.Lenght(self.me.position - mon.position)
+            if len < neerlen or neermon == None:
+                neerlen = len
+                neermon = mon
+        for mon in self.Enemys:
+            len = Vector3.Lenght(self.me.position - mon.position)
+            if len < neerlen or neermon == None:
+                neerlen = len
+                neermon = mon
+        return neermon
+
+    def GetBuddyFarMonster(self):
+        farmon = None
+        farlen = 0;
+        for mon in self.Buddy:
+            len = Vector3.Lenght(self.me.position - mon.position)
+            if len > farlen or farmon == None:
+                farlen = len
+                farmon = mon
+        return farmon
+
+    def GetEnemyFarMonster(self):
+        farmon = None
+        farlen = 0
+        for mon in self.Enemys:
+            len = Vector3.Lenght(self.me.position - mon.position)
+            if len > farlen or farlen == None:
+                farlen = len
+                farmon = mon
+        return farmon
+
+    def GetBuddyNeerMonster(self):
+        neermon = None
+        neerlen = 999999999999999999999999999999
+        for mon in self.Buddy:
+            len = Vector3.Lenght(self.me.position - mon.position)
+            if len < neerlen or neermon == None:
+                neerlen = len
+                neermon = mon
+        return neermon
+
+    def GetEnemyNeerMonster(self):
+        neermon = None
+        neerlen = 999999999999999999999999999999
+        for mon in self.Enemys:
+            len = Vector3.Lenght(self.me.position - mon.position)
+            if len < neerlen or neermon == None:
+                neerlen = len
+                neermon = mon
+        return neermon
+
+    def GetHighHPMonster(self):
+        """#一番HPの高いモンスターを返します"""
+        himon = None
+        for mon in self.Buddy:
+            if himon == None:
+                himon = mon
+            elif himon.HP < mon.HP:
+                himon = mon
+        for mon in self.Enemys:
+            if himon == None:
+                himon = mon
+            elif himon.HP < mon.HP:
+                himon = mon
+        return himon
+
+    def GetBuddyHighHPMonster(self):
+        """#一番HPの高い仲間のモンスターを返します"""
+        himon = None
+        for mon in self.Buddy:
+            if himon == None:
+                himon = mon
+            elif himon.HP < mon.HP:
+                himon = mon
+        return himon
+
+    def GetEnemyHighHP(self):
+        """#一番HPの高い敵のモンスターを返します"""
+        himon = None
+        for mon in self.Enemys:
+            if himon == None:
+                himon = mon
+            elif himon.HP < mon.HP:
+                himon = mon
+        return himon
+
+
 gameData = GameData()
-MonsterUseAction = (
+
+MonsterUseAction = [
+    [ACTION.Chase,ACTION.Atack],
     [ACTION.Chase,ACTION.Atack]
-    )
+    ]
+
 actions = []
 
 def Chase(target):
     for ac in MonsterUseAction[gameData.me.ID]:
-        if ac != ACTION.Chase:
-            continue
-        actions.append([ac,target])
+        if ac == ACTION.Chase:
+            actions.append([int(ACTION.Chase),target])
+            break
 
 def Atack(target):
     for ac in MonsterUseAction[gameData.me.ID]:
-        if ac != ACTION.Atack:
-            continue
-        actions.append([ac,target])
+        if ac == ACTION.Atack:
+            actions.append([int(ACTION.Atack),target])
+            break

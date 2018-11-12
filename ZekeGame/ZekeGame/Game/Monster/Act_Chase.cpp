@@ -1,9 +1,9 @@
 #include "stdafx.h"
-#include "TestAction.h"
+#include "Act_Chase.h"
 //#include "MonsterAction.h"
 #include "Monster.h"
 
-bool tesAction::Action(Monster* me)
+bool Act_Chase::Action(Monster* me)
 {
 	CVector3 v = m_target->Getpos() - me->Getpos();
 	if (v.Length() < 50)

@@ -30,10 +30,9 @@ void Monster::Update()
 	case en_Execute:
 		execute();
 		Move();
-		Turn();
+		//Turn();
 		break;
 	}
-	
 }
 
 void Monster::execute()
@@ -49,14 +48,14 @@ void Monster::execute()
 void Monster::Move()
 {
 	//m_cc.Execute()
-	m_pos += m_speed;
+	m_pos += m_movespeed;
 	m_smr->SetPosition(m_pos);
 }
 
 void Monster::Turn()
 {
-	CVector3 NormalizedOldSpeed = m_oldspeed;
-	CVector3 NormalizedSpeed = m_speed;
+	CVector3 NormalizedOldSpeed = m_oldmovespeed;
+	CVector3 NormalizedSpeed = m_movespeed;
 	NormalizedOldSpeed.Normalize();
 	NormalizedSpeed.Normalize();
 	float f = NormalizedOldSpeed.Dot(NormalizedSpeed);
@@ -69,4 +68,44 @@ void Monster::Turn()
 void Monster::AddAction(MonsterAction * ma)
 {
 	m_actions.push_back(ma);
+}
+
+void Monster::anim_idle()
+{
+	if (en_idle > m_AnimNum - 1)
+	{
+
+	}
+}
+
+void Monster::anim_walk()
+{
+	if (en_walk > m_AnimNum - 1)
+	{
+
+	}
+}
+
+void Monster::anim_atack()
+{
+	if (en_atack > m_AnimNum - 1)
+	{
+
+	}
+}
+
+void Monster::anim_defense()
+{
+	if (en_defense > m_AnimNum - 1)
+	{
+
+	}
+}
+
+void Monster::anim_recovery()
+{
+	if (en_recovery > m_AnimNum - 1)
+	{
+
+	}
 }

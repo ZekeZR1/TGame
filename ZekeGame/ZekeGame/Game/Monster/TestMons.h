@@ -9,6 +9,6 @@ public:
 	//void Update() override;
 private:
 	
-	AnimationClip m_animclip[2];
+	AnimationClip m_animclip[3];
 	
 };
