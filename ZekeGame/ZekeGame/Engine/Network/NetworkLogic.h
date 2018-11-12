@@ -2,14 +2,73 @@
 #include "../PhotonEngine/LoadBalancing-cpp/inc/Client.h"
 #include "CListener.h"
 
+
+enum State
+{
+	STATE_INITIALIZED = 0,
+	STATE_CONNECTING,
+	STATE_CONNECTED,
+	STATE_JOINING,
+	STATE_JOINED,
+	STATE_LEAVING,
+	STATE_LEFT,
+	STATE_DISCONNECTING,
+	STATE_DISCONNECTED
+};
+
+enum Input
+{
+	INPUT_NON,
+	INPUT_1,
+	INPUT_2,
+	INPUT_3,
+	INPUT_4,
+	INPUT_EXIT
+};
+
+class NetworkLogicListener : public ExitGames::Common::ToString
+{
+public:
+	using ExitGames::Common::ToString::toString;
+	virtual void stateUpdate(State newState) = 0;
+	virtual ExitGames::Common::JString& toString(ExitGames::Common::JString& retStr, bool withTypes = false) const;
+};
+
+class StateAccessor
+{
+public:
+	State getState(void) const;
+	void setState(State newState);
+	void registerForStateUpdates(NetworkLogicListener* listener);
+
+private:
+	State mState;
+	ExitGames::Common::JVector<NetworkLogicListener*> mStateUpdateListeners;
+};
+
 class NetworkLogic : private ExitGames::LoadBalancing::Listener
 {
 public:
-	NetworkLogic(CListener*);
-	void update();
-	ExitGames::Common::JString getStateString(void);
+	NetworkLogic(OutputListener* listener);
+	void registerForStateUpdates(NetworkLogicListener* listener);
+	void run(void);
+	void connect(void);
+	void opCreateRoom(nByte directMode);
+	void opJoinRandomRoom(void);
+	void opJoinOrCreateRoom(void);
+	void disconnect(void);
+	void sendEvent(void);
 
+	Input getLastInput(void) const;
+	void setLastInput(Input newInput);
+	State getState(void) const;
+
+#ifdef _EG_XB1_PLATFORM
+	void setXSTSToken(const ExitGames::Common::JVector<nByte>& mXSTSToken);
+#endif
 private:
+	void sendDirect(int64 count);
+
 	// receive and print out debug out here
 	virtual void debugReturn(int debugLevel, const ExitGames::Common::JString& string);
 
@@ -24,6 +83,10 @@ private:
 	virtual void leaveRoomEventAction(int playerNr, bool isInactive);
 	virtual void customEventAction(int playerNr, nByte eventCode, const ExitGames::Common::Object& eventContent);
 
+	virtual void onLobbyStatsResponse(const ExitGames::Common::JVector<ExitGames::LoadBalancing::LobbyStatsResponse>& lobbyStats);
+	virtual void onLobbyStatsUpdate(const ExitGames::Common::JVector<ExitGames::LoadBalancing::LobbyStatsResponse>& lobbyStats);
+	virtual void onAvailableRegions(const ExitGames::Common::JVector<ExitGames::Common::JString>& availableRegions, const ExitGames::Common::JVector<ExitGames::Common::JString>& availableRegionServers);
+	virtual void onDirectMessage(const ExitGames::Common::Object& msg, int remoteID, bool relay);
 	// callbacks for operations on PhotonLoadBalancing server
 	virtual void connectReturn(int errorCode, const ExitGames::Common::JString& errorString, const ExitGames::Common::JString& region, const ExitGames::Common::JString& cluster);
 	virtual void disconnectReturn(void);
@@ -35,32 +98,17 @@ private:
 	virtual void joinLobbyReturn(void);
 	virtual void leaveLobbyReturn(void);
 
-	void sendData(void);
-	class State
-	{
-	public:
-		enum States
-		{
-			INITIALIZED = 0,
-			CONNECTING,
-			CONNECTED,
-			JOINING,
-			JOINED,
-			SENT_DATA,
-			RECEIVED_DATA,
-			LEAVING,
-			LEFT,
-			DISCONNECTING,
-			DISCONNECTED
-		};
-	};
-	State::States mState;
-
 	ExitGames::LoadBalancing::Client mLoadBalancingClient;
-	CListener* mpOutputListener;
+	ExitGames::Common::JString mLastJoinedRoom;
+	int mLastPlayerNr;
 	ExitGames::Common::Logger mLogger;
-
-	int64 mSendCount;
-	int64 mReceiveCount;
+	StateAccessor mStateAccessor;
+	Input mLastInput;
+	OutputListener* mpOutputListener;
+	bool mAutoJoinRoom;
+	ExitGames::Common::EGTime mLastSendTime;
+#ifdef _EG_XB1_PLATFORM
+	ExitGames::Common::JVector<nByte> mXSTSToken;
+	bool mReauthenticateRequired;
+#endif
 };
-
