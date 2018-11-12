@@ -12,7 +12,7 @@ bool tesAction::Action(Monster* me)
 		return true;
 	}
 	v.Normalize();
-	v *= 50;
+	v *= 5;
 	me->Setspeed(v);
 	return false;
 }

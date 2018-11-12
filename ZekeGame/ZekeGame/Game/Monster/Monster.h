@@ -2,23 +2,33 @@
 #include "../../Engine/character/CharacterController.h"
 //#include "MonsterAI.h"
 class MonsterAction;
+class PythonBridge;
 //class CharacterController;
 class Monster:public GameObject
 {
 public:
+	~Monster();
+
 	bool Start();
 	void Update();
+
+	//Monsterのアクションを実行する関数
 	void execute();
 
+	//移動するときに使う関数
 	void Move();
+
+	//回転するときに使う関数
 	void Turn();
+
 
 	enum en_State
 	{
-		NowLoading,
-		Execute,
+		en_NowLoading,
+		en_Execute,
 	};
 
+	
 	void SetpyFile(const char* st)
 	{
 		m_pyFile = st;
@@ -50,6 +60,7 @@ public:
 	}
 	void Setspeed(CVector3 v)
 	{
+		m_oldspeed = m_speed;
 		m_speed = v;
 	}
 	int Getteam()
@@ -73,20 +84,23 @@ public:
 	void AddAction(MonsterAction* ma);
 
 protected:
-	const char* m_pyFile = NULL;
-	int m_ID = 0;
-	int m_num = 0;
-	int m_team = 0;
-	std::vector<int> m_useAction;
+	const char* m_pyFile = NULL;				//使うpythonファイルの名前
+	int m_ID = 0;								//モンスターの種類を判断するためのID
+	int m_num = 0;								//背番号みたいな感じ
+	int m_team = 0;								//チーム番号
+	//std::vector<int> m_useAction;
 
-	CharacterController m_cc;
-	SkinModelRender* m_smr = nullptr;
-	int m_HP = 0;
-	int m_MP = 0;
-	float m_gravity = 50.0f;
-	CVector3 m_speed = CVector3::Zero();
-	CVector3 m_pos = CVector3::Zero();
+	CharacterController m_cc;					//キャラコン
+	SkinModelRender* m_smr = nullptr;			//スキンモデルレンダー
+	int m_HP = 0;								//HP
+	int m_MP = 0;								//MP
+	float m_gravity = 50.0f;					//重力
+	CVector3 m_speed = CVector3::Zero();		//ムーブスピード
+	CVector3 m_oldspeed = CVector3::Zero();		//古のムーブスピード
+	CVector3 m_pos = CVector3::Zero();			//ポジション
+	CQuaternion m_rot = CQuaternion::Identity();//回転
 
-	std::vector<MonsterAction*> m_actions;
-	en_State m_state = NowLoading;
+	PythonBridge* m_PB;
+	std::vector<MonsterAction*> m_actions;		//使うアクション
+	en_State m_state = en_NowLoading;
 };
