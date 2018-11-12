@@ -1,7 +1,6 @@
 import CppBridge as cb
 
 def Brain():
-    CB = cb.GameData()
+    ME = cb.gameData.me
 
-    actions = [0,0]
-    return actions
+    return cb.actions

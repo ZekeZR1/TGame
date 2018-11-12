@@ -1,5 +1,5 @@
 #coding: utf-8
-#from enum import Enum
+from enum import Enum
 import SendGame
 
 
@@ -55,6 +55,11 @@ class Monster:
     def SetPosition(self,x,y,z):
         self.position.SetVector(x,y,z)
 
+class ACTION(Enum):
+    Chase = 0
+    Atack = 1
+
+
 class GameData:
     def __init__(self):
         pos = SendGame.GetMyPosition();
@@ -83,3 +88,21 @@ class GameData:
             mon = Monster()
             mon.SetPosition(poss[i][0],poss[i][1],poss[i][2])
             self.Enemys.append(mon)
+
+gameData = GameData()
+MonsterUseAction = (
+    [ACTION.Chase,ACTION.Atack]
+    )
+actions = []
+
+def Chase(target):
+    for ac in MonsterUseAction[gameData.me.ID]:
+        if ac != ACTION.Chase:
+            continue
+        actions.append([ac,target])
+
+def Atack(target):
+    for ac in MonsterUseAction[gameData.me.ID]:
+        if ac != ACTION.Atack:
+            continue
+        actions.append([ac,target])

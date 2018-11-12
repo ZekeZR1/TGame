@@ -1,9 +1,8 @@
 #pragma once
 #include "../../Engine/character/CharacterController.h"
-//#include "MonsterAI.h"
+
 class MonsterAction;
 class PythonBridge;
-//class CharacterController;
 class Monster:public GameObject
 {
 public:
@@ -83,6 +82,13 @@ public:
 
 	void AddAction(MonsterAction* ma);
 
+	enum anim
+	{
+		en_walk,
+		en_atack,
+		en_defense
+	};
+
 protected:
 	const char* m_pyFile = NULL;				//使うpythonファイルの名前
 	int m_ID = 0;								//モンスターの種類を判断するためのID
@@ -103,4 +109,5 @@ protected:
 	PythonBridge* m_PB;
 	std::vector<MonsterAction*> m_actions;		//使うアクション
 	en_State m_state = en_NowLoading;
+
 };
