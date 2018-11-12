@@ -5,6 +5,6 @@ class TestMons :public Monster
 public:
 	TestMons();
 	bool Start() override;
-	void Update() override;
+	//void Update() override;
 private:
 };

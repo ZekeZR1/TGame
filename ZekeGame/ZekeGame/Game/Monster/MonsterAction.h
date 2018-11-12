@@ -1,9 +1,14 @@
 #pragma once
 
-class MonsterAction
+class Monster;
+class MonsterAction:public GameObject
 {
 public:
-	virtual bool Action() { return false; };
+	virtual bool Action(Monster* me) { return false; };
+	void Settarget(int num);
 protected:
-	int ActionId = 0;
+	int m_ActionId = 0;
+	int m_targetNum = 0;
+	Monster* m_me = nullptr;
+	Monster* m_target = nullptr;
 };

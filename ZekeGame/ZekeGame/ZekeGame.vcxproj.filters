@@ -293,9 +293,6 @@
     <ClCompile Include="Game\Monster\Monster.cpp">
       <Filter>ソース ファイル\Game\Monster</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Monster\MonsterAI.cpp">
-      <Filter>ソース ファイル\Game\Monster</Filter>
-    </ClCompile>
     <ClCompile Include="Game\Monster\TestMons.cpp">
       <Filter>ソース ファイル\Game\Monster</Filter>
     </ClCompile>
@@ -319,6 +316,9 @@
     </ClCompile>
     <ClCompile Include="Engine\Network\TestListener.cpp">
       <Filter>ソース ファイル\Engine\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\MonsterActionManeger.cpp">
+      <Filter>ソース ファイル\Game\Monster</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -521,9 +521,6 @@
       <Filter>ソース ファイル\Engine\Network</Filter>
     </ClInclude>
     <ClInclude Include="Game\Monster\Monster.h">
-      <Filter>ソース ファイル\Game\Monster</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Monster\MonsterAI.h">
       <Filter>ソース ファイル\Game\Monster</Filter>
     </ClInclude>
     <ClInclude Include="Game\Monster\TestMons.h">
@@ -847,6 +844,9 @@
     <ClInclude Include="Engine\Network\CListener.h">
       <Filter>ソース ファイル\Engine\Network</Filter>
     </ClInclude>
+    <ClInclude Include="Game\Monster\MonsterActionManeger.h">
+      <Filter>ソース ファイル\Game\Monster</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\Test.FBX">
@@ -878,16 +878,18 @@
     </CopyFileToFolders>
     <CopyFileToFolders Include="CppBridge.py" />
     <CopyFileToFolders Include="testBrain.py" />
-    <CopyFileToFolders Include="python36.lib">
-      <Filter>ソース ファイル\Game</Filter>
-    </CopyFileToFolders>
-    <CopyFileToFolders Include="python36_d.lib">
-      <Filter>ソース ファイル\Game</Filter>
-    </CopyFileToFolders>
   </ItemGroup>
   <ItemGroup>
     <None Include="Game\PythonBridge\include\pydtrace.d">
       <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="python36.lib">
+      <Filter>ソース ファイル\Game</Filter>
+    </CustomBuild>
+    <CustomBuild Include="python36_d.lib">
+      <Filter>ソース ファイル\Game</Filter>
+    </CustomBuild>
   </ItemGroup>
 </Project>

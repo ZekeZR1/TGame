@@ -220,7 +220,7 @@
     <ClCompile Include="Game\main.cpp" />
     <ClCompile Include="Game\Monster\Monster.cpp" />
     <ClCompile Include="Game\Monster\MonsterAction.cpp" />
-    <ClCompile Include="Game\Monster\MonsterAI.cpp" />
+    <ClCompile Include="Game\Monster\MonsterActionManeger.cpp" />
     <ClCompile Include="Game\Monster\TestAction.cpp" />
     <ClCompile Include="Game\Monster\TestMons.cpp" />
     <ClCompile Include="Game\PythonBridge\PythonBridge.cpp" />
@@ -297,7 +297,7 @@
     <ClInclude Include="Game\Game.h" />
     <ClInclude Include="Game\Monster\Monster.h" />
     <ClInclude Include="Game\Monster\MonsterAction.h" />
-    <ClInclude Include="Game\Monster\MonsterAI.h" />
+    <ClInclude Include="Game\Monster\MonsterActionManeger.h" />
     <ClInclude Include="Game\Monster\TestAction.h" />
     <ClInclude Include="Game\Monster\TestMons.h" />
     <ClInclude Include="Game\PythonBridge\include\abstract.h" />
@@ -428,12 +428,12 @@
     </CopyFileToFolders>
   </ItemGroup>
   <ItemGroup>
-    <CopyFileToFolders Include="python36.lib">
+    <CustomBuild Include="python36.lib">
       <FileType>Document</FileType>
-    </CopyFileToFolders>
-    <CopyFileToFolders Include="python36_d.lib">
+    </CustomBuild>
+    <CustomBuild Include="python36_d.lib">
       <FileType>Document</FileType>
-    </CopyFileToFolders>
+    </CustomBuild>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
