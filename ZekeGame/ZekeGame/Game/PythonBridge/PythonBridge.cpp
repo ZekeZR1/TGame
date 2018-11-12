@@ -262,6 +262,8 @@ void PythonBridge::py_exe(int num,int team,const char* file)
 		return true;
 	});
 
+	SetCurrentDirectory("Python36");
+
 	PyImport_AppendInittab("SendGame", initModule);
 
 	PyObject *pName, *pModule, *pFunction, *pArgs, *pValue;
@@ -284,6 +286,8 @@ void PythonBridge::py_exe(int num,int team,const char* file)
 	}
 
 	Py_DECREF(pValue);
+
+	SetCurrentDirectory("../");
 
 	me->AddAction(mam->LoadAction(actions[0], actions[1]));
 }
