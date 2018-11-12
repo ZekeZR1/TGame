@@ -43,3 +43,5 @@
 #include "Engine/graphics/Effect/CEffectEngine.h"
 #include "Engine/graphics/Effect/CEffect.h"
 
+#include "Engine/time/GameTime.h"
+
