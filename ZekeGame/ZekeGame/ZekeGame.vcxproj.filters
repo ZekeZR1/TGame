@@ -299,9 +299,6 @@
     <ClCompile Include="Game\Monster\MonsterAction.cpp">
       <Filter>ソース ファイル\Game\Monster</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Monster\TestAction.cpp">
-      <Filter>ソース ファイル\Game\Monster</Filter>
-    </ClCompile>
     <ClCompile Include="Game\main.cpp">
       <Filter>ソース ファイル\Game</Filter>
     </ClCompile>
@@ -318,6 +315,9 @@
       <Filter>ソース ファイル\Engine\Network</Filter>
     </ClCompile>
     <ClCompile Include="Game\Monster\MonsterActionManeger.cpp">
+      <Filter>ソース ファイル\Game\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\Act_Chase.cpp">
       <Filter>ソース ファイル\Game\Monster</Filter>
     </ClCompile>
   </ItemGroup>
@@ -527,9 +527,6 @@
       <Filter>ソース ファイル\Game\Monster</Filter>
     </ClInclude>
     <ClInclude Include="Game\Monster\MonsterAction.h">
-      <Filter>ソース ファイル\Game\Monster</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Monster\TestAction.h">
       <Filter>ソース ファイル\Game\Monster</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game.h">
@@ -847,6 +844,9 @@
     <ClInclude Include="Game\Monster\MonsterActionManeger.h">
       <Filter>ソース ファイル\Game\Monster</Filter>
     </ClInclude>
+    <ClInclude Include="Game\Monster\Act_Chase.h">
+      <Filter>ソース ファイル\Game\Monster</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\Test.FBX">
@@ -878,6 +878,7 @@
     </CopyFileToFolders>
     <CopyFileToFolders Include="CppBridge.py" />
     <CopyFileToFolders Include="testBrain.py" />
+    <CopyFileToFolders Include="testBrain1.py" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Game\PythonBridge\include\pydtrace.d">

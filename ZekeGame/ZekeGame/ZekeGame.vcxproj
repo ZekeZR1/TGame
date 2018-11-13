@@ -221,7 +221,7 @@
     <ClCompile Include="Game\Monster\Monster.cpp" />
     <ClCompile Include="Game\Monster\MonsterAction.cpp" />
     <ClCompile Include="Game\Monster\MonsterActionManeger.cpp" />
-    <ClCompile Include="Game\Monster\TestAction.cpp" />
+    <ClCompile Include="Game\Monster\Act_Chase.cpp" />
     <ClCompile Include="Game\Monster\TestMons.cpp" />
     <ClCompile Include="Game\PythonBridge\PythonBridge.cpp" />
     <ClCompile Include="stdafx.cpp" />
@@ -298,7 +298,7 @@
     <ClInclude Include="Game\Monster\Monster.h" />
     <ClInclude Include="Game\Monster\MonsterAction.h" />
     <ClInclude Include="Game\Monster\MonsterActionManeger.h" />
-    <ClInclude Include="Game\Monster\TestAction.h" />
+    <ClInclude Include="Game\Monster\Act_Chase.h" />
     <ClInclude Include="Game\Monster\TestMons.h" />
     <ClInclude Include="Game\PythonBridge\include\abstract.h" />
     <ClInclude Include="Game\PythonBridge\include\accu.h" />
@@ -424,6 +424,9 @@
     </CopyFileToFolders>
     <None Include="Game\PythonBridge\include\pydtrace.d" />
     <CopyFileToFolders Include="testBrain.py">
+      <FileType>Document</FileType>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="testBrain1.py">
       <FileType>Document</FileType>
     </CopyFileToFolders>
   </ItemGroup>
