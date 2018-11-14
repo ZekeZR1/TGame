@@ -144,7 +144,7 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 	case 2:
 	{
 		//もちろん、ペイロードはハッシュテーブルである必要はありません。単純な64ビット整数のように送信するのはどうですか？
-		long long content = ExitGames::Common::ValueObject<long long>(eventContentObj).getDataCopy();
+		int content = ExitGames::Common::ValueObject<int>(eventContentObj).getDataCopy();
 	}
 	break;
 	case 3:
@@ -340,7 +340,7 @@ void LoadBalancingListener::service()
 void LoadBalancingListener::raiseSomeEvent() {
 	//さまざまな種類のイベント（「移動」、「撮影」など）を区別するために
 	//別個のイベントコードを使用する
-	nByte eventCode = 1; 
+	nByte eventCode = 2; 
 	//Photonsのシリアル化によってサポートされている限り、
 	//好きな方法でペイロードデータを整理します
 	ExitGames::Common::Hashtable evData;
