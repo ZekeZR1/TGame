@@ -2,14 +2,10 @@
 #include "Engine.h"
 #include "Engine/FPSCounter.h"
 #include "GameCamera.h"
-#include "Network/Console.h"
-#include "Network/NetIO.h"
 
 CFPSCounter* FPS = nullptr;
 GameCamera* camera = nullptr;
 NetworkLogic* m_network = nullptr;
-OutputListener* m_listener = nullptr;
-NetIO* m_netio = nullptr;
 
 Engine::Engine()
 {
@@ -43,7 +39,7 @@ void Engine::Update() {
 	}
 
 	if (m_network != nullptr) {
-		m_netio->update(m_network);
+		m_network->Update();
 	}
 
 	GameObjectManager().Execute();
@@ -57,18 +53,15 @@ void Engine::Update() {
 
 void Engine::CreateNetworkSystem() {
 	if (m_network == nullptr) {
-		m_network = new NetworkLogic(&Console::get());
-		m_netio = new NetIO;
-		m_netio->usage();
-		m_network->connect();
+		m_network = new NetworkLogic;
+		m_network->Start();
 	}
 }
 
 void Engine::DestroyNetworkSystem() {
 	if (m_network != nullptr) {
-		m_network->disconnect();
+		m_network->Disconnect();
 		delete m_network;
-		delete m_netio;
 		m_network = nullptr;
 	}
 }

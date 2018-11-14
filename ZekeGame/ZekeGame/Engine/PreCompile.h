@@ -24,7 +24,8 @@
 #include "Engine/physics/Physics.h"
 #include "Engine/HID/Pad.h"
 
-#include "Network/CListener.h"
+#include "Common-cpp/inc/Common.h"
+#include "LoadBalancing-cpp/inc/Client.h"
 #include "Network/NetworkLogic.h"
 #include "Network/Console.h"
 

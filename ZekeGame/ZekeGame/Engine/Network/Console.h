@@ -1,12 +1,26 @@
 #pragma once
+#include "OutputListener.h"
 
-class ConsoleImplementation;
+class ConsoleImplementation
+{
+public:
+	void write(const ExitGames::Common::JString& str)
+	{
+		OutputDebugStringW(str.cstr());
+	}
+
+	void writeLine(const ExitGames::Common::JString& str)
+	{
+		write(str);
+	}
+};
+
 
 class Console : public OutputListener
 {
 public:
-	Console(void);
-	~Console(void);
+	Console();
+	~Console();
 	void update(void);
 	void write(const ExitGames::Common::JString& str);
 	void writeLine(const ExitGames::Common::JString& str = ExitGames::Common::JString());
@@ -14,3 +28,4 @@ public:
 private:
 	ConsoleImplementation* mpImp;
 };
+
