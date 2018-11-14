@@ -4,6 +4,7 @@
 
 #include "Action/Act_Chase.h"
 #include "Action/Act_Atack.h"
+#include "Action/Act_Leave.h"
 
 MonsterAction * MonsterActionManeger::LoadAction(int id,int target)
 {
@@ -17,6 +18,11 @@ MonsterAction * MonsterActionManeger::LoadAction(int id,int target)
 		break;
 	case en_Atack:
 		ac = NewGO<Act_Atack>(0, "action");
+		ac->Settarget(target);
+		return ac;
+		break;
+	case en_Leave:
+		ac = NewGO<Act_Leave>(0, "action");
 		ac->Settarget(target);
 		return ac;
 		break;

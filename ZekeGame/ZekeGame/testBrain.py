@@ -5,4 +5,5 @@ def Brain():
     mon = cb.gameData.GetEnemyHighHP()
     cb.Chase(mon)
     cb.Atack(mon)
+    cb.Leave(mon)
     return cb.actions

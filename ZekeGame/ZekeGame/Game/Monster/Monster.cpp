@@ -71,20 +71,8 @@ void Monster::Move()
 
 void Monster::Turn()
 {
-	CVector3 NormalizedOldSpeed = m_oldmovespeed;
-	CVector3 NormalizedSpeed = m_movespeed;
-	NormalizedOldSpeed.Normalize();
-	NormalizedSpeed.Normalize();
-	float f = NormalizedOldSpeed.Dot(NormalizedSpeed);
-	float fcos = acos(f);
-
-	CVector3 axis;
-	axis.Cross(NormalizedOldSpeed, NormalizedSpeed);
-	axis.Normalize();
-	CQuaternion rot;
-	rot.SetRotation(axis, fcos);
-
-	m_rot.Multiply(rot);
+	float angle = atan2(m_movespeed.x, m_movespeed.z);
+	m_rot.SetRotation(CVector3::AxisY(), angle);
 	m_smr->SetRotation(m_rot);
 }
 

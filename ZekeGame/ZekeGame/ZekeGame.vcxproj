@@ -222,6 +222,7 @@
     <ClCompile Include="Game\main.cpp" />
     <ClCompile Include="Game\Monster\Action\Act_Atack.cpp" />
     <ClCompile Include="Game\Monster\Action\Act_Chase.cpp" />
+    <ClCompile Include="Game\Monster\Action\Act_Leave.cpp" />
     <ClCompile Include="Game\Monster\Monster.cpp" />
     <ClCompile Include="Game\Monster\MonsterAction.cpp" />
     <ClCompile Include="Game\Monster\MonsterActionManeger.cpp" />
@@ -303,6 +304,7 @@
     <ClInclude Include="Game\GameData.h" />
     <ClInclude Include="Game\Monster\Action\Act_Atack.h" />
     <ClInclude Include="Game\Monster\Action\Act_Chase.h" />
+    <ClInclude Include="Game\Monster\Action\Act_Leave.h" />
     <ClInclude Include="Game\Monster\Monster.h" />
     <ClInclude Include="Game\Monster\MonsterAction.h" />
     <ClInclude Include="Game\Monster\MonsterActionManeger.h" />

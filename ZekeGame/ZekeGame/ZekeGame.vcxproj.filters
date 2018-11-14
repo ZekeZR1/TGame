@@ -344,6 +344,9 @@
     <ClCompile Include="Game\GameData.cpp">
       <Filter>ソース ファイル\Game</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Monster\Action\Act_Leave.cpp">
+      <Filter>ソース ファイル\Game\Monster\Action</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\character\CharacterController.h">
@@ -882,6 +885,9 @@
     </ClInclude>
     <ClInclude Include="Game\GameData.h">
       <Filter>ソース ファイル\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\Action\Act_Leave.h">
+      <Filter>ソース ファイル\Game\Monster\Action</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -9,6 +9,7 @@ public:
 	{
 		en_Chase,
 		en_Atack,
+		en_Leave,
 	};
 private:
 };

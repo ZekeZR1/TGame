@@ -58,6 +58,7 @@ class Monster:
 class ACTION(IntEnum):
     Chase = 0
     Atack = 1
+    Leave = 2
 
 class GameData:
     def __init__(self):
@@ -198,7 +199,7 @@ class GameData:
 gameData = GameData()
 
 MonsterUseAction = [
-    [ACTION.Chase,ACTION.Atack],
+    [ACTION.Chase,ACTION.Atack,ACTION.Leave],
     [ACTION.Chase,ACTION.Atack]
     ]
 
@@ -219,3 +220,6 @@ def Chase(target):
 
 def Atack(target):
     addAction(target,ACTION.Atack)
+
+def Leave(target):
+    addAction(target,ACTION.Leave)
