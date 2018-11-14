@@ -102,6 +102,18 @@
     <Filter Include="ソース ファイル\Game\PythonBridge\include">
       <UniqueIdentifier>{6c242cc8-bf0c-49a3-ae26-8a2eb78cc34e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Engine\time">
+      <UniqueIdentifier>{80721093-a009-4c7c-8526-ec9f9fefdeef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Game\Monster\Action">
+      <UniqueIdentifier>{3998d49f-0940-4457-8e18-2aa1c69880bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Game\Monster\Monsters">
+      <UniqueIdentifier>{aa266b79-42cb-48a2-8053-47fddc6914a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Game\StageSetup">
+      <UniqueIdentifier>{4df90ad4-b6a4-4646-8e19-5fdac7749b14}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\character\CharacterController.cpp">
@@ -293,9 +305,6 @@
     <ClCompile Include="Game\Monster\Monster.cpp">
       <Filter>ソース ファイル\Game\Monster</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Monster\TestMons.cpp">
-      <Filter>ソース ファイル\Game\Monster</Filter>
-    </ClCompile>
     <ClCompile Include="Game\Monster\MonsterAction.cpp">
       <Filter>ソース ファイル\Game\Monster</Filter>
     </ClCompile>
@@ -317,8 +326,23 @@
     <ClCompile Include="Game\Monster\MonsterActionManeger.cpp">
       <Filter>ソース ファイル\Game\Monster</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Monster\Act_Chase.cpp">
-      <Filter>ソース ファイル\Game\Monster</Filter>
+    <ClCompile Include="Engine\time\GameTime.cpp">
+      <Filter>ソース ファイル\Engine\time</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\Action\Act_Chase.cpp">
+      <Filter>ソース ファイル\Game\Monster\Action</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\Monsters\TestMons.cpp">
+      <Filter>ソース ファイル\Game\Monster\Monsters</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\Action\Act_Atack.cpp">
+      <Filter>ソース ファイル\Game\Monster\Action</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\StageSetup\StageSetup.cpp">
+      <Filter>ソース ファイル\Game\StageSetup</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\GameData.cpp">
+      <Filter>ソース ファイル\Game</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -521,9 +545,6 @@
       <Filter>ソース ファイル\Engine\Network</Filter>
     </ClInclude>
     <ClInclude Include="Game\Monster\Monster.h">
-      <Filter>ソース ファイル\Game\Monster</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Monster\TestMons.h">
       <Filter>ソース ファイル\Game\Monster</Filter>
     </ClInclude>
     <ClInclude Include="Game\Monster\MonsterAction.h">
@@ -844,8 +865,23 @@
     <ClInclude Include="Game\Monster\MonsterActionManeger.h">
       <Filter>ソース ファイル\Game\Monster</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Monster\Act_Chase.h">
-      <Filter>ソース ファイル\Game\Monster</Filter>
+    <ClInclude Include="Engine\time\GameTime.h">
+      <Filter>ソース ファイル\Engine\time</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\Action\Act_Chase.h">
+      <Filter>ソース ファイル\Game\Monster\Action</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\Monsters\TestMons.h">
+      <Filter>ソース ファイル\Game\Monster\Monsters</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\Action\Act_Atack.h">
+      <Filter>ソース ファイル\Game\Monster\Action</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\StageSetup\StageSetup.h">
+      <Filter>ソース ファイル\Game\StageSetup</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameData.h">
+      <Filter>ソース ファイル\Game</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

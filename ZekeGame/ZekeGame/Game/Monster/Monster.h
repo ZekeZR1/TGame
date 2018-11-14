@@ -25,6 +25,7 @@ public:
 	{
 		en_NowLoading,
 		en_Execute,
+		en_Dead,
 	};
 
 	
@@ -40,6 +41,10 @@ public:
 	int GetHP()
 	{
 		return m_HP;
+	}
+	void Damage(int d)
+	{
+		m_HP -= d;
 	}
 	int GetMP()
 	{
@@ -66,6 +71,10 @@ public:
 	{
 		return m_team;
 	}
+	void Setteam(int t)
+	{
+		m_team = t;
+	}
 	int Getnum()
 	{
 		return m_num;
@@ -81,6 +90,10 @@ public:
 	}
 
 	void AddAction(MonsterAction* ma);
+	std::vector<MonsterAction*> Getactions()
+	{
+		return m_actions;
+	}
 
 	//アニメーションさせるときは必ずこいつらを使うこと。
 	void anim_idle();

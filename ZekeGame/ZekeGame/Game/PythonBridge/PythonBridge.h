@@ -1,17 +1,19 @@
 #pragma once
 #include "../Monster/Monster.h"
+#include "../GameData.h"
 
-static Monster* g_mons[64];
-static int g_buddyCount = 0;
-static int g_enemyCount = 0;
-static int g_meNum = 0;
-static int g_meTeam = 0;
+//static Monster* g_mons[64];
+//static int g_buddyCount = 0;
+//static int g_enemyCount = 0;
+//static int g_meNum = 0;
+//static int g_meTeam = 0;
 
 class Monster;
 class MonsterActionManeger;
 class PythonBridge:public GameObject
 {
 public:
+	PythonBridge();
 	void pbInit();
 	void py_exe(int num,int team,const char* file);
 

@@ -3,11 +3,14 @@
 #include "MonsterAction.h"
 #include "../PythonBridge/PythonBridge.h"
 #include "../../Engine/character/CharacterController.h"
+
+#include "../GameData.h"
 //#include "MonsterAI.h"
 
 
 Monster::~Monster()
 {
+	DeleteGO(m_smr);
 }
 
 bool Monster::Start()
@@ -18,6 +21,14 @@ bool Monster::Start()
 
 void Monster::Update()
 {
+	if (m_HP <= 0)
+	{
+		m_state = en_Dead;
+		GameData* gd = new GameData();
+		gd->deletemons(this);
+		delete gd;
+		DeleteGO(this);
+	}
 	switch (m_state)
 	{
 	case en_NowLoading:
@@ -32,15 +43,21 @@ void Monster::Update()
 		Move();
 		//Turn();
 		break;
+	case en_Dead:
+		break;
 	}
 }
 
 void Monster::execute()
 {
 	if (m_actions.size() == 0)
+	{
+		m_state = en_NowLoading;
 		return;
+	}
 	if (m_actions[0]->Action(this))
 	{
+		DeleteGO(m_actions[0]);
 		m_actions.erase(m_actions.begin());
 	}
 }

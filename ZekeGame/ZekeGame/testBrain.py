@@ -2,6 +2,7 @@ import CppBridge as cb
 
 def Brain():
     ME = cb.gameData.me
-
-    cb.Chase(0)
+    mon = cb.gameData.GetEnemyHighHP()
+    cb.Chase(mon)
+    cb.Atack(mon)
     return cb.actions

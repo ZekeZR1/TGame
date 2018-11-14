@@ -83,10 +83,15 @@ class GameData:
 
         self.Enemys = []
         poss = SendGame.GetAllEnemyPosition()
+        nums = SendGame.GetAllEnemyNum()
+        HPs = SendGame.GetAllEnemyHP()
         for i in range(self.enemyCount):
             mon = Monster()
             mon.SetPosition(poss[i][0],poss[i][1],poss[i][2])
+            mon.num = nums[i]
+            mon.HP = HPs[i]
             self.Enemys.append(mon)
+
 
     def GetFarMonster(self):
         farmon = None
@@ -177,9 +182,7 @@ class GameData:
         """#一番HPの高い仲間のモンスターを返します"""
         himon = None
         for mon in self.Buddy:
-            if himon == None:
-                himon = mon
-            elif himon.HP < mon.HP:
+            if himon.HP < mon.HP or himon == None:
                 himon = mon
         return himon
 
@@ -187,9 +190,7 @@ class GameData:
         """#一番HPの高い敵のモンスターを返します"""
         himon = None
         for mon in self.Enemys:
-            if himon == None:
-                himon = mon
-            elif himon.HP < mon.HP:
+            if himon == None or himon.HP < mon.HP:
                 himon = mon
         return himon
 
@@ -203,14 +204,18 @@ MonsterUseAction = [
 
 actions = []
 
-def Chase(target):
+
+def addAction(target,action):
+    """モジュール外から使わないでね!"""
+    if len(actions) >= 5 or target == None:
+        return
     for ac in MonsterUseAction[gameData.me.ID]:
-        if ac == ACTION.Chase:
-            actions.append([int(ACTION.Chase),target])
+        if ac == action:
+            actions.append([int(action),target.num])
             break
 
+def Chase(target):
+    addAction(target,ACTION.Chase)
+
 def Atack(target):
-    for ac in MonsterUseAction[gameData.me.ID]:
-        if ac == ACTION.Atack:
-            actions.append([int(ACTION.Atack),target])
-            break
+    addAction(target,ACTION.Atack)

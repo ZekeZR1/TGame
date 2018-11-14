@@ -214,16 +214,20 @@
     <ClCompile Include="Engine\physics\RigitBody.cpp" />
     <ClCompile Include="Engine\PreCompile.cpp" />
     <ClCompile Include="Engine\sound\SoundEngine.cpp" />
+    <ClCompile Include="Engine\time\GameTime.cpp" />
     <ClCompile Include="Engine\window\Window.cpp" />
     <ClCompile Include="GameCamera.cpp" />
     <ClCompile Include="Game\Game.cpp" />
+    <ClCompile Include="Game\GameData.cpp" />
     <ClCompile Include="Game\main.cpp" />
+    <ClCompile Include="Game\Monster\Action\Act_Atack.cpp" />
+    <ClCompile Include="Game\Monster\Action\Act_Chase.cpp" />
     <ClCompile Include="Game\Monster\Monster.cpp" />
     <ClCompile Include="Game\Monster\MonsterAction.cpp" />
     <ClCompile Include="Game\Monster\MonsterActionManeger.cpp" />
-    <ClCompile Include="Game\Monster\Act_Chase.cpp" />
-    <ClCompile Include="Game\Monster\TestMons.cpp" />
+    <ClCompile Include="Game\Monster\Monsters\TestMons.cpp" />
     <ClCompile Include="Game\PythonBridge\PythonBridge.cpp" />
+    <ClCompile Include="Game\StageSetup\StageSetup.cpp" />
     <ClCompile Include="stdafx.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -291,15 +295,18 @@
     <ClInclude Include="Engine\physics\RigitBody.h" />
     <ClInclude Include="Engine\PreCompile.h" />
     <ClInclude Include="Engine\sound\SoundEngine.h" />
+    <ClInclude Include="Engine\time\GameTime.h" />
     <ClInclude Include="Engine\util\Util.h" />
     <ClInclude Include="Engine\window\Window.h" />
     <ClInclude Include="GameCamera.h" />
     <ClInclude Include="Game\Game.h" />
+    <ClInclude Include="Game\GameData.h" />
+    <ClInclude Include="Game\Monster\Action\Act_Atack.h" />
+    <ClInclude Include="Game\Monster\Action\Act_Chase.h" />
     <ClInclude Include="Game\Monster\Monster.h" />
     <ClInclude Include="Game\Monster\MonsterAction.h" />
     <ClInclude Include="Game\Monster\MonsterActionManeger.h" />
-    <ClInclude Include="Game\Monster\Act_Chase.h" />
-    <ClInclude Include="Game\Monster\TestMons.h" />
+    <ClInclude Include="Game\Monster\Monsters\TestMons.h" />
     <ClInclude Include="Game\PythonBridge\include\abstract.h" />
     <ClInclude Include="Game\PythonBridge\include\accu.h" />
     <ClInclude Include="Game\PythonBridge\include\asdl.h" />
@@ -401,6 +408,7 @@
     <ClInclude Include="Game\PythonBridge\include\warnings.h" />
     <ClInclude Include="Game\PythonBridge\include\weakrefobject.h" />
     <ClInclude Include="Game\PythonBridge\PythonBridge.h" />
+    <ClInclude Include="Game\StageSetup\StageSetup.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
