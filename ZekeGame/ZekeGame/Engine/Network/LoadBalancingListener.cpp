@@ -128,69 +128,42 @@ void LoadBalancingListener::leaveRoomEventAction(int playerNr, bool isInactive)
 
 void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, const Object& eventContentObj)
 {
-	ExitGames::Common::Hashtable eventContent = ExitGames::Common::ValueObject<ExitGames::Common::Hashtable>(eventContentObj).getDataCopy();
-	if (eventCode == 1)
+	// logging the string representation of the eventContent can be really useful for debugging, but use with care: for big events this might get expensive
+	//EGLOG(ExitGames::Common::DebugLevel::ALL, L"an event of type %d from player Nr %d with the following content has just arrived: %ls", eventCode, playerNr, eventContent.toString(true).cstr());
+
+	switch (eventCode)
 	{
-		Object const* obj = eventContent.getValue("1");
-		if (!obj) obj = eventContent.getValue((nByte)1);
-		if (!obj) obj = eventContent.getValue(1);
-		if (!obj) obj = eventContent.getValue(1.0);
-		if (obj)
-		{
-	/*		int color = (int)(obj->getType() == TypeCode::DOUBLE ? ((ValueObject<double>*)obj)->getDataCopy() : ((ValueObject<int>*)obj)->getDataCopy());
-			mpView->changePlayerColor(playerNr, color);*/
-		}
-		else
-			Console::get().writeLine(L"bad color event");
+	case 1:
+	{
+		//コンテンツのコピーにアクセス
+		ExitGames::Common::Hashtable content = ExitGames::Common::ValueObject<ExitGames::Common::Hashtable>(eventContentObj).getDataCopy();
+		//アドレスでアクセスします（この関数が返るとすぐに無効になるため、後でアクセスを続ける必要があるデータのすべての部分をコピーする必要があります）
+		//ExitGames::Common::Hashtable* pContent = ExitGames::Common::ValueObject<ExitGames::Common::Hashtable>(eventContentObj).getDataAddress();
 	}
-	else if (eventCode == 2)
+	break;
+	case 2:
 	{
-		Object const* obj = eventContent.getValue("1");
-		if (!obj)
-			obj = eventContent.getValue((nByte)1);
-		if (!obj)
-			obj = eventContent.getValue(1);
-		if (!obj)
-			obj = eventContent.getValue(1.0);
-		if (obj && obj->getDimensions() == 1 && obj->getSizes()[0] == 2)
-		{
-			int x = 0; int y = 0;
-			if (obj->getType() == TypeCode::DOUBLE)
-			{
-				double* data = ((ValueObject<double*>*)obj)->getDataCopy();
-				x = (int)data[0];
-				y = (int)data[1];
-			}
-			if (obj->getType() == TypeCode::INTEGER)
-			{
-				int* data = ((ValueObject<int*>*)obj)->getDataCopy();
-				x = (int)data[0];
-				y = (int)data[1];
-			}
-			else if (obj->getType() == TypeCode::BYTE)
-			{
-				nByte* data = ((ValueObject<nByte*>*)obj)->getDataCopy();
-				x = (int)data[0];
-				y = (int)data[1];
-			}
-			else if (obj->getType() == TypeCode::OBJECT)
-			{
-				Object* data = ((ValueObject<Object*>*)obj)->getDataCopy();
-				if (data[0].getType() == TypeCode::INTEGER)
-				{
-					x = ((ValueObject<int>*)(data + 0))->getDataCopy();
-					y = ((ValueObject<int>*)(data + 1))->getDataCopy();
-				}
-				else
-				{
-					x = (int)((ValueObject<double>*)(data + 0))->getDataCopy();
-					y = (int)((ValueObject<double>*)(data + 1))->getDataCopy();
-				}
-				MemoryManagement::deallocateArray(data);
-			}
-		}
-		else
-			Console::get().writeLine(L"Bad position event");
+		//もちろん、ペイロードはハッシュテーブルである必要はありません。単純な64ビット整数のように送信するのはどうですか？
+		long long content = ExitGames::Common::ValueObject<long long>(eventContentObj).getDataCopy();
+	}
+	break;
+	case 3:
+	{
+		// 浮動小数点数の配列ですか？
+		float* pContent = ExitGames::Common::ValueObject<float*>(eventContentObj).getDataCopy();
+		float** ppContent = ExitGames::Common::ValueObject<float*>(eventContentObj).getDataAddress();
+		short contentElementCount = *ExitGames::Common::ValueObject<float*>(eventContentObj).getSizes();
+		//配列をペイロードとして保持するオブジェクトでgetDataCopy（）を呼び出すときは、
+		//deallocateArray（）を使用して配列のコピーを自分で割り当て解除する必要があります。
+		ExitGames::Common::MemoryManagement::deallocateArray(pContent);
+	}
+	break;
+	default:
+	{
+		//より洗練されたデータ型を送受信する方法のコード例については、
+		//C ++クライアントSDK内のdemo_typeSupportを参照してください
+	}
+	break;
 	}
 }
 
@@ -359,17 +332,20 @@ void LoadBalancingListener::service()
 		mLocalPlayer.lastUpdateTime = t;
 		if (mpLbc->getState() == PeerStates::Joined) {
 			//毎フレーム呼ばれる処理
-			//moveLocalPlayer();
 		}
 	}
 }
 
 //処理いろいろ
-
-//こんな感じでイベントをあげる
-//void LoadBalancingListener::raiseColorEvent(void)
-//{
-//	Hashtable data;
-//	data.put((nByte)1, mLocalPlayer.color);
-//	mpLbc->opRaiseEvent(true, data, 1, RaiseEventOptions().setEventCaching(ExitGames::Lite::EventCache::ADD_TO_ROOM_CACHE).setInterestGroup(mSendGroup ? mSendGroup : mUseGroups ? getGroupByPos() : 0));
-//}
+void LoadBalancingListener::raiseSomeEvent() {
+	//さまざまな種類のイベント（「移動」、「撮影」など）を区別するために
+	//別個のイベントコードを使用する
+	nByte eventCode = 1; 
+	//Photonsのシリアル化によってサポートされている限り、
+	//好きな方法でペイロードデータを整理します
+	ExitGames::Common::Hashtable evData;
+	evData.put((nByte)1, m_val);
+	//どこにでも到着する必要がある場合は、信頼できるものを送信します
+	bool sendReliable = false;
+	mpLbc->opRaiseEvent(sendReliable, evData, eventCode);
+}

@@ -23,6 +23,8 @@ public:
 	void disconnect();
 	void createRoom(void);
 	void service();
+
+	void raiseSomeEvent();
 private:
 	//From Common::BaseListener
 
@@ -58,14 +60,13 @@ private:
 	virtual void onLobbyStatsResponse(const ExitGames::Common::JVector<ExitGames::LoadBalancing::LobbyStatsResponse>& lobbyStats);
 	virtual void onRoomPropertiesChange(const ExitGames::Common::Hashtable& changes);
 
-	//ƒf[ƒ^ˆ—‚µ‚½‚è‚»‚Ìã‚°‚½‚è‚·‚éŠÖ”‚ğéŒ¾
 	void updateState(void);
 	void afterRoomJoined(int localPlayerNr);
-	//void raiseEvent();
 
 	int mMap = 1;
 	ExitGames::LoadBalancing::Client* mpLbc;
 	BaseView* mpView;
 	LocalPlayer mLocalPlayer;
+	int m_val = 10;
 };
 
