@@ -67,6 +67,10 @@ public:
 		m_oldmovespeed = m_movespeed;
 		m_movespeed = v;
 	}
+	void Setiswalk(bool b)
+	{
+		m_iswalk = b;
+	}
 	int Getteam()
 	{
 		return m_team;
@@ -124,6 +128,7 @@ protected:
 	float m_gravity = 50.0f;					//重力
 	CVector3 m_movespeed = CVector3::Zero();	//ムーブスピード
 	CVector3 m_oldmovespeed = CVector3::Zero();	//古のムーブスピード
+	bool m_iswalk = false;
 	CVector3 m_pos = CVector3::Zero();			//ポジション
 	CQuaternion m_rot = CQuaternion::Identity();//回転
 

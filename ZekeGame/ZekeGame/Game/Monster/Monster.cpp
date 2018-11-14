@@ -41,7 +41,7 @@ void Monster::Update()
 	case en_Execute:
 		execute();
 		Move();
-		//Turn();
+		Turn();
 		break;
 	case en_Dead:
 		break;
@@ -76,10 +76,16 @@ void Monster::Turn()
 	NormalizedOldSpeed.Normalize();
 	NormalizedSpeed.Normalize();
 	float f = NormalizedOldSpeed.Dot(NormalizedSpeed);
+	float fcos = acos(f);
+
+	CVector3 axis;
+	axis.Cross(NormalizedOldSpeed, NormalizedSpeed);
+	axis.Normalize();
 	CQuaternion rot;
-	rot.SetRotation(CVector3::AxisY(), acosf(f));
+	rot.SetRotation(axis, fcos);
+
 	m_rot.Multiply(rot);
-	m_smr->SetRotation(rot);
+	m_smr->SetRotation(m_rot);
 }
 
 void Monster::AddAction(MonsterAction * ma)
