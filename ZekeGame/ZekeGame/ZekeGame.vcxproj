@@ -203,9 +203,12 @@
     <ClCompile Include="Engine\math\kMath.cpp" />
     <ClCompile Include="Engine\math\Matrix.cpp" />
     <ClCompile Include="Engine\math\Vector.cpp" />
-    <ClCompile Include="Engine\Network\CListener.cpp" />
+    <ClCompile Include="Engine\Network\BaseView.cpp" />
+    <ClCompile Include="Engine\Network\Console.cpp" />
+    <ClCompile Include="Engine\Network\LoadBalancingListener.cpp" />
     <ClCompile Include="Engine\Network\NetworkLogic.cpp" />
-    <ClCompile Include="Engine\Network\TestListener.cpp" />
+    <ClCompile Include="Engine\Network\OutputListener.cpp" />
+    <ClCompile Include="Engine\Network\TestView.cpp" />
     <ClCompile Include="Engine\physics\CapsuleCollider.cpp" />
     <ClCompile Include="Engine\physics\CSphereCollider.cpp" />
     <ClCompile Include="Engine\physics\MeshCollider.cpp" />
@@ -214,6 +217,7 @@
     <ClCompile Include="Engine\physics\RigitBody.cpp" />
     <ClCompile Include="Engine\PreCompile.cpp" />
     <ClCompile Include="Engine\sound\SoundEngine.cpp" />
+    <ClCompile Include="Engine\time\GameTime.cpp" />
     <ClCompile Include="Engine\window\Window.cpp" />
     <ClCompile Include="GameCamera.cpp" />
     <ClCompile Include="Game\Game.cpp" />
@@ -278,9 +282,12 @@
     <ClInclude Include="Engine\math\kMath.h" />
     <ClInclude Include="Engine\math\Matrix.h" />
     <ClInclude Include="Engine\math\Vector.h" />
-    <ClInclude Include="Engine\Network\CListener.h" />
+    <ClInclude Include="Engine\Network\BaseView.h" />
+    <ClInclude Include="Engine\Network\Console.h" />
+    <ClInclude Include="Engine\Network\LoadBalancingListener.h" />
     <ClInclude Include="Engine\Network\NetworkLogic.h" />
-    <ClInclude Include="Engine\Network\TestListener.h" />
+    <ClInclude Include="Engine\Network\OutputListener.h" />
+    <ClInclude Include="Engine\Network\TestView.h" />
     <ClInclude Include="Engine\physics\CapsuleCollider.h" />
     <ClInclude Include="Engine\physics\CollisionAttr.h" />
     <ClInclude Include="Engine\physics\CSphereCollider.h" />
@@ -291,6 +298,7 @@
     <ClInclude Include="Engine\physics\RigitBody.h" />
     <ClInclude Include="Engine\PreCompile.h" />
     <ClInclude Include="Engine\sound\SoundEngine.h" />
+    <ClInclude Include="Engine\time\GameTime.h" />
     <ClInclude Include="Engine\util\Util.h" />
     <ClInclude Include="Engine\window\Window.h" />
     <ClInclude Include="GameCamera.h" />

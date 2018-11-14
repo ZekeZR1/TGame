@@ -102,6 +102,9 @@
     <Filter Include="ソース ファイル\Game\PythonBridge\include">
       <UniqueIdentifier>{6c242cc8-bf0c-49a3-ae26-8a2eb78cc34e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Engine\time">
+      <UniqueIdentifier>{88445de6-0202-487e-bfc9-b59ba21aedc2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\character\CharacterController.cpp">
@@ -287,9 +290,6 @@
     <ClCompile Include="Engine\graphics\SpriteRender.cpp">
       <Filter>ソース ファイル\Engine\graphics\2D</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\Network\NetworkLogic.cpp">
-      <Filter>ソース ファイル\Engine\Network</Filter>
-    </ClCompile>
     <ClCompile Include="Game\Monster\Monster.cpp">
       <Filter>ソース ファイル\Game\Monster</Filter>
     </ClCompile>
@@ -308,14 +308,29 @@
     <ClCompile Include="Game\PythonBridge\PythonBridge.cpp">
       <Filter>ソース ファイル\Game\PythonBridge</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\Network\CListener.cpp">
-      <Filter>ソース ファイル\Engine\Network</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\Network\TestListener.cpp">
-      <Filter>ソース ファイル\Engine\Network</Filter>
-    </ClCompile>
     <ClCompile Include="Game\Monster\MonsterActionManeger.cpp">
       <Filter>ソース ファイル\Game\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\time\GameTime.cpp">
+      <Filter>ソース ファイル\Engine\time</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Network\BaseView.cpp">
+      <Filter>ソース ファイル\Engine\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Network\Console.cpp">
+      <Filter>ソース ファイル\Engine\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Network\LoadBalancingListener.cpp">
+      <Filter>ソース ファイル\Engine\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Network\OutputListener.cpp">
+      <Filter>ソース ファイル\Engine\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Network\NetworkLogic.cpp">
+      <Filter>ソース ファイル\Engine\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Network\TestView.cpp">
+      <Filter>ソース ファイル\Engine\Network</Filter>
     </ClCompile>
     <ClCompile Include="Game\Monster\Act_Chase.cpp">
       <Filter>ソース ファイル\Game\Monster</Filter>
@@ -516,9 +531,6 @@
     </ClInclude>
     <ClInclude Include="Engine\graphics\SpriteRender.h">
       <Filter>ソース ファイル\Engine\graphics\2D</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\Network\NetworkLogic.h">
-      <Filter>ソース ファイル\Engine\Network</Filter>
     </ClInclude>
     <ClInclude Include="Game\Monster\Monster.h">
       <Filter>ソース ファイル\Game\Monster</Filter>
@@ -835,14 +847,29 @@
     <ClInclude Include="Game\PythonBridge\PythonBridge.h">
       <Filter>ソース ファイル\Game\PythonBridge</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\Network\TestListener.h">
-      <Filter>ソース ファイル\Engine\Network</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\Network\CListener.h">
-      <Filter>ソース ファイル\Engine\Network</Filter>
-    </ClInclude>
     <ClInclude Include="Game\Monster\MonsterActionManeger.h">
       <Filter>ソース ファイル\Game\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\time\GameTime.h">
+      <Filter>ソース ファイル\Engine\time</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Network\BaseView.h">
+      <Filter>ソース ファイル\Engine\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Network\Console.h">
+      <Filter>ソース ファイル\Engine\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Network\LoadBalancingListener.h">
+      <Filter>ソース ファイル\Engine\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Network\OutputListener.h">
+      <Filter>ソース ファイル\Engine\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Network\NetworkLogic.h">
+      <Filter>ソース ファイル\Engine\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Network\TestView.h">
+      <Filter>ソース ファイル\Engine\Network</Filter>
     </ClInclude>
     <ClInclude Include="Game\Monster\Act_Chase.h">
       <Filter>ソース ファイル\Game\Monster</Filter>
