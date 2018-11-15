@@ -13,7 +13,7 @@ SkinModel::~SkinModel()
 		m_samplerState->Release();
 	}
 }
-void SkinModel::Init(const wchar_t* filePath, EnFbxUpAxis enFbxUpAxis)
+void SkinModel::Init(const wchar_t* filePath, EnFbxUpAxis enFbxUpAxis, wchar_t* entryPS, wchar_t*entryVS)
 {
 	//m_light.Init();
 	//スケルトンのデータを読み込む。
