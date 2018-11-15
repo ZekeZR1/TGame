@@ -15,6 +15,7 @@ Game::~Game()
 {
 	DeleteGO(m_model);
 	DeleteGO(m_sprite);
+	Engine::IEngine().DestroyNetworkSystem();
 }
 
 bool Game::Start() {
@@ -37,12 +38,12 @@ bool Game::Start() {
 	m_sprite->Init(L"Assets/Sprite/Test.dds", 500.f, 500.f);
 	m_sprite->SetPosition(CVector3::Zero());*/
 
+	Engine::IEngine().CreateNetworkSystem();
+
 	camera = new GameCamera;
 
 	return true;
 }
-
-
 void Game::Update() {
 	static CVector3 pos = CVector3::Zero();
 	if (g_pad[0].IsPress(enButtonDown)) {

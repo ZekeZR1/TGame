@@ -1,7 +1,9 @@
 #pragma once
 //#include "GameCamera.h"
 
+
 class GameCamera;
+class TestListener;
 
 class Game : public GameObject
 {
