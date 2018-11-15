@@ -16,10 +16,10 @@ protected:
 	ID3D11ShaderResourceView* m_albedoTex = nullptr;
 
 public:
-	ModelEffect()
+	ModelEffect(char* vsmain, char* psmain)
 	{
 		//TODO : skinModelRenderからシェーダーのエントリー関数を変更できるようにする
-		m_psShader.Load("Assets/shader/model.fx", "PSMain", Shader::EnType::PS);
+		m_psShader.Load("Assets/shader/model.fx", psmain, Shader::EnType::PS);
 
 		m_pPSShader = &m_psShader;
 	}
@@ -57,12 +57,13 @@ public:
 */
 class NonSkinModelEffect : public ModelEffect {
 public:
-	NonSkinModelEffect()
+	NonSkinModelEffect(char* psmain, char* vsmain) : ModelEffect(psmain,vsmain)
 	{
-		m_vsShader.Load("Assets/shader/model.fx", "VSMain", Shader::EnType::VS);
+		m_vsShader.Load("Assets/shader/model.fx", vsmain, Shader::EnType::VS);
 		m_pVSShader = &m_vsShader;
 		isSkining = false;
 	}
+	int n;
 };
 /*!
 *@brief
@@ -70,11 +71,11 @@ public:
 */
 class SkinModelEffect : public ModelEffect {
 public:
-	SkinModelEffect()
+	SkinModelEffect(char* psmain, char* vsmain) : ModelEffect(psmain,vsmain)
 	{
 		wchar_t hoge[256];
 		GetCurrentDirectoryW(256, hoge);
-		m_vsShader.Load("Assets/shader/model.fx", "VSMainSkin", Shader::EnType::VS);
+		m_vsShader.Load("Assets/shader/model.fx", vsmain, Shader::EnType::VS);
 
 		m_pVSShader = &m_vsShader;
 		isSkining = true;
@@ -87,18 +88,20 @@ public:
 */
 class SkinModelEffectFactory : public DirectX::EffectFactory {
 public:
-	SkinModelEffectFactory(ID3D11Device* device) :
+	SkinModelEffectFactory(ID3D11Device* device, char* psmain, char* vsmain) :
+		m_psmain(psmain),
+		m_vsmain(vsmain),
 		EffectFactory(device) {}
 	std::shared_ptr<DirectX::IEffect> __cdecl CreateEffect(const EffectInfo& info, ID3D11DeviceContext* deviceContext)override
 	{
 		std::shared_ptr<ModelEffect> effect;
 		if (info.enableSkinning) {
 			//スキニングあり。
-			effect = std::make_shared<SkinModelEffect>();
+			effect = std::make_shared<SkinModelEffect>(m_psmain,m_vsmain);
 		}
 		else {
 			//スキニングなし。
-			effect = std::make_shared<NonSkinModelEffect>();
+			effect = std::make_shared<NonSkinModelEffect>(m_psmain, m_vsmain);
 		}
 		effect->SetMatrialName(info.name);
 		if (info.diffuseTexture && *info.diffuseTexture)
@@ -114,4 +117,6 @@ public:
 	{
 		return DirectX::EffectFactory::CreateTexture(name, deviceContext, textureView);
 	}
+	char* m_psmain;
+	char* m_vsmain;
 };

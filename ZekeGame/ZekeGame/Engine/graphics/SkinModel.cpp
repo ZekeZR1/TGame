@@ -13,7 +13,7 @@ SkinModel::~SkinModel()
 		m_samplerState->Release();
 	}
 }
-void SkinModel::Init(const wchar_t* filePath, EnFbxUpAxis enFbxUpAxis, wchar_t* entryPS, wchar_t*entryVS)
+void SkinModel::Init(const wchar_t* filePath, EnFbxUpAxis enFbxUpAxis, char* entryPS, char* entryVS)
 {
 	//m_light.Init();
 	//スケルトンのデータを読み込む。
@@ -26,7 +26,7 @@ void SkinModel::Init(const wchar_t* filePath, EnFbxUpAxis enFbxUpAxis, wchar_t* 
 	InitSamplerState();
 
 	//SkinModelDataManagerを使用してCMOファイルのロード。
-	m_modelDx = g_skinModelDataManager.Load(filePath, m_skeleton);
+	m_modelDx = g_skinModelDataManager.Load(filePath, m_skeleton, entryPS, entryVS);
 
 	m_enFbxUpAxis = enFbxUpAxis;
 }
