@@ -143,7 +143,7 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 	break;
 	case 2:
 	{
-		//もちろん、ペイロードはハッシュテーブルである必要はありません。単純な64ビット整数のように送信するのはどうですか？
+		//もちろん、ペイロードはハッシュテーブルである必要はありません。
 		int content = ExitGames::Common::ValueObject<int>(eventContentObj).getDataCopy();
 	}
 	break;
@@ -156,6 +156,12 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 		//配列をペイロードとして保持するオブジェクトでgetDataCopy（）を呼び出すときは、
 		//deallocateArray（）を使用して配列のコピーを自分で割り当て解除する必要があります。
 		ExitGames::Common::MemoryManagement::deallocateArray(pContent);
+	}
+	break;
+	case 4:
+	{
+		//position
+
 	}
 	break;
 	default:
@@ -332,12 +338,18 @@ void LoadBalancingListener::service()
 		mLocalPlayer.lastUpdateTime = t;
 		if (mpLbc->getState() == PeerStates::Joined) {
 			//毎フレーム呼ばれる処理
+			if (g_pad[0].IsTrigger(enButtonA)) {
+				raiseSomeEvent();
+			}
 		}
 	}
 }
 
 //処理いろいろ
 void LoadBalancingListener::raiseSomeEvent() {
+	char message[256];
+	sprintf_s(message, "raiseEvent\n");
+	OutputDebugStringA(message);
 	//さまざまな種類のイベント（「移動」、「撮影」など）を区別するために
 	//別個のイベントコードを使用する
 	nByte eventCode = 2; 
