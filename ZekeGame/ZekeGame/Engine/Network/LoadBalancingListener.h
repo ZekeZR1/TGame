@@ -9,7 +9,7 @@ struct LocalPlayer
 	LocalPlayer();
 	int x;
 	int y;
-	int color;
+	int z;
 	unsigned long lastUpdateTime;
 };
 
@@ -23,10 +23,8 @@ public:
 	void disconnect();
 	void createRoom(void);
 	void service();
-
-	void move();
+	//何らかのイベントを送信する関数を定義
 	void raiseSomeEvent();
-	void raisePlayerPos();
 private:
 	//From Common::BaseListener
 
@@ -64,12 +62,12 @@ private:
 
 	void updateState(void);
 	void afterRoomJoined(int localPlayerNr);
-
-	int mMap = 1;
+private:
 	ExitGames::LoadBalancing::Client* mpLbc;
 	BaseView* mpView;
+	int mMap = 1;	//ルーム作成時に使うKey
+	int m_val = 10; //送信する値などを適当に定義
+	int mLocalPlayerNr; //Photonから自分に割り振られたプレイヤーナンバー
 	LocalPlayer mLocalPlayer;
-	int m_val = 10;
-	float m_posy = 0.f;
 };
 

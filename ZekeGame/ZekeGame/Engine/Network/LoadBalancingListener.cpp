@@ -7,14 +7,6 @@
 using namespace ExitGames::Common;
 using namespace ExitGames::LoadBalancing;
 
-static int randomColor(int from = 0, int to = 256)
-{
-	int r = from + rand() % (to - from);
-	int g = from + rand() % (to - from);
-	int b = from + rand() % (to - from);
-	return (r << 16) + (g << 8) + b;
-}
-
 const JString PeerStatesStr[] = {
 	L"Uninitialized",
 	L"PeerCreated",
@@ -53,7 +45,7 @@ public:
 	}
 } checker;
 
-LocalPlayer::LocalPlayer(void) : x(0), y(0), color(randomColor(100)), lastUpdateTime(0)
+LocalPlayer::LocalPlayer(void) : x(0), y(0),z(0), lastUpdateTime(0)
 {
 }
 
@@ -126,6 +118,8 @@ void LoadBalancingListener::leaveRoomEventAction(int playerNr, bool isInactive)
 	}
 }
 
+
+//opRaiseEventでイベントが送信されるとこの関数が呼ばれる
 void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, const Object& eventContentObj)
 {
 	// logging the string representation of the eventContent can be really useful for debugging, but use with care: for big events this might get expensive
@@ -138,22 +132,18 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 		//コンテンツのコピーにアクセス
 		ExitGames::Common::Hashtable content = ExitGames::Common::ValueObject<ExitGames::Common::Hashtable>(eventContentObj).getDataCopy();
 		//アドレスでアクセスします（この関数が返るとすぐに無効になるため、後でアクセスを続ける必要があるデータのすべての部分をコピーする必要があります）
-		//ExitGames::Common::Hashtable* pContent = ExitGames::Common::ValueObject<ExitGames::Common::Hashtable>(eventContentObj).getDataAddress();
+		ExitGames::Common::Hashtable* pContent = ExitGames::Common::ValueObject<ExitGames::Common::Hashtable>(eventContentObj).getDataAddress();
 	}
 	break;
 	case 2:
 	{
-		//もちろん、ペイロードはハッシュテーブルである必要はありません。単純な64ビット整数のように送信するのはどうですか？
+		//ペイロードはハッシュテーブルである必要はありません。
 		float content = ExitGames::Common::ValueObject<float>(eventContentObj).getDataCopy();
-		char message[256];
-		float pos = content;
-		sprintf_s(message, "get event code pos %f\n", pos);
-		OutputDebugStringA(message);
 	}
 	break;
 	case 3:
 	{
-		// 浮動小数点数の配列ですか？
+		// 浮動小数点数の配列
 		float* pContent = ExitGames::Common::ValueObject<float*>(eventContentObj).getDataCopy();
 		float** ppContent = ExitGames::Common::ValueObject<float*>(eventContentObj).getDataAddress();
 		short contentElementCount = *ExitGames::Common::ValueObject<float*>(eventContentObj).getSizes();
@@ -310,7 +300,10 @@ void LoadBalancingListener::updateState()
 
 void LoadBalancingListener::afterRoomJoined(int localPlayerNr)
 {
-	
+	Console::get().writeLine(JString(L"afterRoomJoined: localPlayerNr=") + localPlayerNr);
+	this->mLocalPlayerNr = localPlayerNr;
+	MutableRoom& myRoom = mpLbc->getCurrentlyJoinedRoom();
+	Hashtable props = myRoom.getCustomProperties();
 }
 
 void LoadBalancingListener::createRoom()
@@ -335,31 +328,14 @@ void LoadBalancingListener::service()
 	{
 		mLocalPlayer.lastUpdateTime = t;
 		if (mpLbc->getState() == PeerStates::Joined) {
-			//毎フレーム呼ばれる処理
-			move();
+			//毎フレーム呼ばれる
 		}
 	}
 }
 
 //処理いろいろ
-void LoadBalancingListener::raisePlayerPos() {
-	nByte eventCode = 2;
-	ExitGames::Common::Hashtable evData;
-	evData.put((nByte)1, m_posy);
-	bool sendReliable = true;
-	mpLbc->opRaiseEvent(sendReliable, m_posy, eventCode);
-	char message[256];
-	float pos = m_posy;
-	sprintf_s(message, "raise pos %f\n", pos);
-	OutputDebugStringA(message);
-}
-
-void LoadBalancingListener::move() {
-	if (g_pad[0].IsPress(enButtonY)) {
-		m_posy += 10.0f;
-		raisePlayerPos();
-	}
-}
+//INFO : イベントを送信するグループもわけようと思えば分けれるよ
+//この関数を参考に色々イベントを送信する関数を定義するのよ
 void LoadBalancingListener::raiseSomeEvent() {
 	//さまざまな種類のイベント（「移動」、「撮影」など）を区別するために
 	//別個のイベントコードを使用する
@@ -368,7 +344,14 @@ void LoadBalancingListener::raiseSomeEvent() {
 	//好きな方法でペイロードデータを整理します
 	ExitGames::Common::Hashtable evData;
 	evData.put((nByte)1, m_val);
+	//配列とかはこうやって送る
+	/*
+	Hashtable data;
+	nByte coords[] = { static_cast<nByte>(mLocalPlayer.x), static_cast<nByte>(mLocalPlayer.y) };
+	data.put((nByte)1, coords, 3);
+	*/
 	//どこにでも到着する必要がある場合は、信頼できるものを送信します
 	bool sendReliable = false;
+	//opRaiseEventでイベント送信する。引数にオプションで色々設定できるが
 	mpLbc->opRaiseEvent(sendReliable, evData, eventCode);
 }

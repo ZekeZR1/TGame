@@ -18,6 +18,7 @@ protected:
 public:
 	ModelEffect()
 	{
+		//TODO : skinModelRenderからシェーダーのエントリー関数を変更できるようにする
 		m_psShader.Load("Assets/shader/model.fx", "PSMain", Shader::EnType::PS);
 
 		m_pPSShader = &m_psShader;
