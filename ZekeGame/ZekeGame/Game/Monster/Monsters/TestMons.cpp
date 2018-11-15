@@ -12,9 +12,8 @@ TestMons::TestMons()
 
 
 	m_smr = NewGO<SkinModelRender>(0, "smr");
-	m_smr->Init(L"Assets/modelData/tesEnemy2.cmo");
+	m_smr->Init(L"Assets/modelData/tesEnemy3.cmo");
 	m_smr->SetPosition(CVector3::Zero());
-	m_smr->SetScale({ 0.3f,0.3f, 0.3f });
 
 	m_PB = FindGO<PythonBridge>("PB");
 }

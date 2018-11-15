@@ -12,6 +12,9 @@ bool Act_Atack::Action(Monster * me)
 	if (v.Length() < 100)
 	{
 		m_target->Damage(3);
+		v.Normalize();
+		v *= 50;
+		m_target->StartKnockback(v);
 	}
 	return true;
 }

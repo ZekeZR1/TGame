@@ -17,7 +17,7 @@ GameCamera::GameCamera()
 	camera3d->SetPosition(m_pos);
 	camera3d->SetUpdateProjMatrixFunc(Camera::enUpdateProjMatrixFunc_Perspective);
 	camera3d->SetNear(0.1f);
-	camera3d->SetFar(500000.0f);
+	camera3d->SetFar(50000.0f);
 	camera3d->Update();
 }
 

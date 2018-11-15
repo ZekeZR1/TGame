@@ -26,7 +26,7 @@ bool Game::Start() {
 	
 	NewGO<MonsterActionManeger>(0, "MAM");
 	m_model = NewGO<SkinModelRender>(0, "model");
-	m_model->Init(L"Assets/modelData/Test.cmo");
+	m_model->Init(L"Assets/modelData/map.cmo");
 	m_model->SetPosition(CVector3::Zero());
 
 	/*TestMons* tm = NewGO<TestMons>(0, "monster");

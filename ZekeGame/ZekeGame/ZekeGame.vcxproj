@@ -143,7 +143,7 @@
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>DirectXTK.lib;kernel32.Lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;d3d11.lib;d3dcompiler.lib;%(AdditionalDependencies);xinput.lib;BulletCollision.lib;BulletDynamics.lib;LinearMath.lib;dxguid.lib;Effekseer.Release.lib;EffekseerRendererDX11.Release.lib;Photon-cpp_vc15_release_windows_mt_x64.lib;Common-cpp_vc15_release_windows_mt_x64.lib;LoadBalancing-cpp_vc15_release_windows_mt_x64.lib</AdditionalDependencies>
+      <AdditionalDependencies>DirectXTK.lib;kernel32.Lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;d3d11.lib;d3dcompiler.lib;%(AdditionalDependencies);xinput.lib;BulletCollision.lib;BulletDynamics.lib;LinearMath.lib;dxguid.lib;Effekseer.Release.lib;EffekseerRendererDX11.Release.lib;Photon-cpp_vc15_release_windows_mt_x64.lib;Common-cpp_vc15_release_windows_mt_x64.lib;LoadBalancing-cpp_vc15_release_windows_mt_x64.lib;python36.lib</AdditionalDependencies>
     </Link>
     <ImageContentTask>
       <ContentOutput>$(ProjectDir)\Assets\Sprite\%(Filename).dds</ContentOutput>
@@ -229,6 +229,8 @@
     <ClCompile Include="Game\Monster\Monsters\TestMons.cpp" />
     <ClCompile Include="Game\PythonBridge\PythonBridge.cpp" />
     <ClCompile Include="Game\StageSetup\StageSetup.cpp" />
+    <ClCompile Include="Game\Title\pvpModeSelect.cpp" />
+    <ClCompile Include="Game\Title\Title.cpp" />
     <ClCompile Include="stdafx.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -411,14 +413,19 @@
     <ClInclude Include="Game\PythonBridge\include\weakrefobject.h" />
     <ClInclude Include="Game\PythonBridge\PythonBridge.h" />
     <ClInclude Include="Game\StageSetup\StageSetup.h" />
+    <ClInclude Include="Game\Title\pvpModeSelect.h" />
+    <ClInclude Include="Game\Title\Title.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
+    <MeshContentTask Include="Assets\modelData\stage\map.FBX" />
     <MeshContentTask Include="Assets\modelData\Test.FBX" />
     <MeshContentTask Include="Assets\modelData\testMons\tesEnemy2.fbx" />
+    <MeshContentTask Include="Assets\modelData\testMons\tesEnemy3.fbx" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\modelData\boxTex.png" />
+    <Image Include="Assets\modelData\stage\handle010.jpg" />
     <Image Include="Assets\modelData\testMons\asu.png" />
     <ImageContentTask Include="Assets\Sprite\Test.png" />
   </ItemGroup>

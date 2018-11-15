@@ -19,7 +19,7 @@ public:
 private:
 	bool neko = false;
 	CVector3 m_target = { 0.0f, 20.0f, 0.0f };
-	CVector3 m_pos = { 0.0f, 350.0f, 1000.0f };
+	CVector3 m_pos = { 0.0f, 350.0f, 10000.0f };
 	//CVector3 m_toCameraPos = { 0.0f, 50.0f, 300.0f };
 	CVector3 m_toCameraPos = { 0.0f, 50.0f, 1000.0f };
 

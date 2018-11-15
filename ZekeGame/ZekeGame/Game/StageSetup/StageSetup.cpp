@@ -19,7 +19,7 @@ StageSetup::StageSetup()
 	mons->Setpos({ 250,0,500 });
 	mons->Setnum(1);
 	mons->Setteam(0);
-	mons->SetpyFile("testBrain");
+	mons->SetpyFile("PythonAIs.testBrain");
 	//g_mons.push_back(mons);
 	g_mons[1] = mons;
 

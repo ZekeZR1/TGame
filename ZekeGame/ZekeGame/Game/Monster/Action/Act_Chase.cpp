@@ -7,20 +7,20 @@ bool Act_Chase::Action(Monster* me)
 {
 	if (m_target == nullptr)
 	{
-		//me->Setspeed(CVector3::Zero());
-		me->Setiswalk(false);
+		me->Setspeed(CVector3::Zero());
+		//me->Setiswalk(false);
 		return true;
 	}
 
 	CVector3 v = m_target->Getpos() - me->Getpos();
 	if (v.Length() < 50)
 	{
-		//me->Setspeed(CVector3::Zero());
-		me->Setiswalk(false);
+		me->Setspeed(CVector3::Zero());
+		//me->Setiswalk(false);
 		return true;
 	}
 	v.Normalize();
-	v *= 5;
+	v *= 15;
 	me->Setspeed(v);
 	me->Setiswalk(true);
 	return false;

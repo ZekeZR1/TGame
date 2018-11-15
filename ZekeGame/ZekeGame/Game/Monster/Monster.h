@@ -20,6 +20,9 @@ public:
 	//回転するときに使う関数
 	void Turn();
 
+	void Knockback();
+
+	void StartKnockback(CVector3 v);
 
 	enum en_State
 	{
@@ -67,6 +70,7 @@ public:
 		m_oldmovespeed = m_movespeed;
 		m_movespeed = v;
 	}
+
 	void Setiswalk(bool b)
 	{
 		m_iswalk = b;
@@ -128,7 +132,10 @@ protected:
 	float m_gravity = 50.0f;					//重力
 	CVector3 m_movespeed = CVector3::Zero();	//ムーブスピード
 	CVector3 m_oldmovespeed = CVector3::Zero();	//古のムーブスピード
-	bool m_iswalk = false;
+	bool m_iswalk = false;						//
+	bool m_isKnockback = false;					//
+	CVector3 m_vKnockback = CVector3::Zero();	//
+	CVector3 m_vSubKnock = CVector3::Zero();
 	CVector3 m_pos = CVector3::Zero();			//ポジション
 	CQuaternion m_rot = CQuaternion::Identity();//回転
 
@@ -137,4 +144,6 @@ protected:
 	en_State m_state = en_NowLoading;
 
 	int m_AnimNum = 0;							//アニメーションの個数
+
+	float m_time = 0.0f;
 };
