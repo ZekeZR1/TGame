@@ -346,6 +346,8 @@ void LoadBalancingListener::raisePlayerPos() {
 	nByte eventCode = 2;
 	ExitGames::Common::Hashtable evData;
 	evData.put((nByte)1, m_posy);
+	bool sendReliable = true;
+	mpLbc->opRaiseEvent(sendReliable, m_posy, eventCode);
 	char message[256];
 	float pos = m_posy;
 	sprintf_s(message, "raise pos %f\n", pos);
