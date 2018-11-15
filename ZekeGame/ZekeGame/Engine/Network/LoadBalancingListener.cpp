@@ -144,7 +144,11 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 	case 2:
 	{
 		//もちろん、ペイロードはハッシュテーブルである必要はありません。単純な64ビット整数のように送信するのはどうですか？
-		int content = ExitGames::Common::ValueObject<int>(eventContentObj).getDataCopy();
+		float content = ExitGames::Common::ValueObject<float>(eventContentObj).getDataCopy();
+		char message[256];
+		float pos = content;
+		sprintf_s(message, "get event code pos %f\n", pos);
+		OutputDebugStringA(message);
 	}
 	break;
 	case 3:
@@ -332,11 +336,28 @@ void LoadBalancingListener::service()
 		mLocalPlayer.lastUpdateTime = t;
 		if (mpLbc->getState() == PeerStates::Joined) {
 			//毎フレーム呼ばれる処理
+			move();
 		}
 	}
 }
 
 //処理いろいろ
+void LoadBalancingListener::raisePlayerPos() {
+	nByte eventCode = 2;
+	ExitGames::Common::Hashtable evData;
+	evData.put((nByte)1, m_posy);
+	char message[256];
+	float pos = m_posy;
+	sprintf_s(message, "raise pos %f\n", pos);
+	OutputDebugStringA(message);
+}
+
+void LoadBalancingListener::move() {
+	if (g_pad[0].IsPress(enButtonY)) {
+		m_posy += 10.0f;
+		raisePlayerPos();
+	}
+}
 void LoadBalancingListener::raiseSomeEvent() {
 	//さまざまな種類のイベント（「移動」、「撮影」など）を区別するために
 	//別個のイベントコードを使用する

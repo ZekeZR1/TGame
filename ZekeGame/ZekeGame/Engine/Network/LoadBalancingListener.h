@@ -24,7 +24,9 @@ public:
 	void createRoom(void);
 	void service();
 
+	void move();
 	void raiseSomeEvent();
+	void raisePlayerPos();
 private:
 	//From Common::BaseListener
 
@@ -68,5 +70,6 @@ private:
 	BaseView* mpView;
 	LocalPlayer mLocalPlayer;
 	int m_val = 10;
+	float m_posy = 0.f;
 };
 
