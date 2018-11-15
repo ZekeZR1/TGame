@@ -7,14 +7,6 @@
 using namespace ExitGames::Common;
 using namespace ExitGames::LoadBalancing;
 
-static int randomColor(int from = 0, int to = 256)
-{
-	int r = from + rand() % (to - from);
-	int g = from + rand() % (to - from);
-	int b = from + rand() % (to - from);
-	return (r << 16) + (g << 8) + b;
-}
-
 const JString PeerStatesStr[] = {
 	L"Uninitialized",
 	L"PeerCreated",
@@ -53,7 +45,7 @@ public:
 	}
 } checker;
 
-LocalPlayer::LocalPlayer(void) : x(0), y(0), color(randomColor(100)), lastUpdateTime(0)
+LocalPlayer::LocalPlayer(void) : x(0), y(0),z(0), lastUpdateTime(0)
 {
 }
 
@@ -126,6 +118,8 @@ void LoadBalancingListener::leaveRoomEventAction(int playerNr, bool isInactive)
 	}
 }
 
+
+//opRaiseEventã§ã‚¤ãƒ™ãƒ³ãƒˆãŒé€ä¿¡ã•ã‚Œã‚‹ã¨ã“ã®é–¢æ•°ãŒå‘¼ã°ã‚Œã‚‹
 void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, const Object& eventContentObj)
 {
 	// logging the string representation of the eventContent can be really useful for debugging, but use with care: for big events this might get expensive
@@ -135,26 +129,26 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 	{
 	case 1:
 	{
-		//ƒRƒ“ƒeƒ“ƒc‚ÌƒRƒs[‚ÉƒAƒNƒZƒX
+		//ã‚³ãƒ³ãƒ†ãƒ³ãƒ„ã®ã‚³ãƒ”ãƒ¼ã«ã‚¢ã‚¯ã‚»ã‚¹
 		ExitGames::Common::Hashtable content = ExitGames::Common::ValueObject<ExitGames::Common::Hashtable>(eventContentObj).getDataCopy();
-		//ƒAƒhƒŒƒX‚ÅƒAƒNƒZƒX‚µ‚Ü‚·i‚±‚ÌŠÖ”‚ª•Ô‚é‚Æ‚·‚®‚É–³Œø‚É‚È‚é‚½‚ßAŒã‚ÅƒAƒNƒZƒX‚ğ‘±‚¯‚é•K—v‚ª‚ ‚éƒf[ƒ^‚Ì‚·‚×‚Ä‚Ì•”•ª‚ğƒRƒs[‚·‚é•K—v‚ª‚ ‚è‚Ü‚·j
-		//ExitGames::Common::Hashtable* pContent = ExitGames::Common::ValueObject<ExitGames::Common::Hashtable>(eventContentObj).getDataAddress();
+		//ã‚¢ãƒ‰ãƒ¬ã‚¹ã§ã‚¢ã‚¯ã‚»ã‚¹ã—ã¾ã™ï¼ˆã“ã®é–¢æ•°ãŒè¿”ã‚‹ã¨ã™ãã«ç„¡åŠ¹ã«ãªã‚‹ãŸã‚ã€å¾Œã§ã‚¢ã‚¯ã‚»ã‚¹ã‚’ç¶šã‘ã‚‹å¿…è¦ãŒã‚ã‚‹ãƒ‡ãƒ¼ã‚¿ã®ã™ã¹ã¦ã®éƒ¨åˆ†ã‚’ã‚³ãƒ”ãƒ¼ã™ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ï¼‰
+		ExitGames::Common::Hashtable* pContent = ExitGames::Common::ValueObject<ExitGames::Common::Hashtable>(eventContentObj).getDataAddress();
 	}
 	break;
 	case 2:
 	{
-		//‚à‚¿‚ë‚ñAƒyƒCƒ[ƒh‚ÍƒnƒbƒVƒ…ƒe[ƒuƒ‹‚Å‚ ‚é•K—v‚Í‚ ‚è‚Ü‚¹‚ñB
-		int content = ExitGames::Common::ValueObject<int>(eventContentObj).getDataCopy();
+		//ãƒšã‚¤ãƒ­ãƒ¼ãƒ‰ã¯ãƒãƒƒã‚·ãƒ¥ãƒ†ãƒ¼ãƒ–ãƒ«ã§ã‚ã‚‹å¿…è¦ã¯ã‚ã‚Šã¾ã›ã‚“ã€‚
+		float content = ExitGames::Common::ValueObject<float>(eventContentObj).getDataCopy();
 	}
 	break;
 	case 3:
 	{
-		// •‚“®¬”“_”‚Ì”z—ñ‚Å‚·‚©H
+		// æµ®å‹•å°æ•°ç‚¹æ•°ã®é…åˆ—
 		float* pContent = ExitGames::Common::ValueObject<float*>(eventContentObj).getDataCopy();
 		float** ppContent = ExitGames::Common::ValueObject<float*>(eventContentObj).getDataAddress();
 		short contentElementCount = *ExitGames::Common::ValueObject<float*>(eventContentObj).getSizes();
-		//”z—ñ‚ğƒyƒCƒ[ƒh‚Æ‚µ‚Ä•Û‚·‚éƒIƒuƒWƒFƒNƒg‚ÅgetDataCopyij‚ğŒÄ‚Ño‚·‚Æ‚«‚ÍA
-		//deallocateArrayij‚ğg—p‚µ‚Ä”z—ñ‚ÌƒRƒs[‚ğ©•ª‚ÅŠ„‚è“–‚Ä‰ğœ‚·‚é•K—v‚ª‚ ‚è‚Ü‚·B
+		//é…åˆ—ã‚’ãƒšã‚¤ãƒ­ãƒ¼ãƒ‰ã¨ã—ã¦ä¿æŒã™ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã§getDataCopyï¼ˆï¼‰ã‚’å‘¼ã³å‡ºã™ã¨ãã¯ã€
+		//deallocateArrayï¼ˆï¼‰ã‚’ä½¿ç”¨ã—ã¦é…åˆ—ã®ã‚³ãƒ”ãƒ¼ã‚’è‡ªåˆ†ã§å‰²ã‚Šå½“ã¦è§£é™¤ã™ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ã€‚
 		ExitGames::Common::MemoryManagement::deallocateArray(pContent);
 	}
 	break;
@@ -166,8 +160,8 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 	break;
 	default:
 	{
-		//‚æ‚èô—û‚³‚ê‚½ƒf[ƒ^Œ^‚ğ‘—óM‚·‚é•û–@‚ÌƒR[ƒh—á‚É‚Â‚¢‚Ä‚ÍA
-		//C ++ƒNƒ‰ƒCƒAƒ“ƒgSDK“à‚Ìdemo_typeSupport‚ğQÆ‚µ‚Ä‚­‚¾‚³‚¢
+		//ã‚ˆã‚Šæ´—ç·´ã•ã‚ŒãŸãƒ‡ãƒ¼ã‚¿å‹ã‚’é€å—ä¿¡ã™ã‚‹æ–¹æ³•ã®ã‚³ãƒ¼ãƒ‰ä¾‹ã«ã¤ã„ã¦ã¯ã€
+		//C ++ã‚¯ãƒ©ã‚¤ã‚¢ãƒ³ãƒˆSDKå†…ã®demo_typeSupportã‚’å‚ç…§ã—ã¦ãã ã•ã„
 	}
 	break;
 	}
@@ -312,7 +306,10 @@ void LoadBalancingListener::updateState()
 
 void LoadBalancingListener::afterRoomJoined(int localPlayerNr)
 {
-	
+	Console::get().writeLine(JString(L"afterRoomJoined: localPlayerNr=") + localPlayerNr);
+	this->mLocalPlayerNr = localPlayerNr;
+	MutableRoom& myRoom = mpLbc->getCurrentlyJoinedRoom();
+	Hashtable props = myRoom.getCustomProperties();
 }
 
 void LoadBalancingListener::createRoom()
@@ -337,27 +334,33 @@ void LoadBalancingListener::service()
 	{
 		mLocalPlayer.lastUpdateTime = t;
 		if (mpLbc->getState() == PeerStates::Joined) {
-			//–ˆƒtƒŒ[ƒ€ŒÄ‚Î‚ê‚éˆ—
-			if (g_pad[0].IsTrigger(enButtonA)) {
-				raiseSomeEvent();
-			}
+			//æ¯ãƒ•ãƒ¬ãƒ¼ãƒ å‘¼ã°ã‚Œã‚‹
 		}
 	}
 }
 
-//ˆ—‚¢‚ë‚¢‚ë
+//å‡¦ç†ã„ã‚ã„ã‚
+//INFO : ã‚¤ãƒ™ãƒ³ãƒˆã‚’é€ä¿¡ã™ã‚‹ã‚°ãƒ«ãƒ¼ãƒ—ã‚‚ã‚ã‘ã‚ˆã†ã¨æ€ãˆã°åˆ†ã‘ã‚Œã‚‹ã‚ˆ
+//ã“ã®é–¢æ•°ã‚’å‚è€ƒã«è‰²ã€…ã‚¤ãƒ™ãƒ³ãƒˆã‚’é€ä¿¡ã™ã‚‹é–¢æ•°ã‚’å®šç¾©ã™ã‚‹ã®ã‚ˆ
 void LoadBalancingListener::raiseSomeEvent() {
 	char message[256];
 	sprintf_s(message, "raiseEvent\n");
 	OutputDebugStringA(message);
-	//‚³‚Ü‚´‚Ü‚Èí—Ş‚ÌƒCƒxƒ“ƒgiuˆÚ“®vAuB‰ev‚È‚Çj‚ğ‹æ•Ê‚·‚é‚½‚ß‚É
-	//•ÊŒÂ‚ÌƒCƒxƒ“ƒgƒR[ƒh‚ğg—p‚·‚é
+	//ã•ã¾ã–ã¾ãªç¨®é¡ã®ã‚¤ãƒ™ãƒ³ãƒˆï¼ˆã€Œç§»å‹•ã€ã€ã€Œæ’®å½±ã€ãªã©ï¼‰ã‚’åŒºåˆ¥ã™ã‚‹ãŸã‚ã«
+	//åˆ¥å€‹ã®ã‚¤ãƒ™ãƒ³ãƒˆã‚³ãƒ¼ãƒ‰ã‚’ä½¿ç”¨ã™ã‚‹
 	nByte eventCode = 2; 
-	//Photons‚ÌƒVƒŠƒAƒ‹‰»‚É‚æ‚Á‚ÄƒTƒ|[ƒg‚³‚ê‚Ä‚¢‚éŒÀ‚èA
-	//D‚«‚È•û–@‚ÅƒyƒCƒ[ƒhƒf[ƒ^‚ğ®—‚µ‚Ü‚·
+	//Photonsã®ã‚·ãƒªã‚¢ãƒ«åŒ–ã«ã‚ˆã£ã¦ã‚µãƒãƒ¼ãƒˆã•ã‚Œã¦ã„ã‚‹é™ã‚Šã€
+	//å¥½ããªæ–¹æ³•ã§ãƒšã‚¤ãƒ­ãƒ¼ãƒ‰ãƒ‡ãƒ¼ã‚¿ã‚’æ•´ç†ã—ã¾ã™
 	ExitGames::Common::Hashtable evData;
 	evData.put((nByte)1, m_val);
-	//‚Ç‚±‚É‚Å‚à“’…‚·‚é•K—v‚ª‚ ‚éê‡‚ÍAM—Š‚Å‚«‚é‚à‚Ì‚ğ‘—M‚µ‚Ü‚·
+	//é…åˆ—ã¨ã‹ã¯ã“ã†ã‚„ã£ã¦é€ã‚‹
+	/*
+	Hashtable data;
+	nByte coords[] = { static_cast<nByte>(mLocalPlayer.x), static_cast<nByte>(mLocalPlayer.y) };
+	data.put((nByte)1, coords, 3);
+	*/
+	//ã©ã“ã«ã§ã‚‚åˆ°ç€ã™ã‚‹å¿…è¦ãŒã‚ã‚‹å ´åˆã¯ã€ä¿¡é ¼ã§ãã‚‹ã‚‚ã®ã‚’é€ä¿¡ã—ã¾ã™
 	bool sendReliable = false;
+	//opRaiseEventã§ã‚¤ãƒ™ãƒ³ãƒˆé€ä¿¡ã™ã‚‹ã€‚å¼•æ•°ã«ã‚ªãƒ—ã‚·ãƒ§ãƒ³ã§è‰²ã€…è¨­å®šã§ãã‚‹ãŒ
 	mpLbc->opRaiseEvent(sendReliable, evData, eventCode);
 }
