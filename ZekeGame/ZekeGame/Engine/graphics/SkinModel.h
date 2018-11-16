@@ -28,7 +28,7 @@ public:
 	*@param[in]	filePath		ロードするcmoファイルのファイルパス。
 	*@param[in] enFbxUpAxis		fbxの上軸。デフォルトはenFbxUpAxisZ。
 	*/
-	void Init(const wchar_t* filePath, EnFbxUpAxis enFbxUpAxis = enFbxUpAxisZ);
+	void Init(const wchar_t* filePath, EnFbxUpAxis enFbxUpAxis = enFbxUpAxisZ, char* entryPS = nullptr, char* entryVS = nullptr);
 
 	CMatrix GetWorldMatrix() {
 		return m_worldMatrix;

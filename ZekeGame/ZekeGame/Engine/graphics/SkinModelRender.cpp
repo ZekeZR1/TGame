@@ -33,9 +33,11 @@ void SkinModelRender::Render() {
 void SkinModelRender::Init(const wchar_t* filePath,
 	AnimationClip* animationClips,
 	int numAnimationClips,
-	EnFbxUpAxis fbxUpAxis){
+	EnFbxUpAxis fbxUpAxis,
+	char* psmain,
+	char* vsmain){
 	m_enFbxUpAxis = fbxUpAxis;
-	m_skinModel.Init(filePath,m_enFbxUpAxis);
+	m_skinModel.Init(filePath,m_enFbxUpAxis, psmain, vsmain);
 	InitAnimation(animationClips, numAnimationClips);
 }
 
