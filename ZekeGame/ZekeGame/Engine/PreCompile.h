@@ -1,5 +1,4 @@
 #include <conio.h>
-
 #include "DirectXTK/Inc/Model.h"
 #include "DirectXTK/Inc/Effects.h"	
 #include "DirectXTK/Inc/CommonStates.h"
@@ -25,8 +24,10 @@
 #include "Engine/physics/Physics.h"
 #include "Engine/HID/Pad.h"
 
-#include "Network/CListener.h"
+#include "Common-cpp/inc/Common.h"
+#include "LoadBalancing-cpp/inc/Client.h"
 #include "Network/NetworkLogic.h"
+#include "Network/Console.h"
 
 #include "Engine/Engine.h"
 #include "Engine/gameObject/GameObject.h"
