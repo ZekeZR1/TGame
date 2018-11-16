@@ -9,7 +9,7 @@ int WINAPI wWinMain(
 	int nCmdShow) {
 	//Initialize
 	Engine::IEngine().Init(hInstance, hPrevInstance, lpCmdLine, nCmdShow);
-	NewGO<Game>(0,"Game");
+	//NewGO<Game>(0,"Game");
 	NewGO<PvPModeSelect>(0, "pvp");
 	//MainRoop
 	Engine::IEngine().GameRoop();

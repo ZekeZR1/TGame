@@ -8,5 +8,9 @@ public:
 	void PostRender() override;
 	void LoadFiles();
 private:
+	CFONT font;
 	std::vector<std::string> files;
+	int monai[6] = {0};
+	int curpos = 0;
+	bool sel = false;
 };
