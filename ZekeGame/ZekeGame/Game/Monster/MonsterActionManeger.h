@@ -7,7 +7,9 @@ public:
 	MonsterAction* LoadAction(int id,int target);
 	enum en_action
 	{
-		test,
+		en_Chase,
+		en_Atack,
+		en_Leave,
 	};
 private:
 };

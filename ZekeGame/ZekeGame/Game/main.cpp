@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "Game.h"
+#include "Title/pvpModeSelect.h"
 
 int WINAPI wWinMain(
 	HINSTANCE hInstance,
@@ -9,6 +10,7 @@ int WINAPI wWinMain(
 	//Initialize
 	Engine::IEngine().Init(hInstance, hPrevInstance, lpCmdLine, nCmdShow);
 	NewGO<Game>(0,"Game");
+	NewGO<PvPModeSelect>(0, "pvp");
 	//MainRoop
 	Engine::IEngine().GameRoop();
 	//Release
