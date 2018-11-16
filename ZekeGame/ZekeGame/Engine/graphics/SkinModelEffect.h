@@ -18,8 +18,12 @@ protected:
 public:
 	ModelEffect(char* vsmain, char* psmain)
 	{
-		//TODO : skinModelRenderからシェーダーのエントリー関数を変更できるようにする
-		m_psShader.Load("Assets/shader/model.fx", psmain, Shader::EnType::PS);
+		if (vsmain == nullptr || psmain == nullptr) {
+			m_psShader.Load("Assets/shader/model.fx", "PSMain", Shader::EnType::PS);
+		}
+		else {
+			m_psShader.Load("Assets/shader/model.fx", psmain, Shader::EnType::PS);
+		}
 
 		m_pPSShader = &m_psShader;
 	}
@@ -59,7 +63,12 @@ class NonSkinModelEffect : public ModelEffect {
 public:
 	NonSkinModelEffect(char* psmain, char* vsmain) : ModelEffect(psmain,vsmain)
 	{
-		m_vsShader.Load("Assets/shader/model.fx", vsmain, Shader::EnType::VS);
+		if (psmain == nullptr || vsmain == nullptr) {
+			m_vsShader.Load("Assets/shader/model.fx", "VSMain", Shader::EnType::VS);
+		}
+		else {
+			m_vsShader.Load("Assets/shader/model.fx", vsmain, Shader::EnType::VS);
+		}
 		m_pVSShader = &m_vsShader;
 		isSkining = false;
 	}
@@ -75,8 +84,12 @@ public:
 	{
 		wchar_t hoge[256];
 		GetCurrentDirectoryW(256, hoge);
-		m_vsShader.Load("Assets/shader/model.fx", vsmain, Shader::EnType::VS);
-
+		if (psmain == nullptr || vsmain == nullptr) {
+			m_vsShader.Load("Assets/shader/model.fx", "VSMain", Shader::EnType::VS);
+		}
+		else {
+			m_vsShader.Load("Assets/shader/model.fx", vsmain, Shader::EnType::VS);
+		}
 		m_pVSShader = &m_vsShader;
 		isSkining = true;
 	}

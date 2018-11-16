@@ -27,7 +27,6 @@ void SkinModel::Init(const wchar_t* filePath, EnFbxUpAxis enFbxUpAxis, char* ent
 
 	//SkinModelDataManagerを使用してCMOファイルのロード。
 	m_modelDx = g_skinModelDataManager.Load(filePath, m_skeleton, entryPS, entryVS);
-
 	m_enFbxUpAxis = enFbxUpAxis;
 }
 void SkinModel::InitSkeleton(const wchar_t* filePath)
