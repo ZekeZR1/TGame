@@ -279,15 +279,24 @@ void PythonBridge::py_exe(int num,int team,const char* file)
 	Py_DECREF(pFunction);
 
 	int vl = PyList_Size(pValue);
-	std::vector<float> actions;
+	if (vl == 0)
+	{
+		Py_DECREF(pValue);
+		SetCurrentDirectory("../");
+		return;
+	}
+	//std::vector<int[2]> actions;
 	for (int i = 0; i < vl; i++)
 	{
-		actions.push_back(PyFloat_AsDouble(PyList_GetItem(pValue, i)));
+		int action[2];
+		action[0] = PyLong_AsLong(PyList_GetItem(PyList_GetItem(pValue, i),0));
+		action[1] = PyLong_AsLong(PyList_GetItem(PyList_GetItem(pValue, i),1));
+		me->AddAction(mam->LoadAction(action[0], action[1]));
 	}
 
 	Py_DECREF(pValue);
 
 	SetCurrentDirectory("../");
 
-	me->AddAction(mam->LoadAction(actions[0], actions[1]));
+	
 }

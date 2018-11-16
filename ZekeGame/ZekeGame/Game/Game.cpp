@@ -15,6 +15,7 @@ Game::~Game()
 {
 	DeleteGO(m_model);
 	DeleteGO(m_sprite);
+	Engine::IEngine().DestroyNetworkSystem();
 }
 
 bool Game::Start() {
@@ -26,10 +27,14 @@ bool Game::Start() {
 
 	TestMons* tm = NewGO<TestMons>(0, "monster");
 	tm->Setnum(1);
-	tm->SetpyFile("testBrain");
+	tm->SetpyFile("testBrain1");
 
 	TestMons* tm2 = NewGO<TestMons>(0, "monster");
 	tm2->Setpos({ 600,0,600 });
+
+	TestMons* tm3 = NewGO<TestMons>(0, "monster");
+	tm3->Setpos({ -600,0,650 });
+	tm3->Setnum(2);
 
 	pb->pbInit();
 
@@ -37,12 +42,12 @@ bool Game::Start() {
 	m_sprite->Init(L"Assets/Sprite/Test.dds", 500.f, 500.f);
 	m_sprite->SetPosition(CVector3::Zero());*/
 
+	Engine::IEngine().CreateNetworkSystem();
+
 	camera = new GameCamera;
 
 	return true;
 }
-
-
 void Game::Update() {
 	static CVector3 pos = CVector3::Zero();
 	if (g_pad[0].IsPress(enButtonDown)) {

@@ -1,9 +1,8 @@
 #pragma once
 #include "../../Engine/character/CharacterController.h"
-//#include "MonsterAI.h"
+
 class MonsterAction;
 class PythonBridge;
-//class CharacterController;
 class Monster:public GameObject
 {
 public:
@@ -56,12 +55,12 @@ public:
 	}
 	CVector3 Getspeed()
 	{
-		return m_speed;
+		return m_movespeed;
 	}
 	void Setspeed(CVector3 v)
 	{
-		m_oldspeed = m_speed;
-		m_speed = v;
+		m_oldmovespeed = m_movespeed;
+		m_movespeed = v;
 	}
 	int Getteam()
 	{
@@ -83,24 +82,41 @@ public:
 
 	void AddAction(MonsterAction* ma);
 
+	//アニメーションさせるときは必ずこいつらを使うこと。
+	void anim_idle();
+	void anim_walk();
+	void anim_atack();
+	void anim_defense();
+	void anim_recovery();
+
+	enum anim
+	{
+		en_idle,
+		en_walk,
+		en_atack,
+		en_defense,
+		en_recovery,
+	};
+
 protected:
 	const char* m_pyFile = NULL;				//使うpythonファイルの名前
 	int m_ID = 0;								//モンスターの種類を判断するためのID
 	int m_num = 0;								//背番号みたいな感じ
 	int m_team = 0;								//チーム番号
-	//std::vector<int> m_useAction;
 
 	CharacterController m_cc;					//キャラコン
 	SkinModelRender* m_smr = nullptr;			//スキンモデルレンダー
 	int m_HP = 0;								//HP
 	int m_MP = 0;								//MP
 	float m_gravity = 50.0f;					//重力
-	CVector3 m_speed = CVector3::Zero();		//ムーブスピード
-	CVector3 m_oldspeed = CVector3::Zero();		//古のムーブスピード
+	CVector3 m_movespeed = CVector3::Zero();	//ムーブスピード
+	CVector3 m_oldmovespeed = CVector3::Zero();	//古のムーブスピード
 	CVector3 m_pos = CVector3::Zero();			//ポジション
 	CQuaternion m_rot = CQuaternion::Identity();//回転
 
 	PythonBridge* m_PB;
 	std::vector<MonsterAction*> m_actions;		//使うアクション
 	en_State m_state = en_NowLoading;
+
+	int m_AnimNum = 0;							//アニメーションの個数
 };

@@ -752,6 +752,5 @@ std::unique_ptr<Model> DirectX::Model::CreateFromCMO(
 		onFindBoneData);
 
     model->name = szFileName;
-
     return model;
 }
