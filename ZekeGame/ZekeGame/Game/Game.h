@@ -1,7 +1,10 @@
 #pragma once
 //#include "GameCamera.h"
+
 #include "StageSetup/StageSetup.h"
+
 class GameCamera;
+class TestListener;
 
 class Game : public GameObject
 {
