@@ -155,14 +155,10 @@ PSInput VSMainSkin(VSInputNmTxWeights In)
 //--------------------------------------------------------------------------------------
 float4 PSMain(PSInput In) : SV_Target0
 {
-	//return In.Color;
 	return albedoTexture.Sample(Sampler, In.TexCoord) * In.Color;
-	//float4 col = {1.0f,0.0f,0.0f,0.0f};
-	//return col;
 }
 
-float4 PSMain2(PSInput In) : SV_Target0
+float4 PSMainSkin(PSInput In) : SV_Target0
 {
-	float4 col = {1.0f,0.0f,0.0f,0.0f};
-	return col;
+	return albedoTexture.Sample(Sampler, In.TexCoord);
 }
