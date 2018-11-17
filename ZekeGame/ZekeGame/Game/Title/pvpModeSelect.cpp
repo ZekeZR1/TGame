@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "pvpModeSelect.h"
 #include <string>
+#include "../Game.h"
 
 bool PvPModeSelect::Start()
 {
@@ -25,7 +26,9 @@ void PvPModeSelect::Update()
 	{
 		if (g_pad[0].IsTrigger(enButtonB))
 		{
-
+			Game* game = NewGO<Game>(0, "Game");
+			game->GamePVPmodeInit(files, monai);
+			DeleteGO(this);
 		}
 		else if (g_pad[0].IsTrigger(enButtonDown))
 		{
@@ -92,24 +95,22 @@ void PvPModeSelect::LoadFiles()
 
 void PvPModeSelect::PostRender()
 {
-	CVector4 colors[6] = { CVector4::White };
-	for (CVector4&col : colors)
+	CVector4 colors[6];
+	for (CVector4& col : colors)
 	{
-		col.x -= 0.0001f;
-		col.y -= 0.0001f;
-		col.z -= 0.0001f;
+		col = CVector4::White;
 	}
 	if(sel)
 		colors[curpos] = CVector4::Yellow;
 	else
 		colors[curpos] = CVector4::Red;
-	CVector3 pos = { 10,10,0 };
+	CVector2 pos = { 10,10};
 	for (int i = 0; i < 6; i++)
 	{
 		std::wstring ws = std::wstring(files[monai[i]].begin(), files[monai[i]].end());
-		font.Init(ws.c_str(), pos, CVector3::One(), colors[i]);
-		font.Draw();
+		//font.Init(ws.c_str(), pos, CVector3::One(), colors[i]);
+		font.Draw(ws.c_str(), pos, colors[i]);
 
-		pos.y += 50;
+		pos.y -= 50;
 	}
 }

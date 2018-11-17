@@ -1,7 +1,9 @@
 #include "stdafx.h"
+#include <thread>
 #include "PythonBridge.h"
 #include "../Monster/MonsterAction.h"
 #include "../Monster/MonsterActionManeger.h"
+
 //#include "../GameData.h"
 //#include "../Monster/Monster.h"
 
@@ -259,6 +261,30 @@ PythonBridge::PythonBridge()
 	mam = FindGO<MonsterActionManeger>("MAM");
 }
 
+void PythonBridge::Update()
+{/*
+	for (int i = 0;i < threads.size();i++)
+	{
+		if (comp[i])
+		{
+			threads[i]->detach();
+			auto ite = std::find(threads.begin(), threads.end(), threads[i]);
+			threads.erase(ite);
+		}
+	}*/
+	if (m_isExeSeting)
+	{
+		m_timer += IGameTime().GetFrameDeltaTime();
+	}
+	if (perfect)
+	{
+		th->detach();
+		std::thread* t = th.release();
+		delete t;
+		perfect = false;
+	}
+}
+
 void PythonBridge::pbInit()
 {
 	
@@ -283,11 +309,90 @@ void PythonBridge::pbInit()
 	}
 }
 
+bool py_exe(int num, int team, const char* file)
+{
+	std::unique_ptr<std::thread> th = nullptr;
+	th.reset(new std::thread([&]
+	{
+		MonsterActionManeger* mam = FindGO<MonsterActionManeger>("MAM");
+		if (file == NULL)
+			return;
+		g_meNum = num;
+		g_meTeam = team;
+		g_buddyCount = 0;
+		g_enemyCount = 0;
+		Monster* me;
+		QueryGOs<Monster>("monster", [&](Monster* obj)->bool
+		{
+			if (obj->Getnum() == num)
+				me = obj;
+
+			if (obj->Getteam() == team)
+			{
+				g_buddyCount++;
+			}
+			else
+			{
+				g_enemyCount++;
+			}
+			return true;
+		});
+
+		SetCurrentDirectory("Python36");
+
+		PyImport_AppendInittab("SendGame", initModule);
+
+		PyObject *pName, *pModule, *pFunction, *pArgs, *pValue;
+
+		Py_Initialize();
+		pName = PyUnicode_DecodeFSDefault(file);
+		pModule = PyImport_Import(pName);
+		Py_DECREF(pName);
+		pFunction = PyObject_GetAttrString(pModule, "Brain");
+		pArgs = PyTuple_New(0);
+		pValue = PyObject_CallObject(pFunction, pArgs);
+		Py_DECREF(pModule);
+		Py_DECREF(pFunction);
+
+		int vl = PyList_Size(pValue);
+		if (vl == 0)
+		{
+			Py_DECREF(pValue);
+			SetCurrentDirectory("../");
+			Py_Finalize();
+			return;
+		}
+		//std::vector<int[2]> actions;
+		for (int i = 0; i < vl; i++)
+		{
+			int action[2];
+			action[0] = PyLong_AsLong(PyList_GetItem(PyList_GetItem(pValue, i), 0));
+			action[1] = PyLong_AsLong(PyList_GetItem(PyList_GetItem(pValue, i), 1));
+			me->AddAction(mam->LoadAction(action[0], action[1]));
+		}
+
+		Py_DECREF(pValue);
+
+		SetCurrentDirectory("../");
+		Py_Finalize();
+	}));
+	return true;
+}
+
 //pythonÇé¿çsÇ∑ÇÈÉ]ÅB
 void PythonBridge::py_exe(int num,int team,const char* file)
 {
-	if (file == NULL)
+
+	/*bool* com = false;
+	comp.push_back(com);
+	*/
+	/*if (isExe)
 		return;
+	isExe = true;*/
+
+	if (file == NULL || Py_IsInitialized())
+		return;
+
 	g_meNum = num;
 	g_meTeam = team;
 	g_buddyCount = 0;
@@ -314,8 +419,17 @@ void PythonBridge::py_exe(int num,int team,const char* file)
 	PyImport_AppendInittab("SendGame", initModule);
 
 	PyObject *pName, *pModule, *pFunction, *pArgs, *pValue;
-	
+
 	Py_Initialize();
+
+	PyEval_InitThreads();
+
+	PyGILState_STATE GILState;
+	GILState = PyGILState_Ensure();
+	
+	/*th.reset(new std::thread([&]
+	{*/
+	
 	pName = PyUnicode_DecodeFSDefault(file);
 	pModule = PyImport_Import(pName);
 	Py_DECREF(pName);
@@ -337,8 +451,8 @@ void PythonBridge::py_exe(int num,int team,const char* file)
 	for (int i = 0; i < vl; i++)
 	{
 		int action[2];
-		action[0] = PyLong_AsLong(PyList_GetItem(PyList_GetItem(pValue, i),0));
-		action[1] = PyLong_AsLong(PyList_GetItem(PyList_GetItem(pValue, i),1));
+		action[0] = PyLong_AsLong(PyList_GetItem(PyList_GetItem(pValue, i), 0));
+		action[1] = PyLong_AsLong(PyList_GetItem(PyList_GetItem(pValue, i), 1));
 		me->AddAction(mam->LoadAction(action[0], action[1]));
 	}
 
@@ -346,5 +460,24 @@ void PythonBridge::py_exe(int num,int team,const char* file)
 
 	SetCurrentDirectory("../");
 	Py_Finalize();
+		//isExe = false;
+		//perfect = true;
+	//*com = true;
+	PyGILState_Release(GILState);
+	//}));
+	//auto pth = PyEval_SaveThread();
+	//PyEval_RestoreThread(pth);
+	//threads.push_back(th);*/
 	
+}
+
+void PythonBridge::AddExe(int num, int team, const char * file)
+{
+	ExeData ed = { num,team,file };
+	m_exeDatalist.push_back(ed);
+	m_isExeSeting = true;
+}
+
+void PythonBridge::py_exe()
+{
 }

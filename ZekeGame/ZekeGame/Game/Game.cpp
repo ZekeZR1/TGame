@@ -20,9 +20,15 @@ Game::~Game()
 	Engine::IEngine().DestroyNetworkSystem();
 }
 
-bool Game::Start() {
+void Game::GamePVPmodeInit(std::vector<std::string> files, int monsterAI[6])
+{
 	PythonBridge* pb = NewGO<PythonBridge>(0, "PB");
 	ss = new StageSetup();
+	ss->PVPSetup(files, monsterAI);
+}
+
+bool Game::Start() {
+	
 
 	
 	NewGO<MonsterActionManeger>(0, "MAM");
@@ -30,18 +36,6 @@ bool Game::Start() {
 	m_model->Init(L"Assets/modelData/map.cmo");
 	m_model->SetPosition(CVector3::Zero());
 
-	/*TestMons* tm = NewGO<TestMons>(0, "monster");
-	tm->Setnum(1);
-	tm->SetpyFile("testBrain1");
-
-	TestMons* tm2 = NewGO<TestMons>(0, "monster");
-	tm2->Setpos({ 600,0,600 });
-
-	TestMons* tm3 = NewGO<TestMons>(0, "monster");
-	tm3->Setpos({ -600,0,650 });
-	tm3->Setnum(2);*/
-
-	//pb->pbInit();
 
 	/*m_sprite = NewGO<SpriteRender>(0,"sprite");
 	m_sprite->Init(L"Assets/Sprite/Test.dds", 500.f, 500.f);

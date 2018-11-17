@@ -223,3 +223,8 @@ def Atack(target):
 
 def Leave(target):
     addAction(target,ACTION.Leave)
+
+
+
+def Brain():
+    pass

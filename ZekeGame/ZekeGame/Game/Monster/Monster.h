@@ -8,8 +8,8 @@ class Monster:public GameObject
 public:
 	~Monster();
 
-	bool Start();
-	void Update();
+	bool Start() override final;
+	void Update() override final;
 
 	//Monsterのアクションを実行する関数
 	void execute();
@@ -52,6 +52,14 @@ public:
 	int GetMP()
 	{
 		return m_MP;
+	}
+	float Getradius()
+	{
+		return m_radius;
+	}
+	float Getheight()
+	{
+		return m_height;
 	}
 	CVector3 Getpos()
 	{
@@ -126,6 +134,8 @@ protected:
 	int m_team = 0;								//チーム番号
 
 	CharacterController m_cc;					//キャラコン
+	float m_radius = 0.0f;						//半径
+	float m_height = 0.0f;						//高さ
 	SkinModelRender* m_smr = nullptr;			//スキンモデルレンダー
 	int m_HP = 0;								//HP
 	int m_MP = 0;								//MP
@@ -142,6 +152,7 @@ protected:
 	PythonBridge* m_PB;
 	std::vector<MonsterAction*> m_actions;		//使うアクション
 	en_State m_state = en_NowLoading;
+	bool isLoading = false;
 
 	int m_AnimNum = 0;							//アニメーションの個数
 
