@@ -274,7 +274,8 @@ void PythonBridge::Update()
 	}*/
 	if (pTS != nullptr && end)
 	{
-		PyEval_ReleaseThread(pTS);
+		PyEval_RestoreThread(pTS);
+		//PyEval_ReleaseThread(pTS);
 		Py_Finalize();
 		end = false;
 	}
@@ -418,9 +419,9 @@ void PythonBridge::py_exe(int num,int team,const char* file)
 
 	th.reset(new std::thread([=]
 	{
-		
-	PyGILState_STATE GILState;
-	GILState = PyGILState_Ensure();
+		PyGILState_STATE GILState;
+		GILState = PyGILState_Ensure();
+	
 
 	PyObject *pName, *pModule, *pFunction, *pArgs, *pValue;
 	
@@ -436,7 +437,11 @@ void PythonBridge::py_exe(int num,int team,const char* file)
 	PyTuple_SetItem(pArgs, 0, pMenum);
 	PyTuple_SetItem(pArgs, 0, pMeteam);
 
+	
+
 	pValue = PyObject_CallObject(pFunction, pArgs);
+
+	PyGILState_Release(GILState);
 
 	Py_DECREF(pModule);
 	Py_DECREF(pFunction);
@@ -444,7 +449,8 @@ void PythonBridge::py_exe(int num,int team,const char* file)
 	if (pValue == NULL)
 	{
 		SetCurrentDirectory("../");
-		Py_Finalize();
+		//Py_Finalize();
+		
 		end = true;
 		return;
 	}
