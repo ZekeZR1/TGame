@@ -22,7 +22,6 @@ Game::~Game()
 
 void Game::GamePVPmodeInit(std::vector<std::string> files, int monsterAI[6])
 {
-	PythonBridge* pb = NewGO<PythonBridge>(0, "PB");
 	ss = new StageSetup();
 	ss->PVPSetup(files, monsterAI);
 }

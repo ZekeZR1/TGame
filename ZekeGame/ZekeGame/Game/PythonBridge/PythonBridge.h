@@ -34,14 +34,10 @@ public:
 		return g_mons[num]->Getpos();
 	}
 private:
-	std::vector<std::thread*> threads;
-	std::vector<bool> comp;
+	PyThreadState* pTS = nullptr;
 
 	std::unique_ptr<std::thread> th;
-	bool isExe = false;
+	bool end = false;
 	std::vector<ExeData> m_exeDatalist;
-	bool m_isExeSeting = false;
-	float m_timer = 0.0f;
-	bool perfect = false;
 	MonsterActionManeger* mam = nullptr;
 };

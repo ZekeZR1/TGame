@@ -11,14 +11,14 @@
 Monster::~Monster()
 {
 	DeleteGO(m_smr);
-
+	DeleteGO(m_PB);
 }
 
 bool Monster::Start()
 {
 	m_smr->SetPosition(m_pos);
 	m_cc.Init(m_radius, m_height, m_pos);
-	m_PB = FindGO<PythonBridge>("PB");
+	m_PB = NewGO<PythonBridge>(0,"PB");
 	return true;
 }
 

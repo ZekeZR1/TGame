@@ -76,7 +76,7 @@ class GameData:
         self.Buddy = []
         poss = SendGame.GetAllBuddyPosition()
         nums = SendGame.GetAllBuddyNum()
-        for i in range(self.buddyCount-1):
+        for i in range(self.buddyCount):
             mon = Monster()
             mon.SetPosition(poss[i][0],poss[i][1],poss[i][2])
             mon.num = nums[i]
@@ -92,6 +92,22 @@ class GameData:
             mon.num = nums[i]
             mon.HP = HPs[i]
             self.Enemys.append(mon)
+    def init(self,args):
+        mm = None
+        for i in range(self.Buddy.count()):
+            mon = self.Buddy[i]
+            if mon.num == args[0]:
+                mm = mom
+                del self.Buddy[i]
+                break
+
+        self.me = Monster()
+        self.me.pos = mon.pos
+        self.me.HP = mon.HP
+        self.me.MP = mon.MP
+        self.me.num = mon.num
+        self.me.team = mon.team
+        
 
 
     def GetFarMonster(self):
@@ -226,5 +242,6 @@ def Leave(target):
 
 
 
-def Brain():
-    pass
+def Brain(args):
+    gameData.init(args)
+    return actions
