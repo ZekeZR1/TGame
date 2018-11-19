@@ -103,7 +103,6 @@
       <UniqueIdentifier>{6c242cc8-bf0c-49a3-ae26-8a2eb78cc34e}</UniqueIdentifier>
     </Filter>
     <Filter Include="ソース ファイル\Engine\time">
-
       <UniqueIdentifier>{80721093-a009-4c7c-8526-ec9f9fefdeef}</UniqueIdentifier>
     </Filter>
     <Filter Include="ソース ファイル\Game\Monster\Action">
@@ -946,6 +945,12 @@
     <MeshContentTask Include="Assets\modelData\testMons\tesEnemy3.fbx">
       <Filter>ソース ファイル\Game\Assets\modelData\testMons</Filter>
     </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\ringochan.FBX">
+      <Filter>ソース ファイル\Game\Assets\modelData</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\unityChan.fbx">
+      <Filter>ソース ファイル\Game\Assets\modelData</Filter>
+    </MeshContentTask>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\modelData\boxTex.png">
@@ -956,6 +961,9 @@
     </Image>
     <Image Include="Assets\modelData\stage\handle010.jpg">
       <Filter>ソース ファイル\Game\Assets\modelData\Stage</Filter>
+    </Image>
+    <Image Include="Assets\modelData\utc_all2.tga">
+      <Filter>ソース ファイル\Game\Assets\modelData</Filter>
     </Image>
   </ItemGroup>
   <ItemGroup>
@@ -985,6 +993,18 @@
     </CustomBuild>
     <CustomBuild Include="python36_d.lib">
       <Filter>ソース ファイル\Game</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\modelData\move.tka">
+      <Filter>ソース ファイル\Game\Assets\modelData</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\modelData\ringochan.tks">
+      <Filter>ソース ファイル\Game\Assets\modelData</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\modelData\walk.tka">
+      <Filter>ソース ファイル\Game\Assets\modelData</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\modelData\unityChan.tks">
+      <Filter>ソース ファイル\Game\Assets\modelData</Filter>
     </CustomBuild>
   </ItemGroup>
 </Project>
