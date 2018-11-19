@@ -437,8 +437,6 @@ void PythonBridge::py_exe(int num,int team,const char* file)
 	PyTuple_SetItem(pArgs, 0, pMenum);
 	PyTuple_SetItem(pArgs, 0, pMeteam);
 
-	
-
 	pValue = PyObject_CallObject(pFunction, pArgs);
 
 	PyGILState_Release(GILState);

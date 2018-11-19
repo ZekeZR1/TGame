@@ -62,25 +62,27 @@ class ACTION(IntEnum):
 
 class GameData:
     def __init__(self):
-        pos = SendGame.GetMyPosition();
+        print("""
         self.me = Monster()
+        pos = SendGame.GetMyPosition();
         self.me.SetPosition(pos[0],pos[1],pos[2])
         self.me.HP = SendGame.GetMyHP()
         self.me.MP = SendGame.GetMyMP()
         self.me.num = SendGame.GetMyNum()
-        self.me.team = SendGame.GetMyTeam()
+        self.me.team = SendGame.GetMyTeam()""")
 
-        self.buddyCount = SendGame.GetBuddyCount()
+        #self.buddyCount = SendGame.GetBuddyCount()
         self.enemyCount = SendGame.GetEnemyCount()
 
         self.Buddy = []
-        poss = SendGame.GetAllBuddyPosition()
-        nums = SendGame.GetAllBuddyNum()
+        #poss = SendGame.GetAllBuddyPosition()
+        #nums = SendGame.GetAllBuddyNum()
+        print("""
         for i in range(self.buddyCount):
             mon = Monster()
             mon.SetPosition(poss[i][0],poss[i][1],poss[i][2])
             mon.num = nums[i]
-            self.Buddy.append(mon)
+            self.Buddy.append(mon)""")
 
         self.Enemys = []
         poss = SendGame.GetAllEnemyPosition()
@@ -243,5 +245,5 @@ def Leave(target):
 
 
 def Brain(args):
-    gameData.init(args)
-    return actions
+    #gameData.init(args)
+    return 1

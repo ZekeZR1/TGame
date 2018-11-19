@@ -1,6 +1,7 @@
-import CppBridge as cb
+#port CppBridge as cb
 
-def Brain():
+print("""
+def Brain1():
     ME = cb.gameData.me
     mon = cb.gameData.GetEnemyHighHP()
     
@@ -8,4 +9,7 @@ def Brain():
     cb.Atack(mon)
     if ME.HP < 3:
         cb.Leave(mon)
-    return cb.actions
+    return cb.actions""")
+
+def Brain(args):
+    return 1
