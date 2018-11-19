@@ -18,6 +18,7 @@ bool SkinModelRender::Start() {
 }
 
 void SkinModelRender::Update() {
+	m_animation.Update(IGameTime().GetFrameDeltaTime());
 	m_skinModel.UpdateWorldMatrix(m_pos, m_rot, m_scale);
 	m_animation.Update(IGameTime().GetFrameDeltaTime());
 }

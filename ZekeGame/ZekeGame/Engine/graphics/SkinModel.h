@@ -131,6 +131,8 @@ private:
 	ID3D11SamplerState* m_samplerState = nullptr;		//!<サンプラステート。
 	CVector4 m_DirLight = { 0.707,-0.707,0.0f,0.0f };
 	CVector4 m_DirCol = { 1.0f,1.0f,1.0f,1.0f };
+	const char* m_vsmain;
+	const char* m_psmain;
 	//DirectionLight m_light;
 };
 
