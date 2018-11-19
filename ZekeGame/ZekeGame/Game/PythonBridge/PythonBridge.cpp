@@ -274,8 +274,8 @@ void PythonBridge::Update()
 	}*/
 	if (pTS != nullptr && end)
 	{
-		PyEval_RestoreThread(pTS);
-		//PyEval_ReleaseThread(pTS);
+		//PyEval_RestoreThread(pTS);
+		////PyEval_ReleaseThread(pTS);
 		Py_Finalize();
 		end = false;
 	}
@@ -407,9 +407,9 @@ void PythonBridge::py_exe(int num,int team,const char* file)
 
 	PyImport_AppendInittab("SendGame", initModule);
 
-	Py_InitializeEx(1);
+	Py_Initialize();
 
-	PyEval_InitThreads();
+	//PyEval_InitThreads();
 
 	/*PyThreadState* pMainthread = PyThreadState_Get();
 
@@ -417,10 +417,10 @@ void PythonBridge::py_exe(int num,int team,const char* file)
 
 	PyThreadState* pThread = PyThreadState_New(pinterpreter);*/
 
-	th.reset(new std::thread([=]
-	{
-		PyGILState_STATE GILState;
-		GILState = PyGILState_Ensure();
+	/*th.reset(new std::thread([=]
+	{*/
+		//PyGILState_STATE GILState;
+		//GILState = PyGILState_Ensure();
 	
 
 	PyObject *pName, *pModule, *pFunction, *pArgs, *pValue;
@@ -439,7 +439,7 @@ void PythonBridge::py_exe(int num,int team,const char* file)
 
 	pValue = PyObject_CallObject(pFunction, pArgs);
 
-	PyGILState_Release(GILState);
+	//PyGILState_Release(GILState);
 
 	Py_DECREF(pModule);
 	Py_DECREF(pFunction);
@@ -474,12 +474,12 @@ void PythonBridge::py_exe(int num,int team,const char* file)
 
 	SetCurrentDirectory("../");
 
-	PyGILState_Release(GILState);
+	//PyGILState_Release(GILState);
 	Py_Finalize();
 	end = true;
-	}));
+	//}));
 
-	pTS = PyEval_SaveThread();
+	//pTS = PyEval_SaveThread();
 	
 }
 

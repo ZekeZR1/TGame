@@ -1,5 +1,6 @@
 #port CppBridge as cb
-
+def Brain():
+    return 1
 print("""
 def Brain1():
     ME = cb.gameData.me
@@ -11,5 +12,3 @@ def Brain1():
         cb.Leave(mon)
     return cb.actions""")
 
-def Brain(args):
-    return 1
