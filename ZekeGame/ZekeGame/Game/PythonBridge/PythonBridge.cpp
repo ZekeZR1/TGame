@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include <thread>
+//#include <thread>
 #include "PythonBridge.h"
 #include "../Monster/MonsterAction.h"
 #include "../Monster/MonsterActionManeger.h"
@@ -274,7 +274,7 @@ void PythonBridge::Update()
 	}*/
 	if (pTS != nullptr && end)
 	{
-		//PyEval_RestoreThread(pTS);
+		PyEval_RestoreThread(pTS);
 		////PyEval_ReleaseThread(pTS);
 		Py_Finalize();
 		end = false;
@@ -378,10 +378,6 @@ bool py_exe(int num, int team, const char* file)
 //pythonÇé¿çsÇ∑ÇÈÉ]ÅB
 void PythonBridge::py_exe(int num,int team,const char* file)
 {
-
-	if (file == NULL || Py_IsInitialized())
-		return;
-
 	g_meNum = num;
 	g_meTeam = team;
 	g_buddyCount = 0;
@@ -409,7 +405,7 @@ void PythonBridge::py_exe(int num,int team,const char* file)
 
 	Py_Initialize();
 
-	//PyEval_InitThreads();
+	PyEval_InitThreads();
 
 	/*PyThreadState* pMainthread = PyThreadState_Get();
 
@@ -417,10 +413,10 @@ void PythonBridge::py_exe(int num,int team,const char* file)
 
 	PyThreadState* pThread = PyThreadState_New(pinterpreter);*/
 
-	/*th.reset(new std::thread([=]
-	{*/
-		//PyGILState_STATE GILState;
-		//GILState = PyGILState_Ensure();
+	th.reset(new std::thread([=]
+	{
+		PyGILState_STATE GILState;
+		GILState = PyGILState_Ensure();
 	
 
 	PyObject *pName, *pModule, *pFunction, *pArgs, *pValue;
@@ -435,11 +431,11 @@ void PythonBridge::py_exe(int num,int team,const char* file)
 	PyObject* pMenum = PyLong_FromLong(num);
 	PyObject* pMeteam = PyLong_FromLong(team);
 	PyTuple_SetItem(pArgs, 0, pMenum);
-	PyTuple_SetItem(pArgs, 0, pMeteam);
+	PyTuple_SetItem(pArgs, 1, pMeteam);
 
 	pValue = PyObject_CallObject(pFunction, pArgs);
 
-	//PyGILState_Release(GILState);
+	PyGILState_Release(GILState);
 
 	Py_DECREF(pModule);
 	Py_DECREF(pFunction);
@@ -457,11 +453,11 @@ void PythonBridge::py_exe(int num,int team,const char* file)
 	{
 		Py_DECREF(pValue);
 		SetCurrentDirectory("../");
-		Py_Finalize();
+		//Py_Finalize();
 		end = true;
 		return;
 	}
-	//std::vector<int[2]> actions;
+
 	for (int i = 0; i < vl; i++)
 	{
 		int action[2];
@@ -474,12 +470,11 @@ void PythonBridge::py_exe(int num,int team,const char* file)
 
 	SetCurrentDirectory("../");
 
-	//PyGILState_Release(GILState);
-	Py_Finalize();
+	//Py_Finalize();
 	end = true;
-	//}));
+	}));
 
-	//pTS = PyEval_SaveThread();
+	pTS = PyEval_SaveThread();
 	
 }
 

@@ -442,14 +442,17 @@
     <CopyFileToFolders Include="Game\dlllib\python36_d.dll">
       <FileType>Document</FileType>
     </CopyFileToFolders>
-    <CopyFileToFolders Include="CppBridge.py">
-      <FileType>Document</FileType>
-    </CopyFileToFolders>
     <None Include="Game\PythonBridge\include\pydtrace.d" />
-    <CopyFileToFolders Include="testBrain.py">
+    <CopyFileToFolders Include="PythonAIs\ang.py">
       <FileType>Document</FileType>
     </CopyFileToFolders>
-    <CopyFileToFolders Include="testBrain1.py">
+    <CopyFileToFolders Include="PythonAIs\CppBridge.py">
+      <FileType>Document</FileType>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="PythonAIs\testBrain.py">
+      <FileType>Document</FileType>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="PythonAIs\testBrain1.py">
       <FileType>Document</FileType>
     </CopyFileToFolders>
   </ItemGroup>

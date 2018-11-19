@@ -103,7 +103,6 @@
       <UniqueIdentifier>{6c242cc8-bf0c-49a3-ae26-8a2eb78cc34e}</UniqueIdentifier>
     </Filter>
     <Filter Include="ソース ファイル\Engine\time">
-
       <UniqueIdentifier>{80721093-a009-4c7c-8526-ec9f9fefdeef}</UniqueIdentifier>
     </Filter>
     <Filter Include="ソース ファイル\Game\Monster\Action">
@@ -120,6 +119,9 @@
     </Filter>
     <Filter Include="ソース ファイル\Game\Title">
       <UniqueIdentifier>{25b7f9a6-5a86-4bf0-8beb-db05c0572c33}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Game\PythonAIs">
+      <UniqueIdentifier>{630a2f73-5ad9-47f3-b68f-724ea6ff35e0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -970,13 +972,22 @@
     <CopyFileToFolders Include="Game\dlllib\python36.dll">
       <Filter>ソース ファイル\Game\dll</Filter>
     </CopyFileToFolders>
-    <CopyFileToFolders Include="CppBridge.py" />
-    <CopyFileToFolders Include="testBrain.py" />
-    <CopyFileToFolders Include="testBrain1.py" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Game\PythonBridge\include\pydtrace.d">
       <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </None>
+    <None Include="PythonAIs\testBrain.py">
+      <Filter>ソース ファイル\Game\PythonAIs</Filter>
+    </None>
+    <None Include="PythonAIs\testBrain1.py">
+      <Filter>ソース ファイル\Game\PythonAIs</Filter>
+    </None>
+    <None Include="PythonAIs\ang.py">
+      <Filter>ソース ファイル\Game\PythonAIs</Filter>
+    </None>
+    <None Include="PythonAIs\CppBridge.py">
+      <Filter>ソース ファイル\Game\PythonAIs</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
