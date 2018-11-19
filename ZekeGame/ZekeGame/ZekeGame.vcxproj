@@ -424,18 +424,15 @@
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
-    <MeshContentTask Include="Assets\modelData\ringochan.FBX" />
     <MeshContentTask Include="Assets\modelData\stage\map.FBX" />
     <MeshContentTask Include="Assets\modelData\Test.FBX" />
     <MeshContentTask Include="Assets\modelData\testMons\tesEnemy2.fbx" />
     <MeshContentTask Include="Assets\modelData\testMons\tesEnemy3.fbx" />
-    <MeshContentTask Include="Assets\modelData\unityChan.fbx" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\modelData\boxTex.png" />
     <Image Include="Assets\modelData\stage\handle010.jpg" />
     <Image Include="Assets\modelData\testMons\asu.png" />
-    <Image Include="Assets\modelData\utc_all2.tga" />
     <ImageContentTask Include="Assets\Sprite\Test.png" />
   </ItemGroup>
   <ItemGroup>
@@ -448,18 +445,6 @@
     <CopyFileToFolders Include="CppBridge.py">
       <FileType>Document</FileType>
     </CopyFileToFolders>
-    <CustomBuild Include="Assets\modelData\move.tka">
-      <FileType>Document</FileType>
-    </CustomBuild>
-    <CustomBuild Include="Assets\modelData\ringochan.tks">
-      <FileType>Document</FileType>
-    </CustomBuild>
-    <CustomBuild Include="Assets\modelData\unityChan.tks">
-      <FileType>Document</FileType>
-    </CustomBuild>
-    <CustomBuild Include="Assets\modelData\walk.tka">
-      <FileType>Document</FileType>
-    </CustomBuild>
     <None Include="Game\PythonBridge\include\pydtrace.d" />
     <CopyFileToFolders Include="testBrain.py">
       <FileType>Document</FileType>

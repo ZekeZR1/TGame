@@ -24,36 +24,12 @@ bool Game::Start() {
 	PythonBridge* pb = NewGO<PythonBridge>(0, "PB");
 	ss = new StageSetup();
 
+	
 	NewGO<MonsterActionManeger>(0, "MAM");
 	m_model = NewGO<SkinModelRender>(0, "model");
 	m_model->Init(L"Assets/modelData/map.cmo");
 	m_model->SetPosition(CVector3::Zero());
 
-
-	//Animation Test
-	/*m_ringo = NewGO<SkinModelRender>(0, "ringo");
-	m_animationClips[0].Load(L"Assets/modelData/move.tka");
-	m_ringo->Init(L"Assets/modelData/ringochan.cmo", m_animationClips, 1, enFbxUpAxisZ);
-	m_ringo->SetPosition(CVector3::Zero());
-	m_ringo->InitAnimation(m_animationClips, 1);
-	m_ringo->PlayAnimation(1);*/
-
-	//m_ringo.Init(L"Assets/modelData/ringochan.cmo");
-	//m_ringo.UpdateWorldMatrix(CVector3::Zero(), CQuaternion::Identity(), CVector3::One());
-	//m_animationClips[0].Load(L"Assets/modelData/move.tka");
-	//m_animationClips[0].SetLoopFlag(true);
-	//m_animation.Init(m_ringo, m_animationClips, 0);
-	//
-	//TODO : ringo animation test
-	m_ringo.Init(L"Assets/modelData/unityChan.cmo",enFbxUpAxisY);
-	m_ringo.UpdateWorldMatrix(CVector3::Zero(), CQuaternion::Identity(), CVector3::One());
-	m_animationClips[0].Load(L"Assets/modelData/walk.tka");
-	m_animationClips[0].SetLoopFlag(true);
-	m_animation.Init(
-		m_ringo,
-		m_animationClips,
-		2);	
-	//
 	/*TestMons* tm = NewGO<TestMons>(0, "monster");
 	tm->Setnum(1);
 	tm->SetpyFile("testBrain1");
@@ -78,16 +54,6 @@ bool Game::Start() {
 	return true;
 }
 void Game::Update() {
-	//AnimationTest
-	m_animation.Play(0,1.0f);
-	m_animation.Update(1.f / 30.f);
-	
-	m_ringo.GetSkeleton();
-	m_ringo.UpdateWorldMatrix(CVector3::Zero(),CQuaternion::Identity(),CVector3::One());
-	if (m_animation.IsPlaying()) {
-		assert(true);
-	}
-	//
 	static CVector3 pos = CVector3::Zero();
 	if (g_pad[0].IsPress(enButtonDown)) {
 		pos.x += 50.0f;
@@ -99,7 +65,6 @@ void Game::Update() {
 }
 
 void Game::Render() {
-	m_ringo.Draw();
 }
 
 void Game::PostRender() {

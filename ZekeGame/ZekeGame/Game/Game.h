@@ -21,12 +21,5 @@ private:
 	SpriteRender* m_sprite;
 	GameCamera* camera = nullptr;
 	StageSetup* ss;
-
-	//AnimationTest
-	//SkinModelRender*  m_ringo;
-	SkinModel m_ringo;
-	AnimationClip m_animationClips[2];
-	Animation m_animation;
-	//
 };
 
