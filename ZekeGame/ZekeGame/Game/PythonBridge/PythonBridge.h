@@ -12,6 +12,11 @@
 class Monster;
 class MonsterActionManeger;
 extern bool py_exe(int num, int team, const char* file);
+struct Pyinit
+{
+	Pyinit();
+	~Pyinit();
+};
 struct ExeData
 {
 	int num = 0;

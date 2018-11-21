@@ -18,6 +18,7 @@ Game::~Game()
 	DeleteGO(m_model);
 	DeleteGO(m_sprite);
 	Engine::IEngine().DestroyNetworkSystem();
+	delete m_pi;
 }
 
 void Game::GamePVPmodeInit(std::vector<std::string> files, int monsterAI[6])
@@ -28,7 +29,7 @@ void Game::GamePVPmodeInit(std::vector<std::string> files, int monsterAI[6])
 
 bool Game::Start() {
 	
-
+	m_pi = new Pyinit;
 	
 	NewGO<MonsterActionManeger>(0, "MAM");
 	m_model = NewGO<SkinModelRender>(0, "model");

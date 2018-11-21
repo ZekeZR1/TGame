@@ -5,7 +5,7 @@
 
 class GameCamera;
 class TestListener;
-
+struct Pyinit;
 class Game : public GameObject
 {
 public:
@@ -18,6 +18,7 @@ public:
 	void PostRender() override;
 
 private:
+	Pyinit* m_pi;
 	SkinModelRender* m_model;
 	SpriteRender* m_sprite;
 	GameCamera* camera = nullptr;

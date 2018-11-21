@@ -6,6 +6,7 @@
 
 //#include "../GameData.h"
 //#include "../Monster/Monster.h"
+Monster* ME = nullptr;
 
 //使用しているMonsterのポジションを返します
 static PyObject* GetMyPosition(PyObject* self,PyObject* args)
@@ -214,6 +215,20 @@ static PyObject* GetEnemyCount(PyObject* self, PyObject* args)
 	return ec;
 }
 
+PyObject* SetAction(PyObject* self, PyObject* args)
+{
+	int count = PyTuple_Size(args);
+	for (int i = 0; i < count; i++)
+	{
+		PyObject* tup = PyTuple_GetItem(args,i);
+		int tar = PyLong_AsLong(PyTuple_GetItem(tup, 0));
+		int act = PyLong_AsLong(PyTuple_GetItem(tup, 0));
+		MonsterActionManeger* mam = FindGO<MonsterActionManeger>("MAM");
+		ME->AddAction(mam->LoadAction(tar, act));
+	}
+	return NULL;
+}
+
 //module内の関数たち
 static PyMethodDef methods[] =
 {
@@ -232,6 +247,7 @@ static PyMethodDef methods[] =
 
 	{"GetBuddyCount",GetBuddyCount,METH_NOARGS,"mikata no kazu wo kaeshi masu."},
 	{"GetEnemyCount",GetEnemyCount,METH_NOARGS,"teki no kazu wo kaeshi masu."},
+	{"SetAction",SetAction,METH_VARARGS,"action wo settei simasu"},
 	{NULL,NULL,0,NULL}
 };
 
@@ -276,7 +292,7 @@ void PythonBridge::Update()
 	{
 		PyEval_RestoreThread(pTS);
 		////PyEval_ReleaseThread(pTS);
-		Py_Finalize();
+		//Py_Finalize();
 		end = false;
 	}
 }
@@ -382,11 +398,11 @@ void PythonBridge::py_exe(int num,int team,const char* file)
 	g_meTeam = team;
 	g_buddyCount = 0;
 	g_enemyCount = 0;
-	Monster* me;
+	//Monster* me;
 	QueryGOs<Monster>("monster", [&](Monster* obj)->bool
 	{
 		if (obj->Getnum() == num)
-			me = obj;
+			ME = obj;
 
 		if (obj->Getteam() == team)
 		{
@@ -401,11 +417,11 @@ void PythonBridge::py_exe(int num,int team,const char* file)
 
 	SetCurrentDirectory("Python36");
 
-	PyImport_AppendInittab("SendGame", initModule);
+	/*PyImport_AppendInittab("SendGame", initModule);
 
-	Py_Initialize();
+	Py_Initialize();*/
 
-	PyEval_InitThreads();
+	//PyEval_InitThreads();
 
 	/*PyThreadState* pMainthread = PyThreadState_Get();
 
@@ -413,30 +429,34 @@ void PythonBridge::py_exe(int num,int team,const char* file)
 
 	PyThreadState* pThread = PyThreadState_New(pinterpreter);*/
 
-	th.reset(new std::thread([=]
+	/*th.reset(new std::thread([=]
 	{
 		PyGILState_STATE GILState;
-		GILState = PyGILState_Ensure();
+		GILState = PyGILState_Ensure();*/
 	
 
 	PyObject *pName, *pModule, *pFunction, *pArgs, *pValue;
 	
-	pName = PyUnicode_DecodeFSDefault(file);
+	//pName = PyUnicode_DecodeFSDefault(file);
+	pName = PyUnicode_DecodeFSDefault("PythonAIs.CppBridge");
 	pModule = PyImport_Import(pName);
 	Py_DECREF(pName);
 
-	pFunction = PyObject_GetAttrString(pModule, "Brain");
+	pFunction = PyObject_GetAttrString(pModule, "execute");
 
-	pArgs = PyTuple_New(2);
+	pArgs = PyTuple_New(3);
 	PyObject* pMenum = PyLong_FromLong(num);
 	PyObject* pMeteam = PyLong_FromLong(team);
+	PyObject* pFile = PyUnicode_FromString(file);
 	PyTuple_SetItem(pArgs, 0, pMenum);
 	PyTuple_SetItem(pArgs, 1, pMeteam);
+	PyTuple_SetItem(pArgs, 2, pFile);
 
 	pValue = PyObject_CallObject(pFunction, pArgs);
 
-	PyGILState_Release(GILState);
+	//PyGILState_Release(GILState);
 
+	Py_DECREF(pArgs);
 	Py_DECREF(pModule);
 	Py_DECREF(pFunction);
 
@@ -458,13 +478,13 @@ void PythonBridge::py_exe(int num,int team,const char* file)
 		return;
 	}
 
-	for (int i = 0; i < vl; i++)
+	/*for (int i = 0; i < vl; i++)
 	{
 		int action[2];
 		action[0] = PyLong_AsLong(PyList_GetItem(PyList_GetItem(pValue, i), 0));
 		action[1] = PyLong_AsLong(PyList_GetItem(PyList_GetItem(pValue, i), 1));
 		me->AddAction(mam->LoadAction(action[0], action[1]));
-	}
+	}*/
 
 	Py_DECREF(pValue);
 
@@ -472,9 +492,9 @@ void PythonBridge::py_exe(int num,int team,const char* file)
 
 	//Py_Finalize();
 	end = true;
-	}));
+	//}));
 
-	pTS = PyEval_SaveThread();
+	//pTS = PyEval_SaveThread();
 	
 }
 
@@ -486,4 +506,15 @@ void PythonBridge::AddExe(int num, int team, const char * file)
 
 void PythonBridge::py_exe()
 {
+}
+
+Pyinit::Pyinit()
+{
+	PyImport_AppendInittab("SendGame", initModule);
+	Py_InitializeEx(1);
+}
+
+Pyinit::~Pyinit()
+{
+	Py_Finalize();
 }

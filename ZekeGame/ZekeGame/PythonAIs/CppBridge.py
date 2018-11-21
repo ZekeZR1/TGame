@@ -1,4 +1,5 @@
-#coding: utf-8
+#from multiprocessing import Process
+import threading
 from enum import IntEnum
 import SendGame
 
@@ -241,7 +242,35 @@ def Leave(target):
     addAction(target,ACTION.Leave)
 
 
+def End():
+    SetAction(actions)
 
-def Brain(MeNum,MeTeam):
+
+def testBrain(MeNum,MeTeam):
     #gameData.init(args)
+    return 1
+
+class threader:
+    def __init__(self,name,file,num,team):
+        self.name = name
+        self.file = file
+        self.num = num
+        self.team = team
+    def run(self):
+        dir = os.getcwd()
+        with open(dir + self.file + ".py","r") as f:
+            scr = f.read()
+            exec(scr)
+            Brain(self.num,selfm.team)
+
+def exethre(num,team,file):
+    dir = os.getcwd()
+    with open(dir + self.file + ".py","r") as f:
+        scr = f.read()
+        exec(scr)
+        Brain(self.num,selfm.team)
+
+def execute(num,team,file):
+    th = threading.Thread(thread=exethre,args=([num,team,file]))
+    th.start()
     return 1

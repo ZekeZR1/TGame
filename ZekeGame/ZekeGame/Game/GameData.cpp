@@ -24,8 +24,8 @@ void GameData::deletemons(Monster * mon)
 	for (int i = mon->Getnum(); i < g_monsCount+1; i++)
 	{
 		g_mons[i] = g_mons[i + 1];
-		if(g_mons[i] != NULL)
-			g_mons[i]->Setnum(i);
+		/*if(g_mons[i] != NULL)
+			g_mons[i]->Setnum(i);*/
 	}
 	/*std::vector<Monster*>::iterator ite = std::find(g_mons.begin(), g_mons.end(), mon);
 	g_mons.erase(ite);*/
