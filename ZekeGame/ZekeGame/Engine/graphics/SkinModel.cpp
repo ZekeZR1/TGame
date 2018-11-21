@@ -56,9 +56,6 @@ void SkinModel::InitSkeleton(const wchar_t* filePath)
 		if (strcmp(m_vsmain, "VSMain") == 0) {
 			m_vsmain = "VSMainSkin";
 		}
-		if (strcmp(m_psmain,"PSMain") == 0) {
-			m_psmain = "PSMainSkin";
-		}
 	}
 }
 void SkinModel::InitConstantBuffer()
