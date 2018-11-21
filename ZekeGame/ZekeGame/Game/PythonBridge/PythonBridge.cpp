@@ -86,13 +86,13 @@ static PyObject* GetMyNum(PyObject* self, PyObject* args)
 
 static PyObject* GetAllBuddyPosition(PyObject* self, PyObject* args)
 {
-	PyObject* poss = PyList_New(g_buddyCount);
+	PyObject* poss = PyList_New(g_buddyCount-1);
 	int count = 0;
 	for (Monster* mon : g_mons)
 	{
 		if (mon == NULL)
 			break;
-		if (/*mon->Getnum() == g_meNum ||*/ mon->Getteam() != g_meTeam)
+		if (mon->Getnum() == g_meNum || mon->Getteam() != g_meTeam)
 			continue;
 		PyObject *x, *y, *z;
 		x = PyLong_FromDouble(mon->Getpos().x);
@@ -115,13 +115,13 @@ static PyObject* GetAllBuddyPosition(PyObject* self, PyObject* args)
 
 static PyObject* GetAllBuddyNum(PyObject* self, PyObject* args)
 {
-	PyObject* nums = PyList_New(g_buddyCount);
+	PyObject* nums = PyList_New(g_buddyCount-1);
 	int count = 0;
 	for (Monster* mon : g_mons)
 	{
 		if (mon == NULL)
 			break;
-		if (/*mon->Getnum() == g_meNum ||*/ mon->Getteam() != g_meTeam)
+		if (mon->Getnum() == g_meNum || mon->Getteam() != g_meTeam)
 			continue;
 		PyObject* num = PyLong_FromLong(mon->Getnum());
 
@@ -290,9 +290,9 @@ void PythonBridge::Update()
 	}*/
 	if (pTS != nullptr && end)
 	{
-		PyEval_RestoreThread(pTS);
+		//PyEval_RestoreThread(pTS);
 		////PyEval_ReleaseThread(pTS);
-		//Py_Finalize();
+		Py_Finalize();
 		end = false;
 	}
 }
@@ -398,11 +398,11 @@ void PythonBridge::py_exe(int num,int team,const char* file)
 	g_meTeam = team;
 	g_buddyCount = 0;
 	g_enemyCount = 0;
-	//Monster* me;
+	Monster* me;
 	QueryGOs<Monster>("monster", [&](Monster* obj)->bool
 	{
 		if (obj->Getnum() == num)
-			ME = obj;
+			me = obj;
 
 		if (obj->Getteam() == team)
 		{
@@ -417,40 +417,32 @@ void PythonBridge::py_exe(int num,int team,const char* file)
 
 	SetCurrentDirectory("Python36");
 
-	/*PyImport_AppendInittab("SendGame", initModule);
+	/*PyEval_InitThreads();
 
-	Py_Initialize();*/
-
-	//PyEval_InitThreads();
-
-	/*PyThreadState* pMainthread = PyThreadState_Get();
-
-	PyInterpreterState* pinterpreter = PyInterpreterState_New();
-
-	PyThreadState* pThread = PyThreadState_New(pinterpreter);*/
-
-	/*th.reset(new std::thread([=]
+	th.reset(new std::thread([=]
 	{
 		PyGILState_STATE GILState;
 		GILState = PyGILState_Ensure();*/
-	
+	PyImport_AppendInittab("SendGame", initModule);
+	Py_InitializeEx(1);
 
 	PyObject *pName, *pModule, *pFunction, *pArgs, *pValue;
 	
-	//pName = PyUnicode_DecodeFSDefault(file);
-	pName = PyUnicode_DecodeFSDefault("PythonAIs.CppBridge");
+	pName = PyUnicode_DecodeFSDefault(file);
+	//pName = PyUnicode_DecodeFSDefault("PythonAIs.CppBridge");
 	pModule = PyImport_Import(pName);
 	Py_DECREF(pName);
 
-	pFunction = PyObject_GetAttrString(pModule, "execute");
+	//pFunction = PyObject_GetAttrString(pModule, "execute");
+	pFunction = PyObject_GetAttrString(pModule, "Brain");
 
-	pArgs = PyTuple_New(3);
+	pArgs = PyTuple_New(2);
 	PyObject* pMenum = PyLong_FromLong(num);
 	PyObject* pMeteam = PyLong_FromLong(team);
-	PyObject* pFile = PyUnicode_FromString(file);
+	//PyObject* pFile = PyUnicode_FromString(file);
 	PyTuple_SetItem(pArgs, 0, pMenum);
 	PyTuple_SetItem(pArgs, 1, pMeteam);
-	PyTuple_SetItem(pArgs, 2, pFile);
+	//PyTuple_SetItem(pArgs, 2, pFile);
 
 	pValue = PyObject_CallObject(pFunction, pArgs);
 
@@ -478,13 +470,13 @@ void PythonBridge::py_exe(int num,int team,const char* file)
 		return;
 	}
 
-	/*for (int i = 0; i < vl; i++)
+	for (int i = 0; i < vl; i++)
 	{
 		int action[2];
 		action[0] = PyLong_AsLong(PyList_GetItem(PyList_GetItem(pValue, i), 0));
 		action[1] = PyLong_AsLong(PyList_GetItem(PyList_GetItem(pValue, i), 1));
 		me->AddAction(mam->LoadAction(action[0], action[1]));
-	}*/
+	}
 
 	Py_DECREF(pValue);
 
@@ -510,11 +502,11 @@ void PythonBridge::py_exe()
 
 Pyinit::Pyinit()
 {
-	PyImport_AppendInittab("SendGame", initModule);
-	Py_InitializeEx(1);
+	//PyImport_AppendInittab("SendGame", initModule);
+	//Py_InitializeEx(1);
 }
 
 Pyinit::~Pyinit()
 {
-	Py_Finalize();
+	//Py_Finalize();
 }

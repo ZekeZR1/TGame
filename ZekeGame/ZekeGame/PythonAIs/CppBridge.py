@@ -1,5 +1,5 @@
 #from multiprocessing import Process
-import threading
+#import threading
 from enum import IntEnum
 import SendGame
 
@@ -77,7 +77,7 @@ class GameData:
         self.Buddy = []
         poss = SendGame.GetAllBuddyPosition()
         nums = SendGame.GetAllBuddyNum()
-        for i in range(self.buddyCount):
+        for i in range(self.buddyCount-1):
             mon = Monster()
             mon.SetPosition(poss[i][0],poss[i][1],poss[i][2])
             mon.num = nums[i]
@@ -250,27 +250,4 @@ def testBrain(MeNum,MeTeam):
     #gameData.init(args)
     return 1
 
-class threader:
-    def __init__(self,name,file,num,team):
-        self.name = name
-        self.file = file
-        self.num = num
-        self.team = team
-    def run(self):
-        dir = os.getcwd()
-        with open(dir + self.file + ".py","r") as f:
-            scr = f.read()
-            exec(scr)
-            Brain(self.num,selfm.team)
 
-def exethre(num,team,file):
-    dir = os.getcwd()
-    with open(dir + self.file + ".py","r") as f:
-        scr = f.read()
-        exec(scr)
-        Brain(self.num,selfm.team)
-
-def execute(num,team,file):
-    th = threading.Thread(thread=exethre,args=([num,team,file]))
-    th.start()
-    return 1

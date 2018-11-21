@@ -9,6 +9,6 @@ def Brain(MeNum,MeTeam):
     cb.Atack(mon)
     if ME.HP < 3:
         cb.Leave(mon)
-    cb.End()
+    #cb.End()
     return cb.actions
 
