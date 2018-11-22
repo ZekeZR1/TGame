@@ -83,7 +83,7 @@ void StageSetup::PVPSetup(std::vector<std::string> files, int monsterAI[6])
 	//g_mons.push_back(mons);
 	g_mons[5] = mons;
 
-	g_buddyCount = 1;
-	g_enemyCount = 0;
-	g_monsCount = 1;
+	g_buddyCount = 3;
+	g_enemyCount = 3;
+	g_monsCount = 6;
 }

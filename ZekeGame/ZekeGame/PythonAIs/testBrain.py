@@ -10,5 +10,6 @@ def Brain(MeNum,MeTeam):
     if ME.HP < 3:
         cb.Leave(mon)
     #cb.End()
+    #return cb.gameData.tesGetEneNum()
     return cb.actions
 

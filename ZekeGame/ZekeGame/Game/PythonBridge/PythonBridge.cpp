@@ -487,7 +487,7 @@ void PythonBridge::py_exe(int num,int team,const char* file)
 	//}));
 
 	//pTS = PyEval_SaveThread();
-	
+	Py_Finalize();
 }
 
 void PythonBridge::AddExe(int num, int team, const char * file)
