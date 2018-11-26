@@ -28,6 +28,9 @@ public:
 		else if(axis == enFbxUpAxisZ){
 			shapez = new btCapsuleShapeZ(radius, height);
 		}
+		else {
+			shapex = new btCapsuleShapeX(radius, height);
+		}
 		this->radius = radius;
 		this->height = height;
 	}
@@ -38,6 +41,9 @@ public:
 		}
 		else if (m_axis == enFbxUpAxisZ) {
 			return shapez;
+		}
+		else {
+			return shapex;
 		}
 	}
 	float GetRadius() const
@@ -51,6 +57,7 @@ public:
 private:
 	btCapsuleShape * shape = nullptr;
 	btCapsuleShapeZ * shapez = nullptr;
+	btCapsuleShapeX * shapex = nullptr;
 	EnFbxUpAxis m_axis;
 	float radius = 0.0f;
 	float height = 0.0f;

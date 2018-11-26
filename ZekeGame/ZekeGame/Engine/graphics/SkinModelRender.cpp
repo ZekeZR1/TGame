@@ -2,7 +2,6 @@
 #include "SkinModelRender.h"
 
 
-
 SkinModelRender::SkinModelRender()
 {
 }

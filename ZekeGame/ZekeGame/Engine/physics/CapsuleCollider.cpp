@@ -17,4 +17,7 @@ CapsuleCollider::~CapsuleCollider()
 	else if (m_axis == enFbxUpAxisZ) {
 		delete shapez;
 	}
+	else {
+		delete shapex;
+	}
 }
