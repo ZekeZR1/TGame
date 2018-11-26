@@ -17,7 +17,7 @@ Monster::~Monster()
 bool Monster::Start()
 {
 	m_smr->SetPosition(m_pos);
-	m_cc.Init(m_radius, m_height, m_pos);
+	m_cc.Init(m_radius, m_height, m_pos,enFbxUpAxisY);
 	m_PB = NewGO<PythonBridge>(0,"PB");
 	return true;
 }
