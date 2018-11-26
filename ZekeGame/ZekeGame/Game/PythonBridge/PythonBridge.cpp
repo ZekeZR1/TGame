@@ -1,9 +1,12 @@
 #include "stdafx.h"
+//#include <thread>
 #include "PythonBridge.h"
 #include "../Monster/MonsterAction.h"
 #include "../Monster/MonsterActionManeger.h"
+
 //#include "../GameData.h"
 //#include "../Monster/Monster.h"
+Monster* ME = nullptr;
 
 //使用しているMonsterのポジションを返します
 static PyObject* GetMyPosition(PyObject* self,PyObject* args)
@@ -112,7 +115,7 @@ static PyObject* GetAllBuddyPosition(PyObject* self, PyObject* args)
 
 static PyObject* GetAllBuddyNum(PyObject* self, PyObject* args)
 {
-	PyObject* nums = PyList_New(g_buddyCount);
+	PyObject* nums = PyList_New(g_buddyCount-1);
 	int count = 0;
 	for (Monster* mon : g_mons)
 	{
@@ -212,6 +215,20 @@ static PyObject* GetEnemyCount(PyObject* self, PyObject* args)
 	return ec;
 }
 
+PyObject* SetAction(PyObject* self, PyObject* args)
+{
+	int count = PyTuple_Size(args);
+	for (int i = 0; i < count; i++)
+	{
+		PyObject* tup = PyTuple_GetItem(args,i);
+		int tar = PyLong_AsLong(PyTuple_GetItem(tup, 0));
+		int act = PyLong_AsLong(PyTuple_GetItem(tup, 0));
+		MonsterActionManeger* mam = FindGO<MonsterActionManeger>("MAM");
+		ME->AddAction(mam->LoadAction(tar, act));
+	}
+	return NULL;
+}
+
 //module内の関数たち
 static PyMethodDef methods[] =
 {
@@ -230,6 +247,7 @@ static PyMethodDef methods[] =
 
 	{"GetBuddyCount",GetBuddyCount,METH_NOARGS,"mikata no kazu wo kaeshi masu."},
 	{"GetEnemyCount",GetEnemyCount,METH_NOARGS,"teki no kazu wo kaeshi masu."},
+	{"SetAction",SetAction,METH_VARARGS,"action wo settei simasu"},
 	{NULL,NULL,0,NULL}
 };
 
@@ -259,6 +277,26 @@ PythonBridge::PythonBridge()
 	mam = FindGO<MonsterActionManeger>("MAM");
 }
 
+void PythonBridge::Update()
+{/*
+	for (int i = 0;i < threads.size();i++)
+	{
+		if (comp[i])
+		{
+			threads[i]->detach();
+			auto ite = std::find(threads.begin(), threads.end(), threads[i]);
+			threads.erase(ite);
+		}
+	}*/
+	if (pTS != nullptr && end)
+	{
+		//PyEval_RestoreThread(pTS);
+		////PyEval_ReleaseThread(pTS);
+		Py_Finalize();
+		end = false;
+	}
+}
+
 void PythonBridge::pbInit()
 {
 	
@@ -283,11 +321,79 @@ void PythonBridge::pbInit()
 	}
 }
 
+bool py_exe(int num, int team, const char* file)
+{
+	std::unique_ptr<std::thread> th = nullptr;
+	th.reset(new std::thread([&]
+	{
+		MonsterActionManeger* mam = FindGO<MonsterActionManeger>("MAM");
+		if (file == NULL)
+			return;
+		g_meNum = num;
+		g_meTeam = team;
+		g_buddyCount = 0;
+		g_enemyCount = 0;
+		Monster* me;
+		QueryGOs<Monster>("monster", [&](Monster* obj)->bool
+		{
+			if (obj->Getnum() == num)
+				me = obj;
+
+			if (obj->Getteam() == team)
+			{
+				g_buddyCount++;
+			}
+			else
+			{
+				g_enemyCount++;
+			}
+			return true;
+		});
+
+		SetCurrentDirectory("Python36");
+
+		PyImport_AppendInittab("SendGame", initModule);
+
+		PyObject *pName, *pModule, *pFunction, *pArgs, *pValue;
+
+		Py_Initialize();
+		pName = PyUnicode_DecodeFSDefault(file);
+		pModule = PyImport_Import(pName);
+		Py_DECREF(pName);
+		pFunction = PyObject_GetAttrString(pModule, "Brain");
+		pArgs = PyTuple_New(0);
+		pValue = PyObject_CallObject(pFunction, pArgs);
+		Py_DECREF(pModule);
+		Py_DECREF(pFunction);
+
+		int vl = PyList_Size(pValue);
+		if (vl == 0)
+		{
+			Py_DECREF(pValue);
+			SetCurrentDirectory("../");
+			Py_Finalize();
+			return;
+		}
+		//std::vector<int[2]> actions;
+		for (int i = 0; i < vl; i++)
+		{
+			int action[2];
+			action[0] = PyLong_AsLong(PyList_GetItem(PyList_GetItem(pValue, i), 0));
+			action[1] = PyLong_AsLong(PyList_GetItem(PyList_GetItem(pValue, i), 1));
+			me->AddAction(mam->LoadAction(action[0], action[1]));
+		}
+
+		Py_DECREF(pValue);
+
+		SetCurrentDirectory("../");
+		Py_Finalize();
+	}));
+	return true;
+}
+
 //pythonを実行するゾ。
 void PythonBridge::py_exe(int num,int team,const char* file)
 {
-	if (file == NULL)
-		return;
 	g_meNum = num;
 	g_meTeam = team;
 	g_buddyCount = 0;
@@ -311,40 +417,96 @@ void PythonBridge::py_exe(int num,int team,const char* file)
 
 	SetCurrentDirectory("Python36");
 
+	/*PyEval_InitThreads();
+
+	th.reset(new std::thread([=]
+	{
+		PyGILState_STATE GILState;
+		GILState = PyGILState_Ensure();*/
 	PyImport_AppendInittab("SendGame", initModule);
+	Py_InitializeEx(1);
 
 	PyObject *pName, *pModule, *pFunction, *pArgs, *pValue;
 	
-	Py_Initialize();
 	pName = PyUnicode_DecodeFSDefault(file);
+	//pName = PyUnicode_DecodeFSDefault("PythonAIs.CppBridge");
 	pModule = PyImport_Import(pName);
 	Py_DECREF(pName);
+
+	//pFunction = PyObject_GetAttrString(pModule, "execute");
 	pFunction = PyObject_GetAttrString(pModule, "Brain");
-	pArgs = PyTuple_New(0);
+
+	pArgs = PyTuple_New(2);
+	PyObject* pMenum = PyLong_FromLong(num);
+	PyObject* pMeteam = PyLong_FromLong(team);
+	//PyObject* pFile = PyUnicode_FromString(file);
+	PyTuple_SetItem(pArgs, 0, pMenum);
+	PyTuple_SetItem(pArgs, 1, pMeteam);
+	//PyTuple_SetItem(pArgs, 2, pFile);
+
 	pValue = PyObject_CallObject(pFunction, pArgs);
+
+	//PyGILState_Release(GILState);
+
+	Py_DECREF(pArgs);
 	Py_DECREF(pModule);
 	Py_DECREF(pFunction);
 
+	if (pValue == NULL)
+	{
+		SetCurrentDirectory("../");
+		//Py_Finalize();
+		
+		end = true;
+		return;
+	}
 	int vl = PyList_Size(pValue);
 	if (vl == 0)
 	{
 		Py_DECREF(pValue);
 		SetCurrentDirectory("../");
-		Py_Finalize();
+		//Py_Finalize();
+		end = true;
 		return;
 	}
-	//std::vector<int[2]> actions;
+
 	for (int i = 0; i < vl; i++)
 	{
 		int action[2];
-		action[0] = PyLong_AsLong(PyList_GetItem(PyList_GetItem(pValue, i),0));
-		action[1] = PyLong_AsLong(PyList_GetItem(PyList_GetItem(pValue, i),1));
+		action[0] = PyLong_AsLong(PyList_GetItem(PyList_GetItem(pValue, i), 0));
+		action[1] = PyLong_AsLong(PyList_GetItem(PyList_GetItem(pValue, i), 1));
 		me->AddAction(mam->LoadAction(action[0], action[1]));
 	}
 
 	Py_DECREF(pValue);
 
 	SetCurrentDirectory("../");
+
+	//Py_Finalize();
+	end = true;
+	//}));
+
+	//pTS = PyEval_SaveThread();
 	Py_Finalize();
-	
+}
+
+void PythonBridge::AddExe(int num, int team, const char * file)
+{
+	ExeData ed = { num,team,file };
+	m_exeDatalist.push_back(ed);
+}
+
+void PythonBridge::py_exe()
+{
+}
+
+Pyinit::Pyinit()
+{
+	//PyImport_AppendInittab("SendGame", initModule);
+	//Py_InitializeEx(1);
+}
+
+Pyinit::~Pyinit()
+{
+	//Py_Finalize();
 }

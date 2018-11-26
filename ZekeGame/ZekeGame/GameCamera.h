@@ -4,7 +4,7 @@
 
 class SpringCamera;
 
-class GameCamera
+class GameCamera :public GameObject
 {
 public:
 	GameCamera();
