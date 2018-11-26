@@ -1,4 +1,5 @@
-#coding: utf-8
+#from multiprocessing import Process
+#import threading
 from enum import IntEnum
 import SendGame
 
@@ -62,8 +63,8 @@ class ACTION(IntEnum):
 
 class GameData:
     def __init__(self):
-        pos = SendGame.GetMyPosition();
         self.me = Monster()
+        pos = SendGame.GetMyPosition();
         self.me.SetPosition(pos[0],pos[1],pos[2])
         self.me.HP = SendGame.GetMyHP()
         self.me.MP = SendGame.GetMyMP()
@@ -92,7 +93,24 @@ class GameData:
             mon.num = nums[i]
             mon.HP = HPs[i]
             self.Enemys.append(mon)
+    def init(self,args):
+        mm = None
+        for i in range(self.Buddy.count()):
+            mon = self.Buddy[i]
+            if mon.num == args[0]:
+                mm = mom
+                del self.Buddy[i]
+                break
 
+        self.me = Monster()
+        self.me.pos = mon.pos
+        self.me.HP = mon.HP
+        self.me.MP = mon.MP
+        self.me.num = mon.num
+        self.me.team = mon.team
+        
+    def tesGetEneNum():
+        return SendGame.GetAllEnemyNum()
 
     def GetFarMonster(self):
         farmon = None
@@ -223,3 +241,14 @@ def Atack(target):
 
 def Leave(target):
     addAction(target,ACTION.Leave)
+
+
+def End():
+    SetAction(actions)
+
+
+def testBrain(MeNum,MeTeam):
+    #gameData.init(args)
+    return 1
+
+

@@ -11,11 +11,14 @@
 Monster::~Monster()
 {
 	DeleteGO(m_smr);
+	DeleteGO(m_PB);
 }
 
 bool Monster::Start()
 {
-	m_PB = FindGO<PythonBridge>("PB");
+	m_smr->SetPosition(m_pos);
+	m_cc.Init(m_radius, m_height, m_pos,enFbxUpAxisY);
+	m_PB = NewGO<PythonBridge>(0,"PB");
 	return true;
 }
 
@@ -34,10 +37,16 @@ void Monster::Update()
 	case en_NowLoading:
 		if (m_time > 1)
 		{
-			m_PB->py_exe(m_num, m_team, m_pyFile);
+			//m_PB->py_exe(m_num, m_team, m_pyFile);
+			if (!isLoading)
+			{
+				m_PB->py_exe(m_num, m_team, m_pyFile);
+				isLoading = true;
+			}
 			if (m_actions.size() >= 1)
 			{
 				m_state = en_Execute;
+				isLoading = false;
 			}
 			m_time = 0;
 		}
@@ -70,9 +79,11 @@ void Monster::execute()
 
 void Monster::Move()
 {
-	//m_cc.Execute()
+	CVector3 move = m_movespeed + m_vKnockback;
+	move *= 50;
+	m_pos = m_cc.Execute(IGameTime().GetFrameDeltaTime(), move);
 	
-	m_pos += m_movespeed + m_vKnockback;
+	
 	m_smr->SetPosition(m_pos);
 	if (m_isKnockback)
 	{
