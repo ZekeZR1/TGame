@@ -129,6 +129,9 @@
     <Filter Include="ソース ファイル\Game\Assets\sprite\GUI\modeSelect">
       <UniqueIdentifier>{d14f5a8e-5e97-492e-9fa4-b8d5a523d310}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Game\AIEdit">
+      <UniqueIdentifier>{59d77138-7569-4048-b1d7-b6b9143c4702}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\character\CharacterController.cpp">
@@ -382,6 +385,12 @@
     </ClCompile>
     <ClCompile Include="Game\Title\ModeSelect.cpp">
       <Filter>ソース ファイル\Game\Title</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\GameCursor.cpp">
+      <Filter>ソース ファイル\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\AIEdit\AIEditMode.cpp">
+      <Filter>ソース ファイル\Game\AIEdit</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -946,6 +955,12 @@
     <ClInclude Include="Game\Title\ModeSelect.h">
       <Filter>ソース ファイル\Game\Title</Filter>
     </ClInclude>
+    <ClInclude Include="Game\GameCursor.h">
+      <Filter>ソース ファイル\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\AIEdit\AIEditMode.h">
+      <Filter>ソース ファイル\Game\AIEdit</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\Test.FBX">
@@ -983,8 +998,14 @@
     <Image Include="Assets\Sprite\GUI\modeSelect\randompvpW.png">
       <Filter>ソース ファイル\Game\Assets\sprite\GUI\modeSelect</Filter>
     </Image>
-    <Image Include="Assets\Sprite\GUI\modeSelect\rwst.png">
-      <Filter>ソース ファイル\Game\Assets\sprite</Filter>
+    <Image Include="Assets\Sprite\GUI\modeSelect\AIeditW.png">
+      <Filter>ソース ファイル\Game\Assets\sprite\GUI\modeSelect</Filter>
+    </Image>
+    <Image Include="Assets\Sprite\GUI\modeSelect\AIeditG.png">
+      <Filter>ソース ファイル\Game\Assets\sprite\GUI\modeSelect</Filter>
+    </Image>
+    <Image Include="Assets\Sprite\GUI\cursor.png">
+      <Filter>ソース ファイル\Game\Assets\sprite\GUI</Filter>
     </Image>
   </ItemGroup>
   <ItemGroup>

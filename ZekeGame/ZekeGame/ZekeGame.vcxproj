@@ -220,7 +220,9 @@
     <ClCompile Include="Engine\time\GameTime.cpp" />
     <ClCompile Include="Engine\window\Window.cpp" />
     <ClCompile Include="GameCamera.cpp" />
+    <ClCompile Include="Game\AIEdit\AIEditMode.cpp" />
     <ClCompile Include="Game\Game.cpp" />
+    <ClCompile Include="Game\GameCursor.cpp" />
     <ClCompile Include="Game\GameData.cpp" />
     <ClCompile Include="Game\main.cpp" />
     <ClCompile Include="Game\Monster\Action\Act_Atack.cpp" />
@@ -309,7 +311,9 @@
     <ClInclude Include="Engine\util\Util.h" />
     <ClInclude Include="Engine\window\Window.h" />
     <ClInclude Include="GameCamera.h" />
+    <ClInclude Include="Game\AIEdit\AIEditMode.h" />
     <ClInclude Include="Game\Game.h" />
+    <ClInclude Include="Game\GameCursor.h" />
     <ClInclude Include="Game\GameData.h" />
     <ClInclude Include="Game\Monster\Action\Act_Atack.h" />
     <ClInclude Include="Game\Monster\Action\Act_Chase.h" />
@@ -435,7 +439,9 @@
     <Image Include="Assets\modelData\boxTex.png" />
     <Image Include="Assets\modelData\stage\handle010.jpg" />
     <Image Include="Assets\modelData\testMons\asu.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\rwst.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\cursor.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\AIeditG.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\AIeditW.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\localpvpG.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\localpvpW.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\randompvpG.png" />

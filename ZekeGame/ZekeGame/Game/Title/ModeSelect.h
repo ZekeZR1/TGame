@@ -12,6 +12,7 @@ private:
 	{
 		enLocalpvp,
 		enRandompvp,
+		enAIedit,
 	};
 	std::vector<SpriteRender*> m_selection;
 	int m_sel = 0;
