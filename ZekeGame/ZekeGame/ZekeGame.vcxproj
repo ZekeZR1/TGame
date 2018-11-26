@@ -72,12 +72,12 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(ProjectDir);$(ProjectDir)/bulletPhysics/src;$(IncludePath)</IncludePath>
-    <LibraryPath>$(ProjectDir)/DirectXTK\Bin\Desktop_2015_Win10\x64\Debug;$(SolutionDir)/x64/Debug;$(ProjectDir)/exlib/Debug;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(ProjectDir);$(ProjectDir)/bulletPhysics/src;$(ProjectDir)Engine\PhotonEngine;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)/DirectXTK\Bin\Desktop_2015_Win10\x64\Debug;$(SolutionDir)/x64/Debug;$(ProjectDir)/exlib/Debug;$(ProjectDir)Engine\PhotonEngine\Common-cpp\lib;$(ProjectDir)Engine\PhotonEngine\LoadBalancing-cpp\lib;$(ProjectDir)Engine\PhotonEngine\Photon-cpp\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(ProjectDir);$(ProjectDir)/bulletPhysics/src;$(IncludePath)</IncludePath>
-    <LibraryPath>$(ProjectDir)/DirectXTK\Bin\Desktop_2015_Win10\x64\Release;$(SolutionDir)/x64/Release;$(ProjectDir)exlib/Release;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(ProjectDir);$(ProjectDir)/bulletPhysics/src;$(ProjectDir)Engine\PhotonEngine;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)/DirectXTK\Bin\Desktop_2015_Win10\x64\Release;$(SolutionDir)/x64/Release;$(ProjectDir)exlib/Release;$(ProjectDir)Engine\PhotonEngine\Common-cpp\lib;$(ProjectDir)Engine\PhotonEngine\LoadBalancing-cpp\lib;$(ProjectDir)Engine\PhotonEngine\Photon-cpp\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -103,7 +103,7 @@
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>DirectXTK.lib;kernel32.Lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;d3d11.lib;d3dcompiler.lib;%(AdditionalDependencies);xinput.lib;BulletCollision_Debug.lib;BulletDynamics_Debug.lib;LinearMath_Debug.lib;Effekseer.Debug.lib;EffekseerRendererDX11.Debug.lib</AdditionalDependencies>
+      <AdditionalDependencies>DirectXTK.lib;kernel32.Lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;d3d11.lib;d3dcompiler.lib;%(AdditionalDependencies);xinput.lib;BulletCollision_Debug.lib;BulletDynamics_Debug.lib;LinearMath_Debug.lib;Effekseer.Debug.lib;EffekseerRendererDX11.Debug.lib;Photon-cpp_vc15_debug_windows_mt_x64.lib;Common-cpp_vc15_debug_windows_mt_x64.lib;LoadBalancing-cpp_vc15_debug_windows_mt_x64.lib;python36_d.lib</AdditionalDependencies>
       <SubSystem>Windows</SubSystem>
     </Link>
     <ImageContentTask>
@@ -143,7 +143,7 @@
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>DirectXTK.lib;kernel32.Lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;d3d11.lib;d3dcompiler.lib;%(AdditionalDependencies);xinput.lib;BulletCollision.lib;BulletDynamics.lib;LinearMath.lib;dxguid.lib;Effekseer.Release.lib;EffekseerRendererDX11.Release.lib</AdditionalDependencies>
+      <AdditionalDependencies>DirectXTK.lib;kernel32.Lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;d3d11.lib;d3dcompiler.lib;%(AdditionalDependencies);xinput.lib;BulletCollision.lib;BulletDynamics.lib;LinearMath.lib;dxguid.lib;Effekseer.Release.lib;EffekseerRendererDX11.Release.lib;Photon-cpp_vc15_release_windows_mt_x64.lib;Common-cpp_vc15_release_windows_mt_x64.lib;LoadBalancing-cpp_vc15_release_windows_mt_x64.lib;python36.lib</AdditionalDependencies>
     </Link>
     <ImageContentTask>
       <ContentOutput>$(ProjectDir)\Assets\Sprite\%(Filename).dds</ContentOutput>
@@ -203,7 +203,12 @@
     <ClCompile Include="Engine\math\kMath.cpp" />
     <ClCompile Include="Engine\math\Matrix.cpp" />
     <ClCompile Include="Engine\math\Vector.cpp" />
+    <ClCompile Include="Engine\Network\BaseView.cpp" />
+    <ClCompile Include="Engine\Network\Console.cpp" />
+    <ClCompile Include="Engine\Network\LoadBalancingListener.cpp" />
     <ClCompile Include="Engine\Network\NetworkLogic.cpp" />
+    <ClCompile Include="Engine\Network\OutputListener.cpp" />
+    <ClCompile Include="Engine\Network\TestView.cpp" />
     <ClCompile Include="Engine\physics\CapsuleCollider.cpp" />
     <ClCompile Include="Engine\physics\CSphereCollider.cpp" />
     <ClCompile Include="Engine\physics\MeshCollider.cpp" />
@@ -212,13 +217,26 @@
     <ClCompile Include="Engine\physics\RigitBody.cpp" />
     <ClCompile Include="Engine\PreCompile.cpp" />
     <ClCompile Include="Engine\sound\SoundEngine.cpp" />
+    <ClCompile Include="Engine\time\GameTime.cpp" />
     <ClCompile Include="Engine\window\Window.cpp" />
     <ClCompile Include="GameCamera.cpp" />
+    <ClCompile Include="Game\AIEdit\AIEditMode.cpp" />
+    <ClCompile Include="Game\Game.cpp" />
+    <ClCompile Include="Game\GameCursor.cpp" />
+    <ClCompile Include="Game\GameData.cpp" />
+    <ClCompile Include="Game\main.cpp" />
+    <ClCompile Include="Game\Monster\Action\Act_Atack.cpp" />
+    <ClCompile Include="Game\Monster\Action\Act_Chase.cpp" />
+    <ClCompile Include="Game\Monster\Action\Act_Leave.cpp" />
     <ClCompile Include="Game\Monster\Monster.cpp" />
     <ClCompile Include="Game\Monster\MonsterAction.cpp" />
-    <ClCompile Include="Game\Monster\MonsterAI.cpp" />
-    <ClCompile Include="Game\Monster\TestAction.cpp" />
-    <ClCompile Include="Game\Monster\TestMons.cpp" />
+    <ClCompile Include="Game\Monster\MonsterActionManeger.cpp" />
+    <ClCompile Include="Game\Monster\Monsters\TestMons.cpp" />
+    <ClCompile Include="Game\PythonBridge\PythonBridge.cpp" />
+    <ClCompile Include="Game\StageSetup\StageSetup.cpp" />
+    <ClCompile Include="Game\Title\ModeSelect.cpp" />
+    <ClCompile Include="Game\Title\pvpModeSelect.cpp" />
+    <ClCompile Include="Game\Title\Title.cpp" />
     <ClCompile Include="stdafx.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -273,7 +291,12 @@
     <ClInclude Include="Engine\math\kMath.h" />
     <ClInclude Include="Engine\math\Matrix.h" />
     <ClInclude Include="Engine\math\Vector.h" />
+    <ClInclude Include="Engine\Network\BaseView.h" />
+    <ClInclude Include="Engine\Network\Console.h" />
+    <ClInclude Include="Engine\Network\LoadBalancingListener.h" />
     <ClInclude Include="Engine\Network\NetworkLogic.h" />
+    <ClInclude Include="Engine\Network\OutputListener.h" />
+    <ClInclude Include="Engine\Network\TestView.h" />
     <ClInclude Include="Engine\physics\CapsuleCollider.h" />
     <ClInclude Include="Engine\physics\CollisionAttr.h" />
     <ClInclude Include="Engine\physics\CSphereCollider.h" />
@@ -284,14 +307,21 @@
     <ClInclude Include="Engine\physics\RigitBody.h" />
     <ClInclude Include="Engine\PreCompile.h" />
     <ClInclude Include="Engine\sound\SoundEngine.h" />
+    <ClInclude Include="Engine\time\GameTime.h" />
     <ClInclude Include="Engine\util\Util.h" />
     <ClInclude Include="Engine\window\Window.h" />
     <ClInclude Include="GameCamera.h" />
+    <ClInclude Include="Game\AIEdit\AIEditMode.h" />
+    <ClInclude Include="Game\Game.h" />
+    <ClInclude Include="Game\GameCursor.h" />
+    <ClInclude Include="Game\GameData.h" />
+    <ClInclude Include="Game\Monster\Action\Act_Atack.h" />
+    <ClInclude Include="Game\Monster\Action\Act_Chase.h" />
+    <ClInclude Include="Game\Monster\Action\Act_Leave.h" />
     <ClInclude Include="Game\Monster\Monster.h" />
     <ClInclude Include="Game\Monster\MonsterAction.h" />
-    <ClInclude Include="Game\Monster\MonsterAI.h" />
-    <ClInclude Include="Game\Monster\TestAction.h" />
-    <ClInclude Include="Game\Monster\TestMons.h" />
+    <ClInclude Include="Game\Monster\MonsterActionManeger.h" />
+    <ClInclude Include="Game\Monster\Monsters\TestMons.h" />
     <ClInclude Include="Game\PythonBridge\include\abstract.h" />
     <ClInclude Include="Game\PythonBridge\include\accu.h" />
     <ClInclude Include="Game\PythonBridge\include\asdl.h" />
@@ -392,13 +422,30 @@
     <ClInclude Include="Game\PythonBridge\include\unicodeobject.h" />
     <ClInclude Include="Game\PythonBridge\include\warnings.h" />
     <ClInclude Include="Game\PythonBridge\include\weakrefobject.h" />
+    <ClInclude Include="Game\PythonBridge\PythonBridge.h" />
+    <ClInclude Include="Game\StageSetup\StageSetup.h" />
+    <ClInclude Include="Game\Title\ModeSelect.h" />
+    <ClInclude Include="Game\Title\pvpModeSelect.h" />
+    <ClInclude Include="Game\Title\Title.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
+    <MeshContentTask Include="Assets\modelData\stage\map.FBX" />
     <MeshContentTask Include="Assets\modelData\Test.FBX" />
+    <MeshContentTask Include="Assets\modelData\testMons\tesEnemy2.fbx" />
+    <MeshContentTask Include="Assets\modelData\testMons\tesEnemy3.fbx" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\modelData\boxTex.png" />
+    <Image Include="Assets\modelData\stage\handle010.jpg" />
+    <Image Include="Assets\modelData\testMons\asu.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\cursor.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\AIeditG.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\AIeditW.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\localpvpG.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\localpvpW.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\randompvpG.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\randompvpW.png" />
     <ImageContentTask Include="Assets\Sprite\Test.png" />
   </ItemGroup>
   <ItemGroup>
@@ -409,6 +456,26 @@
       <FileType>Document</FileType>
     </CopyFileToFolders>
     <None Include="Game\PythonBridge\include\pydtrace.d" />
+    <CopyFileToFolders Include="PythonAIs\ang.py">
+      <FileType>Document</FileType>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="PythonAIs\CppBridge.py">
+      <FileType>Document</FileType>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="PythonAIs\testBrain.py">
+      <FileType>Document</FileType>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="PythonAIs\testBrain1.py">
+      <FileType>Document</FileType>
+    </CopyFileToFolders>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="python36.lib">
+      <FileType>Document</FileType>
+    </CustomBuild>
+    <CustomBuild Include="python36_d.lib">
+      <FileType>Document</FileType>
+    </CustomBuild>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

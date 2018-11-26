@@ -2,7 +2,6 @@
 #include "SkinModelRender.h"
 
 
-
 SkinModelRender::SkinModelRender()
 {
 }
@@ -18,7 +17,9 @@ bool SkinModelRender::Start() {
 }
 
 void SkinModelRender::Update() {
+	m_animation.Update(IGameTime().GetFrameDeltaTime());
 	m_skinModel.UpdateWorldMatrix(m_pos, m_rot, m_scale);
+	m_animation.Update(IGameTime().GetFrameDeltaTime());
 }
 
 void SkinModelRender::Render() {
@@ -33,9 +34,13 @@ void SkinModelRender::Render() {
 void SkinModelRender::Init(const wchar_t* filePath,
 	AnimationClip* animationClips,
 	int numAnimationClips,
-	EnFbxUpAxis fbxUpAxis){
+	EnFbxUpAxis fbxUpAxis,
+	const char* psmain,
+	const char* vsmain){
 	m_enFbxUpAxis = fbxUpAxis;
-	m_skinModel.Init(filePath,m_enFbxUpAxis);
+	m_psmain = psmain;
+	m_vsmain = vsmain;
+	m_skinModel.Init(filePath,m_enFbxUpAxis, m_psmain, m_vsmain);
 	InitAnimation(animationClips, numAnimationClips);
 }
 

@@ -15,6 +15,7 @@ public:
 		}
 		return *instance;
 	}
+
 private:
 	void Update();
 	void Release();
@@ -23,7 +24,8 @@ public:
 	{
 		return Engine::GetInstance();
 	}
-
+	void CreateNetworkSystem();
+	void DestroyNetworkSystem();
 };
 
 

@@ -5,6 +5,7 @@
 
 CFPSCounter* FPS = nullptr;
 GameCamera* camera = nullptr;
+NetworkLogic* m_network = nullptr;
 
 Engine::Engine()
 {
@@ -37,13 +38,32 @@ void Engine::Update() {
 		pad.Update();
 	}
 
+	if (m_network != nullptr) {
+		m_network->Update();
+	}
+
 	GameObjectManager().Execute();
 	//camera->Update();
 	//output frame late to debug message
 	char message[256];
 	float fps = FPS->GetFPS();
 	sprintf_s(message, "%f\n", fps);
-	OutputDebugStringA(message);
+	//OutputDebugStringA(message);
+}
+
+void Engine::CreateNetworkSystem() {
+	if (m_network == nullptr) {
+		m_network = new NetworkLogic;
+		m_network->Start();
+	}
+}
+
+void Engine::DestroyNetworkSystem() {
+	if (m_network != nullptr) {
+		m_network->Disconnect();
+		delete m_network;
+		m_network = nullptr;
+	}
 }
 
 void Engine::GameRoop() {

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="ソース ファイル">
@@ -95,6 +95,42 @@
     </Filter>
     <Filter Include="ソース ファイル\Game\dll">
       <UniqueIdentifier>{c1bac433-0e47-4680-b2c0-32a23d44c515}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Game\Assets\modelData\testMons">
+      <UniqueIdentifier>{7a7630ab-0ece-43ed-b136-ddbcbaeb78b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Game\PythonBridge\include">
+      <UniqueIdentifier>{6c242cc8-bf0c-49a3-ae26-8a2eb78cc34e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Engine\time">
+      <UniqueIdentifier>{80721093-a009-4c7c-8526-ec9f9fefdeef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Game\Monster\Action">
+      <UniqueIdentifier>{3998d49f-0940-4457-8e18-2aa1c69880bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Game\Monster\Monsters">
+      <UniqueIdentifier>{aa266b79-42cb-48a2-8053-47fddc6914a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Game\StageSetup">
+      <UniqueIdentifier>{4df90ad4-b6a4-4646-8e19-5fdac7749b14}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Game\Assets\modelData\Stage">
+      <UniqueIdentifier>{54cb2a72-30c5-4578-9c77-653249cac6c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Game\Title">
+      <UniqueIdentifier>{25b7f9a6-5a86-4bf0-8beb-db05c0572c33}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Game\PythonAIs">
+      <UniqueIdentifier>{630a2f73-5ad9-47f3-b68f-724ea6ff35e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Game\Assets\sprite\GUI">
+      <UniqueIdentifier>{d49611f8-1d9a-4e42-a399-a04945ed414e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Game\Assets\sprite\GUI\modeSelect">
+      <UniqueIdentifier>{d14f5a8e-5e97-492e-9fa4-b8d5a523d310}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Game\AIEdit">
+      <UniqueIdentifier>{59d77138-7569-4048-b1d7-b6b9143c4702}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -281,23 +317,80 @@
     <ClCompile Include="Engine\graphics\SpriteRender.cpp">
       <Filter>ソース ファイル\Engine\graphics\2D</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\Network\NetworkLogic.cpp">
-      <Filter>ソース ファイル\Engine\Network</Filter>
-    </ClCompile>
     <ClCompile Include="Game\Monster\Monster.cpp">
-      <Filter>ソース ファイル\Game\Monster</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Monster\MonsterAI.cpp">
-      <Filter>ソース ファイル\Game\Monster</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Monster\TestMons.cpp">
       <Filter>ソース ファイル\Game\Monster</Filter>
     </ClCompile>
     <ClCompile Include="Game\Monster\MonsterAction.cpp">
       <Filter>ソース ファイル\Game\Monster</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Monster\TestAction.cpp">
+    <ClCompile Include="Game\main.cpp">
+      <Filter>ソース ファイル\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game.cpp">
+      <Filter>ソース ファイル\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\PythonBridge\PythonBridge.cpp">
+      <Filter>ソース ファイル\Game\PythonBridge</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\MonsterActionManeger.cpp">
       <Filter>ソース ファイル\Game\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\time\GameTime.cpp">
+      <Filter>ソース ファイル\Engine\time</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Network\BaseView.cpp">
+      <Filter>ソース ファイル\Engine\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Network\Console.cpp">
+      <Filter>ソース ファイル\Engine\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Network\LoadBalancingListener.cpp">
+      <Filter>ソース ファイル\Engine\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Network\OutputListener.cpp">
+      <Filter>ソース ファイル\Engine\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Network\NetworkLogic.cpp">
+      <Filter>ソース ファイル\Engine\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Network\TestView.cpp">
+      <Filter>ソース ファイル\Engine\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\time\GameTime.cpp">
+      <Filter>ソース ファイル\Engine\time</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\Action\Act_Chase.cpp">
+      <Filter>ソース ファイル\Game\Monster\Action</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\Monsters\TestMons.cpp">
+      <Filter>ソース ファイル\Game\Monster\Monsters</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\Action\Act_Atack.cpp">
+      <Filter>ソース ファイル\Game\Monster\Action</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\StageSetup\StageSetup.cpp">
+      <Filter>ソース ファイル\Game\StageSetup</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\GameData.cpp">
+      <Filter>ソース ファイル\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\Action\Act_Leave.cpp">
+      <Filter>ソース ファイル\Game\Monster\Action</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Title\Title.cpp">
+      <Filter>ソース ファイル\Game\Title</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Title\pvpModeSelect.cpp">
+      <Filter>ソース ファイル\Game\Title</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Title\ModeSelect.cpp">
+      <Filter>ソース ファイル\Game\Title</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\GameCursor.cpp">
+      <Filter>ソース ファイル\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\AIEdit\AIEditMode.cpp">
+      <Filter>ソース ファイル\Game\AIEdit</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -496,333 +589,423 @@
     <ClInclude Include="Engine\graphics\SpriteRender.h">
       <Filter>ソース ファイル\Engine\graphics\2D</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\Network\NetworkLogic.h">
-      <Filter>ソース ファイル\Engine\Network</Filter>
-    </ClInclude>
     <ClInclude Include="Game\Monster\Monster.h">
       <Filter>ソース ファイル\Game\Monster</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Monster\MonsterAI.h">
-      <Filter>ソース ファイル\Game\Monster</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Monster\TestMons.h">
-      <Filter>ソース ファイル\Game\Monster</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\fileobject.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\fileutils.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\floatobject.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\frameobject.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\funcobject.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\genobject.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\graminit.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\grammar.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\import.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\intrcheck.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\iterobject.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\listobject.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\longintrepr.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\longobject.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\marshal.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\memoryobject.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\metagrammar.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\methodobject.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\modsupport.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\moduleobject.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\namespaceobject.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\node.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\object.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\objimpl.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\odictobject.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\opcode.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\osdefs.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\osmodule.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\parsetok.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\patchlevel.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\pgen.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\pgenheaders.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\py_curses.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\pyarena.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\pyatomic.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\pycapsule.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\pyconfig.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\pyctype.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\pydebug.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\pydtrace.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\pyerrors.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\pyexpat.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\pyfpe.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\pygetopt.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\pyhash.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\pylifecycle.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\pymacconfig.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\pymacro.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\pymath.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\pymem.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\pyport.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\pystate.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\pystrcmp.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\pystrhex.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\pystrtod.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\Python.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\Python-ast.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\pythonrun.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\pythread.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\pytime.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\rangeobject.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\setobject.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\sliceobject.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\structmember.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\structseq.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\symtable.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\sysmodule.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\token.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\traceback.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\tupleobject.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\typeslots.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\ucnhash.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\unicodeobject.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\warnings.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\weakrefobject.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\abstract.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\accu.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\asdl.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\ast.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\bitset.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\bltinmodule.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\boolobject.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\bytearrayobject.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\bytes_methods.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\bytesobject.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\cellobject.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\ceval.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\classobject.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\code.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\codecs.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\compile.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\complexobject.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\datetime.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\descrobject.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\dictobject.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\dtoa.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\dynamic_annotations.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\enumobject.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\errcode.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\PythonBridge\include\eval.h">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
     </ClInclude>
     <ClInclude Include="Game\Monster\MonsterAction.h">
       <Filter>ソース ファイル\Game\Monster</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Monster\TestAction.h">
+    <ClInclude Include="Game\Game.h">
+      <Filter>ソース ファイル\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\abstract.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\accu.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\asdl.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\ast.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\bitset.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\bltinmodule.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\boolobject.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\bytearrayobject.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\bytes_methods.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\bytesobject.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\cellobject.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\ceval.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\classobject.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\code.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\codecs.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\compile.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\complexobject.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\datetime.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\descrobject.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\dictobject.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\dtoa.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\dynamic_annotations.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\enumobject.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\errcode.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\eval.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\fileobject.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\fileutils.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\floatobject.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\frameobject.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\funcobject.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\genobject.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\graminit.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\grammar.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\import.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\intrcheck.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\iterobject.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\listobject.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\longintrepr.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\longobject.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\marshal.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\memoryobject.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\metagrammar.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\methodobject.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\modsupport.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\moduleobject.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\namespaceobject.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\node.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\object.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\objimpl.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\odictobject.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\opcode.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\osdefs.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\osmodule.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\parsetok.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\patchlevel.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\pgen.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\pgenheaders.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\py_curses.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\pyarena.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\pyatomic.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\pycapsule.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\pyconfig.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\pyctype.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\pydebug.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\pydtrace.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\pyerrors.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\pyexpat.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\pyfpe.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\pygetopt.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\pyhash.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\pylifecycle.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\pymacconfig.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\pymacro.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\pymath.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\pymem.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\pyport.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\pystate.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\pystrcmp.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\pystrhex.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\pystrtod.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\Python.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\Python-ast.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\pythonrun.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\pythread.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\pytime.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\rangeobject.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\setobject.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\sliceobject.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\structmember.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\structseq.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\symtable.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\sysmodule.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\token.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\traceback.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\tupleobject.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\typeslots.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\ucnhash.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\unicodeobject.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\warnings.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\weakrefobject.h">
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\PythonBridge.h">
+      <Filter>ソース ファイル\Game\PythonBridge</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\MonsterActionManeger.h">
       <Filter>ソース ファイル\Game\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\time\GameTime.h">
+      <Filter>ソース ファイル\Engine\time</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Network\BaseView.h">
+      <Filter>ソース ファイル\Engine\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Network\Console.h">
+      <Filter>ソース ファイル\Engine\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Network\LoadBalancingListener.h">
+      <Filter>ソース ファイル\Engine\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Network\OutputListener.h">
+      <Filter>ソース ファイル\Engine\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Network\NetworkLogic.h">
+      <Filter>ソース ファイル\Engine\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Network\TestView.h">
+      <Filter>ソース ファイル\Engine\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\time\GameTime.h">
+      <Filter>ソース ファイル\Engine\time</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\Action\Act_Chase.h">
+      <Filter>ソース ファイル\Game\Monster\Action</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\Monsters\TestMons.h">
+      <Filter>ソース ファイル\Game\Monster\Monsters</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\Action\Act_Atack.h">
+      <Filter>ソース ファイル\Game\Monster\Action</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\StageSetup\StageSetup.h">
+      <Filter>ソース ファイル\Game\StageSetup</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameData.h">
+      <Filter>ソース ファイル\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\Action\Act_Leave.h">
+      <Filter>ソース ファイル\Game\Monster\Action</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Title\Title.h">
+      <Filter>ソース ファイル\Game\Title</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Title\pvpModeSelect.h">
+      <Filter>ソース ファイル\Game\Title</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Title\ModeSelect.h">
+      <Filter>ソース ファイル\Game\Title</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameCursor.h">
+      <Filter>ソース ファイル\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\AIEdit\AIEditMode.h">
+      <Filter>ソース ファイル\Game\AIEdit</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\Test.FBX">
       <Filter>ソース ファイル\Game\Assets\modelData</Filter>
     </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\testMons\tesEnemy2.fbx">
+      <Filter>ソース ファイル\Game\Assets\modelData\testMons</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\stage\map.FBX">
+      <Filter>ソース ファイル\Game\Assets\modelData\Stage</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\testMons\tesEnemy3.fbx">
+      <Filter>ソース ファイル\Game\Assets\modelData\testMons</Filter>
+    </MeshContentTask>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\modelData\boxTex.png">
       <Filter>ソース ファイル\Game\Assets\modelData</Filter>
+    </Image>
+    <Image Include="Assets\modelData\testMons\asu.png">
+      <Filter>ソース ファイル\Game\Assets\modelData\testMons</Filter>
+    </Image>
+    <Image Include="Assets\modelData\stage\handle010.jpg">
+      <Filter>ソース ファイル\Game\Assets\modelData\Stage</Filter>
+    </Image>
+    <Image Include="Assets\Sprite\GUI\modeSelect\localpvpG.png">
+      <Filter>ソース ファイル\Game\Assets\sprite\GUI\modeSelect</Filter>
+    </Image>
+    <Image Include="Assets\Sprite\GUI\modeSelect\localpvpW.png">
+      <Filter>ソース ファイル\Game\Assets\sprite\GUI\modeSelect</Filter>
+    </Image>
+    <Image Include="Assets\Sprite\GUI\modeSelect\randompvpG.png">
+      <Filter>ソース ファイル\Game\Assets\sprite\GUI\modeSelect</Filter>
+    </Image>
+    <Image Include="Assets\Sprite\GUI\modeSelect\randompvpW.png">
+      <Filter>ソース ファイル\Game\Assets\sprite\GUI\modeSelect</Filter>
+    </Image>
+    <Image Include="Assets\Sprite\GUI\modeSelect\AIeditW.png">
+      <Filter>ソース ファイル\Game\Assets\sprite\GUI\modeSelect</Filter>
+    </Image>
+    <Image Include="Assets\Sprite\GUI\modeSelect\AIeditG.png">
+      <Filter>ソース ファイル\Game\Assets\sprite\GUI\modeSelect</Filter>
+    </Image>
+    <Image Include="Assets\Sprite\GUI\cursor.png">
+      <Filter>ソース ファイル\Game\Assets\sprite\GUI</Filter>
     </Image>
   </ItemGroup>
   <ItemGroup>
@@ -831,14 +1014,28 @@
     </ImageContentTask>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Game\dlllib\python36.dll">
+    <CopyFileToFolders Include="Game\dlllib\python36_d.dll">
       <Filter>ソース ファイル\Game\dll</Filter>
-    </None>
-    <None Include="Game\dlllib\python36_d.dll">
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="Game\dlllib\python36.dll">
       <Filter>ソース ファイル\Game\dll</Filter>
-    </None>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="PythonAIs\ang.py" />
+    <CopyFileToFolders Include="PythonAIs\CppBridge.py" />
+    <CopyFileToFolders Include="PythonAIs\testBrain.py" />
+    <CopyFileToFolders Include="PythonAIs\testBrain1.py" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Game\PythonBridge\include\pydtrace.d">
-      <Filter>ソース ファイル\Game\PythonBridge</Filter>
+      <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="python36.lib">
+      <Filter>ソース ファイル\Game</Filter>
+    </CustomBuild>
+    <CustomBuild Include="python36_d.lib">
+      <Filter>ソース ファイル\Game</Filter>
+    </CustomBuild>
   </ItemGroup>
 </Project>
