@@ -24,6 +24,6 @@ private:
 	//std::vector<SpriteRender*> m_sprits;
 
 
-	GameCursor* m_cursor = nullptr;
+	GameCursor* m_cursor = nullptr;				// This is cursor
 	GameCamera* m_camera = nullptr;				//<-THIS IS CAMERA
 };
