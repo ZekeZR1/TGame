@@ -41,6 +41,7 @@ void Monster::Update()
 			if (!isLoading)
 			{
 				m_PB->py_exe(m_num, m_team, m_pyFile);
+				//m_PB->py_exeEX(m_num, m_team, m_pyFile);
 				isLoading = true;
 			}
 			if (m_actions.size() >= 1)

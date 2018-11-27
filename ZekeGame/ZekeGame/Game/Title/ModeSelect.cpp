@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "ModeSelect.h"
 
+#include "pvpModeSelect.h"
 #include "../AIEdit/AIEditMode.h"
 
 #include "../../GameCamera.h"
@@ -48,6 +49,8 @@ void ModeSelect::Update()
 		switch (m_sel)
 		{
 		case enLocalpvp:
+			NewGO<PvPModeSelect>(0, "pvp");
+			DeleteGO(this);
 			break;
 		case enRandompvp:
 			break;

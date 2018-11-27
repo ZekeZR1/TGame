@@ -8,6 +8,7 @@
 //static int g_enemyCount = 0;
 //static int g_meNum = 0;
 //static int g_meTeam = 0;
+extern PyObject* g_pFunction;
 
 class Monster;
 class MonsterActionManeger;
@@ -31,7 +32,7 @@ public:
 	void pbInit();
 	void py_exe(int num,int team,const char* file);
 	void AddExe(int num, int team, const char* file);
-	void py_exe();
+	void py_exeEX(int num, int team, const char* file);
 
 
 	CVector3 GetMonsVec(int num)

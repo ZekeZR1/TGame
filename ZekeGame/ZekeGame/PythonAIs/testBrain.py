@@ -1,7 +1,9 @@
+#coding: utf-8
+
 import CppBridge as cb
 
-def Brain(MeNum,MeTeam):
-    #cb.gameData.init()
+def Brain(MeNum,MeTeam,f):
+    cb.gameData.init(MeNum)
     ME = cb.gameData.me
     mon = cb.gameData.GetEnemyHighHP()
     

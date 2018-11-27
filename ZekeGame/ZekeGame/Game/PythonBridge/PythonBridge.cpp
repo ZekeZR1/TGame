@@ -1,5 +1,5 @@
 #include "stdafx.h"
-//#include <thread>
+#include <thread>
 #include "PythonBridge.h"
 #include "../Monster/MonsterAction.h"
 #include "../Monster/MonsterActionManeger.h"
@@ -84,15 +84,26 @@ static PyObject* GetMyNum(PyObject* self, PyObject* args)
 	return pNum;
 }
 
+
+static PyObject* GetMonster(PyObject* self, PyObject* args)
+{
+	int num = PyLong_AsLong(PyTuple_GetItem(args, 0));
+
+	Monster* mon = g_mons[num];
+
+}
+
+
 static PyObject* GetAllBuddyPosition(PyObject* self, PyObject* args)
 {
-	PyObject* poss = PyList_New(g_buddyCount-1);
+	//PyObject* poss = PyList_New(g_buddyCount-1);
+	PyObject* poss = PyList_New(g_buddyCount);
 	int count = 0;
 	for (Monster* mon : g_mons)
 	{
 		if (mon == NULL)
 			break;
-		if (mon->Getnum() == g_meNum || mon->Getteam() != g_meTeam)
+		if (/*mon->Getnum() == g_meNum ||*/ mon->Getteam() != g_meTeam)
 			continue;
 		PyObject *x, *y, *z;
 		x = PyLong_FromDouble(mon->Getpos().x);
@@ -115,13 +126,14 @@ static PyObject* GetAllBuddyPosition(PyObject* self, PyObject* args)
 
 static PyObject* GetAllBuddyNum(PyObject* self, PyObject* args)
 {
-	PyObject* nums = PyList_New(g_buddyCount-1);
+	//PyObject* nums = PyList_New(g_buddyCount-1);
+	PyObject* nums = PyList_New(g_buddyCount);
 	int count = 0;
 	for (Monster* mon : g_mons)
 	{
 		if (mon == NULL)
 			break;
-		if (mon->Getnum() == g_meNum || mon->Getteam() != g_meTeam)
+		if (/*mon->Getnum() == g_meNum ||*/ mon->Getteam() != g_meTeam)
 			continue;
 		PyObject* num = PyLong_FromLong(mon->Getnum());
 
@@ -218,13 +230,15 @@ static PyObject* GetEnemyCount(PyObject* self, PyObject* args)
 PyObject* SetAction(PyObject* self, PyObject* args)
 {
 	int count = PyTuple_Size(args);
+	int num = PyLong_AsLong(PyTuple_GetItem(args, 1));
+	Monster* mon = g_mons[num];
 	for (int i = 0; i < count; i++)
 	{
 		PyObject* tup = PyTuple_GetItem(args,i);
 		int tar = PyLong_AsLong(PyTuple_GetItem(tup, 0));
 		int act = PyLong_AsLong(PyTuple_GetItem(tup, 0));
 		MonsterActionManeger* mam = FindGO<MonsterActionManeger>("MAM");
-		ME->AddAction(mam->LoadAction(tar, act));
+		mon->AddAction(mam->LoadAction(tar, act));
 	}
 	return NULL;
 }
@@ -247,6 +261,7 @@ static PyMethodDef methods[] =
 
 	{"GetBuddyCount",GetBuddyCount,METH_NOARGS,"mikata no kazu wo kaeshi masu."},
 	{"GetEnemyCount",GetEnemyCount,METH_NOARGS,"teki no kazu wo kaeshi masu."},
+
 	{"SetAction",SetAction,METH_VARARGS,"action wo settei simasu"},
 	{NULL,NULL,0,NULL}
 };
@@ -290,13 +305,14 @@ void PythonBridge::Update()
 	}*/
 	if (pTS != nullptr && end)
 	{
-		//PyEval_RestoreThread(pTS);
+		PyEval_RestoreThread(pTS);
 		////PyEval_ReleaseThread(pTS);
-		Py_Finalize();
+		//Py_Finalize();
 		end = false;
 	}
 }
 
+//使っていない
 void PythonBridge::pbInit()
 {
 	
@@ -321,6 +337,7 @@ void PythonBridge::pbInit()
 	}
 }
 
+//使っていない
 bool py_exe(int num, int team, const char* file)
 {
 	std::unique_ptr<std::thread> th = nullptr;
@@ -496,17 +513,123 @@ void PythonBridge::AddExe(int num, int team, const char * file)
 	m_exeDatalist.push_back(ed);
 }
 
-void PythonBridge::py_exe()
+PyObject* g_pFunction;
+// thread 使う　時の　関数
+void PythonBridge::py_exeEX(int num, int team, const char * file)
 {
+	g_meNum = num;
+	g_meTeam = team;
+	g_buddyCount = 0;
+	g_enemyCount = 0;
+	Monster* me;
+	QueryGOs<Monster>("monster", [&](Monster* obj)->bool
+	{
+		if (obj->Getnum() == num)
+			me = obj;
+
+		if (obj->Getteam() == team)
+		{
+			g_buddyCount++;
+		}
+		else
+		{
+			g_enemyCount++;
+		}
+		return true;
+	});
+
+
+	/*PyEval_InitThreads();
+
+	th.reset(new std::thread([=]
+	{
+		PyGILState_STATE GILState;
+		GILState = PyGILState_Ensure();*/
+	PyImport_AppendInittab("SendGame", initModule);
+	Py_InitializeEx(1);
+
+	PyObject *pName, *pModule, *pFunction, *pArgs, *pValue;
+
+	//pName = PyUnicode_DecodeFSDefault(file);
+
+	pName = PyUnicode_DecodeFSDefault("PythonAIs.testBrain");
+	pModule = PyImport_Import(pName);
+	Py_DECREF(pName);
+
+	//pFunction = PyObject_GetAttrString(pModule, "execute");
+
+	pFunction = PyObject_GetAttrString(pModule, "Brain");
+
+	pArgs = PyTuple_New(3);
+	PyObject* pMenum = PyLong_FromLong(num);
+	PyObject* pMeteam = PyLong_FromLong(team);
+	PyObject* pFile = PyUnicode_FromString(file);
+	PyTuple_SetItem(pArgs, 0, pMenum);
+	PyTuple_SetItem(pArgs, 1, pMeteam);
+	PyTuple_SetItem(pArgs, 2, pFile);
+
+ 	//pValue = PyObject_CallObject(g_pFunction, pArgs);
+ 	pValue = PyObject_CallObject(pFunction, pArgs);
+
+
+	Py_DECREF(pArgs);
+	Py_DECREF(pModule);
+	Py_DECREF(pFunction);
+
+	if (pValue == NULL)
+	{
+		SetCurrentDirectory("../");
+		Py_Finalize();
+		//PyGILState_Release(GILState);
+		end = true;
+		return;
+	}
+	int vl = PyList_Size(pValue);
+	if (vl == 0)
+	{
+		Py_DECREF(pValue);
+		
+		Py_Finalize();
+		//PyGILState_Release(GILState);
+		end = true;
+		return;
+	}
+
+	//for (int i = 0; i < vl; i++)
+	//{
+	//	int action[2];
+	//	action[0] = PyLong_AsLong(PyList_GetItem(PyList_GetItem(pValue, i), 0));
+	//	action[1] = PyLong_AsLong(PyList_GetItem(PyList_GetItem(pValue, i), 1));
+	//	me->AddAction(mam->LoadAction(action[0], action[1]));
+	//}
+	Py_Finalize();
+	Py_DECREF(pValue);
+
+	SetCurrentDirectory("../");
+
+	//PyGILState_Release(GILState);
+	end = true;
+	//}));
+
+	//pTS = PyEval_SaveThread();
 }
 
 Pyinit::Pyinit()
 {
-	//PyImport_AppendInittab("SendGame", initModule);
-	//Py_InitializeEx(1);
+	//SetCurrentDirectory("Python36");
+	/*PyImport_AppendInittab("SendGame", initModule);
+	Py_InitializeEx(1);
+
+	PyObject *pName, *pModule;
+	pName = PyUnicode_DecodeFSDefault("PythonAIs.Threader");
+	pModule = PyImport_Import(pName);
+	Py_DECREF(pName);
+
+	g_pFunction = PyObject_GetAttrString(pModule, "execute");*/
 }
 
 Pyinit::~Pyinit()
 {
 	//Py_Finalize();
+	//SetCurrentDirectory("../");
 }
