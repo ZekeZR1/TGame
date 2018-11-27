@@ -197,6 +197,7 @@
     <ClCompile Include="Engine\graphics\Sprite\Sprite.cpp" />
     <ClCompile Include="Engine\graphics\StructedBuffer.cpp" />
     <ClCompile Include="Engine\graphics\TScopedResource.cpp" />
+    <ClCompile Include="Engine\HID\Mouse.cpp" />
     <ClCompile Include="Engine\HID\Pad.cpp" />
     <ClCompile Include="Engine\level\Level.cpp" />
     <ClCompile Include="Engine\level\MapChip.cpp" />
@@ -285,6 +286,7 @@
     <ClInclude Include="Engine\graphics\Sprite\Sprite.h" />
     <ClInclude Include="Engine\graphics\StructedBuffer.h" />
     <ClInclude Include="Engine\graphics\TScopedResource.h" />
+    <ClInclude Include="Engine\HID\Mouse.h" />
     <ClInclude Include="Engine\HID\Pad.h" />
     <ClInclude Include="Engine\level\Level.h" />
     <ClInclude Include="Engine\level\MapChip.h" />
