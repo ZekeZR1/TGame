@@ -43,6 +43,6 @@
 #include "Engine/graphics/Camera.h"
 #include "Engine/graphics/Effect/CEffectEngine.h"
 #include "Engine/graphics/Effect/CEffect.h"
-
+#include "HID/Mouse.h"
 #include "Engine/time/GameTime.h"
 
