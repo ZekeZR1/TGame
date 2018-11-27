@@ -39,6 +39,8 @@ void Engine::Update() {
 		pad.Update();
 	}
 
+	Mouse::UpdateMouseInput();
+
 	if (m_network != nullptr) {
 		m_network->Update();
 	}
@@ -65,14 +67,6 @@ void Engine::DestroyNetworkSystem() {
 		delete m_network;
 		m_network = nullptr;
 	}
-}
-
-void Engine::SetMouseNotch(int notch) {
-	nNotch = notch;
-}
-
-int Engine::GetMouseNotch() {
-	return nNotch;
 }
 
 void Engine::GameRoop() {

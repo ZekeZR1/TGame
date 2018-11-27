@@ -3,6 +3,7 @@
 HWND g_hwnd = NULL;
 GraphicsEngine* g_graphicsEngine = NULL;
 int notch;
+bool mEve[10];
 
 LRESULT CALLBACK MsgProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 {
@@ -29,6 +30,43 @@ LRESULT CALLBACK MsgProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 		notch = nNotch;
 		// 端数を保存する
 		nWheelFraction = zDelta % WHEEL_DELTA;
+		break;
+	}
+	case WM_LBUTTONDOWN:
+	{
+		//左クリックされた
+		mEve[0] = true;
+		break;
+	}
+	case WM_LBUTTONUP:
+	{
+		//左ボタンを離した
+		mEve[0] = false;
+		break;
+	}
+	case WM_MBUTTONDOWN:
+	{
+		//ミドルクリックされた
+		mEve[1] = true;
+		break;
+	}
+	case WM_MBUTTONUP:
+	{
+		//ミドルボタンを離した
+		mEve[1] = false;
+		break;
+	}
+	case WM_RBUTTONDOWN:
+	{
+		//右クリックされた
+		mEve[2] = true;
+		break;
+	}
+	case WM_RBUTTONUP:
+	{
+		//右ボタンを離した
+		mEve[2] = false;
+		break;
 	}
 	default:
 		return DefWindowProc(hWnd, msg, wParam, lParam);

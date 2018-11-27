@@ -5,3 +5,4 @@ void InitWindow(HINSTANCE hinstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLine, 
 bool DispatchWindowMessage();
 
 extern int notch;
+extern bool mEve[10];

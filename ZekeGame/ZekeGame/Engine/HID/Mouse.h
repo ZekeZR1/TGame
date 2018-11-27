@@ -1,17 +1,13 @@
 #pragma once
+enum enMouseEve {
+	enLeftClick,
+	enMiddleClick,
+	enRightClick,
+	enNumMouseEve
+};
 namespace Mouse {
 	int GetMouseNotch();
-	//enum EnMouseEvent {
-	//	enRightClick,
-	//	enRightDClick,
-	//	enRightRelease,
-	//	enLeftClick,
-	//	enLeftDClick,
-	//	enLeftRelease,
-	//	enMiddleClick,
-	//	enMiddleDClick,
-	//	enMiddleRelease,
-	//	enNumEvent
-	//};
-	//EnMouseEvent m_mevent;
+	void UpdateMouseInput();
+	bool isTrigger(enMouseEve);
+	bool isPress(enMouseEve);
 }
