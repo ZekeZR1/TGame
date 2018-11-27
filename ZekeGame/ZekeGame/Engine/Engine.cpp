@@ -6,6 +6,7 @@
 CFPSCounter* FPS = nullptr;
 GameCamera* camera = nullptr;
 NetworkLogic* m_network = nullptr;
+int nNotch = 0;
 
 Engine::Engine()
 {
@@ -64,6 +65,14 @@ void Engine::DestroyNetworkSystem() {
 		delete m_network;
 		m_network = nullptr;
 	}
+}
+
+void Engine::SetMouseNotch(int notch) {
+	nNotch = notch;
+}
+
+int Engine::GetMouseNotch() {
+	return nNotch;
 }
 
 void Engine::GameRoop() {

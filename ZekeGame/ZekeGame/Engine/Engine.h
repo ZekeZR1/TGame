@@ -26,6 +26,8 @@ public:
 	}
 	void CreateNetworkSystem();
 	void DestroyNetworkSystem();
+	void SetMouseNotch(int);
+	int GetMouseNotch();
 };
 
 

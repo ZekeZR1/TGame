@@ -27,7 +27,8 @@ enum EnButton {
 	enButtonLB1,		//!<LB1ボタン。
 	enButtonLB2,		//!<LB2ボタン。
 	enButtonLB3,		//!<LB3ボタン。
-	enButtonNum,	//!<ボタンの数。
+	enStopCursorRoop,
+	enButtonNum	//!<ボタンの数。
 };
 /*!
 *@brief	パッド
@@ -177,6 +178,8 @@ public:
 	{
 		return m_rStickY;
 	}
+
+
 private:
 	/*!
 	*@brief	ボタンの入力情報を更新。
@@ -204,3 +207,4 @@ private:
 };
 
 extern Pad g_pad[Pad::CONNECT_PAD_MAX];
+
