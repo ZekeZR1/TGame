@@ -392,6 +392,9 @@
     <ClCompile Include="Game\AIEdit\AIEditMode.cpp">
       <Filter>ソース ファイル\Game\AIEdit</Filter>
     </ClCompile>
+    <ClCompile Include="Game\AIEdit\AIEditNode.cpp">
+      <Filter>ソース ファイル\Game\AIEdit</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\character\CharacterController.h">
@@ -961,6 +964,9 @@
     <ClInclude Include="Game\AIEdit\AIEditMode.h">
       <Filter>ソース ファイル\Game\AIEdit</Filter>
     </ClInclude>
+    <ClInclude Include="Game\AIEdit\AIEditNode.h">
+      <Filter>ソース ファイル\Game\AIEdit</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\Test.FBX">
@@ -1011,6 +1017,12 @@
     </ImageContentTask>
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\randompvpW.png">
       <Filter>リソース ファイル</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\karium.png">
+      <Filter>ソース ファイル\Game\Assets\sprite\GUI</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\kariwin.png">
+      <Filter>ソース ファイル\Game\Assets\sprite\GUI</Filter>
     </ImageContentTask>
   </ItemGroup>
   <ItemGroup>

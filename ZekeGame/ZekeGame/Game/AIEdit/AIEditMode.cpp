@@ -12,6 +12,9 @@ AIEditMode::~AIEditMode()
 
 	// CAMERA IS DEAD.
 	delete m_camera;
+
+	//CURSOR IS DEAD.
+	DeleteGO(m_cursor);
 }
 
 bool AIEditMode::Start()
