@@ -395,6 +395,9 @@
     <ClCompile Include="Engine\HID\Mouse.cpp">
       <Filter>ソース ファイル\Engine\HID</Filter>
     </ClCompile>
+    <ClCompile Include="Engine\physics\SpriteBoxCollider.cpp">
+      <Filter>ソース ファイル\Engine\physics</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\character\CharacterController.h">
@@ -966,6 +969,9 @@
     </ClInclude>
     <ClInclude Include="Engine\HID\Mouse.h">
       <Filter>ソース ファイル\Engine\HID</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\physics\SpriteBoxCollider.h">
+      <Filter>ソース ファイル\Engine\physics</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

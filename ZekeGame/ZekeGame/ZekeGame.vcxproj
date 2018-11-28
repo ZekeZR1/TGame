@@ -216,6 +216,7 @@
     <ClCompile Include="Engine\physics\Physics.cpp" />
     <ClCompile Include="Engine\physics\PhysicsStaticObject.cpp" />
     <ClCompile Include="Engine\physics\RigitBody.cpp" />
+    <ClCompile Include="Engine\physics\SpriteBoxCollider.cpp" />
     <ClCompile Include="Engine\PreCompile.cpp" />
     <ClCompile Include="Engine\sound\SoundEngine.cpp" />
     <ClCompile Include="Engine\time\GameTime.cpp" />
@@ -307,6 +308,7 @@
     <ClInclude Include="Engine\physics\Physics.h" />
     <ClInclude Include="Engine\physics\PhysicsStaticObject.h" />
     <ClInclude Include="Engine\physics\RigitBody.h" />
+    <ClInclude Include="Engine\physics\SpriteBoxCollider.h" />
     <ClInclude Include="Engine\PreCompile.h" />
     <ClInclude Include="Engine\sound\SoundEngine.h" />
     <ClInclude Include="Engine\time\GameTime.h" />
