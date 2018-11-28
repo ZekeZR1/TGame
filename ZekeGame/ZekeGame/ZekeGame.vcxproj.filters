@@ -395,6 +395,9 @@
     <ClCompile Include="Game\AIEdit\AIEditNode.cpp">
       <Filter>ソース ファイル\Game\AIEdit</Filter>
     </ClCompile>
+    <ClCompile Include="Game\AIEdit\AIEditLine.cpp">
+      <Filter>ソース ファイル\Game\AIEdit</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\character\CharacterController.h">
@@ -967,6 +970,9 @@
     <ClInclude Include="Game\AIEdit\AIEditNode.h">
       <Filter>ソース ファイル\Game\AIEdit</Filter>
     </ClInclude>
+    <ClInclude Include="Game\AIEdit\AIEditLine.h">
+      <Filter>ソース ファイル\Game\AIEdit</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\Test.FBX">
@@ -991,6 +997,9 @@
     </Image>
     <Image Include="Assets\modelData\stage\handle010.jpg">
       <Filter>ソース ファイル\Game\Assets\modelData\Stage</Filter>
+    </Image>
+    <Image Include="Assets\Sprite\kariline.png">
+      <Filter>ソース ファイル\Game\Assets\sprite\GUI</Filter>
     </Image>
   </ItemGroup>
   <ItemGroup>

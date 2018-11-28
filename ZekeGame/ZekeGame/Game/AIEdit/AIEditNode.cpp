@@ -26,13 +26,20 @@ bool AIEditNode::Start()
 
 void AIEditNode::Update()
 {
+	
+		//一番初めのwindow
+		if ("マウス右クリック")
+		{
+			m_spriteRender = NewGO<SpriteRender>(0, "firstwin");
+			m_spriteRender->Init(L"sprite/kariwin.dds", 700, 400);
+			m_spriteRender->SetPosition(/*矢印の下*/);
 
-	if ("マウス右クリック")
-	{
-		m_spriteRender = NewGO<SpriteRender>(0,"firstwin");
-		m_spriteRender->Init(L"sprite/kariwin.dds", 700, 400);
+		}
 
+		//線を伸ばす処理をした時に出てくるwindow
+		if ()
+		{
 
-	}
+		}
 
 }
