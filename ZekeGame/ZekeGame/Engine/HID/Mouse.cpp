@@ -41,7 +41,9 @@ namespace Mouse {
 	}
 
 	int GetMouseNotch() {
-		return notch;
+		int nn = notch;
+		notch = 0;
+		return nn;
 	}
 
 	bool isTrigger(enMouseEve eve) {
