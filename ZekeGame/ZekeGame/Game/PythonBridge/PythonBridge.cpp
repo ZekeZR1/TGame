@@ -9,6 +9,7 @@
 Monster* ME = nullptr;
 
 //égópÇµÇƒÇ¢ÇÈMonsterÇÃÉ|ÉWÉVÉáÉìÇï‘ÇµÇ‹Ç∑
+//îpä¸ó\íË
 static PyObject* GetMyPosition(PyObject* self,PyObject* args)
 {
 	Monster* mon = nullptr;
@@ -42,6 +43,7 @@ static PyObject* GetMyPosition(PyObject* self,PyObject* args)
 	return pos;
 }
 
+//îpä¸ó\íË
 static PyObject* GetMyHP(PyObject* self, PyObject* args)
 {
 	Monster* mon = nullptr;
@@ -57,6 +59,7 @@ static PyObject* GetMyHP(PyObject* self, PyObject* args)
 	return pHP;
 }
 
+//îpä¸ó\íË
 static PyObject* GetMyMP(PyObject* self, PyObject* args)
 {
 	Monster* mon = nullptr;
@@ -72,19 +75,21 @@ static PyObject* GetMyMP(PyObject* self, PyObject* args)
 	return pMP;
 }
 
+//îpä¸ó\íË
 static PyObject* GetMyTeam(PyObject* self, PyObject* args)
 {
 	PyObject* pTeam = PyLong_FromLong(g_meTeam);
 	return pTeam;
 }
 
+//îpä¸ó\íË
 static PyObject* GetMyNum(PyObject* self, PyObject* args)
 {
 	PyObject* pNum = PyLong_FromLong(g_meNum);
 	return pNum;
 }
 
-
+//ñ¢égóp
 static PyObject* GetMonster(PyObject* self, PyObject* args)
 {
 	int num = PyLong_AsLong(PyTuple_GetItem(args, 0));
@@ -93,7 +98,7 @@ static PyObject* GetMonster(PyObject* self, PyObject* args)
 
 }
 
-
+//îpä¸ó\íË
 static PyObject* GetAllBuddyPosition(PyObject* self, PyObject* args)
 {
 	//PyObject* poss = PyList_New(g_buddyCount-1);
@@ -124,6 +129,7 @@ static PyObject* GetAllBuddyPosition(PyObject* self, PyObject* args)
 	return poss;
 }
 
+//îpä¸ó\íË
 static PyObject* GetAllBuddyNum(PyObject* self, PyObject* args)
 {
 	//PyObject* nums = PyList_New(g_buddyCount-1);
@@ -144,6 +150,45 @@ static PyObject* GetAllBuddyNum(PyObject* self, PyObject* args)
 	return nums;
 }
 
+//args = [team]
+PyObject* GetAllBuddyData(PyObject* self, PyObject* args)
+{
+	int meTeam = PyLong_AsLong(PyTuple_GetItem(args, 0));
+	//PyObject* nums = PyList_New(g_buddyCount-1);
+	PyObject* pDatas = PyList_New(g_buddyCount);
+	int count = 0;
+	for (Monster* mon : g_mons)
+	{
+		if (mon == NULL)
+			break;
+		//if (/*mon->Getnum() == g_meNum ||*/ mon->Getteam() != g_meTeam)
+		if (/*mon->Getnum() == g_meNum ||*/ mon->Getteam() != meTeam)
+			continue;
+		PyObject* pData = PyList_New(6);
+
+		PyList_SetItem(pData,0,PyLong_FromLong(mon->GetID()));
+		PyList_SetItem(pData,1,PyLong_FromLong(mon->Getnum()));
+		PyList_SetItem(pData,2,PyLong_FromLong(mon->Getteam()));
+		PyList_SetItem(pData,3,PyLong_FromLong(mon->GetHP()));
+		PyList_SetItem(pData,4,PyLong_FromLong(mon->GetMP()));
+
+		PyObject* pPos = PyList_New(3);
+		CVector3 pos = mon->Getpos();
+		PyList_SetItem(pPos, 0, PyFloat_FromDouble(pos.x));
+		PyList_SetItem(pPos, 1, PyFloat_FromDouble(pos.y));
+		PyList_SetItem(pPos, 2, PyFloat_FromDouble(pos.z));
+
+		PyList_SetItem(pData, 5, pPos);
+
+		PyList_SetItem(pDatas, count, pData);
+
+		count++;
+	}
+	return pDatas;
+}
+
+
+//îpä¸ó\íË
 static PyObject* GetAllEnemyPosition(PyObject* self, PyObject* args)
 {
 	PyObject* poss = PyList_New(g_enemyCount);
@@ -174,7 +219,7 @@ static PyObject* GetAllEnemyPosition(PyObject* self, PyObject* args)
 	return poss;
 }
 
-
+//îpä¸ó\íË
 static PyObject* GetAllEnemyNum(PyObject* self, PyObject* args)
 {
 	PyObject* nums = PyList_New(g_enemyCount);
@@ -193,7 +238,7 @@ static PyObject* GetAllEnemyNum(PyObject* self, PyObject* args)
 
 	return nums;
 }
-
+//îpä¸ó\íË
 static PyObject* GetAllEnemyHP(PyObject* self, PyObject* args)
 {
 	PyObject* pHPs = PyList_New(g_enemyCount);
@@ -212,6 +257,43 @@ static PyObject* GetAllEnemyHP(PyObject* self, PyObject* args)
 	return pHPs;
 }
 
+//args = [team]
+PyObject* GetAllEnemyData(PyObject* self, PyObject* args)
+{
+	int meTeam = PyLong_AsLong(PyTuple_GetItem(args, 0));
+	//PyObject* nums = PyList_New(g_buddyCount-1);
+	PyObject* pDatas = PyList_New(g_enemyCount);
+	int count = 0;
+	for (Monster* mon : g_mons)
+	{
+		if (mon == NULL)
+			break;
+		//if (mon->Getnum() == g_meNum || mon->Getteam() == g_meTeam)
+		if (mon->Getnum() == g_meNum || mon->Getteam() == meTeam)
+			continue;
+		PyObject* pData = PyList_New(6);
+
+		PyList_SetItem(pData, 0, PyLong_FromLong(mon->GetID()));
+		PyList_SetItem(pData, 1, PyLong_FromLong(mon->Getnum()));
+		PyList_SetItem(pData, 2, PyLong_FromLong(mon->Getteam()));
+		PyList_SetItem(pData, 3, PyLong_FromLong(mon->GetHP()));
+		PyList_SetItem(pData, 4, PyLong_FromLong(mon->GetMP()));
+
+		PyObject* pPos = PyList_New(3);
+		CVector3 pos = mon->Getpos();
+		PyList_SetItem(pPos, 0, PyFloat_FromDouble(pos.x));
+		PyList_SetItem(pPos, 1, PyFloat_FromDouble(pos.y));
+		PyList_SetItem(pPos, 2, PyFloat_FromDouble(pos.z));
+
+		PyList_SetItem(pData, 5, pPos);
+
+		PyList_SetItem(pDatas, count, pData);
+
+		count++;
+	}
+	return pDatas;
+}
+
 
 //íáä‘ÇÃêîÇï‘Ç∑
 static PyObject* GetBuddyCount(PyObject* self, PyObject* args)
@@ -227,37 +309,44 @@ static PyObject* GetEnemyCount(PyObject* self, PyObject* args)
 	return ec;
 }
 
-PyObject* SetAction(PyObject* self, PyObject* args)
+
+//args = [actions,num]
+static PyObject* SetAction(PyObject* self, PyObject* args)
 {
-	int count = PyTuple_Size(args);
+	PyObject* tup = PyTuple_GetItem(args, 0);
+	int count = PyList_Size(tup);
 	int num = PyLong_AsLong(PyTuple_GetItem(args, 1));
 	Monster* mon = g_mons[num];
+	MonsterActionManeger* mam = FindGO<MonsterActionManeger>("MAM");
 	for (int i = 0; i < count; i++)
 	{
-		PyObject* tup = PyTuple_GetItem(args,i);
-		int tar = PyLong_AsLong(PyTuple_GetItem(tup, 0));
-		int act = PyLong_AsLong(PyTuple_GetItem(tup, 0));
-		MonsterActionManeger* mam = FindGO<MonsterActionManeger>("MAM");
-		mon->AddAction(mam->LoadAction(tar, act));
+		PyObject* pAct = PyList_GetItem(tup,i);
+		int act = PyLong_AsLong(PyList_GetItem(pAct, 0));
+		int tar = PyLong_AsLong(PyList_GetItem(pAct, 1));
+		
+		mon->AddAction(mam->LoadAction(act,tar));
 	}
-	return NULL;
+	PyObject* pnull = PyLong_FromLong(0);
+	return pnull;
 }
 
 //moduleì‡ÇÃä÷êîÇΩÇø
 static PyMethodDef methods[] =
 {
-	{"GetMyPosition",GetMyPosition,METH_NOARGS,"Jibun no position wo tuple de kaeshi masu."},
-	{"GetMyHP",GetMyHP,METH_NOARGS,"Jibun no HP wo kaeshi masu."},
-	{"GetMyMP",GetMyMP,METH_NOARGS,"Jibun no MP wo kaeshi masu."},
-	{"GetMyTeam",GetMyTeam,METH_NOARGS,"Jibun no Team wo kaeshi masu."},
+	{"GetMyPosition",GetMyPosition,METH_NOARGS,"Jibun no position wo tuple de kaeshi masu."},				//îpä¸ó\íË
+	{"GetMyHP",GetMyHP,METH_NOARGS,"Jibun no HP wo kaeshi masu."},											//îpä¸ó\íË
+	{"GetMyMP",GetMyMP,METH_NOARGS,"Jibun no MP wo kaeshi masu."},											//îpä¸ó\íË
+	{"GetMyTeam",GetMyTeam,METH_NOARGS,"Jibun no Team wo kaeshi masu."},									//îpä¸ó\íË
 	{"GetMyNum",GetMyNum,METH_NOARGS,"Jibun no num wo kaeshi masu."},
 
-	{"GetAllBuddyPosition",GetAllBuddyPosition,METH_NOARGS,"Nakama zenin no position wo kaeshi masu."},
-	{"GetAllBuddyNum",GetAllBuddyNum,METH_NOARGS,"Nakama zenin no num wo kaeshi masu."},
+	{"GetAllBuddyPosition",GetAllBuddyPosition,METH_NOARGS,"Nakama zenin no position wo kaeshi masu."},		//îpä¸ó\íË
+	{"GetAllBuddyNum",GetAllBuddyNum,METH_NOARGS,"Nakama zenin no num wo kaeshi masu."},					//îpä¸ó\íË
+	{"GetAllBuddyData",GetAllBuddyData,METH_VARARGS,"Nakama zenin no data wo kaeshi masu."},
 
-	{"GetAllEnemyPosition",GetAllEnemyPosition,METH_NOARGS,"Teki zenin no position wo kaeshi masu."},
-	{"GetAllEnemyNum",GetAllEnemyNum,METH_NOARGS,"Teki zenin no num wo kaeshi masu."},
-	{"GetAllEnemyHP",GetAllEnemyHP,METH_NOARGS,"Teki zenin no HP wo kaeshi masu."},
+	{"GetAllEnemyPosition",GetAllEnemyPosition,METH_NOARGS,"Teki zenin no position wo kaeshi masu."},		//îpä¸ó\íË
+	{"GetAllEnemyNum",GetAllEnemyNum,METH_NOARGS,"Teki zenin no num wo kaeshi masu."},						//îpä¸ó\íË
+	{"GetAllEnemyHP",GetAllEnemyHP,METH_NOARGS,"Teki zenin no HP wo kaeshi masu."},							//îpä¸ó\íË
+	{"GetAllEnemyData",GetAllEnemyData,METH_VARARGS,"Teki zenin no data wo kaeshi masu."},
 
 	{"GetBuddyCount",GetBuddyCount,METH_NOARGS,"mikata no kazu wo kaeshi masu."},
 	{"GetEnemyCount",GetEnemyCount,METH_NOARGS,"teki no kazu wo kaeshi masu."},
@@ -432,38 +521,28 @@ void PythonBridge::py_exe(int num,int team,const char* file)
 		return true;
 	});
 
-	SetCurrentDirectory("Python36");
-
-	/*PyEval_InitThreads();
-
-	th.reset(new std::thread([=]
-	{
-		PyGILState_STATE GILState;
-		GILState = PyGILState_Ensure();*/
 	PyImport_AppendInittab("SendGame", initModule);
 	Py_InitializeEx(1);
 
 	PyObject *pName, *pModule, *pFunction, *pArgs, *pValue;
-	
+
 	pName = PyUnicode_DecodeFSDefault(file);
-	//pName = PyUnicode_DecodeFSDefault("PythonAIs.CppBridge");
+	//pName = PyUnicode_DecodeFSDefault("PythonAIs.testBrain");
 	pModule = PyImport_Import(pName);
 	Py_DECREF(pName);
 
-	//pFunction = PyObject_GetAttrString(pModule, "execute");
 	pFunction = PyObject_GetAttrString(pModule, "Brain");
 
-	pArgs = PyTuple_New(2);
+	pArgs = PyTuple_New(3);
 	PyObject* pMenum = PyLong_FromLong(num);
 	PyObject* pMeteam = PyLong_FromLong(team);
-	//PyObject* pFile = PyUnicode_FromString(file);
+	PyObject* pFile = PyUnicode_FromString(file);
 	PyTuple_SetItem(pArgs, 0, pMenum);
 	PyTuple_SetItem(pArgs, 1, pMeteam);
-	//PyTuple_SetItem(pArgs, 2, pFile);
+	PyTuple_SetItem(pArgs, 2, pFile);
 
 	pValue = PyObject_CallObject(pFunction, pArgs);
 
-	//PyGILState_Release(GILState);
 
 	Py_DECREF(pArgs);
 	Py_DECREF(pModule);
@@ -472,39 +551,18 @@ void PythonBridge::py_exe(int num,int team,const char* file)
 	if (pValue == NULL)
 	{
 		SetCurrentDirectory("../");
-		//Py_Finalize();
-		
+		Py_Finalize();
 		end = true;
 		return;
-	}
-	int vl = PyList_Size(pValue);
-	if (vl == 0)
-	{
-		Py_DECREF(pValue);
-		SetCurrentDirectory("../");
-		//Py_Finalize();
-		end = true;
-		return;
-	}
-
-	for (int i = 0; i < vl; i++)
-	{
-		int action[2];
-		action[0] = PyLong_AsLong(PyList_GetItem(PyList_GetItem(pValue, i), 0));
-		action[1] = PyLong_AsLong(PyList_GetItem(PyList_GetItem(pValue, i), 1));
-		me->AddAction(mam->LoadAction(action[0], action[1]));
 	}
 
 	Py_DECREF(pValue);
+	Py_Finalize();
+
 
 	SetCurrentDirectory("../");
 
-	//Py_Finalize();
 	end = true;
-	//}));
-
-	//pTS = PyEval_SaveThread();
-	Py_Finalize();
 }
 
 void PythonBridge::AddExe(int num, int team, const char * file)
@@ -595,15 +653,9 @@ void PythonBridge::py_exeEX(int num, int team, const char * file)
 		return;
 	}
 
-	//for (int i = 0; i < vl; i++)
-	//{
-	//	int action[2];
-	//	action[0] = PyLong_AsLong(PyList_GetItem(PyList_GetItem(pValue, i), 0));
-	//	action[1] = PyLong_AsLong(PyList_GetItem(PyList_GetItem(pValue, i), 1));
-	//	me->AddAction(mam->LoadAction(action[0], action[1]));
-	//}
-	Py_Finalize();
 	Py_DECREF(pValue);
+	Py_Finalize();
+	
 
 	SetCurrentDirectory("../");
 

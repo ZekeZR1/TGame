@@ -12,16 +12,9 @@ TestMons::TestMons()
 
 	m_AnimNum = 3;
 
-
 	m_smr = NewGO<SkinModelRender>(0, "smr");
 	m_smr->Init(L"Assets/modelData/tesEnemy3.cmo");
 	m_smr->SetPosition(CVector3::Zero());
 
 	m_PB = FindGO<PythonBridge>("PB");
 }
-//
-//bool TestMons::Start()
-//{
-//	
-//	return true;
-//}

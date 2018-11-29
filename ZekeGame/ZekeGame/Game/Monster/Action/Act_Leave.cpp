@@ -21,5 +21,13 @@ bool Act_Leave::Action(Monster * me)
 	v *= 25;
 	me->Setspeed(v);
 	me->Setiswalk(true);
+
+	m_time += IGameTime().GetFrameDeltaTime();
+	if (m_time > 15.0f)
+	{
+		me->Setspeed(CVector3::Zero());
+		return true;
+	}
+
 	return false;
 }

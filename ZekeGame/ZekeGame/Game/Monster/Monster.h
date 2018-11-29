@@ -138,6 +138,12 @@ public:
 		m_num = num;
 	}
 
+	//ID‚ð•Ô‚·
+	int GetID()
+	{
+		return m_ID;
+	}
+
 	//‚±‚ê‚¢‚ç‚È‚¢
 	Monster* Getmon()
 	{
