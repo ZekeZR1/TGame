@@ -32,7 +32,6 @@ VirtualPadToXPad vPadToXPadTable[enButtonNum] = {
 { enButtonRB3		, XINPUT_GAMEPAD_RIGHT_THUMB },
 { enButtonLB1		, XINPUT_GAMEPAD_LEFT_SHOULDER },
 { enButtonLB2		, 0 },
-{ enButtonLB3		, XINPUT_GAMEPAD_LEFT_THUMB },
 };
 /*!
 *@brief	仮想ボタンとキーボードとの関連付けを表す構造体。
@@ -58,6 +57,7 @@ const VirtualPadToKeyboard vPadToKeyboardTable[enButtonNum] = {
 { enButtonLB1		, 'B' },
 { enButtonLB2		, 'N' },
 { enButtonLB3		, 'M' },
+{ enStopCursorRoop		, 'Q' },
 };
 
 Pad::Pad()
@@ -268,22 +268,24 @@ void Pad::Update()
 		m_rStickX = mx / 10;
 		m_rStickY = -my / 10;
 
-		//if (pt.x > GetSystemMetrics(SM_CXSCREEN) - 5)
-		//{
-		//	SetCursorPos(10, pt.y);
-		//}
-		//if (pt.y > GetSystemMetrics(SM_CYSCREEN) - 5)
-		//{
-		//	SetCursorPos(pt.x, 10);
-		//}
-		//if (pt.x < 5)
-		//{
-		//	SetCursorPos(GetSystemMetrics(SM_CXSCREEN) - 10, pt.y);
-		//}
-		//if (pt.y < 5)
-		//{
-		//	SetCursorPos(pt.x, GetSystemMetrics(SM_CYSCREEN) - 10);
-		//}
+		if (!g_pad[0].IsPress(enStopCursorRoop)) {
+			if (pt.x > GetSystemMetrics(SM_CXSCREEN) - 5)
+			{
+				SetCursorPos(10, pt.y);
+			}
+			if (pt.y > GetSystemMetrics(SM_CYSCREEN) - 5)
+			{
+				SetCursorPos(pt.x, 10);
+			}
+			if (pt.x < 5)
+			{
+				SetCursorPos(GetSystemMetrics(SM_CXSCREEN) - 10, pt.y);
+			}
+			if (pt.y < 5)
+			{
+				SetCursorPos(pt.x, GetSystemMetrics(SM_CYSCREEN) - 10);
+			}
+		}
 
 		GetCursorPos(&pt);
 		oldx = pt.x;
