@@ -14,4 +14,5 @@ public:
 private:
 	SpriteRender* m_cursor = nullptr;
 	CVector3 m_pos = CVector3::Zero();
+
 };

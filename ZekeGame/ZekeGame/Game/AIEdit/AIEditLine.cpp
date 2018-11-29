@@ -15,6 +15,7 @@ AIEditLine::~AIEditLine()
 bool AIEditLine::Start()
 {
 
+	return true;
 }
 
 void AIEditLine::Update()

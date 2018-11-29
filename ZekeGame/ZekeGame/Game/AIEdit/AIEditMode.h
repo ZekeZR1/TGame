@@ -4,6 +4,7 @@ class GameCursor;
 // THIS IS CAMERA.
 class GameCamera;
 
+class AIEditNode;
 /*
 	AI‚ğGUI‚Åì‚é‚½‚ß‚ÌƒNƒ‰ƒX
 */
@@ -26,7 +27,7 @@ private:
 
 	GameCursor* m_cursor = nullptr;				// This is cursor
 	GameCamera* m_camera = nullptr;				//<-THIS IS CAMERA
-
+	AIEditNode* m_aieditnode = nullptr;
 	
 
 };

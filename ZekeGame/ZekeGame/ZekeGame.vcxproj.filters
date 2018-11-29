@@ -392,10 +392,16 @@
     <ClCompile Include="Game\AIEdit\AIEditMode.cpp">
       <Filter>ソース ファイル\Game\AIEdit</Filter>
     </ClCompile>
-    <ClCompile Include="Game\AIEdit\AIEditNode.cpp">
-      <Filter>ソース ファイル\Game\AIEdit</Filter>
+    <ClCompile Include="Engine\HID\Mouse.cpp">
+      <Filter>ソース ファイル\Engine\HID</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\physics\SpriteBoxCollider.cpp">
+      <Filter>ソース ファイル\Engine\physics</Filter>
     </ClCompile>
     <ClCompile Include="Game\AIEdit\AIEditLine.cpp">
+      <Filter>ソース ファイル\Game\AIEdit</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\AIEdit\AIEditNode.cpp">
       <Filter>ソース ファイル\Game\AIEdit</Filter>
     </ClCompile>
   </ItemGroup>
@@ -967,6 +973,12 @@
     <ClInclude Include="Game\AIEdit\AIEditMode.h">
       <Filter>ソース ファイル\Game\AIEdit</Filter>
     </ClInclude>
+    <ClInclude Include="Engine\HID\Mouse.h">
+      <Filter>ソース ファイル\Engine\HID</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\physics\SpriteBoxCollider.h">
+      <Filter>ソース ファイル\Engine\physics</Filter>
+    </ClInclude>
     <ClInclude Include="Game\AIEdit\AIEditNode.h">
       <Filter>ソース ファイル\Game\AIEdit</Filter>
     </ClInclude>
@@ -999,7 +1011,7 @@
       <Filter>ソース ファイル\Game\Assets\modelData\Stage</Filter>
     </Image>
     <Image Include="Assets\Sprite\kariline.png">
-      <Filter>ソース ファイル\Game\Assets\sprite\GUI</Filter>
+      <Filter>リソース ファイル</Filter>
     </Image>
   </ItemGroup>
   <ItemGroup>
@@ -1027,11 +1039,20 @@
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\randompvpW.png">
       <Filter>リソース ファイル</Filter>
     </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\karium.png">
-      <Filter>ソース ファイル\Game\Assets\sprite\GUI</Filter>
-    </ImageContentTask>
     <ImageContentTask Include="Assets\Sprite\kariwin.png">
-      <Filter>ソース ファイル\Game\Assets\sprite\GUI</Filter>
+      <Filter>リソース ファイル</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\karium.png">
+      <Filter>リソース ファイル</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="..\..\..\写真たち\ZakeGame\kariline.png">
+      <Filter>ソース ファイル\Game\Assets\sprite</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\pointkari.png">
+      <Filter>ソース ファイル\Game\Assets\sprite</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\winkari.png">
+      <Filter>ソース ファイル\Game\Assets\sprite</Filter>
     </ImageContentTask>
   </ItemGroup>
   <ItemGroup>

@@ -31,7 +31,9 @@ bool AIEditMode::Start()
 
 void AIEditMode::Update()
 {
+
 	if (Mouse::isTrigger(enRightClick)) {
-		inu = NewGO<AIEditNode>(0, "neko");
+		m_aieditnode = NewGO<AIEditNode>(0, "window");
 	}
+
 }
