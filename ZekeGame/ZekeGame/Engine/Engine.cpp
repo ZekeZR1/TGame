@@ -6,6 +6,7 @@
 CFPSCounter* FPS = nullptr;
 GameCamera* camera = nullptr;
 NetworkLogic* m_network = nullptr;
+int nNotch = 0;
 
 Engine::Engine()
 {
@@ -37,6 +38,8 @@ void Engine::Update() {
 	for (auto& pad : g_pad) {
 		pad.Update();
 	}
+
+	Mouse::UpdateMouseInput();
 
 	if (m_network != nullptr) {
 		m_network->Update();

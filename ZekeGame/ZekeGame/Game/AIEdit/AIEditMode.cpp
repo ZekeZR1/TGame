@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "AIEditMode.h"
-
+#include "AIEditNode.h"
 #include "../GameCursor.h"
 
 // THIS IS CAMERA.
@@ -31,4 +31,7 @@ bool AIEditMode::Start()
 
 void AIEditMode::Update()
 {
+	if (Mouse::isTrigger(enRightClick)) {
+		inu = NewGO<AIEditNode>(0, "neko");
+	}
 }

@@ -197,6 +197,7 @@
     <ClCompile Include="Engine\graphics\Sprite\Sprite.cpp" />
     <ClCompile Include="Engine\graphics\StructedBuffer.cpp" />
     <ClCompile Include="Engine\graphics\TScopedResource.cpp" />
+    <ClCompile Include="Engine\HID\Mouse.cpp" />
     <ClCompile Include="Engine\HID\Pad.cpp" />
     <ClCompile Include="Engine\level\Level.cpp" />
     <ClCompile Include="Engine\level\MapChip.cpp" />
@@ -215,6 +216,7 @@
     <ClCompile Include="Engine\physics\Physics.cpp" />
     <ClCompile Include="Engine\physics\PhysicsStaticObject.cpp" />
     <ClCompile Include="Engine\physics\RigitBody.cpp" />
+    <ClCompile Include="Engine\physics\SpriteBoxCollider.cpp" />
     <ClCompile Include="Engine\PreCompile.cpp" />
     <ClCompile Include="Engine\sound\SoundEngine.cpp" />
     <ClCompile Include="Engine\time\GameTime.cpp" />
@@ -287,6 +289,7 @@
     <ClInclude Include="Engine\graphics\Sprite\Sprite.h" />
     <ClInclude Include="Engine\graphics\StructedBuffer.h" />
     <ClInclude Include="Engine\graphics\TScopedResource.h" />
+    <ClInclude Include="Engine\HID\Mouse.h" />
     <ClInclude Include="Engine\HID\Pad.h" />
     <ClInclude Include="Engine\level\Level.h" />
     <ClInclude Include="Engine\level\MapChip.h" />
@@ -307,6 +310,7 @@
     <ClInclude Include="Engine\physics\Physics.h" />
     <ClInclude Include="Engine\physics\PhysicsStaticObject.h" />
     <ClInclude Include="Engine\physics\RigitBody.h" />
+    <ClInclude Include="Engine\physics\SpriteBoxCollider.h" />
     <ClInclude Include="Engine\PreCompile.h" />
     <ClInclude Include="Engine\sound\SoundEngine.h" />
     <ClInclude Include="Engine\time\GameTime.h" />
