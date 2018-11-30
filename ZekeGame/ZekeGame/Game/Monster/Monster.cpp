@@ -14,11 +14,24 @@ Monster::~Monster()
 	DeleteGO(m_PB);
 }
 
+void Monster::init(int HP, int MP, float speed, float radius, float height, SkinModelRender * smr, int animnum)
+{
+	m_HP = HP;
+	m_MP = MP;
+	m_speed = speed;
+	m_radius = radius;
+	m_height = height;
+	m_smr = smr;
+	m_AnimNum = animnum;
+}
+
 bool Monster::Start()
 {
 	m_smr->SetPosition(m_pos);
 	m_cc.Init(m_radius, m_height, m_pos,enFbxUpAxisY);
 	m_PB = NewGO<PythonBridge>(0,"PB");
+
+	anim_idle();
 	return true;
 }
 
@@ -139,39 +152,34 @@ void Monster::AddAction(MonsterAction * ma)
 void Monster::anim_idle()
 {
 	if (en_idle > m_AnimNum - 1)
-	{
-
-	}
+		return;
+	m_smr->PlayAnimation(en_idle);
 }
 
 void Monster::anim_walk()
 {
 	if (en_walk > m_AnimNum - 1)
-	{
-
-	}
+		return;
+	m_smr->PlayAnimation(en_walk);
 }
 
 void Monster::anim_atack()
 {
 	if (en_atack > m_AnimNum - 1)
-	{
-
-	}
+		return;
+	m_smr->PlayAnimation(en_atack);
 }
 
 void Monster::anim_defense()
 {
 	if (en_defense > m_AnimNum - 1)
-	{
-
-	}
+		return;
+	m_smr->PlayAnimation(en_defense);
 }
 
 void Monster::anim_recovery()
 {
 	if (en_recovery > m_AnimNum - 1)
-	{
-
-	}
+		return;
+	m_smr->PlayAnimation(en_recovery);
 }

@@ -132,6 +132,9 @@
     <Filter Include="ソース ファイル\Game\AIEdit">
       <UniqueIdentifier>{59d77138-7569-4048-b1d7-b6b9143c4702}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Game\Assets\modelData\uma">
+      <UniqueIdentifier>{58a372ab-93a5-4f84-9402-9ae42c47b490}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\character\CharacterController.cpp">
@@ -391,6 +394,9 @@
     </ClCompile>
     <ClCompile Include="Game\AIEdit\AIEditMode.cpp">
       <Filter>ソース ファイル\Game\AIEdit</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\Monsters\Uma.cpp">
+      <Filter>ソース ファイル\Game\Monster\Monsters</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -961,6 +967,9 @@
     <ClInclude Include="Game\AIEdit\AIEditMode.h">
       <Filter>ソース ファイル\Game\AIEdit</Filter>
     </ClInclude>
+    <ClInclude Include="Game\Monster\Monsters\Uma.h">
+      <Filter>ソース ファイル\Game\Monster\Monsters</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\Test.FBX">
@@ -974,6 +983,9 @@
     </MeshContentTask>
     <MeshContentTask Include="Assets\modelData\testMons\tesEnemy3.fbx">
       <Filter>ソース ファイル\Game\Assets\modelData\testMons</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\uma\uma.fbx">
+      <Filter>ソース ファイル\Game\Assets\modelData\uma</Filter>
     </MeshContentTask>
   </ItemGroup>
   <ItemGroup>
@@ -1011,6 +1023,12 @@
     </ImageContentTask>
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\randompvpW.png">
       <Filter>リソース ファイル</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\modelData\uma\uma.png">
+      <Filter>ソース ファイル\Game\Assets\modelData\uma</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\modelData\uma\uma_eye.png">
+      <Filter>ソース ファイル\Game\Assets\modelData\uma</Filter>
     </ImageContentTask>
   </ItemGroup>
   <ItemGroup>

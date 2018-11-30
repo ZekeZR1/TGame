@@ -8,6 +8,8 @@ class Monster:public GameObject
 public:
 	~Monster();
 
+	void init(int HP, int MP, float speed, float radius, float height, SkinModelRender* smr, int animnum);
+
 	bool Start() override final;
 	void Update() override final;
 
@@ -190,6 +192,7 @@ protected:
 	int m_HP = 0;								//HP
 	int m_MP = 0;								//MP
 	float m_gravity = 50.0f;					//重力
+	float m_speed = 0.0f;						//スピード
 	CVector3 m_movespeed = CVector3::Zero();	//ムーブスピード
 	CVector3 m_oldmovespeed = CVector3::Zero();	//古のムーブスピード
 	bool m_iswalk = false;						//
