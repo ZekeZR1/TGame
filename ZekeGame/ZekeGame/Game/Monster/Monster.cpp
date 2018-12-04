@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "Monster.h"
 #include "MonsterAction.h"
+#include "MonsterEffect.h"
 #include "../PythonBridge/PythonBridge.h"
 #include "../../Engine/character/CharacterController.h"
 

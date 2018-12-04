@@ -135,6 +135,9 @@
     <Filter Include="ソース ファイル\Game\Assets\modelData\uma">
       <UniqueIdentifier>{58a372ab-93a5-4f84-9402-9ae42c47b490}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Game\Monster\Effect">
+      <UniqueIdentifier>{e151c29e-b1c7-4fc1-a1f1-1d83104e9822}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\character\CharacterController.cpp">
@@ -397,6 +400,9 @@
     </ClCompile>
     <ClCompile Include="Game\Monster\Monsters\Uma.cpp">
       <Filter>ソース ファイル\Game\Monster\Monsters</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\MonsterEffect.cpp">
+      <Filter>ソース ファイル\Game\Monster</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -969,6 +975,9 @@
     </ClInclude>
     <ClInclude Include="Game\Monster\Monsters\Uma.h">
       <Filter>ソース ファイル\Game\Monster\Monsters</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\MonsterEffect.h">
+      <Filter>ソース ファイル\Game\Monster</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

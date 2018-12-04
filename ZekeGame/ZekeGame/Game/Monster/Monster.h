@@ -2,6 +2,7 @@
 #include "../../Engine/character/CharacterController.h"
 
 class MonsterAction;
+class MonsterEffect;
 class PythonBridge;
 class Monster:public GameObject
 {
@@ -108,6 +109,19 @@ public:
 		m_movespeed = v;
 	}
 
+	//
+	CVector3 GetFrontvec()
+	{
+		CVector3 vec = m_movespeed;
+		if (vec.Length() > 1.0f)
+		{
+			vec.Normalize();
+			m_front = vec;
+		}
+
+		return m_front;
+	}
+
 	//今歩いているかを設定する
 	void Setiswalk(bool b)
 	{
@@ -195,6 +209,7 @@ protected:
 	float m_speed = 0.0f;						//スピード
 	CVector3 m_movespeed = CVector3::Zero();	//ムーブスピード
 	CVector3 m_oldmovespeed = CVector3::Zero();	//古のムーブスピード
+	CVector3 m_front = CVector3::Zero();		//前方向
 	bool m_iswalk = false;						//
 	bool m_isKnockback = false;					//
 	CVector3 m_vKnockback = CVector3::Zero();	//
@@ -203,9 +218,12 @@ protected:
 	CQuaternion m_rot = CQuaternion::Identity();//回転
 
 	PythonBridge* m_PB;
+
 	std::vector<MonsterAction*> m_actions;		//使うアクション
 	en_State m_state = en_NowLoading;
 	bool isLoading = false;
+
+	MonsterEffect* m_effect;
 
 	int m_AnimNum = 0;							//アニメーションの個数
 

@@ -231,6 +231,7 @@
     <ClCompile Include="Game\Monster\Monster.cpp" />
     <ClCompile Include="Game\Monster\MonsterAction.cpp" />
     <ClCompile Include="Game\Monster\MonsterActionManeger.cpp" />
+    <ClCompile Include="Game\Monster\MonsterEffect.cpp" />
     <ClCompile Include="Game\Monster\Monsters\TestMons.cpp" />
     <ClCompile Include="Game\Monster\Monsters\Uma.cpp" />
     <ClCompile Include="Game\PythonBridge\PythonBridge.cpp" />
@@ -322,6 +323,7 @@
     <ClInclude Include="Game\Monster\Monster.h" />
     <ClInclude Include="Game\Monster\MonsterAction.h" />
     <ClInclude Include="Game\Monster\MonsterActionManeger.h" />
+    <ClInclude Include="Game\Monster\MonsterEffect.h" />
     <ClInclude Include="Game\Monster\Monsters\TestMons.h" />
     <ClInclude Include="Game\Monster\Monsters\Uma.h" />
     <ClInclude Include="Game\PythonBridge\include\abstract.h" />
