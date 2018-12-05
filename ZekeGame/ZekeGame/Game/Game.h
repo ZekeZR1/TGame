@@ -23,6 +23,7 @@ public:
 		enRandomPVP,
 		enAdventure
 	};
+
 private:
 	Pyinit* m_pi;
 	SkinModelRender* m_model;
