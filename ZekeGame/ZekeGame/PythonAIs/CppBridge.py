@@ -1,4 +1,5 @@
-#coding: utf-8
+#from multiprocessing import Process
+#import threading
 from enum import IntEnum
 import SendGame
 
@@ -55,15 +56,26 @@ class Monster:
     def SetPosition(self,x,y,z):
         self.position.SetVector(x,y,z)
 
+    def copy(self):
+        nmon = Monster()
+        nmon.position = self.position
+        nmon.ID = self.ID
+        nmon.team = self.team
+        nmon.num = self.num
+        nmon.HP = self.HP
+        nmon.MP = self.MP
+        nmon.state = self.state
+        return nmon
+
 class ACTION(IntEnum):
     Chase = 0
     Atack = 1
     Leave = 2
 
 class GameData:
-    def __init__(self):
-        pos = SendGame.GetMyPosition();
+    def fuck__init__(self):
         self.me = Monster()
+        pos = SendGame.GetMyPosition();
         self.me.SetPosition(pos[0],pos[1],pos[2])
         self.me.HP = SendGame.GetMyHP()
         self.me.MP = SendGame.GetMyMP()
@@ -74,12 +86,23 @@ class GameData:
         self.enemyCount = SendGame.GetEnemyCount()
 
         self.Buddy = []
-        poss = SendGame.GetAllBuddyPosition()
-        nums = SendGame.GetAllBuddyNum()
-        for i in range(self.buddyCount-1):
+        #poss = SendGame.GetAllBuddyPosition()
+        #nums = SendGame.GetAllBuddyNum()
+        datas = SendGame.GetAllBuddyData()
+        #for i in range(self.buddyCount-1):
+        for i in range(self.buddyCount):
             mon = Monster()
-            mon.SetPosition(poss[i][0],poss[i][1],poss[i][2])
-            mon.num = nums[i]
+            #mon.SetPosition(poss[i][0],poss[i][1],poss[i][2])
+            #mon.num = nums[i]
+            mon.ID = datas[i][0]
+            mon.num = datas[i][1]
+            mon.team = datas[i][2]
+            mon.HP = datas[i][3]
+            mon.MP = datas[i][4]
+            
+            pos = datas[i][5]
+            mon.SetPosition(pos[0],pos[1],pos[2])
+
             self.Buddy.append(mon)
 
         self.Enemys = []
@@ -93,6 +116,65 @@ class GameData:
             mon.HP = HPs[i]
             self.Enemys.append(mon)
 
+    def init(self,num,team):
+        """
+        ゲームデータの初期化
+        必ず最初に使いましょう。
+        """
+        self.buddyCount = SendGame.GetBuddyCount()
+        self.enemyCount = SendGame.GetEnemyCount()
+
+        self.Buddy = []
+        datas = SendGame.GetAllBuddyData(team)
+        for i in range(self.buddyCount):
+            mon = Monster()
+            mon.ID = datas[i][0]
+            mon.num = datas[i][1]
+            mon.team = datas[i][2]
+            mon.HP = datas[i][3]
+            mon.MP = datas[i][4]
+            
+            pos = datas[i][5]
+            mon.SetPosition(pos[0],pos[1],pos[2])
+
+            self.Buddy.append(mon)
+
+        self.Enemys = []
+        datas = SendGame.GetAllEnemyData(team)
+        for i in range(self.enemyCount):
+            mon = Monster()
+            mon.ID = datas[i][0]
+            mon.num = datas[i][1]
+            mon.team = datas[i][2]
+            mon.HP = datas[i][3]
+            mon.MP = datas[i][4]
+            
+            pos = datas[i][5]
+            mon.SetPosition(pos[0],pos[1],pos[2])
+
+            self.Enemys.append(mon)
+
+        mm = None
+        for i in range(len(self.Buddy)):
+            mon = self.Buddy[i]
+            if mon.num == num:
+                mm = mon.copy()
+                del self.Buddy[i]
+                break
+        if mm == None:
+            return
+        self.me = Monster()
+        self.me.ID = mm.ID
+        self.me.position = mm.position
+        self.me.HP = mm.HP
+        self.me.MP = mm.MP
+        self.me.num = mm.num
+        self.me.team = mm.team
+        self.me.state = mm.state
+
+        
+    def tesGetEneNum():
+        return SendGame.GetAllEnemyNum()
 
     def GetFarMonster(self):
         farmon = None
@@ -223,3 +305,14 @@ def Atack(target):
 
 def Leave(target):
     addAction(target,ACTION.Leave)
+
+
+def End():
+    SendGame.SetAction(actions,gameData.me.num);
+
+
+def testBrain(MeNum,MeTeam):
+    #gameData.init(args)
+    return 1
+
+

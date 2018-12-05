@@ -103,7 +103,6 @@
       <UniqueIdentifier>{6c242cc8-bf0c-49a3-ae26-8a2eb78cc34e}</UniqueIdentifier>
     </Filter>
     <Filter Include="ソース ファイル\Engine\time">
-
       <UniqueIdentifier>{80721093-a009-4c7c-8526-ec9f9fefdeef}</UniqueIdentifier>
     </Filter>
     <Filter Include="ソース ファイル\Game\Monster\Action">
@@ -120,6 +119,36 @@
     </Filter>
     <Filter Include="ソース ファイル\Game\Title">
       <UniqueIdentifier>{25b7f9a6-5a86-4bf0-8beb-db05c0572c33}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Game\PythonAIs">
+      <UniqueIdentifier>{630a2f73-5ad9-47f3-b68f-724ea6ff35e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Game\Assets\sprite\GUI">
+      <UniqueIdentifier>{d49611f8-1d9a-4e42-a399-a04945ed414e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Game\Assets\sprite\GUI\modeSelect">
+      <UniqueIdentifier>{d14f5a8e-5e97-492e-9fa4-b8d5a523d310}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Game\AIEdit">
+      <UniqueIdentifier>{59d77138-7569-4048-b1d7-b6b9143c4702}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Game\Assets\modelData\uma">
+      <UniqueIdentifier>{58a372ab-93a5-4f84-9402-9ae42c47b490}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Game\Monster\Effect">
+      <UniqueIdentifier>{e151c29e-b1c7-4fc1-a1f1-1d83104e9822}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Game\SaveLoad">
+      <UniqueIdentifier>{3ce62f75-b3fd-4c8f-aad7-f15314211a51}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Game\Result">
+      <UniqueIdentifier>{75cb3ad5-3377-4c0c-8bc7-77a00b8b9c2e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Game\Result\Win">
+      <UniqueIdentifier>{a0d1b999-a0a8-4808-9f85-899905e2d7e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Game\Result\Lose">
+      <UniqueIdentifier>{c3a65b09-1a1c-4b5a-804d-35a07914637e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -371,6 +400,48 @@
     </ClCompile>
     <ClCompile Include="Game\Title\pvpModeSelect.cpp">
       <Filter>ソース ファイル\Game\Title</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Title\ModeSelect.cpp">
+      <Filter>ソース ファイル\Game\Title</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\GameCursor.cpp">
+      <Filter>ソース ファイル\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\AIEdit\AIEditMode.cpp">
+      <Filter>ソース ファイル\Game\AIEdit</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\Monsters\Uma.cpp">
+      <Filter>ソース ファイル\Game\Monster\Monsters</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\MonsterEffect.cpp">
+      <Filter>ソース ファイル\Game\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\SaveLoad\PythonFileLoad.cpp">
+      <Filter>ソース ファイル\Game\SaveLoad</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Result\Win\Win_randomPVP.cpp">
+      <Filter>ソース ファイル\Game\Result\Win</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Result\Win\Win_localPVP.cpp">
+      <Filter>ソース ファイル\Game\Result\Win</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Result\Lose\Lose_randomPVP.cpp">
+      <Filter>ソース ファイル\Game\Result\Lose</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Result\Lose\Lose_localPVP.cpp">
+      <Filter>ソース ファイル\Game\Result\Lose</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Result\Lose\Lose.cpp">
+      <Filter>ソース ファイル\Game\Result\Lose</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Result\Win\Win.cpp">
+      <Filter>ソース ファイル\Game\Result\Win</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\GameCamera2D.cpp">
+      <Filter>ソース ファイル\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Result\ResultCamera.cpp">
+      <Filter>ソース ファイル\Game\Result</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -932,6 +1003,48 @@
     <ClInclude Include="Game\Title\pvpModeSelect.h">
       <Filter>ソース ファイル\Game\Title</Filter>
     </ClInclude>
+    <ClInclude Include="Game\Title\ModeSelect.h">
+      <Filter>ソース ファイル\Game\Title</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameCursor.h">
+      <Filter>ソース ファイル\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\AIEdit\AIEditMode.h">
+      <Filter>ソース ファイル\Game\AIEdit</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\Monsters\Uma.h">
+      <Filter>ソース ファイル\Game\Monster\Monsters</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\MonsterEffect.h">
+      <Filter>ソース ファイル\Game\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\SaveLoad\PythonFileLoad.h">
+      <Filter>ソース ファイル\Game\SaveLoad</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Result\Win\Win_localPVP.h">
+      <Filter>ソース ファイル\Game\Result\Win</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Result\Win\Win_randomPVP.h">
+      <Filter>ソース ファイル\Game\Result\Win</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Result\Lose\Lose_randomPVP.h">
+      <Filter>ソース ファイル\Game\Result\Lose</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Result\Lose\Lose_localPVP.h">
+      <Filter>ソース ファイル\Game\Result\Lose</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Result\Lose\Lose.h">
+      <Filter>ソース ファイル\Game\Result\Lose</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Result\Win\Win.h">
+      <Filter>ソース ファイル\Game\Result\Win</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameCamera2D.h">
+      <Filter>ソース ファイル\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Result\ResultCamera.h">
+      <Filter>ソース ファイル\Game\Result</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\Test.FBX">
@@ -945,6 +1058,9 @@
     </MeshContentTask>
     <MeshContentTask Include="Assets\modelData\testMons\tesEnemy3.fbx">
       <Filter>ソース ファイル\Game\Assets\modelData\testMons</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\uma\uma.fbx">
+      <Filter>ソース ファイル\Game\Assets\modelData\uma</Filter>
     </MeshContentTask>
   </ItemGroup>
   <ItemGroup>
@@ -962,6 +1078,36 @@
     <ImageContentTask Include="Assets\Sprite\Test.png">
       <Filter>ソース ファイル\Game\Assets\sprite</Filter>
     </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\cursor.png">
+      <Filter>リソース ファイル</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\AIeditG.png">
+      <Filter>リソース ファイル</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\AIeditW.png">
+      <Filter>リソース ファイル</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\localpvpG.png">
+      <Filter>リソース ファイル</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\localpvpW.png">
+      <Filter>リソース ファイル</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\randompvpG.png">
+      <Filter>リソース ファイル</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\randompvpW.png">
+      <Filter>リソース ファイル</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\modelData\uma\uma.png">
+      <Filter>ソース ファイル\Game\Assets\modelData\uma</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\modelData\uma\uma_eye.png">
+      <Filter>ソース ファイル\Game\Assets\modelData\uma</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\clear.png">
+      <Filter>ソース ファイル\Game\Assets\sprite\GUI</Filter>
+    </ImageContentTask>
   </ItemGroup>
   <ItemGroup>
     <CopyFileToFolders Include="Game\dlllib\python36_d.dll">
@@ -970,13 +1116,25 @@
     <CopyFileToFolders Include="Game\dlllib\python36.dll">
       <Filter>ソース ファイル\Game\dll</Filter>
     </CopyFileToFolders>
-    <CopyFileToFolders Include="CppBridge.py" />
-    <CopyFileToFolders Include="testBrain.py" />
-    <CopyFileToFolders Include="testBrain1.py" />
+    <CopyFileToFolders Include="PythonAIs\ang.py">
+      <Filter>ソース ファイル\Game\PythonAIs</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="PythonAIs\CppBridge.py">
+      <Filter>ソース ファイル\Game\PythonAIs</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="PythonAIs\testBrain.py">
+      <Filter>ソース ファイル\Game\PythonAIs</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="PythonAIs\testBrain1.py">
+      <Filter>ソース ファイル\Game\PythonAIs</Filter>
+    </CopyFileToFolders>
   </ItemGroup>
   <ItemGroup>
     <None Include="Game\PythonBridge\include\pydtrace.d">
       <Filter>ソース ファイル\Game\PythonBridge\include</Filter>
+    </None>
+    <None Include="PythonAIs\Threader.py">
+      <Filter>ソース ファイル\Game\PythonAIs</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>

@@ -220,7 +220,10 @@
     <ClCompile Include="Engine\time\GameTime.cpp" />
     <ClCompile Include="Engine\window\Window.cpp" />
     <ClCompile Include="GameCamera.cpp" />
+    <ClCompile Include="Game\AIEdit\AIEditMode.cpp" />
     <ClCompile Include="Game\Game.cpp" />
+    <ClCompile Include="Game\GameCamera2D.cpp" />
+    <ClCompile Include="Game\GameCursor.cpp" />
     <ClCompile Include="Game\GameData.cpp" />
     <ClCompile Include="Game\main.cpp" />
     <ClCompile Include="Game\Monster\Action\Act_Atack.cpp" />
@@ -229,9 +232,20 @@
     <ClCompile Include="Game\Monster\Monster.cpp" />
     <ClCompile Include="Game\Monster\MonsterAction.cpp" />
     <ClCompile Include="Game\Monster\MonsterActionManeger.cpp" />
+    <ClCompile Include="Game\Monster\MonsterEffect.cpp" />
     <ClCompile Include="Game\Monster\Monsters\TestMons.cpp" />
+    <ClCompile Include="Game\Monster\Monsters\Uma.cpp" />
     <ClCompile Include="Game\PythonBridge\PythonBridge.cpp" />
+    <ClCompile Include="Game\Result\Lose\Lose.cpp" />
+    <ClCompile Include="Game\Result\Lose\Lose_localPVP.cpp" />
+    <ClCompile Include="Game\Result\Lose\Lose_randomPVP.cpp" />
+    <ClCompile Include="Game\Result\ResultCamera.cpp" />
+    <ClCompile Include="Game\Result\Win\Win.cpp" />
+    <ClCompile Include="Game\Result\Win\Win_localPVP.cpp" />
+    <ClCompile Include="Game\Result\Win\Win_randomPVP.cpp" />
+    <ClCompile Include="Game\SaveLoad\PythonFileLoad.cpp" />
     <ClCompile Include="Game\StageSetup\StageSetup.cpp" />
+    <ClCompile Include="Game\Title\ModeSelect.cpp" />
     <ClCompile Include="Game\Title\pvpModeSelect.cpp" />
     <ClCompile Include="Game\Title\Title.cpp" />
     <ClCompile Include="stdafx.cpp" />
@@ -308,7 +322,10 @@
     <ClInclude Include="Engine\util\Util.h" />
     <ClInclude Include="Engine\window\Window.h" />
     <ClInclude Include="GameCamera.h" />
+    <ClInclude Include="Game\AIEdit\AIEditMode.h" />
     <ClInclude Include="Game\Game.h" />
+    <ClInclude Include="Game\GameCamera2D.h" />
+    <ClInclude Include="Game\GameCursor.h" />
     <ClInclude Include="Game\GameData.h" />
     <ClInclude Include="Game\Monster\Action\Act_Atack.h" />
     <ClInclude Include="Game\Monster\Action\Act_Chase.h" />
@@ -316,7 +333,9 @@
     <ClInclude Include="Game\Monster\Monster.h" />
     <ClInclude Include="Game\Monster\MonsterAction.h" />
     <ClInclude Include="Game\Monster\MonsterActionManeger.h" />
+    <ClInclude Include="Game\Monster\MonsterEffect.h" />
     <ClInclude Include="Game\Monster\Monsters\TestMons.h" />
+    <ClInclude Include="Game\Monster\Monsters\Uma.h" />
     <ClInclude Include="Game\PythonBridge\include\abstract.h" />
     <ClInclude Include="Game\PythonBridge\include\accu.h" />
     <ClInclude Include="Game\PythonBridge\include\asdl.h" />
@@ -418,7 +437,16 @@
     <ClInclude Include="Game\PythonBridge\include\warnings.h" />
     <ClInclude Include="Game\PythonBridge\include\weakrefobject.h" />
     <ClInclude Include="Game\PythonBridge\PythonBridge.h" />
+    <ClInclude Include="Game\Result\Lose\Lose.h" />
+    <ClInclude Include="Game\Result\Lose\Lose_localPVP.h" />
+    <ClInclude Include="Game\Result\Lose\Lose_randomPVP.h" />
+    <ClInclude Include="Game\Result\ResultCamera.h" />
+    <ClInclude Include="Game\Result\Win\Win.h" />
+    <ClInclude Include="Game\Result\Win\Win_localPVP.h" />
+    <ClInclude Include="Game\Result\Win\Win_randomPVP.h" />
+    <ClInclude Include="Game\SaveLoad\PythonFileLoad.h" />
     <ClInclude Include="Game\StageSetup\StageSetup.h" />
+    <ClInclude Include="Game\Title\ModeSelect.h" />
     <ClInclude Include="Game\Title\pvpModeSelect.h" />
     <ClInclude Include="Game\Title\Title.h" />
     <ClInclude Include="stdafx.h" />
@@ -428,11 +456,22 @@
     <MeshContentTask Include="Assets\modelData\Test.FBX" />
     <MeshContentTask Include="Assets\modelData\testMons\tesEnemy2.fbx" />
     <MeshContentTask Include="Assets\modelData\testMons\tesEnemy3.fbx" />
+    <MeshContentTask Include="Assets\modelData\uma\uma.fbx" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\modelData\boxTex.png" />
     <Image Include="Assets\modelData\stage\handle010.jpg" />
     <Image Include="Assets\modelData\testMons\asu.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\clear.png" />
+    <ImageContentTask Include="Assets\modelData\uma\uma.png" />
+    <ImageContentTask Include="Assets\modelData\uma\uma_eye.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\cursor.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\AIeditG.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\AIeditW.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\localpvpG.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\localpvpW.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\randompvpG.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\randompvpW.png" />
     <ImageContentTask Include="Assets\Sprite\Test.png" />
   </ItemGroup>
   <ItemGroup>
@@ -442,16 +481,20 @@
     <CopyFileToFolders Include="Game\dlllib\python36_d.dll">
       <FileType>Document</FileType>
     </CopyFileToFolders>
-    <CopyFileToFolders Include="CppBridge.py">
-      <FileType>Document</FileType>
-    </CopyFileToFolders>
     <None Include="Game\PythonBridge\include\pydtrace.d" />
-    <CopyFileToFolders Include="testBrain.py">
+    <CopyFileToFolders Include="PythonAIs\ang.py">
       <FileType>Document</FileType>
     </CopyFileToFolders>
-    <CopyFileToFolders Include="testBrain1.py">
+    <CopyFileToFolders Include="PythonAIs\CppBridge.py">
       <FileType>Document</FileType>
     </CopyFileToFolders>
+    <CopyFileToFolders Include="PythonAIs\testBrain.py">
+      <FileType>Document</FileType>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="PythonAIs\testBrain1.py">
+      <FileType>Document</FileType>
+    </CopyFileToFolders>
+    <None Include="PythonAIs\Threader.py" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="python36.lib">

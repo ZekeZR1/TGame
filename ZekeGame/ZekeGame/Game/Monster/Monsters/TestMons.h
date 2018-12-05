@@ -5,10 +5,9 @@ class TestMons :public Monster
 {
 public:
 	TestMons();
-	bool Start() override;
+	//bool Start() override;
 	//void Update() override;
 private:
 	
 	AnimationClip m_animclip[3];
-	
 };
