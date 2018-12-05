@@ -15,7 +15,6 @@ public:
 	void Update() override;
 	void Render() override;
 	void PostRender() override;
-
 private:
 	SkinModelRender* m_model;
 	SpriteRender* m_sprite;
