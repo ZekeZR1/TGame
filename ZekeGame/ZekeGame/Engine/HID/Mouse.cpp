@@ -9,35 +9,32 @@ namespace Mouse {
 
 	void UpdateMouseInput() {
 		//左トリガー入力判定。
-		if (mEve[enLeftClick]) {
-			if (!prePress[enLeftClick]) {
-				trigger[enLeftClick] = true;
-			}
-			else {
-				trigger[enLeftClick] = false;
-			}
+		if (mEve[0] != 0) {
+			trigger[enLeftClick] = 1 ^ press[enLeftClick];
+			press[enLeftClick] = 1;
 		}
-		prePress[enLeftClick] = mEve[enLeftClick];
+		else {
+			trigger[enLeftClick] = 0;
+			press[enLeftClick] = 0;
+		}
 		//右トリガー
-		if (mEve[enRightClick]) {
-			if (!prePress[enRightClick]) {
-				trigger[enRightClick] = true;
-			}
-			else {
-				trigger[enRightClick] = false;
-			}
+		if (mEve[2] != 0) {
+			trigger[enRightClick] = 1 ^ press[enRightClick];
+			press[enRightClick] = 1;
 		}
-		prePress[enRightClick] = mEve[enRightClick];
+		else {
+			trigger[enRightClick] = 0;
+			press[enRightClick] = 0;
+		}
 		//ミドルトリガー
-		if (mEve[enMiddleClick]) {
-			if (!prePress[enMiddleClick]) {
-				trigger[enMiddleClick] = true;
-			}
-			else {
-				trigger[enMiddleClick] = false;
-			}
+		if (mEve[1] != 0) {
+			trigger[enMiddleClick] = 1 ^ press[enMiddleClick];
+			press[enMiddleClick] = 1;
 		}
-		prePress[enMiddleClick] = mEve[enMiddleClick];
+		else {
+			trigger[enMiddleClick] = 0;
+			press[enMiddleClick] = 0;
+		}
 	}
 
 	int GetMouseNotch() {
