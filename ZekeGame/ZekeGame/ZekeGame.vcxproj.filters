@@ -404,6 +404,9 @@
     <ClCompile Include="Game\AIEdit\AIEditNode.cpp">
       <Filter>ソース ファイル\Game\AIEdit</Filter>
     </ClCompile>
+    <ClCompile Include="Game\AIEdit\AIEditNodeHp.cpp">
+      <Filter>ソース ファイル\Game\AIEdit</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\character\CharacterController.h">
@@ -985,6 +988,9 @@
     <ClInclude Include="Game\AIEdit\AIEditLine.h">
       <Filter>ソース ファイル\Game\AIEdit</Filter>
     </ClInclude>
+    <ClInclude Include="Game\AIEdit\AIEditNodeHp.h">
+      <Filter>ソース ファイル\Game\AIEdit</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\Test.FBX">
@@ -1039,19 +1045,16 @@
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\randompvpW.png">
       <Filter>リソース ファイル</Filter>
     </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\kariwin.png">
-      <Filter>リソース ファイル</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\karium.png">
-      <Filter>リソース ファイル</Filter>
-    </ImageContentTask>
     <ImageContentTask Include="..\..\..\写真たち\ZakeGame\kariline.png">
       <Filter>ソース ファイル\Game\Assets\sprite</Filter>
     </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\pointkari.png">
+    <ImageContentTask Include="Assets\Sprite\winkari.png">
       <Filter>ソース ファイル\Game\Assets\sprite</Filter>
     </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\winkari.png">
+    <ImageContentTask Include="Assets\Sprite\karipoint.png">
+      <Filter>ソース ファイル\Game\Assets\sprite</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\Hp.png">
       <Filter>ソース ファイル\Game\Assets\sprite</Filter>
     </ImageContentTask>
   </ItemGroup>

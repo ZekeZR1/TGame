@@ -6,11 +6,17 @@
 // THIS IS CAMERA.
 #include "../../GameCamera.h"
 
+#include "AIEditNodeHp.h"
 
 
 AIEditNode::~AIEditNode()
 {
-
+	DeleteGO(m_spriteRender);
+	DeleteGO(m_spriteRender1);
+	DeleteGO(m_spriteRender2);
+	DeleteGO(m_spriteRender3);
+	DeleteGO(m_spriteRender4);
+	DeleteGO(m_spriteRender5);
 }
 
 
@@ -20,37 +26,37 @@ bool AIEditNode::Start()
 	m_gamecursor = FindGO<GameCursor>("cursor");
 
 	//UIの基盤
-	m_spriteRender = NewGO<SpriteRender>(0, "firstwin");
-	m_spriteRender->Init(L"sprite/winkari.dds", 300, 500);
+	m_spriteRender = NewGO<SpriteRender>(3, "firstwin");
+	m_spriteRender->Init(L"Assets/sprite/winkari.dds", 300, 500);
 	CVector3 cursorpos = m_gamecursor->GetCursor();
 	m_position = cursorpos;
 	m_spriteRender->SetPosition(m_position);			//カーソルの座標
 
 	//ボタン１～
-	SetPointPos(0, 0);
-	m_spriteRender = NewGO<SpriteRender>(0, "miniwin1");
-	m_spriteRender->Init(L"sprite/pointkari.dds", 100, 100);
-	m_spriteRender->SetPosition(m_pointposition);
+	SetPointPos(-70, 140);
+	m_spriteRender1= NewGO<SpriteRender>(2, "miniwin1");
+	m_spriteRender1->Init(L"Assets/sprite/Hp.dds", 140, 100, true);
+	m_spriteRender1->SetPosition(m_pointposition);
 
-	SetPointPos(50, 50);
-	m_spriteRender = NewGO<SpriteRender>(0, "miniwin2");
-	m_spriteRender->Init(L"sprite/pointkari.dds", 100, 100);
-	m_spriteRender->SetPosition(m_pointposition);
+	SetPointPos(70, 140);
+	m_spriteRender2 = NewGO<SpriteRender>(2, "miniwin2");
+	m_spriteRender2->Init(L"Assets/sprite/karipoint.dds", 140, 100, true);
+	m_spriteRender2->SetPosition(m_pointposition);
 
-	SetPointPos(50, 100);
-	m_spriteRender = NewGO<SpriteRender>(0, "miniwin3");
-	m_spriteRender->Init(L"sprite/pointkari.dds", 100, 100);
-	m_spriteRender->SetPosition(m_pointposition);
+	SetPointPos(-70, 40);
+	m_spriteRender3 = NewGO<SpriteRender>(2, "miniwin3");
+	m_spriteRender3->Init(L"Assets/sprite/karipoint.dds", 140, 100, true);
+	m_spriteRender3->SetPosition(m_pointposition);
 
-	SetPointPos(100, 50);
-	m_spriteRender = NewGO<SpriteRender>(0, "miniwin4");
-	m_spriteRender->Init(L"sprite/pointkari.dds", 100, 100);
-	m_spriteRender->SetPosition(m_pointposition);
+	SetPointPos(70, 40);
+	m_spriteRender4 = NewGO<SpriteRender>(2, "miniwin4");
+	m_spriteRender4->Init(L"Assets/sprite/karipoint.dds", 140, 100, true);
+	m_spriteRender4->SetPosition(m_pointposition);
 
-	SetPointPos(100, 100);
-	m_spriteRender = NewGO<SpriteRender>(0, "miniwin5");
-	m_spriteRender->Init(L"sprite/pointkari.dds", 100, 100);
-	m_spriteRender->SetPosition(m_pointposition);
+	SetPointPos(0, 200);
+	m_spriteRender5 = NewGO<SpriteRender>(2, "miniwin5");
+	m_spriteRender5->Init(L"Assets/sprite/karipoint.dds", 140, 100, true);
+	m_spriteRender5->SetPosition(m_pointposition);
 
 	return true;
 
@@ -69,10 +75,22 @@ void AIEditNode::SetPointPos(int numx, int numy)
 
 }
 
+
 void AIEditNode::Update()
 {
+	CVector3 cursorpos = m_gamecursor->GetCursor();
+
+	m_spriteRender1->SetCollisionTarget(cursorpos);
 
 
+		if (m_spriteRender1->isCollidingTarget())	//Hpを選択しているか	
+		{
+
+			if (Mouse::isTrigger(enLeftClick))	//右クリック
+				NewGO<AIEditNodeHp>(0, "Hp");
+
+		}
+	
 	
 }
 
