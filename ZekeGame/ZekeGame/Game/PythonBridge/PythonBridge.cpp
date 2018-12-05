@@ -520,7 +520,7 @@ void PythonBridge::py_exe(int num,int team,const char* file)
 		}
 		return true;
 	});
-
+	SetCurrentDirectory("Python36");
 	PyImport_AppendInittab("SendGame", initModule);
 	Py_InitializeEx(1);
 

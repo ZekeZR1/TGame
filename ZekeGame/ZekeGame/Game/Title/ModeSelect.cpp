@@ -12,7 +12,6 @@ ModeSelect::~ModeSelect()
 	{
 		DeleteGO(sp);
 	}
-	delete m_camera;
 }
 
 bool ModeSelect::Start()
@@ -38,7 +37,6 @@ bool ModeSelect::Start()
 	pos += vadd;
 	m_selection.push_back(sp);
 
-	m_camera = new GameCamera;
 	return true;
 }
 
@@ -102,8 +100,4 @@ void ModeSelect::Update()
 			m_sel--;
 		}
 	}
-}
-
-void ModeSelect::PostRender()
-{
 }

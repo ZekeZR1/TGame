@@ -145,6 +145,11 @@ void Monster::Knockback()
 	}
 }
 
+void Monster::SetRotation(CQuaternion rot)
+{
+	m_smr->SetRotation(rot);
+}
+
 void Monster::AddAction(MonsterAction * ma)
 {
 	m_actions.push_back(ma);

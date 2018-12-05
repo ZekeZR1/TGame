@@ -122,6 +122,8 @@ public:
 		return m_front;
 	}
 
+	void SetRotation(CQuaternion rot);
+
 	//¡•à‚¢‚Ä‚¢‚é‚©‚ğİ’è‚·‚é
 	void Setiswalk(bool b)
 	{

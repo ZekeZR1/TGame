@@ -138,6 +138,18 @@
     <Filter Include="ソース ファイル\Game\Monster\Effect">
       <UniqueIdentifier>{e151c29e-b1c7-4fc1-a1f1-1d83104e9822}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Game\SaveLoad">
+      <UniqueIdentifier>{3ce62f75-b3fd-4c8f-aad7-f15314211a51}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Game\Result">
+      <UniqueIdentifier>{75cb3ad5-3377-4c0c-8bc7-77a00b8b9c2e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Game\Result\Win">
+      <UniqueIdentifier>{a0d1b999-a0a8-4808-9f85-899905e2d7e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Game\Result\Lose">
+      <UniqueIdentifier>{c3a65b09-1a1c-4b5a-804d-35a07914637e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\character\CharacterController.cpp">
@@ -403,6 +415,33 @@
     </ClCompile>
     <ClCompile Include="Game\Monster\MonsterEffect.cpp">
       <Filter>ソース ファイル\Game\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\SaveLoad\PythonFileLoad.cpp">
+      <Filter>ソース ファイル\Game\SaveLoad</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Result\Win\Win_randomPVP.cpp">
+      <Filter>ソース ファイル\Game\Result\Win</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Result\Win\Win_localPVP.cpp">
+      <Filter>ソース ファイル\Game\Result\Win</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Result\Lose\Lose_randomPVP.cpp">
+      <Filter>ソース ファイル\Game\Result\Lose</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Result\Lose\Lose_localPVP.cpp">
+      <Filter>ソース ファイル\Game\Result\Lose</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Result\Lose\Lose.cpp">
+      <Filter>ソース ファイル\Game\Result\Lose</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Result\Win\Win.cpp">
+      <Filter>ソース ファイル\Game\Result\Win</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\GameCamera2D.cpp">
+      <Filter>ソース ファイル\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Result\ResultCamera.cpp">
+      <Filter>ソース ファイル\Game\Result</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -979,6 +1018,33 @@
     <ClInclude Include="Game\Monster\MonsterEffect.h">
       <Filter>ソース ファイル\Game\Monster</Filter>
     </ClInclude>
+    <ClInclude Include="Game\SaveLoad\PythonFileLoad.h">
+      <Filter>ソース ファイル\Game\SaveLoad</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Result\Win\Win_localPVP.h">
+      <Filter>ソース ファイル\Game\Result\Win</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Result\Win\Win_randomPVP.h">
+      <Filter>ソース ファイル\Game\Result\Win</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Result\Lose\Lose_randomPVP.h">
+      <Filter>ソース ファイル\Game\Result\Lose</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Result\Lose\Lose_localPVP.h">
+      <Filter>ソース ファイル\Game\Result\Lose</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Result\Lose\Lose.h">
+      <Filter>ソース ファイル\Game\Result\Lose</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Result\Win\Win.h">
+      <Filter>ソース ファイル\Game\Result\Win</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameCamera2D.h">
+      <Filter>ソース ファイル\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Result\ResultCamera.h">
+      <Filter>ソース ファイル\Game\Result</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\Test.FBX">
@@ -1038,6 +1104,9 @@
     </ImageContentTask>
     <ImageContentTask Include="Assets\modelData\uma\uma_eye.png">
       <Filter>ソース ファイル\Game\Assets\modelData\uma</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\clear.png">
+      <Filter>ソース ファイル\Game\Assets\sprite\GUI</Filter>
     </ImageContentTask>
   </ItemGroup>
   <ItemGroup>
