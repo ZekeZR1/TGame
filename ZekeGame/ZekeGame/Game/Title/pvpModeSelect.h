@@ -9,7 +9,7 @@ public:
 	void LoadFiles();
 private:
 	CFont font;
-	std::vector<std::string> files;
+	std::vector<std::string> m_files;
 	int monai[6] = {0};
 	int curpos = 0;
 	bool sel = false;

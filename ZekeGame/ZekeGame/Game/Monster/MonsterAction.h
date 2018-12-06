@@ -30,4 +30,6 @@ protected:
 	int m_targetNum = 0;			//ターゲットのnum
 	Monster* m_me = nullptr;		//使うもんすたー
 	Monster* m_target = nullptr;	//ターゲット
+
+	float m_time = 0.0f;			//時間
 };

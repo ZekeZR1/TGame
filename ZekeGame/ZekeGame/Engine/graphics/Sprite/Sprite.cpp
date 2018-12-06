@@ -74,39 +74,38 @@ void Sprite::Init(const wchar_t* texFilePath, float w, float h)
 	m_effect.Load("Assets/shader/sprite.fx");
 	wchar_t filePath[256];
 	DirectX::CreateDDSTextureFromFileEx(
-		g_graphicsEngine->GetD3DDevice(),	
+		g_graphicsEngine->GetD3DDevice(),
 		texFilePath,
 		0,
-		D3D11_USAGE_DEFAULT,	
-		D3D11_BIND_SHADER_RESOURCE,	
-		0,						
-		0,							
-		false,					
-		nullptr,				
-		&m_texture				
-									
+		D3D11_USAGE_DEFAULT,
+		D3D11_BIND_SHADER_RESOURCE,
+		0,
+		0,
+		false,
+		nullptr,
+		&m_texture
+
 	);
 	InitConstantBuffer();
 }
 
-
 void Sprite::Draw()
 {
 	m_effect.BeginRender();
-	unsigned int vertexSize = sizeof(SVertex);	
+	unsigned int vertexSize = sizeof(SVertex);
 	unsigned int offset = 0;
 	GraphicsEngine* ge = g_graphicsEngine;
-	ge->GetD3DDeviceContext()->IASetVertexBuffers(	
-		0,				
-		1,			
-		&m_vertexBuffer,	
-		&vertexSize,	
-		&offset				
+	ge->GetD3DDeviceContext()->IASetVertexBuffers(
+		0,
+		1,
+		&m_vertexBuffer,
+		&vertexSize,
+		&offset
 	);
 	ge->GetD3DDeviceContext()->IASetIndexBuffer(
-		m_indexBuffer,			
-		DXGI_FORMAT_R32_UINT,	
-		0						
+		m_indexBuffer,
+		DXGI_FORMAT_R32_UINT,
+		0
 	);
 
 	ID3D11BlendState* pBlendState = NULL;
@@ -134,12 +133,9 @@ void Sprite::Draw()
 	ge->GetD3DDeviceContext()->UpdateSubresource(m__cb, 0, NULL, &cb, 0, 0);
 	ge->GetD3DDeviceContext()->VSSetConstantBuffers(0, 1, &m__cb);
 	ge->GetD3DDeviceContext()->IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
-
-	ge->GetD3DDeviceContext()->DrawIndexed(	
-		6,				
-		0,			
-		0				
+	ge->GetD3DDeviceContext()->DrawIndexed(
+		6,
+		0,
+		0
 	);
 }
-
-

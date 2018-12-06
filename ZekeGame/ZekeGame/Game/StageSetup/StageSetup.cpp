@@ -3,6 +3,7 @@
 #include "../GameData.h"
 #include "../Monster/Monster.h"
 #include "../Monster/Monsters/TestMons.h"
+#include "../Monster/Monsters/Uma.h"
 #include <array>
 
 StageSetup::StageSetup()
@@ -19,7 +20,7 @@ void StageSetup::PVPSetup(std::vector<std::string> files, int monsterAI[6])
 	std::string* path = new std::string("PythonAIs.");
 	//std::string* path = new std::string("");
 	*path += files[monsterAI[0]];
-	Monster* mons = NewGO<TestMons>(0, "monster");
+	Monster* mons = NewGO<Uma>(0, "monster");
 	mons->Setpos({ 0,0,500 });
 	mons->Setnum(0);
 	mons->Setteam(0);

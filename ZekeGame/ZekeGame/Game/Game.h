@@ -17,11 +17,22 @@ public:
 	void Render() override;
 	void PostRender() override;
 
+	enum Mode
+	{
+		enLocalPVP,
+		enRandomPVP,
+		enAdventure
+	};
+
 private:
 	Pyinit* m_pi;
 	SkinModelRender* m_model;
 	SpriteRender* m_sprite;
 	GameCamera* camera = nullptr;
 	StageSetup* ss;
+
+	Mode playMode = enLocalPVP;
+
+	bool m_END = false;
 };
 

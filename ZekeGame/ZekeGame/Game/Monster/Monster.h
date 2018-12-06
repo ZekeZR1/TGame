@@ -2,11 +2,14 @@
 #include "../../Engine/character/CharacterController.h"
 
 class MonsterAction;
+class MonsterEffect;
 class PythonBridge;
 class Monster:public GameObject
 {
 public:
 	~Monster();
+
+	void init(int HP, int MP, float speed, float radius, float height, SkinModelRender* smr, int animnum);
 
 	bool Start() override final;
 	void Update() override final;
@@ -106,6 +109,21 @@ public:
 		m_movespeed = v;
 	}
 
+	//
+	CVector3 GetFrontvec()
+	{
+		CVector3 vec = m_movespeed;
+		if (vec.Length() > 1.0f)
+		{
+			vec.Normalize();
+			m_front = vec;
+		}
+
+		return m_front;
+	}
+
+	void SetRotation(CQuaternion rot);
+
 	//今歩いているかを設定する
 	void Setiswalk(bool b)
 	{
@@ -136,6 +154,12 @@ public:
 	void Setnum(int num)
 	{
 		m_num = num;
+	}
+
+	//IDを返す
+	int GetID()
+	{
+		return m_ID;
 	}
 
 	//これいらない
@@ -184,8 +208,10 @@ protected:
 	int m_HP = 0;								//HP
 	int m_MP = 0;								//MP
 	float m_gravity = 50.0f;					//重力
+	float m_speed = 0.0f;						//スピード
 	CVector3 m_movespeed = CVector3::Zero();	//ムーブスピード
 	CVector3 m_oldmovespeed = CVector3::Zero();	//古のムーブスピード
+	CVector3 m_front = CVector3::Zero();		//前方向
 	bool m_iswalk = false;						//
 	bool m_isKnockback = false;					//
 	CVector3 m_vKnockback = CVector3::Zero();	//
@@ -194,9 +220,12 @@ protected:
 	CQuaternion m_rot = CQuaternion::Identity();//回転
 
 	PythonBridge* m_PB;
+
 	std::vector<MonsterAction*> m_actions;		//使うアクション
 	en_State m_state = en_NowLoading;
 	bool isLoading = false;
+
+	MonsterEffect* m_effect;
 
 	int m_AnimNum = 0;							//アニメーションの個数
 

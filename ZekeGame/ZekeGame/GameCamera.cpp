@@ -4,13 +4,13 @@
 GameCamera::GameCamera()
 {
 	
-	camera2d = new Camera;
+	/*camera2d = new Camera;
 	camera2d->SetTarget(CVector3::Zero());
 	camera2d->SetPosition({ 0.0f, 0.0f, -10.0f });
 	camera2d->SetUpdateProjMatrixFunc(Camera::enUpdateProjMatrixFunc_Ortho);	
 	camera2d->SetNear(0.1f);
 	camera2d->SetFar(1000.0f);
-	camera2d->Update();
+	camera2d->Update();*/
 	
 	camera3d = new Camera;
 	camera3d->SetTarget(m_target);
@@ -24,7 +24,7 @@ GameCamera::GameCamera()
 
 GameCamera::~GameCamera()
 {
-	delete camera2d;
+	//delete camera2d;
 	delete camera3d;
 }
 
@@ -32,7 +32,7 @@ GameCamera::~GameCamera()
 	毎フレーム呼ばれるゲームカメラの更新
 */
 void GameCamera::Update() {
-	camera2d->Update();
+	//camera2d->Update();
 
 	SkinModelRender* i_model = nullptr;
 	i_model = FindGO<SkinModelRender>("model");
