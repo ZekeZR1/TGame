@@ -466,8 +466,11 @@
     <MeshContentTask Include="Assets\modelData\Test.FBX" />
     <MeshContentTask Include="Assets\modelData\testMons\tesEnemy2.fbx" />
     <MeshContentTask Include="Assets\modelData\testMons\tesEnemy3.fbx" />
+    <MeshContentTask Include="Assets\modelData\uma\uma.fbx" />
   </ItemGroup>
   <ItemGroup>
+    <ImageContentTask Include="Assets\Sprite\kariline.png" />
+    <ImageContentTask Include="Assets\Sprite\Mp.png" />
     <ImageContentTask Include="Assets\Sprite\karipoint.png" />
     <ImageContentTask Include="Assets\Sprite\winkari.png" />
     <Image Include="Assets\modelData\boxTex.png" />
@@ -476,7 +479,11 @@
     <ImageContentTask Include="Assets\Sprite\Hp.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </ImageContentTask>
-    <Image Include="Assets\Sprite\kariline.png" />
+
+    <ImageContentTask Include="Assets\Sprite\GUI\clear.png" />
+    <ImageContentTask Include="Assets\modelData\uma\uma.png" />
+    <ImageContentTask Include="Assets\modelData\uma\uma_eye.png" />
+
     <ImageContentTask Include="Assets\Sprite\GUI\cursor.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\AIeditG.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\AIeditW.png" />
@@ -506,6 +513,7 @@
     <CopyFileToFolders Include="PythonAIs\testBrain1.py">
       <FileType>Document</FileType>
     </CopyFileToFolders>
+    <None Include="PythonAIs\Threader.py" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="python36.lib">
