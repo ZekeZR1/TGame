@@ -115,6 +115,7 @@ void PvPModeSelect::PostRender()
 	else
 		colors[curpos] = CVector4::Red;
 	CVector2 pos = { -520,10};
+	font.Begin();
 	for (int i = 0; i < 7; i++)
 	{
 		if (i == 3)
@@ -132,4 +133,5 @@ void PvPModeSelect::PostRender()
 
 		pos.y -= 50;
 	}
+	font.End();
 }
