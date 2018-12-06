@@ -14,6 +14,7 @@ public:
 	~GraphicsEngine();
 
 	void InitDirectX(HWND hwnd);
+	void Clear();
 	void Release();
 	CShaderResource &GetShaderResources()
 	{
