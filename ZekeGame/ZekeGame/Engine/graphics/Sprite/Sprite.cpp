@@ -77,6 +77,7 @@ void Sprite::Init(const wchar_t* texFilePath, float w, float h)
 		g_graphicsEngine->GetD3DDevice(),
 		texFilePath,
 		0,
+
 		D3D11_USAGE_DEFAULT,
 		D3D11_BIND_SHADER_RESOURCE,
 		0,
@@ -84,7 +85,6 @@ void Sprite::Init(const wchar_t* texFilePath, float w, float h)
 		false,
 		nullptr,
 		&m_texture
-
 	);
 	InitConstantBuffer();
 }
