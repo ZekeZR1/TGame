@@ -23,6 +23,7 @@ AIEditNode::~AIEditNode()
 
 bool AIEditNode::Start()
 {
+
 	m_gamecursor = FindGO<GameCursor>("cursor");
 
 	//UI‚ÌŠî”Õ
@@ -40,7 +41,7 @@ bool AIEditNode::Start()
 
 	SetPointPos(70, 140);
 	m_spriteRender2 = NewGO<SpriteRender>(2, "miniwin2");
-	m_spriteRender2->Init(L"Assets/sprite/karipoint.dds", 140, 100, true);
+	m_spriteRender2->Init(L"Assets/sprite/Mp.dds", 140, 100, true);
 	m_spriteRender2->SetPosition(m_pointposition);
 
 	SetPointPos(-70, 40);
@@ -53,7 +54,7 @@ bool AIEditNode::Start()
 	m_spriteRender4->Init(L"Assets/sprite/karipoint.dds", 140, 100, true);
 	m_spriteRender4->SetPosition(m_pointposition);
 
-	SetPointPos(0, 200);
+	SetPointPos(-70, -40);
 	m_spriteRender5 = NewGO<SpriteRender>(2, "miniwin5");
 	m_spriteRender5->Init(L"Assets/sprite/karipoint.dds", 140, 100, true);
 	m_spriteRender5->SetPosition(m_pointposition);
@@ -74,6 +75,13 @@ void AIEditNode::SetPointPos(int numx, int numy)
 	m_pointposition.y = y + numy;
 
 }
+
+//void AIEditNode::PostReider(CRenderContext & rc)
+//{
+//
+//
+//
+//}
 
 
 void AIEditNode::Update()

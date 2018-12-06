@@ -14,6 +14,7 @@ public:
 	bool Start() override final;
 	void Update() override final;
 	void SetPointPos(int numx, int numy);
+	//void PostReider(CRenderContext & rc);
 	
 
 private:
