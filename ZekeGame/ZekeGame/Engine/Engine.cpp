@@ -1,11 +1,10 @@
 #include "stdafx.h"
 #include "Engine.h"
 #include "Engine/FPSCounter.h"
-#include "GameCamera.h"
 
 CFPSCounter* FPS = nullptr;
-GameCamera* camera = nullptr;
 NetworkLogic* m_network = nullptr;
+int nNotch = 0;
 
 Engine::Engine()
 {
@@ -24,12 +23,10 @@ void Engine::Init(HINSTANCE hInstance,
 	InitWindow(hInstance, hPrevInstance, lpCmdLine, nCmdShow, "Game");
 	GameObjectManager().Init(32);
 	FPS = new CFPSCounter(10);
-	//camera = new GameCamera;
 }
 
 void Engine::Release() {
 	delete g_graphicsEngine;
-	delete camera;
 	delete FPS;
 }
 
@@ -38,12 +35,13 @@ void Engine::Update() {
 		pad.Update();
 	}
 
+	Mouse::UpdateMouseInput();
+
 	if (m_network != nullptr) {
 		m_network->Update();
 	}
 
 	GameObjectManager().Execute();
-	//camera->Update();
 	//output frame late to debug message
 	char message[256];
 	float fps = FPS->GetFPS();
