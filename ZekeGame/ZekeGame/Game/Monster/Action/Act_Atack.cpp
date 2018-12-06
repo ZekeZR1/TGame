@@ -7,7 +7,7 @@ bool Act_Atack::Action(Monster * me)
 {
 	if (m_target == nullptr)
 		return true;
-	
+	me->anim_atack();
 	CVector3 v = m_target->Getpos() - me->Getpos();
 	if (v.Length() < 100)
 	{

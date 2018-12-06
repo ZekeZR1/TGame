@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "ModeSelect.h"
 
+#include "pvpModeSelect.h"
 #include "../AIEdit/AIEditMode.h"
 
 #include "../../GameCamera.h"
@@ -11,7 +12,6 @@ ModeSelect::~ModeSelect()
 	{
 		DeleteGO(sp);
 	}
-	delete m_camera;
 }
 
 bool ModeSelect::Start()
@@ -37,7 +37,6 @@ bool ModeSelect::Start()
 	pos += vadd;
 	m_selection.push_back(sp);
 
-	m_camera = new GameCamera;
 	return true;
 }
 
@@ -48,6 +47,8 @@ void ModeSelect::Update()
 		switch (m_sel)
 		{
 		case enLocalpvp:
+			NewGO<PvPModeSelect>(0, "pvp");
+			DeleteGO(this);
 			break;
 		case enRandompvp:
 			break;
@@ -99,8 +100,4 @@ void ModeSelect::Update()
 			m_sel--;
 		}
 	}
-}
-
-void ModeSelect::PostRender()
-{
 }

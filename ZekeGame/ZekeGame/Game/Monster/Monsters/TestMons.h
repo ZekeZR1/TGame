@@ -10,5 +10,4 @@ public:
 private:
 	
 	AnimationClip m_animclip[3];
-	
 };

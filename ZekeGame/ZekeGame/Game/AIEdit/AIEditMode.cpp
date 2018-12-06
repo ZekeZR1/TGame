@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "AIEditMode.h"
-
+#include "AIEditNode.h"
 #include "../GameCursor.h"
 
 // THIS IS CAMERA.
@@ -12,6 +12,9 @@ AIEditMode::~AIEditMode()
 
 	// CAMERA IS DEAD.
 	delete m_camera;
+
+	//CURSOR IS DEAD.
+	DeleteGO(m_cursor);
 }
 
 bool AIEditMode::Start()
@@ -28,4 +31,9 @@ bool AIEditMode::Start()
 
 void AIEditMode::Update()
 {
+
+	if (Mouse::isTrigger(enRightClick)) {
+		m_aieditnode = NewGO<AIEditNode>(0, "window");
+	}
+
 }
