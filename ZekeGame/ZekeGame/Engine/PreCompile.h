@@ -35,6 +35,8 @@
 #include "Engine/graphics/Skelton.h"
 #include "Engine/graphics/SkinModel.h"
 #include "Engine/graphics/SkinModelRender.h"
+#include "physics/PhysicsStaticObject.h"
+#include "Engine/graphics/SkinModelDummy.h"
 #include "physics/SpriteBoxCollider.h"
 #include "Engine/graphics/SpriteRender.h"
 #include "Engine/graphics/font/CFONT.h"
