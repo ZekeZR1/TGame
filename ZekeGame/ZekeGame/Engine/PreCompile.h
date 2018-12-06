@@ -35,6 +35,7 @@
 #include "Engine/graphics/Skelton.h"
 #include "Engine/graphics/SkinModel.h"
 #include "Engine/graphics/SkinModelRender.h"
+#include "physics/SpriteBoxCollider.h"
 #include "Engine/graphics/SpriteRender.h"
 #include "Engine/graphics/font/CFONT.h"
 
@@ -43,6 +44,6 @@
 #include "Engine/graphics/Camera.h"
 #include "Engine/graphics/Effect/CEffectEngine.h"
 #include "Engine/graphics/Effect/CEffect.h"
-
+#include "HID/Mouse.h"
 #include "Engine/time/GameTime.h"
 

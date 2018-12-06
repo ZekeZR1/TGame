@@ -89,7 +89,6 @@ void Sprite::Init(const wchar_t* texFilePath, float w, float h)
 	InitConstantBuffer();
 }
 
-
 void Sprite::Draw()
 {
 	m_effect.BeginRender();
@@ -134,7 +133,6 @@ void Sprite::Draw()
 	ge->GetD3DDeviceContext()->UpdateSubresource(m__cb, 0, NULL, &cb, 0, 0);
 	ge->GetD3DDeviceContext()->VSSetConstantBuffers(0, 1, &m__cb);
 	ge->GetD3DDeviceContext()->IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
-
 	ge->GetD3DDeviceContext()->DrawIndexed(
 		6,
 		0,

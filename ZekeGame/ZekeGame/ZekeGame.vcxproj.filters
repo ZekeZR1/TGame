@@ -410,6 +410,7 @@
     <ClCompile Include="Game\AIEdit\AIEditMode.cpp">
       <Filter>ソース ファイル\Game\AIEdit</Filter>
     </ClCompile>
+
     <ClCompile Include="Game\Monster\Monsters\Uma.cpp">
       <Filter>ソース ファイル\Game\Monster\Monsters</Filter>
     </ClCompile>
@@ -1012,6 +1013,7 @@
     <ClInclude Include="Game\AIEdit\AIEditMode.h">
       <Filter>ソース ファイル\Game\AIEdit</Filter>
     </ClInclude>
+
     <ClInclude Include="Game\Monster\Monsters\Uma.h">
       <Filter>ソース ファイル\Game\Monster\Monsters</Filter>
     </ClInclude>
@@ -1073,6 +1075,11 @@
     <Image Include="Assets\modelData\stage\handle010.jpg">
       <Filter>ソース ファイル\Game\Assets\modelData\Stage</Filter>
     </Image>
+
+    <Image Include="Assets\Sprite\kariline.png">
+      <Filter>リソース ファイル</Filter>
+    </Image>
+
   </ItemGroup>
   <ItemGroup>
     <ImageContentTask Include="Assets\Sprite\Test.png">

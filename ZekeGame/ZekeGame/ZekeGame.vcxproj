@@ -197,6 +197,7 @@
     <ClCompile Include="Engine\graphics\Sprite\Sprite.cpp" />
     <ClCompile Include="Engine\graphics\StructedBuffer.cpp" />
     <ClCompile Include="Engine\graphics\TScopedResource.cpp" />
+    <ClCompile Include="Engine\HID\Mouse.cpp" />
     <ClCompile Include="Engine\HID\Pad.cpp" />
     <ClCompile Include="Engine\level\Level.cpp" />
     <ClCompile Include="Engine\level\MapChip.cpp" />
@@ -215,12 +216,16 @@
     <ClCompile Include="Engine\physics\Physics.cpp" />
     <ClCompile Include="Engine\physics\PhysicsStaticObject.cpp" />
     <ClCompile Include="Engine\physics\RigitBody.cpp" />
+    <ClCompile Include="Engine\physics\SpriteBoxCollider.cpp" />
     <ClCompile Include="Engine\PreCompile.cpp" />
     <ClCompile Include="Engine\sound\SoundEngine.cpp" />
     <ClCompile Include="Engine\time\GameTime.cpp" />
     <ClCompile Include="Engine\window\Window.cpp" />
     <ClCompile Include="GameCamera.cpp" />
+    <ClCompile Include="Game\AIEdit\AIEditLine.cpp" />
     <ClCompile Include="Game\AIEdit\AIEditMode.cpp" />
+    <ClCompile Include="Game\AIEdit\AIEditNode.cpp" />
+    <ClCompile Include="Game\AIEdit\AIEditNodeHp.cpp" />
     <ClCompile Include="Game\Game.cpp" />
     <ClCompile Include="Game\GameCamera2D.cpp" />
     <ClCompile Include="Game\GameCursor.cpp" />
@@ -296,6 +301,7 @@
     <ClInclude Include="Engine\graphics\Sprite\Sprite.h" />
     <ClInclude Include="Engine\graphics\StructedBuffer.h" />
     <ClInclude Include="Engine\graphics\TScopedResource.h" />
+    <ClInclude Include="Engine\HID\Mouse.h" />
     <ClInclude Include="Engine\HID\Pad.h" />
     <ClInclude Include="Engine\level\Level.h" />
     <ClInclude Include="Engine\level\MapChip.h" />
@@ -316,13 +322,17 @@
     <ClInclude Include="Engine\physics\Physics.h" />
     <ClInclude Include="Engine\physics\PhysicsStaticObject.h" />
     <ClInclude Include="Engine\physics\RigitBody.h" />
+    <ClInclude Include="Engine\physics\SpriteBoxCollider.h" />
     <ClInclude Include="Engine\PreCompile.h" />
     <ClInclude Include="Engine\sound\SoundEngine.h" />
     <ClInclude Include="Engine\time\GameTime.h" />
     <ClInclude Include="Engine\util\Util.h" />
     <ClInclude Include="Engine\window\Window.h" />
     <ClInclude Include="GameCamera.h" />
+    <ClInclude Include="Game\AIEdit\AIEditLine.h" />
     <ClInclude Include="Game\AIEdit\AIEditMode.h" />
+    <ClInclude Include="Game\AIEdit\AIEditNode.h" />
+    <ClInclude Include="Game\AIEdit\AIEditNodeHp.h" />
     <ClInclude Include="Game\Game.h" />
     <ClInclude Include="Game\GameCamera2D.h" />
     <ClInclude Include="Game\GameCursor.h" />
@@ -459,12 +469,17 @@
     <MeshContentTask Include="Assets\modelData\uma\uma.fbx" />
   </ItemGroup>
   <ItemGroup>
+    <ImageContentTask Include="Assets\Sprite\karipoint.png" />
+    <ImageContentTask Include="Assets\Sprite\winkari.png" />
+    <ImageContentTask Include="..\..\..\写真たち\ZakeGame\kariline.png" />
     <Image Include="Assets\modelData\boxTex.png" />
     <Image Include="Assets\modelData\stage\handle010.jpg" />
     <Image Include="Assets\modelData\testMons\asu.png" />
+
     <ImageContentTask Include="Assets\Sprite\GUI\clear.png" />
     <ImageContentTask Include="Assets\modelData\uma\uma.png" />
     <ImageContentTask Include="Assets\modelData\uma\uma_eye.png" />
+
     <ImageContentTask Include="Assets\Sprite\GUI\cursor.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\AIeditG.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\AIeditW.png" />
