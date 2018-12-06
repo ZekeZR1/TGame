@@ -132,6 +132,19 @@
     <Filter Include="ソース ファイル\Game\AIEdit">
       <UniqueIdentifier>{59d77138-7569-4048-b1d7-b6b9143c4702}</UniqueIdentifier>
     </Filter>
+
+    <Filter Include="ソース ファイル\Game\Result">
+      <UniqueIdentifier>{9d7fe219-7489-4f64-9edc-c8eb0be4b6f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Game\Result\Win">
+      <UniqueIdentifier>{13fed1f2-912b-41fc-8587-e1795f3b8f9f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Game\Result\Lose">
+      <UniqueIdentifier>{ab89f5a8-51c5-4f04-b213-4da599bb5476}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Game\SaveLoad">
+      <UniqueIdentifier>{ccc5a29e-8765-4d8d-b6db-5676a3e2b558}</UniqueIdentifier>
+
     <Filter Include="ソース ファイル\Game\Assets\modelData\uma">
       <UniqueIdentifier>{58a372ab-93a5-4f84-9402-9ae42c47b490}</UniqueIdentifier>
     </Filter>
@@ -149,6 +162,7 @@
     </Filter>
     <Filter Include="ソース ファイル\Game\Result\Lose">
       <UniqueIdentifier>{c3a65b09-1a1c-4b5a-804d-35a07914637e}</UniqueIdentifier>
+
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -443,6 +457,39 @@
     </ClCompile>
     <ClCompile Include="Game\Result\ResultCamera.cpp">
       <Filter>ソース ファイル\Game\Result</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\Monsters\Uma.cpp">
+      <Filter>ソース ファイル\Game\Monster\Monsters</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\MonsterEffect.cpp">
+      <Filter>ソース ファイル\Game\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Result\ResultCamera.cpp">
+      <Filter>ソース ファイル\Game\Result</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Result\Win\Win_localPVP.cpp">
+      <Filter>ソース ファイル\Game\Result\Win</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Result\Win\Win_randomPVP.cpp">
+      <Filter>ソース ファイル\Game\Result\Win</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Result\Win\Win.cpp">
+      <Filter>ソース ファイル\Game\Result\Win</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Result\Lose\Lose_randomPVP.cpp">
+      <Filter>ソース ファイル\Game\Result\Lose</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Result\Lose\Lose.cpp">
+      <Filter>ソース ファイル\Game\Result\Lose</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Result\Lose\Lose_localPVP.cpp">
+      <Filter>ソース ファイル\Game\Result\Lose</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\SaveLoad\PythonFileLoad.cpp">
+      <Filter>ソース ファイル\Game\SaveLoad</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\GameCamera2D.cpp">
+      <Filter>ソース ファイル\Game</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1046,6 +1093,39 @@
     </ClInclude>
     <ClInclude Include="Game\Result\ResultCamera.h">
       <Filter>ソース ファイル\Game\Result</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\Monsters\Uma.h">
+      <Filter>ソース ファイル\Game\Monster\Monsters</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\MonsterEffect.h">
+      <Filter>ソース ファイル\Game\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Result\ResultCamera.h">
+      <Filter>ソース ファイル\Game\Result</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Result\Win\Win_localPVP.h">
+      <Filter>ソース ファイル\Game\Result\Win</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Result\Win\Win_randomPVP.h">
+      <Filter>ソース ファイル\Game\Result\Win</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Result\Win\Win.h">
+      <Filter>ソース ファイル\Game\Result\Win</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Result\Lose\Lose_randomPVP.h">
+      <Filter>ソース ファイル\Game\Result\Lose</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Result\Lose\Lose.h">
+      <Filter>ソース ファイル\Game\Result\Lose</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Result\Lose\Lose_localPVP.h">
+      <Filter>ソース ファイル\Game\Result\Lose</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\SaveLoad\PythonFileLoad.h">
+      <Filter>ソース ファイル\Game\SaveLoad</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameCamera2D.h">
+      <Filter>ソース ファイル\Game</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

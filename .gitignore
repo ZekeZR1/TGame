@@ -77,3 +77,5 @@ obj/
 /ZekeGame/ZekeGame/Engine/PhotonEngine/LoadBalancing-cpp/vc15_debug_windows_md_x64/LoadBala.EA5D8C8B.tlog
 /ZekeGame/ZekeGame/Assets/modelData
 /ZekeGame/ZekeGame/python36_d.dll
+/ZekeGame/ZekeGame/bulletPhysics/src/BulletCollision/x64/RelWithDebInfo/BulletCollision.tlog
+/ZekeGame/ZekeGame/bulletPhysics/src/BulletDynamics/x64/RelWithDebInfo/BulletDynamics.tlog
