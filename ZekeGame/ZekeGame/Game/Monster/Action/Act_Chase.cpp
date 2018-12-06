@@ -9,6 +9,7 @@ bool Act_Chase::Action(Monster* me)
 	{
 		me->Setspeed(CVector3::Zero());
 		//me->Setiswalk(false);
+		me->anim_idle();
 		return true;
 	}
 
@@ -17,11 +18,22 @@ bool Act_Chase::Action(Monster* me)
 	{
 		me->Setspeed(CVector3::Zero());
 		//me->Setiswalk(false);
+		me->anim_idle();
 		return true;
 	}
+	me->anim_walk();
 	v.Normalize();
 	v *= 15;
 	me->Setspeed(v);
 	me->Setiswalk(true);
+
+	m_time += IGameTime().GetFrameDeltaTime();
+	if (m_time > 15.0f)
+	{
+		me->Setspeed(CVector3::Zero());
+		me->anim_idle();
+		return true;
+	}
+
 	return false;
 }
