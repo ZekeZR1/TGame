@@ -6,8 +6,14 @@ namespace Mouse {
 	bool trigger[enNumMouseEve] = { false };
 	bool prePress[enNumMouseEve] = { false };
 	bool press[enNumMouseEve] = { false };
+	CVector3 cursorpos = CVector3::Zero();
 
 	void UpdateMouseInput() {
+		POINT pt;
+		GetCursorPos(&pt);
+		cursorpos.x = float(pt.x);
+		cursorpos.y = float(pt.y);
+		ShowCursor(FALSE);
 		//¶ƒgƒŠƒK[“ü—Í”»’èB
 		if (mEve[0] != 0) {
 			trigger[enLeftClick] = 1 ^ press[enLeftClick];
@@ -37,6 +43,9 @@ namespace Mouse {
 		}
 	}
 
+	CVector3 GetCursorPos() {
+		return cursorpos;
+	}
 	int GetMouseNotch() {
 		int nn = notch;
 		notch = 0;
