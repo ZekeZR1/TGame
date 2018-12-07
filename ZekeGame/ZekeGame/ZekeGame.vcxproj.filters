@@ -458,6 +458,9 @@
     <ClCompile Include="Game\AIEdit\AIEditNodeHp.cpp">
       <Filter>ソース ファイル\Game\AIEdit</Filter>
     </ClCompile>
+    <ClCompile Include="Engine\graphics\SkinModelDummy.cpp">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\character\CharacterController.h">
@@ -1074,6 +1077,9 @@
     </ClInclude>
     <ClInclude Include="Game\AIEdit\AIEditNode.h">
       <Filter>ソース ファイル\Game\AIEdit</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\graphics\SkinModelDummy.h">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
