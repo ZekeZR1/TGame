@@ -187,6 +187,7 @@
     <ClCompile Include="Engine\graphics\Skelton.cpp" />
     <ClCompile Include="Engine\graphics\SkinModel.cpp" />
     <ClCompile Include="Engine\graphics\SkinModelDataManager.cpp" />
+    <ClCompile Include="Engine\graphics\SkinModelDummy.cpp" />
     <ClCompile Include="Engine\graphics\SkinModelEffect.cpp" />
     <ClCompile Include="Engine\graphics\SkinModelRender.cpp" />
     <ClCompile Include="Engine\graphics\SkinModelShaderConst.cpp" />
@@ -291,6 +292,7 @@
     <ClInclude Include="Engine\graphics\Skelton.h" />
     <ClInclude Include="Engine\graphics\SkinModel.h" />
     <ClInclude Include="Engine\graphics\SkinModelDataManager.h" />
+    <ClInclude Include="Engine\graphics\SkinModelDummy.h" />
     <ClInclude Include="Engine\graphics\SkinModelEffect.h" />
     <ClInclude Include="Engine\graphics\SkinModelRender.h" />
     <ClInclude Include="Engine\graphics\SkinModelShaderConst.h" />
@@ -479,11 +481,9 @@
     <ImageContentTask Include="Assets\Sprite\Hp.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </ImageContentTask>
-
     <ImageContentTask Include="Assets\Sprite\GUI\clear.png" />
     <ImageContentTask Include="Assets\modelData\uma\uma.png" />
     <ImageContentTask Include="Assets\modelData\uma\uma_eye.png" />
-
     <ImageContentTask Include="Assets\Sprite\GUI\cursor.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\AIeditG.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\AIeditW.png" />
