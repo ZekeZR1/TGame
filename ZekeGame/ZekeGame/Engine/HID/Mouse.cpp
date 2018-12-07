@@ -13,6 +13,9 @@ namespace Mouse {
 		GetCursorPos(&pt);
 		cursorpos.x = float(pt.x);
 		cursorpos.y = float(pt.y);
+		cursorpos.x -= 1280.f / 2.f;
+		cursorpos.y -= 720.f / 2.f;
+		cursorpos.y *= -1.f;
 		ShowCursor(FALSE);
 		//¶ƒgƒŠƒK[“ü—Í”»’èB
 		if (mEve[0] != 0) {
