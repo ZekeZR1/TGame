@@ -26,6 +26,9 @@ void SkinModel::Init(const wchar_t* filePath, EnFbxUpAxis enFbxUpAxis, const cha
 
 	//サンプラステートの初期化。
 	InitSamplerState();
+	
+	//ディレクションライトの初期化
+	InitDirectionLight();
 
 	//SkinModelDataManagerを使用してCMOファイルのロード。
 	m_modelDx = g_skinModelDataManager.Load(filePath, m_skeleton, m_psmain, m_vsmain);
@@ -72,6 +75,26 @@ void SkinModel::InitConstantBuffer()
 	bufferDesc.CPUAccessFlags = 0;
 	g_graphicsEngine->GetD3DDevice()->CreateBuffer(&bufferDesc, NULL, &m_cb);
 }
+
+void SkinModel::InitDirectionLight() {
+	//for (int i = 0; i < NUM_DIRECTION_LIG; i++) {
+	//	m_DirCol[i] = { 0.707,-0.707,0.0f,0.0f };
+	//	m_DirLight[i] = { 1.0f,1.0f,1.0f,1.0f };
+	//}
+	
+		m_DirLight[0] = { 1.0f, 0.0f, 0.0f, 0.0f };
+		m_DirCol[0] = { 1.f, 1.0f, 1.0f, 1.0f };
+
+		m_DirLight[1] = { -1.0f, 0.0f, 0.0f, 0.0f };
+		m_DirCol[1] = { 1.f, 1.0f, 1.0f, 1.0f };
+
+		m_DirLight[2] = { 0.0f, 0.0f, 1.0f, 0.0f };
+		m_DirCol[2] = { 0.0f, 0.0f, 0.0f, 0.0f };
+
+		m_DirLight[3] = { 1.0f, 0.0f, -1.0f, 0.0f };
+		m_DirCol[3] = { 0.0f, 0.0f, 0.0f, 0.0f };
+}
+
 void SkinModel::InitSamplerState()
 {
 	//テクスチャのサンプリング方法を指定するためのサンプラステートを作成。
@@ -107,6 +130,7 @@ void SkinModel::UpdateWorldMatrix(CVector3 position, CQuaternion rotation, CVect
 	//スケルトンの更新。
 	m_skeleton.Update(m_worldMatrix);
 }
+
 void SkinModel::Draw(CMatrix viewMatrix, CMatrix projMatrix)
 {
 	DirectX::CommonStates state(g_graphicsEngine->GetD3DDevice());
@@ -118,8 +142,10 @@ void SkinModel::Draw(CMatrix viewMatrix, CMatrix projMatrix)
 	vsCb.mWorld = m_worldMatrix;
 	vsCb.mProj = projMatrix;
 	vsCb.mView = viewMatrix;
-	vsCb.mCol = m_DirCol;
-	vsCb.mDir = m_DirLight;
+	for (int i = 0; i < NUM_DIRECTION_LIG; i++) {
+		vsCb.mCol[i] = m_DirCol[i];
+		vsCb.mDir[i] = m_DirLight[i];
+	}
 	d3dDeviceContext->UpdateSubresource(m_cb, 0, nullptr, &vsCb, 0, 0);
 	//定数バッファをGPUに転送。
 	d3dDeviceContext->VSSetConstantBuffers(0, 1, &m_cb);
@@ -153,8 +179,10 @@ void SkinModel::Draw()
 	vsCb.mWorld = m_worldMatrix;
 	vsCb.mProj = projMatrix;
 	vsCb.mView = viewMatrix;
-	vsCb.mCol = m_DirCol;
-	vsCb.mDir = m_DirLight;
+	for (int i = 0; i < NUM_DIRECTION_LIG; i++) {
+		vsCb.mCol[i] = m_DirCol[i];
+		vsCb.mDir[i] = m_DirLight[i];
+	}
 	d3dDeviceContext->UpdateSubresource(m_cb, 0, nullptr, &vsCb, 0, 0);
 	//定数バッファをGPUに転送。
 	d3dDeviceContext->VSSetConstantBuffers(0, 1, &m_cb);

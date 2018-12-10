@@ -255,6 +255,7 @@
     <ClCompile Include="Game\Title\pvpModeSelect.cpp" />
     <ClCompile Include="Game\Title\Title.cpp" />
     <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="TestScene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\character\CharacterController.h" />
@@ -462,6 +463,7 @@
     <ClInclude Include="Game\Title\pvpModeSelect.h" />
     <ClInclude Include="Game\Title\Title.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="TestScene.h" />
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\stage\map.FBX" />
