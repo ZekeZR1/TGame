@@ -22,19 +22,16 @@ sampler Sampler : register(s0);
 /*!
  * @brief	頂点シェーダーとピクセルシェーダー用の定数バッファ。
  */
+static const int NUM_DIRECTION_LIG = 4;
+
 cbuffer VSPSCb : register(b0) {
 	float4x4 mWorld;
 	float4x4 mView;
 	float4x4 mProj;
-	float4 mColor;
-	float4 mDirLight;
+	float4 mColor[NUM_DIRECTION_LIG];
+	float4 mDirLight[NUM_DIRECTION_LIG];
 };
-/*
-cbuffer VSPSCb : register(b1) {
-	float4 mColor;
-	float4 mDirLight;
-}
-*/
+
 /////////////////////////////////////////////////////////////
 //各種構造体
 /////////////////////////////////////////////////////////////
@@ -69,7 +66,6 @@ struct PSInput {
 	float3 Normal		: NORMAL;
 	float3 Tangent		: TANGENT;
 	float2 TexCoord 	: TEXCOORD0;
-	float4 Color			:COLOR0;
 };
 /*!
  *@brief	スキン行列を計算。
@@ -101,12 +97,6 @@ PSInput VSMain(VSInputNmTxVcTangent In)
 	psInput.TexCoord = In.TexCoord;
 	psInput.Normal = normalize(mul(mWorld, In.Normal));
 	psInput.Tangent = normalize(mul(mWorld, In.Tangent));
-	float4 color;
-	color = saturate(-dot(psInput.Normal.xyz, (float3)mDirLight));
-	color = color * 0.5 + 0.3;
-	psInput.Color.xyz = color.xyz *mColor.xyz;
-	//psInput.Color.xyz = psInput.Normal.xyz;
-	psInput.Color.w = 1.0f;
 	return psInput;
 }
 
@@ -148,13 +138,6 @@ PSInput VSMainSkin(VSInputNmTxWeights In)
 	pos = mul(mProj, pos);
 	psInput.Position = pos;
 	psInput.TexCoord = In.TexCoord;
-	//psInput.Color
-	float4 color;
-	color = saturate(-dot(psInput.Normal.xyz, (float3)mDirLight));
-	color = color * 0.5 + 0.3;
-	psInput.Color.xyz = color.xyz *mColor.xyz;
-	//psInput.Color.xyz = psInput.Normal.xyz;
-	psInput.Color.w = 1.0f;
 	return psInput;
 }
 //--------------------------------------------------------------------------------------
@@ -162,10 +145,24 @@ PSInput VSMainSkin(VSInputNmTxWeights In)
 //--------------------------------------------------------------------------------------
 float4 PSMain(PSInput In) : SV_Target0
 {
-	return albedoTexture.Sample(Sampler, In.TexCoord) * In.Color;
+	float4 albedoColor = albedoTexture.Sample(Sampler, In.TexCoord);
+	float3 lig = 0.0f;
+	for (int i = 0; i < NUM_DIRECTION_LIG; i++) {
+		lig += max(0.0f, dot(In.Normal * -1.0f, mDirLight[i])) * mColor[i];
+	}
+	float4 finalColor = float4(0.0f, 0.0f, 0.0f, 1.0f);
+	finalColor.xyz = albedoColor.xyz * lig;
+	return finalColor;
 }
 
 float4 PSMainSkin(PSInput In) : SV_Target0
 {
-	return albedoTexture.Sample(Sampler, In.TexCoord) * In.Color;
+	float4 albedoColor = albedoTexture.Sample(Sampler, In.TexCoord);
+	float3 lig = 0.0f;
+	for (int i = 0; i < NUM_DIRECTION_LIG; i++) {
+		lig += max(0.0f, dot(In.Normal * -1.0f, mDirLight[i])) * mColor[i];
+	}
+	float4 finalColor = float4(0.0f, 0.0f, 0.0f, 1.0f);
+	finalColor.xyz = albedoColor.xyz * lig;
+	return finalColor;
 }
