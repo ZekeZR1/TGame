@@ -5,6 +5,7 @@
 
 #include "ModeSelect.h"
 
+#include "../StageSetup/StageSetup.h"
 #include "../Game.h"
 
 #include "../SaveLoad/PythonFileLoad.h"
@@ -13,6 +14,12 @@
 
 PvPModeSelect::~PvPModeSelect()
 {
+	DeleteGO(m_cursor);
+	for (auto go : m_pmms)
+	{
+		DeleteGO(go);
+	}
+	DeleteGO(m_GO);
 }
 
 bool PvPModeSelect::Start()
@@ -20,25 +27,119 @@ bool PvPModeSelect::Start()
 	m_files = PythonFileLoad::FilesLoad();
 	m_cursor = NewGO<GameCursor>(0, "cursor");
 	
-	m_pmm = NewGO<PMMonster>(0, "pmm");
-	m_pmm->init({ -250,-200,0 });
-	m_pmm->SetPython(L"asdffasdffssdfas");
+	CVector3 pos = { -320,210,0 };
+	for (int i = 0; i < 6; i++)
+	{
+		if (i == 3)
+		{
+			pos = { -320,-200,0 };
+		}
+		PMMonster* pmm = NewGO<PMMonster>(0, "pmm");
+		pmm->init(i,pos);
+		pos += {240, 0, 0};
+		m_pmms.push_back(pmm);
+	}
+	//m_pmm = NewGO<PMMonster>(0, "pmm");
+	//m_pmm->init({ -250,-200,0 });
 	for (int i = 0; i < 6; i++)
 	{
 		/*SpriteRender* sp = NewGO<SpriteRender>(0, "sp");
 		sp->Init(L"Assets/sprite/mon",);*/
 	}
+
+	m_GO = NewGO<SpriteRender>(20, "sp");
+	m_GO->Init(L"Assets/sprite/GO.dds", 193, 93, true);
+	m_GO->SetPosition({ 400,-160,0 });
+
 	return true;
 }
 
 void PvPModeSelect::Update()
 {
+	m_GO->SetCollisionTarget(m_cursor->GetCursor());
+	if (m_GO->isCollidingTarget())
+	{
+		if (Mouse::isTrigger(enLeftClick))
+		{
+			MonsterID moid[6];
+			for (int i = 0;i < 6;i++)
+			{
+				moid[i] = (MonsterID)m_pmms[i]->GetMonsterID();
+				monai[i] = m_pmms[i]->GetAI();
+			}
+			Game* game = NewGO<Game>(0, "Game");
+			//game->GamePVPmodeInit(m_files, monai,moid);
+			StageSetup::PVPSetup(m_files,monai,moid);
+			DeleteGO(this);
+		}
+	}
+
+	bool ismonsel = false;
+	int count = 0;
+	for (auto pmm : m_pmms)
+	{
+		ismonsel = pmm->isMonSel();
+		if (ismonsel || pmm->isSelect())
+		{
+			break;
+		}
+
+		count++;
+	}
+	if (count == 6)
+	{
+		count = 0;
+	}
+	if (!ismonsel)
+	{
+		if (g_pad[0].IsTrigger(enButtonB))
+		{
+		}
+		else if (g_pad[0].IsTrigger(enButtonDown))
+		{
+			if (count < 3)
+			{
+				m_pmms[count]->notSelect();
+				count += 3;
+				m_pmms[count]->yesSelect();
+			}
+		}
+		else if (g_pad[0].IsTrigger(enButtonUp))
+		{
+			if (count > 2)
+			{
+				m_pmms[count]->notSelect();
+				count -= 3;
+				m_pmms[count]->yesSelect();
+			}
+		}
+		else if (g_pad[0].IsTrigger(enButtonLeft))
+		{
+			if (count != 0 && count != 3)
+			{
+				m_pmms[count]->notSelect();
+				count--;
+				m_pmms[count]->yesSelect();
+			}
+		}
+		else if (g_pad[0].IsTrigger(enButtonRight))
+		{
+			if (count != 2 && count != 5)
+			{
+				m_pmms[count]->notSelect();
+				count++;
+				m_pmms[count]->yesSelect();
+			}
+		}
+	}
+
 	if (g_pad[0].IsTrigger(enButtonA))
 	{
 		if (curpos == 6)
 		{
 			Game* game = NewGO<Game>(0, "Game");
-			game->GamePVPmodeInit(m_files, monai);
+			//game->GamePVPmodeInit(m_files, monai);.
+			
 			DeleteGO(this);
 		}
 		else if (!sel)
@@ -50,6 +151,7 @@ void PvPModeSelect::Update()
 			sel = false;
 		}
 	}
+
 	if (!sel)
 	{
 		if (g_pad[0].IsTrigger(enButtonB))
@@ -122,7 +224,7 @@ void PvPModeSelect::LoadFiles()
 
 void PvPModeSelect::PostRender()
 {
-	CVector4 colors[7];
+	/*CVector4 colors[7];
 	for (CVector4& col : colors)
 	{
 		col = CVector4::White;
@@ -150,5 +252,5 @@ void PvPModeSelect::PostRender()
 
 		pos.y -= 50;
 	}
-	font.End();
+	font.End();*/
 }

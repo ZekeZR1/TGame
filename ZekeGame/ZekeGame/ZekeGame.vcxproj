@@ -241,6 +241,7 @@
     <ClCompile Include="Game\Monster\Action\Act_Leave.cpp" />
     <ClCompile Include="Game\Monster\Monster.cpp" />
     <ClCompile Include="Game\Monster\MonsterAction.cpp" />
+    <ClCompile Include="Game\Monster\MonsterActionList.cpp" />
     <ClCompile Include="Game\Monster\MonsterActionManeger.cpp" />
     <ClCompile Include="Game\Monster\MonsterEffect.cpp" />
     <ClCompile Include="Game\Monster\Monsters\TestMons.cpp" />
@@ -257,6 +258,8 @@
     <ClCompile Include="Game\StageSetup\StageSetup.cpp" />
     <ClCompile Include="Game\Title\AIeditModeSelect.cpp" />
     <ClCompile Include="Game\Title\AISelect.cpp" />
+    <ClCompile Include="Game\Title\IconAI.cpp" />
+    <ClCompile Include="Game\Title\IconMon.cpp" />
     <ClCompile Include="Game\Title\ModeSelect.cpp" />
     <ClCompile Include="Game\Title\MonsterSelect.cpp" />
     <ClCompile Include="Game\Title\PMMonster.cpp" />
@@ -357,6 +360,7 @@
     <ClInclude Include="Game\Monster\Action\Act_Leave.h" />
     <ClInclude Include="Game\Monster\Monster.h" />
     <ClInclude Include="Game\Monster\MonsterAction.h" />
+    <ClInclude Include="Game\Monster\MonsterActionList.h" />
     <ClInclude Include="Game\Monster\MonsterActionManeger.h" />
     <ClInclude Include="Game\Monster\MonsterEffect.h" />
     <ClInclude Include="Game\Monster\Monsters\TestMons.h" />
@@ -473,6 +477,8 @@
     <ClInclude Include="Game\StageSetup\StageSetup.h" />
     <ClInclude Include="Game\Title\AIeditModeSelect.h" />
     <ClInclude Include="Game\Title\AISelect.h" />
+    <ClInclude Include="Game\Title\IconAI.h" />
+    <ClInclude Include="Game\Title\IconMon.h" />
     <ClInclude Include="Game\Title\ModeSelect.h" />
     <ClInclude Include="Game\Title\MonsterSelect.h" />
     <ClInclude Include="Game\Title\PMMonster.h" />
@@ -489,6 +495,11 @@
     <MeshContentTask Include="Assets\modelData\uma\uma.fbx" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="Assets\Sprite\GUI\GO.png" />
+    <Image Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_frame.png" />
+    <Image Include="Assets\Sprite\GUI\MonActList\actBlock.png" />
+    <Image Include="Assets\Sprite\GUI\MonActList\backBlue.png" />
+    <Image Include="Assets\Sprite\GUI\MonActList\backRed.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_back.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_none.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_one.png" />

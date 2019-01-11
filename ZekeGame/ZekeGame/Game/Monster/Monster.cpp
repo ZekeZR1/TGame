@@ -8,6 +8,7 @@
 #include "../GameData.h"
 //#include "MonsterAI.h"
 
+#include "MonsterActionList.h"
 
 Monster::~Monster()
 {
@@ -33,6 +34,9 @@ bool Monster::Start()
 	m_PB = NewGO<PythonBridge>(0,"PB");
 
 	anim_idle();
+
+	MonsterActionList* MAL = NewGO<MonsterActionList>(0, "mal");
+	MAL->init(this);
 	return true;
 }
 

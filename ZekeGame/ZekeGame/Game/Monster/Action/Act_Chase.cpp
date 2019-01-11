@@ -3,6 +3,11 @@
 //#include "MonsterAction.h"
 #include "../Monster.h"
 
+Act_Chase::Act_Chase()
+{
+	m_ActionId = 0;
+}
+
 bool Act_Chase::Action(Monster* me)
 {
 	if (m_target == nullptr)
