@@ -3,6 +3,11 @@
 
 #include "../Monster.h"
 
+Act_Atack::Act_Atack()
+{
+	m_ActionId = 1;
+}
+
 bool Act_Atack::Action(Monster * me)
 {
 	if (m_target == nullptr)
