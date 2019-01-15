@@ -3,6 +3,7 @@
 
 class MonsterAction;
 class MonsterEffect;
+class MonsterActionList;
 class PythonBridge;
 class Monster:public GameObject
 {
@@ -178,6 +179,8 @@ public:
 		return m_actions;
 	}
 
+	void ReleaseMAL();
+
 	//アニメーションさせるときは必ずこいつらを使うこと。
 	void anim_idle();
 	void anim_walk();
@@ -224,6 +227,9 @@ protected:
 	std::vector<MonsterAction*> m_actions;		//使うアクション
 	en_State m_state = en_NowLoading;
 	bool isLoading = false;
+
+	MonsterActionList* m_MAL = nullptr;
+	bool m_dmal = false;
 
 	MonsterEffect* m_effect;
 

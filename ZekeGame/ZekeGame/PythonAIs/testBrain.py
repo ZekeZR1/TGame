@@ -5,7 +5,7 @@ import CppBridge as cb
 def Brain(MeNum,MeTeam,f):
     cb.gameData.init(MeNum,MeTeam)
     ME = cb.gameData.me
-    mon = cb.gameData.GetEnemyHighHP()
+    mon = cb.GetEnemyHighHP()
     
     cb.Chase(mon)
     cb.Atack(mon)

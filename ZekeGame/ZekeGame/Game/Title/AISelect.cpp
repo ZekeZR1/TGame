@@ -37,6 +37,8 @@ bool AISelect::Start()
 
 		pos.y -= 82;
 	}
+	m_minScroll = 316.5f;
+	m_maxScroll = pos.y * -1;
 	return true;
 }
 
@@ -55,6 +57,22 @@ void AISelect::Update()
 			std::wstring ws = std::wstring(st.begin(), st.end());
 			m_pmm->SetPython(ws.c_str(),i);
 		}
+	}
+	int notch = Mouse::GetMouseNotch();
+	if (notch != 0)
+	{
+		if (!(m_scroll <= m_minScroll && notch < 0) && !(m_scroll >= m_maxScroll && notch > 0))
+		{
+			m_scroll += notch * 10;
+			CVector3 pos = m_icons[0]->Getpos();
+			pos.y = m_scroll;
+			for (auto icon : m_icons)
+			{
+				icon->Setpos(pos);
+				pos.y -= 82.0f;
+			}
+		}
+		
 	}
 }
 
