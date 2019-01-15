@@ -1323,6 +1323,18 @@
     <None Include="PythonAIs\Threader.py">
       <Filter>ソース ファイル\Game\PythonAIs</Filter>
     </None>
+    <None Include="Assets\modelData\uma\anim_uma_idle.tka">
+      <Filter>ソース ファイル\Game\Assets\modelData\uma</Filter>
+    </None>
+    <None Include="Assets\modelData\uma\anim_uma_walk.tka">
+      <Filter>ソース ファイル\Game\Assets\modelData\uma</Filter>
+    </None>
+    <None Include="Assets\modelData\uma\anim_uma_atack.tka">
+      <Filter>ソース ファイル\Game\Assets\modelData\uma</Filter>
+    </None>
+    <None Include="Assets\modelData\uma.tks">
+      <Filter>ソース ファイル\Game\Assets\modelData</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="python36.lib">

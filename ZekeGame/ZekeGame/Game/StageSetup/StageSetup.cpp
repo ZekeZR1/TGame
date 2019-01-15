@@ -20,11 +20,11 @@ void StageSetup::PVPSetup(std::vector<std::string> files, int monsterAI[6],Monst
 	int team = 0;
 	int num = 0;
 	CVector3 poss[6];
-	poss[0] = { 0,0,500 };
-	poss[1] = { 250,0,500 };
+	poss[0] = { 250,0,500 };
+	poss[1] = { 0,0,500 };
 	poss[2] = { -250,0,500 };
-	poss[3] = { 0,0,-500 };
-	poss[4] = { 250,0,-500 };
+	poss[3] = { 250,0,-500 };
+	poss[4] = { 0,0,-500 };
 	poss[5] = { -250,0,-500 };
 
 	for (int i = 0; i < 6; i++)

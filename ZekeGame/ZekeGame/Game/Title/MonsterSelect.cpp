@@ -21,7 +21,7 @@ bool MonsterSelect::Start()
 {
 	m_cursor = FindGO<GameCursor>("cursor");
 
-	m_back = NewGO<SpriteRender>(3, "sp");
+	m_back = NewGO<SpriteRender>(7, "sp");
 	m_back->Init(L"Assets/sprite/mon_back.dds", m_backsize.x * 4, m_backsize.y * 5);
 	m_back->SetPivot({ 0,1 });
 	CVector3 pos = { -80,330,0 };
@@ -66,7 +66,7 @@ void MonsterSelect::init(PMMonster * pmm)
 
 void MonsterSelect::Update()
 {
-	Mouse::GetMouseNotch();
+	//Mouse::GetMouseNotch();
 
 	for (int i = 0;i < m_icons.size();i++)
 	{

@@ -19,7 +19,7 @@ void IconMon::init(const wchar_t * path, GameCursor* cursor)
 	m_cursor = cursor;
 	m_mon = NewGO<SpriteRender>(5, "sp");
 	m_mon->Init(path,128,128,true);
-	m_frame = NewGO<SpriteRender>(4, "sp");
+	m_frame = NewGO<SpriteRender>(6, "sp");
 	m_frame->Init(L"Assets/sprite/mon_none.dds", 128, 128);
 }
 

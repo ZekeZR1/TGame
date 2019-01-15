@@ -545,6 +545,10 @@
     <CopyFileToFolders Include="Game\dlllib\python36_d.dll">
       <FileType>Document</FileType>
     </CopyFileToFolders>
+    <None Include="Assets\modelData\uma.tks" />
+    <None Include="Assets\modelData\uma\anim_uma_atack.tka" />
+    <None Include="Assets\modelData\uma\anim_uma_idle.tka" />
+    <None Include="Assets\modelData\uma\anim_uma_walk.tka" />
     <None Include="Game\PythonBridge\include\pydtrace.d" />
     <CopyFileToFolders Include="PythonAIs\ang.py">
       <FileType>Document</FileType>

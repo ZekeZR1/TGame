@@ -14,9 +14,9 @@ PMMonster::~PMMonster()
 
 PMMonster::PMMonster()
 {
-	m_mon = NewGO<SpriteRender>(6, "sp");
+	m_mon = NewGO<SpriteRender>(8, "sp");
 	m_mon->Init(L"Assets/sprite/mon_one.dds", 128, 128,true);
-	m_frame = NewGO<SpriteRender>(7, "sp");
+	m_frame = NewGO<SpriteRender>(9, "sp");
 	m_frame->Init(L"Assets/sprite/mon_none.dds", 128, 128);
 }
 
