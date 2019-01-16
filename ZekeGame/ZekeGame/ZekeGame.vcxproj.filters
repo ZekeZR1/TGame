@@ -145,6 +145,9 @@
     <ClCompile Include="Game\Title\pvpModeSelect.cpp" />
     <ClCompile Include="Game\Title\Title.cpp" />
     <ClCompile Include="TestScene.cpp" />
+    <ClCompile Include="Engine\graphics\postEffect\GaussianBlur.cpp" />
+    <ClCompile Include="Engine\graphics\postEffect\Dof.cpp" />
+    <ClCompile Include="Engine\graphics\ConstantBufferGPU.cpp" />
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\stage\map.FBX" />
@@ -368,6 +371,9 @@
     <ClInclude Include="Game\Title\Title.h" />
     <ClInclude Include="TestScene.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="Engine\graphics\postEffect\Dof.h" />
+    <ClInclude Include="Engine\graphics\postEffect\GaussianBlur.h" />
+    <ClInclude Include="Engine\graphics\ConstantBufferGPU.h" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="python36.lib" />

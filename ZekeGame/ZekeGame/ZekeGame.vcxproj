@@ -168,6 +168,7 @@
     <ClCompile Include="Engine\graphics\CCameraCollisionSlover.cpp" />
     <ClCompile Include="Engine\graphics\CConstantBuffer.cpp" />
     <ClCompile Include="Engine\graphics\CIndexBuffer.cpp" />
+    <ClCompile Include="Engine\graphics\ConstantBufferGPU.cpp" />
     <ClCompile Include="Engine\graphics\CPrimitive.cpp" />
     <ClCompile Include="Engine\graphics\CRenderContext.cpp" />
     <ClCompile Include="Engine\graphics\CSamplerState.cpp" />
@@ -183,6 +184,8 @@
     <ClCompile Include="Engine\graphics\GPUBuffer\CGPUBuffer.cpp" />
     <ClCompile Include="Engine\graphics\GraphicsEngine.cpp" />
     <ClCompile Include="Engine\graphics\postEffect\Bloom.cpp" />
+    <ClCompile Include="Engine\graphics\postEffect\Dof.cpp" />
+    <ClCompile Include="Engine\graphics\postEffect\GaussianBlur.cpp" />
     <ClCompile Include="Engine\graphics\postEffect\PostEffect.cpp" />
     <ClCompile Include="Engine\graphics\RenderTarget.cpp" />
     <ClCompile Include="Engine\graphics\Shader.cpp" />
@@ -280,6 +283,7 @@
     <ClInclude Include="Engine\graphics\CCameraCollisionSlover.h" />
     <ClInclude Include="Engine\graphics\CConstantBuffer.h" />
     <ClInclude Include="Engine\graphics\CIndexBuffer.h" />
+    <ClInclude Include="Engine\graphics\ConstantBufferGPU.h" />
     <ClInclude Include="Engine\graphics\CPrimitive.h" />
     <ClInclude Include="Engine\graphics\CRenderContext.h" />
     <ClInclude Include="Engine\graphics\CSamplerState.h" />
@@ -296,6 +300,8 @@
     <ClInclude Include="Engine\graphics\GraphicsEngine.h" />
     <ClInclude Include="Engine\graphics\Noncopyable.h" />
     <ClInclude Include="Engine\graphics\postEffect\Bloom.h" />
+    <ClInclude Include="Engine\graphics\postEffect\Dof.h" />
+    <ClInclude Include="Engine\graphics\postEffect\GaussianBlur.h" />
     <ClInclude Include="Engine\graphics\postEffect\PostEffect.h" />
     <ClInclude Include="Engine\graphics\RenderTarget.h" />
     <ClInclude Include="Engine\graphics\Shader.h" />
