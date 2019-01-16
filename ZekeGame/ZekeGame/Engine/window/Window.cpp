@@ -70,6 +70,7 @@ LRESULT CALLBACK MsgProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 		break;
 	}
 	default:
+		notch = 0;
 		return DefWindowProc(hWnd, msg, wParam, lParam);
 	}
 	return 0;
