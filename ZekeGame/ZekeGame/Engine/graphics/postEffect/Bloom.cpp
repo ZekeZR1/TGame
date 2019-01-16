@@ -48,6 +48,7 @@ void Bloom::InitSamplerState()
 	desc.Filter = D3D11_FILTER_MIN_MAG_MIP_LINEAR;
 	g_graphicsEngine->GetD3DDevice()->CreateSamplerState(&desc, &m_samplerState);
 }
+
 void Bloom::InitShader()
 {
 	m_vsShader.Load("Assets/shader/bloom.fx", "VSMain", Shader::EnType::VS);

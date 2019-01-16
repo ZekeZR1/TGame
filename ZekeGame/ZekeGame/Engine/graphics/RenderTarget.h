@@ -37,7 +37,12 @@ public:
 	{
 		return m_height;
 	}
+
+	DXGI_FORMAT GetTextureFormat() const {
+		return m_format;
+	}
 private:
+	DXGI_FORMAT m_format;
 	float m_width = 0;										//!<レンダリングターゲットの幅。
 	float m_height = 0;										//!<レンダリングターゲットの高さ。
 	ID3D11RenderTargetView* m_renderTargetView = nullptr;
