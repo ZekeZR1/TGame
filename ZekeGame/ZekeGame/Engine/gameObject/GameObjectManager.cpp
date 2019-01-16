@@ -65,6 +65,7 @@ void GameObjectManager::Execute()
 	//メインレンダリングターゲットをクリアする。
 	float clearColor[] = { 0.2f, 0.2f, 0.2f, 1.0f };
 	m_mainRenderTarget.ClearRenderTarget(clearColor);
+	//TODO :  深度drawして取得できるようにする
 	//レンダリング
 	for (GameObjectList objList : m_gameObjectListArray) {
 		for (GameObject* obj : objList) {

@@ -4,8 +4,9 @@
 
 PostEffect::PostEffect()
 {
-	//フルスクリーン描画のための四角形プリミティブを初期化。
 	InitFullScreenQuadPrimitive();
+	//TODO : Dof
+	//m_dof.Init();
 }
 
 
@@ -24,6 +25,7 @@ void PostEffect::Update()
 void PostEffect::Draw()
 {
 	m_bloom.Draw(*this);
+	//m_dof.Draw(*this);
 }
 
 struct SVertex {
