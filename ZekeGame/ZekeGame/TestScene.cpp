@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "GameCamera.h"
+#include "Game/GameCursor.h"
 #include "TestScene.h"
 
 
@@ -18,6 +19,7 @@ bool TestScene::Start() {
 	m_skinModel = NewGO<SkinModelRender>(0, "model");
 	m_skinModel->Init(L"Assets/modelData/Test.cmo");
 	m_skinModel->SetPosition(CVector3::Zero());
+	m_cur = NewGO<GameCursor>(0, "cur");
 	//IGameObjectManager().AddShadowCaster(&m_skinModel->GetSkinModel());
 	//m_skinModel->SetFbxUpAxis(enFbxUpAxisY);
 	//CQuaternion r = CQuaternion::Identity();
@@ -72,6 +74,10 @@ void TestScene::Update() {
 	m_skinModel->SetDirLigColor(col,0);
 	m_skinModel->SetDirLigColor(col,1);
 	m_skinModel->SetDirLigColor(col,2);
+	if (g_pad[0].IsTrigger(enButtonA)) {
+		DeleteGO(m_skinModel);
+		assert(m_skinModel == nullptr);
+	}
 	//m_camera->Update();
 }
 
