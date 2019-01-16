@@ -72,7 +72,16 @@ void TestScene::Update() {
 	m_skinModel->SetDirLigColor(col,0);
 	m_skinModel->SetDirLigColor(col,1);
 	m_skinModel->SetDirLigColor(col,2);
-	//m_camera->Update();
+	char nyan[256];
+	int no = Mouse::GetMouseNotch();
+	sprintf_s(nyan, "1...%d\n", no);
+	OutputDebugStringA(nyan);
+
+	int nn = Mouse::GetMouseNotch();
+	sprintf_s(nyan, "2...%d\n", nn);
+	OutputDebugStringA(nyan);
+
+	m_camera->Update();
 }
 
 void TestScene::PostRender() {
