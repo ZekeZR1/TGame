@@ -280,32 +280,38 @@ class GameData:
 
 gameData = GameData()
 
-def GetFarMonster(self):
+def init(num,team):
+    """ゲームデータの初期化
+        必ず最初に使いましょう。
+        """
+    gameData.init(num,team)
+
+def GetFarMonster():
     return gameData.GetFarMonster()
-def GetNeerMonster(self):
+def GetNeerMonster():
     return gameData.GetNeerMonster()
 
-def GetBuddyFarMonster(self):
+def GetBuddyFarMonster():
     return gameData.GetBuddyFarMonster()
 
-def GetEnemyFarMonster(self):
+def GetEnemyFarMonster():
     return gameData.GetEnemyFarMonster()
 
-def GetBuddyNeerMonster(self):
+def GetBuddyNeerMonster():
     return gameData.GetBuddyNeerMonster()
 
-def GetEnemyNeerMonster(self):
+def GetEnemyNeerMonster():
     return gameData.GetEnemyNeerMonster()
 
-def GetHighHPMonster(self):
+def GetHighHPMonster():
     """#一番HPの高いモンスターを返します"""
     return gameData.GetHighHPMonster()
 
-def GetBuddyHighHPMonster(self):
+def GetBuddyHighHPMonster():
     """#一番HPの高い仲間のモンスターを返します"""
     return gameData.GetBuddyHighHPMonster()
 
-def GetEnemyHighHP(self):
+def GetEnemyHighHP():
     """#一番HPの高い敵のモンスターを返します"""
     return gameData.GetEnemyHighHP()
 

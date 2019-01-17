@@ -1,7 +1,7 @@
-import CppBridge as cb
+import PythonAIs.CppBridge as cb
 import random
 
-def Brain(num,team,f):
+def Brain(num,team):
     cb.gameData.init(num,team)
     allc = cb.gameData.buddyCount + cb.gameData.enemyCount
     all = cb.gameData.Buddy + cb.gameData.Enemys

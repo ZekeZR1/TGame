@@ -1,7 +1,7 @@
 
-import CppBridge as cb
+import PythonAIs.CppBridge as cb
 
-def Brain(num,team,f):
+def Brain(num,team):
     cb.gameData.init(num,team)
     
     mon = cb.GetNeerMonster()
