@@ -1,6 +1,9 @@
 #include "stdafx.h"
 #include "GameCamera.h"
+#include "Game/GameCamera2D.h"
+#include "Game/GameCursor.h"
 #include "TestScene.h"
+#include "TestScene2.h"
 
 
 TestScene::TestScene()
@@ -11,6 +14,11 @@ TestScene::TestScene()
 TestScene::~TestScene()
 {
 	DeleteGO(m_skinModel);
+	DeleteGO(m_cur);
+	DeleteGO(m_sp1);
+	DeleteGO(m_sp2);
+	delete m_camera;
+	DeleteGO(m_2dcamera);
 }
 
 
@@ -24,6 +32,7 @@ bool TestScene::Start() {
 	//r.SetRotationDeg(CVector3::AxisX(), 90.f);
 	//m_skinModel->SetRotation(r);
 	m_camera = new GameCamera;
+	m_2dcamera = new GameCamera2D;
 	m_camera->SetTarget(CVector3::Zero());
 	CVector3 ppp = CVector3::Zero();
 	ppp.z -= 3.f;
@@ -33,6 +42,14 @@ bool TestScene::Start() {
 	m_bg->SetPosition(CVector3::Zero());*/
 	m_camera->SetPosition(ppp);
 	m_camera->Update();
+	//m_2dcamera->Update();
+
+	m_cur = NewGO<GameCursor>(0, "cur");
+	m_sp1 = NewGO<SpriteRender>(1, "sp1");
+	m_sp1->Init(L"Assets/Sprite/PriTest1.dds", 300.f, 300.f);
+	m_sp1->SetPosition(CVector3::Zero());
+	m_sp2 = NewGO<SpriteRender>(2, "sp2");
+	m_sp2->Init(L"Assets/Sprite/PriTest2.dds", 300.f, 300.f);
 	return true;
 }
 
@@ -82,6 +99,11 @@ void TestScene::Update() {
 	OutputDebugStringA(nyan);
 
 	m_camera->Update();
+
+	if (g_pad[0].IsTrigger(enButtonA)) {
+		DeleteGO(this);
+		NewGO<TestScene2>(0,"TestScene2");
+	}
 }
 
 void TestScene::PostRender() {
