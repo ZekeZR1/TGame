@@ -267,6 +267,7 @@
     <ClCompile Include="Game\Title\pvpModeSelect.cpp" />
     <ClCompile Include="Game\Title\Title.cpp" />
     <ClCompile Include="TestScene.cpp" />
+    <ClCompile Include="TestScene2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\character\CharacterController.h" />
@@ -486,6 +487,7 @@
     <ClInclude Include="Game\Title\Title.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="TestScene.h" />
+    <ClInclude Include="TestScene2.h" />
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\stage\map.FBX" />
@@ -495,6 +497,8 @@
     <MeshContentTask Include="Assets\modelData\uma\uma.fbx" />
   </ItemGroup>
   <ItemGroup>
+    <ImageContentTask Include="Assets\Sprite\PriTest1.png" />
+    <ImageContentTask Include="Assets\Sprite\PriTest2.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_back.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_none.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_one.png" />
