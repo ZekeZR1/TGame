@@ -24,7 +24,7 @@ bool MonsterSelect::Start()
 	m_back = NewGO<SpriteRender>(7, "sp");
 	m_back->Init(L"Assets/sprite/mon_back.dds", m_backsize.x * 4, m_backsize.y * 5);
 	m_back->SetPivot({ 0,1 });
-	CVector3 pos = { -80,330,0 };
+	CVector3 pos = { -257,330,0 };
 	m_back->SetPosition(pos);
 
 	pos += { 70,-70,0 };

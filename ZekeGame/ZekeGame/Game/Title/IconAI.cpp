@@ -9,6 +9,7 @@ IconAI::~IconAI()
 	DeleteGO(m_frame);
 	DeleteGO(m_dummy);
 	DeleteGO(m_fr);
+	free(&m_py);
 }
 
 bool IconAI::Start()
@@ -20,7 +21,8 @@ bool IconAI::Start()
 void IconAI::init(std::string py,int num,GameCursor* cursor)
 {
 	m_cursor = cursor;
-	m_py = py;
+	std::wstring ws = std::wstring(py.begin(), py.end());
+	m_py = ws.c_str();
 	m_num = num;
 	m_frame = NewGO<SpriteRender>(3, "sp");
 	if (((m_num + 1) % 2) == 0)
@@ -65,15 +67,15 @@ void IconAI::Update()
 
 void IconAI::PostRender()
 {
-	std::wstring ws = std::wstring(m_py.begin(), m_py.end());
-	CVector3 pos = m_frame->GetPosition();
-	m_fr->Init(ws.c_str(), {pos.x-150 ,pos.y+20 }, 0, CVector4::White, 1, { 0.5f,0.5f });
+	//CVector3 pos = m_frame->GetPosition();
+	//m_fr->Init(m_py, {pos.x-150 ,pos.y+20 }, 0, CVector4::White, 1, { 0.5f,0.5f });
 }
 
 void IconAI::Setpos(CVector3 pos)
 {
 	m_frame->SetPosition(pos);
 	m_dummy->SetPosition(pos);
+	m_fr->Init(m_py, { pos.x - 150 ,pos.y + 20 }, 0, CVector4::White, 1, { 0.5f,0.5f });
 }
 
 CVector3 IconAI::Getpos()
