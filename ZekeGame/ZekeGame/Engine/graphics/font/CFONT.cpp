@@ -32,6 +32,9 @@ void CFont::End()
 	dc->OMSetBlendState(m_blendState,m_BlendFactor,m_SampleMask);
 	dc->RSSetState(m_rasterizerState);
 	dc->OMSetDepthStencilState(m_depthStencilState, m_StencilRef);
+	if (m_blendState != nullptr) {
+		m_blendState->Release();
+	}
 }
 void CFont::Draw(
 	wchar_t const* text,
