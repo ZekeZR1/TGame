@@ -15,8 +15,14 @@ std::vector<std::string> PythonFileLoad::FilesLoad()
 	GetCurrentDirectory(255, c);
 	cd = c;
 
-	std::string key = cd + "/PythonAIs/*.py";
+	std::string key = cd + "\\PythonAIs\\*.py";
 	hfind = FindFirstFile(key.c_str(), &win32d);
+
+
+	//è¡Ç∑
+	FontRender* font = NewGO<FontRender>(0, "font");
+	std::wstring ws = std::wstring(key.begin(), key.end());
+	font->Init(ws.c_str(), { -620,0 }, 0, CVector4::Yellow, 1, { 0.5f,0.5f });
 
 	do
 	{

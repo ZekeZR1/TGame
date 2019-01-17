@@ -556,13 +556,14 @@
     <CopyFileToFolders Include="PythonAIs\CppBridge.py">
       <FileType>Document</FileType>
     </CopyFileToFolders>
-    <CopyFileToFolders Include="PythonAIs\testBrain.py">
+    <None Include="PythonAIs\testBrain.py">
       <FileType>Document</FileType>
-    </CopyFileToFolders>
+    </None>
     <CopyFileToFolders Include="PythonAIs\testBrain1.py">
       <FileType>Document</FileType>
     </CopyFileToFolders>
     <None Include="PythonAIs\Threader.py" />
+    <None Include="PythonAIs\_MiddleExecute.py" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="python36.lib">
