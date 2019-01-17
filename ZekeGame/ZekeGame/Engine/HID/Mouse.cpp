@@ -51,7 +51,6 @@ namespace Mouse {
 	}
 	int GetMouseNotch() {
 		int nn = notch;
-		notch = 0;
 		return nn;
 	}
 
