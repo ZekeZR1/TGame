@@ -33,6 +33,8 @@
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\randompvpG.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\randompvpW.png" />
     <ImageContentTask Include="Assets\Sprite\Test.png" />
+    <ImageContentTask Include="Assets\Sprite\PriTest1.png" />
+    <ImageContentTask Include="Assets\Sprite\PriTest2.png" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\character\CharacterController.cpp" />
@@ -148,6 +150,7 @@
     <ClCompile Include="Engine\graphics\postEffect\GaussianBlur.cpp" />
     <ClCompile Include="Engine\graphics\postEffect\Dof.cpp" />
     <ClCompile Include="Engine\graphics\ConstantBufferGPU.cpp" />
+    <ClCompile Include="TestScene2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\stage\map.FBX" />
@@ -374,6 +377,7 @@
     <ClInclude Include="Engine\graphics\postEffect\Dof.h" />
     <ClInclude Include="Engine\graphics\postEffect\GaussianBlur.h" />
     <ClInclude Include="Engine\graphics\ConstantBufferGPU.h" />
+    <ClInclude Include="TestScene2.h" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="python36.lib" />
