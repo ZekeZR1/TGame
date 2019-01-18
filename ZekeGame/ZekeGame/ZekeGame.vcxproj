@@ -237,6 +237,7 @@
     <ClCompile Include="Game\AIEdit\AIEditNodeHp.cpp" />
     <ClCompile Include="Game\Game.cpp" />
     <ClCompile Include="Game\GameCamera2D.cpp" />
+    <ClCompile Include="Game\GameCamera3D.cpp" />
     <ClCompile Include="Game\GameCursor.cpp" />
     <ClCompile Include="Game\GameData.cpp" />
     <ClCompile Include="Game\main.cpp" />
@@ -261,6 +262,7 @@
     <ClCompile Include="Game\SaveLoad\PythonFileLoad.cpp" />
     <ClCompile Include="Game\StageSetup\StageSetup.cpp" />
     <ClCompile Include="Game\Title\AIeditModeSelect.cpp" />
+    <ClCompile Include="Game\Title\AIMSelect.cpp" />
     <ClCompile Include="Game\Title\AISelect.cpp" />
     <ClCompile Include="Game\Title\IconAI.cpp" />
     <ClCompile Include="Game\Title\IconMon.cpp" />
@@ -360,6 +362,7 @@
     <ClInclude Include="Game\AIEdit\AIEditNodeHp.h" />
     <ClInclude Include="Game\Game.h" />
     <ClInclude Include="Game\GameCamera2D.h" />
+    <ClInclude Include="Game\GameCamera3D.h" />
     <ClInclude Include="Game\GameCursor.h" />
     <ClInclude Include="Game\GameData.h" />
     <ClInclude Include="Game\Monster\Action\Act_Atack.h" />
@@ -483,6 +486,7 @@
     <ClInclude Include="Game\SaveLoad\PythonFileLoad.h" />
     <ClInclude Include="Game\StageSetup\StageSetup.h" />
     <ClInclude Include="Game\Title\AIeditModeSelect.h" />
+    <ClInclude Include="Game\Title\AIMSelect.h" />
     <ClInclude Include="Game\Title\AISelect.h" />
     <ClInclude Include="Game\Title\IconAI.h" />
     <ClInclude Include="Game\Title\IconMon.h" />
@@ -503,6 +507,10 @@
     <MeshContentTask Include="Assets\modelData\uma\uma.fbx" />
   </ItemGroup>
   <ItemGroup>
+    <ImageContentTask Include="Assets\Sprite\GUI\button\sb_cancel.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\button\sb_OK.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\button\simple_button.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\button\simple_button_blue.png" />
     <ImageContentTask Include="Assets\Sprite\PriTest1.png" />
     <ImageContentTask Include="Assets\Sprite\PriTest2.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_back.png" />

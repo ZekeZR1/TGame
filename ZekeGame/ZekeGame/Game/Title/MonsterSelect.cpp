@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "MonsterSelect.h"
 #include "PMMonster.h"
+#include "AIMSelect.h"
 #include "../GameCursor.h"
 #include "IconMon.h"
 #include <string>
@@ -21,7 +22,7 @@ bool MonsterSelect::Start()
 {
 	m_cursor = FindGO<GameCursor>("cursor");
 
-	m_back = NewGO<SpriteRender>(7, "sp");
+	m_back = NewGO<SpriteRender>(2, "sp");
 	m_back->Init(L"Assets/sprite/mon_back.dds", m_backsize.x * 4, m_backsize.y * 5);
 	m_back->SetPivot({ 0,1 });
 	CVector3 pos = { -257,330,0 };
@@ -58,10 +59,12 @@ bool MonsterSelect::Start()
 	return true;
 }
 
-void MonsterSelect::init(PMMonster * pmm)
+void MonsterSelect::init(PMMonster * pmm,AIMSelect* aims)
 {
 	m_pmm = pmm;
 	m_selmon = (MonsterID)m_pmm->GetMonsterID();
+
+	m_aims = aims;
 }
 
 void MonsterSelect::Update()
@@ -72,7 +75,8 @@ void MonsterSelect::Update()
 	{
 		if (m_icons[i]->isClick())
 		{
-			m_pmm->ChengeImage(m_paths[i].c_str(),i);
+			m_aims->Setmon(i, m_paths[i].c_str());
+			//m_pmm->ChengeImage(m_paths[i].c_str(),i);
 		}
 	}
 }
