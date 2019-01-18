@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "PMMonster.h"
+#include "AIMSelect.h"
 //#include "../GameData.h"
 #include "../GameCursor.h"
 #include "MonsterSelect.h"
@@ -14,9 +15,9 @@ PMMonster::~PMMonster()
 
 PMMonster::PMMonster()
 {
-	m_mon = NewGO<SpriteRender>(8, "sp");
+	m_mon = NewGO<SpriteRender>(1, "sp");
 	m_mon->Init(L"Assets/sprite/mon_one.dds", 128, 128,true);
-	m_frame = NewGO<SpriteRender>(9, "sp");
+	m_frame = NewGO<SpriteRender>(0, "sp");
 	m_frame->Init(L"Assets/sprite/mon_none.dds", 128, 128);
 }
 
@@ -78,10 +79,12 @@ void PMMonster::Update()
 		}
 		if (Mouse::isTrigger(enLeftClick))
 		{
-			m_ms = NewGO<MonsterSelect>(0, "monsterselect");
+			AIMSelect* aims = NewGO<AIMSelect>(0, "aims");
+			aims->init(this, m_selAI, m_monid);
+			/*m_ms = NewGO<MonsterSelect>(0, "monsterselect");
 			m_ais = NewGO<AISelect>(0, "aiselect");
 			m_ms->init(this);
-			m_ais->init(this);
+			m_ais->init(this);*/
 			m_ismonsel = true;
 		}
 	}

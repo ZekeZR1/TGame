@@ -47,7 +47,8 @@ bool PvPModeSelect::Start()
 		sp->Init(L"Assets/sprite/mon",);*/
 	}
 
-	m_GO = NewGO<SpriteRender>(20, "sp");
+	m_GO = NewGO<SpriteRender>(0
+		, "sp");
 	m_GO->Init(L"Assets/sprite/GO.dds", 193, 93, true);
 	m_GO->SetPosition({ 400,-160,0 });
 
@@ -82,7 +83,7 @@ void PvPModeSelect::Update()
 				monai[i] = m_pmms[i]->GetAI();
 			}
 			Game* game = NewGO<Game>(0, "Game");
-			//game->GamePVPmodeInit(m_files, monai,moid);
+			////game->GamePVPmodeInit(m_files, monai,moid);
 			StageSetup::PVPSetup(m_files,monai,moid);
 			DeleteGO(this);
 		}

@@ -35,6 +35,10 @@ public:
 	{
 		return m_ismonsel;
 	}
+	void notMonSel()
+	{
+		m_ismonsel = false;
+	}
 private:
 	int m_num = 0;
 	MonsterID m_monid = enTest;

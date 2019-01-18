@@ -9,7 +9,6 @@ IconAI::~IconAI()
 	DeleteGO(m_frame);
 	DeleteGO(m_dummy);
 	DeleteGO(m_fr);
-	free(&m_py);
 }
 
 bool IconAI::Start()
@@ -22,9 +21,9 @@ void IconAI::init(std::string py,int num,GameCursor* cursor)
 {
 	m_cursor = cursor;
 	std::wstring ws = std::wstring(py.begin(), py.end());
-	m_py = ws.c_str();
+	m_py = ws;
 	m_num = num;
-	m_frame = NewGO<SpriteRender>(3, "sp");
+	m_frame = NewGO<SpriteRender>(6, "sp");
 	if (((m_num + 1) % 2) == 0)
 		m_frame->Init(L"Assets/sprite/ai_even.dds", 372, 77);
 	else
@@ -33,7 +32,7 @@ void IconAI::init(std::string py,int num,GameCursor* cursor)
 	m_dummy->Init(nullptr, 372, 77, true);
 
 	m_fr = NewGO<FontRender>(25, "font");
-	
+	//m_fr->Init(m_py, { pos.x - 150 ,pos.y + 20 }, 0, CVector4::White, 1, { 0.5f,0.5f });
 }
 
 void IconAI::Update()
@@ -75,7 +74,7 @@ void IconAI::Setpos(CVector3 pos)
 {
 	m_frame->SetPosition(pos);
 	m_dummy->SetPosition(pos);
-	m_fr->Init(m_py, { pos.x - 150 ,pos.y + 20 }, 0, CVector4::White, 1, { 0.5f,0.5f });
+	m_fr->Init(m_py.c_str(), { pos.x - 150 ,pos.y + 20 }, 0, CVector4::White, 1, { 0.5f,0.5f });
 }
 
 CVector3 IconAI::Getpos()

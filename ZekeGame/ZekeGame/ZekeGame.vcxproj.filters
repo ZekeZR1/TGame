@@ -162,6 +162,9 @@
     <Filter Include="ソース ファイル\Game\AIMonsterSelect">
       <UniqueIdentifier>{ccb91772-2326-4ce6-8f23-d45115946510}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Game\Assets\sprite\GUI\button">
+      <UniqueIdentifier>{aa401819-9408-4d04-9aef-3b8b78a65b4a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\character\CharacterController.cpp">
@@ -516,6 +519,12 @@
       <Filter>ソース ファイル\Game\AIMonsterSelect</Filter>
     </ClCompile>
     <ClCompile Include="Game\Title\pvpModeSelect.cpp">
+      <Filter>ソース ファイル\Game\AIMonsterSelect</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\GameCamera3D.cpp">
+      <Filter>ソース ファイル\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Title\AIMSelect.cpp">
       <Filter>ソース ファイル\Game\AIMonsterSelect</Filter>
     </ClCompile>
   </ItemGroup>
@@ -1158,6 +1167,12 @@
     <ClInclude Include="Game\Title\pvpModeSelect.h">
       <Filter>ソース ファイル\Game\AIMonsterSelect</Filter>
     </ClInclude>
+    <ClInclude Include="Game\GameCamera3D.h">
+      <Filter>ソース ファイル\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Title\AIMSelect.h">
+      <Filter>ソース ファイル\Game\AIMonsterSelect</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\Test.FBX">
@@ -1289,6 +1304,18 @@
     </ImageContentTask>
     <ImageContentTask Include="Assets\Sprite\PriTest2.png">
       <Filter>リソース ファイル</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\button\sb_cancel.png">
+      <Filter>ソース ファイル\Game\Assets\sprite\GUI\button</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\button\sb_OK.png">
+      <Filter>ソース ファイル\Game\Assets\sprite\GUI\button</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\button\simple_button.png">
+      <Filter>ソース ファイル\Game\Assets\sprite\GUI\button</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\button\simple_button_blue.png">
+      <Filter>ソース ファイル\Game\Assets\sprite\GUI\button</Filter>
     </ImageContentTask>
   </ItemGroup>
   <ItemGroup>
