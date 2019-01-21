@@ -35,6 +35,10 @@ public:
 	{
 		return m_ismonsel;
 	}
+	void notMonSel()
+	{
+		m_ismonsel = false;
+	}
 private:
 	int m_num = 0;
 	MonsterID m_monid = enTest;
@@ -46,6 +50,7 @@ private:
 	SpriteRender* m_frame = nullptr;
 	bool m_issel = false;
 	SpriteRender* m_mon = nullptr;
+	const wchar_t* m_path;
 
 	bool m_ismonsel = false;
 

@@ -18,6 +18,7 @@ Win::Win(int team)
 
 	SpriteRender* sr = NewGO<SpriteRender>(0, "sr");
 	sr->Init(L"Assets/Sprite/clear.dds", 1280, 720);
+	
 }
 
 Win::Win()

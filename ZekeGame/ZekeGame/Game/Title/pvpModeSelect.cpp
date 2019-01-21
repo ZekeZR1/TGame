@@ -37,6 +37,8 @@ bool PvPModeSelect::Start()
 		PMMonster* pmm = NewGO<PMMonster>(0, "pmm");
 		pmm->init(i,pos);
 		pos += {240, 0, 0};
+		std::wstring ws = std::wstring(m_files[g_AIset[i]].begin(), m_files[g_AIset[i]].end());
+		pmm->SetPython(ws.c_str(), g_AIset[i]);
 		m_pmms.push_back(pmm);
 	}
 	//m_pmm = NewGO<PMMonster>(0, "pmm");
@@ -47,7 +49,8 @@ bool PvPModeSelect::Start()
 		sp->Init(L"Assets/sprite/mon",);*/
 	}
 
-	m_GO = NewGO<SpriteRender>(20, "sp");
+	m_GO = NewGO<SpriteRender>(0
+		, "sp");
 	m_GO->Init(L"Assets/sprite/GO.dds", 193, 93, true);
 	m_GO->SetPosition({ 400,-160,0 });
 
@@ -82,7 +85,7 @@ void PvPModeSelect::Update()
 				monai[i] = m_pmms[i]->GetAI();
 			}
 			Game* game = NewGO<Game>(0, "Game");
-			//game->GamePVPmodeInit(m_files, monai,moid);
+			////game->GamePVPmodeInit(m_files, monai,moid);
 			StageSetup::PVPSetup(m_files,monai,moid);
 			DeleteGO(this);
 		}

@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "PMMonster.h"
-//#include "../GameData.h"
+#include "AIMSelect.h"
+#include "../GameData.h"
 #include "../GameCursor.h"
 #include "MonsterSelect.h"
 #include "AISelect.h"
@@ -14,9 +15,10 @@ PMMonster::~PMMonster()
 
 PMMonster::PMMonster()
 {
-	m_mon = NewGO<SpriteRender>(8, "sp");
+	m_mon = NewGO<SpriteRender>(1, "sp");
 	m_mon->Init(L"Assets/sprite/mon_one.dds", 128, 128,true);
-	m_frame = NewGO<SpriteRender>(9, "sp");
+	
+	m_frame = NewGO<SpriteRender>(0, "sp");
 	m_frame->Init(L"Assets/sprite/mon_none.dds", 128, 128);
 }
 
@@ -32,6 +34,8 @@ void PMMonster::init(int num,CVector3 pos)
 	m_num = num;
 	m_mon->SetPosition(pos);
 	m_frame->SetPosition(pos);
+
+	ChengeImage(nullptr, g_monset[m_num]);
 }
 
 void PMMonster::Update()
@@ -78,10 +82,12 @@ void PMMonster::Update()
 		}
 		if (Mouse::isTrigger(enLeftClick))
 		{
-			m_ms = NewGO<MonsterSelect>(0, "monsterselect");
+			AIMSelect* aims = NewGO<AIMSelect>(0, "aims");
+			aims->init(this, m_selAI, m_monid);
+			/*m_ms = NewGO<MonsterSelect>(0, "monsterselect");
 			m_ais = NewGO<AISelect>(0, "aiselect");
 			m_ms->init(this);
-			m_ais->init(this);
+			m_ais->init(this);*/
 			m_ismonsel = true;
 		}
 	}
@@ -97,13 +103,30 @@ void PMMonster::Update()
 
 void PMMonster::ChengeImage(const wchar_t* path, int monid)
 {
-	m_mon->Init(path, 128, 128);
+	/*wchar_t ws[255] ;
+	GameData::GetMonsterIconPath(ws, monid);
+	m_mon->Init(ws, 128, 128);
 	m_monid = (MonsterID)monid;
+	delete[] ws;*/
+	m_monid = (MonsterID)monid;
+	switch (monid)
+	{
+	case enTest:
+		m_mon->Init(L"Assets/sprite/mon_one.dds", 128, 128);
+		break;
+	case enUmataur:
+		m_mon->Init(L"Assets/sprite/mon_two.dds", 128, 128);
+		break;
+	}
+
+	g_monset[m_num] = monid;
+	//m_path = path;
 }
 
 void PMMonster::SetPython(const wchar_t * py,int num)
 {
 	m_selAI = num;
+
 	for (int i = 0; i < 16; i++)
 	{
 		m_python[i] = py[i];
@@ -117,6 +140,7 @@ void PMMonster::SetPython(const wchar_t * py,int num)
 			m_python[i] = L'\0';
 		}
 	}
+	g_AIset[m_num] = m_selAI;
 }
 
 void PMMonster::yesSelect()

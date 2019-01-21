@@ -8,6 +8,8 @@ int g_monsCount = 0;
 int g_meNum = 0;
 int g_meTeam = 0;
 
+int g_monset[6] = { 0,0,0,0,0,0 };
+int g_AIset[6] = { 0,0,0,0,0,0 };
 void GameData::deletemons(Monster * mon)
 {
 	for (Monster* gmon : g_mons)
@@ -29,4 +31,20 @@ void GameData::deletemons(Monster * mon)
 	}
 	/*std::vector<Monster*>::iterator ite = std::find(g_mons.begin(), g_mons.end(), mon);
 	g_mons.erase(ite);*/
+}
+
+const wchar_t * GameData::GetMonsterIconPath(wchar_t*& path,int monID)
+{
+	if (path != nullptr)
+		free(&path);
+	switch (monID)
+	{
+	case enTest:
+		wcscpy(path, L"Assets/sprite/mon_one.dds");
+		break;
+	case enUmataur:
+		path = (wchar_t*)L"Assets/sprite/mon_two.dds";
+		break;
+	}
+	return nullptr;
 }

@@ -23,6 +23,9 @@ extern int g_enemyCount;
 extern int g_monsCount;
 extern int g_meNum;
 extern int g_meTeam;
+
+extern int g_monset[6];
+extern int g_AIset[6];
 static void deletemons(Monster* mon)
 {
 	for (Monster* gmon : g_mons)
@@ -44,5 +47,5 @@ class GameData
 {
 public:
 	void deletemons(Monster* mon);
-	
+	static const wchar_t* GetMonsterIconPath(wchar_t*& path,int monID);
 };

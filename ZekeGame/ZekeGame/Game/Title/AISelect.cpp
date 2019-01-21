@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "AISelect.h"
 #include "PMMonster.h"
+#include "AIMSelect.h"
 #include <string>
 #include "pvpModeSelect.h"
 #include "../GameCursor.h"
@@ -19,7 +20,7 @@ bool AISelect::Start()
 {
 	m_cursor = FindGO<GameCursor>("cursor");
 
-	m_back = NewGO<SpriteRender>(4, "sp");
+	m_back = NewGO<SpriteRender>(5, "sp");
 	m_back->Init(L"Assets/sprite/ai_main.dds", 1280, 720,true);
 
 	
@@ -42,9 +43,10 @@ bool AISelect::Start()
 	return true;
 }
 
-void AISelect::init(PMMonster * pmm)
+void AISelect::init(PMMonster * pmm,AIMSelect* aims)
 {
 	m_pmm = pmm;
+	m_AIMS = aims;
 }
 
 void AISelect::Update()
@@ -53,26 +55,32 @@ void AISelect::Update()
 	{
 		if (m_icons[i]->isClick())
 		{
-			std::string st = m_ppms->GetFiles()[i];
+			m_AIMS->SetAI(i);
+			/*std::string st = m_ppms->GetFiles()[i];
 			std::wstring ws = std::wstring(st.begin(), st.end());
-			m_pmm->SetPython(ws.c_str(),i);
+			m_pmm->SetPython(ws.c_str(),i);*/
+
 		}
 	}
-	int notch = Mouse::GetMouseNotch();
-	if (notch != 0)
+	m_back->SetCollisionTarget(m_cursor->GetCursor());
+	if (m_back->isCollidingTarget())
 	{
-		if (!(m_scroll <= m_minScroll && notch < 0) && !(m_scroll >= m_maxScroll && notch > 0))
+		int notch = Mouse::GetMouseNotch() * -1;
+		if (notch != 0)
 		{
-			m_scroll += notch * 10;
-			CVector3 pos = m_icons[0]->Getpos();
-			pos.y = m_scroll;
-			for (auto icon : m_icons)
+			if (!(m_scroll <= m_minScroll && notch < 0) && !(m_scroll >= m_maxScroll && notch > 0))
 			{
-				icon->Setpos(pos);
-				pos.y -= 82.0f;
+				m_scroll += notch * 10;
+				CVector3 pos = m_icons[0]->Getpos();
+				pos.y = m_scroll;
+				for (auto icon : m_icons)
+				{
+					icon->Setpos(pos);
+					pos.y -= 82.0f;
+				}
 			}
+
 		}
-		
 	}
 }
 
