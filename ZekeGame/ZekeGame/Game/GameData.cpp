@@ -8,6 +8,8 @@ int g_monsCount = 0;
 int g_meNum = 0;
 int g_meTeam = 0;
 
+int g_monset[6] = { 0,0,0,0,0,0 };
+int g_AIset[6] = { 0,0,0,0,0,0 };
 void GameData::deletemons(Monster * mon)
 {
 	for (Monster* gmon : g_mons)

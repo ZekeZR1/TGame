@@ -17,6 +17,7 @@ PMMonster::PMMonster()
 {
 	m_mon = NewGO<SpriteRender>(1, "sp");
 	m_mon->Init(L"Assets/sprite/mon_one.dds", 128, 128,true);
+	
 	m_frame = NewGO<SpriteRender>(0, "sp");
 	m_frame->Init(L"Assets/sprite/mon_none.dds", 128, 128);
 }
@@ -33,6 +34,8 @@ void PMMonster::init(int num,CVector3 pos)
 	m_num = num;
 	m_mon->SetPosition(pos);
 	m_frame->SetPosition(pos);
+
+	ChengeImage(nullptr, g_monset[m_num]);
 }
 
 void PMMonster::Update()
@@ -112,8 +115,11 @@ void PMMonster::ChengeImage(const wchar_t* path, int monid)
 		m_mon->Init(L"Assets/sprite/mon_one.dds", 128, 128);
 		break;
 	case enUmataur:
+		m_mon->Init(L"Assets/sprite/mon_two.dds", 128, 128);
 		break;
 	}
+
+	g_monset[m_num] = monid;
 	//m_path = path;
 }
 
@@ -134,6 +140,7 @@ void PMMonster::SetPython(const wchar_t * py,int num)
 			m_python[i] = L'\0';
 		}
 	}
+	g_AIset[m_num] = m_selAI;
 }
 
 void PMMonster::yesSelect()

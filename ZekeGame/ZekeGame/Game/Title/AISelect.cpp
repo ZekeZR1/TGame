@@ -62,21 +62,25 @@ void AISelect::Update()
 
 		}
 	}
-	int notch = Mouse::GetMouseNotch() * -1;
-	if (notch != 0)
+	m_back->SetCollisionTarget(m_cursor->GetCursor());
+	if (m_back->isCollidingTarget())
 	{
-		if (!(m_scroll <= m_minScroll && notch < 0) && !(m_scroll >= m_maxScroll && notch > 0))
+		int notch = Mouse::GetMouseNotch() * -1;
+		if (notch != 0)
 		{
-			m_scroll += notch * 10;
-			CVector3 pos = m_icons[0]->Getpos();
-			pos.y = m_scroll;
-			for (auto icon : m_icons)
+			if (!(m_scroll <= m_minScroll && notch < 0) && !(m_scroll >= m_maxScroll && notch > 0))
 			{
-				icon->Setpos(pos);
-				pos.y -= 82.0f;
+				m_scroll += notch * 10;
+				CVector3 pos = m_icons[0]->Getpos();
+				pos.y = m_scroll;
+				for (auto icon : m_icons)
+				{
+					icon->Setpos(pos);
+					pos.y -= 82.0f;
+				}
 			}
+
 		}
-		
 	}
 }
 
