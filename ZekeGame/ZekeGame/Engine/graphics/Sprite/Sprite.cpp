@@ -173,6 +173,7 @@ void Sprite::InitCommon(float w, float h)
 	//シェーダーのロード。
 	m_vs.Load("Assets/shader/sprite.fx", "VSMain", Shader::EnType::VS);
 	m_ps.Load("Assets/shader/sprite.fx", "PSMain", Shader::EnType::PS);
+	m_pss.Load("Assets/shader/sprite.fx", "PSMainn", Shader::EnType::PS);
 
 	//定数バッファを初期化。
 	InitConstantBuffer();
@@ -265,6 +266,7 @@ void Sprite::Draw()
 	cb.WVP = m_world;
 	cb.WVP.Mul(cb.WVP, camera2d->GetViewMatrix());
 	cb.WVP.Mul(cb.WVP, camera2d->GetProjectionMatrix());
+	cb.mulCol = m_mulCol;
 	ge->GetD3DDeviceContext()->UpdateSubresource(m__cb, 0, NULL, &cb, 0, 0);
 	ge->GetD3DDeviceContext()->VSSetConstantBuffers(0, 1, &m__cb);
 	ge->GetD3DDeviceContext()->IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
@@ -301,7 +303,7 @@ void Sprite::Draww()
 		0
 	);
 	d3dDeviceContext->PSSetShader(
-		(ID3D11PixelShader*)m_ps.GetBody(),
+		(ID3D11PixelShader*)m_pss.GetBody(),
 		nullptr,
 		0
 	);
@@ -314,6 +316,7 @@ void Sprite::Draww()
 	cb.WVP = m_world;
 	cb.WVP.Mul(cb.WVP, camera2d->GetViewMatrix());
 	cb.WVP.Mul(cb.WVP, camera2d->GetProjectionMatrix());
+	cb.mulCol = m_mulCol;
 	GraphicsEngine* ge = g_graphicsEngine;
 	ge->GetD3DDeviceContext()->UpdateSubresource(m__cb, 0, NULL, &cb, 0, 0);
 	ge->GetD3DDeviceContext()->VSSetConstantBuffers(0, 1, &m__cb);

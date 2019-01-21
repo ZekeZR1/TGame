@@ -35,6 +35,8 @@ CFPSCounter::CFPSCounter(unsigned int smp)
 
 	// 計測
 	GetFPS();
+
+	m_font = NewGO<FontRender>(0, "fontrender");
 }
 
 
@@ -43,6 +45,7 @@ CFPSCounter::~CFPSCounter(void)
 {
 	//delete pSpriteBatch;
 	//delete pSpriteFont;
+	DeleteGO(m_font);
 	if (m_iCounterFlag == FPSCOUNTER_TIMEGETTIME)
 		timeEndPeriod(1);    // タイマーの精度を戻す
 }
@@ -114,6 +117,10 @@ void CFPSCounter::SetSampleNum(unsigned int smp)
 }
 
 void CFPSCounter::Draw() {
+	double FrameRate = GetFPS();
+	wchar_t str[256];
+	swprintf_s(str, L"%f\n", FrameRate);
+	m_font->Init(str, { -630.f , 350.f }, 0.f, CVector4::White, 1.f, { 0.0f,0.0f });
 	/*
 	pSpriteBatch->Begin();
 	fps = GetFPS();
