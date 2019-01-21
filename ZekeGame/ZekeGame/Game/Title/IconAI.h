@@ -24,7 +24,7 @@ private:
 	SpriteRender* m_frame = nullptr;
 	bool m_issel = false;
 
-	std::string m_py;
+	const wchar_t* m_py;
 	int m_num = 0;
 
 	bool m_isClick = false;

@@ -56,6 +56,20 @@ bool PvPModeSelect::Start()
 
 void PvPModeSelect::Update()
 {
+	bool ismonsel = false;
+	int count = 0;
+	for (auto pmm : m_pmms)
+	{
+		ismonsel = pmm->isMonSel();
+		if (ismonsel || pmm->isSelect())
+		{
+			break;
+		}
+
+		count++;
+	}
+	if (ismonsel)
+		return;
 	m_GO->SetCollisionTarget(m_cursor->GetCursor());
 	if (m_GO->isCollidingTarget())
 	{
@@ -74,18 +88,7 @@ void PvPModeSelect::Update()
 		}
 	}
 
-	bool ismonsel = false;
-	int count = 0;
-	for (auto pmm : m_pmms)
-	{
-		ismonsel = pmm->isMonSel();
-		if (ismonsel || pmm->isSelect())
-		{
-			break;
-		}
-
-		count++;
-	}
+	
 	if (count == 6)
 	{
 		count = 0;
