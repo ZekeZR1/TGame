@@ -37,6 +37,8 @@ bool PvPModeSelect::Start()
 		PMMonster* pmm = NewGO<PMMonster>(0, "pmm");
 		pmm->init(i,pos);
 		pos += {240, 0, 0};
+		std::wstring ws = std::wstring(m_files[g_AIset[i]].begin(), m_files[g_AIset[i]].end());
+		pmm->SetPython(ws.c_str(), g_AIset[i]);
 		m_pmms.push_back(pmm);
 	}
 	//m_pmm = NewGO<PMMonster>(0, "pmm");
