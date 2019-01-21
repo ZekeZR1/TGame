@@ -124,3 +124,8 @@ void StageSetup::PVPSetup(std::vector<std::string> files, int monsterAI[6],Monst
 	g_enemyCount = 3;
 	g_monsCount = 6;
 }
+
+
+void StageSetup::DungeonSetup(int number) {
+
+}
