@@ -20,8 +20,8 @@ private:
 	GameCamera* m_camera;
 	CQuaternion m_rot = CQuaternion::Identity();
 	CVector3 pos = CVector3::Zero();
-	CFont m_font;
 	SpriteRender* m_sp1;
 	SpriteRender* m_sp2;
 	GameCamera2D* m_2dcamera;
+	FontRender* m_font;
 };

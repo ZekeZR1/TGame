@@ -42,11 +42,9 @@ void Engine::Update() {
 	}
 
 	IGameObjectManager().Execute();
-	//output frame late to debug message
-	char message[256];
-	float fps = FPS->GetFPS();
-	sprintf_s(message, "%f\n", fps);
-	//OutputDebugStringA(message);
+#if _DEBUG
+	FPS->Draw();
+#endif
 }
 
 void Engine::CreateNetworkSystem() {

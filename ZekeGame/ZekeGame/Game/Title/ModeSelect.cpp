@@ -3,8 +3,9 @@
 
 #include "pvpModeSelect.h"
 #include "AIeditModeSelect.h"
-
+#include "../Dungeon/DungeonSelect.h"
 #include "../../GameCamera.h"
+
 
 ModeSelect::~ModeSelect()
 {
@@ -55,6 +56,8 @@ void ModeSelect::Update()
 		switch (m_sel)
 		{
 		case enDungeon:
+			NewGO<DungeonSelect>(0, "dan");
+			DeleteGO(this);
 			break;
 		case enLocalpvp:
 			NewGO<PvPModeSelect>(0, "pvp");

@@ -39,8 +39,13 @@ public:
 	void Draw();
 	void Draww();
 
+
+	void SetMulColor(const CVector4& col) {
+		m_mulCol = col;
+	}
 	struct ConstantBuffer {
 		CMatrix WVP;		//ワールドビュープロジェクション行列。
+		CVector4 mulCol;
 	};
 	ID3D11Buffer*				m_vertexBuffer = NULL;					//頂点バッファ。
 	ID3D11Buffer*				m_indexBuffer = NULL;					//インデックスバッファ。
@@ -55,6 +60,8 @@ public:
 	ID3D11Buffer*				m__cb = nullptr;							//定数バッファ。
 	Shader						m_vs;									//頂点シェーダー。
 	Shader						m_ps;									//ピクセルシェーダー。
+	Shader						m_pss;									//ピクセルシェーダー。
+	CVector4					m_mulCol = { 1.f,0.f,0.f,1.f };
 private:
 	void InitCommon(float w, float h);
 	/*!
