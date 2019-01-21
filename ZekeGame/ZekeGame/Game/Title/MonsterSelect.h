@@ -1,6 +1,7 @@
 #pragma once
 #include "../GameData.h"
 class PMMonster;
+class AIMSelect;
 class GameCursor;
 class IconMon;
 class MonsterSelect :public GameObject
@@ -8,12 +9,13 @@ class MonsterSelect :public GameObject
 public:
 	~MonsterSelect();
 	bool Start();
-	void init(PMMonster* pmm);
+	void init(PMMonster* pmm,AIMSelect* aims);
 	void Update();
 private:
 	GameCursor* m_cursor = nullptr;
 
 	PMMonster* m_pmm;
+	AIMSelect* m_aims;
 	MonsterID m_selmon = enTest;
 	SpriteRender* m_back;
 	CVector3 m_backsize = { 148,148,0 };

@@ -1,6 +1,7 @@
 #pragma once
 
 class PvPModeSelect;
+class AIMSelect;
 class GameCursor;
 class PMMonster;
 class IconAI;
@@ -9,11 +10,12 @@ class AISelect :public GameObject
 public:
 	~AISelect();
 	bool Start();
-	void init(PMMonster* pmm);
+	void init(PMMonster* pmm,AIMSelect* aims);
 	void Update();
 	void PostRender();
 private:
 	PMMonster* m_pmm;
+	AIMSelect* m_AIMS;
 	GameCursor* m_cursor = nullptr;
 	SpriteRender* m_back = nullptr;
 
