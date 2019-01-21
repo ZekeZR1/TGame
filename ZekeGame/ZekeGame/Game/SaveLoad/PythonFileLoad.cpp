@@ -15,8 +15,14 @@ std::vector<std::string> PythonFileLoad::FilesLoad()
 	GetCurrentDirectory(255, c);
 	cd = c;
 
-	std::string key = cd + "/PythonAIs/*.py";
+	std::string key = cd + "\\PythonAIs\\*.py";
 	hfind = FindFirstFile(key.c_str(), &win32d);
+
+
+	//è¡Ç∑
+	//FontRender* font = NewGO<FontRender>(0, "font");
+	//std::wstring ws = std::wstring(key.begin(), key.end());
+	//font->Init(ws.c_str(), { -620,0 }, 0, CVector4::Yellow, 1, { 0.5f,0.5f });
 
 	do
 	{
@@ -26,8 +32,11 @@ std::vector<std::string> PythonFileLoad::FilesLoad()
 		else
 		{
 			std::string p = win32d.cFileName;
-			p.resize(p.length() - 3);
-			filenames.push_back(p);
+			if (p != "_MiddleExecute.py")
+			{
+				p.resize(p.length() - 3);
+				filenames.push_back(p);
+			}
 
 		}
 	} while (FindNextFile(hfind, &win32d));

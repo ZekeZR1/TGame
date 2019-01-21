@@ -25,6 +25,11 @@ public:
 	{
 		return m_target;
 	}
+
+	int GetactionID()
+	{
+		return m_ActionId;
+	}
 protected:
 	int m_ActionId = 0;				//アクションのID
 	int m_targetNum = 0;			//ターゲットのnum

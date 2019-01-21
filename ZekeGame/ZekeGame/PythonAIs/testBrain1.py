@@ -1,7 +1,8 @@
-import CppBridge as cb
+import PythonAIs.CppBridge as cb
 
-def Brain():
+def Brain(num,team):
     """test用のAI"""
+    cb.init(num,team)
     cb.gameData.GetBuddyFarMonster()
     cb.gameData.GetBuddyHighHPMonster()
     cb.gameData.GetBuddyNeerMonster()
@@ -10,4 +11,5 @@ def Brain():
     cb.gameData.GetHighHPMonster()
     cb.gameData.GetEnemyFarMonster()
     cb.gameData.GetNeerMonster()
-    return cb.actions
+    cb.End()
+    return 0

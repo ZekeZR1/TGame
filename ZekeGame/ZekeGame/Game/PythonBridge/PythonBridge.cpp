@@ -526,12 +526,12 @@ void PythonBridge::py_exe(int num,int team,const char* file)
 
 	PyObject *pName, *pModule, *pFunction, *pArgs, *pValue;
 
-	pName = PyUnicode_DecodeFSDefault(file);
-	//pName = PyUnicode_DecodeFSDefault("PythonAIs.testBrain");
+	//pName = PyUnicode_DecodeFSDefault(file);
+	pName = PyUnicode_DecodeFSDefault("PythonAIs._MiddleExecute");
 	pModule = PyImport_Import(pName);
 	Py_DECREF(pName);
 
-	pFunction = PyObject_GetAttrString(pModule, "Brain");
+	pFunction = PyObject_GetAttrString(pModule, "execute");
 
 	pArgs = PyTuple_New(3);
 	PyObject* pMenum = PyLong_FromLong(num);

@@ -1,22 +1,29 @@
 #pragma once
 
 class PvPModeSelect;
+class AIMSelect;
 class GameCursor;
 class PMMonster;
+class IconAI;
 class AISelect :public GameObject
 {
 public:
 	~AISelect();
 	bool Start();
-	void init(PMMonster* pmm);
+	void init(PMMonster* pmm,AIMSelect* aims);
 	void Update();
 	void PostRender();
 private:
 	PMMonster* m_pmm;
+	AIMSelect* m_AIMS;
 	GameCursor* m_cursor = nullptr;
 	SpriteRender* m_back = nullptr;
 
-	std::vector<SpriteRender*> m_AIs;
+	float m_minScroll = 0.0f;
+	float m_maxScroll = 0.0f;
+	float m_scroll = 316.5f;
+
+	std::vector<IconAI*> m_icons;
 	PvPModeSelect* m_ppms = nullptr;
 	CFont font;
 };

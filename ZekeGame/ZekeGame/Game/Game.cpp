@@ -5,8 +5,11 @@
 
 
 #include "PythonBridge/PythonBridge.h"
+#include "Monster/Monster.h"
 #include "Monster/MonsterActionManeger.h"
 #include "Monster/Monsters/TestMons.h"
+//#include "Monster/MonsterActionList.h"
+
 
 #include "Result/Win/Win.h"
 
@@ -29,10 +32,10 @@ Game::~Game()
 	delete m_pi;
 }
 
-void Game::GamePVPmodeInit(std::vector<std::string> files, int monsterAI[6])
+void Game::GamePVPmodeInit(std::vector<std::string> files, int monsterAI[6],MonsterID MonsterID[6])
 {
 	ss = new StageSetup();
-	ss->PVPSetup(files, monsterAI);
+	ss->PVPSetup(files, monsterAI,MonsterID);
 	playMode = enLocalPVP;
 }
 
@@ -72,6 +75,11 @@ void Game::Update() {
 			m_END = true;
 			int team = g_mons[0]->Getteam();
 			Win* win;
+			QueryGOs<Monster>("monster", [&](auto obj)->bool
+			{
+				obj->ReleaseMAL();
+				return true;
+			});
 			switch (playMode)
 			{
 			case enLocalPVP:

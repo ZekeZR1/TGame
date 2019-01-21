@@ -1,11 +1,11 @@
 #coding: utf-8
 
-import CppBridge as cb
+import PythonAIs.CppBridge as cb
 
-def Brain(MeNum,MeTeam,f):
-    cb.gameData.init(MeNum,MeTeam)
+def Brain(MeNum,MeTeam):
+    cb.init(MeNum,MeTeam)
     ME = cb.gameData.me
-    mon = cb.gameData.GetEnemyHighHP()
+    mon = cb.GetEnemyHighHP()
     
     cb.Chase(mon)
     cb.Atack(mon)

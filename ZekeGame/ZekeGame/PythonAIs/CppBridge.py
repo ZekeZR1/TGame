@@ -280,6 +280,41 @@ class GameData:
 
 gameData = GameData()
 
+def init(num,team):
+    """ゲームデータの初期化
+        必ず最初に使いましょう。
+        """
+    gameData.init(num,team)
+
+def GetFarMonster():
+    return gameData.GetFarMonster()
+def GetNeerMonster():
+    return gameData.GetNeerMonster()
+
+def GetBuddyFarMonster():
+    return gameData.GetBuddyFarMonster()
+
+def GetEnemyFarMonster():
+    return gameData.GetEnemyFarMonster()
+
+def GetBuddyNeerMonster():
+    return gameData.GetBuddyNeerMonster()
+
+def GetEnemyNeerMonster():
+    return gameData.GetEnemyNeerMonster()
+
+def GetHighHPMonster():
+    """#一番HPの高いモンスターを返します"""
+    return gameData.GetHighHPMonster()
+
+def GetBuddyHighHPMonster():
+    """#一番HPの高い仲間のモンスターを返します"""
+    return gameData.GetBuddyHighHPMonster()
+
+def GetEnemyHighHP():
+    """#一番HPの高い敵のモンスターを返します"""
+    return gameData.GetEnemyHighHP()
+
 MonsterUseAction = [
     [ACTION.Chase,ACTION.Atack,ACTION.Leave],
     [ACTION.Chase,ACTION.Atack]

@@ -9,10 +9,18 @@ public:
 	~PMMonster();
 	PMMonster();
 	bool Start() override;
-	void init(CVector3 pos);
+	void init(int num, CVector3 pos);
 	void Update() override;
-	void ChengeImage(const wchar_t* path);
-	void SetPython(const wchar_t* py);
+	void ChengeImage(const wchar_t* path,int monid);
+	void SetPython(const wchar_t* py,int num);
+
+	void yesSelect();
+	void notSelect();
+	bool isSelect()
+	{
+		return m_issel;
+	}
+
 	void PostRender() override;
 
 	int GetMonsterID()
@@ -23,15 +31,32 @@ public:
 	{
 		return m_selAI;
 	}
+	bool isMonSel()
+	{
+		return m_ismonsel;
+	}
+	void notMonSel()
+	{
+		m_ismonsel = false;
+	}
 private:
+	int m_num = 0;
 	MonsterID m_monid = enTest;
 	int m_selAI = 0;
 	GameCursor* m_cursor = nullptr;
 	MonsterSelect* m_ms = nullptr;
 	AISelect* m_ais = nullptr;
 
+	SpriteRender* m_frame = nullptr;
+	bool m_issel = false;
 	SpriteRender* m_mon = nullptr;
+	const wchar_t* m_path;
+
+	bool m_ismonsel = false;
+
+	CVector3 m_mickey = CVector3::Zero();
 
 	wchar_t m_python[16] = L"testBrain";
 	CFont font;
+	FontRender* m_fr = nullptr;
 };

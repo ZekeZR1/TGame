@@ -12,20 +12,20 @@ GameCamera::GameCamera()
 	camera2d->SetFar(1000.0f);
 	camera2d->Update();*/
 	
-	camera3d = new Camera;
+	/*camera3d = new Camera;
 	camera3d->SetTarget(m_target);
 	camera3d->SetPosition(m_pos);
 	camera3d->SetUpdateProjMatrixFunc(Camera::enUpdateProjMatrixFunc_Perspective);
 	camera3d->SetNear(0.1f);
 	camera3d->SetFar(50000.0f);
-	camera3d->Update();
+	camera3d->Update();*/
 }
 
 
 GameCamera::~GameCamera()
 {
 	//delete camera2d;
-	delete camera3d;
+	//delete camera3d;
 }
 
 /*
@@ -36,7 +36,8 @@ void GameCamera::Update() {
 
 	SkinModelRender* i_model = nullptr;
 	i_model = FindGO<SkinModelRender>("model");
-	m_target = i_model->GetPosition();
+	//m_target = i_model->GetPosition();
+	m_target = CVector3::Zero();
 
 	
 	float x = g_pad[0].GetRStickXF();

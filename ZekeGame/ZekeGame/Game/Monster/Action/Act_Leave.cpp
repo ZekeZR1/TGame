@@ -2,6 +2,11 @@
 #include "Act_Leave.h"
 #include "../Monster.h"
 
+Act_Leave::Act_Leave()
+{
+	m_ActionId = 2;
+}
+
 bool Act_Leave::Action(Monster * me)
 {
 	if (m_target == nullptr)

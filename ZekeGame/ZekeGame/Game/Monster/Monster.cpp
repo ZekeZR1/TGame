@@ -8,11 +8,23 @@
 #include "../GameData.h"
 //#include "MonsterAI.h"
 
+#include "MonsterActionList.h"
 
 Monster::~Monster()
 {
 	DeleteGO(m_smr);
 	DeleteGO(m_PB);
+	ReleaseMAL();
+	
+}
+
+void Monster::ReleaseMAL()
+{
+	if (!m_dmal)
+	{
+		DeleteGO(m_MAL);
+		m_dmal = true;
+	}
 }
 
 void Monster::init(int HP, int MP, float speed, float radius, float height, SkinModelRender * smr, int animnum)
@@ -33,6 +45,9 @@ bool Monster::Start()
 	m_PB = NewGO<PythonBridge>(0,"PB");
 
 	anim_idle();
+
+	m_MAL = NewGO<MonsterActionList>(0, "mal");
+	m_MAL->init(this);
 	return true;
 }
 
@@ -154,6 +169,8 @@ void Monster::AddAction(MonsterAction * ma)
 {
 	m_actions.push_back(ma);
 }
+
+
 
 void Monster::anim_idle()
 {

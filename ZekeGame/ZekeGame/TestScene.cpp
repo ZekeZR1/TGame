@@ -17,6 +17,7 @@ TestScene::~TestScene()
 	DeleteGO(m_cur);
 	DeleteGO(m_sp1);
 	DeleteGO(m_sp2);
+	DeleteGO(m_font);
 	delete m_camera;
 	DeleteGO(m_2dcamera);
 }
@@ -50,6 +51,8 @@ bool TestScene::Start() {
 	m_sp1->SetPosition(CVector3::Zero());
 	m_sp2 = NewGO<SpriteRender>(2, "sp2");
 	m_sp2->Init(L"Assets/Sprite/PriTest2.dds", 300.f, 300.f);
+	m_font = NewGO<FontRender>(5, "font");
+	m_font->Init(L"Test", CVector2::Zero(), 0, CVector4::White, 1.f, { 0.5f, 0.5 });
 	return true;
 }
 
@@ -107,7 +110,4 @@ void TestScene::Update() {
 }
 
 void TestScene::PostRender() {
-	m_font.Begin();
-	m_font.Draw(L"Neko", CVector2::Zero(),CVector4::White);
-	m_font.End();
 }
