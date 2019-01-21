@@ -62,7 +62,7 @@ void AISelect::Update()
 
 		}
 	}
-	int notch = Mouse::GetMouseNotch();
+	int notch = Mouse::GetMouseNotch() * -1;
 	if (notch != 0)
 	{
 		if (!(m_scroll <= m_minScroll && notch < 0) && !(m_scroll >= m_maxScroll && notch > 0))
