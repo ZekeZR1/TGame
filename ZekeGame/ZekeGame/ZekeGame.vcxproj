@@ -101,7 +101,7 @@
       </AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <PrecompiledHeader>Create</PrecompiledHeader>
+      <PrecompiledHeader>Use</PrecompiledHeader>
     </ClCompile>
     <Link>
       <AdditionalDependencies>DirectXTK.lib;kernel32.Lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;d3d11.lib;d3dcompiler.lib;%(AdditionalDependencies);xinput.lib;BulletCollision_Debug.lib;BulletDynamics_Debug.lib;LinearMath_Debug.lib;Effekseer.Debug.lib;EffekseerRendererDX11.Debug.lib;Photon-cpp_vc15_debug_windows_mt_x64.lib;Common-cpp_vc15_debug_windows_mt_x64.lib;LoadBalancing-cpp_vc15_debug_windows_mt_x64.lib;python36_d.lib</AdditionalDependencies>
@@ -226,7 +226,9 @@
     <ClCompile Include="Engine\physics\PhysicsStaticObject.cpp" />
     <ClCompile Include="Engine\physics\RigitBody.cpp" />
     <ClCompile Include="Engine\physics\SpriteBoxCollider.cpp" />
-    <ClCompile Include="Engine\PreCompile.cpp" />
+    <ClCompile Include="Engine\PreCompile.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="Engine\sound\SoundEngine.cpp" />
     <ClCompile Include="Engine\time\GameTime.cpp" />
     <ClCompile Include="Engine\window\Window.cpp" />
@@ -235,9 +237,9 @@
     <ClCompile Include="Game\AIEdit\AIEditMode.cpp" />
     <ClCompile Include="Game\AIEdit\AIEditNode.cpp" />
     <ClCompile Include="Game\AIEdit\AIEditNodeHp.cpp" />
+    <ClCompile Include="Game\Dungeon\DungeonSelect.cpp" />
     <ClCompile Include="Game\Game.cpp" />
     <ClCompile Include="Game\GameCamera2D.cpp" />
-    <ClCompile Include="Game\GameCamera3D.cpp" />
     <ClCompile Include="Game\GameCursor.cpp" />
     <ClCompile Include="Game\GameData.cpp" />
     <ClCompile Include="Game\main.cpp" />
@@ -262,7 +264,6 @@
     <ClCompile Include="Game\SaveLoad\PythonFileLoad.cpp" />
     <ClCompile Include="Game\StageSetup\StageSetup.cpp" />
     <ClCompile Include="Game\Title\AIeditModeSelect.cpp" />
-    <ClCompile Include="Game\Title\AIMSelect.cpp" />
     <ClCompile Include="Game\Title\AISelect.cpp" />
     <ClCompile Include="Game\Title\IconAI.cpp" />
     <ClCompile Include="Game\Title\IconMon.cpp" />
@@ -271,6 +272,9 @@
     <ClCompile Include="Game\Title\PMMonster.cpp" />
     <ClCompile Include="Game\Title\pvpModeSelect.cpp" />
     <ClCompile Include="Game\Title\Title.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="TestScene.cpp" />
     <ClCompile Include="TestScene2.cpp" />
   </ItemGroup>
@@ -360,9 +364,9 @@
     <ClInclude Include="Game\AIEdit\AIEditMode.h" />
     <ClInclude Include="Game\AIEdit\AIEditNode.h" />
     <ClInclude Include="Game\AIEdit\AIEditNodeHp.h" />
+    <ClInclude Include="Game\Dungeon\DungeonSelect.h" />
     <ClInclude Include="Game\Game.h" />
     <ClInclude Include="Game\GameCamera2D.h" />
-    <ClInclude Include="Game\GameCamera3D.h" />
     <ClInclude Include="Game\GameCursor.h" />
     <ClInclude Include="Game\GameData.h" />
     <ClInclude Include="Game\Monster\Action\Act_Atack.h" />
@@ -486,7 +490,6 @@
     <ClInclude Include="Game\SaveLoad\PythonFileLoad.h" />
     <ClInclude Include="Game\StageSetup\StageSetup.h" />
     <ClInclude Include="Game\Title\AIeditModeSelect.h" />
-    <ClInclude Include="Game\Title\AIMSelect.h" />
     <ClInclude Include="Game\Title\AISelect.h" />
     <ClInclude Include="Game\Title\IconAI.h" />
     <ClInclude Include="Game\Title\IconMon.h" />
@@ -507,10 +510,10 @@
     <MeshContentTask Include="Assets\modelData\uma\uma.fbx" />
   </ItemGroup>
   <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\GUI\button\sb_cancel.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\button\sb_OK.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\button\simple_button.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\button\simple_button_blue.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\DungeonSpS.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\DungeonSp.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\d2.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\d1.png" />
     <ImageContentTask Include="Assets\Sprite\PriTest1.png" />
     <ImageContentTask Include="Assets\Sprite\PriTest2.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_back.png" />

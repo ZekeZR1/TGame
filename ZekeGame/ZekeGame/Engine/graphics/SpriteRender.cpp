@@ -10,9 +10,6 @@ SpriteRender::SpriteRender()
 
 SpriteRender::~SpriteRender()
 {
-	if (m_isNeedExecuteCollision) {
-		delete m_collider;
-	}
 }
 
 
@@ -26,13 +23,12 @@ void SpriteRender::Init(const wchar_t* FilePath, float w, float h, bool Collisio
 	m_h = h;
 	if (Collisionflag) {
 		m_isNeedExecuteCollision = true;
-		m_collider = new SpriteBoxCollider;
 	}
 }
 
 void SpriteRender::Update() {
 	if (m_isNeedExecuteCollision) {
-		m_collider->Execute(m_target);
+		m_collider.Execute(m_target);
 	}
 	m_sprite.Update(m_pos, m_rotation, m_scale, m_pivot);
 }

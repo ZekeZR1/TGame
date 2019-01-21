@@ -140,6 +140,13 @@ protected:
 	CMatrix		m_viewProjectionMatrix;				//!<ビュープロジェクション行列。
 	CMatrix		m_viewMatrixInv;					//!<ビュー行列の逆行列。
 	CMatrix		m_cameraRotation;					//!<カメラの回転行列。
+
+
+
+
+
+
+
 	CVector3	m_forward = CVector3::Front();		//!<カメラの前方。
 	CVector3	m_right = CVector3::Right();			//!<カメラの右。
 	float		m_near;								//!<近平面。

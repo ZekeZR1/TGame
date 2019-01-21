@@ -44,6 +44,7 @@ private:
 	//Font
 	DirectX::SpriteBatch* pSpriteBatch;
 	DirectX::SpriteFont* pSpriteFont;
+	FontRender* m_font;
 	wchar_t wfps[256];
 	double fps;
 };

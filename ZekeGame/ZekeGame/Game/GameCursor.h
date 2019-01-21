@@ -7,7 +7,7 @@ public:
 	bool Start() override;
 	void Update() override;
 
-	CVector3 GetCursor()
+	CVector3& GetCursor()
 	{
 		return m_pos;
 	}
