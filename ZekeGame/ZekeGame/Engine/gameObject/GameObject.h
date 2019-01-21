@@ -7,7 +7,7 @@
 #define _CGAMEOBJECT_H_
 
 class GameObjectManager;
-typedef unsigned char	GameObjectPrio;
+typedef unsigned char	 GameObjectPrio;
 
 class GameObject : Noncopyable
 {

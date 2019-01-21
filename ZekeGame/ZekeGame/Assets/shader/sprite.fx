@@ -4,6 +4,7 @@
 
 cbuffer cb : register(b0){
 	float4x4 mvp;		//ワールドビュープロジェクション行列。
+	float4 mulCol;
 };
 struct VSInput{
 	float4 pos : SV_Position;
@@ -25,7 +26,13 @@ PSInput VSMain(VSInput In)
 	psIn.uv = In.uv;
 	return psIn;
 }
+
 float4 PSMain( PSInput In ) : SV_Target0
 {
-	return colorTexture.Sample(Sampler, In.uv);
+	return colorTexture.Sample(Sampler, In.uv);// *mulCol;
 }
+
+float4 PSMainn(PSInput In) : SV_Target0
+{
+	return colorTexture.Sample(Sampler, In.uv);
+} 
