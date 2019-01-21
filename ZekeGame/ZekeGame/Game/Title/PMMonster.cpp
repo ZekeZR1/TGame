@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "PMMonster.h"
 #include "AIMSelect.h"
-//#include "../GameData.h"
+#include "../GameData.h"
 #include "../GameCursor.h"
 #include "MonsterSelect.h"
 #include "AISelect.h"
@@ -100,13 +100,27 @@ void PMMonster::Update()
 
 void PMMonster::ChengeImage(const wchar_t* path, int monid)
 {
-	m_mon->Init(path, 128, 128);
+	/*wchar_t ws[255] ;
+	GameData::GetMonsterIconPath(ws, monid);
+	m_mon->Init(ws, 128, 128);
 	m_monid = (MonsterID)monid;
+	delete[] ws;*/
+	m_monid = (MonsterID)monid;
+	switch (monid)
+	{
+	case enTest:
+		m_mon->Init(L"Assets/sprite/mon_one.dds", 128, 128);
+		break;
+	case enUmataur:
+		break;
+	}
+	//m_path = path;
 }
 
 void PMMonster::SetPython(const wchar_t * py,int num)
 {
 	m_selAI = num;
+
 	for (int i = 0; i < 16; i++)
 	{
 		m_python[i] = py[i];

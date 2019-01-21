@@ -15,8 +15,8 @@ public:
 	void init(PMMonster* pmm,int ai,int mon)
 	{
 		m_pmm = pmm;
-		m_oan = ai;
-		m_omn = mon;
+		m_ainum = ai;
+		m_monnum = mon;
 	}
 
 	void SetAI(int ai)
@@ -49,5 +49,6 @@ private:
 	SpriteRender* m_ok = nullptr;
 	SpriteRender* m_odum = nullptr;
 
-	bool m_issel = false;
+	bool m_isselC = false;
+	bool m_isselO = false;
 };

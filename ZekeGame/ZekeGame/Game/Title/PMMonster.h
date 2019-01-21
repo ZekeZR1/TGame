@@ -50,6 +50,7 @@ private:
 	SpriteRender* m_frame = nullptr;
 	bool m_issel = false;
 	SpriteRender* m_mon = nullptr;
+	const wchar_t* m_path;
 
 	bool m_ismonsel = false;
 
