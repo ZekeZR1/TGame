@@ -1,5 +1,5 @@
 #pragma once
-class DungeonAISelect
+class DungeonAISelect : public GameObject
 {
 public:
 	DungeonAISelect();
