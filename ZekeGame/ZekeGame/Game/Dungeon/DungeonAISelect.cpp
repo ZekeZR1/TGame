@@ -72,7 +72,7 @@ void DungeonAISelect::Update() {
 	{
 		if (Mouse::isTrigger(enLeftClick))
 		{
-			MonsterID moid[6];
+			MonsterID moid[3];
 			for (int i = 0; i < m_numPmm; i++)
 			{
 				moid[i] = (MonsterID)m_pmms[i]->GetMonsterID();
@@ -118,4 +118,9 @@ void DungeonAISelect::LoadFiles() {
 		}
 	} while (FindNextFile(hfind, &win32d));
 	FindClose(hfind);
+}
+
+
+std::vector<std::string> DungeonAISelect::GetFiles() {
+	return m_files;
 }
