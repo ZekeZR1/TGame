@@ -8,6 +8,9 @@ public:
 	~DungeonAISelect();
 	bool Start() override;
 	void Update() override;
+	void SetDungeonNumber(int n) {
+		m_dunNum = n;
+	}
 	void LoadFiles();
 private:
 	CFont font;
@@ -19,5 +22,10 @@ private:
 	PMMonster* m_pmm = nullptr;
 	std::vector<PMMonster*> m_pmms;
 	SpriteRender* m_GO = nullptr;
+private:
+	const int m_numPmm = 3;
+	int m_dunNum = -1;
+	SpriteRender* m_dunSp = nullptr;
+	FontRender* m_font = nullptr;
 };
 
