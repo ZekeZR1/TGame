@@ -15,6 +15,8 @@ DungeonAISelect::DungeonAISelect()
 
 DungeonAISelect::~DungeonAISelect()
 {
+	DeleteGO(m_dunSp);
+	DeleteGO(m_font);
 	DeleteGO(m_cursor);
 	for (auto go : m_pmms)
 	{
@@ -26,34 +28,26 @@ DungeonAISelect::~DungeonAISelect()
 bool DungeonAISelect::Start() {
 	m_files = PythonFileLoad::FilesLoad();
 	m_cursor = NewGO<GameCursor>(0, "cursor");
-
-	CVector3 pos = { -320,210,0 };
-	for (int i = 0; i < 6; i++)
-	{
-		if (i == 3)
-		{
-			pos = { -320,-200,0 };
-		}
-		PMMonster* pmm = NewGO<PMMonster>(0, "pmm");
-		pmm->init(i, pos);
-		pos += {240, 0, 0};
+	CVector3 pos = { -320,0,0 };
+	//
+	for (int i = 0; i < m_numPmm; i++) {
+		m_pmms.push_back(NewGO<PMMonster>(0, "pmm"));
+		m_pmms[i]->init(i, pos);
+		pos.x += 240.f;
 		std::wstring ws = std::wstring(m_files[g_AIset[i]].begin(), m_files[g_AIset[i]].end());
-		pmm->SetPython(ws.c_str(), g_AIset[i]);
-		m_pmms.push_back(pmm);
+		m_pmms[i]->SetPython(ws.c_str(), g_AIset[i]);
 	}
-	//m_pmm = NewGO<PMMonster>(0, "pmm");
-	//m_pmm->init({ -250,-200,0 });
-	for (int i = 0; i < 6; i++)
-	{
-		/*SpriteRender* sp = NewGO<SpriteRender>(0, "sp");
-		sp->Init(L"Assets/sprite/mon",);*/
-	}
-
 	m_GO = NewGO<SpriteRender>(0
 		, "sp");
 	m_GO->Init(L"Assets/sprite/GO.dds", 193, 93, true);
 	m_GO->SetPosition({ 400,-160,0 });
-
+	m_dunSp = NewGO<SpriteRender>(0, "dunSp");
+	m_dunSp->Init(L"Assets/Sprite/DadandanBk.dds", 350.f, 70.f);
+	m_dunSp->SetPosition({ 0.f,300.f,0.f });
+	m_font = NewGO<FontRender>(0, "font");
+	wchar_t dungeon[256];
+	swprintf_s(dungeon, L"ƒ_ƒ“ƒWƒ‡ƒ“%d\n", m_dunNum + 1);
+	m_font->Init(dungeon, { -140.f, 320.f }, 0.f, CVector4::White, 1.f, { 0.f,0.f });
 	return true;
 }
 
@@ -67,7 +61,6 @@ void DungeonAISelect::Update() {
 		{
 			break;
 		}
-
 		count++;
 	}
 	if (ismonsel)
@@ -77,123 +70,17 @@ void DungeonAISelect::Update() {
 	{
 		if (Mouse::isTrigger(enLeftClick))
 		{
-			MonsterID moid[6];
-			for (int i = 0; i < 6; i++)
+			MonsterID moid[3];
+			for (int i = 0; i < m_numPmm; i++)
 			{
 				moid[i] = (MonsterID)m_pmms[i]->GetMonsterID();
 				monai[i] = m_pmms[i]->GetAI();
 			}
 			Game* game = NewGO<Game>(0, "Game");
 			////game->GamePVPmodeInit(m_files, monai,moid);
-			StageSetup::PVPSetup(m_files, monai, moid);
+			//StageSetup::PVPSetup(m_files, monai, moid);
+			StageSetup::DungeonSetup(m_dunNum);
 			DeleteGO(this);
-		}
-	}
-
-
-	if (count == 6)
-	{
-		count = 0;
-	}
-	if (!ismonsel)
-	{
-		if (g_pad[0].IsTrigger(enButtonB))
-		{
-		}
-		else if (g_pad[0].IsTrigger(enButtonDown))
-		{
-			if (count < 3)
-			{
-				m_pmms[count]->notSelect();
-				count += 3;
-				m_pmms[count]->yesSelect();
-			}
-		}
-		else if (g_pad[0].IsTrigger(enButtonUp))
-		{
-			if (count > 2)
-			{
-				m_pmms[count]->notSelect();
-				count -= 3;
-				m_pmms[count]->yesSelect();
-			}
-		}
-		else if (g_pad[0].IsTrigger(enButtonLeft))
-		{
-			if (count != 0 && count != 3)
-			{
-				m_pmms[count]->notSelect();
-				count--;
-				m_pmms[count]->yesSelect();
-			}
-		}
-		else if (g_pad[0].IsTrigger(enButtonRight))
-		{
-			if (count != 2 && count != 5)
-			{
-				m_pmms[count]->notSelect();
-				count++;
-				m_pmms[count]->yesSelect();
-			}
-		}
-	}
-
-	if (g_pad[0].IsTrigger(enButtonA))
-	{
-		if (curpos == 6)
-		{
-			Game* game = NewGO<Game>(0, "Game");
-			//game->GamePVPmodeInit(m_files, monai);.
-
-			DeleteGO(this);
-		}
-		else if (!sel)
-		{
-			sel = true;
-		}
-		else
-		{
-			sel = false;
-		}
-	}
-
-	if (!sel)
-	{
-		if (g_pad[0].IsTrigger(enButtonB))
-		{
-			NewGO<ModeSelect>(0, "modesel");
-			DeleteGO(this);
-		}
-		else if (g_pad[0].IsTrigger(enButtonDown))
-		{
-			if (curpos < 5 + 1)
-			{
-				curpos++;
-			}
-		}
-		else if (g_pad[0].IsTrigger(enButtonUp))
-		{
-			if (curpos > 0)
-			{
-				curpos--;
-			}
-		}
-	}
-	else
-	{
-		if (g_pad[0].IsTrigger(enButtonLeft))
-		{
-			if (monai[curpos] > 0)
-			{
-				monai[curpos]--;
-			}
-		}
-		else if (g_pad[0].IsTrigger(enButtonRight))
-		{
-			if (monai[curpos] < m_files.size() - 1)
-			{
-				monai[curpos]++;
-			}
 		}
 	}
 }
