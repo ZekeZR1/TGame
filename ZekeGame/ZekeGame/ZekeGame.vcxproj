@@ -237,6 +237,7 @@
     <ClCompile Include="Game\AIEdit\AIEditMode.cpp" />
     <ClCompile Include="Game\AIEdit\AIEditNode.cpp" />
     <ClCompile Include="Game\AIEdit\AIEditNodeHp.cpp" />
+    <ClCompile Include="Game\Dungeon\DungeonAISelect.cpp" />
     <ClCompile Include="Game\Dungeon\DungeonSelect.cpp" />
     <ClCompile Include="Game\Game.cpp" />
     <ClCompile Include="Game\GameCamera2D.cpp" />
@@ -367,6 +368,7 @@
     <ClInclude Include="Game\AIEdit\AIEditMode.h" />
     <ClInclude Include="Game\AIEdit\AIEditNode.h" />
     <ClInclude Include="Game\AIEdit\AIEditNodeHp.h" />
+    <ClInclude Include="Game\Dungeon\DungeonAISelect.h" />
     <ClInclude Include="Game\Dungeon\DungeonSelect.h" />
     <ClInclude Include="Game\Game.h" />
     <ClInclude Include="Game\GameCamera2D.h" />
@@ -516,6 +518,12 @@
     <MeshContentTask Include="Assets\modelData\uma\uma.fbx" />
   </ItemGroup>
   <ItemGroup>
+    <ImageContentTask Include="Assets\Sprite\GUI\button\sb_cancel.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\button\sb_OK.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\button\simple_button.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\button\simple_button_blue.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\GO.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\DadanDanBk.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\DungeonSpS.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\DungeonSp.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\d2.png" />
