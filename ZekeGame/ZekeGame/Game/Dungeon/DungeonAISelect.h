@@ -1,13 +1,15 @@
 #pragma once
+#include "../Title/SuperMonsterSelect.h"
 class PMMonster;
 
-class DungeonAISelect : public GameObject
+class DungeonAISelect : public SuperMonsterSelect
 {
 public:
 	DungeonAISelect();
 	~DungeonAISelect();
 	bool Start() override;
 	void Update() override;
+	//std::vector<std::string> GetFiles() override;
 	void SetDungeonNumber(int n) {
 		m_dunNum = n;
 	}
@@ -23,7 +25,7 @@ private:
 	std::vector<PMMonster*> m_pmms;
 	SpriteRender* m_GO = nullptr;
 private:
-	const int m_numPmm = 3;
+	const int m_numPmm = 6;
 	int m_dunNum = -1;
 	SpriteRender* m_dunSp = nullptr;
 	FontRender* m_font = nullptr;
