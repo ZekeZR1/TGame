@@ -533,6 +533,9 @@
     <ClCompile Include="Game\Title\AIMSelect.cpp">
       <Filter>ソース ファイル\Game\AIMonsterSelect</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Title\SuperMonsterSelect.cpp">
+      <Filter>ソース ファイル\Game\AIMonsterSelect</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\character\CharacterController.h">
@@ -1178,6 +1181,9 @@
       <Filter>ソース ファイル\Game</Filter>
     </ClInclude>
     <ClInclude Include="Game\Title\AIMSelect.h">
+      <Filter>ソース ファイル\Game\AIMonsterSelect</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Title\SuperMonsterSelect.h">
       <Filter>ソース ファイル\Game\AIMonsterSelect</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,8 +1,9 @@
 #pragma once
-
+#include "SuperMonsterSelect.h"
 class PMMonster;
 class GameCursor;
-class PvPModeSelect :public GameObject
+class SuperMonsterSelect;
+class PvPModeSelect :public SuperMonsterSelect
 {
 public:
 	~PvPModeSelect();

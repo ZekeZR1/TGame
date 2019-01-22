@@ -1,6 +1,7 @@
 #pragma once
 
 class PvPModeSelect;
+class SuperMonsterSelect;
 class PMMonster;
 class AISelect;
 class MonsterSelect;
@@ -31,7 +32,7 @@ public:
 private:
 	GameCursor* m_cursor = nullptr;
 
-	PvPModeSelect* m_ppms = nullptr;
+	SuperMonsterSelect* m_ppms = nullptr;
 	PMMonster* m_pmm = nullptr;
 
 	AISelect* m_AIS = nullptr;
