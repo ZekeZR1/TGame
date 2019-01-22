@@ -3,6 +3,7 @@
 #include "PMMonster.h"
 #include "AIMSelect.h"
 #include <string>
+#include "SuperMonsterSelect.h"
 #include "pvpModeSelect.h"
 #include "../GameCursor.h"
 #include "IconAI.h"
@@ -24,7 +25,7 @@ bool AISelect::Start()
 	m_back->Init(L"Assets/sprite/ai_main.dds", 1280, 720,true);
 
 	
-	m_ppms = FindGO<PvPModeSelect>("pvp");
+	m_ppms = FindGO<SuperMonsterSelect>("pvp");
 	int count = m_ppms->GetFiles().size();
 
 	CVector3 pos = { -454,316.5f,0 };

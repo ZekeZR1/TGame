@@ -54,13 +54,10 @@ void DungeonSelect::Update() {
 		i->SetCollisionTarget(m_cur->GetCursor());
 		if (Mouse::isTrigger(enLeftClick)) {
 			if (i->isCollidingTarget()) {
-				NewGO<DungeonAISelect>(0, "DungeonAISelect");
+				auto dunAi = NewGO<DungeonAISelect>(0, "pvp");
 				int dunNum = m_dungeonButton[i];
-				StageSetup::DungeonSetup(dunNum);
+				dunAi->SetDungeonNumber(dunNum);
 				DeleteGO(this);
-				//NewGO<
-				//FontRender* fnt = m_dungeonButton[i];
-				//fnt->SetColor(CVector4::Red);
 			}
 		}
 	}

@@ -1,5 +1,6 @@
 #pragma once
 
+class SuperMonsterSelect;
 class PvPModeSelect;
 class AIMSelect;
 class GameCursor;
@@ -24,6 +25,6 @@ private:
 	float m_scroll = 316.5f;
 
 	std::vector<IconAI*> m_icons;
-	PvPModeSelect* m_ppms = nullptr;
+	SuperMonsterSelect* m_ppms = nullptr;
 	CFont font;
 };
