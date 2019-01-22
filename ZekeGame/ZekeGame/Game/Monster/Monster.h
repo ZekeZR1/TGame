@@ -91,10 +91,7 @@ public:
 
 	//ポジションを設定する
 	//v: 設定するポジション
-	void Setpos(CVector3 v)
-	{
-		m_pos = v;
-	}
+	void Setpos(CVector3 v);
 
 	//スピードを返す
 	CVector3 Getspeed()

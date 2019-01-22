@@ -160,6 +160,12 @@ void Monster::Knockback()
 	}
 }
 
+void Monster::Setpos(CVector3 v)
+{
+	m_pos = v;
+	m_smr->SetPosition(v);
+}
+
 void Monster::SetRotation(CQuaternion rot)
 {
 	m_smr->SetRotation(rot);
