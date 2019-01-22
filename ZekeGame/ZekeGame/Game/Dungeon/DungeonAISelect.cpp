@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include <string>
 #include "../Title/ModeSelect.h"
+#include "../GameData.h"
 #include "../GameCursor.h"
 #include "../Title/SuperMonsterSelect.h"
 #include "../StageSetup/StageSetup.h"
@@ -72,16 +73,24 @@ void DungeonAISelect::Update() {
 	{
 		if (Mouse::isTrigger(enLeftClick))
 		{
-			MonsterID moid[3];
+			MonsterID moid[6];
 			for (int i = 0; i < m_numPmm; i++)
 			{
 				moid[i] = (MonsterID)m_pmms[i]->GetMonsterID();
 				monai[i] = m_pmms[i]->GetAI();
 			}
+
+			moid[3] = enTest;
+			monai[3] = 3;
+			moid[4] = enTest;
+			monai[4] = 2;
+			moid[5] = enTest;
+			monai[5] = 4;
+
 			Game* game = NewGO<Game>(0, "Game");
 			////game->GamePVPmodeInit(m_files, monai,moid);
 			//StageSetup::PVPSetup(m_files, monai, moid);
-			StageSetup::DungeonSetup(m_dunNum);
+			StageSetup::DungeonSetup(m_files, monai, moid,m_dunNum);
 			DeleteGO(this);
 		}
 	}
