@@ -73,12 +73,13 @@ void Win::MonsterSet()
 			mons.push_back(mon);
 		}
 	}
+	CVector3 poss[3] = { {0,0,0},{10,5,0},{-10,5,0} };
 	CVector3 pos = CVector3::Zero();
 	for (int i = 0; i < mons.size(); i++)
 	{
-		CVector3 add = { 30,0,0 };
-		pos += add * i;
-		mons[i]->Setpos(pos);
+		//CVector3 add = { 30,0,0 };
+		//pos += add * i;
+		mons[i]->Setpos(poss[i]);
 		mons[i]->SetRotation(CQuaternion::Identity());
 	}
 }
