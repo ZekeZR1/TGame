@@ -1,5 +1,8 @@
 #include "stdafx.h"
+#include "SuperMonsterSelect.h"
 #include "pvpModeSelect.h"
+
+
 #include <string>
 #include "../GameCursor.h"
 

@@ -2,6 +2,7 @@
 #include "AIMSelect.h"
 
 #include "../GameCursor.h"
+#include "SuperMonsterSelect.h"
 #include "pvpModeSelect.h"
 #include "PMMonster.h"
 
@@ -20,7 +21,7 @@ AIMSelect::~AIMSelect()
 
 bool AIMSelect::Start()
 {
-	m_ppms = FindGO<PvPModeSelect>("pvp");
+	m_ppms = FindGO<SuperMonsterSelect>("pvp");
 	m_cursor = FindGO<GameCursor>("cursor");
 
 	m_AIS = NewGO<AISelect>(0, "ais");
