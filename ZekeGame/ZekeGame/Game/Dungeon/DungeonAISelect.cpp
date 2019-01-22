@@ -1,6 +1,8 @@
 #include "stdafx.h"
 #include <string>
+#include "../Title/ModeSelect.h"
 #include "../GameCursor.h"
+#include "../Title/SuperMonsterSelect.h"
 #include "../StageSetup/StageSetup.h"
 #include "../Game.h"
 #include "../SaveLoad/PythonFileLoad.h"
@@ -70,7 +72,7 @@ void DungeonAISelect::Update() {
 	{
 		if (Mouse::isTrigger(enLeftClick))
 		{
-			MonsterID moid[3];
+			MonsterID moid[6];
 			for (int i = 0; i < m_numPmm; i++)
 			{
 				moid[i] = (MonsterID)m_pmms[i]->GetMonsterID();
@@ -82,6 +84,10 @@ void DungeonAISelect::Update() {
 			StageSetup::DungeonSetup(m_dunNum);
 			DeleteGO(this);
 		}
+	}
+	if (g_pad[0].IsTrigger(enButtonA)) {
+		DeleteGO(this);
+		NewGO<ModeSelect>(0, "modesel");
 	}
 }
 
