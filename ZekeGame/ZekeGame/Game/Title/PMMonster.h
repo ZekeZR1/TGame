@@ -27,6 +27,14 @@ public:
 	{
 		return (int)m_monid;
 	}
+
+	void SetMonsterID(MonsterID monid) {
+		m_monid = monid;
+	}
+	void SetAI(int ai) {
+		m_selAI;
+	}
+
 	int GetAI()
 	{
 		return m_selAI;
