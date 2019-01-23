@@ -2,6 +2,7 @@
 #include "Effect.h"
 #include "../ShaderResouceView.h"
 #include "../CRenderContext.h"
+#include "../Camera.h"
 #include "../CPrimitive.h"
 #include "../CShader.h"
 #include "../Shader.h"
@@ -39,6 +40,9 @@ public:
 	void Draw();
 	void Draww();
 
+	void ChangeCameraProjMatrix(Camera::EnUpdateProjMatrixFunc cameraMode) {
+		m_cameraMode = cameraMode;
+	}
 
 	void SetMulColor(const CVector4& col) {
 		m_mulCol = col;
@@ -47,6 +51,7 @@ public:
 		CMatrix WVP;		//ワールドビュープロジェクション行列。
 		CVector4 mulCol;
 	};
+	Camera::EnUpdateProjMatrixFunc m_cameraMode = Camera::enUpdateProjMatrixFunc_Ortho;
 	ID3D11Buffer*				m_vertexBuffer = NULL;					//頂点バッファ。
 	ID3D11Buffer*				m_indexBuffer = NULL;					//インデックスバッファ。
 	Effect						m_effect;								//エフェクト。気にしなくてよい。
