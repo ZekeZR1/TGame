@@ -1,6 +1,7 @@
 #pragma once
 
 #include "../graphics/Sprite/Sprite.h"
+#include "../graphics/Camera.h"
 
 class SpriteRender : public GameObject
 {
@@ -10,6 +11,9 @@ public:
 	bool Start() override;
 	void Update() override;
 	void PostRender() override;
+	void ChangeCameraProjMatrix(Camera::EnUpdateProjMatrixFunc cameraMode) {
+		m_sprite.ChangeCameraProjMatrix(cameraMode);
+	}
 
 	void SetMulCol(const CVector4& col) {
 		m_sprite.SetMulColor(col);

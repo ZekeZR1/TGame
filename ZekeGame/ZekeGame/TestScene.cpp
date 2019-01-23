@@ -49,8 +49,10 @@ bool TestScene::Start() {
 	m_sp1 = NewGO<SpriteRender>(1, "sp1");
 	m_sp1->Init(L"Assets/Sprite/PriTest1.dds", 300.f, 300.f);
 	m_sp1->SetPosition(CVector3::Zero());
+	m_sp1->ChangeCameraProjMatrix(Camera::enUpdateProjMatrixFunc_Perspective);
 	m_sp2 = NewGO<SpriteRender>(2, "sp2");
 	m_sp2->Init(L"Assets/Sprite/PriTest2.dds", 300.f, 300.f);
+	m_sp2->ChangeCameraProjMatrix(Camera::enUpdateProjMatrixFunc_Perspective);
 	m_font = NewGO<FontRender>(5, "font");
 	m_font->Init(L"Test", CVector2::Zero(), 0, CVector4::White, 1.f, { 0.5f, 0.5 });
 	return true;

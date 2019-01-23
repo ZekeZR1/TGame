@@ -1,158 +1,51 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <ItemGroup Label="ProjectConfigurations">
-    <ProjectConfiguration Include="Debug|Win32">
-      <Configuration>Debug</Configuration>
-      <Platform>Win32</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="Release|Win32">
-      <Configuration>Release</Configuration>
-      <Platform>Win32</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="Debug|x64">
-      <Configuration>Debug</Configuration>
-      <Platform>x64</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="Release|x64">
-      <Configuration>Release</Configuration>
-      <Platform>x64</Platform>
-    </ProjectConfiguration>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ImageContentTask Include="Assets\Sprite\GUI\GO.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\DadanDanBk.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\DungeonSpS.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\DungeonSp.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\d2.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\d1.png" />
+    <ImageContentTask Include="Assets\Sprite\PriTest1.png" />
+    <ImageContentTask Include="Assets\Sprite\PriTest2.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_back.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_none.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_one.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_two.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_even.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_main.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_odd.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_sel.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\dungeonG.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\dungeonW.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\kanshouG.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\kanshouW.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\easyeditG.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\easyeditW.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\pythoneditG.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\pythoneditW.png" />
+    <ImageContentTask Include="Assets\Sprite\kariline.png" />
+    <ImageContentTask Include="Assets\Sprite\Mp.png" />
+    <ImageContentTask Include="Assets\Sprite\karipoint.png" />
+    <ImageContentTask Include="Assets\Sprite\winkari.png" />
+    <ImageContentTask Include="Assets\Sprite\Hp.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\clear.png" />
+    <ImageContentTask Include="Assets\modelData\uma\uma.png" />
+    <ImageContentTask Include="Assets\modelData\uma\uma_eye.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\cursor.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\AIeditG.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\AIeditW.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\localpvpG.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\localpvpW.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\randompvpG.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\randompvpW.png" />
+    <ImageContentTask Include="Assets\Sprite\Test.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\button\sb_cancel.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\button\sb_OK.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\button\simple_button_blue.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\button\simple_button.png" />
   </ItemGroup>
-  <PropertyGroup Label="Globals">
-    <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{DD699856-A074-41E8-925F-5B771B6EC69E}</ProjectGuid>
-    <RootNamespace>ZekeGame</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
-  </PropertyGroup>
-  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
-    <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
-    <CharacterSet>MultiByte</CharacterSet>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
-    <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
-    <WholeProgramOptimization>true</WholeProgramOptimization>
-    <CharacterSet>MultiByte</CharacterSet>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
-    <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
-    <CharacterSet>MultiByte</CharacterSet>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
-    <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
-    <WholeProgramOptimization>true</WholeProgramOptimization>
-    <CharacterSet>MultiByte</CharacterSet>
-  </PropertyGroup>
-  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
-  <ImportGroup Label="ExtensionSettings">
-    <Import Project="$(VCTargetsPath)\BuildCustomizations\ImageContentTask.props" />
-    <Import Project="$(VCTargetsPath)\BuildCustomizations\MeshContentTask.props" />
-  </ImportGroup>
-  <ImportGroup Label="Shared">
-  </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <PropertyGroup Label="UserMacros" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(ProjectDir);$(ProjectDir)/bulletPhysics/src;$(ProjectDir)Engine\PhotonEngine;$(IncludePath)</IncludePath>
-    <LibraryPath>$(ProjectDir)/DirectXTK\Bin\Desktop_2015_Win10\x64\Debug;$(SolutionDir)/x64/Debug;$(ProjectDir)/exlib/Debug;$(ProjectDir)Engine\PhotonEngine\Common-cpp\lib;$(ProjectDir)Engine\PhotonEngine\LoadBalancing-cpp\lib;$(ProjectDir)Engine\PhotonEngine\Photon-cpp\lib;$(LibraryPath)</LibraryPath>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(ProjectDir);$(ProjectDir)/bulletPhysics/src;$(ProjectDir)Engine\PhotonEngine;$(IncludePath)</IncludePath>
-    <LibraryPath>$(ProjectDir)/DirectXTK\Bin\Desktop_2015_Win10\x64\Release;$(SolutionDir)/x64/Release;$(ProjectDir)exlib/Release;$(ProjectDir)Engine\PhotonEngine\Common-cpp\lib;$(ProjectDir)Engine\PhotonEngine\LoadBalancing-cpp\lib;$(ProjectDir)Engine\PhotonEngine\Photon-cpp\lib;$(LibraryPath)</LibraryPath>
-  </PropertyGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
-      <Optimization>Disabled</Optimization>
-      <SDLCheck>true</SDLCheck>
-      <ConformanceMode>true</ConformanceMode>
-    </ClCompile>
-    <Link>
-      <AdditionalDependencies>DirectXTK.lib;d3d11.lib;d3dcompiler.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <SubSystem>Windows</SubSystem>
-    </Link>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <ClCompile>
-      <WarningLevel>TurnOffAllWarnings</WarningLevel>
-      <Optimization>Disabled</Optimization>
-      <SDLCheck>true</SDLCheck>
-      <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>
-      </AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <PrecompiledHeader>Use</PrecompiledHeader>
-    </ClCompile>
-    <Link>
-      <AdditionalDependencies>DirectXTK.lib;kernel32.Lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;d3d11.lib;d3dcompiler.lib;%(AdditionalDependencies);xinput.lib;BulletCollision_Debug.lib;BulletDynamics_Debug.lib;LinearMath_Debug.lib;Effekseer.Debug.lib;EffekseerRendererDX11.Debug.lib;Photon-cpp_vc15_debug_windows_mt_x64.lib;Common-cpp_vc15_debug_windows_mt_x64.lib;LoadBalancing-cpp_vc15_debug_windows_mt_x64.lib;python36_d.lib</AdditionalDependencies>
-      <SubSystem>Windows</SubSystem>
-    </Link>
-    <ImageContentTask>
-      <ContentOutput>$(ProjectDir)\Assets\Sprite\%(Filename).dds</ContentOutput>
-      <GenerateMips>
-      </GenerateMips>
-    </ImageContentTask>
-    <MeshContentTask>
-      <ContentOutput>$(ProjectDir)\Assets\modelData\%(Filename).cmo</ContentOutput>
-    </MeshContentTask>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
-      <Optimization>MaxSpeed</Optimization>
-      <FunctionLevelLinking>true</FunctionLevelLinking>
-      <IntrinsicFunctions>true</IntrinsicFunctions>
-      <SDLCheck>true</SDLCheck>
-      <ConformanceMode>true</ConformanceMode>
-    </ClCompile>
-    <Link>
-      <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <OptimizeReferences>true</OptimizeReferences>
-    </Link>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
-      <Optimization>MaxSpeed</Optimization>
-      <FunctionLevelLinking>true</FunctionLevelLinking>
-      <IntrinsicFunctions>true</IntrinsicFunctions>
-      <SDLCheck>true</SDLCheck>
-      <ConformanceMode>true</ConformanceMode>
-      <PreprocessorDefinitions>_MBCS;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-    </ClCompile>
-    <Link>
-      <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>DirectXTK.lib;kernel32.Lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;d3d11.lib;d3dcompiler.lib;%(AdditionalDependencies);xinput.lib;BulletCollision.lib;BulletDynamics.lib;LinearMath.lib;dxguid.lib;Effekseer.Release.lib;EffekseerRendererDX11.Release.lib;Photon-cpp_vc15_release_windows_mt_x64.lib;Common-cpp_vc15_release_windows_mt_x64.lib;LoadBalancing-cpp_vc15_release_windows_mt_x64.lib;python36.lib</AdditionalDependencies>
-    </Link>
-    <ImageContentTask>
-      <ContentOutput>$(ProjectDir)\Assets\Sprite\%(Filename).dds</ContentOutput>
-    </ImageContentTask>
-    <MeshContentTask>
-      <ContentOutput>$(ProjectDir)\Assets\modelData\%(Filename).cmo</ContentOutput>
-    </MeshContentTask>
-  </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Engine\character\CharacterController.cpp" />
     <ClCompile Include="Engine\Engine.cpp" />
@@ -226,9 +119,7 @@
     <ClCompile Include="Engine\physics\PhysicsStaticObject.cpp" />
     <ClCompile Include="Engine\physics\RigitBody.cpp" />
     <ClCompile Include="Engine\physics\SpriteBoxCollider.cpp" />
-    <ClCompile Include="Engine\PreCompile.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
-    </ClCompile>
+    <ClCompile Include="Engine\PreCompile.cpp" />
     <ClCompile Include="Engine\sound\SoundEngine.cpp" />
     <ClCompile Include="Engine\time\GameTime.cpp" />
     <ClCompile Include="Engine\window\Window.cpp" />
@@ -237,8 +128,6 @@
     <ClCompile Include="Game\AIEdit\AIEditMode.cpp" />
     <ClCompile Include="Game\AIEdit\AIEditNode.cpp" />
     <ClCompile Include="Game\AIEdit\AIEditNodeHp.cpp" />
-    <ClCompile Include="Game\Dungeon\DungeonAISelect.cpp" />
-    <ClCompile Include="Game\Dungeon\DungeonSelect.cpp" />
     <ClCompile Include="Game\Game.cpp" />
     <ClCompile Include="Game\GameCamera2D.cpp" />
     <ClCompile Include="Game\GameCamera3D.cpp" />
@@ -264,7 +153,6 @@
     <ClCompile Include="Game\Result\Win\Win_localPVP.cpp" />
     <ClCompile Include="Game\Result\Win\Win_randomPVP.cpp" />
     <ClCompile Include="Game\SaveLoad\PythonFileLoad.cpp" />
-    <ClCompile Include="Game\StageSetup\StageSelect.cpp" />
     <ClCompile Include="Game\StageSetup\StageSetup.cpp" />
     <ClCompile Include="Game\Title\AIeditModeSelect.cpp" />
     <ClCompile Include="Game\Title\AIMSelect.cpp" />
@@ -275,13 +163,19 @@
     <ClCompile Include="Game\Title\MonsterSelect.cpp" />
     <ClCompile Include="Game\Title\PMMonster.cpp" />
     <ClCompile Include="Game\Title\pvpModeSelect.cpp" />
-    <ClCompile Include="Game\Title\SuperMonsterSelect.cpp" />
     <ClCompile Include="Game\Title\Title.cpp" />
-    <ClCompile Include="stdafx.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
-    </ClCompile>
+    <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="TestScene.cpp" />
     <ClCompile Include="TestScene2.cpp" />
+    <ClCompile Include="Game\Dungeon\DungeonAISelect.cpp" />
+    <ClCompile Include="Game\Dungeon\DungeonSelect.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <MeshContentTask Include="Assets\modelData\stage\map.FBX" />
+    <MeshContentTask Include="Assets\modelData\Test.FBX" />
+    <MeshContentTask Include="Assets\modelData\testMons\tesEnemy2.fbx" />
+    <MeshContentTask Include="Assets\modelData\testMons\tesEnemy3.fbx" />
+    <MeshContentTask Include="Assets\modelData\uma\uma.fbx" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\character\CharacterController.h" />
@@ -369,7 +263,6 @@
     <ClInclude Include="Game\AIEdit\AIEditMode.h" />
     <ClInclude Include="Game\AIEdit\AIEditNode.h" />
     <ClInclude Include="Game\AIEdit\AIEditNodeHp.h" />
-    <ClInclude Include="Game\Dungeon\DungeonAISelect.h" />
     <ClInclude Include="Game\Dungeon\DungeonSelect.h" />
     <ClInclude Include="Game\Game.h" />
     <ClInclude Include="Game\GameCamera2D.h" />
@@ -495,7 +388,6 @@
     <ClInclude Include="Game\Result\Win\Win_localPVP.h" />
     <ClInclude Include="Game\Result\Win\Win_randomPVP.h" />
     <ClInclude Include="Game\SaveLoad\PythonFileLoad.h" />
-    <ClInclude Include="Game\StageSetup\StageSelect.h" />
     <ClInclude Include="Game\StageSetup\StageSetup.h" />
     <ClInclude Include="Game\Title\AIeditModeSelect.h" />
     <ClInclude Include="Game\Title\AIMSelect.h" />
@@ -506,106 +398,31 @@
     <ClInclude Include="Game\Title\MonsterSelect.h" />
     <ClInclude Include="Game\Title\PMMonster.h" />
     <ClInclude Include="Game\Title\pvpModeSelect.h" />
-    <ClInclude Include="Game\Title\SuperMonsterSelect.h" />
     <ClInclude Include="Game\Title\Title.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="TestScene.h" />
     <ClInclude Include="TestScene2.h" />
+    <ClInclude Include="Game\Dungeon\DungeonAISelect.h" />
   </ItemGroup>
   <ItemGroup>
-    <MeshContentTask Include="Assets\modelData\stage\map.FBX" />
-    <MeshContentTask Include="Assets\modelData\Test.FBX" />
-    <MeshContentTask Include="Assets\modelData\testMons\tesEnemy2.fbx" />
-    <MeshContentTask Include="Assets\modelData\testMons\tesEnemy3.fbx" />
-    <MeshContentTask Include="Assets\modelData\uma\uma.fbx" />
+    <CustomBuild Include="python36.lib" />
+    <CustomBuild Include="python36_d.lib" />
   </ItemGroup>
   <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\GUI\Stage\gameStage3.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\Stage\gameStage1.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\Stage\gameStage2.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\button\sb_cancel.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\button\sb_OK.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\button\simple_button.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\button\simple_button_blue.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\GO.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\DadanDanBk.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\DungeonSpS.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\DungeonSp.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\d2.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\d1.png" />
-    <ImageContentTask Include="Assets\Sprite\PriTest1.png" />
-    <ImageContentTask Include="Assets\Sprite\PriTest2.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_back.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_none.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_one.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_two.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_even.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_main.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_odd.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_sel.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\dungeonG.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\dungeonW.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\kanshouG.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\kanshouW.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\easyeditG.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\easyeditW.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\pythoneditG.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\pythoneditW.png" />
-    <ImageContentTask Include="Assets\Sprite\kariline.png" />
-    <ImageContentTask Include="Assets\Sprite\Mp.png" />
-    <ImageContentTask Include="Assets\Sprite\karipoint.png" />
-    <ImageContentTask Include="Assets\Sprite\winkari.png" />
     <Image Include="Assets\modelData\boxTex.png" />
     <Image Include="Assets\modelData\stage\handle010.jpg" />
     <Image Include="Assets\modelData\testMons\asu.png" />
-    <ImageContentTask Include="Assets\Sprite\Hp.png">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\clear.png" />
-    <ImageContentTask Include="Assets\modelData\uma\uma.png" />
-    <ImageContentTask Include="Assets\modelData\uma\uma_eye.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\cursor.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\AIeditG.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\AIeditW.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\localpvpG.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\localpvpW.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\randompvpG.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\randompvpW.png" />
-    <ImageContentTask Include="Assets\Sprite\Test.png" />
   </ItemGroup>
   <ItemGroup>
-    <CopyFileToFolders Include="Game\dlllib\python36.dll">
-      <FileType>Document</FileType>
-    </CopyFileToFolders>
-    <CopyFileToFolders Include="Game\dlllib\python36_d.dll">
-      <FileType>Document</FileType>
-    </CopyFileToFolders>
+    <CopyFileToFolders Include="Game\dlllib\python36.dll" />
+    <CopyFileToFolders Include="Game\dlllib\python36_d.dll" />
+    <CopyFileToFolders Include="PythonAIs\ang.py" />
+    <CopyFileToFolders Include="PythonAIs\CppBridge.py" />
+    <CopyFileToFolders Include="PythonAIs\testBrain.py" />
+    <CopyFileToFolders Include="PythonAIs\testBrain1.py" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Game\PythonBridge\include\pydtrace.d" />
-    <CopyFileToFolders Include="PythonAIs\ang.py">
-      <FileType>Document</FileType>
-    </CopyFileToFolders>
-    <CopyFileToFolders Include="PythonAIs\CppBridge.py">
-      <FileType>Document</FileType>
-    </CopyFileToFolders>
-    <CopyFileToFolders Include="PythonAIs\testBrain.py">
-      <FileType>Document</FileType>
-    </CopyFileToFolders>
-    <CopyFileToFolders Include="PythonAIs\testBrain1.py">
-      <FileType>Document</FileType>
-    </CopyFileToFolders>
     <None Include="PythonAIs\Threader.py" />
   </ItemGroup>
-  <ItemGroup>
-    <CustomBuild Include="python36.lib">
-      <FileType>Document</FileType>
-    </CustomBuild>
-    <CustomBuild Include="python36_d.lib">
-      <FileType>Document</FileType>
-    </CustomBuild>
-  </ItemGroup>
-  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
-  <ImportGroup Label="ExtensionTargets">
-    <Import Project="$(VCTargetsPath)\BuildCustomizations\ImageContentTask.targets" />
-    <Import Project="$(VCTargetsPath)\BuildCustomizations\MeshContentTask.targets" />
-  </ImportGroup>
 </Project>

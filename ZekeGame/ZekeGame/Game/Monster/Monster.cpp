@@ -53,6 +53,8 @@ bool Monster::Start()
 
 void Monster::Update()
 {
+	if (m_end)
+		return;
 	if (m_HP <= 0)
 	{
 		m_state = en_Dead;
@@ -158,6 +160,12 @@ void Monster::Knockback()
 		m_vKnockback -= m_vSubKnock;
 		m_vSubKnock /= 1.5f;
 	}
+}
+
+void Monster::Setpos(CVector3 v)
+{
+	m_pos = v;
+	m_smr->SetPosition(v);
 }
 
 void Monster::SetRotation(CQuaternion rot)

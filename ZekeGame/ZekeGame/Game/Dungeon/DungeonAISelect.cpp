@@ -30,6 +30,7 @@ DungeonAISelect::~DungeonAISelect()
 
 bool DungeonAISelect::Start() {
 	m_files = PythonFileLoad::FilesLoad();
+	m_enemyFiles = PythonFileLoad::FilesLoadEnemy();
 	m_cursor = NewGO<GameCursor>(0, "cursor");
 	CVector3 pos = { -320,0,0 };
 	//
@@ -80,17 +81,10 @@ void DungeonAISelect::Update() {
 				monai[i] = m_pmms[i]->GetAI();
 			}
 
-			moid[3] = enTest;
-			monai[3] = 3;
-			moid[4] = enTest;
-			monai[4] = 2;
-			moid[5] = enTest;
-			monai[5] = 4;
-
 			Game* game = NewGO<Game>(0, "Game");
 			////game->GamePVPmodeInit(m_files, monai,moid);
 			//StageSetup::PVPSetup(m_files, monai, moid);
-			StageSetup::DungeonSetup(m_files, monai, moid,m_dunNum);
+			StageSetup::DungeonSetup(m_files,m_enemyFiles, monai, moid,m_dunNum);
 			DeleteGO(this);
 		}
 	}
