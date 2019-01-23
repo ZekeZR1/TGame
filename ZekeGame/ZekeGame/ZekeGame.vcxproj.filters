@@ -165,6 +165,9 @@
     <Filter Include="ソース ファイル\Game\Assets\sprite\GUI\button">
       <UniqueIdentifier>{aa401819-9408-4d04-9aef-3b8b78a65b4a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Game\Assets\sprite\result">
+      <UniqueIdentifier>{3cff51a3-fc3d-4db1-8d0b-1bbbf62b3c8d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\character\CharacterController.cpp">
@@ -532,6 +535,12 @@
     </ClCompile>
     <ClCompile Include="Game\Title\AIMSelect.cpp">
       <Filter>ソース ファイル\Game\AIMonsterSelect</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Dungeon\DungeonAISelect.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Title\SuperMonsterSelect.cpp">
+      <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1180,6 +1189,8 @@
     <ClInclude Include="Game\Title\AIMSelect.h">
       <Filter>ソース ファイル\Game\AIMonsterSelect</Filter>
     </ClInclude>
+    <ClInclude Include="Game\Dungeon\DungeonAISelect.h" />
+    <ClInclude Include="Game\Title\SuperMonsterSelect.h" />
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\Test.FBX">
@@ -1323,6 +1334,33 @@
     </ImageContentTask>
     <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\d1.png">
       <Filter>リソース ファイル</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\button\sb_cancel.png">
+      <Filter>リソース ファイル</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\button\sb_OK.png">
+      <Filter>リソース ファイル</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\button\simple_button.png">
+      <Filter>リソース ファイル</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\button\simple_button_blue.png">
+      <Filter>リソース ファイル</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\GO.png">
+      <Filter>リソース ファイル</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\DadanDanBk.png">
+      <Filter>リソース ファイル</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\result\blueteamp.png">
+      <Filter>ソース ファイル\Game\Assets\sprite\result</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\result\redteamp.png">
+      <Filter>ソース ファイル\Game\Assets\sprite\result</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\result\win.png">
+      <Filter>ソース ファイル\Game\Assets\sprite\result</Filter>
     </ImageContentTask>
   </ItemGroup>
   <ItemGroup>
