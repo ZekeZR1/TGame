@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include <string>
 #include "../Title/ModeSelect.h"
+#include "../GameData.h"
 #include "../GameCursor.h"
 #include "../Title/SuperMonsterSelect.h"
 #include "../StageSetup/StageSetup.h"
@@ -78,10 +79,18 @@ void DungeonAISelect::Update() {
 				moid[i] = (MonsterID)m_pmms[i]->GetMonsterID();
 				monai[i] = m_pmms[i]->GetAI();
 			}
+
+			moid[3] = enTest;
+			monai[3] = 3;
+			moid[4] = enTest;
+			monai[4] = 2;
+			moid[5] = enTest;
+			monai[5] = 4;
+
 			Game* game = NewGO<Game>(0, "Game");
 			////game->GamePVPmodeInit(m_files, monai,moid);
 			//StageSetup::PVPSetup(m_files, monai, moid);
-			StageSetup::DungeonSetup(m_dunNum);
+			StageSetup::DungeonSetup(m_files, monai, moid,m_dunNum);
 			DeleteGO(this);
 		}
 	}
@@ -118,4 +127,9 @@ void DungeonAISelect::LoadFiles() {
 		}
 	} while (FindNextFile(hfind, &win32d));
 	FindClose(hfind);
+}
+
+
+std::vector<std::string> DungeonAISelect::GetFiles() {
+	return m_files;
 }

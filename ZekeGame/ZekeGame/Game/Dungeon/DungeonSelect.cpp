@@ -54,7 +54,6 @@ void DungeonSelect::Update() {
 		i->SetCollisionTarget(m_cur->GetCursor());
 		if (Mouse::isTrigger(enLeftClick)) {
 			if (i->isCollidingTarget()) {
-				//仕様上名前がpvpになってるよ。。。改良が待たれる。
 				auto dunAi = NewGO<DungeonAISelect>(0, "pvp");
 				int dunNum = m_dungeonButton[i];
 				dunAi->SetDungeonNumber(dunNum);
