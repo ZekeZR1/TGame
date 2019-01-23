@@ -45,6 +45,9 @@
     <ImageContentTask Include="Assets\Sprite\GUI\button\sb_OK.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\button\simple_button_blue.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\button\simple_button.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\Stage\gameStage2.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\Stage\gameStage1.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\Stage\gameStage3.png" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\character\CharacterController.cpp" />
@@ -169,6 +172,8 @@
     <ClCompile Include="TestScene2.cpp" />
     <ClCompile Include="Game\Dungeon\DungeonAISelect.cpp" />
     <ClCompile Include="Game\Dungeon\DungeonSelect.cpp" />
+    <ClCompile Include="Game\Title\SuperMonsterSelect.cpp" />
+    <ClCompile Include="Game\StageSetup\StageSelect.cpp" />
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\stage\map.FBX" />
@@ -403,6 +408,8 @@
     <ClInclude Include="TestScene.h" />
     <ClInclude Include="TestScene2.h" />
     <ClInclude Include="Game\Dungeon\DungeonAISelect.h" />
+    <ClInclude Include="Game\Title\SuperMonsterSelect.h" />
+    <ClInclude Include="Game\StageSetup\StageSelect.h" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="python36.lib" />
