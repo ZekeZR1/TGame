@@ -64,17 +64,19 @@ void Game::Update() {
 	/*if (g_pad[0].IsPress(enButtonDown)) {
 		pos.x += 50.0f;
 	}*/
-	m_model->SetPosition(pos);
-	camera->SetTarget(CVector3::Zero());
-	camera->SetPosition({ 0.0f, 350.0f, 1000.0f });
-	camera->Update();
+	
 	if (!m_END)
 	{
+		m_model->SetPosition(pos);
+		camera->SetTarget(CVector3::Zero());
+		camera->SetPosition({ 0.0f, 350.0f, 1000.0f });
+		camera->Update();
 		if (g_buddyCount == 0 || g_enemyCount == 0)
 		{
 			m_END = true;
 			int team = g_mons[0]->Getteam();
 			Win* win;
+			
 			QueryGOs<Monster>("monster", [&](auto obj)->bool
 			{
 				obj->ReleaseMAL();

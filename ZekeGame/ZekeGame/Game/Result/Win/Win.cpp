@@ -37,14 +37,14 @@ Win::~Win()
 void Win::init(int team)
 {
 	m_cam = NewGO<ResultCamera>(0, "rescam");
-	m_cam->SetPos({ 0,30,500 });
-	m_cam->SetTar(CVector3::Zero());
+	m_cam->SetPos({ 0,30,120 });
+	m_cam->SetTar({0,40,0});
 	m_team = team;
 	MonsterSet();
 	CameraSet();
 
-	m_sr = NewGO<SpriteRender>(0, "sr");
-	m_sr->Init(L"Assets/Sprite/clear.dds", 1280, 720);
+	//m_sr = NewGO<SpriteRender>(0, "sr");
+	//m_sr->Init(L"Assets/Sprite/clear.dds", 1280, 720);
 }
 
 bool Win::Start()
@@ -73,12 +73,14 @@ void Win::MonsterSet()
 			mons.push_back(mon);
 		}
 	}
+	CVector3 poss[3] = { {0,0,0},{30,0,5},{-30,0,5} };
 	CVector3 pos = CVector3::Zero();
 	for (int i = 0; i < mons.size(); i++)
 	{
-		CVector3 add = { 30,0,0 };
-		pos += add * i;
-		mons[i]->Setpos(pos);
+		//CVector3 add = { 30,0,0 };
+		//pos += add * i;
+		mons[i]->end();
+		mons[i]->Setpos(poss[i]);
 		mons[i]->SetRotation(CQuaternion::Identity());
 	}
 }
