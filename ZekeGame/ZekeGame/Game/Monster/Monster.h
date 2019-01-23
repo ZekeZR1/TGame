@@ -91,10 +91,7 @@ public:
 
 	//ポジションを設定する
 	//v: 設定するポジション
-	void Setpos(CVector3 v)
-	{
-		m_pos = v;
-	}
+	void Setpos(CVector3 v);
 
 	//スピードを返す
 	CVector3 Getspeed()
@@ -198,6 +195,11 @@ public:
 		en_recovery,
 	};
 
+	void end()
+	{
+		m_end = true;
+	}
+
 protected:
 	const char* m_pyFile = NULL;				//使うpythonファイルの名前
 	int m_ID = 0;								//モンスターの種類を判断するためのID
@@ -236,4 +238,6 @@ protected:
 	int m_AnimNum = 0;							//アニメーションの個数
 
 	float m_time = 0.0f;
+
+	bool m_end = false;
 };
