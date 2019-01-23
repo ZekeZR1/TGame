@@ -344,9 +344,6 @@
     <ClCompile Include="Engine\graphics\CCameraCollisionSlover.cpp">
       <Filter>ソース ファイル\Engine\graphics</Filter>
     </ClCompile>
-    <ClCompile Include="GameCamera.cpp">
-      <Filter>ソース ファイル\Game</Filter>
-    </ClCompile>
     <ClCompile Include="Engine\graphics\SpriteRender.cpp">
       <Filter>ソース ファイル\Engine\graphics\2D</Filter>
     </ClCompile>
@@ -542,6 +539,12 @@
     <ClCompile Include="Game\Title\SuperMonsterSelect.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="Game\StageSetup\StageSelect.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="GameCamera.cpp">
+      <Filter>ソース ファイル\Game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\character\CharacterController.h">
@@ -729,9 +732,6 @@
     </ClInclude>
     <ClInclude Include="Engine\graphics\Camera.h">
       <Filter>ソース ファイル\Engine\graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="GameCamera.h">
-      <Filter>ソース ファイル\Game</Filter>
     </ClInclude>
     <ClInclude Include="stdafx.h">
       <Filter>ソース ファイル\Game</Filter>
@@ -1191,6 +1191,10 @@
     </ClInclude>
     <ClInclude Include="Game\Dungeon\DungeonAISelect.h" />
     <ClInclude Include="Game\Title\SuperMonsterSelect.h" />
+    <ClInclude Include="Game\StageSetup\StageSelect.h" />
+    <ClInclude Include="GameCamera.h">
+      <Filter>ソース ファイル\Game</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\Test.FBX">
@@ -1353,14 +1357,14 @@
     <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\DadanDanBk.png">
       <Filter>リソース ファイル</Filter>
     </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\result\blueteamp.png">
-      <Filter>ソース ファイル\Game\Assets\sprite\result</Filter>
+    <ImageContentTask Include="Assets\Sprite\GUI\Stage\gameStage3.png">
+      <Filter>リソース ファイル</Filter>
     </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\result\redteamp.png">
-      <Filter>ソース ファイル\Game\Assets\sprite\result</Filter>
+    <ImageContentTask Include="Assets\Sprite\GUI\Stage\gameStage1.png">
+      <Filter>リソース ファイル</Filter>
     </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\result\win.png">
-      <Filter>ソース ファイル\Game\Assets\sprite\result</Filter>
+    <ImageContentTask Include="Assets\Sprite\GUI\Stage\gameStage2.png">
+      <Filter>リソース ファイル</Filter>
     </ImageContentTask>
   </ItemGroup>
   <ItemGroup>

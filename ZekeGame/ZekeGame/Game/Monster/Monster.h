@@ -38,6 +38,11 @@ public:
 		en_Execute,
 		en_Dead,
 	};
+	
+	int GetState()
+	{
+		return m_state;
+	}
 
 	//使うpythonのファイルを設定する
 	//st: ファイルの名前
@@ -120,6 +125,10 @@ public:
 		return m_front;
 	}
 
+	CQuaternion GetRotation()
+	{
+		return m_rot;
+	}
 	void SetRotation(CQuaternion rot);
 
 	//今歩いているかを設定する

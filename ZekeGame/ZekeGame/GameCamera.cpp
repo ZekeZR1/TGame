@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "GameCamera.h"
+#include "Game/GameData.h"
 
 GameCamera::GameCamera()
 {
@@ -34,12 +35,43 @@ GameCamera::~GameCamera()
 void GameCamera::Update() {
 	//camera2d->Update();
 
+	if (g_pad[0].IsTrigger(enButtonUp))
+	{
+		m_inm++;
+		if (m_inm >= 6)
+		{
+			m_inm = -1;
+		}
+	}
+	else if (g_pad[0].IsTrigger(enButtonDown))
+	{
+		m_inm--;
+		if (m_inm < -1)
+		{
+			m_inm = 5;
+		}
+	}
+
+	if (m_inm == -1)
+	{
+		normal();
+	}
+	else
+	{
+		focus();
+	}
+	
+	camera3d->Update();
+}
+
+void GameCamera::normal()
+{
 	SkinModelRender* i_model = nullptr;
 	i_model = FindGO<SkinModelRender>("model");
 	//m_target = i_model->GetPosition();
 	m_target = CVector3::Zero();
 
-	
+
 	float x = g_pad[0].GetRStickXF();
 	float y = g_pad[0].GetRStickYF();
 	//YŽ²Žü‚è‚Ì‰ñ“]
@@ -71,5 +103,27 @@ void GameCamera::Update() {
 
 	camera3d->SetTarget(m_target);
 	camera3d->SetPosition(pos);
-	camera3d->Update();
+}
+
+void GameCamera::focus()
+{
+	if (g_mons[m_inm] == nullptr)
+	{
+		m_inm--;
+	}
+	CQuaternion rot = g_mons[m_inm]->GetRotation();
+	CVector3 vec = CVector3::Front();
+	rot.Multiply(vec);
+
+	CVector3 pos = g_mons[m_inm]->Getpos();
+	CVector3 ms = g_mons[m_inm]->Getspeed();
+	
+	ms.Normalize();
+	CVector3 cpo = pos + vec * -250;
+	cpo.y += 150;
+
+	CVector3 cta = pos + vec * 250;
+	camera3d->SetTarget(cta);
+	camera3d->SetPosition(cpo);
+
 }

@@ -29,7 +29,6 @@ private:
 	CVector3 m_addpos = CVector3::Zero();
 	CVector3 m_addtar = CVector3::Zero();
 
-	
 	bool m_cmove = true;
 
 	SpriteRender* m_srwin = nullptr;
