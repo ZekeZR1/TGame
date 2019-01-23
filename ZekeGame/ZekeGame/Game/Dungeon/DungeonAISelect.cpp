@@ -84,7 +84,7 @@ void DungeonAISelect::Update() {
 			Game* game = NewGO<Game>(0, "Game");
 			////game->GamePVPmodeInit(m_files, monai,moid);
 			//StageSetup::PVPSetup(m_files, monai, moid);
-			StageSetup::DungeonSetup(m_files,m_enemyFiles, monai, moid,m_dunNum);
+			StageSetup::DungeonSetup(m_files,m_enemyFiles, monai, moid, m_dunNum);
 			DeleteGO(this);
 		}
 	}
