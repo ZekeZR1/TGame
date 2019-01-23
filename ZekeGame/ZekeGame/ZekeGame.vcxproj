@@ -518,6 +518,9 @@
     <MeshContentTask Include="Assets\modelData\uma\uma.fbx" />
   </ItemGroup>
   <ItemGroup>
+    <ImageContentTask Include="Assets\Sprite\result\blueteamp.png" />
+    <ImageContentTask Include="Assets\Sprite\result\redteamp.png" />
+    <ImageContentTask Include="Assets\Sprite\result\win.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\button\sb_cancel.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\button\sb_OK.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\button\simple_button.png" />

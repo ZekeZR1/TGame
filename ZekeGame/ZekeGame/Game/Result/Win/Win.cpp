@@ -37,14 +37,27 @@ Win::~Win()
 void Win::init(int team)
 {
 	m_cam = NewGO<ResultCamera>(0, "rescam");
-	m_cam->SetPos({ 0,30,120 });
-	m_cam->SetTar({0,40,0});
+
+	m_firstpos = { -350,10,500 };
+	m_firsttar = { 0,30,0 };
+
+	m_cam->SetPos(m_firstpos);
+	m_cam->SetTar(m_firsttar);
+
+	m_lastpos = { -35,50,50 };
+	m_lasttar = { 0,55,0 };
+
+	m_addpos = (m_lastpos - m_firstpos) / 8.0f;
+	m_addtar = (m_lasttar - m_firsttar) / 8.0f;
+
 	m_team = team;
 	MonsterSet();
 	CameraSet();
 
 	//m_sr = NewGO<SpriteRender>(0, "sr");
 	//m_sr->Init(L"Assets/Sprite/clear.dds", 1280, 720);
+
+	
 }
 
 bool Win::Start()
@@ -58,6 +71,34 @@ void Win::Update()
 	if (g_pad[0].IsTrigger(enButtonA))
 	{
 		DeleteGO(this);
+	}
+
+	if (m_cmove)
+	{
+		m_firstpos += m_addpos;
+		m_firsttar += m_addtar;
+		m_cam->SetPos(m_firstpos);
+		m_cam->SetTar(m_firsttar);
+
+		if ((m_firstpos - m_lastpos).Length() < 0.5f)
+		{
+			m_srwin = NewGO<SpriteRender>(0, "sr");
+			m_srwin->Init(L"Assets/sprite/win.dds", 462, 262);
+			m_srwin->SetPosition({ -410,160,0 });
+
+			m_srteam = NewGO<SpriteRender>(0, "sr");
+			if (m_team == 0)
+			{
+				m_srteam->Init(L"Assets/sprite/redteamp.dds", 768.0f, 315.75f);
+			}
+			else
+			{
+				m_srteam->Init(L"Assets/sprite/blueteamp.dds", 795.75f, 315.75f);
+			}
+			m_srteam->SetPosition({ -240,-210,0 });
+
+			m_cmove = false;
+		}
 	}
 }
 
@@ -73,7 +114,7 @@ void Win::MonsterSet()
 			mons.push_back(mon);
 		}
 	}
-	CVector3 poss[3] = { {0,0,0},{30,0,5},{-30,0,5} };
+	CVector3 poss[3] = { {0,0,0},{30,0,-10},{-30,0,-10} };
 	CVector3 pos = CVector3::Zero();
 	for (int i = 0; i < mons.size(); i++)
 	{
