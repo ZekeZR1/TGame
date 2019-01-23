@@ -264,8 +264,14 @@ void Sprite::Draw()
 
 	ConstantBuffer cb;
 	cb.WVP = m_world;
-	cb.WVP.Mul(cb.WVP, camera2d->GetViewMatrix());
-	cb.WVP.Mul(cb.WVP, camera2d->GetProjectionMatrix());
+	if (m_cameraMode == Camera::enUpdateProjMatrixFunc_Ortho) {
+		cb.WVP.Mul(cb.WVP, camera2d->GetViewMatrix());
+		cb.WVP.Mul(cb.WVP, camera2d->GetProjectionMatrix());
+	}
+	else if(m_cameraMode == Camera::enUpdateProjMatrixFunc_Perspective){
+		cb.WVP.Mul(cb.WVP, camera3d->GetViewMatrix());
+		cb.WVP.Mul(cb.WVP, camera3d->GetProjectionMatrix());
+	}
 	cb.mulCol = m_mulCol;
 	ge->GetD3DDeviceContext()->UpdateSubresource(m__cb, 0, NULL, &cb, 0, 0);
 	ge->GetD3DDeviceContext()->VSSetConstantBuffers(0, 1, &m__cb);
