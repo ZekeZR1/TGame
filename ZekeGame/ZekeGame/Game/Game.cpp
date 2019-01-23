@@ -91,7 +91,7 @@ void Game::Update() {
 			case enRandomPVP:
 
 				break;
-			case enAdventure:
+			case enDungeon:
 				break;
 			}
 		}

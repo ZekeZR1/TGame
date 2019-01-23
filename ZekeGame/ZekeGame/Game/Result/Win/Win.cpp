@@ -31,6 +31,8 @@ Win::~Win()
 	NewGO<PvPModeSelect>(0, "pvp");
 	DeleteGO(m_sr);
 	DeleteGO(m_cam);
+	DeleteGO(m_srteam);
+	DeleteGO(m_srwin);
 	DeleteGO(FindGO<Game>("Game"));
 }
 

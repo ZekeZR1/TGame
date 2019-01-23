@@ -22,7 +22,7 @@ public:
 	{
 		enLocalPVP,
 		enRandomPVP,
-		enAdventure
+		enDungeon
 	};
 
 private:
