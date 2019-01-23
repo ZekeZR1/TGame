@@ -17,6 +17,7 @@ public:
 private:
 	CFont font;
 	std::vector<std::string> m_files;
+	std::vector<std::string> m_enemyFiles;
 	int monai[6] = { 0 };
 	int curpos = 0;
 	bool sel = false;

@@ -264,6 +264,7 @@
     <ClCompile Include="Game\Result\Win\Win_localPVP.cpp" />
     <ClCompile Include="Game\Result\Win\Win_randomPVP.cpp" />
     <ClCompile Include="Game\SaveLoad\PythonFileLoad.cpp" />
+    <ClCompile Include="Game\StageSetup\StageSelect.cpp" />
     <ClCompile Include="Game\StageSetup\StageSetup.cpp" />
     <ClCompile Include="Game\Title\AIeditModeSelect.cpp" />
     <ClCompile Include="Game\Title\AIMSelect.cpp" />
@@ -494,6 +495,7 @@
     <ClInclude Include="Game\Result\Win\Win_localPVP.h" />
     <ClInclude Include="Game\Result\Win\Win_randomPVP.h" />
     <ClInclude Include="Game\SaveLoad\PythonFileLoad.h" />
+    <ClInclude Include="Game\StageSetup\StageSelect.h" />
     <ClInclude Include="Game\StageSetup\StageSetup.h" />
     <ClInclude Include="Game\Title\AIeditModeSelect.h" />
     <ClInclude Include="Game\Title\AIMSelect.h" />
@@ -518,9 +520,9 @@
     <MeshContentTask Include="Assets\modelData\uma\uma.fbx" />
   </ItemGroup>
   <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\result\blueteamp.png" />
-    <ImageContentTask Include="Assets\Sprite\result\redteamp.png" />
-    <ImageContentTask Include="Assets\Sprite\result\win.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\Stage\gameStage3.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\Stage\gameStage1.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\Stage\gameStage2.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\button\sb_cancel.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\button\sb_OK.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\button\simple_button.png" />
