@@ -53,6 +53,8 @@ bool Monster::Start()
 
 void Monster::Update()
 {
+	if (m_end)
+		return;
 	if (m_HP <= 0)
 	{
 		m_state = en_Dead;
