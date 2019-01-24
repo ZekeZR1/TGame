@@ -1399,6 +1399,9 @@
     <ImageContentTask Include="Assets\Sprite\marker\mark_red.png">
       <Filter>ソース ファイル\Game\Assets\sprite\marker</Filter>
     </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\result\lose.png">
+      <Filter>ソース ファイル\Game\Assets\sprite\result</Filter>
+    </ImageContentTask>
   </ItemGroup>
   <ItemGroup>
     <CopyFileToFolders Include="Game\dlllib\python36_d.dll">
