@@ -47,6 +47,7 @@ void DungeonSelect::OnDestroy() {
 		DeleteGO(font);
 	}
 	m_dungeonButton.clear();
+	DeleteGO(m_cur);
 }
 
 void DungeonSelect::Update() {

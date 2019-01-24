@@ -520,6 +520,9 @@
     <MeshContentTask Include="Assets\modelData\uma\uma.fbx" />
   </ItemGroup>
   <ItemGroup>
+    <ImageContentTask Include="Assets\Sprite\GUI\MonActList\actBlock.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\MonActList\backBlue.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\MonActList\backRed.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\Stage\gameStage3.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\Stage\gameStage1.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\Stage\gameStage2.png" />
