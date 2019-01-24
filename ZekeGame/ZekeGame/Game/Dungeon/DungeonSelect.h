@@ -1,5 +1,7 @@
 #pragma once
 
+class GameCursor;
+
 class DungeonSelect : public GameObject
 {
 public:
