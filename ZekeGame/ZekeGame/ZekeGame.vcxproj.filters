@@ -1238,6 +1238,9 @@
     <Image Include="Assets\modelData\stage\handle010.jpg">
       <Filter>ソース ファイル\Game\Assets\modelData\Stage</Filter>
     </Image>
+    <Image Include="Assets\Sprite\GUI\button1.png">
+      <Filter>ソース ファイル\Game\Assets\sprite\GUI</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <ImageContentTask Include="Assets\Sprite\Test.png">
