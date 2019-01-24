@@ -7,6 +7,7 @@
 #include "../StageSetup/StageSetup.h"
 #include "../Game.h"
 #include "../SaveLoad/PythonFileLoad.h"
+#include "../StageSetup/StageSelect.h"
 #include "../Title/ModeSelect.h"
 #include "../Title/PMMonster.h"
 #include "DungeonAISelect.h"
@@ -81,10 +82,12 @@ void DungeonAISelect::Update() {
 				monai[i] = m_pmms[i]->GetAI();
 			}
 
-			Game* game = NewGO<Game>(0, "Game");
+			//Game* game = NewGO<Game>(0, "Game");
 			////game->GamePVPmodeInit(m_files, monai,moid);
 			//StageSetup::PVPSetup(m_files, monai, moid);
-			StageSetup::DungeonSetup(m_files,m_enemyFiles, monai, moid, m_dunNum);
+			//StageSetup::DungeonSetup(m_files,m_enemyFiles, monai, moid, m_dunNum);
+			auto select = NewGO<StageSelect>(0, "selectScene");
+			select->SetDungeonGameData(m_files, m_enemyFiles, monai, moid, m_dunNum);
 			DeleteGO(this);
 		}
 	}
