@@ -525,6 +525,7 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\Sprite\GUI\button1.png" />
+    <ImageContentTask Include="Assets\Sprite\result\lose.png" />
     <ImageContentTask Include="Assets\Sprite\marker\mark_1.png" />
     <ImageContentTask Include="Assets\Sprite\marker\mark_2.png" />
     <ImageContentTask Include="Assets\Sprite\marker\mark_3.png" />
