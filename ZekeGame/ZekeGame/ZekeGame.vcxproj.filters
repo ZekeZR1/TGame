@@ -168,6 +168,9 @@
     <Filter Include="ソース ファイル\Game\Assets\sprite\result">
       <UniqueIdentifier>{3cff51a3-fc3d-4db1-8d0b-1bbbf62b3c8d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Game\Assets\sprite\marker">
+      <UniqueIdentifier>{5ce9d69d-6620-415b-8c95-94747c42ae9d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\character\CharacterController.cpp">
@@ -544,6 +547,12 @@
     </ClCompile>
     <ClCompile Include="GameCamera.cpp">
       <Filter>ソース ファイル\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\MonsterMarker.cpp">
+      <Filter>ソース ファイル\Game\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Result\DungeonResult.cpp">
+      <Filter>ソース ファイル\Game\Result</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1195,6 +1204,12 @@
     <ClInclude Include="GameCamera.h">
       <Filter>ソース ファイル\Game</Filter>
     </ClInclude>
+    <ClInclude Include="Game\Monster\MonsterMarker.h">
+      <Filter>ソース ファイル\Game\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Result\DungeonResult.h">
+      <Filter>ソース ファイル\Game\Result</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\Test.FBX">
@@ -1365,6 +1380,21 @@
     </ImageContentTask>
     <ImageContentTask Include="Assets\Sprite\GUI\Stage\gameStage2.png">
       <Filter>リソース ファイル</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\marker\mark_1.png">
+      <Filter>ソース ファイル\Game\Assets\sprite\marker</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\marker\mark_2.png">
+      <Filter>ソース ファイル\Game\Assets\sprite\marker</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\marker\mark_3.png">
+      <Filter>ソース ファイル\Game\Assets\sprite\marker</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\marker\mark_blue.png">
+      <Filter>ソース ファイル\Game\Assets\sprite\marker</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\marker\mark_red.png">
+      <Filter>ソース ファイル\Game\Assets\sprite\marker</Filter>
     </ImageContentTask>
   </ItemGroup>
   <ItemGroup>

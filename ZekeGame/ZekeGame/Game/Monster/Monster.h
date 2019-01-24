@@ -4,6 +4,7 @@
 class MonsterAction;
 class MonsterEffect;
 class MonsterActionList;
+class MonsterMarker;
 class PythonBridge;
 class Monster:public GameObject
 {
@@ -186,6 +187,7 @@ public:
 	}
 
 	void ReleaseMAL();
+	void ReleaseMark();
 
 	//アニメーションさせるときは必ずこいつらを使うこと。
 	void anim_idle();
@@ -241,6 +243,8 @@ protected:
 
 	MonsterActionList* m_MAL = nullptr;
 	bool m_dmal = false;
+
+	MonsterMarker* m_marker = nullptr;
 
 	MonsterEffect* m_effect;
 

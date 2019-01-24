@@ -12,6 +12,7 @@
 
 
 #include "Result/Win/Win.h"
+#include "Result/DungeonResult.h"
 
 Game::Game()
 {
@@ -36,7 +37,7 @@ void Game::GamePVPmodeInit(std::vector<std::string> files, int monsterAI[6],Mons
 {
 	ss = new StageSetup();
 	ss->PVPSetup(files, monsterAI,MonsterID);
-	playMode = enLocalPVP;
+	m_playMode = enLocalPVP;
 }
 
 bool Game::Start() {
@@ -76,13 +77,13 @@ void Game::Update() {
 			m_END = true;
 			int team = g_mons[0]->Getteam();
 			Win* win;
-			
+			DungeonResult* dr;
 			QueryGOs<Monster>("monster", [&](auto obj)->bool
 			{
 				obj->ReleaseMAL();
 				return true;
 			});
-			switch (playMode)
+			switch (m_playMode)
 			{
 			case enLocalPVP:
 				win = NewGO<Win>(0,"win");
@@ -92,6 +93,8 @@ void Game::Update() {
 
 				break;
 			case enDungeon:
+				dr = NewGO<DungeonResult>(0, "dr");
+				dr->init(team);
 				break;
 			}
 		}
