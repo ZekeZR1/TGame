@@ -180,3 +180,19 @@ void StageSetup::SetEnemyAI(int dun, int* monAI, MonsterID* monId) {
 		break;
 	}
 }
+
+void StageSetup::StageSet(int stage) {
+	switch (stage) {
+	case 0:
+	{
+		SkinModelRender* stageModel = NewGO<SkinModelRender>(0, "stageModel");
+		stageModel->Init(L"Assets/modelData/Test.cmo");
+		stageModel->SetPosition(CVector3::Zero());
+	}
+		break;
+	case 1:
+		break;
+	case 2:
+		break;
+	}
+}
