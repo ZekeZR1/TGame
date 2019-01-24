@@ -29,8 +29,7 @@ Game::~Game()
 	}
 	DeleteGO(m_model);
 	DeleteGO(m_sprite);
-	auto stage = FindGO<SkinModelRender>("stageModel");
-	DeleteGO(stage);
+	DeleteGO(FindGO<SkinModelRender>("stageModel"));
 	Engine::IEngine().DestroyNetworkSystem();
 	delete m_pi;
 }
