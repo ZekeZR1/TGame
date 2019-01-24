@@ -1,46 +1,45 @@
-//1
+//2
 #include "stdafx.h"
-#include "AIEditNode.h"
+#include "AIEditNodeInequ.h"
 
 #include "../GameCursor.h"
 
-// THIS IS CAMERA.
 #include "../../GameCamera.h"
 
-#include "AIEditNodeHp.h"
-#include "AIEditNodeInequ.h"
+#include "AIEditNode.h"
+#include "AIEditNodeNum.h"
 
-AIEditNode::~AIEditNode()
+AIEditNodeInequ::~AIEditNodeInequ()
 {
 	DeleteGO(m_spriteRender);
 	for (SpriteRender* sp : m_spriteRenders)
 	{
 		DeleteGO(sp);
 	}
-
 }
 
-
-
-bool AIEditNode::Start()
+bool AIEditNodeInequ::Start()
 {
-
 	m_gamecursor = FindGO<GameCursor>("cursor");
+	//m_aieditnode = FindGO<AIEditNode>("firstwin");
 
 	//UIの基盤
-	m_spriteRender = NewGO<SpriteRender>(1, "firstwin");
+	m_spriteRender = NewGO<SpriteRender>(3, "firstwinhp");
 	m_spriteRender->Init(L"Assets/sprite/winkari.dds", 150, 250);
 	CVector3 cursorpos = m_gamecursor->GetCursor();
+	cursorpos.x += 135.0f;
+	cursorpos.y += -140.0f;
 	m_position = cursorpos;
-	m_spriteRender->SetPosition(m_position);			//カーソルの座標
+	m_spriteRender->SetPosition(m_position);	//AIEditNodeのボタンの座標座標
+
 
 	int x = 35;			//ボタンのX座標
 	int y = 120;		//ボタンのY座標
-	
-	//ボタン専用
-	for (int i = 0; i < button; i++)		//iは数を回すだけのハム太郎  
+
+						//ボタン専用
+	for (int i = 0; i < 5; i++)		//iは数を回すだけのハム太郎  i<x xのところがボタンの数
 	{
-		x *= -1;					
+		x *= -1;
 
 		if (i % 2 == 0)
 		{
@@ -48,19 +47,20 @@ bool AIEditNode::Start()
 
 		}
 
-		SetPointPos(x,y);
-		sr = NewGO<SpriteRender>(2, "miniwin");
+		SetPointPos(x, y);
+		sr = NewGO<SpriteRender>(4, "miniwin");
 		sr->Init(L"Assets/sprite/karipoint.dds", 70, 50, true);
 		sr->SetPosition(m_pointposition);
 		m_spriteRenders.push_back(sr);
-		
+
 	}
 	return true;
 
 }
 
+
 //選択ボタンの手打ち補助
-void AIEditNode::SetPointPos(int numx, int numy)
+void AIEditNodeInequ::SetPointPos(int numx, int numy)
 {
 	//仮の値
 	float x = 0;
@@ -70,22 +70,23 @@ void AIEditNode::SetPointPos(int numx, int numy)
 	m_pointposition.x = x + numx;
 	m_pointposition.y = y + numy;
 
-
 }
 
-void AIEditNode::Inequ()
-{
-	if (Mouse::isTrigger(enLeftClick))	//左クリック
-	{
-		NewGO<AIEditNodeInequ>(0, "Inequality");
 
-		Choice1 = true;
+void AIEditNodeInequ::Num()
+{
+
+	if (Mouse::isTrigger(enLeftClick)) {	//左クリック
+		m_aieditnodenum = NewGO<AIEditNodeNum>(0, "Num");
+
+		Choice2 = true;
 	}
-
 }
 
-void AIEditNode::Update()
+
+void AIEditNodeInequ::Update()
 {
+	
 	CVector3 cursorpos = m_gamecursor->GetCursor();
 
 	for (int i = 0; i < button; i++) {
@@ -94,18 +95,15 @@ void AIEditNode::Update()
 
 	}
 
-	if (Choice1 == false) { //何も選択していないとき
+	if (Choice2 == false) { //何も選択していないとき
 
 		for (int i = 0; i < button; i++) {
 			if (m_spriteRenders[i]->isCollidingTarget())	//選択しているか	
 			{
-				Inequ();
-			
+				Num();
+
 			}
-			
+
 		}
-
 	}
-	
 }
-

@@ -45,6 +45,24 @@
     <ImageContentTask Include="Assets\Sprite\GUI\button\sb_OK.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\button\simple_button_blue.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\button\simple_button.png" />
+    <ImageContentTask Include="Assets\Sprite\line.png">
+      <Filter>AIEdit</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\click.png">
+      <Filter>AIEdit</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\masss.png">
+      <Filter>AIEdit</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\triangle.png">
+      <Filter>AIEdit</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\haik.png">
+      <Filter>AIEdit</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\arrow.png">
+      <Filter>AIEdit</Filter>
+    </ImageContentTask>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\character\CharacterController.cpp" />
@@ -169,6 +187,15 @@
     <ClCompile Include="TestScene2.cpp" />
     <ClCompile Include="Game\Dungeon\DungeonAISelect.cpp" />
     <ClCompile Include="Game\Dungeon\DungeonSelect.cpp" />
+    <ClCompile Include="Game\Title\SuperMonsterSelect.cpp" />
+    <ClCompile Include="Game\AIEdit\AIEditNodeInequ.cpp" />
+    <ClCompile Include="Game\AIEdit\AIEditNodeMass.cpp" />
+    <ClCompile Include="Game\AIEdit\AIEditNodeNum.cpp" />
+    <ClCompile Include="Game\AIEdit\AIEditNodeOrder.cpp" />
+    <ClCompile Include="Game\AIEdit\AIEditNodeClick.cpp" />
+    <ClCompile Include="Game\AIEdit\AIEditNodeIneq.cpp" />
+    <ClCompile Include="Game\AIEdit\AIEditNodeTriangle.cpp" />
+    <ClCompile Include="Game\AIEdit\AIEditNodeProcess.cpp" />
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\stage\map.FBX" />
@@ -403,6 +430,15 @@
     <ClInclude Include="TestScene.h" />
     <ClInclude Include="TestScene2.h" />
     <ClInclude Include="Game\Dungeon\DungeonAISelect.h" />
+    <ClInclude Include="Game\Title\SuperMonsterSelect.h" />
+    <ClInclude Include="Game\AIEdit\AIEditNodeInequ.h" />
+    <ClInclude Include="Game\AIEdit\AIEditNodeMass.h" />
+    <ClInclude Include="Game\AIEdit\AIEditNodeNum.h" />
+    <ClInclude Include="Game\AIEdit\AIEditNodeOrder.h" />
+    <ClInclude Include="Game\AIEdit\AIEditNodeClick.h" />
+    <ClInclude Include="Game\AIEdit\AIEditNodeIneq.h" />
+    <ClInclude Include="Game\AIEdit\AIEditNodeTriangle.h" />
+    <ClInclude Include="Game\AIEdit\AIEditNodeProcess.h" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="python36.lib" />
@@ -424,5 +460,10 @@
   <ItemGroup>
     <None Include="Game\PythonBridge\include\pydtrace.d" />
     <None Include="PythonAIs\Threader.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="AIEdit">
+      <UniqueIdentifier>{8ba90b8b-3c6b-4012-8040-03ed7d53be8c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>
