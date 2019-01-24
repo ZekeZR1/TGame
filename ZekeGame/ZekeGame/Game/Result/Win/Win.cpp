@@ -122,6 +122,8 @@ void Win::MonsterSet()
 	{
 		//CVector3 add = { 30,0,0 };
 		//pos += add * i;
+		mons[i]->ReleaseMark();
+
 		mons[i]->end();
 		mons[i]->Setpos(poss[i]);
 		mons[i]->SetRotation(CQuaternion::Identity());

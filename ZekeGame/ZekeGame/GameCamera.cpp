@@ -107,7 +107,7 @@ void GameCamera::normal()
 
 void GameCamera::focus()
 {
-	if (g_mons[m_inm] == nullptr)
+	while (g_mons[m_inm] == nullptr)
 	{
 		m_inm--;
 	}
@@ -116,9 +116,7 @@ void GameCamera::focus()
 	rot.Multiply(vec);
 
 	CVector3 pos = g_mons[m_inm]->Getpos();
-	CVector3 ms = g_mons[m_inm]->Getspeed();
 	
-	ms.Normalize();
 	CVector3 cpo = pos + vec * -250;
 	cpo.y += 150;
 

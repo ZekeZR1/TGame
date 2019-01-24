@@ -253,9 +253,11 @@
     <ClCompile Include="Game\Monster\MonsterActionList.cpp" />
     <ClCompile Include="Game\Monster\MonsterActionManeger.cpp" />
     <ClCompile Include="Game\Monster\MonsterEffect.cpp" />
+    <ClCompile Include="Game\Monster\MonsterMarker.cpp" />
     <ClCompile Include="Game\Monster\Monsters\TestMons.cpp" />
     <ClCompile Include="Game\Monster\Monsters\Uma.cpp" />
     <ClCompile Include="Game\PythonBridge\PythonBridge.cpp" />
+    <ClCompile Include="Game\Result\DungeonResult.cpp" />
     <ClCompile Include="Game\Result\Lose\Lose.cpp" />
     <ClCompile Include="Game\Result\Lose\Lose_localPVP.cpp" />
     <ClCompile Include="Game\Result\Lose\Lose_randomPVP.cpp" />
@@ -384,6 +386,7 @@
     <ClInclude Include="Game\Monster\MonsterActionList.h" />
     <ClInclude Include="Game\Monster\MonsterActionManeger.h" />
     <ClInclude Include="Game\Monster\MonsterEffect.h" />
+    <ClInclude Include="Game\Monster\MonsterMarker.h" />
     <ClInclude Include="Game\Monster\Monsters\TestMons.h" />
     <ClInclude Include="Game\Monster\Monsters\Uma.h" />
     <ClInclude Include="Game\PythonBridge\include\abstract.h" />
@@ -487,6 +490,7 @@
     <ClInclude Include="Game\PythonBridge\include\warnings.h" />
     <ClInclude Include="Game\PythonBridge\include\weakrefobject.h" />
     <ClInclude Include="Game\PythonBridge\PythonBridge.h" />
+    <ClInclude Include="Game\Result\DungeonResult.h" />
     <ClInclude Include="Game\Result\Lose\Lose.h" />
     <ClInclude Include="Game\Result\Lose\Lose_localPVP.h" />
     <ClInclude Include="Game\Result\Lose\Lose_randomPVP.h" />
@@ -520,6 +524,11 @@
     <MeshContentTask Include="Assets\modelData\uma\uma.fbx" />
   </ItemGroup>
   <ItemGroup>
+    <ImageContentTask Include="Assets\Sprite\marker\mark_1.png" />
+    <ImageContentTask Include="Assets\Sprite\marker\mark_2.png" />
+    <ImageContentTask Include="Assets\Sprite\marker\mark_3.png" />
+    <ImageContentTask Include="Assets\Sprite\marker\mark_blue.png" />
+    <ImageContentTask Include="Assets\Sprite\marker\mark_red.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\Stage\gameStage3.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\Stage\gameStage1.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\Stage\gameStage2.png" />
