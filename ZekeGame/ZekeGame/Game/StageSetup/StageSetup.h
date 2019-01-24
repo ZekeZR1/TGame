@@ -18,6 +18,7 @@ public:
 	~StageSetup();
 	static void PVPSetup(std::vector<std::string> files,int monsterAI[6],MonsterID monids[6]);
 	static void DungeonSetup(PyFile files,PyFile eneFile, int monsterAI[6], MonsterID monids[6],int DunNumber);
+	static void StageSet(int stageNumber);
 private:
-	static void SetEnemyAI(int, int*, MonsterID*);
+	static void SetEnemyAI(int, int* monAI, MonsterID* monId);
 };

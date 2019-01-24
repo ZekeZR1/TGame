@@ -165,6 +165,12 @@
     <Filter Include="ソース ファイル\Game\Assets\sprite\GUI\button">
       <UniqueIdentifier>{aa401819-9408-4d04-9aef-3b8b78a65b4a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Game\Assets\sprite\result">
+      <UniqueIdentifier>{3cff51a3-fc3d-4db1-8d0b-1bbbf62b3c8d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Game\Assets\sprite\marker">
+      <UniqueIdentifier>{5ce9d69d-6620-415b-8c95-94747c42ae9d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\character\CharacterController.cpp">
@@ -340,9 +346,6 @@
     </ClCompile>
     <ClCompile Include="Engine\graphics\CCameraCollisionSlover.cpp">
       <Filter>ソース ファイル\Engine\graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="GameCamera.cpp">
-      <Filter>ソース ファイル\Game</Filter>
     </ClCompile>
     <ClCompile Include="Engine\graphics\SpriteRender.cpp">
       <Filter>ソース ファイル\Engine\graphics\2D</Filter>
@@ -533,6 +536,24 @@
     <ClCompile Include="Game\Title\AIMSelect.cpp">
       <Filter>ソース ファイル\Game\AIMonsterSelect</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Dungeon\DungeonAISelect.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Title\SuperMonsterSelect.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\StageSetup\StageSelect.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="GameCamera.cpp">
+      <Filter>ソース ファイル\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\MonsterMarker.cpp">
+      <Filter>ソース ファイル\Game\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Result\DungeonResult.cpp">
+      <Filter>ソース ファイル\Game\Result</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\character\CharacterController.h">
@@ -720,9 +741,6 @@
     </ClInclude>
     <ClInclude Include="Engine\graphics\Camera.h">
       <Filter>ソース ファイル\Engine\graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="GameCamera.h">
-      <Filter>ソース ファイル\Game</Filter>
     </ClInclude>
     <ClInclude Include="stdafx.h">
       <Filter>ソース ファイル\Game</Filter>
@@ -1180,6 +1198,18 @@
     <ClInclude Include="Game\Title\AIMSelect.h">
       <Filter>ソース ファイル\Game\AIMonsterSelect</Filter>
     </ClInclude>
+    <ClInclude Include="Game\Dungeon\DungeonAISelect.h" />
+    <ClInclude Include="Game\Title\SuperMonsterSelect.h" />
+    <ClInclude Include="Game\StageSetup\StageSelect.h" />
+    <ClInclude Include="GameCamera.h">
+      <Filter>ソース ファイル\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\MonsterMarker.h">
+      <Filter>ソース ファイル\Game\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Result\DungeonResult.h">
+      <Filter>ソース ファイル\Game\Result</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\Test.FBX">
@@ -1207,6 +1237,9 @@
     </Image>
     <Image Include="Assets\modelData\stage\handle010.jpg">
       <Filter>ソース ファイル\Game\Assets\modelData\Stage</Filter>
+    </Image>
+    <Image Include="Assets\Sprite\GUI\button1.png">
+      <Filter>ソース ファイル\Game\Assets\sprite\GUI</Filter>
     </Image>
   </ItemGroup>
   <ItemGroup>
@@ -1323,6 +1356,51 @@
     </ImageContentTask>
     <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\d1.png">
       <Filter>リソース ファイル</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\button\sb_cancel.png">
+      <Filter>リソース ファイル</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\button\sb_OK.png">
+      <Filter>リソース ファイル</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\button\simple_button.png">
+      <Filter>リソース ファイル</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\button\simple_button_blue.png">
+      <Filter>リソース ファイル</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\GO.png">
+      <Filter>リソース ファイル</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\DadanDanBk.png">
+      <Filter>リソース ファイル</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\Stage\gameStage3.png">
+      <Filter>リソース ファイル</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\Stage\gameStage1.png">
+      <Filter>リソース ファイル</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\Stage\gameStage2.png">
+      <Filter>リソース ファイル</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\marker\mark_1.png">
+      <Filter>ソース ファイル\Game\Assets\sprite\marker</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\marker\mark_2.png">
+      <Filter>ソース ファイル\Game\Assets\sprite\marker</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\marker\mark_3.png">
+      <Filter>ソース ファイル\Game\Assets\sprite\marker</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\marker\mark_blue.png">
+      <Filter>ソース ファイル\Game\Assets\sprite\marker</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\marker\mark_red.png">
+      <Filter>ソース ファイル\Game\Assets\sprite\marker</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\result\lose.png">
+      <Filter>ソース ファイル\Game\Assets\sprite\result</Filter>
     </ImageContentTask>
   </ItemGroup>
   <ItemGroup>
