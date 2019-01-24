@@ -10,6 +10,8 @@ public:
 	GameCamera();
 	~GameCamera();
 	void Update();
+	void normal();
+	void focus();
 	void SetTarget(CVector3 tar) {
 		m_target = tar;
 	}
@@ -23,5 +25,7 @@ private:
 	//CVector3 m_toCameraPos = { 0.0f, 50.0f, 300.0f };
 	CVector3 m_toCameraPos = { 0.0f, 50.0f, 1000.0f };
 
+
+	int m_inm = -1;
 };
 

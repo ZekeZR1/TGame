@@ -22,8 +22,18 @@ public:
 	{
 		enLocalPVP,
 		enRandomPVP,
-		enAdventure
+		enDungeon
 	};
+
+	void LocalPVP()
+	{
+		m_playMode = enLocalPVP;
+	}
+
+	void DungeonMode()
+	{
+		m_playMode = enDungeon;
+	}
 
 private:
 	Pyinit* m_pi;
@@ -32,7 +42,7 @@ private:
 	GameCamera* camera = nullptr;
 	StageSetup* ss;
 
-	Mode playMode = enLocalPVP;
+	Mode m_playMode = enLocalPVP;
 
 	bool m_END = false;
 };
