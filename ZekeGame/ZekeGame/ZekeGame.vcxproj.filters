@@ -171,6 +171,12 @@
     <Filter Include="ソース ファイル\Game\Assets\sprite\marker">
       <UniqueIdentifier>{5ce9d69d-6620-415b-8c95-94747c42ae9d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Game\GameMenu">
+      <UniqueIdentifier>{14789b7f-07f2-45c5-99a6-c5dce7f318ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Game\Assets\sprite\GUI\menu">
+      <UniqueIdentifier>{ab05b931-bc2f-41f8-8f4c-4dce54c25e74}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\character\CharacterController.cpp">
@@ -553,6 +559,12 @@
     </ClCompile>
     <ClCompile Include="Game\Result\DungeonResult.cpp">
       <Filter>ソース ファイル\Game\Result</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\GameMenu\GameMenu.cpp">
+      <Filter>ソース ファイル\Game\GameMenu</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\GameMenu\MenuButton.cpp">
+      <Filter>ソース ファイル\Game\GameMenu</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1210,6 +1222,12 @@
     <ClInclude Include="Game\Result\DungeonResult.h">
       <Filter>ソース ファイル\Game\Result</Filter>
     </ClInclude>
+    <ClInclude Include="Game\GameMenu\GameMenu.h">
+      <Filter>ソース ファイル\Game\GameMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameMenu\MenuButton.h">
+      <Filter>ソース ファイル\Game\GameMenu</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\Test.FBX">
@@ -1225,6 +1243,12 @@
       <Filter>ソース ファイル\Game\Assets\modelData\testMons</Filter>
     </MeshContentTask>
     <MeshContentTask Include="Assets\modelData\uma\uma.fbx">
+      <Filter>ソース ファイル\Game\Assets\modelData\uma</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\uma\uma.nobone.fbx">
+      <Filter>ソース ファイル\Game\Assets\modelData\uma</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\uma\uma.bone.fbx">
       <Filter>ソース ファイル\Game\Assets\modelData\uma</Filter>
     </MeshContentTask>
   </ItemGroup>
@@ -1401,6 +1425,15 @@
     </ImageContentTask>
     <ImageContentTask Include="Assets\Sprite\result\lose.png">
       <Filter>ソース ファイル\Game\Assets\sprite\result</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\menu\mn_fuck.png">
+      <Filter>ソース ファイル\Game\Assets\sprite\GUI\menu</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\menu\mn_mainmn.png">
+      <Filter>ソース ファイル\Game\Assets\sprite\GUI\menu</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\menu\mn_monsel.png">
+      <Filter>ソース ファイル\Game\Assets\sprite\GUI\menu</Filter>
     </ImageContentTask>
   </ItemGroup>
   <ItemGroup>

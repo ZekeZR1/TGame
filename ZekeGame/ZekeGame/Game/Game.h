@@ -6,6 +6,7 @@
 enum MonsterID;
 class GameCamera;
 class TestListener;
+class GameMenu;
 struct Pyinit;
 class Game : public GameObject
 {
@@ -41,6 +42,8 @@ private:
 	SpriteRender* m_sprite;
 	GameCamera* camera = nullptr;
 	StageSetup* ss;
+
+	GameMenu* m_menu = nullptr;
 
 	Mode m_playMode = enLocalPVP;
 
