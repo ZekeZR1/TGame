@@ -1244,9 +1244,6 @@
     <Image Include="Assets\modelData\stage\handle010.jpg">
       <Filter>ソース ファイル\Game\Assets\modelData\Stage</Filter>
     </Image>
-    <Image Include="Assets\Sprite\GUI\button1.png">
-      <Filter>ソース ファイル\Game\Assets\sprite\GUI</Filter>
-    </Image>
   </ItemGroup>
   <ItemGroup>
     <ImageContentTask Include="Assets\Sprite\Test.png">
@@ -1278,9 +1275,6 @@
     </ImageContentTask>
     <ImageContentTask Include="Assets\modelData\uma\uma_eye.png">
       <Filter>ソース ファイル\Game\Assets\modelData\uma</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\clear.png">
-      <Filter>ソース ファイル\Game\Assets\sprite\GUI</Filter>
     </ImageContentTask>
     <ImageContentTask Include="Assets\Sprite\kariline.png">
       <Filter>リソース ファイル</Filter>
@@ -1407,6 +1401,21 @@
     </ImageContentTask>
     <ImageContentTask Include="Assets\Sprite\result\lose.png">
       <Filter>ソース ファイル\Game\Assets\sprite\result</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\clear.png">
+      <Filter>ソース ファイル\Game\Assets\sprite\result</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\result\blueteamp.png">
+      <Filter>ソース ファイル\Game\Assets\sprite\result</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\result\redteamp.png">
+      <Filter>ソース ファイル\Game\Assets\sprite\result</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\result\win.png">
+      <Filter>ソース ファイル\Game\Assets\sprite\result</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\button1.png">
+      <Filter>ソース ファイル\Game\Assets\sprite\GUI\button</Filter>
     </ImageContentTask>
   </ItemGroup>
   <ItemGroup>
