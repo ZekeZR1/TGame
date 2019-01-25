@@ -18,6 +18,9 @@ namespace Mouse {
 		cursorpos.y *= -1.f;
 		//カーソル表示
 		ShowCursor(FALSE);
+#if _DEBUG
+		ShowCursor(TRUE);
+#endif
 		//左トリガー入力判定。
 		if (mEve[0] != 0) {
 			trigger[enLeftClick] = 1 ^ press[enLeftClick];
