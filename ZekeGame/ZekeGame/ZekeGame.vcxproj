@@ -244,8 +244,6 @@
     <ClCompile Include="Game\GameCamera3D.cpp" />
     <ClCompile Include="Game\GameCursor.cpp" />
     <ClCompile Include="Game\GameData.cpp" />
-    <ClCompile Include="Game\GameMenu\GameMenu.cpp" />
-    <ClCompile Include="Game\GameMenu\MenuButton.cpp" />
     <ClCompile Include="Game\main.cpp" />
     <ClCompile Include="Game\Monster\Action\Act_Atack.cpp" />
     <ClCompile Include="Game\Monster\Action\Act_Chase.cpp" />
@@ -380,8 +378,6 @@
     <ClInclude Include="Game\GameCamera3D.h" />
     <ClInclude Include="Game\GameCursor.h" />
     <ClInclude Include="Game\GameData.h" />
-    <ClInclude Include="Game\GameMenu\GameMenu.h" />
-    <ClInclude Include="Game\GameMenu\MenuButton.h" />
     <ClInclude Include="Game\Monster\Action\Act_Atack.h" />
     <ClInclude Include="Game\Monster\Action\Act_Chase.h" />
     <ClInclude Include="Game\Monster\Action\Act_Leave.h" />
@@ -521,19 +517,16 @@
     <ClInclude Include="TestScene2.h" />
   </ItemGroup>
   <ItemGroup>
+    <MeshContentTask Include="Assets\modelData\boneTest.fbx" />
     <MeshContentTask Include="Assets\modelData\stage\map.FBX" />
     <MeshContentTask Include="Assets\modelData\Test.FBX" />
     <MeshContentTask Include="Assets\modelData\testMons\tesEnemy2.fbx" />
     <MeshContentTask Include="Assets\modelData\testMons\tesEnemy3.fbx" />
-    <MeshContentTask Include="Assets\modelData\uma\uma.bone.fbx" />
     <MeshContentTask Include="Assets\modelData\uma\uma.fbx" />
-    <MeshContentTask Include="Assets\modelData\uma\uma.nobone.fbx" />
+    <MeshContentTask Include="Assets\modelData\仮保管庫\ringochan.FBX" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\Sprite\GUI\button1.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\menu\mn_monsel.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\menu\mn_fuck.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\menu\mn_mainmn.png" />
     <ImageContentTask Include="Assets\Sprite\result\lose.png" />
     <ImageContentTask Include="Assets\Sprite\marker\mark_1.png" />
     <ImageContentTask Include="Assets\Sprite\marker\mark_2.png" />
@@ -600,6 +593,14 @@
     <CopyFileToFolders Include="Game\dlllib\python36_d.dll">
       <FileType>Document</FileType>
     </CopyFileToFolders>
+    <CustomBuild Include="Assets\modelData\uma.tks">
+      <FileType>Document</FileType>
+    </CustomBuild>
+    <CustomBuild Include="Assets\modelData\boneTestMove.tka">
+      <FileType>Document</FileType>
+    </CustomBuild>
+    <None Include="Assets\modelData\仮保管庫\move.tka" />
+    <None Include="Assets\modelData\仮保管庫\ringochan.tks" />
     <None Include="Game\PythonBridge\include\pydtrace.d" />
     <CopyFileToFolders Include="PythonAIs\ang.py">
       <FileType>Document</FileType>
