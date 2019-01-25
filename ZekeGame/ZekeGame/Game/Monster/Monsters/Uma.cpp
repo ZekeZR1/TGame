@@ -12,6 +12,9 @@ Uma::Uma()
 	m_anim[Monster::en_atack].SetLoopFlag(false);
 
 	SkinModelRender* sr = NewGO<SkinModelRender>(0, "smr");
-	sr->Init(L"Assets/modelData/uma.cmo",m_anim,3);
-	init(10, 10, 10, 20, 70, sr, 3);
+	//sr->Init(L"Assets/modelData/uma.cmo",m_anim,3);
+	sr->Init(L"Assets/modelData/uma.bone.cmo");
+	sr->SetPosition(CVector3::Zero());
+	//init(10, 10, 10, 20, 70, sr, 3);
+	init(10, 10, 10, 20, 70, sr, 0);
 }

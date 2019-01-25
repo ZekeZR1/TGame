@@ -2,6 +2,7 @@
 #include "Game.h"
 #include "GameCamera.h"
 #include "GameData.h"
+#include "GameMenu/GameMenu.h"
 
 
 #include "PythonBridge/PythonBridge.h"
@@ -51,6 +52,7 @@ bool Game::Start() {
 	m_model->Init(L"Assets/modelData/map.cmo");
 	m_model->SetPosition(CVector3::Zero());
 
+	m_menu = NewGO<GameMenu>(0, "gm");
 
 	/*m_sprite = NewGO<SpriteRender>(0,"sprite");
 	m_sprite->Init(L"Assets/Sprite/Test.dds", 500.f, 500.f);
@@ -70,6 +72,8 @@ void Game::Update() {
 	
 	if (!m_END)
 	{
+		if (m_menu->isOpen())
+			return;
 		m_model->SetPosition(pos);
 		camera->SetTarget(CVector3::Zero());
 		camera->SetPosition({ 0.0f, 350.0f, 1000.0f });
@@ -80,6 +84,7 @@ void Game::Update() {
 			int team = g_mons[0]->Getteam();
 			Win* win;
 			DungeonResult* dr;
+			DeleteGO(m_menu);
 			QueryGOs<Monster>("monster", [&](auto obj)->bool
 			{
 				obj->ReleaseMAL();
