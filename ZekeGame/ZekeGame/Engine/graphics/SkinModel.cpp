@@ -20,6 +20,7 @@ void SkinModel::Init(const wchar_t* filePath, EnFbxUpAxis enFbxUpAxis, const cha
 	m_psmain = entryPS;
 	m_vsmain= entryVS;
 	//スケルトンのデータを読み込む。
+
 	InitSkeleton(filePath);
 
 	//定数バッファの作成。
@@ -47,9 +48,8 @@ void SkinModel::InitSkeleton(const wchar_t* filePath)
 	//tksファイルをロードする。
 	bool result = m_skeleton.Load(skeletonFilePath.c_str());
 	if (result == false) {
+		//assert(false);
 		//スケルトンが読み込みに失敗した。
-		//アニメーションしないモデルは、スケルトンが不要なので
-		//読み込みに失敗することはあるので、ログ出力だけにしておく。
 #ifdef _DEBUG
 		char message[256];
 		//sprintf_s(message, "tksファイルの読み込みに失敗しました。%ls\n", skeletonFilePath.c_str());
@@ -199,13 +199,13 @@ void SkinModel::Draw(EnRenderMode renderMode, CMatrix viewMatrix, CMatrix projMa
 	//deviceContext->PSSetConstantBuffers(1, 1, &m_lightCb);
 	//サンプラステートを設定する。
 	deviceContext->PSSetSamplers(0, 1, &m_samplerState);
-
 	//エフェクトにクエリを行う。
 	m_modelDx->UpdateEffects([&](DirectX::IEffect* material) {
 		auto modelMaterial = reinterpret_cast<ModelEffect*>(material);
 		modelMaterial->SetRenderMode(renderMode);
 		modelMaterial->SetShadoMapSRV(m_shadowMapSRV);
 	});
+	m_skeleton.SendBoneMatrixArrayToGPU();
 	m_modelDx->Draw(
 		deviceContext,
 		state,

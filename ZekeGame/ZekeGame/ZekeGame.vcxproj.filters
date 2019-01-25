@@ -1227,6 +1227,12 @@
     <MeshContentTask Include="Assets\modelData\uma\uma.fbx">
       <Filter>ソース ファイル\Game\Assets\modelData\uma</Filter>
     </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\boneTest.fbx">
+      <Filter>ソース ファイル\Game\Assets\modelData</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\仮保管庫\ringochan.FBX">
+      <Filter>ソース ファイル\Game\Assets\modelData</Filter>
+    </MeshContentTask>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\modelData\boxTex.png">
@@ -1430,6 +1436,12 @@
     <None Include="PythonAIs\Threader.py">
       <Filter>ソース ファイル\Game\PythonAIs</Filter>
     </None>
+    <None Include="Assets\modelData\仮保管庫\ringochan.tks">
+      <Filter>ソース ファイル\Game\Assets\modelData</Filter>
+    </None>
+    <None Include="Assets\modelData\仮保管庫\move.tka">
+      <Filter>ソース ファイル\Game\Assets\modelData</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="python36.lib">
@@ -1437,6 +1449,12 @@
     </CustomBuild>
     <CustomBuild Include="python36_d.lib">
       <Filter>ソース ファイル\Game</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\modelData\uma.tks">
+      <Filter>ソース ファイル\Game\Assets\modelData\uma</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\modelData\boneTestMove.tka">
+      <Filter>ソース ファイル\Game\Assets\modelData</Filter>
     </CustomBuild>
   </ItemGroup>
 </Project>
