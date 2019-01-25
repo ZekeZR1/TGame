@@ -526,7 +526,10 @@
     <MeshContentTask Include="Assets\modelData\仮保管庫\ringochan.FBX" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="Assets\Sprite\GUI\button1.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\button1.png" />
+    <ImageContentTask Include="Assets\Sprite\result\blueteamp.png" />
+    <ImageContentTask Include="Assets\Sprite\result\redteamp.png" />
+    <ImageContentTask Include="Assets\Sprite\result\win.png" />
     <ImageContentTask Include="Assets\Sprite\result\lose.png" />
     <ImageContentTask Include="Assets\Sprite\marker\mark_1.png" />
     <ImageContentTask Include="Assets\Sprite\marker\mark_2.png" />
