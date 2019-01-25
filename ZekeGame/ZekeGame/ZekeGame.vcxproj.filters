@@ -171,6 +171,9 @@
     <Filter Include="ソース ファイル\Game\Assets\sprite\marker">
       <UniqueIdentifier>{5ce9d69d-6620-415b-8c95-94747c42ae9d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Game\GameMenu">
+      <UniqueIdentifier>{a59a13e6-7ca0-4ffb-912f-d458ddd42df6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\character\CharacterController.cpp">
@@ -553,6 +556,12 @@
     </ClCompile>
     <ClCompile Include="Game\Result\DungeonResult.cpp">
       <Filter>ソース ファイル\Game\Result</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\GameMenu\MenuButton.cpp">
+      <Filter>ソース ファイル\Game\GameMenu</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\GameMenu\GameMenu.cpp">
+      <Filter>ソース ファイル\Game\GameMenu</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1210,6 +1219,12 @@
     <ClInclude Include="Game\Result\DungeonResult.h">
       <Filter>ソース ファイル\Game\Result</Filter>
     </ClInclude>
+    <ClInclude Include="Game\GameMenu\GameMenu.h">
+      <Filter>ソース ファイル\Game\GameMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameMenu\MenuButton.h">
+      <Filter>ソース ファイル\Game\GameMenu</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\Test.FBX">
@@ -1226,12 +1241,6 @@
     </MeshContentTask>
     <MeshContentTask Include="Assets\modelData\uma\uma.fbx">
       <Filter>ソース ファイル\Game\Assets\modelData\uma</Filter>
-    </MeshContentTask>
-    <MeshContentTask Include="Assets\modelData\boneTest.fbx">
-      <Filter>ソース ファイル\Game\Assets\modelData</Filter>
-    </MeshContentTask>
-    <MeshContentTask Include="Assets\modelData\仮保管庫\ringochan.FBX">
-      <Filter>ソース ファイル\Game\Assets\modelData</Filter>
     </MeshContentTask>
   </ItemGroup>
   <ItemGroup>
@@ -1435,9 +1444,6 @@
     </None>
     <None Include="PythonAIs\Threader.py">
       <Filter>ソース ファイル\Game\PythonAIs</Filter>
-    </None>
-    <None Include="Assets\modelData\仮保管庫\ringochan.tks">
-      <Filter>ソース ファイル\Game\Assets\modelData</Filter>
     </None>
     <None Include="Assets\modelData\仮保管庫\move.tka">
       <Filter>ソース ファイル\Game\Assets\modelData</Filter>

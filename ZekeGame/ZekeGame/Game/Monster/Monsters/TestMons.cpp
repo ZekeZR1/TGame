@@ -16,6 +16,10 @@ TestMons::TestMons()
 	m_smr->Init(L"Assets/modelData/tesEnemy3.cmo");
 	m_smr->SetPosition(CVector3::Zero());
 
+	
+
 	init(10, 10, 10, 20, 70, m_smr, 0);
 	//m_PB = FindGO<PythonBridge>("PB");
+
+	m_ID = 0;
 }

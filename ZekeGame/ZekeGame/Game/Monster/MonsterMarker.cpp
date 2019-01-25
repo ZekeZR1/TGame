@@ -3,6 +3,8 @@
 
 #include "Monster.h"
 
+#include "../GameData.h"
+
 MonsterMarker::~MonsterMarker()
 {
 	DeleteGO(m_marker);
@@ -43,8 +45,20 @@ void MonsterMarker::init(Monster * mon)
 	}
 	m_number->ChangeCameraProjMatrix(Camera::enUpdateProjMatrixFunc_Perspective);
 
+
+	switch (mon->GetID())
+	{
+	case enTest:
+		m_offsetY = 120;
+		break;
+	case enUmataur:
+		m_offsetY = 250;
+		break;
+	}
+
+
 	CVector3 pos = mon->Getpos();
-	pos.y += 120;
+	pos.y += m_offsetY;
 
 	m_marker->SetPosition(pos);
 	pos.y += 12;
@@ -59,7 +73,7 @@ void MonsterMarker::init(Monster * mon)
 void MonsterMarker::Update()
 {
 	CVector3 pos = m_mon->Getpos();
-	pos.y += 120;
+	pos.y += m_offsetY;
 
 	m_marker->SetPosition(pos);
 	pos.y += 12;
