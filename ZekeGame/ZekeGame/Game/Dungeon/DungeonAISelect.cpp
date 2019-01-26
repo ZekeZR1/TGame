@@ -34,7 +34,6 @@ bool DungeonAISelect::Start() {
 	m_enemyFiles = PythonFileLoad::FilesLoadEnemy();
 	m_cursor = NewGO<GameCursor>(0, "cursor");
 	CVector3 pos = { -320,0,0 };
-	//
 	for (int i = 0; i < m_numPmm; i++) {
 		m_pmms.push_back(NewGO<PMMonster>(0, "pmm"));
 		m_pmms[i]->init(i, pos);
@@ -42,8 +41,7 @@ bool DungeonAISelect::Start() {
 		std::wstring ws = std::wstring(m_files[g_AIset[i]].begin(), m_files[g_AIset[i]].end());
 		m_pmms[i]->SetPython(ws.c_str(), g_AIset[i]);
 	}
-	m_GO = NewGO<SpriteRender>(0
-		, "sp");
+	m_GO = NewGO<SpriteRender>(0, "sp");
 	m_GO->Init(L"Assets/sprite/GO.dds", 193, 93, true);
 	m_GO->SetPosition({ 400,-160,0 });
 	m_dunSp = NewGO<SpriteRender>(0, "dunSp");
@@ -75,17 +73,12 @@ void DungeonAISelect::Update() {
 	{
 		if (Mouse::isTrigger(enLeftClick))
 		{
-			MonsterID moid[6];
+			MonsterID moid[m_numMonster];
 			for (int i = 0; i < m_numPmm; i++)
 			{
-				moid[i] = (MonsterID)m_pmms[i]->GetMonsterID();
+				moid[i] = static_cast<MonsterID>(m_pmms[i]->GetMonsterID());
 				monai[i] = m_pmms[i]->GetAI();
 			}
-
-			//Game* game = NewGO<Game>(0, "Game");
-			////game->GamePVPmodeInit(m_files, monai,moid);
-			//StageSetup::PVPSetup(m_files, monai, moid);
-			//StageSetup::DungeonSetup(m_files,m_enemyFiles, monai, moid, m_dunNum);
 			auto select = NewGO<StageSelect>(0, "selectScene");
 			select->SetDungeonGameData(m_files, m_enemyFiles, monai, moid, m_dunNum);
 			DeleteGO(this);
