@@ -93,7 +93,7 @@ void StageSetup::DungeonSetup(PyFile files, PyFile eneFiles, int monsterAI[6], M
 		mon->Setpos(poss[i]);
 		mon->Setnum(i);
 		mon->Setteam(team);
-		if (!team) {
+		if (team == 0) {
 			//team
 			std::string* path = new std::string("PythonAIs.");
 			*path += files[monsterAI[i]];

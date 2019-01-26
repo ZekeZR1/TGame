@@ -1227,6 +1227,12 @@
     <MeshContentTask Include="Assets\modelData\uma\uma.fbx">
       <Filter>ソース ファイル\Game\Assets\modelData\uma</Filter>
     </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\boneTest.fbx">
+      <Filter>ソース ファイル\Game\Assets\modelData</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\仮保管庫\ringochan.FBX">
+      <Filter>ソース ファイル\Game\Assets\modelData</Filter>
+    </MeshContentTask>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\modelData\boxTex.png">
@@ -1237,9 +1243,6 @@
     </Image>
     <Image Include="Assets\modelData\stage\handle010.jpg">
       <Filter>ソース ファイル\Game\Assets\modelData\Stage</Filter>
-    </Image>
-    <Image Include="Assets\Sprite\GUI\button1.png">
-      <Filter>ソース ファイル\Game\Assets\sprite\GUI</Filter>
     </Image>
   </ItemGroup>
   <ItemGroup>
@@ -1272,9 +1275,6 @@
     </ImageContentTask>
     <ImageContentTask Include="Assets\modelData\uma\uma_eye.png">
       <Filter>ソース ファイル\Game\Assets\modelData\uma</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\clear.png">
-      <Filter>ソース ファイル\Game\Assets\sprite\GUI</Filter>
     </ImageContentTask>
     <ImageContentTask Include="Assets\Sprite\kariline.png">
       <Filter>リソース ファイル</Filter>
@@ -1402,6 +1402,21 @@
     <ImageContentTask Include="Assets\Sprite\result\lose.png">
       <Filter>ソース ファイル\Game\Assets\sprite\result</Filter>
     </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\clear.png">
+      <Filter>ソース ファイル\Game\Assets\sprite\result</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\result\blueteamp.png">
+      <Filter>ソース ファイル\Game\Assets\sprite\result</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\result\redteamp.png">
+      <Filter>ソース ファイル\Game\Assets\sprite\result</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\result\win.png">
+      <Filter>ソース ファイル\Game\Assets\sprite\result</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\button1.png">
+      <Filter>ソース ファイル\Game\Assets\sprite\GUI\button</Filter>
+    </ImageContentTask>
   </ItemGroup>
   <ItemGroup>
     <CopyFileToFolders Include="Game\dlllib\python36_d.dll">
@@ -1430,6 +1445,12 @@
     <None Include="PythonAIs\Threader.py">
       <Filter>ソース ファイル\Game\PythonAIs</Filter>
     </None>
+    <None Include="Assets\modelData\仮保管庫\ringochan.tks">
+      <Filter>ソース ファイル\Game\Assets\modelData</Filter>
+    </None>
+    <None Include="Assets\modelData\仮保管庫\move.tka">
+      <Filter>ソース ファイル\Game\Assets\modelData</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="python36.lib">
@@ -1437,6 +1458,12 @@
     </CustomBuild>
     <CustomBuild Include="python36_d.lib">
       <Filter>ソース ファイル\Game</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\modelData\uma.tks">
+      <Filter>ソース ファイル\Game\Assets\modelData\uma</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\modelData\boneTestMove.tka">
+      <Filter>ソース ファイル\Game\Assets\modelData</Filter>
     </CustomBuild>
   </ItemGroup>
 </Project>
