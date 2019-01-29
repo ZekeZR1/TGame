@@ -32,13 +32,12 @@ std::vector<std::string> PythonFileLoad::FilesLoad()
 		else
 		{
 			std::string p = win32d.cFileName;
-			if (p != "_MiddleExecute.py")
-			{
+			if (p == "_MiddleExecute.py" || p == "CppBridge.py")
+				continue;
 				
-				//p.resize(p.length() - 3);
-				p.resize(p.rfind('.'));
-				filenames.push_back(p);
-			}
+			//p.resize(p.length() - 3);
+			p.resize(p.rfind('.'));
+			filenames.push_back(p);
 
 		}
 	} while (FindNextFile(hfind, &win32d));

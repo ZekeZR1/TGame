@@ -12,4 +12,6 @@ private:
 	SpriteRender* m_marker = nullptr;
 	SpriteRender* m_number = nullptr;
 	Monster* m_mon = nullptr;
+
+	float m_offsetY = 0;
 };

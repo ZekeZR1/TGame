@@ -11,6 +11,8 @@ public:
 	void Update() override;
 	void OnDestroy() override;
 private:
+	void CheckDungeonClearState();
+	int m_clearedDunNum = -1;
 	std::map<SpriteRender*, int> m_dungeonButton;
 	std::vector<SpriteRender*> m_sps;
 	std::vector<FontRender*> m_fonts;
