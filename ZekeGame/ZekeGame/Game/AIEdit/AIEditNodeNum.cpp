@@ -9,7 +9,7 @@
 #include "AIEditNodeNum.h"
 #include "AIEditNodeOrder.h"
 #include "AIEditLine.h"
-#include "AIEditNodeTriangle.h"
+
 
 AIEditNodeNum::~AIEditNodeNum()
 {

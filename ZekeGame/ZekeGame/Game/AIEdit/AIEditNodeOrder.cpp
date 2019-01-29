@@ -23,6 +23,7 @@ bool AIEditNodeOrder::Start()
 	m_aieditnode = FindGO<AIEditNode>("window");
 	m_aieditnodeinequ = FindGO<AIEditNodeInequ>("Inequality");
 	m_aieditnodenum = FindGO<AIEditNodeNum>("Num");
+	m_aieditline = FindGO<AIEditLine>("Line");
 
 	//if (Click == false) {
 	//	m_pos = m_aieditnodeclick->GetPosition();
@@ -59,25 +60,24 @@ bool AIEditNodeOrder::Start()
 void AIEditNodeOrder::Update()
 {
 
-	if (Click == false) {
+	//if (Click == false) {
 		m_pos = m_aieditnodeclick->GetPosition();
-	}
+	//}
 
-	if (Click == true) {
-		m_pos = m_aieditline->GetPos();
-	}
+	//if (Click == true) {
+	//	m_pos = m_aieditline->GetPos();
+	//}
 
 	m_pos.x += 30;
 	m_spriteRender = NewGO<SpriteRender>(8, "mass");
 	m_spriteRender->Init(L"Assets/sprite/masss.dds", 300, 120);  //last
 	m_spriteRender->SetPosition(m_pos);
 
+	if (Click == false) {
 	DeleteGO(m_aieditnode);
 	DeleteGO(m_aieditnodeinequ);
 	DeleteGO(m_aieditnodenum);
-
-	if (Click == false) {
-		DeleteGO(m_aieditnodeclick);
-		Click = true;
+	DeleteGO(m_aieditnodeclick);
+	Click = true;
 	}
 }
