@@ -54,7 +54,7 @@ void Win::init(int team)
 		break;
 	case enUmataur:
 		m_lastpos = { -20,150,72 };
-		m_lasttar = { 30,155,0 };
+		m_lasttar = { 30,165,0 };
 		break;
 	}
 

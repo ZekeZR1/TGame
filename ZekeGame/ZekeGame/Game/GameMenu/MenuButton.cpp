@@ -6,6 +6,7 @@
 MenuButton::~MenuButton()
 {
 	DeleteGO(m_button);
+	DeleteGO(m_moji);
 	DeleteGO(m_dummy);
 }
 

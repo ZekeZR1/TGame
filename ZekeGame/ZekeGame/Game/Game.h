@@ -42,7 +42,7 @@ private:
 	SpriteRender* m_sprite;
 	GameCamera* camera = nullptr;
 	StageSetup* ss;
-
+	int m_dunNum = -1;
 	GameMenu* m_menu = nullptr;
 
 	Mode m_playMode = enLocalPVP;
