@@ -45,7 +45,7 @@ void StageSelect::Update() {
 			if (image->isCollidingTarget()) {
 				int stageNum = m_stageNumberMap[image];
 				auto game = NewGO<Game>(0, "Game");
-				game->DungeonMode();
+				game->DungeonMode(1);
 				StageSetup::DungeonSetup(m_files, m_enemyFiles, m_monai, m_ids, m_dunNum);
 				StageSetup::StageSet(stageNum);
 				DeleteGO(this);

@@ -4,6 +4,7 @@
 #include "../Monster/Monster.h"
 #include "../Monster/Monsters/TestMons.h"
 #include "../Monster/Monsters/Uma.h"
+#include "../Monster/Monsters/Fairy.h"
 #include "../SaveLoad/PythonFileLoad.h"
 #include <string>
 #include <array>
@@ -42,6 +43,9 @@ void StageSetup::PVPSetup(std::vector<std::string> files, int monsterAI[6],Monst
 			break;
 		case enUmataur:
 			mon = NewGO<Uma>(0, "monster");
+			break;
+		case enFairy:
+			mon = NewGO<Fairy>(0, "monster");
 			break;
 		}
 		mon->Setpos(poss[i]);

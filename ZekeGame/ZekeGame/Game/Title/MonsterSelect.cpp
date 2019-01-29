@@ -43,6 +43,10 @@ bool MonsterSelect::Start()
 			im->init(L"Assets/sprite/mon_two.dds", m_cursor);
 			path = L"Assets/sprite/mon_two.dds";
 			break;
+		case enFairy:
+			im->init(L"Assets/sprite/mon_two.dds", m_cursor);
+			path = L"Assets/sprite/mon_two.dds";
+			break;
 		}
 		im->Setpos(pos);
 		if (((i+1) % 5) == 0)

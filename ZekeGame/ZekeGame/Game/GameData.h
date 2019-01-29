@@ -8,6 +8,7 @@ enum MonsterID
 {
 	enTest,
 	enUmataur,
+	enFairy,
 };
 
 enum ActionID
@@ -47,5 +48,6 @@ class GameData
 {
 public:
 	void deletemons(Monster* mon);
+	static Monster* LoadMonster(int monID);
 	static const wchar_t* GetMonsterIconPath(wchar_t*& path,int monID);
 };
