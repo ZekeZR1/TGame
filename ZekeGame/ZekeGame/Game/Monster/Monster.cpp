@@ -9,12 +9,14 @@
 //#include "MonsterAI.h"
 
 #include "MonsterActionList.h"
+#include "MonsterMarker.h"
 
 Monster::~Monster()
 {
 	DeleteGO(m_smr);
 	DeleteGO(m_PB);
 	ReleaseMAL();
+	ReleaseMark();
 	
 }
 
@@ -24,6 +26,15 @@ void Monster::ReleaseMAL()
 	{
 		DeleteGO(m_MAL);
 		m_dmal = true;
+	}
+}
+
+void Monster::ReleaseMark()
+{
+	if (m_marker != nullptr)
+	{
+		DeleteGO(m_marker);
+		m_marker = nullptr;
 	}
 }
 
@@ -48,11 +59,16 @@ bool Monster::Start()
 
 	m_MAL = NewGO<MonsterActionList>(0, "mal");
 	m_MAL->init(this);
+
+	m_marker = NewGO<MonsterMarker>(0, "mark");
+	m_marker->init(this);
 	return true;
 }
 
 void Monster::Update()
 {
+	if (m_end)
+		return;
 	if (m_HP <= 0)
 	{
 		m_state = en_Dead;
@@ -158,6 +174,12 @@ void Monster::Knockback()
 		m_vKnockback -= m_vSubKnock;
 		m_vSubKnock /= 1.5f;
 	}
+}
+
+void Monster::Setpos(CVector3 v)
+{
+	m_pos = v;
+	m_smr->SetPosition(v);
 }
 
 void Monster::SetRotation(CQuaternion rot)

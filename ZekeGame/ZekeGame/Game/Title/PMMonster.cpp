@@ -84,10 +84,6 @@ void PMMonster::Update()
 		{
 			AIMSelect* aims = NewGO<AIMSelect>(0, "aims");
 			aims->init(this, m_selAI, m_monid);
-			/*m_ms = NewGO<MonsterSelect>(0, "monsterselect");
-			m_ais = NewGO<AISelect>(0, "aiselect");
-			m_ms->init(this);
-			m_ais->init(this);*/
 			m_ismonsel = true;
 		}
 	}

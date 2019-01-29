@@ -527,7 +527,10 @@ void PythonBridge::py_exe(int num,int team,const char* file)
 	PyObject *pName, *pModule, *pFunction, *pArgs, *pValue;
 
 	//pName = PyUnicode_DecodeFSDefault(file);
-	pName = PyUnicode_DecodeFSDefault("PythonAIs._MiddleExecute");
+	if (team != 256)
+		pName = PyUnicode_DecodeFSDefault("PythonAIs._MiddleExecute");
+	else
+		pName = PyUnicode_DecodeFSDefault("PythonEnemyAIs._MiddleExecute");
 	pModule = PyImport_Import(pName);
 	Py_DECREF(pName);
 
