@@ -5,6 +5,7 @@
 #include "AIEditNodeInequ.h"
 #include "AIEditNodeNum.h"
 #include "AIEditNodeClick.h"
+#include "AIEditLine.h"
 #include "../GameCursor.h"
 
 #include "AIEditNodeOrder.h"
@@ -23,11 +24,18 @@ bool AIEditNodeOrder::Start()
 	m_aieditnodeinequ = FindGO<AIEditNodeInequ>("Inequality");
 	m_aieditnodenum = FindGO<AIEditNodeNum>("Num");
 
-	m_pos = m_aieditnodeclick->GetPosition();												//仮の値
-	m_pos.x += 30;
-	m_spriteRender = NewGO<SpriteRender>(8, "mass");
-	m_spriteRender->Init(L"Assets/sprite/masss.dds", 300, 120);  //last
-	m_spriteRender->SetPosition(m_pos);
+	//if (Click == false) {
+	//	m_pos = m_aieditnodeclick->GetPosition();
+	//}
+
+	//if (Click == true) {
+	//	m_pos = m_aieditnodetriangle->GetPos();
+	//}
+
+	//m_pos.x += 30;
+	//m_spriteRender = NewGO<SpriteRender>(8, "mass");
+	//m_spriteRender->Init(L"Assets/sprite/masss.dds", 300, 120);  //last
+	//m_spriteRender->SetPosition(m_pos);
 
 	//各フラグをリセットする。
 
@@ -36,10 +44,13 @@ bool AIEditNodeOrder::Start()
 	m_aieditnodeinequ->GetChoice2(false);
 	m_aieditnodenum->GetChoice3(false);
 
-	DeleteGO(m_aieditnode);
-	DeleteGO(m_aieditnodeinequ);
-	DeleteGO(m_aieditnodenum);
-	DeleteGO(m_aieditnodeclick);
+	//DeleteGO(m_aieditnode);
+	//DeleteGO(m_aieditnodeinequ);
+	//DeleteGO(m_aieditnodenum);
+	//if (Click == false) {
+	//	DeleteGO(m_aieditnodeclick);
+	//	Click = true;
+	//}
 	return true;
 
 }
@@ -48,5 +59,25 @@ bool AIEditNodeOrder::Start()
 void AIEditNodeOrder::Update()
 {
 
+	if (Click == false) {
+		m_pos = m_aieditnodeclick->GetPosition();
+	}
 
+	if (Click == true) {
+		m_pos = m_aieditline->GetPos();
+	}
+
+	m_pos.x += 30;
+	m_spriteRender = NewGO<SpriteRender>(8, "mass");
+	m_spriteRender->Init(L"Assets/sprite/masss.dds", 300, 120);  //last
+	m_spriteRender->SetPosition(m_pos);
+
+	DeleteGO(m_aieditnode);
+	DeleteGO(m_aieditnodeinequ);
+	DeleteGO(m_aieditnodenum);
+
+	if (Click == false) {
+		DeleteGO(m_aieditnodeclick);
+		Click = true;
+	}
 }

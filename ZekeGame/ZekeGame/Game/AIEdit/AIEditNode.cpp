@@ -78,7 +78,7 @@ void AIEditNode::Inequ()
 	if (Mouse::isTrigger(enLeftClick))	//ç∂ÉNÉäÉbÉN
 	{
 		NewGO<AIEditNodeInequ>(0, "Inequality");
-
+			
 		Choice1 = true;
 	}
 

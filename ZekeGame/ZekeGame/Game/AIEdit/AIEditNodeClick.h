@@ -22,16 +22,6 @@ public:
 		return m_position;
 	}
 
-	//bool Getx()
-	//{
-	//	return x;
-	//}
-
-	//bool Gety()
-	//{
-	//	return y;
-	//}
-
 private:
 
 	bool Choice0 = false;
