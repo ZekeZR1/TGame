@@ -46,8 +46,17 @@ void Win::init(int team)
 	m_cam->SetPos(m_firstpos);
 	m_cam->SetTar(m_firsttar);
 
-	m_lastpos = { -35,50,50 };
-	m_lasttar = { 0,55,0 };
+	switch (g_mons[0]->GetID())
+	{
+	case enTest:
+		m_lastpos = { -35,50,50 };
+		m_lasttar = { 0,55,0 };
+		break;
+	case enUmataur:
+		m_lastpos = { -20,150,72 };
+		m_lasttar = { 30,165,0 };
+		break;
+	}
 
 	m_addpos = (m_lastpos - m_firstpos) / 8.0f;
 	m_addtar = (m_lasttar - m_firsttar) / 8.0f;
