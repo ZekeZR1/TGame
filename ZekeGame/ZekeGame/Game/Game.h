@@ -31,9 +31,10 @@ public:
 		m_playMode = enLocalPVP;
 	}
 
-	void DungeonMode()
+	void DungeonMode(int number)
 	{
 		m_playMode = enDungeon;
+		m_dunNum = number;
 	}
 
 private:
