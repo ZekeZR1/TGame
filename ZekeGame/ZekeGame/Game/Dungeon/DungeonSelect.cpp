@@ -91,6 +91,5 @@ void DungeonSelect::CheckDungeonClearState() {
 			OutputDebugStringA(message);
 		}
 		m_clearedDunNum = clearedDungeon;
-		//ステージ選択制限
 	}
 }

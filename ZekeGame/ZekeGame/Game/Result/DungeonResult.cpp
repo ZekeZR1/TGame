@@ -19,7 +19,7 @@ bool DungeonResult::Start() {
 	
 	if (m_team == 0) {
 		m_resultSp->Init(L"Assets/Sprite/win.dds", 500.f, 200.f, true);
-		//TODO : ダンジョンクリアセーブとかモンスタードロップとかできるようにする
+		//TODO : モンスタードロップとかできるようにする
 	}
 	else {
 		m_resultSp->Init(L"Assets/Sprite/lose.dds", 500.f, 200.f, true);
