@@ -171,6 +171,9 @@
     <Filter Include="ソース ファイル\Game\Assets\sprite\marker">
       <UniqueIdentifier>{5ce9d69d-6620-415b-8c95-94747c42ae9d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Game\GameMenu">
+      <UniqueIdentifier>{a59a13e6-7ca0-4ffb-912f-d458ddd42df6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\character\CharacterController.cpp">
@@ -458,6 +461,15 @@
     <ClCompile Include="Engine\physics\SpriteBoxCollider.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="Game\AIEdit\AIEditLine.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\AIEdit\AIEditNode.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\AIEdit\AIEditNodeHp.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
     <ClCompile Include="Game\Title\AIeditModeSelect.cpp">
       <Filter>ソース ファイル\Game\Title</Filter>
     </ClCompile>
@@ -545,41 +557,11 @@
     <ClCompile Include="Game\Result\DungeonResult.cpp">
       <Filter>ソース ファイル\Game\Result</Filter>
     </ClCompile>
-    <ClCompile Include="Game\AIEdit\AIEditLine.cpp">
-      <Filter>ソース ファイル\Game\AIEdit</Filter>
+    <ClCompile Include="Game\GameMenu\MenuButton.cpp">
+      <Filter>ソース ファイル\Game\GameMenu</Filter>
     </ClCompile>
-    <ClCompile Include="Game\AIEdit\AIEditNode.cpp">
-      <Filter>ソース ファイル\Game\AIEdit</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\AIEdit\AIEditNodeClick.cpp">
-      <Filter>ソース ファイル\Game\AIEdit</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\AIEdit\AIEditNodeHp.cpp">
-      <Filter>ソース ファイル\Game\AIEdit</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\AIEdit\AIEditNodeIneq.cpp">
-      <Filter>ソース ファイル\Game\AIEdit</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\AIEdit\AIEditNodeInequ.cpp">
-      <Filter>ソース ファイル\Game\AIEdit</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\AIEdit\AIEditNodeMass.cpp">
-      <Filter>ソース ファイル\Game\AIEdit</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\AIEdit\AIEditNodeNum.cpp">
-      <Filter>ソース ファイル\Game\AIEdit</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\AIEdit\AIEditNodeOrder.cpp">
-      <Filter>ソース ファイル\Game\AIEdit</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\AIEdit\AIEditNodeProcess.cpp">
-      <Filter>ソース ファイル\Game\AIEdit</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\AIEdit\AIEditNodeTriangle.cpp">
-      <Filter>ソース ファイル\Game\AIEdit</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\AIEdit\AIEditNodeTechnique.cpp">
-      <Filter>ソース ファイル\Game\AIEdit</Filter>
+    <ClCompile Include="Game\GameMenu\GameMenu.cpp">
+      <Filter>ソース ファイル\Game\GameMenu</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1178,6 +1160,9 @@
       <Filter>ソース ファイル\Game\Result</Filter>
     </ClInclude>
     <ClInclude Include="Engine\physics\SpriteBoxCollider.h" />
+    <ClInclude Include="Game\AIEdit\AIEditLine.h" />
+    <ClInclude Include="Game\AIEdit\AIEditNode.h" />
+    <ClInclude Include="Game\AIEdit\AIEditNodeHp.h" />
     <ClInclude Include="Game\Title\AIeditModeSelect.h">
       <Filter>ソース ファイル\Game\Title</Filter>
     </ClInclude>
@@ -1234,41 +1219,11 @@
     <ClInclude Include="Game\Result\DungeonResult.h">
       <Filter>ソース ファイル\Game\Result</Filter>
     </ClInclude>
-    <ClInclude Include="Game\AIEdit\AIEditLine.h">
-      <Filter>ソース ファイル\Game\AIEdit</Filter>
+    <ClInclude Include="Game\GameMenu\GameMenu.h">
+      <Filter>ソース ファイル\Game\GameMenu</Filter>
     </ClInclude>
-    <ClInclude Include="Game\AIEdit\AIEditNode.h">
-      <Filter>ソース ファイル\Game\AIEdit</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\AIEdit\AIEditNodeHp.h">
-      <Filter>ソース ファイル\Game\AIEdit</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\AIEdit\AIEditNodeClick.h">
-      <Filter>ソース ファイル\Game\AIEdit</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\AIEdit\AIEditNodeIneq.h">
-      <Filter>ソース ファイル\Game\AIEdit</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\AIEdit\AIEditNodeInequ.h">
-      <Filter>ソース ファイル\Game\AIEdit</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\AIEdit\AIEditNodeMass.h">
-      <Filter>ソース ファイル\Game\AIEdit</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\AIEdit\AIEditNodeNum.h">
-      <Filter>ソース ファイル\Game\AIEdit</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\AIEdit\AIEditNodeOrder.h">
-      <Filter>ソース ファイル\Game\AIEdit</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\AIEdit\AIEditNodeProcess.h">
-      <Filter>ソース ファイル\Game\AIEdit</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\AIEdit\AIEditNodeTriangle.h">
-      <Filter>ソース ファイル\Game\AIEdit</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\AIEdit\AIEditNodeTechnique.h">
-      <Filter>ソース ファイル\Game\AIEdit</Filter>
+    <ClInclude Include="Game\GameMenu\MenuButton.h">
+      <Filter>ソース ファイル\Game\GameMenu</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1297,9 +1252,6 @@
     </Image>
     <Image Include="Assets\modelData\stage\handle010.jpg">
       <Filter>ソース ファイル\Game\Assets\modelData\Stage</Filter>
-    </Image>
-    <Image Include="Assets\Sprite\GUI\button1.png">
-      <Filter>ソース ファイル\Game\Assets\sprite\GUI</Filter>
     </Image>
   </ItemGroup>
   <ItemGroup>
@@ -1332,9 +1284,6 @@
     </ImageContentTask>
     <ImageContentTask Include="Assets\modelData\uma\uma_eye.png">
       <Filter>ソース ファイル\Game\Assets\modelData\uma</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\clear.png">
-      <Filter>ソース ファイル\Game\Assets\sprite\GUI</Filter>
     </ImageContentTask>
     <ImageContentTask Include="Assets\Sprite\kariline.png">
       <Filter>リソース ファイル</Filter>
@@ -1462,6 +1411,21 @@
     <ImageContentTask Include="Assets\Sprite\result\lose.png">
       <Filter>ソース ファイル\Game\Assets\sprite\result</Filter>
     </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\clear.png">
+      <Filter>ソース ファイル\Game\Assets\sprite\result</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\result\blueteamp.png">
+      <Filter>ソース ファイル\Game\Assets\sprite\result</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\result\redteamp.png">
+      <Filter>ソース ファイル\Game\Assets\sprite\result</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\result\win.png">
+      <Filter>ソース ファイル\Game\Assets\sprite\result</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\button1.png">
+      <Filter>ソース ファイル\Game\Assets\sprite\GUI\button</Filter>
+    </ImageContentTask>
   </ItemGroup>
   <ItemGroup>
     <CopyFileToFolders Include="Game\dlllib\python36_d.dll">
@@ -1490,6 +1454,9 @@
     <None Include="PythonAIs\Threader.py">
       <Filter>ソース ファイル\Game\PythonAIs</Filter>
     </None>
+    <None Include="Assets\modelData\仮保管庫\move.tka">
+      <Filter>ソース ファイル\Game\Assets\modelData</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="python36.lib">
@@ -1497,6 +1464,12 @@
     </CustomBuild>
     <CustomBuild Include="python36_d.lib">
       <Filter>ソース ファイル\Game</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\modelData\uma.tks">
+      <Filter>ソース ファイル\Game\Assets\modelData\uma</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\modelData\boneTestMove.tka">
+      <Filter>ソース ファイル\Game\Assets\modelData</Filter>
     </CustomBuild>
   </ItemGroup>
 </Project>

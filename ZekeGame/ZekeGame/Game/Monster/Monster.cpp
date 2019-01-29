@@ -138,16 +138,33 @@ void Monster::Move()
 	else
 	{
 		Turn();
+		//TurnEx();
 	}
+	
 }
 
 void Monster::Turn()
 {
+	if (m_turncount > 0)
+		return;
 	if (m_movespeed.Length() < 0.0001f)
 		return;
 	float angle = atan2(m_movespeed.x, m_movespeed.z);
+	//m_turncount = 5;
+	//m_rotangle = angle / m_turncount;
 	m_rot.SetRotation(CVector3::AxisY(), angle);
 	m_smr->SetRotation(m_rot);
+}
+
+void Monster::TurnEx()
+{
+	if (m_turncount <= 0)
+		return;
+	CQuaternion addrot = CQuaternion::Identity();
+	addrot.SetRotation(CVector3::AxisY(),m_rotangle);
+	m_rot.Multiply(addrot);
+	m_smr->SetRotation(m_rot);
+	m_turncount--;
 }
 
 void Monster::StartKnockback(CVector3 v)

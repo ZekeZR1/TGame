@@ -25,6 +25,8 @@ public:
 	//回転するときに使う関数
 	void Turn();
 
+	void TurnEx();
+
 	//ノックバック時に使う関数
 	void Knockback();
 
@@ -234,6 +236,8 @@ protected:
 	CVector3 m_vSubKnock = CVector3::Zero();
 	CVector3 m_pos = CVector3::Zero();			//ポジション
 	CQuaternion m_rot = CQuaternion::Identity();//回転
+	int m_turncount = 0;
+	float m_rotangle = 0;
 
 	PythonBridge* m_PB;
 
