@@ -70,16 +70,15 @@ void AIEditNodeNum::Update()
 
 	}
 	
-		for (int i = 0; i < button; i++)
-		{
-			if (Choice3 == false) {
-				if (m_spriteRenders[i]->isCollidingTarget())
-				{
-					Order();
-
-				}
+	for (int i = 0; i < button; i++)
+	{
+		if (Choice3 == false) {
+			if (m_spriteRenders[i]->isCollidingTarget())
+			{
+				Order();
 			}
 		}
+	}
 
 }
 
@@ -88,7 +87,7 @@ void AIEditNodeNum::Order()
 
 	if (Mouse::isTrigger(enLeftClick)) {	//ç∂ÉNÉäÉbÉN
 		m_aieditnodeorder = NewGO<AIEditNodeOrder>(0, "Order");
-		m_aieditline = NewGO<AIEditLine>(0, "Line");
+		//m_aieditline = NewGO<AIEditLine>(0, "Line");
 		//m_aieditnodetriangle = NewGO<AIEditNodeTriangle>(0, "Triangle");
 		Choice3 = true;
 	}
