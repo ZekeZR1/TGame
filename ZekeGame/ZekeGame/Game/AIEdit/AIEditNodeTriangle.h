@@ -9,6 +9,11 @@ public:
 	bool Start();
 	void Update();
 
+	//CVector3 GetPos()
+	//{
+
+	//	return m_pos;
+	//}
 
 private:
 

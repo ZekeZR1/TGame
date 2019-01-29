@@ -17,12 +17,13 @@ AIEditNodeTriangle::~AIEditNodeTriangle()
 bool AIEditNodeTriangle::Start()
 {
 
-	m_aieditline = FindGO<AIEditLine>("Line");
-	m_spriteRender = NewGO<SpriteRender>(7, "triangle");
-	m_spriteRender->Init(L"Assets/sprite/triangle.dds", 100, 100);  //last
-	m_pos = m_aieditline->GetPos();
-	m_pos.x += 150;
-	m_spriteRender->SetPosition(m_pos);
+	//m_aieditline = FindGO<AIEditLine>("Line");
+
+	//m_spriteRender = NewGO<SpriteRender>(7, "triangle");
+	//m_spriteRender->Init(L"Assets/sprite/triangle.dds", 100, 100);  //last
+	//m_pos = m_aieditline->GetPos();
+	//m_pos.x += 150;
+	//m_spriteRender->SetPosition(m_pos);
 
 	return true;
 }

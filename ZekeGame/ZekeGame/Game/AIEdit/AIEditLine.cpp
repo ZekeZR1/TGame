@@ -29,6 +29,7 @@ void AIEditLine::Update()
 {
 	if (x <= 180) {
 		x += 6;
+		//todo ロードが走っているので、激重。SpriteRenderに拡大率を設定できるようになったらそっちにする。
 		m_spriteRender->Init(L"Assets/sprite/arrow.dds", x , 200);
 	}
 	
