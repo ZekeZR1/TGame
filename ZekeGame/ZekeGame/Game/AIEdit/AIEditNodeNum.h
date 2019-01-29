@@ -4,7 +4,7 @@ class AIEditnode;
 class AIEditNodeInequ;
 class AIEditNodeOrder;
 class AIEditLine;
-class AIEditNodeTriangle;
+
 class AIEditNodeNum : public GameObject
 {
 public:
@@ -33,7 +33,6 @@ private:
 	GameCursor * m_gamecursor;
 	AIEditNodeOrder * m_aieditnodeorder;
 	AIEditLine * m_aieditline;
-	AIEditNodeTriangle * m_aieditnodetriangle;
 	CVector3 m_position = CVector3::Zero();
 	CVector3 m_pointposition = CVector3::Zero();
 
