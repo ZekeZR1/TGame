@@ -1,5 +1,8 @@
 #include "stdafx.h"
 #include "GameData.h"
+#include "Monster/Monsters/TestMons.h"
+#include "Monster/Monsters/Uma.h"
+#include "Monster/Monsters/Fairy.h"
 
 Monster* g_mons[64];
 int g_buddyCount = 0;
@@ -31,6 +34,24 @@ void GameData::deletemons(Monster * mon)
 	}
 	/*std::vector<Monster*>::iterator ite = std::find(g_mons.begin(), g_mons.end(), mon);
 	g_mons.erase(ite);*/
+}
+
+Monster * GameData::LoadMonster(int monID)
+{
+	Monster* mon = nullptr;
+	switch (monID)
+	{
+	case enTest:
+		mon = NewGO<TestMons>(0, "monster");
+		break;
+	case enUmataur:
+		mon = NewGO<Uma>(0, "monster");
+		break;
+	case enFairy:
+		mon = NewGO<Fairy>(0, "monster");
+		break;
+	}
+	return mon;
 }
 
 const wchar_t * GameData::GetMonsterIconPath(wchar_t*& path,int monID)

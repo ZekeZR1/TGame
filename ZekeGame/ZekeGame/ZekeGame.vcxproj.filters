@@ -174,6 +174,9 @@
     <Filter Include="ソース ファイル\Game\GameMenu">
       <UniqueIdentifier>{a59a13e6-7ca0-4ffb-912f-d458ddd42df6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Game\Assets\modelData\fairy">
+      <UniqueIdentifier>{8b3a3ec4-6f53-4538-ac78-42f0f84dc750}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\character\CharacterController.cpp">
@@ -562,6 +565,9 @@
     </ClCompile>
     <ClCompile Include="Game\GameMenu\GameMenu.cpp">
       <Filter>ソース ファイル\Game\GameMenu</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\Monsters\Fairy.cpp">
+      <Filter>ソース ファイル\Game\Monster\Monsters</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1225,6 +1231,9 @@
     <ClInclude Include="Game\GameMenu\MenuButton.h">
       <Filter>ソース ファイル\Game\GameMenu</Filter>
     </ClInclude>
+    <ClInclude Include="Game\Monster\Monsters\Fairy.h">
+      <Filter>ソース ファイル\Game\Monster\Monsters</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\Test.FBX">
@@ -1241,6 +1250,9 @@
     </MeshContentTask>
     <MeshContentTask Include="Assets\modelData\uma\uma.fbx">
       <Filter>ソース ファイル\Game\Assets\modelData\uma</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\fairy\hnd.FBX">
+      <Filter>ソース ファイル\Game\Assets\modelData\fairy</Filter>
     </MeshContentTask>
   </ItemGroup>
   <ItemGroup>
@@ -1426,6 +1438,18 @@
     <ImageContentTask Include="Assets\Sprite\GUI\button1.png">
       <Filter>ソース ファイル\Game\Assets\sprite\GUI\button</Filter>
     </ImageContentTask>
+    <ImageContentTask Include="Assets\modelData\fairy\hnd.God2.png">
+      <Filter>ソース ファイル\Game\Assets\modelData\fairy</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\modelData\fairy\hnd.hane.png">
+      <Filter>ソース ファイル\Game\Assets\modelData\fairy</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\modelData\fairy\hnd.png">
+      <Filter>ソース ファイル\Game\Assets\modelData\fairy</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_three.png">
+      <Filter>ソース ファイル\Game\Assets\sprite\GUI\mon_Select</Filter>
+    </ImageContentTask>
   </ItemGroup>
   <ItemGroup>
     <CopyFileToFolders Include="Game\dlllib\python36_d.dll">
@@ -1456,6 +1480,18 @@
     </None>
     <None Include="Assets\modelData\仮保管庫\move.tka">
       <Filter>ソース ファイル\Game\Assets\modelData</Filter>
+    </None>
+    <None Include="Assets\modelData\fairy\hnd_idle.tka">
+      <Filter>ソース ファイル\Game\Assets\modelData\fairy</Filter>
+    </None>
+    <None Include="Assets\modelData\fairy\hnd_atack.tka">
+      <Filter>ソース ファイル\Game\Assets\modelData\fairy</Filter>
+    </None>
+    <None Include="Assets\modelData\fairy\hnd_ex1.tka">
+      <Filter>ソース ファイル\Game\Assets\modelData\fairy</Filter>
+    </None>
+    <None Include="Assets\modelData\hnd.tks">
+      <Filter>ソース ファイル\Game\Assets\modelData\fairy</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
