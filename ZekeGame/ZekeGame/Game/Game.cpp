@@ -12,6 +12,7 @@
 
 
 #include "Result/Win/Win.h"
+#include "Result/DungeonResult.h"
 
 Game::Game()
 {
@@ -28,6 +29,7 @@ Game::~Game()
 	}
 	DeleteGO(m_model);
 	DeleteGO(m_sprite);
+	DeleteGO(FindGO<SkinModelRender>("stageModel"));
 	Engine::IEngine().DestroyNetworkSystem();
 	delete m_pi;
 }
@@ -36,7 +38,7 @@ void Game::GamePVPmodeInit(std::vector<std::string> files, int monsterAI[6],Mons
 {
 	ss = new StageSetup();
 	ss->PVPSetup(files, monsterAI,MonsterID);
-	playMode = enLocalPVP;
+	m_playMode = enLocalPVP;
 }
 
 bool Game::Start() {
@@ -64,23 +66,25 @@ void Game::Update() {
 	/*if (g_pad[0].IsPress(enButtonDown)) {
 		pos.x += 50.0f;
 	}*/
-	m_model->SetPosition(pos);
-	camera->SetTarget(CVector3::Zero());
-	camera->SetPosition({ 0.0f, 350.0f, 1000.0f });
-	camera->Update();
+	
 	if (!m_END)
 	{
+		m_model->SetPosition(pos);
+		camera->SetTarget(CVector3::Zero());
+		camera->SetPosition({ 0.0f, 350.0f, 1000.0f });
+		camera->Update();
 		if (g_buddyCount == 0 || g_enemyCount == 0)
 		{
 			m_END = true;
 			int team = g_mons[0]->Getteam();
 			Win* win;
+			DungeonResult* dr;
 			QueryGOs<Monster>("monster", [&](auto obj)->bool
 			{
 				obj->ReleaseMAL();
 				return true;
 			});
-			switch (playMode)
+			switch (m_playMode)
 			{
 			case enLocalPVP:
 				win = NewGO<Win>(0,"win");
@@ -89,7 +93,9 @@ void Game::Update() {
 			case enRandomPVP:
 
 				break;
-			case enAdventure:
+			case enDungeon:
+				dr = NewGO<DungeonResult>(0, "dr");
+				dr->init(team);
 				break;
 			}
 		}

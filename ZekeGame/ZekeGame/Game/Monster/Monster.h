@@ -4,6 +4,7 @@
 class MonsterAction;
 class MonsterEffect;
 class MonsterActionList;
+class MonsterMarker;
 class PythonBridge;
 class Monster:public GameObject
 {
@@ -38,6 +39,11 @@ public:
 		en_Execute,
 		en_Dead,
 	};
+	
+	int GetState()
+	{
+		return m_state;
+	}
 
 	//使うpythonのファイルを設定する
 	//st: ファイルの名前
@@ -91,10 +97,7 @@ public:
 
 	//ポジションを設定する
 	//v: 設定するポジション
-	void Setpos(CVector3 v)
-	{
-		m_pos = v;
-	}
+	void Setpos(CVector3 v);
 
 	//スピードを返す
 	CVector3 Getspeed()
@@ -123,6 +126,10 @@ public:
 		return m_front;
 	}
 
+	CQuaternion GetRotation()
+	{
+		return m_rot;
+	}
 	void SetRotation(CQuaternion rot);
 
 	//今歩いているかを設定する
@@ -180,6 +187,7 @@ public:
 	}
 
 	void ReleaseMAL();
+	void ReleaseMark();
 
 	//アニメーションさせるときは必ずこいつらを使うこと。
 	void anim_idle();
@@ -197,6 +205,11 @@ public:
 		en_defense,
 		en_recovery,
 	};
+
+	void end()
+	{
+		m_end = true;
+	}
 
 protected:
 	const char* m_pyFile = NULL;				//使うpythonファイルの名前
@@ -231,9 +244,13 @@ protected:
 	MonsterActionList* m_MAL = nullptr;
 	bool m_dmal = false;
 
+	MonsterMarker* m_marker = nullptr;
+
 	MonsterEffect* m_effect;
 
 	int m_AnimNum = 0;							//アニメーションの個数
 
 	float m_time = 0.0f;
+
+	bool m_end = false;
 };
