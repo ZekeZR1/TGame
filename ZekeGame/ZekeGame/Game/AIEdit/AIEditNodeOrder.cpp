@@ -25,6 +25,8 @@ bool AIEditNodeOrder::Start()
 	m_aieditnodenum = FindGO<AIEditNodeNum>("Num");
 	m_aieditline = FindGO<AIEditLine>("Line");
 
+	m_aieditline = NewGO<AIEditLine>(0, "Line");
+
 	//if (Click == false) {
 	//	m_pos = m_aieditnodeclick->GetPosition();
 	//}
@@ -41,9 +43,11 @@ bool AIEditNodeOrder::Start()
 	//各フラグをリセットする。
 
 	//m_aieditnodeclick->GetChoice0(false);
-	m_aieditnode->SetChoice1(false);
+
+	//大事よ
+	/*m_aieditnode->SetChoice1(false);
 	m_aieditnodeinequ->GetChoice2(false);
-	m_aieditnodenum->GetChoice3(false);
+	m_aieditnodenum->GetChoice3(false);*/
 
 	//DeleteGO(m_aieditnode);
 	//DeleteGO(m_aieditnodeinequ);
@@ -80,4 +84,5 @@ void AIEditNodeOrder::Update()
 	DeleteGO(m_aieditnodeclick);
 	Click = true;
 	}
+
 }
