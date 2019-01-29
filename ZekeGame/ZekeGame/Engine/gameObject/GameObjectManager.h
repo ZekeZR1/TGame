@@ -240,7 +240,7 @@ static inline GameObjectManager& IGameObjectManager()
  *@param[in]	ctorArgs	コンストラクタに渡す可変長引数。
  */
 template<class T, class... TArgs>
-static inline T* NewGO(int priority, const char* objectName, TArgs... ctorArgs)
+static inline T* NewGO(int priority, const char* objectName = nullptr, TArgs... ctorArgs)
 {
 	return IGameObjectManager().NewGameObject<T>((GameObjectPrio)priority, objectName, ctorArgs...);
 }
