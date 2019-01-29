@@ -26,6 +26,7 @@ private:
 	std::vector<PMMonster*> m_pmms;
 	SpriteRender* m_GO = nullptr;
 private:
+	static const int m_numMonster = 6;
 	const int m_numPmm = 3;
 	int m_dunNum = -1;
 	SpriteRender* m_dunSp = nullptr;
