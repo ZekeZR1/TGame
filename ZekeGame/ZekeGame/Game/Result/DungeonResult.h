@@ -12,6 +12,7 @@ public:
 		m_dunNum = num;
 	}
 private:
+	void SaveDungeonClearState();
 	int m_team = 0;
 	int m_dunNum = -1;
 	SpriteRender* m_resultSp = nullptr;
