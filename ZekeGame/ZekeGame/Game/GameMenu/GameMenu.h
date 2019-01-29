@@ -6,6 +6,7 @@ class GameMenu :public GameObject
 {
 public:
 	~GameMenu();
+	void Release();
 	bool Start()override;
 	void Update() override;
 

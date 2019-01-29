@@ -84,6 +84,7 @@ void Game::Update() {
 			Win* win;
 			DungeonResult* dr;
 			DeleteGO(m_menu);
+			m_menu = nullptr;
 			QueryGOs<Monster>("monster", [&](auto obj)->bool
 			{
 				obj->ReleaseMAL();
@@ -100,7 +101,7 @@ void Game::Update() {
 				break;
 			case enDungeon:
 				dr = NewGO<DungeonResult>(0, "dr");
-				dr->init(team);
+				dr->init(team, m_dunNum);
 				break;
 			}
 		}

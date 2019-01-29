@@ -7,6 +7,16 @@
 
 GameMenu::~GameMenu()
 {
+	if (m_isOpen)
+	{
+		for (auto go : m_buttons)
+			DeleteGO(go);
+		DeleteGO(m_cursor);
+	}
+}
+
+void GameMenu::Release()
+{
 	
 }
 
