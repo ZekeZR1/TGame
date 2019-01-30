@@ -20,8 +20,13 @@ DungeonSelect::~DungeonSelect()
 bool DungeonSelect::Start() {
 	m_cur = NewGO<GameCursor>(2, "cur");
 	CVector3  pos = CVector3::Zero();
-	pos.y += 250.f;
+	pos.y += 280.f;
 	CheckDungeonClearState();
+	if (m_clearedDunNum != m_numDungeon - 1) {
+		m_nextSp = NewGO<SpriteRender>(2);
+		m_nextSp->Init(L"Assets/Sprite/nextDungeon.dds", 90.f, 30.f);
+		bool isNext = false;
+	}
 	for (int i = 0; i < m_numDungeon; i++) {
 		//init sprite
 		m_sps.push_back(NewGO<SpriteRender>(0, "sp"));
@@ -31,12 +36,26 @@ bool DungeonSelect::Start() {
 		m_fonts.push_back(NewGO<FontRender>(1, "font"));
 		wchar_t dungeon[256];
 		swprintf_s(dungeon, L"ƒ_ƒ“ƒWƒ‡ƒ“%d", i + 1);
-		m_fonts[i]->Init(dungeon, { pos.x + m_toFixMisalignment.x,pos.y + m_toFixMisalignment .y}, 0.f, m_fDefCol, 1.f, m_fPivot);
+		CVector4 fontCol;
+		if (i == m_clearedDunNum + 1) {
+			CVector3 m_nextDunPos = pos;
+			m_nextDunPos.x += 150.f;
+			m_nextDunPos.y += 25.f;
+			m_nextSp->SetPosition(m_nextDunPos);
+		}
+		if (i > m_clearedDunNum + 1) {
+			fontCol = m_notYetClearCol;
+		}
+		else {
+			fontCol = m_ClearCol;
+		}
+		m_fonts[i]->Init(dungeon, { pos.x + m_toFixMisalignment.x,pos.y + m_toFixMisalignment .y}, 0.f, fontCol, 1.f, m_fPivot);
 		//down position
 		pos.y -= m_spaceToNextSprite;
 		//map
 		m_dungeonButton[m_sps[i]] = i;
 	}
+
 	return true;
 }
 
@@ -49,6 +68,9 @@ void DungeonSelect::OnDestroy() {
 	}
 	m_dungeonButton.clear();
 	DeleteGO(m_cur);
+	if (m_nextSp != nullptr) {
+		DeleteGO(m_nextSp);
+	}
 }
 
 void DungeonSelect::Update() {
@@ -64,6 +86,13 @@ void DungeonSelect::Update() {
 				DeleteGO(this);
 			}
 		}
+	}
+	if (m_nextSp != nullptr) {
+		CVector3 nextScale = CVector3::One();
+		double sca = 1.f;
+		sca = 1.f + sin(M_PI * 2 / 30 * count) * 0.01f;
+		m_nextSp->SetScale(nextScale * sca);
+		count++;
 	}
 }
 

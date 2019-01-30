@@ -1426,6 +1426,30 @@
     <ImageContentTask Include="Assets\Sprite\GUI\button1.png">
       <Filter>ソース ファイル\Game\Assets\sprite\GUI\button</Filter>
     </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_frame.png">
+      <Filter>ソース ファイル\Game\Assets\sprite</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\menu\mn_fuck.png">
+      <Filter>ソース ファイル\Game\Assets\sprite\GUI</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\menu\mn_monsel.png">
+      <Filter>ソース ファイル\Game\Assets\sprite\GUI</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\menu\mn_mainmn.png">
+      <Filter>ソース ファイル\Game\Assets\sprite\GUI</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\MonActList\actBlock.png">
+      <Filter>ソース ファイル\Game\Assets\sprite\GUI</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\MonActList\backBlue.png">
+      <Filter>ソース ファイル\Game\Assets\sprite\GUI</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\MonActList\backRed.png">
+      <Filter>ソース ファイル\Game\Assets\sprite\GUI</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\nextDungeon.png">
+      <Filter>ソース ファイル\Game\Assets\sprite\GUI</Filter>
+    </ImageContentTask>
   </ItemGroup>
   <ItemGroup>
     <CopyFileToFolders Include="Game\dlllib\python36_d.dll">
