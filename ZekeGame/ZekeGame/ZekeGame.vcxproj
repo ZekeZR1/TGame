@@ -528,6 +528,14 @@
     <MeshContentTask Include="Assets\modelData\uma\uma.fbx" />
   </ItemGroup>
   <ItemGroup>
+    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\nextDungeon.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\menu\mn_fuck.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\menu\mn_mainmn.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\menu\mn_monsel.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\MonActList\actBlock.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\MonActList\backBlue.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\MonActList\backRed.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_frame.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\button1.png" />
     <ImageContentTask Include="Assets\Sprite\result\blueteamp.png" />
     <ImageContentTask Include="Assets\Sprite\result\redteamp.png" />
