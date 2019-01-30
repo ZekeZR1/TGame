@@ -35,8 +35,8 @@ void StageSetup::PVPSetup(std::vector<std::string> files, int monsterAI[6],Monst
 		if (i == 3)
 			team++;
 
-		Monster* mon = nullptr;
-		switch (monids[i])
+		Monster* mon = GameData::LoadMonster(monids[i]);
+		/*switch (monids[i])
 		{
 		case enTest:
 			mon = NewGO<TestMons>(0, "monster");
@@ -47,7 +47,7 @@ void StageSetup::PVPSetup(std::vector<std::string> files, int monsterAI[6],Monst
 		case enFairy:
 			mon = NewGO<Fairy>(0, "monster");
 			break;
-		}
+		}*/
 		mon->Setpos(poss[i]);
 		mon->Setnum(i);
 		mon->Setteam(team);
@@ -84,8 +84,8 @@ void StageSetup::DungeonSetup(PyFile files, PyFile eneFiles, int monsterAI[6], M
 		if (i == 3)
 			team = 256;
 
-		Monster* mon = nullptr;
-		switch (monids[i])
+		Monster* mon = GameData::LoadMonster(monids[i]);
+		/*switch (monids[i])
 		{
 		case enTest:
 			mon = NewGO<TestMons>(0, "monster");
@@ -93,7 +93,7 @@ void StageSetup::DungeonSetup(PyFile files, PyFile eneFiles, int monsterAI[6], M
 		case enUmataur:
 			mon = NewGO<Uma>(0, "monster");
 			break;
-		}
+		}*/
 		mon->Setpos(poss[i]);
 		mon->Setnum(i);
 		mon->Setteam(team);
