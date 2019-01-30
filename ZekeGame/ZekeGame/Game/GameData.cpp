@@ -54,17 +54,18 @@ Monster * GameData::LoadMonster(int monID)
 	return mon;
 }
 
-const wchar_t * GameData::GetMonsterIconPath(wchar_t*& path,int monID)
+const wchar_t * GameData::GetMonsterIconPath(int monID)
 {
-	if (path != nullptr)
-		free(&path);
 	switch (monID)
 	{
 	case enTest:
-		wcscpy(path, L"Assets/sprite/mon_one.dds");
+		return L"Assets/sprite/mon_one.dds";
 		break;
 	case enUmataur:
-		path = (wchar_t*)L"Assets/sprite/mon_two.dds";
+		return L"Assets/sprite/mon_two.dds";
+		break;
+	case enFairy:
+		return L"Assets/sprite/mon_three.dds";
 		break;
 	}
 	return nullptr;

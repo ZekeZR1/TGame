@@ -17,7 +17,20 @@ Uma::Uma()
 	sr->Init(L"Assets/modelData/uma.cmo",m_anim,3);
 	//sr->Init(L"Assets/modelData/uma.bone.cmo");
 	sr->SetPosition(CVector3::Zero());
-	init(10, 10, 10, 30, 70, sr, 3);
+	init
+	(
+		160,
+		0,
+		10,
+		0,
+		10,
+		0,
+		10,
+		30,
+		70,
+		sr,
+		3
+	);
 	//tginit(10, 10, 10, 20, 70, sr, 0);
 
 	m_ID = 1;

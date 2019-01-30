@@ -2,6 +2,7 @@
 #include "MonsterSelect.h"
 #include "PMMonster.h"
 #include "AIMSelect.h"
+#include "../GameData.h"
 #include "../GameCursor.h"
 #include "IconMon.h"
 #include <string>
@@ -32,8 +33,11 @@ bool MonsterSelect::Start()
 	for (int i = 0; i < m_monstercount; i++)
 	{
 		IconMon* im = NewGO<IconMon>(0, "im");
-		std::wstring path;
-		switch (i)
+		//std::wstring path;
+
+		im->init(GameData::GetMonsterIconPath(i),m_cursor);
+
+		/*switch (i)
 		{
 		case enTest:
 			im->init(L"Assets/sprite/mon_one.dds",m_cursor);
@@ -44,10 +48,10 @@ bool MonsterSelect::Start()
 			path = L"Assets/sprite/mon_two.dds";
 			break;
 		case enFairy:
-			im->init(L"Assets/sprite/mon_two.dds", m_cursor);
-			path = L"Assets/sprite/mon_two.dds";
+			im->init(L"Assets/sprite/mon_three.dds", m_cursor);
+			path = L"Assets/sprite/mon_three.dds";
 			break;
-		}
+		}*/
 		im->Setpos(pos);
 		if (((i+1) % 5) == 0)
 		{
@@ -56,7 +60,7 @@ bool MonsterSelect::Start()
 		}
 		else pos += {148,0, 0};
 		m_icons.push_back(im);
-		m_paths.push_back(path);
+		//m_paths.push_back(path);
 	}
 
 	//NewGO<AISelect>(0, "ais");
@@ -79,7 +83,7 @@ void MonsterSelect::Update()
 	{
 		if (m_icons[i]->isClick())
 		{
-			m_aims->Setmon(i, m_paths[i].c_str());
+			m_aims->Setmon(i);
 			//m_pmm->ChengeImage(m_paths[i].c_str(),i);
 		}
 	}

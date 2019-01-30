@@ -1450,6 +1450,9 @@
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_three.png">
       <Filter>ソース ファイル\Game\Assets\sprite\GUI\mon_Select</Filter>
     </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_back.png">
+      <Filter>ソース ファイル\Game\Assets\sprite\GUI\AI_Select</Filter>
+    </ImageContentTask>
   </ItemGroup>
   <ItemGroup>
     <CopyFileToFolders Include="Game\dlllib\python36_d.dll">
@@ -1492,6 +1495,12 @@
     </None>
     <None Include="Assets\modelData\hnd.tks">
       <Filter>ソース ファイル\Game\Assets\modelData\fairy</Filter>
+    </None>
+    <None Include="PythonAIs\testBrain2.py">
+      <Filter>ソース ファイル\Game\PythonAIs</Filter>
+    </None>
+    <None Include="PythonAIs\_MiddleExecute.py">
+      <Filter>ソース ファイル\Game\PythonAIs</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>

@@ -15,5 +15,19 @@ Fairy::Fairy()
 
 	SkinModelRender* smr = NewGO<SkinModelRender>(0, "smr");
 	smr->Init(L"Assets/modelData/hnd.cmo",m_anim,3);
-	init(10, 30, 30, 20, 70, smr,3);
+	init
+	(
+		160,
+		30,
+		5,
+		15,
+		5,
+		10,
+		30,
+		20,
+		70,
+		smr,
+		3
+	);
+	m_ID = 2;
 }

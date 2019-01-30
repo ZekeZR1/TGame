@@ -531,6 +531,7 @@
     <MeshContentTask Include="Assets\modelData\uma\uma.fbx" />
   </ItemGroup>
   <ItemGroup>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_back.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_three.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\button1.png" />
     <ImageContentTask Include="Assets\Sprite\result\blueteamp.png" />
@@ -629,7 +630,9 @@
     <CopyFileToFolders Include="PythonAIs\testBrain1.py">
       <FileType>Document</FileType>
     </CopyFileToFolders>
+    <None Include="PythonAIs\testBrain2.py" />
     <None Include="PythonAIs\Threader.py" />
+    <None Include="PythonAIs\_MiddleExecute.py" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="python36.lib">
