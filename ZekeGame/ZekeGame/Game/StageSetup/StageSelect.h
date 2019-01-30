@@ -17,6 +17,7 @@ public:
 			m_ids[i] = monids[i];
 		}
 		m_dunNum = DunNumber;
+		m_mode = enDungeon;
 	}
 private:
 	std::vector<std::string> m_files;
@@ -25,6 +26,12 @@ private:
 	int m_monai[6];
 	int m_dunNum = -1;
 private:
+	enum SelectMode {
+		enDungeon,
+		enLocalPvP,
+		enOnlinePvP
+	};
+	SelectMode m_mode;
 	CVector3 m_firstImgaePos = { -300.f,200.f,0.f };
 	std::vector<SpriteRender*> m_stageImages;
 	const int m_NumStage = 3;

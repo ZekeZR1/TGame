@@ -56,6 +56,9 @@ public:
 		return m_collider.isColliding();
 	}
 
+	void SetScale(CVector3 scale) {
+		m_scale = scale;
+	}
 private:
 	CVector3 m_pos = CVector3::Zero();
 	CQuaternion m_rotation = CQuaternion::Identity();
