@@ -569,6 +569,27 @@
     <ClCompile Include="Game\Monster\Monsters\Fairy.cpp">
       <Filter>ソース ファイル\Game\Monster\Monsters</Filter>
     </ClCompile>
+    <ClCompile Include="Game\AIEdit\AIEditNodeNum.cpp">
+      <Filter>ソース ファイル\Game\AIEdit</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\AIEdit\AIEditNodeOrder.cpp">
+      <Filter>ソース ファイル\Game\AIEdit</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\AIEdit\AIEditNodeProcess.cpp">
+      <Filter>ソース ファイル\Game\AIEdit</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\AIEdit\AIEditNodeTechnique.cpp">
+      <Filter>ソース ファイル\Game\AIEdit</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\AIEdit\AIEditNodeClick.cpp">
+      <Filter>ソース ファイル\Game\AIEdit</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\AIEdit\AIEditNodeInequ.cpp">
+      <Filter>ソース ファイル\Game\AIEdit</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\AIEdit\AIEditNodeMass.cpp">
+      <Filter>ソース ファイル\Game\AIEdit</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\character\CharacterController.h">
@@ -1233,6 +1254,27 @@
     </ClInclude>
     <ClInclude Include="Game\Monster\Monsters\Fairy.h">
       <Filter>ソース ファイル\Game\Monster\Monsters</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\AIEdit\AIEditNodeMass.h">
+      <Filter>ソース ファイル\Game\AIEdit</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\AIEdit\AIEditNodeNum.h">
+      <Filter>ソース ファイル\Game\AIEdit</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\AIEdit\AIEditNodeOrder.h">
+      <Filter>ソース ファイル\Game\AIEdit</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\AIEdit\AIEditNodeProcess.h">
+      <Filter>ソース ファイル\Game\AIEdit</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\AIEdit\AIEditNodeTechnique.h">
+      <Filter>ソース ファイル\Game\AIEdit</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\AIEdit\AIEditNodeClick.h">
+      <Filter>ソース ファイル\Game\AIEdit</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\AIEdit\AIEditNodeInequ.h">
+      <Filter>ソース ファイル\Game\AIEdit</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
