@@ -11,7 +11,7 @@ class Monster:public GameObject
 public:
 	~Monster();
 
-	void init(int HP, int MP, float speed, float radius, float height, SkinModelRender* smr, int animnum);
+	void init(float HP, float MP,float Defence, float ExDefense, float Attack,float ExAttack, float speed, float radius, float height, SkinModelRender* smr, int animnum);
 
 	bool Start() override final;
 	void Update() override final;
@@ -61,22 +61,47 @@ public:
 	}
 
 	//HPを返す
-	int GetHP()
+	float GetHP()
 	{
 		return m_HP;
 	}
 
 	//ダメージ
 	//d: 食らうダメージ
-	void Damage(int d)
+	void Damage(float d)
 	{
 		m_HP -= d;
 	}
 
 	//MPを返す
-	int GetMP()
+	float GetMP()
 	{
 		return m_MP;
+	}
+
+	float GetDefense()
+	{
+		return m_Defense;
+	}
+
+	float GetExDefense()
+	{
+		return m_ExDefense;
+	}
+
+	float GetAttack()
+	{
+		return m_Attack;
+	}
+
+	float GetExAttack()
+	{
+		return m_ExAttack;
+	}
+
+	float GetSpeed()
+	{
+		return m_speed;
 	}
 
 	//コライダーの半径を返す
@@ -223,10 +248,17 @@ protected:
 	float m_radius = 0.0f;						//半径
 	float m_height = 0.0f;						//高さ
 	SkinModelRender* m_smr = nullptr;			//スキンモデルレンダー
-	int m_HP = 0;								//HP
-	int m_MP = 0;								//MP
-	float m_gravity = 50.0f;					//重力
+	float m_HP = 0;								//HP
+	float m_MP = 0;								//MP
+	float m_Defense = 0;						//防御力
+	float m_ExDefense = 0;						//特殊防御力
+	float m_Attack = 0;							//攻撃力
+	float m_ExAttack = 0;						//特殊攻撃力
+
+
 	float m_speed = 0.0f;						//スピード
+	float m_gravity = 50.0f;					//重力
+	
 	CVector3 m_movespeed = CVector3::Zero();	//ムーブスピード
 	CVector3 m_oldmovespeed = CVector3::Zero();	//古のムーブスピード
 	CVector3 m_front = CVector3::Zero();		//前方向
