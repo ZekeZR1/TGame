@@ -20,6 +20,14 @@ void StageSelect::OnDestroy() {
 }
 
 bool StageSelect::Start() {
+	if (m_mode == enDungeon) {
+		auto game = NewGO<Game>(0, "Game");
+		game->DungeonMode(m_dunNum);
+		StageSetup::DungeonSetup(m_files, m_enemyFiles, m_monai, m_ids, m_dunNum);
+		StageSetup::StageSet(m_dunNum % 3);
+		DeleteGO(this);
+		return true;
+	}
 	CVector3 pos = m_firstImgaePos;
 	for (int i = 0; i < m_NumStage; i++) {
 		m_stageImages.push_back(NewGO<SpriteRender>(0, "stageImage"));
@@ -39,17 +47,25 @@ bool StageSelect::Start() {
 }
 
 void StageSelect::Update() {
-	for (auto image : m_stageImages) {
-		image->SetCollisionTarget(m_cur->GetCursor());
-		if (Mouse::isTrigger(enLeftClick)) {
-			if (image->isCollidingTarget()) {
-				int stageNum = m_stageNumberMap[image];
-				auto game = NewGO<Game>(0, "Game");
-				game->DungeonMode(m_dunNum);
-				StageSetup::DungeonSetup(m_files, m_enemyFiles, m_monai, m_ids, m_dunNum);
-				StageSetup::StageSet(stageNum);
-				DeleteGO(this);
+	switch (m_mode) {
+	case enLocalPvP:
+		break;
+	case enOnlinePvP:
+		break;
+	case enDungeon:
+		for (auto image : m_stageImages) {
+			image->SetCollisionTarget(m_cur->GetCursor());
+			if (Mouse::isTrigger(enLeftClick)) {
+				if (image->isCollidingTarget()) {
+					int stageNum = m_stageNumberMap[image];
+					auto game = NewGO<Game>(0, "Game");
+					game->DungeonMode(m_dunNum);
+					StageSetup::DungeonSetup(m_files, m_enemyFiles, m_monai, m_ids, m_dunNum);
+					StageSetup::StageSet(stageNum);
+					DeleteGO(this);
+				}
 			}
 		}
+		break;
 	}
 }
