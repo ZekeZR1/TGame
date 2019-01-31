@@ -14,9 +14,11 @@ bool Act_Atack::Action(Monster * me)
 		return true;
 	me->anim_atack();
 	CVector3 v = m_target->Getpos() - me->Getpos();
-	if (v.Length() < 100)
+	if (v.Length() < me->Getradius() + m_target->Getradius() + 10)
 	{
-		m_target->Damage(3);
+		float dm = 3 * me->GetAttack() - m_target->GetDefense();
+		dm += 3;
+		m_target->Damage(dm);
 		v.Normalize();
 		v *= 50;
 		m_target->StartKnockback(v);
