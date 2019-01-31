@@ -23,6 +23,7 @@ void MonsterActionList::init(Monster * mon)
 	m_back = NewGO<SpriteRender>(1, "sp");
 	float w = 215.0f;
 	float h = 144.0f;
+	h = 250.0f;
 	if (mon->Getteam() == 0)
 	{
 		m_back->Init(L"Assets/Sprite/backRed.dds", w, h);
@@ -42,6 +43,28 @@ void MonsterActionList::init(Monster * mon)
 		FontRender* fr = NewGO<FontRender>(5, "font");
 		m_frs[i] = fr;
 	}
+
+
+	m_hp = NewGO<SpriteRender>(2, "sp");
+	m_hp->Init(L"Assets/sprite/hp.dds", 104, 40);
+	m_mp = NewGO<SpriteRender>(2, "sp");
+	m_mp->Init(L"Assets/sprite/mp.dds", 104, 40);
+	
+	m_hp->SetPivot({ 0,0 });
+	m_mp->SetPivot({ 0,0 });
+
+	m_fhp = NewGO<FontRender>(5, "font");
+	m_fmp = NewGO<FontRender>(5, "font");
+
+	pos.y += 45 * 4;
+	m_mp->SetPosition(pos);
+	m_vm = {pos.x,pos.y};
+	m_vm.x += 110;
+
+	pos.y += 45;
+	m_hp->SetPosition(pos);
+	m_vh = { pos.x,pos.y };
+	m_vh.x += 110;
 }
 
 bool MonsterActionList::Start()
@@ -53,6 +76,16 @@ bool MonsterActionList::Start()
 void MonsterActionList::Update()
 {
 	std::vector<MonsterAction*> mas = m_mon->Getactions();
+
+	float hp = m_mon->GetHP();
+	float mp = m_mon->GetMP();
+
+	wchar_t tx[255];
+	swprintf_s(tx, L"%.2", hp);
+	m_fhp->Init(tx, m_vh, 0, CVector4::White, 1, { 0,0 });
+	swprintf_s(tx, L"%.2", mp);
+	m_fmp->Init(tx, m_vm, 0, CVector4::White, 1, { 0,0 });
+
 	
 	int len = mas.size();
 	if (len != m_len)

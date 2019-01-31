@@ -19,4 +19,13 @@ private:
 	int m_len = 0;
 
 	FontRender* m_frs[3];
+
+	SpriteRender* m_hp = nullptr;
+	SpriteRender* m_mp = nullptr;
+
+	FontRender* m_fhp = nullptr;
+	FontRender* m_fmp = nullptr;
+
+	CVector2 m_vh = CVector3::Zero();
+	CVector2 m_vm = CVector3::Zero();
 };
