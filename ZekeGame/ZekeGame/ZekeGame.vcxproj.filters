@@ -66,6 +66,12 @@
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\randompvpG.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\randompvpW.png" />
     <ImageContentTask Include="Assets\Sprite\Test.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\rightButton.png">
+      <Filter>aaa</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\leftButton.png">
+      <Filter>aaa</Filter>
+    </ImageContentTask>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\character\CharacterController.cpp" />
@@ -203,6 +209,8 @@
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="TestScene.cpp" />
     <ClCompile Include="TestScene2.cpp" />
+    <ClCompile Include="Game\Dungeon\DungeonTransition.cpp" />
+    <ClCompile Include="Engine\math\Easing.cpp" />
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\stage\map.FBX" />
@@ -210,6 +218,9 @@
     <MeshContentTask Include="Assets\modelData\testMons\tesEnemy2.fbx" />
     <MeshContentTask Include="Assets\modelData\testMons\tesEnemy3.fbx" />
     <MeshContentTask Include="Assets\modelData\uma\uma.fbx" />
+    <MeshContentTask Include="Assets\modelData\dungeon\dungeonBack.FBX">
+      <Filter>aaa</Filter>
+    </MeshContentTask>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\character\CharacterController.h" />
@@ -450,6 +461,8 @@
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="TestScene.h" />
     <ClInclude Include="TestScene2.h" />
+    <ClInclude Include="Game\Dungeon\DungeonTransition.h" />
+    <ClInclude Include="Engine\math\Easing.h" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="Assets\modelData\uma.tks" />
