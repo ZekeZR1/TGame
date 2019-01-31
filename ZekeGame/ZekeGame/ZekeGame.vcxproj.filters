@@ -177,6 +177,9 @@
     <Filter Include="ソース ファイル\Game\Assets\modelData\fairy">
       <UniqueIdentifier>{8b3a3ec4-6f53-4538-ac78-42f0f84dc750}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Game\Assets\sprite\monsho">
+      <UniqueIdentifier>{03847368-5a66-474d-8206-b4608f799ce5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\character\CharacterController.cpp">
@@ -1494,6 +1497,9 @@
     </ImageContentTask>
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_back.png">
       <Filter>ソース ファイル\Game\Assets\sprite\GUI\AI_Select</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\monsho\dun_stage0.png">
+      <Filter>ソース ファイル\Game\Assets\sprite\monsho</Filter>
     </ImageContentTask>
   </ItemGroup>
   <ItemGroup>
