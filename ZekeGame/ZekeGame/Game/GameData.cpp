@@ -1,5 +1,8 @@
 #include "stdafx.h"
 #include "GameData.h"
+#include "Monster/Monsters/TestMons.h"
+#include "Monster/Monsters/Uma.h"
+#include "Monster/Monsters/Fairy.h"
 
 Monster* g_mons[64];
 int g_buddyCount = 0;
@@ -33,17 +36,36 @@ void GameData::deletemons(Monster * mon)
 	g_mons.erase(ite);*/
 }
 
-const wchar_t * GameData::GetMonsterIconPath(wchar_t*& path,int monID)
+Monster * GameData::LoadMonster(int monID)
 {
-	if (path != nullptr)
-		free(&path);
+	Monster* mon = nullptr;
 	switch (monID)
 	{
 	case enTest:
-		wcscpy(path, L"Assets/sprite/mon_one.dds");
+		mon = NewGO<TestMons>(0, "monster");
 		break;
 	case enUmataur:
-		path = (wchar_t*)L"Assets/sprite/mon_two.dds";
+		mon = NewGO<Uma>(0, "monster");
+		break;
+	case enFairy:
+		mon = NewGO<Fairy>(0, "monster");
+		break;
+	}
+	return mon;
+}
+
+const wchar_t * GameData::GetMonsterIconPath(int monID)
+{
+	switch (monID)
+	{
+	case enTest:
+		return L"Assets/sprite/mon_one.dds";
+		break;
+	case enUmataur:
+		return L"Assets/sprite/mon_two.dds";
+		break;
+	case enFairy:
+		return L"Assets/sprite/mon_three.dds";
 		break;
 	}
 	return nullptr;

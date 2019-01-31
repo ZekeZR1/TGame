@@ -18,7 +18,20 @@ TestMons::TestMons()
 
 	
 
-	init(10, 10, 10, 20, 70, m_smr, 0);
+	init
+	(
+		10,		//HP
+		10,		//MP
+		10,		//防御力
+		10,		//特殊防御力
+		10,		//攻撃力
+		10,		//特殊攻撃力
+		10,		//スピード	
+		20,		//コリジョンの半径
+		70,		//高さ
+		m_smr,	//Ｓkin Ｍodel Ｒender
+		0		//アニメーションの数
+	);
 	//m_PB = FindGO<PythonBridge>("PB");
 
 	m_ID = 0;

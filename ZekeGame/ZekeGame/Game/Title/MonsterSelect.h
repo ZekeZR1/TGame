@@ -25,5 +25,5 @@ private:
 
 	std::vector<std::wstring> m_paths;
 
-	int m_monstercount = 2;
+	int m_monstercount = 3;
 };

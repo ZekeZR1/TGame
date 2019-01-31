@@ -38,10 +38,17 @@ void Monster::ReleaseMark()
 	}
 }
 
-void Monster::init(int HP, int MP, float speed, float radius, float height, SkinModelRender * smr, int animnum)
+void Monster::init(float HP, float MP,float Defense,float ExDefense, float Attack, float ExAttack, float speed, float radius, float height, SkinModelRender * smr, int animnum)
 {
 	m_HP = HP;
 	m_MP = MP;
+
+	m_Defense = Defense;
+	m_ExDefense = ExDefense;
+
+	m_Attack = Attack;
+	m_ExAttack = ExAttack;
+
 	m_speed = speed;
 	m_radius = radius;
 	m_height = height;
@@ -72,9 +79,7 @@ void Monster::Update()
 	if (m_HP <= 0)
 	{
 		m_state = en_Dead;
-		GameData* gd = new GameData();
-		gd->deletemons(this);
-		delete gd;
+		GameData::deletemons(this);
 		DeleteGO(this);
 	}
 	switch (m_state)
@@ -126,7 +131,7 @@ void Monster::execute()
 void Monster::Move()
 {
 	CVector3 move = m_movespeed + m_vKnockback;
-	move *= 50;
+	move *= m_speed;
 	m_pos = m_cc.Execute(IGameTime().GetFrameDeltaTime(), move);
 	
 	

@@ -2,9 +2,9 @@
 import importlib
 
 def execute(num,team,file):
-    mod = importlib.import_module(file)
     try:
+        mod = importlib.import_module(file)
         mod.Brain(num,team)
     except:
-        pass
+        return 0
     return 1

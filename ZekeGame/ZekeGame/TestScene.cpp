@@ -60,12 +60,45 @@ bool TestScene::Start() {
 	m_boneModel->Init(L"Assets/modelData/uma.cmo",m_anim,1,enFbxUpAxisZ,"PSMain","VSMainSkin");
 	m_boneModel->SetPosition(CVector3::Zero());
 	m_boneModel->PlayAnimation(0);
+	m_sp = NewGO<SpriteRender>(0);
+	m_sp->Init(L"Assets/Sprite/leftButton.dds", 50.f, 50.f);
+	m_sp->SetPosition(pos);
 	return true;
 }
 
 
 void TestScene::Update() {
+	if (Mouse::isTrigger(enRightClick)) {
+		pos = CVector3::Zero();
+	}
 	m_camera->Update();
+	char str[256];
+	double num = 0,f;
+	static double t = 0.f;
+	static bool add = false;
+	if (Mouse::isTrigger(enLeftClick)) {
+		add = true;
+	}
+	//if (t >= 1.f) {
+	//	t = 0.0f;
+	//	add = false;
+	//}
+	if (add) {
+		t += 0.1;
+	}
+	static double time = 0;
+	if (time >= 2.f) {
+		time = 0.f;
+		add = false;
+	}
+	if (add) {
+		time += 0.1f;
+	}
+	num = EASE::InOutQuad(50.f,0.f,1.f,time);
+	sprintf_s(str, "%f\n", num);
+	OutputDebugStringA(str);
+	pos.x += num;
+	m_sp->SetPosition(pos);
 }
 
 void TestScene::PostRender() {

@@ -33,7 +33,7 @@ bool Act_Chase::Action(Monster* me)
 	me->Setiswalk(true);
 
 	m_time += IGameTime().GetFrameDeltaTime();
-	if (m_time > 15.0f)
+	if (m_time > 10.0f)
 	{
 		me->Setspeed(CVector3::Zero());
 		me->anim_idle();

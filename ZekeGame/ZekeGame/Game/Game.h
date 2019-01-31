@@ -11,13 +11,10 @@ struct Pyinit;
 class Game : public GameObject
 {
 public:
-	Game();
-	~Game();
 	void GamePVPmodeInit(std::vector<std::string> files, int monsterAI[6], MonsterID MonsterID[6]);
 	bool Start() override;
+	void OnDestroy() override;
 	void Update() override;
-	void Render() override;
-	void PostRender() override;
 
 	enum Mode
 	{
@@ -37,6 +34,7 @@ public:
 		m_dunNum = number;
 	}
 
+
 private:
 	Pyinit* m_pi;
 	SkinModelRender* m_model;
@@ -49,5 +47,6 @@ private:
 	Mode m_playMode = enLocalPVP;
 
 	bool m_END = false;
+	bool m_isOnlineGame = false;
 };
 
