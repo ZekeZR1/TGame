@@ -17,6 +17,7 @@ private:
 	void NextSpAnimation();
 	void DungeonSelectClick();
 	void StartDungeon();
+	void BackToMenu();
 	int m_clearedDunNum = -1;
 	std::map<SpriteRender*, int> m_dungeonButton;
 	std::vector<SpriteRender*> m_sps;

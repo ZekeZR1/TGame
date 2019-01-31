@@ -2,8 +2,6 @@
 class DungeonTransition : public GameObject
 {
 public:
-	DungeonTransition();
-	~DungeonTransition();
 	bool Start() override;
 	void Update() override;
 	void OnDestroy() override;

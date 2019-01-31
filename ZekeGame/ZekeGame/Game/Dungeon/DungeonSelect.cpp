@@ -7,7 +7,6 @@
 #include "DungeonAISelect.h"
 #include "DungeonSelect.h"
 
-//TODO : ƒ_ƒ“ƒWƒ‡ƒ“‚ğ•à‚¢‚Ä‚éŠ´‚¶‚ğo‚·
 bool DungeonSelect::Start() {
 	m_cur = NewGO<GameCursor>(2, "cur");
 	InitSideButtons();
@@ -39,30 +38,8 @@ void DungeonSelect::Update() {
 	DungeonSelectClick();
 	NextSpAnimation();
 	PositionUpdate();
-	if(g_pad[0].IsTrigger(enButtonLeft)){
-		StartDungeon();
-	}
-	if (m_isPositionUpdating)
-		return;
-	for (auto i : m_sps) {
-		i->SetCollisionTarget(m_cur->GetCursor());
-		if (Mouse::isTrigger(enLeftClick)) {
-			if (i->isCollidingTarget()) {
-				int dunNum = m_dungeonButton[i];
-				if (dunNum > m_clearedDunNum + 1)
-					return;
-				auto dunAi = NewGO<DungeonAISelect>(0, "pvp");
-				dunAi->SetDungeonNumber(dunNum);
-				DeleteGO(this);
-			}
-		}
-	}
-	//back
-	m_backSp->SetCollisionTarget(m_cur->GetCursor());
-	if (Mouse::isTrigger(enLeftClick) && m_backSp->isCollidingTarget()) {
-		NewGO<ModeSelect>(0);
-		DeleteGO(this);
-	}
+	StartDungeon();
+	BackToMenu();
 }
 
 void DungeonSelect::CheckDungeonClearState() {
@@ -222,5 +199,27 @@ void DungeonSelect::DungeonSelectClick() {
 }
 
 void DungeonSelect::StartDungeon() {
+	if (m_isPositionUpdating)
+		return;
+	for (auto i : m_sps) {
+		i->SetCollisionTarget(m_cur->GetCursor());
+		if (Mouse::isTrigger(enLeftClick)) {
+			if (i->isCollidingTarget()) {
+				int dunNum = m_dungeonButton[i];
+				if (dunNum > m_clearedDunNum + 1)
+					return;
+				auto dunAi = NewGO<DungeonAISelect>(0, "pvp");
+				dunAi->SetDungeonNumber(dunNum);
+				DeleteGO(this);
+			}
+		}
+	}
+}
 
+void DungeonSelect::BackToMenu() {
+	m_backSp->SetCollisionTarget(m_cur->GetCursor());
+	if (Mouse::isTrigger(enLeftClick) && m_backSp->isCollidingTarget()) {
+		NewGO<ModeSelect>(0);
+		DeleteGO(this);
+	}
 }
