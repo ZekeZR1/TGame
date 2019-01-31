@@ -1501,6 +1501,12 @@
     <ImageContentTask Include="Assets\Sprite\monsho\dun_stage0.png">
       <Filter>ソース ファイル\Game\Assets\sprite\monsho</Filter>
     </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\MonActList\hp.png">
+      <Filter>ソース ファイル\Game\Assets\sprite\GUI</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\MonActList\mp.png">
+      <Filter>ソース ファイル\Game\Assets\sprite\GUI</Filter>
+    </ImageContentTask>
   </ItemGroup>
   <ItemGroup>
     <CopyFileToFolders Include="Game\dlllib\python36_d.dll">
