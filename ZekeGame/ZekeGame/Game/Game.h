@@ -37,6 +37,7 @@ public:
 		m_dunNum = number;
 	}
 
+
 private:
 	Pyinit* m_pi;
 	SkinModelRender* m_model;
