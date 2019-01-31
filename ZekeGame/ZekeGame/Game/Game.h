@@ -47,5 +47,6 @@ private:
 	Mode m_playMode = enLocalPVP;
 
 	bool m_END = false;
+	bool m_isOnlineGame = false;
 };
 

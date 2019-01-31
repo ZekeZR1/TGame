@@ -27,7 +27,8 @@ bool Game::Start() {
 	m_model->SetPosition(CVector3::Zero());
 	m_menu = NewGO<GameMenu>(0, "gm");
 	m_menu->init(m_playMode,m_dunNum);
-	Engine::IEngine().CreateNetworkSystem();
+	if(m_isOnlineGame)
+		Engine::IEngine().CreateNetworkSystem();
 	camera = new GameCamera;
 	return true;
 }
@@ -42,46 +43,42 @@ void Game::OnDestroy() {
 	DeleteGO(m_model);
 	DeleteGO(m_sprite);
 	DeleteGO(FindGO<SkinModelRender>("stageModel"));
-	Engine::IEngine().DestroyNetworkSystem();
+	if(m_isOnlineGame)
+		Engine::IEngine().DestroyNetworkSystem();
 	delete m_pi;
 }
 
 void Game::Update() {
 	static CVector3 pos = CVector3::Zero();
-	if (m_END)
+	if (m_END || m_menu->isOpen)
 		return;
-		if (m_menu->isOpen())
-			return;
-		m_model->SetPosition(pos);
-		camera->SetTarget(CVector3::Zero());
-		camera->SetPosition({ 0.0f, 350.0f, 1000.0f });
-		camera->Update();
-		if (g_buddyCount == 0 || g_enemyCount == 0)
+	m_model->SetPosition(pos);
+	camera->SetTarget(CVector3::Zero());
+	camera->SetPosition({ 0.0f, 350.0f, 1000.0f });
+	camera->Update();
+	if (g_buddyCount == 0 || g_enemyCount == 0)
+	{
+		m_END = true;
+		int team = g_mons[0]->Getteam();
+		DeleteGO(m_menu);
+		m_menu = nullptr;
+		QueryGOs<Monster>("monster", [&](auto obj)->bool
 		{
-			m_END = true;
-			int team = g_mons[0]->Getteam();
-			Win* win;
-			DungeonResult* dr;
-			DeleteGO(m_menu);
-			m_menu = nullptr;
-			QueryGOs<Monster>("monster", [&](auto obj)->bool
-			{
-				obj->ReleaseMAL();
-				return true;
-			});
-			switch (m_playMode)
-			{
-			case enLocalPVP:
-				win = NewGO<Win>(0, "win");
-				win->init(team);
-				break;
-			case enRandomPVP:
-
-				break;
-			case enDungeon:
-				dr = NewGO<DungeonResult>(0, "dr");
-				dr->init(team, m_dunNum);
-				break;
-			}
+			obj->ReleaseMAL();
+			return true;
+		});
+		switch (m_playMode)
+		{
+		case enLocalPVP:
+			auto win = NewGO<Win>(0, "win");
+			win->init(team);
+			break;
+		case enRandomPVP:
+			break;
+		case enDungeon:
+			auto dr = NewGO<DungeonResult>(0, "dr");
+			dr->init(team, m_dunNum);
+			break;
 		}
+	}
 }
