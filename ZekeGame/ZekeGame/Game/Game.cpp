@@ -1,3 +1,5 @@
+// –¼‚ÍGame‚Æ\‚·B
+
 #include "stdafx.h"
 #include "Game.h"
 #include "GameCamera.h"
@@ -52,6 +54,7 @@ bool Game::Start() {
 	m_model->SetPosition(CVector3::Zero());
 
 	m_menu = NewGO<GameMenu>(0, "gm");
+	m_menu->init(m_playMode,m_dunNum);
 
 	/*m_sprite = NewGO<SpriteRender>(0,"sprite");
 	m_sprite->Init(L"Assets/Sprite/Test.dds", 500.f, 500.f);

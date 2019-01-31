@@ -10,7 +10,7 @@ def sqrt(v):
         n = (n + v/n)/2
     return n
 
-class Vector3(object):
+class Vector3:
     def __init__(self,x=0,y=0,z=0):
         self.x = x
         self.y = y
@@ -280,14 +280,39 @@ class GameData:
 
 gameData = GameData()
 
+
+TestmonsID = 0
+UmataurID = 1
+FairyID = 2
+
+def GetMonsStateHP(id):
+    hp = 1
+    if TestmonsID == id:
+        hp = 10
+    elif UmataurID == id:
+        hp = 160
+    elif FairyID == id:
+        hp = 160
+
+    return hp
+
+
 def init(num,team):
     """ゲームデータの初期化
         必ず最初に使いましょう。
         """
     gameData.init(num,team)
 
+
+def GetMe():
+    return gameData.me
+
+def GetMePercentHP():
+    return gameData.me.HP / GetMonsStateHP(gameData.me.ID)
+
 def GetFarMonster():
     return gameData.GetFarMonster()
+
 def GetNeerMonster():
     return gameData.GetNeerMonster()
 
@@ -315,9 +340,11 @@ def GetEnemyHighHP():
     """#一番HPの高い敵のモンスターを返します"""
     return gameData.GetEnemyHighHP()
 
+
 MonsterUseAction = [
     [ACTION.Chase,ACTION.Atack,ACTION.Leave],
-    [ACTION.Chase,ACTION.Atack]
+    [ACTION.Chase,ACTION.Atack],
+    [ACTION.Chase,ACTION.Atack,ACTION.Leave]
     ]
 
 actions = []
