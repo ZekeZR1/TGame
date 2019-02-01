@@ -19,4 +19,5 @@ private:
 	GameCamera* m_camera;
 	GameCamera2D* m_2dcamera;
 	AnimationClip m_anim[1];
+	SpriteRender* m_white = nullptr;
 };

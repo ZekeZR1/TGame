@@ -64,6 +64,11 @@ public:
 	{
 		return m_skinModel;
 	}
+
+	SkinModel* GetSkinModelPointer()
+	{
+		return &m_skinModel;
+	}
 	const SkinModel& GetSkinModel() const
 	{
 		return m_skinModel;
