@@ -8,6 +8,7 @@ class GameCamera;
 class TestListener;
 class GameMenu;
 struct Pyinit;
+
 class Game : public GameObject
 {
 public:
