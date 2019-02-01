@@ -50,7 +50,7 @@ void Game::OnDestroy() {
 
 void Game::Update() {
 	static CVector3 pos = CVector3::Zero();
-	if (m_END || m_menu->isOpen)
+	if (m_END || m_menu->isOpen())
 		return;
 	m_model->SetPosition(pos);
 	camera->SetTarget(CVector3::Zero());
@@ -70,15 +70,19 @@ void Game::Update() {
 		switch (m_playMode)
 		{
 		case enLocalPVP:
+		{
 			auto win = NewGO<Win>(0, "win");
 			win->init(team);
 			break;
+		}
 		case enRandomPVP:
 			break;
 		case enDungeon:
+		{
 			auto dr = NewGO<DungeonResult>(0, "dr");
 			dr->init(team, m_dunNum);
 			break;
+		}
 		}
 	}
 }
