@@ -109,6 +109,7 @@ void Monster::Update()
 	case en_Dead:
 		break;
 	}
+	receiveDamage();
 	Move();
 	m_time += IGameTime().GetFrameDeltaTime();
 }
@@ -170,6 +171,25 @@ void Monster::TurnEx()
 	m_rot.Multiply(addrot);
 	m_smr->SetRotation(m_rot);
 	m_turncount--;
+}
+
+void Monster::receiveDamage()
+{
+	if (m_Damage > 0)
+	{
+		float dm = m_Damage - m_Defense;
+		dm += 3;
+		if (dm > 0)
+			m_HP -= dm;
+	}
+
+	if (m_DamageEx)
+	{
+		float dm = m_DamageEx - m_DamageEx;
+		dm += 3;
+		if (dm > 0)
+			m_HP -= dm;
+	}
 }
 
 void Monster::StartKnockback(CVector3 v)
@@ -244,9 +264,9 @@ void Monster::anim_defense()
 	m_smr->PlayAnimation(en_defense);
 }
 
-void Monster::anim_recovery()
+void Monster::anim_extra1()
 {
-	if (en_recovery > m_AnimNum - 1)
+	if (en_extra1 > m_AnimNum - 1)
 		return;
-	m_smr->PlayAnimation(en_recovery);
+	m_smr->PlayAnimation(en_extra1);
 }

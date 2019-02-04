@@ -593,6 +593,9 @@
     <ClCompile Include="Game\AIEdit\AIEditNodeMass.cpp">
       <Filter>ソース ファイル\Game\AIEdit</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Monster\Action\Act_Fire.cpp">
+      <Filter>ソース ファイル\Game\Monster\Action</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\character\CharacterController.h">
@@ -1278,6 +1281,9 @@
     </ClInclude>
     <ClInclude Include="Game\AIEdit\AIEditNodeInequ.h">
       <Filter>ソース ファイル\Game\AIEdit</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\Action\Act_Fire.h">
+      <Filter>ソース ファイル\Game\Monster\Action</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -66,10 +66,38 @@ void GameCamera::Update() {
 
 void GameCamera::normal()
 {
-	SkinModelRender* i_model = nullptr;
-	i_model = FindGO<SkinModelRender>("model");
+	/*SkinModelRender* i_model = nullptr;
+	i_model = FindGO<SkinModelRender>("model");*/
 	//m_target = i_model->GetPosition();
-	m_target = CVector3::Zero();
+
+	CVector3 vmin = CVector3::Zero();
+	CVector3 vmax = CVector3::Zero();
+	
+	float fmin = 0;
+	float fmax = 0;
+
+	for (auto mon : g_mons)
+	{
+		if (mon == NULL)
+			break;
+		float lmin = (vmax - mon->Getpos()).Length();
+		float lmax = (vmin - mon->Getpos()).Length();
+		if (lmin > fmin)
+		{
+			fmin = lmin;
+			vmin = mon->Getpos();
+		}
+		else if (lmax > fmax)
+		{
+			fmax = lmax;
+			vmax = mon->Getpos();
+		}
+	}
+
+	CVector3 add = (vmax - vmin) / 2;
+
+
+	m_target = vmin + add;
 
 
 	float x = g_pad[0].GetRStickXF();
