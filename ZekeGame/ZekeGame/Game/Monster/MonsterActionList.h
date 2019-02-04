@@ -26,6 +26,6 @@ private:
 	FontRender* m_fhp = nullptr;
 	FontRender* m_fmp = nullptr;
 
-	CVector2 m_vh = CVector3::Zero();
-	CVector2 m_vm = CVector3::Zero();
+	CVector2 m_vh = CVector2::Zero();
+	CVector2 m_vm = CVector2::Zero();
 };

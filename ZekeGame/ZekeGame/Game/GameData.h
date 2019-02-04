@@ -16,6 +16,8 @@ enum ActionID
 	enChase,
 	enAtack,
 	enLeave,
+
+	enFire,
 };
 
 //static std::vector<Monster*> g_mons;
