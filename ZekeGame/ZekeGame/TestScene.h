@@ -13,8 +13,9 @@ public:
 	void Update();
 	void PostRender() override;
 private:
-	SkinModelRender* m_boneModel = nullptr;
-	GameCamera* m_camera;
-	GameCamera2D* m_2dcamera;
+	SkinModelRender* m_model = nullptr;
+	SpriteRender* m_sp = nullptr;
+	CVector3 pos = CVector3::Zero();
 	AnimationClip m_anim[1];
+	SpriteRender* m_white = nullptr;
 };
