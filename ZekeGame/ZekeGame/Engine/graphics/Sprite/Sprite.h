@@ -48,16 +48,16 @@ public:
 		m_mulCol = col;
 	}
 	struct ConstantBuffer {
-		CMatrix WVP;		//ワールドビュープロジェクション行列。
+		CMatrix WVP;
 		CVector4 mulCol;
 	};
 	Camera::EnUpdateProjMatrixFunc m_cameraMode = Camera::enUpdateProjMatrixFunc_Ortho;
-	ID3D11Buffer*				m_vertexBuffer = NULL;					//頂点バッファ。
-	ID3D11Buffer*				m_indexBuffer = NULL;					//インデックスバッファ。
-	Effect						m_effect;								//エフェクト。気にしなくてよい。
-	ID3D11ShaderResourceView*	m_texture = NULL;						//テクスチャ。
-	ID3D11SamplerState*			m_samplerState = NULL;					//サンプラステート。
-	CVector3					m_position = CVector3::Zero();			//座標。
+	ID3D11Buffer*				m_vertexBuffer = NULL;				
+	ID3D11Buffer*				m_indexBuffer = NULL;				
+	Effect						m_effect;								
+	ID3D11ShaderResourceView*	m_texture = NULL;						
+	ID3D11SamplerState*			m_samplerState = NULL;				
+	CVector3					m_position = CVector3::Zero();		
 	CQuaternion					m_rotation = CQuaternion::Identity();	//回転
 	CVector3					m_scale = CVector3::One();
 	CMatrix						m_world = CMatrix::Identity();			//ワールド行列。
@@ -66,7 +66,7 @@ public:
 	Shader						m_vs;									//頂点シェーダー。
 	Shader						m_ps;									//ピクセルシェーダー。
 	Shader						m_pss;									//ピクセルシェーダー。
-	CVector4					m_mulCol = { 1.f,0.f,0.f,1.f };
+	CVector4					m_mulCol = CVector4::White;
 private:
 	void InitCommon(float w, float h);
 	/*!
