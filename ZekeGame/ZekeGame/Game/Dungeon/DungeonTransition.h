@@ -21,6 +21,7 @@ private:
 	DungeonTCamera* m_camera = nullptr;
 	AnimationClip m_animation[1];
 	CVector3 m_standardPos = CVector3::Zero();
+	SpriteRender* m_sp = nullptr;
 };
 
 class DungeonTCamera : public GameObject {
