@@ -21,7 +21,9 @@ bool Act_Fire::Action(Monster * me)
 	{
 		m_pos = m_target->Getpos();
 
-		m_effect->SetScale({ 10.1f,10.1f,10.1f });
+		CVector3 sc = CVector3::One();
+		sc *= 100;
+		m_effect->SetScale(sc);
 		m_effect->SetPosition(m_pos);
 		m_effect->Play(L"Assets/effect/fire1/fire1.efk");
 		
