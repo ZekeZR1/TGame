@@ -15,22 +15,22 @@ bool CEffect::Start() {
 }
 
 void CEffect::Update() {
-	//g_graphicsEngine->GetEffectEngine().GetEffekseerManager().SetScale(m_handle, m_scale.x, m_scale.y, m_scale.z);
-	//Effekseer::Matrix43 mBase;
-	//CMatrix mRot, mScale, mTrans;
-	//mTrans.MakeTranslation(m_position);
-	//mRot.MakeRotationFromQuaternion(m_rotation);
-	//mScale.MakeScaling(m_scale);
-	//Effekseer::Matrix43::Multiple(mBase, mScale, mRot);
-	//Effekseer::Matrix43::Multiple(mBase, mBase, mTrans);
-	//g_graphicsEngine->GetEffectEngine().GetEffekseerManager().SetBaseMatrix(m_handle, mBase);
-	CMatrix mTrans, mRot, mScale, mBase;
+	g_graphicsEngine->GetEffectEngine().GetEffekseerManager().SetScale(m_handle, m_scale.x, m_scale.y, m_scale.z);
+	Effekseer::Matrix43 mBase;
+	CMatrix mRot, mScale, mTrans;
 	mTrans.MakeTranslation(m_position);
 	mRot.MakeRotationFromQuaternion(m_rotation);
 	mScale.MakeScaling(m_scale);
-	mBase = mBase * mTrans;
-	mBase = mScale * mRot;
+	Effekseer::Matrix43::Multiple(mBase, mScale, mRot);
+	Effekseer::Matrix43::Multiple(mBase, mBase, mTrans);
 	g_graphicsEngine->GetEffectEngine().GetEffekseerManager().SetBaseMatrix(m_handle, mBase);
+	//CMatrix mTrans, mRot, mScale, mBase;
+	//mTrans.MakeTranslation(m_position);
+	//mRot.MakeRotationFromQuaternion(m_rotation);
+	//mScale.MakeScaling(m_scale);
+	//mBase = mBase * mTrans;
+	//mBase = mScale * mRot;
+	//g_graphicsEngine->GetEffectEngine().GetEffekseerManager().SetBaseMatrix(m_handle, mBase);
 	if (!IsPlay() && isPlayed) {
 		Stop();
 		DeleteGO(this);
