@@ -28,8 +28,8 @@ void CEffect::Update() {
 	mTrans.MakeTranslation(m_position);
 	mRot.MakeRotationFromQuaternion(m_rotation);
 	mScale.MakeScaling(m_scale);
-	mBase = mScale * mRot;
 	mBase = mBase * mTrans;
+	mBase = mScale * mRot;
 	g_graphicsEngine->GetEffectEngine().GetEffekseerManager().SetBaseMatrix(m_handle, mBase);
 	if (!IsPlay() && isPlayed) {
 		Stop();
