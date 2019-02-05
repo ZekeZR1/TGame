@@ -214,6 +214,7 @@
     <MeshContentTask Include="Assets\modelData\testMons\tesEnemy2.fbx" />
     <MeshContentTask Include="Assets\modelData\testMons\tesEnemy3.fbx" />
     <MeshContentTask Include="Assets\modelData\uma\uma.fbx" />
+    <MeshContentTask Include="Assets\modelData\dungeon\dungeonBack.FBX" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\character\CharacterController.h" />
