@@ -11,6 +11,7 @@
 #include "../Title/ModeSelect.h"
 #include "../Title/PMMonster.h"
 #include "DungeonAISelect.h"
+#include "DungeonTransition.h"
 
 DungeonAISelect::DungeonAISelect()
 {
@@ -79,8 +80,8 @@ void DungeonAISelect::Update() {
 				moid[i] = static_cast<MonsterID>(m_pmms[i]->GetMonsterID());
 				monai[i] = m_pmms[i]->GetAI();
 			}
-			auto select = NewGO<StageSelect>(0, "selectScene");
-			select->SetDungeonGameData(m_files, m_enemyFiles, monai, moid, m_dunNum);
+			auto tra = NewGO<DungeonTransition>(0);
+			tra->SetGameData(m_files, m_enemyFiles, monai, moid, m_dunNum);
 			DeleteGO(this);
 		}
 	}
