@@ -71,8 +71,6 @@ public:
 		return *this;
 	}
 
-
-
 	CMatrix& operator=(const CMatrix& _m)
 	{
 		mat = _m.mat;
@@ -208,3 +206,10 @@ public:
 		return identity;
 	}
 };
+
+static inline CMatrix operator*(const CMatrix& m1, const CMatrix m2)
+{
+	CMatrix mRet;
+	mRet.Mul(m1, m2);
+	return mRet;
+}
