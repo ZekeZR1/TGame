@@ -43,7 +43,7 @@ void CEffect::Render() {
 
 void CEffect::Play(const wchar_t* filepath) {
 	m_effect = Effekseer::Effect::Create(&(g_graphicsEngine->GetEffectEngine().GetEffekseerManager()), (const EFK_CHAR*)filepath);
-	m_handle = g_graphicsEngine->GetEffectEngine().GetEffekseerManager().Play(m_effect, m_position.x, m_position.y, m_position.z);
+	m_handle = g_graphicsEngine->GetEffectEngine().GetEffekseerManager().Play(m_effect, 0,0,0);
 	isPlayed = true;
 }
 
