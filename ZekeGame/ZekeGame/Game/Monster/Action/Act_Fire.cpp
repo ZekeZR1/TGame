@@ -22,7 +22,7 @@ bool Act_Fire::Action(Monster * me)
 		m_pos = m_target->Getpos();
 
 		CVector3 sc = CVector3::One();
-		sc *= 100;
+		sc *= 1000;
 		m_effect->SetScale(sc);
 		m_effect->SetPosition(m_pos);
 		m_effect->Play(L"Assets/effect/fire1/fire1.efk");
@@ -42,10 +42,9 @@ bool Act_Fire::Action(Monster * me)
 			}
 		}
 	}
-	else if (m_effect->IsPlay() && m_isPlayAnim)
+	else if (!m_effect->IsPlay() && m_isPlayAnim)
 	{
 		me->anim_idle();
-		DeleteGO(m_effect);
 		return true;
 	}
 	return false;

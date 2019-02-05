@@ -138,6 +138,9 @@ void MonsterActionList::Update()
 			case enLeave:
 				ws = L"Leave";
 				break;
+			case enFire:
+				ws = L"Fire";
+				break;
 			}
 			m_frs[i]->Init(ws, { p.x,p.y +45}, 0, CVector4::White, 1, { 0,0 });
 		}

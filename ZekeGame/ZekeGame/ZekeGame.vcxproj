@@ -599,6 +599,9 @@
     <ImageContentTask Include="Assets\Sprite\Mp.png" />
     <ImageContentTask Include="Assets\Sprite\karipoint.png" />
     <ImageContentTask Include="Assets\Sprite\winkari.png" />
+    <Image Include="Assets\effect\fire1\Fire.png" />
+    <Image Include="Assets\effect\fire1\Particle01.png" />
+    <Image Include="Assets\effect\fire1\Smoke.png" />
     <Image Include="Assets\modelData\boxTex.png" />
     <ImageContentTask Include="Assets\modelData\fairy\hnd.God2.png" />
     <ImageContentTask Include="Assets\modelData\fairy\hnd.hane.png" />
@@ -633,6 +636,7 @@
     <CustomBuild Include="Assets\modelData\boneTestMove.tka">
       <FileType>Document</FileType>
     </CustomBuild>
+    <None Include="Assets\effect\fire1\fire1.efk" />
     <None Include="Assets\modelData\fairy\hnd_atack.tka" />
     <None Include="Assets\modelData\fairy\hnd_ex1.tka" />
     <None Include="Assets\modelData\fairy\hnd_idle.tka" />
