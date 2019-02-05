@@ -27,6 +27,8 @@ public:
 
 	void TurnEx();
 
+	void receiveDamage();
+
 	//ノックバック時に使う関数
 	void Knockback();
 
@@ -70,7 +72,13 @@ public:
 	//d: 食らうダメージ
 	void Damage(float d)
 	{
-		m_HP -= d;
+		//m_HP -= d;
+		m_Damage = d;
+	}
+
+	void DamageEx(float d)
+	{
+		m_DamageEx = d;
 	}
 
 	//MPを返す
@@ -221,7 +229,7 @@ public:
 	void anim_walk();
 	void anim_atack();
 	void anim_defense();
-	void anim_recovery();
+	void anim_extra1();
 
 	//アニメーションの状態
 	enum anim
@@ -230,7 +238,11 @@ public:
 		en_walk,
 		en_atack,
 		en_defense,
-		en_recovery,
+		en_extra1,
+		en_extra2,
+		en_extra3,
+		en_extra4,
+		en_extra5,
 	};
 
 	void end()
@@ -254,6 +266,9 @@ protected:
 	float m_ExDefense = 0;						//特殊防御力
 	float m_Attack = 0;							//攻撃力
 	float m_ExAttack = 0;						//特殊攻撃力
+
+	float m_Damage = 0;							//ダメージ
+	float m_DamageEx = 0;						//特殊ダメージ
 
 
 	float m_speed = 0.0f;						//スピード

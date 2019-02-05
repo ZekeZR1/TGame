@@ -12,11 +12,13 @@ public:
 	MonsterAction* LoadAction(int id,int target);
 
 	//TODO: V‚µ‚¢‹Z‚ğ’Ç‰Á‚·‚é‚Æ‚«‚Í‚±‚±‚É‚à’Ç‰Á‚µ‚æ‚¤
-	enum en_action
+	/*enum en_action
 	{
 		en_Chase,
 		en_Atack,
 		en_Leave,
-	};
+
+		en_Fire,
+	};*/
 private:
 };

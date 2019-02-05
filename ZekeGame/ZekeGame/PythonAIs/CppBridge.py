@@ -52,6 +52,10 @@ class Monster:
         self.num = 0
         self.HP = 0
         self.MP = 0
+        self.Attack = 0
+        self.AttackEx = 0
+        self.Defence = 0
+        self.DefenceEx = 0
         self.state = 0
     def SetPosition(self,x,y,z):
         self.position.SetVector(x,y,z)
@@ -71,6 +75,7 @@ class ACTION(IntEnum):
     Chase = 0
     Atack = 1
     Leave = 2
+    Fire = 3
 
 class GameData:
     def fuck__init__(self):
@@ -344,7 +349,7 @@ def GetEnemyHighHP():
 MonsterUseAction = [
     [ACTION.Chase,ACTION.Atack,ACTION.Leave],
     [ACTION.Chase,ACTION.Atack],
-    [ACTION.Chase,ACTION.Atack,ACTION.Leave]
+    [ACTION.Chase,ACTION.Atack,ACTION.Leave,ACTION.Fire]
     ]
 
 actions = []
@@ -367,6 +372,9 @@ def Atack(target):
 
 def Leave(target):
     addAction(target,ACTION.Leave)
+
+def Fire(target):
+    addAction(target,ACTION.Fire)
 
 
 def End():

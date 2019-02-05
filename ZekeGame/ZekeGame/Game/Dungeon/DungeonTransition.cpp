@@ -24,6 +24,9 @@ bool DungeonTransition::Start() {
 	}
 	m_camera = NewGO<DungeonTCamera>(0);
 
+	m_sp = NewGO<SpriteRender>(5);
+	m_sp->Init(L"Assets/Sprite/button1.dds", 1280.f, 720.f);
+
 	return true;
 }
 
@@ -33,6 +36,7 @@ void DungeonTransition::OnDestroy() {
 	for (auto model : m_monsters) {
 		DeleteGO(model);
 	}
+	DeleteGO(m_sp);
 }
 
 void DungeonTransition::Update() {

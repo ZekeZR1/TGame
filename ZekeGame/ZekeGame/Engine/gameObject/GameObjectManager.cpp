@@ -38,7 +38,7 @@ void GameObjectManager::Execute()
 
 	m_postEffect.Update();
 
-	//g_graphicsEngine->GetEffectEngine().Update();
+	g_graphicsEngine->GetEffectEngine().Update();
 
 	g_graphicsEngine->BegineRender();
 	//フレームバッファののレンダリングターゲットをバックアップしておく。
@@ -72,6 +72,7 @@ void GameObjectManager::Execute()
 		}
 	}
 
+	g_graphicsEngine->GetEffectEngine().Draw();
 
 	for (GameObjectList objList : m_gameObjectListArray) {
 		for (GameObject* obj : objList) {
