@@ -13,8 +13,6 @@ bool DungeonTransition::Start() {
 	m_back->SetPosition(m_backPos);
 
 	CVector3 pos = CVector3::Zero();
-	m_animation[0].Load(L"Assets/modelData/uma/anim_uma_walk.tka");
-	m_animation[0].SetLoopFlag(true);
 	pos.y -= 100.f;
 	pos.z = -2000.f;
 	for (int i = 0; i < m_numMonster; i++) {
@@ -24,16 +22,22 @@ bool DungeonTransition::Start() {
 			m_monsters[i]->Init(L"Assets/modelData/tesEnemy3.cmo");//, m_animation, 1);
 			break;
 		case enUmataur:
-			m_monsters[i]->Init(L"Assets/modelData/uma.cmo");//, m_animation, 1);
+			m_animClip[i][0].Load(L"Assets/modelData/uma/anim_uma_walk.tka");
+			m_animClip[i][0].SetLoopFlag(true);
+			m_monsters[i]->Init(L"Assets/modelData/uma.cmo", m_animClip[i], 1);
+			m_monsters[i]->PlayAnimation(0);
 			break;
 		case enFairy:
-			m_monsters[i]->Init(L"Assets/modelData/hnd.cmo");// , m_animation, 1);
+			m_animClip[i][0].Load(L"Assets/modelData/fairy/hnd_idle.tka");
+			m_animClip[i][0].SetLoopFlag(true);
+			m_monsters[i]->Init(L"Assets/modelData/hnd.cmo", m_animClip[i], 1);
+			m_monsters[i]->PlayAnimation(0);
 			break;
 		default:
 			break;
+
 		}
 		m_monsters[i]->SetPosition(pos);
-		//m_monsters[i]->PlayAnimation(0);
 		pos.x += 80.f;
 	}
 	m_camera = NewGO<DungeonTCamera>(0);
