@@ -167,10 +167,6 @@
     <ClCompile Include="Game\GameMenu\GameMenu.cpp" />
     <ClCompile Include="Game\GameMenu\MenuButton.cpp" />
     <ClCompile Include="Game\main.cpp" />
-    <ClCompile Include="Game\Monster\Action\Act_Atack.cpp" />
-    <ClCompile Include="Game\Monster\Action\Act_Chase.cpp" />
-    <ClCompile Include="Game\Monster\Action\Act_Fire.cpp" />
-    <ClCompile Include="Game\Monster\Action\Act_Leave.cpp" />
     <ClCompile Include="Game\Monster\Monster.cpp" />
     <ClCompile Include="Game\Monster\MonsterAction.cpp" />
     <ClCompile Include="Game\Monster\MonsterActionList.cpp" />
@@ -206,6 +202,21 @@
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="TestScene.cpp" />
     <ClCompile Include="TestScene2.cpp" />
+    <ClCompile Include="Game\Monster\Action\Act_Atack.cpp">
+      <Filter>act</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\Action\Act_Chase.cpp">
+      <Filter>act</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\Action\Act_Fire.cpp">
+      <Filter>act</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\Action\Act_Leave.cpp">
+      <Filter>act</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\Action\Act_Defense.cpp">
+      <Filter>act</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\fairy\hnd.FBX" />
@@ -318,10 +329,6 @@
     <ClInclude Include="Game\GameData.h" />
     <ClInclude Include="Game\GameMenu\GameMenu.h" />
     <ClInclude Include="Game\GameMenu\MenuButton.h" />
-    <ClInclude Include="Game\Monster\Action\Act_Atack.h" />
-    <ClInclude Include="Game\Monster\Action\Act_Chase.h" />
-    <ClInclude Include="Game\Monster\Action\Act_Fire.h" />
-    <ClInclude Include="Game\Monster\Action\Act_Leave.h" />
     <ClInclude Include="Game\Monster\Monster.h" />
     <ClInclude Include="Game\Monster\MonsterAction.h" />
     <ClInclude Include="Game\Monster\MonsterActionList.h" />
@@ -457,6 +464,21 @@
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="TestScene.h" />
     <ClInclude Include="TestScene2.h" />
+    <ClInclude Include="Game\Monster\Action\Act_Atack.h">
+      <Filter>act</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\Action\Act_Chase.h">
+      <Filter>act</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\Action\Act_Fire.h">
+      <Filter>act</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\Action\Act_Leave.h">
+      <Filter>act</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\Action\Act_Defense.h">
+      <Filter>act</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="Assets\modelData\uma.tks" />
@@ -491,5 +513,11 @@
     <None Include="PythonAIs\Threader.py" />
     <None Include="PythonAIs\_MiddleExecute.py" />
     <None Include="Assets\effect\fire1\fire1.efk" />
+    <None Include="PythonAIs\F.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="act">
+      <UniqueIdentifier>{ed9ac73e-291a-47fa-99d2-535de596c2f8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

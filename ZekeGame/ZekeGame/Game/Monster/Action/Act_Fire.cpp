@@ -19,10 +19,16 @@ bool Act_Fire::Action(Monster * me)
 	}
 	if (!m_effect->IsPlay() && !m_isPlayAnim)
 	{
+		float mp = me->GetMP();
+		if (mp < 20)
+			return true;
+		mp -= 20;
+		me->SetMP(mp);
+
 		m_pos = m_target->Getpos();
 
 		CVector3 sc = CVector3::One();
-		sc *= 1000;
+		sc *= 5;
 		m_effect->SetScale(sc);
 		m_effect->SetPosition(m_pos);
 		m_effect->Play(L"Assets/effect/fire1/fire1.efk");
@@ -36,9 +42,9 @@ bool Act_Fire::Action(Monster * me)
 			if (mon == NULL)
 				break;
 			CVector3 len = m_pos - mon->Getpos();
-			if (len.Length() < 5)
+			if (len.Length() < 30)
 			{
-				mon->DamageEx(me->GetExAttack()*2);
+				mon->DamageEx(me->GetExAttack());
 			}
 		}
 	}

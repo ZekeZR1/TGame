@@ -6,5 +6,5 @@ class Fairy :public Monster
 public:
 	Fairy();
 private:
-	AnimationClip m_anim[3];
+	AnimationClip m_anim[7];
 };

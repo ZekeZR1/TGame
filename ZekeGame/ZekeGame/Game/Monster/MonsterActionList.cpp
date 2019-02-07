@@ -138,6 +138,8 @@ void MonsterActionList::Update()
 			case enLeave:
 				ws = L"Leave";
 				break;
+			case enDefense:
+				ws = L"Defense";
 			case enFire:
 				ws = L"Fire";
 				break;
