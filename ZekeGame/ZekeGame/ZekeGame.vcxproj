@@ -257,6 +257,7 @@
     <ClCompile Include="Game\main.cpp" />
     <ClCompile Include="Game\Monster\Action\Act_Atack.cpp" />
     <ClCompile Include="Game\Monster\Action\Act_Chase.cpp" />
+    <ClCompile Include="Game\Monster\Action\Act_Defense.cpp" />
     <ClCompile Include="Game\Monster\Action\Act_Fire.cpp" />
     <ClCompile Include="Game\Monster\Action\Act_Leave.cpp" />
     <ClCompile Include="Game\Monster\Monster.cpp" />
@@ -402,6 +403,7 @@
     <ClInclude Include="Game\GameMenu\MenuButton.h" />
     <ClInclude Include="Game\Monster\Action\Act_Atack.h" />
     <ClInclude Include="Game\Monster\Action\Act_Chase.h" />
+    <ClInclude Include="Game\Monster\Action\Act_Defense.h" />
     <ClInclude Include="Game\Monster\Action\Act_Fire.h" />
     <ClInclude Include="Game\Monster\Action\Act_Leave.h" />
     <ClInclude Include="Game\Monster\Monster.h" />
@@ -655,6 +657,7 @@
     <CopyFileToFolders Include="PythonAIs\testBrain1.py">
       <FileType>Document</FileType>
     </CopyFileToFolders>
+    <None Include="PythonAIs\F.py" />
     <None Include="PythonAIs\testBrain2.py" />
     <None Include="PythonAIs\Threader.py" />
     <None Include="PythonAIs\_MiddleExecute.py" />
