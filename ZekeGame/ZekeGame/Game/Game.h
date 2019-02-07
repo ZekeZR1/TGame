@@ -17,6 +17,11 @@ public:
 	void OnDestroy() override;
 	void Update() override;
 
+	void SuddenDeath()
+	{
+		m_suddenDeath = true;
+	}
+
 	enum Mode
 	{
 		enLocalPVP,
@@ -49,5 +54,8 @@ private:
 
 	bool m_END = false;
 	bool m_isOnlineGame = false;
+	bool m_suddenDeath = false;
+
+	float m_time = 5.0f;
 };
 

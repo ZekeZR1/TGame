@@ -281,6 +281,7 @@
     <ClCompile Include="Game\SaveLoad\PythonFileLoad.cpp" />
     <ClCompile Include="Game\StageSetup\StageSelect.cpp" />
     <ClCompile Include="Game\StageSetup\StageSetup.cpp" />
+    <ClCompile Include="Game\SuddenDeath.cpp" />
     <ClCompile Include="Game\Title\AIeditModeSelect.cpp" />
     <ClCompile Include="Game\Title\AIMSelect.cpp" />
     <ClCompile Include="Game\Title\AISelect.cpp" />
@@ -527,6 +528,7 @@
     <ClInclude Include="Game\SaveLoad\PythonFileLoad.h" />
     <ClInclude Include="Game\StageSetup\StageSelect.h" />
     <ClInclude Include="Game\StageSetup\StageSetup.h" />
+    <ClInclude Include="Game\SuddenDeath.h" />
     <ClInclude Include="Game\Title\AIeditModeSelect.h" />
     <ClInclude Include="Game\Title\AIMSelect.h" />
     <ClInclude Include="Game\Title\AISelect.h" />

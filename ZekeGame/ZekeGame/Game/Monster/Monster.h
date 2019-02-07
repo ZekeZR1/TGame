@@ -12,6 +12,7 @@ public:
 	~Monster();
 
 	void init(float HP, float MP,float Defence, float ExDefense, float Attack,float ExAttack, float speed, float radius, float height, SkinModelRender* smr, int animnum);
+	void SuddenDeath();
 
 	bool Start() override final;
 	void Update() override final;
@@ -68,6 +69,11 @@ public:
 	float GetHP()
 	{
 		return m_HP;
+	}
+
+	void SetHP(float hp)
+	{
+		m_HP = hp;
 	}
 
 	//ƒ_ƒ[ƒW

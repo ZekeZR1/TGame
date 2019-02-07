@@ -58,6 +58,13 @@ void Monster::init(float HP, float MP,float Defense,float ExDefense, float Attac
 	m_AnimNum = animnum;
 }
 
+void Monster::SuddenDeath()
+{
+	float hp = m_HP * 0.3f;
+	m_HP = hp;
+	m_maxHP = hp;
+}
+
 bool Monster::Start()
 {
 	m_smr->SetPosition(m_pos);
