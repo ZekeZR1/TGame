@@ -70,7 +70,6 @@ void DungeonTransition::Update() {
 
 //
 bool DungeonTCamera::Start() {
-	//camera3d = new Camera;
 	camera3d->SetTarget(CVector3::Zero());
 	camera3d->SetPosition(m_pos);
 	camera3d->SetUpdateProjMatrixFunc(Camera::enUpdateProjMatrixFunc_Perspective);
@@ -81,41 +80,49 @@ bool DungeonTCamera::Start() {
 }
 
 void DungeonTCamera::OnDestroy() {
-	//delete camera3d;
 }
 
 void DungeonTCamera::Update() {
-	 float r = 1.f;
-	 count++;
-	 if (count >= 90 ) {
-		 r = 0.f;
-	 }
-	//YŽ²Žü‚è‚Ì‰ñ“]
+	if (time2 >= 0.f) {
+		time2 -= 0.004f;
+	}
+	double r = EASE::InQuad(1.f, 0.f, 1.f, time2);
 	CQuaternion qRot;
 	qRot.SetRotationDeg(CVector3::AxisY(), 2 * r);
 	qRot.Multiply(m_toCameraPos);
 	CVector3 toCameraPosOld = m_toCameraPos;
 	//
-	if (count <= 90 / 2 ) {
-		xR = 0.7f;
-	}
-	else if(count <= 90){
-		xR = -0.8f;
+	if (time >= 0.f) {
+		time -= 0.02f;
+		xR = EASE::InQuad(1.f, 0.f, 1.f, time) * -1;
 	}
 	else {
-		xR = 0.f;
+		if (timee <= 1.f) {
+			timee += 0.03f;
+			xR = EASE::InQuad(1.f, 0.f, 1.f, timee);
+		}
+		else {
+			if (time4 > 0.f) {
+				time4 -= 0.03f;
+				xR = EASE::InQuad(1.f, 0.f, 1.f, time4);
+			}
+			else {
+				xR = 0.f;
+			}
+		}
 	}
 	//
 	//XŽ²Žü‚è‚Ì‰ñ“]B
 	CVector3 axisX;
 	axisX.Cross(CVector3::AxisY(), m_toCameraPos);
 	axisX.Normalize();
-	qRot.SetRotationDeg(axisX,  -xR);
+	qRot.SetRotationDeg(axisX,  xR );
 	qRot.Multiply(m_toCameraPos);
 	CVector3 toPosDir = m_toCameraPos;
 	toPosDir.Normalize();
 	CVector3 pos = m_target + m_toCameraPos;
 	CQuaternion m_rot; 
+	m_target.y += 100.f;
 	camera3d->SetTarget(m_target);
 	camera3d->SetPosition(pos);
 	camera3d->Update();

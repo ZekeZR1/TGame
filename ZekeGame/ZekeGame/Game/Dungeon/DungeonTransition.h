@@ -45,6 +45,11 @@ private:
 	CVector3 m_target = CVector3::Zero();
 	CVector3 m_toCameraPos = { 150.0f, 200.0f, 500.0f };
 	CVector3 m_pos = { 0.0f, 0.0f, 10.0f };
-	float xR = 0.f;
+	double xR = 0.f;
 	int count = 0;
+	double time = 1.f;
+	double time2 = 1.f;
+	double timee = 0.f;
+	double time4 = 1.f;
+	bool neko = false;
 };
