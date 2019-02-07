@@ -28,7 +28,8 @@ private:
 	CVector3 m_backPos = CVector3::Zero();
 	int m_monsterIds[m_numMonster] = { 0 };
 	DungeonTCamera* m_camera = nullptr;
-	AnimationClip m_animation[1];
+	AnimationClip m_animClip[3][1];
+	std::vector<AnimationClip> m_anims;
 	CVector3 m_standardPos = CVector3::Zero();
 };
 
