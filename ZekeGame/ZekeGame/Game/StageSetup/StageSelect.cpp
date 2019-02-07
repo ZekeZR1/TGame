@@ -2,6 +2,7 @@
 #include "../GameCursor.h"
 #include "../Game.h"
 #include "StageSetup.h"
+#include "../GameData.h"
 #include "StageSelect.h"
 
 StageSelect::StageSelect()
