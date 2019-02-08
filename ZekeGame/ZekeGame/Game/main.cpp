@@ -6,6 +6,8 @@
 #include "Title/ModeSelect.h"
 #include "../TestScene.h"
 
+#include "Dungeon/DungeonTransition.h"
+
 int WINAPI wWinMain(
 	HINSTANCE hInstance,
 	HINSTANCE hPrevInstance,
@@ -26,6 +28,7 @@ int WINAPI wWinMain(
 	sm->Init(L"Assets/modelData/tesEnemy3.cmo");
 	sm->SetPosition(CVector3::Zero());
 	sm->SetScale({ 0.01f,0.01f,0.01f });
+	//NewGO<DungeonTransition>(0);
 	//NewGO<TestScene>(0, "22");
 	//MainRoop
 	Engine::IEngine().GameRoop();

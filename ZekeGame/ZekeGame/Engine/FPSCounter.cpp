@@ -119,8 +119,8 @@ void CFPSCounter::SetSampleNum(unsigned int smp)
 void CFPSCounter::Draw() {
 	double FrameRate = GetFPS();
 	wchar_t str[256];
-	swprintf_s(str, L"%f\n", FrameRate);
-	m_font->Init(str, { -630.f , 350.f }, 0.f, CVector4::White, 1.f, { 0.0f,0.0f });
+	swprintf_s(str, L"%.2f\n", FrameRate);
+	m_font->Init(str, { -630.f , 350.f }, 0.f, CVector4::Green, 1.f, { 0.0f,0.0f });
 	/*
 	pSpriteBatch->Begin();
 	fps = GetFPS();

@@ -19,7 +19,7 @@
 #include "Engine/graphics/Sprite/Sprite.h"
 #include "Engine/graphics\animation\Animation.h"
 #include "Engine/graphics/animation/AnimationClip.h"
-
+#include "math/Easing.h"
 #include "Engine/window\Window.h"
 #include "Engine/physics/Physics.h"
 #include "Engine/HID/Pad.h"

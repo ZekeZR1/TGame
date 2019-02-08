@@ -2,10 +2,11 @@
 #include "Act_Atack.h"
 
 #include "../Monster.h"
+#include "../../GameData.h"
 
 Act_Atack::Act_Atack()
 {
-	m_ActionId = 1;
+	m_ActionId = enAtack;
 }
 
 bool Act_Atack::Action(Monster * me)
@@ -14,9 +15,10 @@ bool Act_Atack::Action(Monster * me)
 		return true;
 	me->anim_atack();
 	CVector3 v = m_target->Getpos() - me->Getpos();
-	if (v.Length() < 100)
+	if (v.Length() < me->Getradius() + m_target->Getradius() + 10)
 	{
-		m_target->Damage(3);
+		float dm = 3 * me->GetAttack();
+		m_target->Damage(dm);
 		v.Normalize();
 		v *= 50;
 		m_target->StartKnockback(v);

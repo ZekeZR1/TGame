@@ -8,6 +8,7 @@ enum MonsterID
 {
 	enTest,
 	enUmataur,
+	enFairy,
 };
 
 enum ActionID
@@ -15,6 +16,8 @@ enum ActionID
 	enChase,
 	enAtack,
 	enLeave,
+
+	enFire,
 };
 
 //static std::vector<Monster*> g_mons;
@@ -46,6 +49,7 @@ static void deletemons(Monster* mon)
 class GameData
 {
 public:
-	void deletemons(Monster* mon);
-	static const wchar_t* GetMonsterIconPath(wchar_t*& path,int monID);
+	static void deletemons(Monster* mon);
+	static Monster* LoadMonster(int monID);
+	static const wchar_t* GetMonsterIconPath(int monID);
 };

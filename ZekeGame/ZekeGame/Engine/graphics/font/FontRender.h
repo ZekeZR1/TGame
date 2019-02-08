@@ -13,6 +13,9 @@ public:
 	void SetPosition(CVector2 pos) {
 		m_pos = pos;
 	}
+	CVector2 GetPosition() {
+		return m_pos;
+	}
 	void SetRotation(float rot) {
 		m_rot = rot;
 	}

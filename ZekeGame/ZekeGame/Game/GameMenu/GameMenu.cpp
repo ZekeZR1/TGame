@@ -1,7 +1,12 @@
 #include "stdafx.h"
 #include "GameMenu.h"
 
+#include "../Game.h"
 #include "../GameCursor.h"
+
+#include "../Title/ModeSelect.h"
+#include "../Title/pvpModeSelect.h"
+#include "../Dungeon/DungeonAISelect.h"
 
 #include "MenuButton.h"
 
@@ -34,11 +39,31 @@ void GameMenu::Update()
 		{
 			if (m_buttons[i]->isClick())
 			{
+				Game* game = FindGO<Game>("Game");
 				switch (i)
 				{
 				case 0:
+					DeleteGO(game);
+					DeleteGO(this);
+
+					NewGO<ModeSelect>(0,"modesel");
 					break;
 				case 1:
+					
+					DeleteGO(game);
+					DeleteGO(this);
+
+					switch (m_playMode)
+					{
+					case Game::enLocalPVP:
+						NewGO<PvPModeSelect>(0, "pvp");
+						break;
+					case Game::enDungeon:
+						DungeonAISelect* DAS = NewGO<DungeonAISelect>(0, "pvp");
+						DAS->SetDungeonNumber(m_dunnum);
+						break;
+					}
+					
 					break;
 				case 2:
 					break;

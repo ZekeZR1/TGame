@@ -38,10 +38,17 @@ void Monster::ReleaseMark()
 	}
 }
 
-void Monster::init(int HP, int MP, float speed, float radius, float height, SkinModelRender * smr, int animnum)
+void Monster::init(float HP, float MP,float Defense,float ExDefense, float Attack, float ExAttack, float speed, float radius, float height, SkinModelRender * smr, int animnum)
 {
 	m_HP = HP;
 	m_MP = MP;
+
+	m_Defense = Defense;
+	m_ExDefense = ExDefense;
+
+	m_Attack = Attack;
+	m_ExAttack = ExAttack;
+
 	m_speed = speed;
 	m_radius = radius;
 	m_height = height;
@@ -72,9 +79,7 @@ void Monster::Update()
 	if (m_HP <= 0)
 	{
 		m_state = en_Dead;
-		GameData* gd = new GameData();
-		gd->deletemons(this);
-		delete gd;
+		GameData::deletemons(this);
 		DeleteGO(this);
 	}
 	switch (m_state)
@@ -104,6 +109,7 @@ void Monster::Update()
 	case en_Dead:
 		break;
 	}
+	receiveDamage();
 	Move();
 	m_time += IGameTime().GetFrameDeltaTime();
 }
@@ -126,7 +132,7 @@ void Monster::execute()
 void Monster::Move()
 {
 	CVector3 move = m_movespeed + m_vKnockback;
-	move *= 50;
+	move *= m_speed;
 	m_pos = m_cc.Execute(IGameTime().GetFrameDeltaTime(), move);
 	
 	
@@ -165,6 +171,25 @@ void Monster::TurnEx()
 	m_rot.Multiply(addrot);
 	m_smr->SetRotation(m_rot);
 	m_turncount--;
+}
+
+void Monster::receiveDamage()
+{
+	if (m_Damage > 0)
+	{
+		float dm = m_Damage - m_Defense;
+		dm += 3;
+		if (dm > 0)
+			m_HP -= dm;
+	}
+
+	if (m_DamageEx)
+	{
+		float dm = m_DamageEx - m_DamageEx;
+		dm += 3;
+		if (dm > 0)
+			m_HP -= dm;
+	}
 }
 
 void Monster::StartKnockback(CVector3 v)
@@ -239,9 +264,9 @@ void Monster::anim_defense()
 	m_smr->PlayAnimation(en_defense);
 }
 
-void Monster::anim_recovery()
+void Monster::anim_extra1()
 {
-	if (en_recovery > m_AnimNum - 1)
+	if (en_extra1 > m_AnimNum - 1)
 		return;
-	m_smr->PlayAnimation(en_recovery);
+	m_smr->PlayAnimation(en_extra1);
 }

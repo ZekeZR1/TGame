@@ -81,7 +81,7 @@ void AIMSelect::Update()
 			std::wstring ws = std::wstring(st.begin(), st.end());
 			m_pmm->SetPython(ws.c_str(), m_ainum);
 
-			m_pmm->ChengeImage(m_path, m_monnum);
+			m_pmm->ChengeImage(m_monnum);
 
 			m_pmm->notMonSel();
 			DeleteGO(this);
