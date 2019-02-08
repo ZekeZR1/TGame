@@ -236,6 +236,7 @@
     <ClCompile Include="Game\AIEdit\AIEditLine.cpp" />
     <ClCompile Include="Game\AIEdit\AIEditMode.cpp" />
     <ClCompile Include="Game\AIEdit\AIEditNode.cpp" />
+    <ClCompile Include="Game\AIEdit\AIEditNodeButton.cpp" />
     <ClCompile Include="Game\AIEdit\AIEditNodeClick.cpp" />
     <ClCompile Include="Game\AIEdit\AIEditNodeHp.cpp" />
     <ClCompile Include="Game\AIEdit\AIEditNodeInequ.cpp" />
@@ -243,7 +244,9 @@
     <ClCompile Include="Game\AIEdit\AIEditNodeNum.cpp" />
     <ClCompile Include="Game\AIEdit\AIEditNodeOrder.cpp" />
     <ClCompile Include="Game\AIEdit\AIEditNodeProcess.cpp" />
+    <ClCompile Include="Game\AIEdit\AIEditNodeTarget.cpp" />
     <ClCompile Include="Game\AIEdit\AIEditNodeTechnique.cpp" />
+    <ClCompile Include="Game\AIEdit\AIEdtiNodeAbnormalState.cpp" />
     <ClCompile Include="Game\Dungeon\DungeonAISelect.cpp" />
     <ClCompile Include="Game\Dungeon\DungeonSelect.cpp" />
     <ClCompile Include="Game\Game.cpp" />
@@ -379,6 +382,7 @@
     <ClInclude Include="Game\AIEdit\AIEditLine.h" />
     <ClInclude Include="Game\AIEdit\AIEditMode.h" />
     <ClInclude Include="Game\AIEdit\AIEditNode.h" />
+    <ClInclude Include="Game\AIEdit\AIEditNodeButton.h" />
     <ClInclude Include="Game\AIEdit\AIEditNodeClick.h" />
     <ClInclude Include="Game\AIEdit\AIEditNodeHp.h" />
     <ClInclude Include="Game\AIEdit\AIEditNodeInequ.h" />
@@ -386,7 +390,9 @@
     <ClInclude Include="Game\AIEdit\AIEditNodeNum.h" />
     <ClInclude Include="Game\AIEdit\AIEditNodeOrder.h" />
     <ClInclude Include="Game\AIEdit\AIEditNodeProcess.h" />
+    <ClInclude Include="Game\AIEdit\AIEditNodeTarget.h" />
     <ClInclude Include="Game\AIEdit\AIEditNodeTechnique.h" />
+    <ClInclude Include="Game\AIEdit\AIEdtiNodeAbnormalState.h" />
     <ClInclude Include="Game\Dungeon\DungeonAISelect.h" />
     <ClInclude Include="Game\Dungeon\DungeonSelect.h" />
     <ClInclude Include="Game\Game.h" />
@@ -542,6 +548,7 @@
     <MeshContentTask Include="Assets\modelData\uma\uma.fbx" />
   </ItemGroup>
   <ItemGroup>
+    <ImageContentTask Include="Assets\Sprite\sieat.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\button1.png" />
     <ImageContentTask Include="Assets\Sprite\result\blueteamp.png" />
     <ImageContentTask Include="Assets\Sprite\result\redteamp.png" />

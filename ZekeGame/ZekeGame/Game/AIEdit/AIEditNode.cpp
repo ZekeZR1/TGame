@@ -9,11 +9,14 @@
 
 #include "AIEditNodeHp.h"
 #include "AIEditNodeInequ.h"
+#include "AIEditNodeButton.h"
+#include "AIEditNodeTechnique.h"
+#include "AIEdtiNodeAbnormalState.h"
 
 AIEditNode::~AIEditNode()
 {
 	DeleteGO(m_spriteRender);
-	for (SpriteRender* sp : m_spriteRenders)
+	for (AIEditNodeButton* sp : m_nodebuttons)
 	{
 		DeleteGO(sp);
 	}
@@ -29,49 +32,40 @@ bool AIEditNode::Start()
 
 	//UIの基盤
 	m_spriteRender = NewGO<SpriteRender>(1, "firstwin");
-	m_spriteRender->Init(L"Assets/sprite/winkari.dds", 150, 250);
+	m_spriteRender->Init(L"Assets/sprite/sieat.dds", 150, 250);
 	CVector3 cursorpos = m_gamecursor->GetCursor();
 	m_position = cursorpos;
 	m_spriteRender->SetPosition(m_position);			//カーソルの座標
-
-	int x = 35;			//ボタンのX座標
-	int y = 120;		//ボタンのY座標
 	
-	//ボタン専用
-	for (int i = 0; i < button; i++)		//iは数を回すだけのハム太郎  
-	{
-		x *= -1;					
+	////ボタン専用
+	//for (int i = 0; i < button; i++)		//iは数を回すだけのハム太郎  
+	//{
+	//	x *= -1;					
+	//	if (i % 2 == 0)
+	//	{
+	//		y -= 50;
+	//	}
+	//	SetPointPos(x,y);
+	//	sr = NewGO<SpriteRender>(2, "miniwin");
+	//	sr->Init(L"Assets/sprite/karipoint.dds", 70, 50, true);
+	//	sr->SetPosition(m_pointposition);
+	//	m_spriteRenders.push_back(sr);
+	//	
+	//}
+	
 
-		if (i % 2 == 0)
-		{
-			y -= 50;
-
-		}
-
-		SetPointPos(x,y);
-		sr = NewGO<SpriteRender>(2, "miniwin");
-		sr->Init(L"Assets/sprite/karipoint.dds", 70, 50, true);
-		sr->SetPosition(m_pointposition);
-		m_spriteRenders.push_back(sr);
-		
+	//改造中
+	for (int i = 0; i < button; i++) {               //ボタンの数分ループする。
+		m_aieditnodebutton = NewGO<AIEditNodeButton>(2, "button");
+		m_aieditnodebutton->SetPri(2);
+		m_aieditnodebutton->SetButton(i + 1);
+		m_aieditnodebutton->SetPos(m_position);
+		m_nodebuttons.push_back(m_aieditnodebutton);
 	}
 	return true;
 
 }
 
-//選択ボタンの手打ち補助
-void AIEditNode::SetPointPos(int numx, int numy)
-{
-	//仮の値
-	float x = 0;
-	float y = 0;
-	x = m_position.x;
-	y = m_position.y;
-	m_pointposition.x = x + numx;
-	m_pointposition.y = y + numy;
-
-
-}
 
 void AIEditNode::Inequ()
 {
@@ -84,20 +78,44 @@ void AIEditNode::Inequ()
 
 }
 
+void AIEditNode::Technique()
+{
+
+	if (Mouse::isTrigger(enLeftClick))	//左クリック
+	{
+		NewGO<AIEditNodeTechnique>(0, "Technique");
+
+		Choice1 = true;
+	}
+
+}
+
+void AIEditNode::Abnormal()
+{
+
+	if (Mouse::isTrigger(enLeftClick))	//左クリック
+	{
+		NewGO<AIEditNodeAbnormalState>(0, "Abnormal");
+
+		Choice1 = true;
+	}
+
+}
+
 void AIEditNode::Update()
 {
 	CVector3 cursorpos = m_gamecursor->GetCursor();
-
+	 
 	for (int i = 0; i < button; i++) {
-
-		m_spriteRenders[i]->SetCollisionTarget(cursorpos);
+		SpriteRender* sp = m_nodebuttons[i]->GetSpriteRender();
+		sp->SetCollisionTarget(cursorpos);
 
 	}
 
 	if (Choice1 == false) { //何も選択していないとき
 
-		for (int i = 0; i < button; i++) {
-			if (m_spriteRenders[i]->isCollidingTarget())	//選択しているか	
+		for (int i = 0; i < button - 2; i++) {
+			if (m_nodebuttons[i]->GetSpriteRender()->isCollidingTarget())	//選択しているか	
 			{
 				Inequ();
 			
@@ -105,6 +123,15 @@ void AIEditNode::Update()
 			
 		}
 
+		if (m_nodebuttons[button - 2]->GetSpriteRender()->isCollidingTarget()) {
+
+			Abnormal();
+		}
+
+		if (m_nodebuttons[button - 1]->GetSpriteRender()->isCollidingTarget()) {
+
+			Technique();
+		}
 	}
 	
 }

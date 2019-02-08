@@ -24,8 +24,9 @@ bool AIEditNodeOrder::Start()
 	m_aieditnodeinequ = FindGO<AIEditNodeInequ>("Inequality");
 	m_aieditnodenum = FindGO<AIEditNodeNum>("Num");
 	m_aieditline = FindGO<AIEditLine>("Line");
-
 	m_aieditline = NewGO<AIEditLine>(0, "Line");
+
+
 
 	//if (Click == false) {
 	//	m_pos = m_aieditnodeclick->GetPosition();
