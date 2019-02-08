@@ -11,7 +11,7 @@ public:
 	bool Start() override;
 	void init(int num, CVector3 pos);
 	void Update() override;
-	void ChengeImage(const wchar_t* path,int monid);
+	void ChengeImage(int monid);
 	void SetPython(const wchar_t* py,int num);
 
 	void yesSelect();

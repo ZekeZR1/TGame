@@ -22,8 +22,8 @@ bool AISelect::Start()
 	m_cursor = FindGO<GameCursor>("cursor");
 
 	m_back = NewGO<SpriteRender>(5, "sp");
-	m_back->Init(L"Assets/sprite/ai_main.dds", 1280, 720,true);
-
+	m_back->Init(L"Assets/sprite/ai_back.dds", 383, 720,true);
+	m_back->SetPosition({ -448.5f,0,0});
 	
 	m_ppms = FindGO<SuperMonsterSelect>("pvp");
 	int count = m_ppms->GetFiles().size();

@@ -1,3 +1,5 @@
+// –¼‚Ímodesel
+
 #include "stdafx.h"
 #include "ModeSelect.h"
 

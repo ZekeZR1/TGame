@@ -35,7 +35,7 @@ void PMMonster::init(int num,CVector3 pos)
 	m_mon->SetPosition(pos);
 	m_frame->SetPosition(pos);
 
-	ChengeImage(nullptr, g_monset[m_num]);
+	ChengeImage(g_monset[m_num]);
 }
 
 void PMMonster::Update()
@@ -97,7 +97,7 @@ void PMMonster::Update()
 	}
 }
 
-void PMMonster::ChengeImage(const wchar_t* path, int monid)
+void PMMonster::ChengeImage(int monid)
 {
 	/*wchar_t ws[255] ;
 	GameData::GetMonsterIconPath(ws, monid);
@@ -105,7 +105,8 @@ void PMMonster::ChengeImage(const wchar_t* path, int monid)
 	m_monid = (MonsterID)monid;
 	delete[] ws;*/
 	m_monid = (MonsterID)monid;
-	switch (monid)
+	m_mon->Init(GameData::GetMonsterIconPath(monid), 128, 128);
+	/*switch (monid)
 	{
 	case enTest:
 		m_mon->Init(L"Assets/sprite/mon_one.dds", 128, 128);
@@ -113,7 +114,10 @@ void PMMonster::ChengeImage(const wchar_t* path, int monid)
 	case enUmataur:
 		m_mon->Init(L"Assets/sprite/mon_two.dds", 128, 128);
 		break;
-	}
+	case enFairy:
+		m_mon->Init(L"Assets/sprite/mon_three.dds", 128, 128);
+		break;
+	}*/
 
 	g_monset[m_num] = monid;
 	//m_path = path;

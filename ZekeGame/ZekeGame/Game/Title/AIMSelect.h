@@ -24,10 +24,9 @@ public:
 	{
 		m_ainum = ai;
 	}
-	void Setmon(int mon, const wchar_t* path)
+	void Setmon(int mon)
 	{
 		m_monnum = mon;
-		m_path = path;
 	}
 private:
 	GameCursor* m_cursor = nullptr;

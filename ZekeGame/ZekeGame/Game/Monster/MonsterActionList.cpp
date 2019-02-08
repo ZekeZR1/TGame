@@ -13,6 +13,11 @@ MonsterActionList::~MonsterActionList()
 		DeleteGO(a);
 	for (auto a : m_frs)
 		DeleteGO(a);
+
+	DeleteGO(m_mp);
+	DeleteGO(m_hp);
+	DeleteGO(m_fhp);
+	DeleteGO(m_fmp);
 }
 
 void MonsterActionList::init(Monster * mon)
@@ -23,6 +28,7 @@ void MonsterActionList::init(Monster * mon)
 	m_back = NewGO<SpriteRender>(1, "sp");
 	float w = 215.0f;
 	float h = 144.0f;
+	h = 250.0f;
 	if (mon->Getteam() == 0)
 	{
 		m_back->Init(L"Assets/Sprite/backRed.dds", w, h);
@@ -42,6 +48,30 @@ void MonsterActionList::init(Monster * mon)
 		FontRender* fr = NewGO<FontRender>(5, "font");
 		m_frs[i] = fr;
 	}
+
+
+	m_hp = NewGO<SpriteRender>(2, "sp");
+	m_hp->Init(L"Assets/sprite/hp.dds", 104, 40);
+	m_mp = NewGO<SpriteRender>(2, "sp");
+	m_mp->Init(L"Assets/sprite/mp.dds", 104, 40);
+	
+	m_hp->SetPivot({ 0,0 });
+	m_mp->SetPivot({ 0,0 });
+
+	m_fhp = NewGO<FontRender>(5, "font");
+	m_fmp = NewGO<FontRender>(5, "font");
+
+	pos.y += 45 * 3.2f;
+	m_mp->SetPosition(pos);
+	m_vm = {pos.x,pos.y};
+	m_vm.x += 100;
+	m_vm.y += 35;
+
+	pos.y += 45;
+	m_hp->SetPosition(pos);
+	m_vh = { pos.x,pos.y };
+	m_vh.x += 100;
+	m_vh.y += 35;
 }
 
 bool MonsterActionList::Start()
@@ -53,6 +83,16 @@ bool MonsterActionList::Start()
 void MonsterActionList::Update()
 {
 	std::vector<MonsterAction*> mas = m_mon->Getactions();
+
+	float hp = m_mon->GetHP();
+	float mp = m_mon->GetMP();
+
+	wchar_t tx[255];
+	swprintf_s(tx, L"%.1f", hp);
+	m_fhp->Init(tx, m_vh, 0, CVector4::White, 0.9f, { 0,0 });
+	swprintf_s(tx, L"%.1f", mp);
+	m_fmp->Init(tx, m_vm, 0, CVector4::White, 0.9f, { 0,0 });
+
 	
 	int len = mas.size();
 	if (len != m_len)
@@ -97,6 +137,9 @@ void MonsterActionList::Update()
 				break;
 			case enLeave:
 				ws = L"Leave";
+				break;
+			case enFire:
+				ws = L"Fire";
 				break;
 			}
 			m_frs[i]->Init(ws, { p.x,p.y +45}, 0, CVector4::White, 1, { 0,0 });

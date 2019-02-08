@@ -27,6 +27,7 @@ public:
 		return g_graphicsEngine->GetEffectEngine().GetEffekseerManager().GetShown(m_handle);
 	}
 private:
+	bool isPlayed = false;
 	::Effekseer::Effect*				m_effect = NULL;
 	::Effekseer::Handle				m_handle = -1;
 	CVector3								m_position = CVector3::Zero();

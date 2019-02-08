@@ -29,7 +29,8 @@ PSInput VSMain(VSInput In)
 
 float4 PSMain( PSInput In ) : SV_Target0
 {
-	return colorTexture.Sample(Sampler, In.uv);// *mulCol;
+	float4 col = colorTexture.Sample(Sampler, In.uv) * mulCol;
+	return col;
 }
 
 float4 PSMainn(PSInput In) : SV_Target0

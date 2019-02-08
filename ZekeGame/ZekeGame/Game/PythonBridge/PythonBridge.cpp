@@ -546,12 +546,13 @@ void PythonBridge::py_exe(int num,int team,const char* file)
 
 	pValue = PyObject_CallObject(pFunction, pArgs);
 
+	int va = PyLong_AsLong(pValue);
 
 	Py_DECREF(pArgs);
 	Py_DECREF(pModule);
 	Py_DECREF(pFunction);
 
-	if (pValue == NULL)
+	if (pValue == NULL || va == 0)
 	{
 		SetCurrentDirectory("../");
 		Py_Finalize();

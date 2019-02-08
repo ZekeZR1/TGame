@@ -54,6 +54,9 @@ void MonsterMarker::init(Monster * mon)
 	case enUmataur:
 		m_offsetY = 250;
 		break;
+	case enFairy:
+		m_offsetY = 130;
+		break;
 	}
 
 
