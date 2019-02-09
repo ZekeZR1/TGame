@@ -3,6 +3,7 @@
 #include "AIEditNode.h"
 #include"AIEditNodeClick.h"
 #include "../GameCursor.h"
+#include "AIEditNodeProcess.h"
 
 // THIS IS CAMERA.
 #include "../../GameCamera.h"
@@ -25,9 +26,9 @@ bool AIEditMode::Start()
 
 	m_cursor = NewGO<GameCursor>(0, "cursor");
 
-	m_spriteRender = NewGO<SpriteRender>(0, "win");
-	m_spriteRender->Init(L"Assets/sprite/haik.dds", 1280,720);
-	m_aieditnodeclick = NewGO<AIEditNodeClick>(0, "firstbutton");
+	/*m_spriteRender = NewGO<SpriteRender>(0, "win");
+	m_spriteRender->Init(L"Assets/sprite/haik.dds", 1280,720);*/
+	m_aieditnodeprocess = NewGO<AIEditNodeProcess>(0, "process");
 
 	//!!!--RETURN TRUE--!!!
 	return true;

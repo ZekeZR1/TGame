@@ -1,13 +1,14 @@
 #include "stdafx.h"
+#include "AIEditMode.h"
+#include "AIEditNode.h"
 #include "../GameCursor.h"
-
-#include "AIEditNodeTechnique.h"
-//camera
-#include "../../GameCamera.h"
+#include "AIEdtiNodeAbnormalState.h"
 #include "AIEditNodeButton.h"
 
-AIEditNodeTechnique ::~AIEditNodeTechnique()
+
+AIEditNodeAbnormalState::~AIEditNodeAbnormalState()
 {
+
 	DeleteGO(m_spriteRender);
 	for (AIEditNodeButton* sp : m_nodebuttons)
 	{
@@ -18,18 +19,18 @@ AIEditNodeTechnique ::~AIEditNodeTechnique()
 
 
 
-
-bool AIEditNodeTechnique::Start()
+bool AIEditNodeAbnormalState::Start()
 {
-
 	m_gamecursor = FindGO<GameCursor>("cursor");
-	m_spriteRender = NewGO<SpriteRender>(3, "firstwinhp");
+
+	m_spriteRender = NewGO<SpriteRender>(0, "target");
 	m_spriteRender->Init(L"Assets/sprite/sieat.dds", 150, 250);
 	CVector3 cursorpos = m_gamecursor->GetCursor();
 	cursorpos.x += 135.0f;
 	cursorpos.y += -140.0f;
 	m_position = cursorpos;
 	m_spriteRender->SetPosition(m_position);	//AIEditNodeのボタンの座標座標
+
 
 	for (int i = 0; i < button; i++) {               //ボタンの数分ループする。
 		m_aieditnodebutton = NewGO<AIEditNodeButton>(4, "button");
@@ -43,8 +44,10 @@ bool AIEditNodeTechnique::Start()
 }
 
 
-void AIEditNodeTechnique::Update()
+
+void AIEditNodeAbnormalState::Update()
 {
+
 
 
 }

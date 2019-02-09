@@ -3,6 +3,8 @@ class DungeonTCamera;
 
 class DungeonTransition : public GameObject
 {
+private:
+	typedef std::vector<std::string> PyFile;
 public:
 	bool Start() override;
 	void Update() override;
@@ -12,6 +14,13 @@ public:
 			m_monsterIds[i] = monids[i];
 		}
 	}
+	void SetGameData(PyFile& files, PyFile& eneFile, int monsterAI[6], MonsterID monids[6], int DunNumber);
+private:
+	std::vector<std::string> m_files;
+	std::vector<std::string> m_enemyFiles;
+	MonsterID m_ids[6];
+	int m_monai[6];
+	int m_dunNum = -1;
 private:
 	static const int m_numMonster = 3;
 	SkinModelRender* m_back = nullptr;
@@ -19,9 +28,9 @@ private:
 	CVector3 m_backPos = CVector3::Zero();
 	int m_monsterIds[m_numMonster] = { 0 };
 	DungeonTCamera* m_camera = nullptr;
-	AnimationClip m_animation[1];
+	AnimationClip m_animClip[3][1];
+	std::vector<AnimationClip> m_anims;
 	CVector3 m_standardPos = CVector3::Zero();
-	SpriteRender* m_sp = nullptr;
 };
 
 class DungeonTCamera : public GameObject {
@@ -36,4 +45,11 @@ private:
 	CVector3 m_target = CVector3::Zero();
 	CVector3 m_toCameraPos = { 150.0f, 200.0f, 500.0f };
 	CVector3 m_pos = { 0.0f, 0.0f, 10.0f };
+	double xR = 0.f;
+	int count = 0;
+	double time = 1.f;
+	double time2 = 1.f;
+	double timee = 0.f;
+	double time4 = 1.f;
+	bool neko = false;
 };
