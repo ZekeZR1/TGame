@@ -1,207 +1,206 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\GUI\MonActList\hp.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\MonActList\mp.png" />
-    <ImageContentTask Include="Assets\Sprite\monsho\dun_stage0.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_back.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_three.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\button1.png" />
-    <ImageContentTask Include="Assets\Sprite\result\blueteamp.png" />
-    <ImageContentTask Include="Assets\Sprite\result\redteamp.png" />
     <ImageContentTask Include="Assets\Sprite\result\win.png" />
-    <ImageContentTask Include="Assets\Sprite\result\lose.png" />
-    <ImageContentTask Include="Assets\Sprite\marker\mark_1.png" />
-    <ImageContentTask Include="Assets\Sprite\marker\mark_2.png" />
-    <ImageContentTask Include="Assets\Sprite\marker\mark_3.png" />
-    <ImageContentTask Include="Assets\Sprite\marker\mark_blue.png" />
-    <ImageContentTask Include="Assets\Sprite\marker\mark_red.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\Stage\gameStage3.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\Stage\gameStage1.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\Stage\gameStage2.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\button\sb_cancel.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\button\sb_OK.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\button\simple_button.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\button\simple_button_blue.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\GO.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\DadanDanBk.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\DungeonSpS.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\DungeonSp.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\d2.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\d1.png" />
-    <ImageContentTask Include="Assets\Sprite\PriTest1.png" />
-    <ImageContentTask Include="Assets\Sprite\PriTest2.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_back.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_none.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_one.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_two.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_even.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_main.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_odd.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_sel.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\dungeonG.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\dungeonW.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\kanshouG.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\kanshouW.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\easyeditG.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\easyeditW.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\pythoneditG.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\pythoneditW.png" />
-    <ImageContentTask Include="Assets\Sprite\kariline.png" />
-    <ImageContentTask Include="Assets\Sprite\Mp.png" />
-    <ImageContentTask Include="Assets\Sprite\karipoint.png" />
     <ImageContentTask Include="Assets\Sprite\winkari.png" />
-    <ImageContentTask Include="Assets\modelData\fairy\hnd.God2.png" />
-    <ImageContentTask Include="Assets\modelData\fairy\hnd.hane.png" />
-    <ImageContentTask Include="Assets\modelData\fairy\hnd.png" />
-    <ImageContentTask Include="Assets\Sprite\Hp.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\clear.png" />
-    <ImageContentTask Include="Assets\modelData\uma\uma.png" />
-    <ImageContentTask Include="Assets\modelData\uma\uma_eye.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\cursor.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\AIeditG.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\AIeditW.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\localpvpG.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\localpvpW.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\randompvpG.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\randompvpW.png" />
-    <ImageContentTask Include="Assets\Sprite\Test.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_back.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_even.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_main.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_odd.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_sel.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\AIeditG.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\AIeditW.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\button1.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\result\blueteamp.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\clear.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\cursor.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\d1.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\d2.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\DadanDanBk.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\monsho\dun_stage0.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\dungeonG.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\DungeonSp.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\DungeonSpS.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\dungeonW.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\easyeditG.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\easyeditW.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\Stage\gameStage1.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\Stage\gameStage2.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\Stage\gameStage3.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\GO.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\modelData\fairy\hnd.God2.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\modelData\fairy\hnd.hane.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\modelData\fairy\hnd.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\MonActList\hp.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\Hp.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\kanshouG.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\kanshouW.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\kariline.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\karipoint.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\marker\mark_red.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\localpvpG.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\localpvpW.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\result\lose.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\marker\mark_1.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\marker\mark_2.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\marker\mark_3.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\marker\mark_blue.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_back.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_none.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_one.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_three.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_two.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\MonActList\mp.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\Mp.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\pythoneditG.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\pythoneditW.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\randompvpG.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\randompvpW.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\result\redteamp.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\button\sb_cancel.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\button\sb_OK.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\button\simple_button.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\button\simple_button_blue.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\Test.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\PriTest2.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\PriTest1.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\modelData\uma\uma_eye.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\modelData\uma\uma.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_back_B.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_back_R.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Engine\character\CharacterController.cpp" />
-    <ClCompile Include="Engine\Engine.cpp" />
-    <ClCompile Include="Engine\EngineStruct.cpp" />
-    <ClCompile Include="Engine\FPSCounter.cpp" />
-    <ClCompile Include="Engine\gameObject\CTransform.cpp" />
-    <ClCompile Include="Engine\gameObject\GameObject.cpp" />
-    <ClCompile Include="Engine\gameObject\GameObjectManager.cpp" />
-    <ClCompile Include="Engine\graphics\animation\Animation.cpp" />
-    <ClCompile Include="Engine\graphics\animation\AnimationClip.cpp" />
-    <ClCompile Include="Engine\graphics\animation\AnimationPlayController.cpp" />
-    <ClCompile Include="Engine\graphics\Camera.cpp" />
-    <ClCompile Include="Engine\graphics\CCameraCollisionSlover.cpp" />
-    <ClCompile Include="Engine\graphics\CConstantBuffer.cpp" />
-    <ClCompile Include="Engine\graphics\CIndexBuffer.cpp" />
-    <ClCompile Include="Engine\graphics\ConstantBufferGPU.cpp" />
-    <ClCompile Include="Engine\graphics\CPrimitive.cpp" />
-    <ClCompile Include="Engine\graphics\CRenderContext.cpp" />
-    <ClCompile Include="Engine\graphics\CSamplerState.cpp" />
-    <ClCompile Include="Engine\graphics\CShader.cpp" />
-    <ClCompile Include="Engine\graphics\CShaderResource.cpp" />
-    <ClCompile Include="Engine\graphics\CUnorderedAccessView.cpp" />
-    <ClCompile Include="Engine\graphics\CUtil.cpp" />
-    <ClCompile Include="Engine\graphics\CVertexBuffer.cpp" />
-    <ClCompile Include="Engine\graphics\Effect\CEffect.cpp" />
-    <ClCompile Include="Engine\graphics\Effect\CEffectEngine.cpp" />
-    <ClCompile Include="Engine\graphics\font\CFONT.cpp" />
-    <ClCompile Include="Engine\graphics\font\FontRender.cpp" />
-    <ClCompile Include="Engine\graphics\GPUBuffer\CGPUBuffer.cpp" />
-    <ClCompile Include="Engine\graphics\GraphicsEngine.cpp" />
-    <ClCompile Include="Engine\graphics\postEffect\Bloom.cpp" />
-    <ClCompile Include="Engine\graphics\postEffect\Dof.cpp" />
-    <ClCompile Include="Engine\graphics\postEffect\GaussianBlur.cpp" />
-    <ClCompile Include="Engine\graphics\postEffect\PostEffect.cpp" />
-    <ClCompile Include="Engine\graphics\RenderTarget.cpp" />
-    <ClCompile Include="Engine\graphics\Shader.cpp" />
-    <ClCompile Include="Engine\graphics\ShaderResouceView.cpp" />
-    <ClCompile Include="Engine\graphics\ShaderResources.cpp" />
-    <ClCompile Include="Engine\graphics\ShadowMap.cpp" />
-    <ClCompile Include="Engine\graphics\Skelton.cpp" />
-    <ClCompile Include="Engine\graphics\SkinModel.cpp" />
-    <ClCompile Include="Engine\graphics\SkinModelDataManager.cpp" />
-    <ClCompile Include="Engine\graphics\SkinModelDummy.cpp" />
-    <ClCompile Include="Engine\graphics\SkinModelEffect.cpp" />
-    <ClCompile Include="Engine\graphics\SkinModelRender.cpp" />
-    <ClCompile Include="Engine\graphics\SkinModelShaderConst.cpp" />
-    <ClCompile Include="Engine\graphics\SpringCamera.cpp" />
-    <ClCompile Include="Engine\graphics\SpriteRender.cpp" />
-    <ClCompile Include="Engine\graphics\Sprite\Effect.cpp" />
-    <ClCompile Include="Engine\graphics\Sprite\SpBuffer.cpp" />
-    <ClCompile Include="Engine\graphics\Sprite\Sprite.cpp" />
-    <ClCompile Include="Engine\graphics\StructedBuffer.cpp" />
-    <ClCompile Include="Engine\graphics\TScopedResource.cpp" />
-    <ClCompile Include="Engine\HID\Mouse.cpp" />
-    <ClCompile Include="Engine\HID\Pad.cpp" />
-    <ClCompile Include="Engine\level\Level.cpp" />
-    <ClCompile Include="Engine\level\MapChip.cpp" />
-    <ClCompile Include="Engine\math\kMath.cpp" />
-    <ClCompile Include="Engine\math\Matrix.cpp" />
-    <ClCompile Include="Engine\math\Vector.cpp" />
-    <ClCompile Include="Engine\Network\BaseView.cpp" />
-    <ClCompile Include="Engine\Network\Console.cpp" />
-    <ClCompile Include="Engine\Network\LoadBalancingListener.cpp" />
-    <ClCompile Include="Engine\Network\NetworkLogic.cpp" />
-    <ClCompile Include="Engine\Network\OutputListener.cpp" />
-    <ClCompile Include="Engine\Network\TestView.cpp" />
-    <ClCompile Include="Engine\physics\CapsuleCollider.cpp" />
-    <ClCompile Include="Engine\physics\CSphereCollider.cpp" />
-    <ClCompile Include="Engine\physics\MeshCollider.cpp" />
-    <ClCompile Include="Engine\physics\Physics.cpp" />
-    <ClCompile Include="Engine\physics\PhysicsStaticObject.cpp" />
-    <ClCompile Include="Engine\physics\RigitBody.cpp" />
-    <ClCompile Include="Engine\physics\SpriteBoxCollider.cpp" />
-    <ClCompile Include="Engine\PreCompile.cpp" />
-    <ClCompile Include="Engine\sound\SoundEngine.cpp" />
-    <ClCompile Include="Engine\time\GameTime.cpp" />
-    <ClCompile Include="Engine\window\Window.cpp" />
-    <ClCompile Include="GameCamera.cpp" />
-    <ClCompile Include="Game\AIEdit\AIEditLine.cpp" />
-    <ClCompile Include="Game\AIEdit\AIEditMode.cpp" />
-    <ClCompile Include="Game\AIEdit\AIEditNode.cpp" />
-    <ClCompile Include="Game\AIEdit\AIEditNodeClick.cpp" />
-    <ClCompile Include="Game\AIEdit\AIEditNodeHp.cpp" />
-    <ClCompile Include="Game\AIEdit\AIEditNodeInequ.cpp" />
-    <ClCompile Include="Game\AIEdit\AIEditNodeMass.cpp" />
-    <ClCompile Include="Game\AIEdit\AIEditNodeNum.cpp" />
-    <ClCompile Include="Game\AIEdit\AIEditNodeOrder.cpp" />
-    <ClCompile Include="Game\AIEdit\AIEditNodeProcess.cpp" />
-    <ClCompile Include="Game\AIEdit\AIEditNodeTechnique.cpp" />
-    <ClCompile Include="Game\Dungeon\DungeonAISelect.cpp" />
-    <ClCompile Include="Game\Dungeon\DungeonSelect.cpp" />
-    <ClCompile Include="Game\Dungeon\DungeonTransition.cpp" />
-    <ClCompile Include="Game\Game.cpp" />
-    <ClCompile Include="Game\GameCamera2D.cpp" />
-    <ClCompile Include="Game\GameCamera3D.cpp" />
-    <ClCompile Include="Game\GameCursor.cpp" />
-    <ClCompile Include="Game\GameData.cpp" />
-    <ClCompile Include="Game\GameMenu\GameMenu.cpp" />
-    <ClCompile Include="Game\GameMenu\MenuButton.cpp" />
-    <ClCompile Include="Game\main.cpp" />
-    <ClCompile Include="Game\Monster\Monster.cpp" />
-    <ClCompile Include="Game\Monster\MonsterAction.cpp" />
-    <ClCompile Include="Game\Monster\MonsterActionList.cpp" />
-    <ClCompile Include="Game\Monster\MonsterActionManeger.cpp" />
-    <ClCompile Include="Game\Monster\MonsterEffect.cpp" />
-    <ClCompile Include="Game\Monster\MonsterMarker.cpp" />
-    <ClCompile Include="Game\Monster\Monsters\Fairy.cpp" />
-    <ClCompile Include="Game\Monster\Monsters\TestMons.cpp" />
-    <ClCompile Include="Game\Monster\Monsters\Uma.cpp" />
-    <ClCompile Include="Game\PythonBridge\PythonBridge.cpp" />
-    <ClCompile Include="Game\Result\DungeonResult.cpp" />
-    <ClCompile Include="Game\Result\Lose\Lose.cpp" />
-    <ClCompile Include="Game\Result\Lose\Lose_localPVP.cpp" />
-    <ClCompile Include="Game\Result\Lose\Lose_randomPVP.cpp" />
-    <ClCompile Include="Game\Result\ResultCamera.cpp" />
-    <ClCompile Include="Game\Result\Win\Win.cpp" />
-    <ClCompile Include="Game\Result\Win\Win_localPVP.cpp" />
-    <ClCompile Include="Game\Result\Win\Win_randomPVP.cpp" />
-    <ClCompile Include="Game\SaveLoad\PythonFileLoad.cpp" />
-    <ClCompile Include="Game\StageSetup\StageSelect.cpp" />
-    <ClCompile Include="Game\StageSetup\StageSetup.cpp" />
-    <ClCompile Include="Game\Title\AIeditModeSelect.cpp" />
-    <ClCompile Include="Game\Title\AIMSelect.cpp" />
-    <ClCompile Include="Game\Title\AISelect.cpp" />
-    <ClCompile Include="Game\Title\IconAI.cpp" />
-    <ClCompile Include="Game\Title\IconMon.cpp" />
-    <ClCompile Include="Game\Title\ModeSelect.cpp" />
-    <ClCompile Include="Game\Title\MonsterSelect.cpp" />
-    <ClCompile Include="Game\Title\PMMonster.cpp" />
-    <ClCompile Include="Game\Title\pvpModeSelect.cpp" />
-    <ClCompile Include="Game\Title\SuperMonsterSelect.cpp" />
-    <ClCompile Include="Game\Title\Title.cpp" />
     <ClCompile Include="stdafx.cpp" />
-    <ClCompile Include="TestScene.cpp" />
-    <ClCompile Include="TestScene2.cpp" />
     <ClCompile Include="Game\Monster\Action\Act_Atack.cpp">
       <Filter>act</Filter>
     </ClCompile>
@@ -217,254 +216,432 @@
     <ClCompile Include="Game\Monster\Action\Act_Defense.cpp">
       <Filter>act</Filter>
     </ClCompile>
-    <ClCompile Include="Game\SuddenDeath.cpp" />
+    <ClCompile Include="Game\AIEdit\AIEditLine.cpp">
+      <Filter>Game\AIEdite</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\AIEdit\AIEditMode.cpp">
+      <Filter>Game\AIEdite</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Title\AIeditModeSelect.cpp">
+      <Filter>Game\AIEdite</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\AIEdit\AIEditNode.cpp">
+      <Filter>Game\AIEdite</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\AIEdit\AIEditNodeClick.cpp">
+      <Filter>Game\AIEdite</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\AIEdit\AIEditNodeHp.cpp">
+      <Filter>Game\AIEdite</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\AIEdit\AIEditNodeInequ.cpp">
+      <Filter>Game\AIEdite</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\AIEdit\AIEditNodeMass.cpp">
+      <Filter>Game\AIEdite</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\AIEdit\AIEditNodeNum.cpp">
+      <Filter>Game\AIEdite</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\AIEdit\AIEditNodeOrder.cpp">
+      <Filter>Game\AIEdite</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\AIEdit\AIEditNodeProcess.cpp">
+      <Filter>Game\AIEdite</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\AIEdit\AIEditNodeTechnique.cpp">
+      <Filter>Game\AIEdite</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\graphics\animation\Animation.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\graphics\animation\AnimationClip.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\graphics\animation\AnimationPlayController.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Network\BaseView.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\graphics\postEffect\Bloom.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\graphics\Sprite\Effect.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Engine.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\EngineStruct.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\graphics\Camera.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\physics\CapsuleCollider.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\graphics\CCameraCollisionSlover.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\graphics\CConstantBuffer.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\graphics\Effect\CEffect.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\graphics\Effect\CEffectEngine.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\graphics\font\CFONT.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\graphics\GPUBuffer\CGPUBuffer.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\character\CharacterController.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\graphics\CIndexBuffer.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\graphics\ConstantBufferGPU.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Network\Console.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\graphics\CPrimitive.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\graphics\CRenderContext.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\graphics\CSamplerState.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\graphics\CShader.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\graphics\CShaderResource.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\physics\CSphereCollider.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\gameObject\CTransform.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\graphics\CUnorderedAccessView.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\graphics\CUtil.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\graphics\CVertexBuffer.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\graphics\postEffect\Dof.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\gameObject\GameObject.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\gameObject\GameObjectManager.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\graphics\GraphicsEngine.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\graphics\postEffect\GaussianBlur.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\time\GameTime.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\MonsterAction.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\MonsterActionList.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\MonsterActionManeger.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\MonsterEffect.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\MonsterMarker.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\Monster.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="GameCamera.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\GameCamera2D.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\GameCamera3D.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\GameCursor.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\GameData.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\GameMenu\GameMenu.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\graphics\RenderTarget.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Result\ResultCamera.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\physics\RigitBody.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\graphics\Shader.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\graphics\ShaderResouceView.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\graphics\ShaderResources.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\graphics\ShadowMap.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\graphics\Skelton.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\graphics\SkinModel.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\graphics\SkinModelDataManager.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\graphics\SkinModelDummy.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\graphics\SkinModelEffect.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\graphics\SkinModelRender.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\graphics\SkinModelShaderConst.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\sound\SoundEngine.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\graphics\Sprite\SpBuffer.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\graphics\SpringCamera.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\graphics\Sprite\Sprite.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\physics\SpriteBoxCollider.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\graphics\SpriteRender.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\graphics\font\FontRender.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\FPSCounter.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\Monsters\Fairy.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\math\kMath.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\level\Level.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Result\Lose\Lose.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Result\Lose\Lose_localPVP.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Result\Lose\Lose_randomPVP.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Network\LoadBalancingListener.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\level\MapChip.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\math\Matrix.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\physics\MeshCollider.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\HID\Mouse.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Network\NetworkLogic.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Network\OutputListener.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\HID\Pad.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\StageSetup\StageSetup.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\StageSetup\StageSelect.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Title\ModeSelect.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\physics\Physics.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\physics\PhysicsStaticObject.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\PreCompile.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\graphics\postEffect\PostEffect.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\PythonBridge\PythonBridge.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\SaveLoad\PythonFileLoad.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\Monsters\TestMons.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="TestScene.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="TestScene2.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Title\Title.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\SuddenDeath.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Result\Win\Win.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Result\Win\Win_localPVP.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Result\Win\Win_randomPVP.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\math\Vector.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\window\Window.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Title\pvpModeSelect.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\Monsters\Uma.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\main.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\graphics\StructedBuffer.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Network\TestView.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\graphics\TScopedResource.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Dungeon\DungeonAISelect.cpp">
+      <Filter>Game\Dungeon</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Result\DungeonResult.cpp">
+      <Filter>Game\Dungeon</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Dungeon\DungeonSelect.cpp">
+      <Filter>Game\Dungeon</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Dungeon\DungeonTransition.cpp">
+      <Filter>Game\Dungeon</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Title\AIMSelect.cpp">
+      <Filter>Game\AIMonSelect</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Title\AISelect.cpp">
+      <Filter>Game\AIMonSelect</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Title\IconAI.cpp">
+      <Filter>Game\AIMonSelect</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Title\IconMon.cpp">
+      <Filter>Game\AIMonSelect</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\GameMenu\MenuButton.cpp">
+      <Filter>Game\AIMonSelect</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Title\SuperMonsterSelect.cpp">
+      <Filter>Game\AIMonSelect</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Title\MonsterSelect.cpp">
+      <Filter>Game\AIMonSelect</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Title\PMMonster.cpp">
+      <Filter>Game\AIMonSelect</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <MeshContentTask Include="Assets\modelData\fairy\hnd.FBX" />
-    <MeshContentTask Include="Assets\modelData\stage\map.FBX" />
-    <MeshContentTask Include="Assets\modelData\Test.FBX" />
-    <MeshContentTask Include="Assets\modelData\testMons\tesEnemy2.fbx" />
-    <MeshContentTask Include="Assets\modelData\testMons\tesEnemy3.fbx" />
-    <MeshContentTask Include="Assets\modelData\uma\uma.fbx" />
+    <MeshContentTask Include="Assets\modelData\fairy\hnd.FBX">
+      <Filter>Assets</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\stage\map.FBX">
+      <Filter>Assets</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\testMons\tesEnemy2.fbx">
+      <Filter>Assets</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\testMons\tesEnemy3.fbx">
+      <Filter>Assets</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\Test.FBX">
+      <Filter>Assets</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\uma\uma.fbx">
+      <Filter>Assets</Filter>
+    </MeshContentTask>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Engine\character\CharacterController.h" />
-    <ClInclude Include="Engine\Engine.h" />
-    <ClInclude Include="Engine\EngineStruct.h" />
-    <ClInclude Include="Engine\FPSCounter.h" />
-    <ClInclude Include="Engine\gameObject\CTransform.h" />
-    <ClInclude Include="Engine\gameObject\GameObject.h" />
-    <ClInclude Include="Engine\gameObject\GameObjectManager.h" />
-    <ClInclude Include="Engine\graphics\animation\Animation.h" />
-    <ClInclude Include="Engine\graphics\animation\AnimationClip.h" />
-    <ClInclude Include="Engine\graphics\animation\AnimationPlayController.h" />
-    <ClInclude Include="Engine\graphics\Camera.h" />
-    <ClInclude Include="Engine\graphics\CCameraCollisionSlover.h" />
-    <ClInclude Include="Engine\graphics\CConstantBuffer.h" />
-    <ClInclude Include="Engine\graphics\CIndexBuffer.h" />
-    <ClInclude Include="Engine\graphics\ConstantBufferGPU.h" />
-    <ClInclude Include="Engine\graphics\CPrimitive.h" />
-    <ClInclude Include="Engine\graphics\CRenderContext.h" />
-    <ClInclude Include="Engine\graphics\CSamplerState.h" />
-    <ClInclude Include="Engine\graphics\CShader.h" />
-    <ClInclude Include="Engine\graphics\CShaderResource.h" />
-    <ClInclude Include="Engine\graphics\CUnorderedAccessView.h" />
-    <ClInclude Include="Engine\graphics\CUtil.h" />
-    <ClInclude Include="Engine\graphics\CVertexBuffer.h" />
-    <ClInclude Include="Engine\graphics\Effect\CEffect.h" />
-    <ClInclude Include="Engine\graphics\Effect\CEffectEngine.h" />
-    <ClInclude Include="Engine\graphics\font\CFONT.h" />
-    <ClInclude Include="Engine\graphics\font\FontRender.h" />
-    <ClInclude Include="Engine\graphics\GPUBuffer\CGPUBuffer.h" />
-    <ClInclude Include="Engine\graphics\GraphicsEngine.h" />
-    <ClInclude Include="Engine\graphics\Noncopyable.h" />
-    <ClInclude Include="Engine\graphics\postEffect\Bloom.h" />
-    <ClInclude Include="Engine\graphics\postEffect\Dof.h" />
-    <ClInclude Include="Engine\graphics\postEffect\GaussianBlur.h" />
-    <ClInclude Include="Engine\graphics\postEffect\PostEffect.h" />
-    <ClInclude Include="Engine\graphics\RenderTarget.h" />
-    <ClInclude Include="Engine\graphics\Shader.h" />
-    <ClInclude Include="Engine\graphics\ShaderResouceView.h" />
-    <ClInclude Include="Engine\graphics\ShaderResources.h" />
-    <ClInclude Include="Engine\graphics\ShadowMap.h" />
-    <ClInclude Include="Engine\graphics\Skelton.h" />
-    <ClInclude Include="Engine\graphics\SkinModel.h" />
-    <ClInclude Include="Engine\graphics\SkinModelDataManager.h" />
-    <ClInclude Include="Engine\graphics\SkinModelDummy.h" />
-    <ClInclude Include="Engine\graphics\SkinModelEffect.h" />
-    <ClInclude Include="Engine\graphics\SkinModelRender.h" />
-    <ClInclude Include="Engine\graphics\SkinModelShaderConst.h" />
-    <ClInclude Include="Engine\graphics\SpringCamera.h" />
-    <ClInclude Include="Engine\graphics\SpriteRender.h" />
-    <ClInclude Include="Engine\graphics\Sprite\Effect.h" />
-    <ClInclude Include="Engine\graphics\Sprite\SpBuffer.h" />
-    <ClInclude Include="Engine\graphics\Sprite\Sprite.h" />
-    <ClInclude Include="Engine\graphics\StructedBuffer.h" />
-    <ClInclude Include="Engine\graphics\TScopedResource.h" />
-    <ClInclude Include="Engine\HID\Mouse.h" />
-    <ClInclude Include="Engine\HID\Pad.h" />
-    <ClInclude Include="Engine\level\Level.h" />
-    <ClInclude Include="Engine\level\MapChip.h" />
-    <ClInclude Include="Engine\math\kMath.h" />
-    <ClInclude Include="Engine\math\Matrix.h" />
-    <ClInclude Include="Engine\math\Vector.h" />
-    <ClInclude Include="Engine\Network\BaseView.h" />
-    <ClInclude Include="Engine\Network\Console.h" />
-    <ClInclude Include="Engine\Network\LoadBalancingListener.h" />
-    <ClInclude Include="Engine\Network\NetworkLogic.h" />
-    <ClInclude Include="Engine\Network\OutputListener.h" />
-    <ClInclude Include="Engine\Network\TestView.h" />
-    <ClInclude Include="Engine\physics\CapsuleCollider.h" />
-    <ClInclude Include="Engine\physics\CollisionAttr.h" />
-    <ClInclude Include="Engine\physics\CSphereCollider.h" />
-    <ClInclude Include="Engine\physics\ICollider.h" />
-    <ClInclude Include="Engine\physics\MeshCollider.h" />
-    <ClInclude Include="Engine\physics\Physics.h" />
-    <ClInclude Include="Engine\physics\PhysicsStaticObject.h" />
-    <ClInclude Include="Engine\physics\RigitBody.h" />
-    <ClInclude Include="Engine\physics\SpriteBoxCollider.h" />
-    <ClInclude Include="Engine\PreCompile.h" />
-    <ClInclude Include="Engine\sound\SoundEngine.h" />
-    <ClInclude Include="Engine\time\GameTime.h" />
-    <ClInclude Include="Engine\util\Util.h" />
-    <ClInclude Include="Engine\window\Window.h" />
-    <ClInclude Include="GameCamera.h" />
-    <ClInclude Include="Game\AIEdit\AIEditLine.h" />
-    <ClInclude Include="Game\AIEdit\AIEditMode.h" />
-    <ClInclude Include="Game\AIEdit\AIEditNode.h" />
-    <ClInclude Include="Game\AIEdit\AIEditNodeClick.h" />
-    <ClInclude Include="Game\AIEdit\AIEditNodeHp.h" />
-    <ClInclude Include="Game\AIEdit\AIEditNodeInequ.h" />
-    <ClInclude Include="Game\AIEdit\AIEditNodeMass.h" />
-    <ClInclude Include="Game\AIEdit\AIEditNodeNum.h" />
-    <ClInclude Include="Game\AIEdit\AIEditNodeOrder.h" />
-    <ClInclude Include="Game\AIEdit\AIEditNodeProcess.h" />
-    <ClInclude Include="Game\AIEdit\AIEditNodeTechnique.h" />
-    <ClInclude Include="Game\Dungeon\DungeonAISelect.h" />
-    <ClInclude Include="Game\Dungeon\DungeonSelect.h" />
-    <ClInclude Include="Game\Dungeon\DungeonTransition.h" />
-    <ClInclude Include="Game\Game.h" />
-    <ClInclude Include="Game\GameCamera2D.h" />
-    <ClInclude Include="Game\GameCamera3D.h" />
-    <ClInclude Include="Game\GameCursor.h" />
-    <ClInclude Include="Game\GameData.h" />
-    <ClInclude Include="Game\GameMenu\GameMenu.h" />
-    <ClInclude Include="Game\GameMenu\MenuButton.h" />
-    <ClInclude Include="Game\Monster\Monster.h" />
-    <ClInclude Include="Game\Monster\MonsterAction.h" />
-    <ClInclude Include="Game\Monster\MonsterActionList.h" />
-    <ClInclude Include="Game\Monster\MonsterActionManeger.h" />
-    <ClInclude Include="Game\Monster\MonsterEffect.h" />
-    <ClInclude Include="Game\Monster\MonsterMarker.h" />
-    <ClInclude Include="Game\Monster\Monsters\Fairy.h" />
-    <ClInclude Include="Game\Monster\Monsters\TestMons.h" />
-    <ClInclude Include="Game\Monster\Monsters\Uma.h" />
-    <ClInclude Include="Game\PythonBridge\include\abstract.h" />
-    <ClInclude Include="Game\PythonBridge\include\accu.h" />
-    <ClInclude Include="Game\PythonBridge\include\asdl.h" />
-    <ClInclude Include="Game\PythonBridge\include\ast.h" />
-    <ClInclude Include="Game\PythonBridge\include\bitset.h" />
-    <ClInclude Include="Game\PythonBridge\include\bltinmodule.h" />
-    <ClInclude Include="Game\PythonBridge\include\boolobject.h" />
-    <ClInclude Include="Game\PythonBridge\include\bytearrayobject.h" />
-    <ClInclude Include="Game\PythonBridge\include\bytesobject.h" />
-    <ClInclude Include="Game\PythonBridge\include\bytes_methods.h" />
-    <ClInclude Include="Game\PythonBridge\include\cellobject.h" />
-    <ClInclude Include="Game\PythonBridge\include\ceval.h" />
-    <ClInclude Include="Game\PythonBridge\include\classobject.h" />
-    <ClInclude Include="Game\PythonBridge\include\code.h" />
-    <ClInclude Include="Game\PythonBridge\include\codecs.h" />
-    <ClInclude Include="Game\PythonBridge\include\compile.h" />
-    <ClInclude Include="Game\PythonBridge\include\complexobject.h" />
-    <ClInclude Include="Game\PythonBridge\include\datetime.h" />
-    <ClInclude Include="Game\PythonBridge\include\descrobject.h" />
-    <ClInclude Include="Game\PythonBridge\include\dictobject.h" />
-    <ClInclude Include="Game\PythonBridge\include\dtoa.h" />
-    <ClInclude Include="Game\PythonBridge\include\dynamic_annotations.h" />
-    <ClInclude Include="Game\PythonBridge\include\enumobject.h" />
-    <ClInclude Include="Game\PythonBridge\include\errcode.h" />
-    <ClInclude Include="Game\PythonBridge\include\eval.h" />
-    <ClInclude Include="Game\PythonBridge\include\fileobject.h" />
-    <ClInclude Include="Game\PythonBridge\include\fileutils.h" />
-    <ClInclude Include="Game\PythonBridge\include\floatobject.h" />
-    <ClInclude Include="Game\PythonBridge\include\frameobject.h" />
-    <ClInclude Include="Game\PythonBridge\include\funcobject.h" />
-    <ClInclude Include="Game\PythonBridge\include\genobject.h" />
-    <ClInclude Include="Game\PythonBridge\include\graminit.h" />
-    <ClInclude Include="Game\PythonBridge\include\grammar.h" />
-    <ClInclude Include="Game\PythonBridge\include\import.h" />
-    <ClInclude Include="Game\PythonBridge\include\intrcheck.h" />
-    <ClInclude Include="Game\PythonBridge\include\iterobject.h" />
-    <ClInclude Include="Game\PythonBridge\include\listobject.h" />
-    <ClInclude Include="Game\PythonBridge\include\longintrepr.h" />
-    <ClInclude Include="Game\PythonBridge\include\longobject.h" />
-    <ClInclude Include="Game\PythonBridge\include\marshal.h" />
-    <ClInclude Include="Game\PythonBridge\include\memoryobject.h" />
-    <ClInclude Include="Game\PythonBridge\include\metagrammar.h" />
-    <ClInclude Include="Game\PythonBridge\include\methodobject.h" />
-    <ClInclude Include="Game\PythonBridge\include\modsupport.h" />
-    <ClInclude Include="Game\PythonBridge\include\moduleobject.h" />
-    <ClInclude Include="Game\PythonBridge\include\namespaceobject.h" />
-    <ClInclude Include="Game\PythonBridge\include\node.h" />
-    <ClInclude Include="Game\PythonBridge\include\object.h" />
-    <ClInclude Include="Game\PythonBridge\include\objimpl.h" />
-    <ClInclude Include="Game\PythonBridge\include\odictobject.h" />
-    <ClInclude Include="Game\PythonBridge\include\opcode.h" />
-    <ClInclude Include="Game\PythonBridge\include\osdefs.h" />
-    <ClInclude Include="Game\PythonBridge\include\osmodule.h" />
-    <ClInclude Include="Game\PythonBridge\include\parsetok.h" />
-    <ClInclude Include="Game\PythonBridge\include\patchlevel.h" />
-    <ClInclude Include="Game\PythonBridge\include\pgen.h" />
-    <ClInclude Include="Game\PythonBridge\include\pgenheaders.h" />
-    <ClInclude Include="Game\PythonBridge\include\pyarena.h" />
-    <ClInclude Include="Game\PythonBridge\include\pyatomic.h" />
-    <ClInclude Include="Game\PythonBridge\include\pycapsule.h" />
-    <ClInclude Include="Game\PythonBridge\include\pyconfig.h" />
-    <ClInclude Include="Game\PythonBridge\include\pyctype.h" />
-    <ClInclude Include="Game\PythonBridge\include\pydebug.h" />
-    <ClInclude Include="Game\PythonBridge\include\pydtrace.h" />
-    <ClInclude Include="Game\PythonBridge\include\pyerrors.h" />
-    <ClInclude Include="Game\PythonBridge\include\pyexpat.h" />
-    <ClInclude Include="Game\PythonBridge\include\pyfpe.h" />
-    <ClInclude Include="Game\PythonBridge\include\pygetopt.h" />
-    <ClInclude Include="Game\PythonBridge\include\pyhash.h" />
-    <ClInclude Include="Game\PythonBridge\include\pylifecycle.h" />
-    <ClInclude Include="Game\PythonBridge\include\pymacconfig.h" />
-    <ClInclude Include="Game\PythonBridge\include\pymacro.h" />
-    <ClInclude Include="Game\PythonBridge\include\pymath.h" />
-    <ClInclude Include="Game\PythonBridge\include\pymem.h" />
-    <ClInclude Include="Game\PythonBridge\include\pyport.h" />
-    <ClInclude Include="Game\PythonBridge\include\pystate.h" />
-    <ClInclude Include="Game\PythonBridge\include\pystrcmp.h" />
-    <ClInclude Include="Game\PythonBridge\include\pystrhex.h" />
-    <ClInclude Include="Game\PythonBridge\include\pystrtod.h" />
-    <ClInclude Include="Game\PythonBridge\include\Python-ast.h" />
-    <ClInclude Include="Game\PythonBridge\include\Python.h" />
-    <ClInclude Include="Game\PythonBridge\include\pythonrun.h" />
-    <ClInclude Include="Game\PythonBridge\include\pythread.h" />
-    <ClInclude Include="Game\PythonBridge\include\pytime.h" />
-    <ClInclude Include="Game\PythonBridge\include\py_curses.h" />
-    <ClInclude Include="Game\PythonBridge\include\rangeobject.h" />
-    <ClInclude Include="Game\PythonBridge\include\setobject.h" />
-    <ClInclude Include="Game\PythonBridge\include\sliceobject.h" />
-    <ClInclude Include="Game\PythonBridge\include\structmember.h" />
-    <ClInclude Include="Game\PythonBridge\include\structseq.h" />
-    <ClInclude Include="Game\PythonBridge\include\symtable.h" />
-    <ClInclude Include="Game\PythonBridge\include\sysmodule.h" />
-    <ClInclude Include="Game\PythonBridge\include\token.h" />
-    <ClInclude Include="Game\PythonBridge\include\traceback.h" />
-    <ClInclude Include="Game\PythonBridge\include\tupleobject.h" />
-    <ClInclude Include="Game\PythonBridge\include\typeslots.h" />
-    <ClInclude Include="Game\PythonBridge\include\ucnhash.h" />
     <ClInclude Include="Game\PythonBridge\include\unicodeobject.h" />
-    <ClInclude Include="Game\PythonBridge\include\warnings.h" />
-    <ClInclude Include="Game\PythonBridge\include\weakrefobject.h" />
-    <ClInclude Include="Game\PythonBridge\PythonBridge.h" />
-    <ClInclude Include="Game\Result\DungeonResult.h" />
-    <ClInclude Include="Game\Result\Lose\Lose.h" />
-    <ClInclude Include="Game\Result\Lose\Lose_localPVP.h" />
-    <ClInclude Include="Game\Result\Lose\Lose_randomPVP.h" />
-    <ClInclude Include="Game\Result\ResultCamera.h" />
-    <ClInclude Include="Game\Result\Win\Win.h" />
-    <ClInclude Include="Game\Result\Win\Win_localPVP.h" />
-    <ClInclude Include="Game\Result\Win\Win_randomPVP.h" />
-    <ClInclude Include="Game\SaveLoad\PythonFileLoad.h" />
-    <ClInclude Include="Game\StageSetup\StageSelect.h" />
-    <ClInclude Include="Game\StageSetup\StageSetup.h" />
-    <ClInclude Include="Game\Title\AIeditModeSelect.h" />
-    <ClInclude Include="Game\Title\AIMSelect.h" />
-    <ClInclude Include="Game\Title\AISelect.h" />
-    <ClInclude Include="Game\Title\IconAI.h" />
-    <ClInclude Include="Game\Title\IconMon.h" />
-    <ClInclude Include="Game\Title\ModeSelect.h" />
-    <ClInclude Include="Game\Title\MonsterSelect.h" />
-    <ClInclude Include="Game\Title\PMMonster.h" />
-    <ClInclude Include="Game\Title\pvpModeSelect.h" />
-    <ClInclude Include="Game\Title\SuperMonsterSelect.h" />
-    <ClInclude Include="Game\Title\Title.h" />
     <ClInclude Include="stdafx.h" />
-    <ClInclude Include="TestScene.h" />
-    <ClInclude Include="TestScene2.h" />
     <ClInclude Include="Game\Monster\Action\Act_Atack.h">
       <Filter>act</Filter>
     </ClInclude>
@@ -480,46 +657,824 @@
     <ClInclude Include="Game\Monster\Action\Act_Defense.h">
       <Filter>act</Filter>
     </ClInclude>
-    <ClInclude Include="Game\SuddenDeath.h" />
+    <ClInclude Include="Game\PythonBridge\include\abstract.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\accu.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\AIEdit\AIEditLine.h">
+      <Filter>Game\AIEdite</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\AIEdit\AIEditMode.h">
+      <Filter>Game\AIEdite</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Title\AIeditModeSelect.h">
+      <Filter>Game\AIEdite</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\AIEdit\AIEditNode.h">
+      <Filter>Game\AIEdite</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\AIEdit\AIEditNodeClick.h">
+      <Filter>Game\AIEdite</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\AIEdit\AIEditNodeHp.h">
+      <Filter>Game\AIEdite</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\AIEdit\AIEditNodeInequ.h">
+      <Filter>Game\AIEdite</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\AIEdit\AIEditNodeMass.h">
+      <Filter>Game\AIEdite</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\AIEdit\AIEditNodeNum.h">
+      <Filter>Game\AIEdite</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\AIEdit\AIEditNodeOrder.h">
+      <Filter>Game\AIEdite</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\AIEdit\AIEditNodeProcess.h">
+      <Filter>Game\AIEdite</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\AIEdit\AIEditNodeTechnique.h">
+      <Filter>Game\AIEdite</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\graphics\animation\Animation.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\graphics\animation\AnimationClip.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\graphics\animation\AnimationPlayController.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\asdl.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\ast.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Network\BaseView.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\graphics\postEffect\Bloom.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\graphics\Sprite\Effect.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Engine.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\EngineStruct.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\bitset.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\bltinmodule.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\boolobject.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\bytearrayobject.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\bytes_methods.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\bytesobject.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\graphics\Camera.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\physics\CapsuleCollider.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\graphics\CCameraCollisionSlover.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\graphics\CConstantBuffer.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\graphics\Effect\CEffect.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\graphics\Effect\CEffectEngine.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\graphics\font\CFONT.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\graphics\GPUBuffer\CGPUBuffer.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\character\CharacterController.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\graphics\CIndexBuffer.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\physics\CollisionAttr.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\graphics\ConstantBufferGPU.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Network\Console.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\cellobject.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\ceval.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\classobject.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\codecs.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\code.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\complexobject.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\compile.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\graphics\CPrimitive.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\graphics\CRenderContext.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\graphics\CSamplerState.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\graphics\CShader.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\graphics\CShaderResource.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\physics\CSphereCollider.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\gameObject\CTransform.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\graphics\CUnorderedAccessView.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\graphics\CUtil.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\graphics\CVertexBuffer.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\graphics\postEffect\Dof.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\gameObject\GameObjectManager.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\gameObject\GameObject.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\graphics\GraphicsEngine.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\graphics\postEffect\GaussianBlur.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\time\GameTime.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\Monster.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\MonsterAction.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\MonsterActionList.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\MonsterActionManeger.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\MonsterEffect.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\MonsterMarker.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="GameCamera.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameCamera2D.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameCamera3D.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameCursor.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameData.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameMenu\GameMenu.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\py_curses.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\pyarena.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\pyatomic.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\pycapsule.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\pyconfig.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\pyctype.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\pydebug.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\pydtrace.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\pyerrors.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\pyexpat.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\pyfpe.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\pygetopt.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\pyhash.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\pylifecycle.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\pymacconfig.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\pymacro.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\pymath.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\pymem.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\pyport.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\pystate.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\pystrcmp.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\pystrhex.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\pystrtod.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\Python.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\graphics\RenderTarget.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Result\ResultCamera.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\physics\RigitBody.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\graphics\Shader.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\graphics\ShaderResouceView.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\graphics\ShaderResources.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\graphics\ShadowMap.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\graphics\Skelton.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\graphics\SkinModel.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\graphics\SkinModelDataManager.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\graphics\SkinModelDummy.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\graphics\SkinModelEffect.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\graphics\SkinModelRender.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\graphics\SkinModelShaderConst.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\sound\SoundEngine.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\graphics\Sprite\SpBuffer.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\graphics\SpringCamera.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\graphics\Sprite\Sprite.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\physics\SpriteBoxCollider.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\graphics\SpriteRender.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\graphics\font\FontRender.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\FPSCounter.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\datetime.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\descrobject.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\dictobject.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\dtoa.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\dynamic_annotations.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\enumobject.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\errcode.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\eval.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\Monsters\Fairy.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\fileobject.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\fileutils.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\floatobject.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\frameobject.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\funcobject.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\genobject.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\graminit.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\grammar.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\import.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\intrcheck.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\iterobject.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\math\kMath.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\level\Level.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Result\Lose\Lose.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Result\Lose\Lose_localPVP.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Result\Lose\Lose_randomPVP.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\longobject.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\longintrepr.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\listobject.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\math\Matrix.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\physics\ICollider.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Network\LoadBalancingListener.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\level\MapChip.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\physics\MeshCollider.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\moduleobject.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\marshal.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\memoryobject.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\metagrammar.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\methodobject.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\modsupport.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\namespaceobject.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\node.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\osmodule.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\object.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\objimpl.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\odictobject.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\opcode.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\osdefs.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\HID\Pad.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\HID\Mouse.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Network\NetworkLogic.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\graphics\Noncopyable.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Network\OutputListener.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\StageSetup\StageSetup.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\StageSetup\StageSelect.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Title\ModeSelect.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\parsetok.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\patchlevel.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\pgen.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\pgenheaders.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\physics\Physics.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\physics\PhysicsStaticObject.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\PreCompile.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\graphics\postEffect\PostEffect.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\PythonBridge.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\SaveLoad\PythonFileLoad.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\Python-ast.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\pythonrun.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\pythread.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\pytime.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\rangeobject.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\setobject.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\sliceobject.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="TestScene2.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\Monsters\TestMons.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="TestScene.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Title\Title.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\SuddenDeath.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Result\Win\Win_randomPVP.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Result\Win\Win.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Result\Win\Win_localPVP.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\structmember.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\structseq.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\symtable.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\sysmodule.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\token.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\traceback.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\tupleobject.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\typeslots.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\ucnhash.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\weakrefobject.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\include\warnings.h">
+      <Filter>Python</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\math\Vector.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\window\Window.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\util\Util.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Title\pvpModeSelect.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\Monsters\Uma.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\graphics\StructedBuffer.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Network\TestView.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\graphics\TScopedResource.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Dungeon\DungeonAISelect.h">
+      <Filter>Game\Dungeon</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Result\DungeonResult.h">
+      <Filter>Game\Dungeon</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Dungeon\DungeonSelect.h">
+      <Filter>Game\Dungeon</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Dungeon\DungeonTransition.h">
+      <Filter>Game\Dungeon</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Title\AIMSelect.h">
+      <Filter>Game\AIMonSelect</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Title\AISelect.h">
+      <Filter>Game\AIMonSelect</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Title\IconAI.h">
+      <Filter>Game\AIMonSelect</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Title\IconMon.h">
+      <Filter>Game\AIMonSelect</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameMenu\MenuButton.h">
+      <Filter>Game\AIMonSelect</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Title\SuperMonsterSelect.h">
+      <Filter>Game\AIMonSelect</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Title\MonsterSelect.h">
+      <Filter>Game\AIMonSelect</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Title\PMMonster.h">
+      <Filter>Game\AIMonSelect</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="Assets\modelData\uma.tks" />
-    <CustomBuild Include="Assets\modelData\boneTestMove.tka" />
     <CustomBuild Include="python36.lib" />
     <CustomBuild Include="python36_d.lib" />
+    <CustomBuild Include="Assets\modelData\boneTestMove.tka">
+      <Filter>Assets</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\modelData\uma.tks">
+      <Filter>Assets</Filter>
+    </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="Assets\modelData\boxTex.png" />
-    <Image Include="Assets\modelData\stage\handle010.jpg" />
-    <Image Include="Assets\modelData\testMons\asu.png" />
-    <Image Include="Assets\effect\fire1\Fire.png" />
-    <Image Include="Assets\effect\fire1\Particle01.png" />
-    <Image Include="Assets\effect\fire1\Smoke.png" />
+    <Image Include="Assets\modelData\testMons\asu.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\modelData\boxTex.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\effect\fire1\Fire.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\modelData\stage\handle010.jpg">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\effect\fire1\Smoke.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\effect\fire1\Particle01.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_back2.png">
+      <Filter>Assets</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <CopyFileToFolders Include="Game\dlllib\python36.dll" />
     <CopyFileToFolders Include="Game\dlllib\python36_d.dll" />
-    <CopyFileToFolders Include="PythonAIs\ang.py" />
-    <CopyFileToFolders Include="PythonAIs\CppBridge.py" />
-    <CopyFileToFolders Include="PythonAIs\testBrain.py" />
-    <CopyFileToFolders Include="PythonAIs\testBrain1.py" />
+    <CopyFileToFolders Include="PythonAIs\ang.py">
+      <Filter>Game\PyAI</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="PythonAIs\CppBridge.py">
+      <Filter>Game</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="PythonAIs\testBrain.py">
+      <Filter>Game</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="PythonAIs\testBrain1.py">
+      <Filter>Game</Filter>
+    </CopyFileToFolders>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\modelData\fairy\hnd_atack.tka" />
-    <None Include="Assets\modelData\fairy\hnd_ex1.tka" />
-    <None Include="Assets\modelData\fairy\hnd_idle.tka" />
-    <None Include="Assets\modelData\hnd.tks" />
-    <None Include="Assets\modelData\仮保管庫\move.tka" />
-    <None Include="Game\PythonBridge\include\pydtrace.d" />
-    <None Include="PythonAIs\testBrain2.py" />
-    <None Include="PythonAIs\Threader.py" />
-    <None Include="PythonAIs\_MiddleExecute.py" />
-    <None Include="Assets\effect\fire1\fire1.efk" />
     <None Include="PythonAIs\F.py" />
+    <None Include="PythonAIs\_MiddleExecute.py">
+      <Filter>Game\PyAI</Filter>
+    </None>
+    <None Include="Game\PythonBridge\include\pydtrace.d">
+      <Filter>Python</Filter>
+    </None>
+    <None Include="Assets\effect\fire1\fire1.efk">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="Assets\modelData\hnd.tks">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="Assets\modelData\fairy\hnd_atack.tka">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="Assets\modelData\fairy\hnd_ex1.tka">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="Assets\modelData\fairy\hnd_idle.tka">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="Assets\modelData\仮保管庫\move.tka">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="PythonAIs\testBrain2.py">
+      <Filter>Game</Filter>
+    </None>
+    <None Include="PythonAIs\Threader.py">
+      <Filter>Game</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="act">
       <UniqueIdentifier>{ed9ac73e-291a-47fa-99d2-535de596c2f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game">
+      <UniqueIdentifier>{bbca8a34-1f3d-4b20-a230-eadf10875c5b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine">
+      <UniqueIdentifier>{a32add72-d2d5-4075-8ed3-87990a0e0a4d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets">
+      <UniqueIdentifier>{8ce8e5a7-04bc-4bca-bf79-eb3f32644d8a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\AIEdite">
+      <UniqueIdentifier>{fa759c58-a4ab-4adc-be14-5f048ed23ac9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\PyAI">
+      <UniqueIdentifier>{a1375527-2d41-4595-b5d6-00caa276f669}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Python">
+      <UniqueIdentifier>{92bcbdc3-e9b9-42b9-95b9-ab207fdc6cec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Dungeon">
+      <UniqueIdentifier>{ecc301f3-6fd1-409b-9ab5-30e1464f2b87}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\AIMonSelect">
+      <UniqueIdentifier>{3a3f97a9-bec5-46aa-9662-80a9b112ab5e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
