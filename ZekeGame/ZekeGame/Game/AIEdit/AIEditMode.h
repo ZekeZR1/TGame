@@ -3,6 +3,7 @@
 class GameCursor;
 // THIS IS CAMERA.
 class GameCamera;
+class AIEditNodeProcess;
 class AIEditNodeClick;
 /*
 	AI‚ğGUI‚Åì‚é‚½‚ß‚ÌƒNƒ‰ƒX
@@ -27,5 +28,6 @@ private:
 	GameCamera* m_camera = nullptr;				//<-THIS IS CAMERA
 	AIEditNodeClick* m_aieditnodeclick= nullptr;
 	SpriteRender * m_spriteRender;
+	AIEditNodeProcess* m_aieditnodeprocess;
 
 };

@@ -1,4 +1,7 @@
 #pragma once
+#include "../GameData.h"
+class GameCursor;
+
 class StageSelect : public GameObject
 {
 private:
