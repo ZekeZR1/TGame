@@ -618,6 +618,18 @@
     <ClCompile Include="Game\Title\PMMonster.cpp">
       <Filter>Game\AIMonSelect</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Dungeon\DungeonGame.cpp">
+      <Filter>Game\Dungeon</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\AIEdit\AIEdtiNodeAbnormalState.cpp">
+      <Filter>Game\AIEdite</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\AIEdit\AIEditNodeButton.cpp">
+      <Filter>Game\AIEdite</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Dungeon\DungeonData.cpp">
+      <Filter>Game\Dungeon</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\fairy\hnd.FBX">
@@ -637,6 +649,9 @@
     </MeshContentTask>
     <MeshContentTask Include="Assets\modelData\uma\uma.fbx">
       <Filter>Assets</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\dungeon\dungeonBack.FBX">
+      <Filter>Game\Assets</Filter>
     </MeshContentTask>
   </ItemGroup>
   <ItemGroup>
@@ -1365,6 +1380,18 @@
     <ClInclude Include="Game\Title\PMMonster.h">
       <Filter>Game\AIMonSelect</Filter>
     </ClInclude>
+    <ClInclude Include="Game\Dungeon\DungeonGame.h">
+      <Filter>Game\Dungeon</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\AIEdit\AIEdtiNodeAbnormalState.h">
+      <Filter>Game\AIEdite</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\AIEdit\AIEditNodeButton.h">
+      <Filter>Game\AIEdite</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Dungeon\DungeonData.h">
+      <Filter>Game\Dungeon</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="python36.lib" />
@@ -1475,6 +1502,9 @@
     </Filter>
     <Filter Include="Game\AIMonSelect">
       <UniqueIdentifier>{3a3f97a9-bec5-46aa-9662-80a9b112ab5e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Assets">
+      <UniqueIdentifier>{f4984c63-c79e-4724-8765-98f8830d54e8}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

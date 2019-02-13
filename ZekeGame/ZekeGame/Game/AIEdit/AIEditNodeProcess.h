@@ -1,6 +1,7 @@
 #pragma once
 
 class AIEditNode;
+class AIEditNodeNum;
 class AIEditNodeInequ;
 class AIEditNum;
 class AIEditNodeOrder;
