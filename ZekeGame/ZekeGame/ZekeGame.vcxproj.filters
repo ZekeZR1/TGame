@@ -198,6 +198,12 @@
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_back_R.png">
       <Filter>Assets</Filter>
     </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\B_alpha.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_frame.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp" />
@@ -617,6 +623,12 @@
     </ClCompile>
     <ClCompile Include="Game\Title\PMMonster.cpp">
       <Filter>Game\AIMonSelect</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\AIEdit\AIEdtiNodeAbnormalState.cpp">
+      <Filter>Game\AIEdite</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\AIEdit\AIEditNodeButton.cpp">
+      <Filter>Game\AIEdite</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1364,6 +1376,12 @@
     </ClInclude>
     <ClInclude Include="Game\Title\PMMonster.h">
       <Filter>Game\AIMonSelect</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\AIEdit\AIEditNodeButton.h">
+      <Filter>Game\AIEdite</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\AIEdit\AIEdtiNodeAbnormalState.h">
+      <Filter>Game\AIEdite</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
