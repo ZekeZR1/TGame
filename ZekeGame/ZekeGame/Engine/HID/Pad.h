@@ -28,6 +28,7 @@ enum EnButton {
 	enButtonLB2,		//!<LB2ボタン。
 	enButtonLB3,		//!<LB3ボタン。
 	enStopCursorRoop,
+	enEscape,
 	enButtonNum	//!<ボタンの数。
 };
 /*!
