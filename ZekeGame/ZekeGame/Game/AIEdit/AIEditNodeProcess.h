@@ -3,6 +3,7 @@
 class AIEditNode;
 class AIEditNodeInequ;
 class AIEditNum;
+class AIEditNodeNum;
 class AIEditNodeOrder;
 class AIEditLine;
 class AIEditNodeTarget;
