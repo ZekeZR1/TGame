@@ -33,7 +33,7 @@ bool AIMSelect::Start()
 	m_ok->Init(L"Assets/sprite/sb_OK.dds", 151, 64,true);
 	m_odum = NewGO<SpriteRender>(9, "sp");
 	m_odum->Init(L"Assets/sprite/simple_button.dds", 151, 64);
-	CVector3 pos = { 320,-210,0 };
+	CVector3 pos = { 411,-320,0 };
 	m_ok->SetPosition(pos);
 	m_odum->SetPosition(pos);
 
@@ -41,7 +41,7 @@ bool AIMSelect::Start()
 	m_can->Init(L"Assets/sprite/sb_cancel.dds", 151, 64,true);
 	m_cdum = NewGO<SpriteRender>(9, "sp");
 	m_cdum->Init(L"Assets/sprite/simple_button.dds", 151, 64);
-	pos = { 480,-210,0 };
+	pos = { 563,-320,0 };
 	m_can->SetPosition(pos);
 	m_cdum->SetPosition(pos);
 

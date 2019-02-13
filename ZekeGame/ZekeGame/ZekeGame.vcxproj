@@ -236,6 +236,7 @@
     <ClCompile Include="Game\AIEdit\AIEditLine.cpp" />
     <ClCompile Include="Game\AIEdit\AIEditMode.cpp" />
     <ClCompile Include="Game\AIEdit\AIEditNode.cpp" />
+    <ClCompile Include="Game\AIEdit\AIEditNodeButton.cpp" />
     <ClCompile Include="Game\AIEdit\AIEditNodeClick.cpp" />
     <ClCompile Include="Game\AIEdit\AIEditNodeHp.cpp" />
     <ClCompile Include="Game\AIEdit\AIEditNodeInequ.cpp" />
@@ -244,7 +245,10 @@
     <ClCompile Include="Game\AIEdit\AIEditNodeOrder.cpp" />
     <ClCompile Include="Game\AIEdit\AIEditNodeProcess.cpp" />
     <ClCompile Include="Game\AIEdit\AIEditNodeTechnique.cpp" />
+    <ClCompile Include="Game\AIEdit\AIEdtiNodeAbnormalState.cpp" />
     <ClCompile Include="Game\Dungeon\DungeonAISelect.cpp" />
+    <ClCompile Include="Game\Dungeon\DungeonData.cpp" />
+    <ClCompile Include="Game\Dungeon\DungeonGame.cpp" />
     <ClCompile Include="Game\Dungeon\DungeonSelect.cpp" />
     <ClCompile Include="Game\Dungeon\DungeonTransition.cpp" />
     <ClCompile Include="Game\Game.cpp" />
@@ -257,6 +261,7 @@
     <ClCompile Include="Game\main.cpp" />
     <ClCompile Include="Game\Monster\Action\Act_Atack.cpp" />
     <ClCompile Include="Game\Monster\Action\Act_Chase.cpp" />
+    <ClCompile Include="Game\Monster\Action\Act_Defense.cpp" />
     <ClCompile Include="Game\Monster\Action\Act_Fire.cpp" />
     <ClCompile Include="Game\Monster\Action\Act_Leave.cpp" />
     <ClCompile Include="Game\Monster\Monster.cpp" />
@@ -280,6 +285,7 @@
     <ClCompile Include="Game\SaveLoad\PythonFileLoad.cpp" />
     <ClCompile Include="Game\StageSetup\StageSelect.cpp" />
     <ClCompile Include="Game\StageSetup\StageSetup.cpp" />
+    <ClCompile Include="Game\SuddenDeath.cpp" />
     <ClCompile Include="Game\Title\AIeditModeSelect.cpp" />
     <ClCompile Include="Game\Title\AIMSelect.cpp" />
     <ClCompile Include="Game\Title\AISelect.cpp" />
@@ -382,6 +388,7 @@
     <ClInclude Include="Game\AIEdit\AIEditLine.h" />
     <ClInclude Include="Game\AIEdit\AIEditMode.h" />
     <ClInclude Include="Game\AIEdit\AIEditNode.h" />
+    <ClInclude Include="Game\AIEdit\AIEditNodeButton.h" />
     <ClInclude Include="Game\AIEdit\AIEditNodeClick.h" />
     <ClInclude Include="Game\AIEdit\AIEditNodeHp.h" />
     <ClInclude Include="Game\AIEdit\AIEditNodeInequ.h" />
@@ -390,7 +397,10 @@
     <ClInclude Include="Game\AIEdit\AIEditNodeOrder.h" />
     <ClInclude Include="Game\AIEdit\AIEditNodeProcess.h" />
     <ClInclude Include="Game\AIEdit\AIEditNodeTechnique.h" />
+    <ClInclude Include="Game\AIEdit\AIEdtiNodeAbnormalState.h" />
     <ClInclude Include="Game\Dungeon\DungeonAISelect.h" />
+    <ClInclude Include="Game\Dungeon\DungeonData.h" />
+    <ClInclude Include="Game\Dungeon\DungeonGame.h" />
     <ClInclude Include="Game\Dungeon\DungeonSelect.h" />
     <ClInclude Include="Game\Dungeon\DungeonTransition.h" />
     <ClInclude Include="Game\Game.h" />
@@ -402,6 +412,7 @@
     <ClInclude Include="Game\GameMenu\MenuButton.h" />
     <ClInclude Include="Game\Monster\Action\Act_Atack.h" />
     <ClInclude Include="Game\Monster\Action\Act_Chase.h" />
+    <ClInclude Include="Game\Monster\Action\Act_Defense.h" />
     <ClInclude Include="Game\Monster\Action\Act_Fire.h" />
     <ClInclude Include="Game\Monster\Action\Act_Leave.h" />
     <ClInclude Include="Game\Monster\Monster.h" />
@@ -525,6 +536,7 @@
     <ClInclude Include="Game\SaveLoad\PythonFileLoad.h" />
     <ClInclude Include="Game\StageSetup\StageSelect.h" />
     <ClInclude Include="Game\StageSetup\StageSetup.h" />
+    <ClInclude Include="Game\SuddenDeath.h" />
     <ClInclude Include="Game\Title\AIeditModeSelect.h" />
     <ClInclude Include="Game\Title\AIMSelect.h" />
     <ClInclude Include="Game\Title\AISelect.h" />
@@ -550,6 +562,9 @@
     <MeshContentTask Include="Assets\modelData\uma\uma.fbx" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_back2.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_back_R.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_back_B.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\MonActList\hp.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\MonActList\mp.png" />
     <ImageContentTask Include="Assets\Sprite\monsho\dun_stage0.png" />
@@ -656,6 +671,7 @@
     <CopyFileToFolders Include="PythonAIs\testBrain1.py">
       <FileType>Document</FileType>
     </CopyFileToFolders>
+    <None Include="PythonAIs\F.py" />
     <None Include="PythonAIs\testBrain2.py" />
     <None Include="PythonAIs\Threader.py" />
     <None Include="PythonAIs\_MiddleExecute.py" />

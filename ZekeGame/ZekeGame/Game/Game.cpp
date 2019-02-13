@@ -49,10 +49,47 @@ void Game::OnDestroy() {
 }
 
 void Game::Update() {
-	static CVector3 pos = CVector3::Zero();
 	if (m_END || m_menu->isOpen())
 		return;
-	m_model->SetPosition(pos);
+	if (m_suddenDeath)
+	{
+		for (auto mon : g_mons)
+		{
+			if (mon == NULL)
+				break;
+			float hp = mon->GetHP() - 0.005f;
+			mon->SetHP(hp);
+		}
+	}
+	else
+	{
+		if (m_time < 0)
+		{
+			const char* files[6];
+			MonsterID monids[6];
+			int team[6];
+			for (int i = 0; i < 6; i++)
+			{
+				Monster* mon = g_mons[i];
+				if (mon == NULL)
+					break;
+
+				files[i] = mon->GetpyFile();
+				monids[i] = (MonsterID)mon->GetID();
+				team[i] = mon->Getteam();
+
+			}
+			StageSetup::SuddenDeath(files, monids, team);
+			SuddenDeath();
+		}
+		else
+		{
+			m_time -= IGameTime().GetFrameDeltaTime();
+		}
+	}
+	
+	
+
 	camera->SetTarget(CVector3::Zero());
 	camera->SetPosition({ 0.0f, 350.0f, 1000.0f });
 	camera->Update();
@@ -85,4 +122,5 @@ void Game::Update() {
 		}
 		}
 	}
+	
 }

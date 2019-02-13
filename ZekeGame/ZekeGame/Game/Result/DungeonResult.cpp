@@ -5,8 +5,20 @@
 #include "../GameCursor.h"
 #include  <fstream>
 #include "DungeonResult.h"
+#include "../Dungeon/DungeonData.h"
+#include "../Dungeon/DungeonTransition.h"
+#include "../Dungeon/DungeonGame.h"
 
 bool DungeonResult::Start() {
+	auto dGame = FindGO<DungeonGame>("DungeonGame");
+	if (!IDungeonData().isFinalRound(m_dunNum)) {
+		int round = IDungeonData().GetRound();
+		IDungeonData().SetRound(round + 1);
+		dGame->StartTransition();
+		DeleteGO(this);
+		return true;
+	}
+	DeleteGO(dGame);
 	m_resultSp = NewGO<SpriteRender>(0, "resultSp");
 	m_buttonSp = NewGO<SpriteRender>(0, "next");
 	m_buttonSp->Init(L"Assets/Sprite/button1.dds", 300.f, 100.f, true);

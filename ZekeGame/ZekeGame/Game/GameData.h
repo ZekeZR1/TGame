@@ -16,7 +16,7 @@ enum ActionID
 	enChase,
 	enAtack,
 	enLeave,
-
+	enDefense,
 	enFire,
 };
 

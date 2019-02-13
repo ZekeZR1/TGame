@@ -58,6 +58,7 @@ const VirtualPadToKeyboard vPadToKeyboardTable[enButtonNum] = {
 { enButtonLB2		, 'N' },
 { enButtonLB3		, 'M' },
 { enStopCursorRoop		, 'Q' },
+{ enEscape		, VK_ESCAPE },
 };
 
 Pad::Pad()

@@ -5,6 +5,9 @@ class GameCursor;
 class GameCamera;
 class AIEditNodeHp;
 class AIEditNodeInequ;
+class AIEditNodeButton;
+class AIEditNodeTechnique;
+class AIEditNodeAbnormalState;
 class AIEditNode : public GameObject
 {
 
@@ -14,8 +17,9 @@ public:
 
 	bool Start() override final;
 	void Update() override final;
-	void SetPointPos(int numx, int numy);
 	void Inequ();
+	void Technique();
+	void Abnormal();
 
 	void SetChoice1(bool a)
 	{
@@ -28,10 +32,12 @@ public:
 		return Choice1;
 	}
 
+	
+
 		
 private:
 
-	int button = 5;						//ボタンの数
+	int button = 4;						//ボタンの数
 	bool Choice1 = false;				//何かを選択するとtrueになる
 
 	
@@ -40,9 +46,12 @@ private:
 	AIEditNodeInequ* m_aieditnodeinequ;
 	SpriteRender * m_spriteRender;
 	SpriteRender* sr;
+	AIEditNodeButton * m_aieditnodebutton;
+	AIEditNodeTechnique* m_aieditnodetechnique;
+	AIEditNodeAbnormalState* m_aieditnodeabnorimalstate;
 	CVector3 m_position = CVector3::Zero();
 	CVector3 m_pointposition = CVector3::Zero();
 	CFont m_font;
 
-	std::vector<SpriteRender*> m_spriteRenders;
+	std::vector<AIEditNodeButton*> m_nodebuttons;
 };

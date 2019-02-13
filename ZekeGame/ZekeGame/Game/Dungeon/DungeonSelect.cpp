@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include <memory>
 #include <fstream>
+#include "DungeonData.h"
 #include "../Title/ModeSelect.h"
 #include "../GameCursor.h"
 #include "../StageSetup/StageSetup.h"
@@ -210,6 +211,8 @@ void DungeonSelect::StartDungeon() {
 					return;
 				auto dunAi = NewGO<DungeonAISelect>(0, "pvp");
 				dunAi->SetDungeonNumber(dunNum);
+				IDungeonData().SetDunNum(dunNum);
+				IDungeonData().SetRound(0);
 				DeleteGO(this);
 			}
 		}

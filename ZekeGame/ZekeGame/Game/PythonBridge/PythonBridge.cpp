@@ -164,13 +164,14 @@ PyObject* GetAllBuddyData(PyObject* self, PyObject* args)
 		//if (/*mon->Getnum() == g_meNum ||*/ mon->Getteam() != g_meTeam)
 		if (/*mon->Getnum() == g_meNum ||*/ mon->Getteam() != meTeam)
 			continue;
-		PyObject* pData = PyList_New(6);
+		PyObject* pData = PyList_New(12);
 
 		PyList_SetItem(pData,0,PyLong_FromLong(mon->GetID()));
 		PyList_SetItem(pData,1,PyLong_FromLong(mon->Getnum()));
 		PyList_SetItem(pData,2,PyLong_FromLong(mon->Getteam()));
 		PyList_SetItem(pData,3,PyLong_FromLong(mon->GetHP()));
 		PyList_SetItem(pData,4,PyLong_FromLong(mon->GetMP()));
+
 
 		PyObject* pPos = PyList_New(3);
 		CVector3 pos = mon->Getpos();
@@ -179,6 +180,22 @@ PyObject* GetAllBuddyData(PyObject* self, PyObject* args)
 		PyList_SetItem(pPos, 2, PyFloat_FromDouble(pos.z));
 
 		PyList_SetItem(pData, 5, pPos);
+
+		/////
+		PyList_SetItem(pData, 6, PyFloat_FromDouble(mon->GetAttack()));
+		PyList_SetItem(pData, 7, PyFloat_FromDouble(mon->GetExAttack()));
+		PyList_SetItem(pData, 8, PyFloat_FromDouble(mon->GetDefense()));
+		PyList_SetItem(pData, 9, PyFloat_FromDouble(mon->GetExDefense()));
+		PyList_SetItem(pData, 10, PyFloat_FromDouble(mon->GetPspeed()));
+
+		pPos = PyList_New(3);
+		pos = mon->Getspeed();
+		PyList_SetItem(pPos, 0, PyFloat_FromDouble(pos.x));
+		PyList_SetItem(pPos, 1, PyFloat_FromDouble(pos.y));
+		PyList_SetItem(pPos, 2, PyFloat_FromDouble(pos.z));
+
+		PyList_SetItem(pData, 11, pPos);
+		////
 
 		PyList_SetItem(pDatas, count, pData);
 
@@ -271,7 +288,7 @@ PyObject* GetAllEnemyData(PyObject* self, PyObject* args)
 		//if (mon->Getnum() == g_meNum || mon->Getteam() == g_meTeam)
 		if (mon->Getnum() == g_meNum || mon->Getteam() == meTeam)
 			continue;
-		PyObject* pData = PyList_New(6);
+		PyObject* pData = PyList_New(12);
 
 		PyList_SetItem(pData, 0, PyLong_FromLong(mon->GetID()));
 		PyList_SetItem(pData, 1, PyLong_FromLong(mon->Getnum()));
@@ -286,6 +303,22 @@ PyObject* GetAllEnemyData(PyObject* self, PyObject* args)
 		PyList_SetItem(pPos, 2, PyFloat_FromDouble(pos.z));
 
 		PyList_SetItem(pData, 5, pPos);
+
+		/////
+		PyList_SetItem(pData, 6, PyFloat_FromDouble(mon->GetAttack()));
+		PyList_SetItem(pData, 7, PyFloat_FromDouble(mon->GetExAttack()));
+		PyList_SetItem(pData, 8, PyFloat_FromDouble(mon->GetDefense()));
+		PyList_SetItem(pData, 9, PyFloat_FromDouble(mon->GetExDefense()));
+		PyList_SetItem(pData, 10, PyFloat_FromDouble(mon->GetPspeed()));
+
+		pPos = PyList_New(3);
+		pos = mon->Getspeed();
+		PyList_SetItem(pPos, 0, PyFloat_FromDouble(pos.x));
+		PyList_SetItem(pPos, 1, PyFloat_FromDouble(pos.y));
+		PyList_SetItem(pPos, 2, PyFloat_FromDouble(pos.z));
+
+		PyList_SetItem(pData, 11, pPos);
+		////
 
 		PyList_SetItem(pDatas, count, pData);
 

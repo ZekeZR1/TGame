@@ -12,6 +12,7 @@ public:
 	~Monster();
 
 	void init(float HP, float MP,float Defence, float ExDefense, float Attack,float ExAttack, float speed, float radius, float height, SkinModelRender* smr, int animnum);
+	void SuddenDeath();
 
 	bool Start() override final;
 	void Update() override final;
@@ -35,6 +36,8 @@ public:
 	//ノックバックの始まり
 	//v: ノックバックするベクトル
 	void StartKnockback(CVector3 v);
+
+	void SetKnockback(CVector3 v);
 
 	//状態
 	enum en_State
@@ -68,6 +71,11 @@ public:
 		return m_HP;
 	}
 
+	void SetHP(float hp)
+	{
+		m_HP = hp;
+	}
+
 	//ダメージ
 	//d: 食らうダメージ
 	void Damage(float d)
@@ -87,6 +95,22 @@ public:
 		return m_MP;
 	}
 
+	void SetMP(float mp)
+	{
+		m_MP = mp;
+	}
+
+	void SetMPrecv(float rmp)
+	{
+		m_MPrecov = rmp;
+	}
+
+	float GetMPrecv()
+	{
+		return m_MPrecov;
+	}
+
+
 	float GetDefense()
 	{
 		return m_Defense;
@@ -96,6 +120,17 @@ public:
 	{
 		return m_ExDefense;
 	}
+
+	void SetDefense(float d)
+	{
+		m_Defense = d;
+	}
+
+	void SetExDefense(float d)
+	{
+		m_ExDefense = d;
+	}
+
 
 	float GetAttack()
 	{
@@ -133,6 +168,11 @@ public:
 	//ポジションを設定する
 	//v: 設定するポジション
 	void Setpos(CVector3 v);
+
+	float GetPspeed()
+	{
+		return m_speed;
+	}
 
 	//スピードを返す
 	CVector3 Getspeed()
@@ -228,8 +268,12 @@ public:
 	void anim_idle();
 	void anim_walk();
 	void anim_atack();
-	void anim_defense();
+	void anim_defenseF();
+	void anim_defenseM();
+	void anim_defenseE();
 	void anim_extra1();
+
+	bool isAnimPlay();
 
 	//アニメーションの状態
 	enum anim
@@ -237,7 +281,9 @@ public:
 		en_idle,
 		en_walk,
 		en_atack,
-		en_defense,
+		en_defenseF,
+		en_defenseM,
+		en_defenseE,
 		en_extra1,
 		en_extra2,
 		en_extra3,
@@ -261,7 +307,9 @@ protected:
 	float m_height = 0.0f;						//高さ
 	SkinModelRender* m_smr = nullptr;			//スキンモデルレンダー
 	float m_HP = 0;								//HP
+	float m_maxHP = 0;
 	float m_MP = 0;								//MP
+	float m_maxMP = 0;
 	float m_Defense = 0;						//防御力
 	float m_ExDefense = 0;						//特殊防御力
 	float m_Attack = 0;							//攻撃力
@@ -270,6 +318,7 @@ protected:
 	float m_Damage = 0;							//ダメージ
 	float m_DamageEx = 0;						//特殊ダメージ
 
+	float m_MPrecov = 3;
 
 	float m_speed = 0.0f;						//スピード
 	float m_gravity = 50.0f;					//重力
@@ -301,7 +350,8 @@ protected:
 
 	int m_AnimNum = 0;							//アニメーションの個数
 
-	float m_time = 0.0f;
+	float m_actionTime = 0.0f;
+	float m_MPRecvTime = 0.0f;
 
 	bool m_end = false;
 };

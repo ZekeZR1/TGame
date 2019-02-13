@@ -41,7 +41,9 @@ void Monster::ReleaseMark()
 void Monster::init(float HP, float MP,float Defense,float ExDefense, float Attack, float ExAttack, float speed, float radius, float height, SkinModelRender * smr, int animnum)
 {
 	m_HP = HP;
+	m_maxHP = HP;
 	m_MP = MP;
+	m_maxMP = MP;
 
 	m_Defense = Defense;
 	m_ExDefense = ExDefense;
@@ -54,6 +56,13 @@ void Monster::init(float HP, float MP,float Defense,float ExDefense, float Attac
 	m_height = height;
 	m_smr = smr;
 	m_AnimNum = animnum;
+}
+
+void Monster::SuddenDeath()
+{
+	float hp = m_HP * 0.3f;
+	m_HP = hp;
+	m_maxHP = hp;
 }
 
 bool Monster::Start()
@@ -85,7 +94,7 @@ void Monster::Update()
 	switch (m_state)
 	{
 	case en_NowLoading:
-		if (m_time > 1)
+		if (m_actionTime > 1)
 		{
 			//m_PB->py_exe(m_num, m_team, m_pyFile);
 			if (!isLoading)
@@ -99,7 +108,7 @@ void Monster::Update()
 				m_state = en_Execute;
 				isLoading = false;
 			}
-			m_time = 0;
+			m_actionTime = 0;
 		}
 		break;
 	case en_Execute:
@@ -111,7 +120,23 @@ void Monster::Update()
 	}
 	receiveDamage();
 	Move();
-	m_time += IGameTime().GetFrameDeltaTime();
+
+	if (m_MPRecvTime >= m_MPrecov)
+	{
+		if (m_MP < m_maxMP)
+		{
+			m_MP += 1;
+			m_MPRecvTime = 0;
+		}
+	}
+
+	if (!m_smr->IsPlayingAnimation())
+	{
+		anim_idle();
+	}
+
+	m_actionTime += IGameTime().GetFrameDeltaTime();
+	m_MPRecvTime += IGameTime().GetFrameDeltaTime();
 }
 
 void Monster::execute()
@@ -119,7 +144,7 @@ void Monster::execute()
 	if (m_actions.size() == 0)
 	{
 		m_state = en_NowLoading;
-		m_time = 0;
+		m_actionTime = 0;
 		return;
 	}
 	if (m_actions[0]->Action(this))
@@ -181,6 +206,7 @@ void Monster::receiveDamage()
 		dm += 3;
 		if (dm > 0)
 			m_HP -= dm;
+		m_Damage = 0;
 	}
 
 	if (m_DamageEx)
@@ -189,6 +215,7 @@ void Monster::receiveDamage()
 		dm += 3;
 		if (dm > 0)
 			m_HP -= dm;
+		m_DamageEx = 0;
 	}
 }
 
@@ -197,6 +224,16 @@ void Monster::StartKnockback(CVector3 v)
 	m_vKnockback = v;
 	m_vSubKnock = v / 3;
 	m_isKnockback = true;
+}
+
+void Monster::SetKnockback(CVector3 v)
+{
+	m_vKnockback = v;
+	m_vSubKnock = v;
+	if (v.Length() < 1.f)
+	{
+		m_isKnockback = false;
+	}
 }
 
 void Monster::Knockback()
@@ -257,11 +294,26 @@ void Monster::anim_atack()
 	m_smr->PlayAnimation(en_atack);
 }
 
-void Monster::anim_defense()
+
+void Monster::anim_defenseF()
 {
-	if (en_defense > m_AnimNum - 1)
+	if (en_defenseF > m_AnimNum - 1)
 		return;
-	m_smr->PlayAnimation(en_defense);
+	m_smr->PlayAnimation(en_defenseF);
+}
+
+void Monster::anim_defenseM()
+{
+	if (en_defenseM > m_AnimNum - 1)
+		return;
+	m_smr->PlayAnimation(en_defenseM);
+}
+
+void Monster::anim_defenseE()
+{
+	if (en_defenseM > m_AnimNum - 1)
+		return;
+	m_smr->PlayAnimation(en_defenseE);
 }
 
 void Monster::anim_extra1()
@@ -269,4 +321,9 @@ void Monster::anim_extra1()
 	if (en_extra1 > m_AnimNum - 1)
 		return;
 	m_smr->PlayAnimation(en_extra1);
+}
+
+bool Monster::isAnimPlay()
+{
+	return m_smr->IsPlayingAnimation();
 }
