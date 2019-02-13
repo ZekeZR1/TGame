@@ -81,9 +81,9 @@ void DungeonAISelect::Update() {
 				moid[i] = static_cast<MonsterID>(m_pmms[i]->GetMonsterID());
 				monai[i] = m_pmms[i]->GetAI();
 			}
-			auto dun = NewGO<DungeonGame>(0);
-			//auto tra = NewGO<DungeonTransition>(0);
+			auto dun = NewGO<DungeonGame>(0,"DungeonGame");
 			dun->SetGameData(m_files, m_enemyFiles, monai, moid, m_dunNum);
+			dun->StartTransition();
 			DeleteGO(this);
 		}
 	}

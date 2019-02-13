@@ -2,8 +2,10 @@
 enum MonsterID;
 class DungeonGame : public GameObject
 {
+public:
+	void StartTransition();
 private:
-	typedef std::vector<std::string> PyFile;
+	 typedef std::vector<std::string> PyFile;
 	std::vector<std::string> m_files;
 	std::vector<std::string> m_enemyFiles;
 	MonsterID m_ids[6];

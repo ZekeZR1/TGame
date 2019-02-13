@@ -13,9 +13,6 @@ void DungeonGame::OnDestroy() {
 }
 
 void DungeonGame::Update() {
-	auto tra = NewGO<DungeonTransition>(0);
-	tra->SetGameData(m_files, m_enemyFiles, m_monai, m_ids, m_dunNum);
-	DeleteGO(this);
 }
 
 void DungeonGame::SetGameData(PyFile& files, PyFile& eneFile, int monsterAI[6], MonsterID monids[6], int DunNumber) {
@@ -26,4 +23,9 @@ void DungeonGame::SetGameData(PyFile& files, PyFile& eneFile, int monsterAI[6], 
 		m_ids[i] = monids[i];
 	}
 	m_dunNum = DunNumber;
+}
+
+void DungeonGame::StartTransition() {
+	auto tra = NewGO<DungeonTransition>(0);
+	tra->SetGameData(m_files, m_enemyFiles, m_monai, m_ids, m_dunNum);
 }
