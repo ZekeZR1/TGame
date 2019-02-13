@@ -247,6 +247,8 @@
     <ClCompile Include="Game\AIEdit\AIEditNodeTechnique.cpp" />
     <ClCompile Include="Game\AIEdit\AIEdtiNodeAbnormalState.cpp" />
     <ClCompile Include="Game\Dungeon\DungeonAISelect.cpp" />
+    <ClCompile Include="Game\Dungeon\DungeonData.cpp" />
+    <ClCompile Include="Game\Dungeon\DungeonGame.cpp" />
     <ClCompile Include="Game\Dungeon\DungeonSelect.cpp" />
     <ClCompile Include="Game\Dungeon\DungeonTransition.cpp" />
     <ClCompile Include="Game\Game.cpp" />
@@ -397,6 +399,8 @@
     <ClInclude Include="Game\AIEdit\AIEditNodeTechnique.h" />
     <ClInclude Include="Game\AIEdit\AIEdtiNodeAbnormalState.h" />
     <ClInclude Include="Game\Dungeon\DungeonAISelect.h" />
+    <ClInclude Include="Game\Dungeon\DungeonData.h" />
+    <ClInclude Include="Game\Dungeon\DungeonGame.h" />
     <ClInclude Include="Game\Dungeon\DungeonSelect.h" />
     <ClInclude Include="Game\Dungeon\DungeonTransition.h" />
     <ClInclude Include="Game\Game.h" />
@@ -549,6 +553,7 @@
     <ClInclude Include="TestScene2.h" />
   </ItemGroup>
   <ItemGroup>
+    <MeshContentTask Include="Assets\modelData\dungeon\dungeonBack.FBX" />
     <MeshContentTask Include="Assets\modelData\fairy\hnd.FBX" />
     <MeshContentTask Include="Assets\modelData\stage\map.FBX" />
     <MeshContentTask Include="Assets\modelData\Test.FBX" />

@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include <fstream>
 #include "GameCamera.h"
+#include "Game/Dungeon/DungeonData.h"
 #include "Game/GameCamera2D.h"
 #include "Game/GameCursor.h"
 #include "TestScene.h"
@@ -44,6 +45,13 @@ bool TestScene::Start() {
 	m_white->SetMulCol({ 0.f,1.f,0.f,1.f });
 	m_model = NewGO<SkinModelRender>(0,"model");
 	m_model->Init(L"Assets/modelData/test.cmo");
+
+	IDungeonData().SetDunNum(12);
+
+	int num = IDungeonData().GetDungeonNum();
+	char str[256];
+	sprintf_s(str, "%d\n", num);
+	OutputDebugStringA(str);
 	return true;
 }
 

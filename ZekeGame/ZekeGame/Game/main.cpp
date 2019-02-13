@@ -29,7 +29,7 @@ int WINAPI wWinMain(
 	sm->SetPosition(CVector3::Zero());
 	sm->SetScale({ 0.01f,0.01f,0.01f });
 	//NewGO<DungeonTransition>(0);
-	//NewGO<TestScene>(0, "22");
+	//NewGO<TestScene>(0);
 	//MainRoop
 	Engine::IEngine().GameRoop();
 	//Release
