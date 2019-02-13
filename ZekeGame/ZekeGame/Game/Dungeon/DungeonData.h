@@ -31,6 +31,12 @@ public:
 	void SetRound(int round) {
 		m_round = round;
 	}
+	int GetRound() {
+		return m_round;
+	}
+	bool isFinalRound(int DunNum){
+		return false;
+	}
 private:
 	PyFile m_files;
 	PyFile m_enemyFiles;
