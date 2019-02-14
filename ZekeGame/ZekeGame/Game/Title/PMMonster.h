@@ -49,6 +49,7 @@ public:
 	}
 private:
 	int m_num = 0;
+	int m_team = 0;
 	MonsterID m_monid = enTest;
 	int m_selAI = 0;
 	GameCursor* m_cursor = nullptr;
