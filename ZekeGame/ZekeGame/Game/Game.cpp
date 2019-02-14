@@ -12,6 +12,8 @@
 #include "Result/Win/Win.h"
 #include "Result/DungeonResult.h"
 
+#include "../../Engine/character/CharacterController.h"
+
 void Game::GamePVPmodeInit(std::vector<std::string> files, int monsterAI[6],MonsterID MonsterID[6])
 {
 	ss = new StageSetup();
@@ -30,6 +32,8 @@ bool Game::Start() {
 	if(m_isOnlineGame)
 		Engine::IEngine().CreateNetworkSystem();
 	camera = new GameCamera;
+
+	m_cc.Init(50, 100, { 0,0,0 },enFbxUpAxisZ);
 	return true;
 }
 
