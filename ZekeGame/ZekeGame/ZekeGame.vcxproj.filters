@@ -204,14 +204,14 @@
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_frame.png">
       <Filter>Assets</Filter>
     </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\rightButton.png">
-      <Filter>Assets\dungeon</Filter>
+    <ImageContentTask Include="..\..\..\..\..\Documents\3D\art_work\2D\UI\monsel_back.png">
+      <Filter>Assets</Filter>
     </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\leftButton.png">
-      <Filter>Assets\dungeon</Filter>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_frameRed.png">
+      <Filter>Assets</Filter>
     </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\nextDungeon.png">
-      <Filter>Assets\dungeon</Filter>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_frameBlue.png">
+      <Filter>Assets</Filter>
     </ImageContentTask>
   </ItemGroup>
   <ItemGroup>
@@ -375,24 +375,6 @@
     <ClCompile Include="Engine\time\GameTime.cpp">
       <Filter>Engine</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Monster\MonsterAction.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Monster\MonsterActionList.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Monster\MonsterActionManeger.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Monster\MonsterEffect.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Monster\MonsterMarker.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Monster\Monster.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
     <ClCompile Include="GameCamera.cpp">
       <Filter>Game</Filter>
     </ClCompile>
@@ -480,9 +462,6 @@
     <ClCompile Include="Engine\FPSCounter.cpp">
       <Filter>Engine</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Monster\Monsters\Fairy.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
     <ClCompile Include="Engine\math\kMath.cpp">
       <Filter>Engine</Filter>
     </ClCompile>
@@ -549,9 +528,6 @@
     <ClCompile Include="Game\SaveLoad\PythonFileLoad.cpp">
       <Filter>Game</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Monster\Monsters\TestMons.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
     <ClCompile Include="TestScene.cpp">
       <Filter>Game</Filter>
     </ClCompile>
@@ -580,9 +556,6 @@
       <Filter>Engine</Filter>
     </ClCompile>
     <ClCompile Include="Game\Title\pvpModeSelect.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Monster\Monsters\Uma.cpp">
       <Filter>Game</Filter>
     </ClCompile>
     <ClCompile Include="Game\main.cpp">
@@ -641,6 +614,33 @@
     </ClCompile>
     <ClCompile Include="Game\Dungeon\DungeonData.cpp" />
     <ClCompile Include="Game\Dungeon\DungeonGame.cpp" />
+    <ClCompile Include="Game\Monster\Monster.cpp">
+      <Filter>Game\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\MonsterAction.cpp">
+      <Filter>Game\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\MonsterActionList.cpp">
+      <Filter>Game\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\MonsterActionManeger.cpp">
+      <Filter>Game\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\MonsterEffect.cpp">
+      <Filter>Game\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\MonsterMarker.cpp">
+      <Filter>Game\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\Monsters\Uma.cpp">
+      <Filter>Game\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\Monsters\Fairy.cpp">
+      <Filter>Game\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\Monsters\TestMons.cpp">
+      <Filter>Game\Monster</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\fairy\hnd.FBX">
@@ -879,24 +879,6 @@
     <ClInclude Include="Engine\time\GameTime.h">
       <Filter>Engine</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Monster\Monster.h">
-      <Filter>Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Monster\MonsterAction.h">
-      <Filter>Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Monster\MonsterActionList.h">
-      <Filter>Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Monster\MonsterActionManeger.h">
-      <Filter>Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Monster\MonsterEffect.h">
-      <Filter>Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Monster\MonsterMarker.h">
-      <Filter>Game</Filter>
-    </ClInclude>
     <ClInclude Include="GameCamera.h">
       <Filter>Game</Filter>
     </ClInclude>
@@ -1079,9 +1061,6 @@
     </ClInclude>
     <ClInclude Include="Game\PythonBridge\include\eval.h">
       <Filter>Python</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Monster\Monsters\Fairy.h">
-      <Filter>Game</Filter>
     </ClInclude>
     <ClInclude Include="Game\PythonBridge\include\fileobject.h">
       <Filter>Python</Filter>
@@ -1275,9 +1254,6 @@
     <ClInclude Include="TestScene2.h">
       <Filter>Game</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Monster\Monsters\TestMons.h">
-      <Filter>Game</Filter>
-    </ClInclude>
     <ClInclude Include="TestScene.h">
       <Filter>Game</Filter>
     </ClInclude>
@@ -1341,9 +1317,6 @@
     <ClInclude Include="Game\Title\pvpModeSelect.h">
       <Filter>Game</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Monster\Monsters\Uma.h">
-      <Filter>Game</Filter>
-    </ClInclude>
     <ClInclude Include="Engine\graphics\StructedBuffer.h">
       <Filter>Engine</Filter>
     </ClInclude>
@@ -1397,6 +1370,33 @@
     </ClInclude>
     <ClInclude Include="Game\Dungeon\DungeonData.h" />
     <ClInclude Include="Game\Dungeon\DungeonGame.h" />
+    <ClInclude Include="Game\Monster\Monster.h">
+      <Filter>Game\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\MonsterAction.h">
+      <Filter>Game\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\MonsterActionList.h">
+      <Filter>Game\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\MonsterActionManeger.h">
+      <Filter>Game\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\MonsterEffect.h">
+      <Filter>Game\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\MonsterMarker.h">
+      <Filter>Game\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\Monsters\Uma.h">
+      <Filter>Game\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\Monsters\Fairy.h">
+      <Filter>Game\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\Monsters\TestMons.h">
+      <Filter>Game\Monster</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="python36.lib" />
@@ -1437,14 +1437,14 @@
     <CopyFileToFolders Include="PythonAIs\ang.py">
       <Filter>Game\PyAI</Filter>
     </CopyFileToFolders>
-    <CopyFileToFolders Include="PythonAIs\CppBridge.py">
-      <Filter>Game</Filter>
-    </CopyFileToFolders>
     <CopyFileToFolders Include="PythonAIs\testBrain.py">
       <Filter>Game</Filter>
     </CopyFileToFolders>
     <CopyFileToFolders Include="PythonAIs\testBrain1.py">
       <Filter>Game</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="PythonAIs\CppBridge.py">
+      <Filter>Game\PyAI</Filter>
     </CopyFileToFolders>
   </ItemGroup>
   <ItemGroup>
@@ -1508,8 +1508,8 @@
     <Filter Include="Game\AIMonSelect">
       <UniqueIdentifier>{3a3f97a9-bec5-46aa-9662-80a9b112ab5e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Assets\dungeon">
-      <UniqueIdentifier>{c1cb15ce-1297-404f-ab81-426818bd24a3}</UniqueIdentifier>
+    <Filter Include="Game\Monster">
+      <UniqueIdentifier>{41811a72-fa96-427d-ad8a-b178db29047b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -71,7 +71,7 @@ void Game::Update() {
 	{
 		if (m_time < 0)
 		{
-			const char* files[6];
+			/*const char* files[6];
 			MonsterID monids[6];
 			int team[6];
 			for (int i = 0; i < 6; i++)
@@ -84,8 +84,8 @@ void Game::Update() {
 				monids[i] = (MonsterID)mon->GetID();
 				team[i] = mon->Getteam();
 
-			}
-			StageSetup::SuddenDeath(files, monids, team);
+			}*/
+			//StageSetup::SuddenDeath(files, monids, team);
 			SuddenDeath();
 		}
 		else
