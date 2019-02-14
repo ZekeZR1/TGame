@@ -204,6 +204,15 @@
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_frame.png">
       <Filter>Assets</Filter>
     </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\rightButton.png">
+      <Filter>Assets\dungeon</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\leftButton.png">
+      <Filter>Assets\dungeon</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\nextDungeon.png">
+      <Filter>Assets\dungeon</Filter>
+    </ImageContentTask>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp" />
@@ -630,6 +639,8 @@
     <ClCompile Include="Game\AIEdit\AIEditNodeButton.cpp">
       <Filter>Game\AIEdite</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Dungeon\DungeonData.cpp" />
+    <ClCompile Include="Game\Dungeon\DungeonGame.cpp" />
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\fairy\hnd.FBX">
@@ -650,6 +661,7 @@
     <MeshContentTask Include="Assets\modelData\uma\uma.fbx">
       <Filter>Assets</Filter>
     </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\dungeon\dungeonBack.FBX" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\PythonBridge\include\unicodeobject.h" />
@@ -1383,6 +1395,8 @@
     <ClInclude Include="Game\AIEdit\AIEdtiNodeAbnormalState.h">
       <Filter>Game\AIEdite</Filter>
     </ClInclude>
+    <ClInclude Include="Game\Dungeon\DungeonData.h" />
+    <ClInclude Include="Game\Dungeon\DungeonGame.h" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="python36.lib" />
@@ -1493,6 +1507,9 @@
     </Filter>
     <Filter Include="Game\AIMonSelect">
       <UniqueIdentifier>{3a3f97a9-bec5-46aa-9662-80a9b112ab5e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets\dungeon">
+      <UniqueIdentifier>{c1cb15ce-1297-404f-ab81-426818bd24a3}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
