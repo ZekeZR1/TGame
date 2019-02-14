@@ -10,35 +10,7 @@
 #include "../Dungeon/DungeonGame.h"
 
 bool DungeonResult::Start() {
-	auto dGame = FindGO<DungeonGame>("DungeonGame");
-	if (!IDungeonData().isFinalRound(m_dunNum)) {
-		int round = IDungeonData().GetRound();
-		IDungeonData().SetRound(round + 1);
-		dGame->StartTransition();
-		DeleteGO(this);
-		return true;
-	}
-	DeleteGO(dGame);
-	m_resultSp = NewGO<SpriteRender>(0, "resultSp");
-	m_buttonSp = NewGO<SpriteRender>(0, "next");
-	m_buttonSp->Init(L"Assets/Sprite/button1.dds", 300.f, 100.f, true);
-	m_buttonSp->SetPosition(m_buttonPos);
-	m_buttonText = NewGO<FontRender>(0);
-	CVector3 textpos = m_buttonPos;
-	textpos.y += 15.f;
-	textpos.x += -30.f;
-	m_buttonText->Init(L"OK", { textpos.x,textpos.y }, 0.f, CVector4::White, 1.f, { 0.5f,0.5f });
-	
-	if (m_team == 0) {
-		m_resultSp->Init(L"Assets/Sprite/win.dds", 500.f, 200.f, true);
-		//TODO : モンスタードロップとかできるようにする
-	}
-	else {
-		m_resultSp->Init(L"Assets/Sprite/lose.dds", 500.f, 200.f, true);
-	}
-	m_cursor = NewGO<GameCursor>(0);
-
-
+	InitUI();
 	return true;
 }
 
@@ -55,8 +27,19 @@ void DungeonResult::Update() {
 	if (Mouse::isTrigger(enLeftClick)) {
 		if (m_buttonSp->isCollidingTarget()) {
 			SaveDungeonClearState();
-			NewGO<DungeonSelect>(0);
-			DeleteGO(this);
+			auto dgame = FindGO<DungeonGame>("DungeonGame");
+			dgame->ClearInGameMode();
+			if (m_team == WIN) {
+				if (IDungeonData().isFinalRound(m_dunNum)) {
+					ToNextStage();
+				}
+				else {
+					ToNextRound();
+				}
+			}
+			else {
+				Lose();
+			}
 		}
 	}
 }
@@ -96,4 +79,55 @@ void DungeonResult::SaveDungeonClearState(){
 		sprintf_s(msg, "now cleared num is %d\n", cleared);
 		OutputDebugStringA(msg);
 	}
+}
+
+void DungeonResult::ToNextRound() {
+	int now = IDungeonData().GetRound();
+	char str[256];
+	sprintf_s(str, "Round %d Clear\n Go Next Round!!\n", now);
+	OutputDebugStringA(str);
+	int round = IDungeonData().GetRound();
+	IDungeonData().SetRound(round + 1);
+	int r  = IDungeonData().GetRound();
+	sprintf_s(str, "next Round %d\n", r);
+	OutputDebugStringA(str);
+	auto dGame = FindGO<DungeonGame>("DungeonGame");
+	dGame->StartTransition();
+	DeleteGO(this);
+}
+
+void DungeonResult::ToNextStage(){
+	OutputDebugStringA("Stage Clear\n Start Next Duneon Stage\n");
+	auto dGame = FindGO<DungeonGame>("DungeonGame");
+	dGame->StartNextDungeon();
+	//DeleteGO(dGame);
+	//NewGO<DungeonSelect>(0);
+
+	DeleteGO(this);
+}
+
+void DungeonResult::InitUI() {
+	m_resultSp = NewGO<SpriteRender>(0, "resultSp");
+	m_buttonSp = NewGO<SpriteRender>(0, "next");
+	m_buttonSp->Init(L"Assets/Sprite/button1.dds", 300.f, 100.f, true);
+	m_buttonSp->SetPosition(m_buttonPos);
+	m_buttonText = NewGO<FontRender>(0);
+	CVector3 textpos = m_buttonPos;
+	textpos.y += 15.f;
+	textpos.x += -30.f;
+	m_buttonText->Init(L"OK", { textpos.x,textpos.y }, 0.f, CVector4::White, 1.f, { 0.5f,0.5f });
+
+	if (m_team == WIN) {
+		m_resultSp->Init(L"Assets/Sprite/win.dds", 500.f, 200.f, true);
+	}
+	else {
+		m_resultSp->Init(L"Assets/Sprite/lose.dds", 500.f, 200.f, true);
+	}
+	m_cursor = NewGO<GameCursor>(0);
+}
+
+void DungeonResult::Lose() {
+	IDungeonData().SetRound(0);
+	NewGO<DungeonSelect>(0);
+	DeleteGO(this);
 }
