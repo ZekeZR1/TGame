@@ -58,7 +58,7 @@ bool PvPModeSelect::Start()
 	m_GO = NewGO<SpriteRender>(0
 		, "sp");
 	m_GO->Init(L"Assets/sprite/GO.dds", 193, 93, true);
-	m_GO->SetPosition({ 400,-160,0 });
+	m_GO->SetPosition({ 520,-210,0 });
 
 	return true;
 }
