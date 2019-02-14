@@ -563,6 +563,8 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_back2.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_frame.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\B_alpha.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_back_R.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_back_B.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\MonActList\hp.png" />

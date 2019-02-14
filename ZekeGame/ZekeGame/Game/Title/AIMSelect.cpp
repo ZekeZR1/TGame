@@ -17,6 +17,7 @@ AIMSelect::~AIMSelect()
 	DeleteGO(m_cdum);
 	DeleteGO(m_ok);
 	DeleteGO(m_odum);
+	DeleteGO(m_Black);
 }
 
 bool AIMSelect::Start()
@@ -45,6 +46,8 @@ bool AIMSelect::Start()
 	m_can->SetPosition(pos);
 	m_cdum->SetPosition(pos);
 
+	m_Black = NewGO<SpriteRender>(2, "sp");
+	m_Black->Init(L"Assets/sprite/B_alpha.dds", 1280, 720);
 	return true;
 }
 
