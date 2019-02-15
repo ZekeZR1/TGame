@@ -15,6 +15,7 @@ private:
 	void SaveDungeonClearState();
 	void ToNextRound();
 	void ToNextStage();
+	void ToDungeonSelect();
 	void InitUI();
 	void Lose();
 	int m_team = 0;
