@@ -87,7 +87,7 @@ void PMMonster::Update()
 	{
 		if (!m_issel)
 		{
-			m_frame->Init(L"Assets/sprite/mon_frame.dds", 128, 128);
+			m_frame->Init(L"Assets/sprite/mon_frameYellow.dds", 240, 340);
 			m_issel = true;
 		}
 		if (Mouse::isTrigger(enLeftClick))
@@ -118,7 +118,7 @@ void PMMonster::ChengeImage(int monid)
 	m_monid = (MonsterID)monid;
 	delete[] ws;*/
 	m_monid = (MonsterID)monid;
-	m_mon->Init(GameData::GetMonsterIconPath(monid), 128, 128);
+	m_mon->Init(GameData::GetMonsterIconPath(monid), 240, 340);
 	/*switch (monid)
 	{
 	case enTest:
