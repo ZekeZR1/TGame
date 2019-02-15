@@ -31,19 +31,19 @@ public:
 	void SetRound(int round) {
 		m_round = round;
 	}
-	int GetRound() {
+	const int GetRound(){
 		return m_round;
 	}
-	bool isFinalRound(int DunNum){
-		return false;
-	}
+	const int GetNumRound(int);
+	bool isFinalRound(int DunNum);
 private:
 	PyFile m_files;
 	PyFile m_enemyFiles;
 	MonsterID m_ids[6];
 	int m_monai[6];
 	int m_dunNum = -1;
-	int m_round = -1;
+	int m_round = 0;
+	int m_rounds[8] = { 0,1,2,3,2,1,0,0};
 };
 
 static DungeonData& IDungeonData() {

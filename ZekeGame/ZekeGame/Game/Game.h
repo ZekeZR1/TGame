@@ -2,7 +2,7 @@
 //#include "GameCamera.h"
 
 #include "StageSetup/StageSetup.h"
-
+#include "../../Engine/character/CharacterController.h"
 enum MonsterID;
 class GameCamera;
 class TestListener;
@@ -56,6 +56,8 @@ private:
 	bool m_isOnlineGame = false;
 	bool m_suddenDeath = false;
 
-	float m_time = 5.0f;
+	float m_time = 640.0f;
+
+	CharacterController m_cc;
 };
 

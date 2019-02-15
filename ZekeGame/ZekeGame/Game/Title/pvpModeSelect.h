@@ -30,4 +30,5 @@ private:
 	//std::vector<SpriteRender*> m_monicon;
 
 	SpriteRender* m_GO = nullptr;
+	SpriteRender* m_back = nullptr;
 };

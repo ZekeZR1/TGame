@@ -41,7 +41,7 @@ bool DungeonTransition::Start() {
 		pos.x += 80.f;
 	}
 	m_camera = NewGO<DungeonTCamera>(0);
-
+	OutputDebugStringA("Play Transition\n");
 	return true;
 }
 

@@ -161,11 +161,11 @@ void StageSetup::DungeonSetup(PyFile files, PyFile eneFiles, int monsterAI[6], M
 void StageSetup::SetEnemyAI(int dun, int* monAI, MonsterID* monId) {
 	switch (dun) {
 	case 0:
-		monAI[3] = 1;
+		monAI[3] = 0;
 		monId[3] = enTest;
-		monAI[4] = 1;
+		monAI[4] = 0;
 		monId[4] = enTest;
-		monAI[5] = 1;
+		monAI[5] = 0;
 		monId[5] = enTest;
 		break;
 	case 1:

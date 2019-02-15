@@ -83,6 +83,7 @@ void DungeonAISelect::Update() {
 			}
 			auto dun = NewGO<DungeonGame>(0,"DungeonGame");
 			dun->SetGameData(m_files, m_enemyFiles, monai, moid, m_dunNum);
+			OutputDebugStringA("AI Selected!! Start Transation!\n");
 			dun->StartTransition();
 			DeleteGO(this);
 		}
@@ -90,6 +91,8 @@ void DungeonAISelect::Update() {
 	if (g_pad[0].IsTrigger(enButtonA)) {
 		DeleteGO(this);
 		NewGO<ModeSelect>(0, "modesel");
+		auto dgame = FindGO<DungeonGame>("DungeonGame");
+		DeleteGO(dgame);
 	}
 }
 
