@@ -175,10 +175,18 @@ void DungeonSelect::DungeonSelectClick() {
 	m_leftSp->SetCollisionTarget(tar);
 	m_rightSp->SetCollisionTarget(tar);
 	if (m_leftSp->isCollidingTarget() && Mouse::isTrigger(enLeftClick)) {
+		if (m_selectedNum == 0) {
+			return;
+		}
 		left = true;
+		m_selectedNum--;
 	}
 	if (m_rightSp->isCollidingTarget() && Mouse::isTrigger(enLeftClick)) {
+		if (m_selectedNum == m_numDungeon) {
+			return;
+		}
 		right = true;
+		m_selectedNum++;
 	}
 	if (left) {
 		time += 0.1f;
@@ -186,6 +194,7 @@ void DungeonSelect::DungeonSelectClick() {
 			left = false;
 			time = 0.f;
 		}
+
 		addPos.x = EASE::InOutQuad(change, 0.f, duration, time);
 	}
 	if (right) {
