@@ -1,6 +1,7 @@
 // ñºÇÕGameÇ∆ê\Ç∑ÅB
 
 #include "stdafx.h"
+#include "Dungeon/DungeonData.h"
 #include "Game.h"
 #include "GameCamera.h"
 #include "GameData.h"
@@ -12,8 +13,6 @@
 #include "Result/Win/Win.h"
 #include "Result/DungeonResult.h"
 
-#include "../../Engine/character/CharacterController.h"
-
 void Game::GamePVPmodeInit(std::vector<std::string> files, int monsterAI[6],MonsterID MonsterID[6])
 {
 	ss = new StageSetup();
@@ -22,6 +21,10 @@ void Game::GamePVPmodeInit(std::vector<std::string> files, int monsterAI[6],Mons
 }
 
 bool Game::Start() {
+	char str[256];
+	int r = IDungeonData().GetRound();
+	sprintf_s(str, "now round id %d\n", r);
+	OutputDebugStringA(str);
 	m_pi = new Pyinit;
 	NewGO<MonsterActionManeger>(0, "MAM");
 	m_model = NewGO<SkinModelRender>(0, "model");
@@ -32,8 +35,7 @@ bool Game::Start() {
 	if(m_isOnlineGame)
 		Engine::IEngine().CreateNetworkSystem();
 	camera = new GameCamera;
-
-	m_cc.Init(50, 100, { 0,0,0 },enFbxUpAxisZ);
+	OutputDebugStringA("Start Battle");
 	return true;
 }
 
