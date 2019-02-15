@@ -91,6 +91,8 @@ void DungeonAISelect::Update() {
 	if (g_pad[0].IsTrigger(enButtonA)) {
 		DeleteGO(this);
 		NewGO<ModeSelect>(0, "modesel");
+		auto dgame = FindGO<DungeonGame>("DungeonGame");
+		DeleteGO(dgame);
 	}
 }
 
