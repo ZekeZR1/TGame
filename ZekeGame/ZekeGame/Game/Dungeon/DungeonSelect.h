@@ -38,6 +38,6 @@ private:
 	const float SPRITE_H  = 600.f;
 	const CVector2 m_toFixMisalignment = { -150.f, 20.f };
 	bool m_isPositionUpdating = false;
-	int m_selectedNum = 0;
+	int m_selectedNum = 1;
 };
 
