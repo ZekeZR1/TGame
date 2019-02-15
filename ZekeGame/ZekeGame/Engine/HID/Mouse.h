@@ -3,6 +3,8 @@ enum enMouseEve {
 	enLeftClick,
 	enMiddleClick,
 	enRightClick,
+	enNotchUp,
+	enNotchDown,
 	enNumMouseEve
 	//TODO : マウスイベントのenNotchUp down追加してtrigger取れるようにする
 };
