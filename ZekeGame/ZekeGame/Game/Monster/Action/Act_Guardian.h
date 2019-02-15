@@ -7,9 +7,10 @@
 class Monster;
 
 //‚¿‚á‚ñ‚ÆƒNƒ‰ƒX–¼‚Í•Ï‚¦‚æ‚¤‚ËH
-class Act_TEMP :public MonsterAction
+class Act_Guardian :public MonsterAction
 {
 public:
+	Act_Guardian();
 	bool Action(Monster* me) override;
 private:
 };
