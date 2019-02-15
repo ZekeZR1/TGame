@@ -87,9 +87,6 @@
     <ImageContentTask Include="Assets\modelData\fairy\hnd.png">
       <Filter>Assets</Filter>
     </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\MonActList\hp.png">
-      <Filter>Assets</Filter>
-    </ImageContentTask>
     <ImageContentTask Include="Assets\Sprite\Hp.png">
       <Filter>Assets</Filter>
     </ImageContentTask>
@@ -142,9 +139,6 @@
       <Filter>Assets</Filter>
     </ImageContentTask>
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_two.png">
-      <Filter>Assets</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\MonActList\mp.png">
       <Filter>Assets</Filter>
     </ImageContentTask>
     <ImageContentTask Include="Assets\Sprite\Mp.png">
@@ -204,9 +198,6 @@
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_frame.png">
       <Filter>Assets</Filter>
     </ImageContentTask>
-    <ImageContentTask Include="..\..\..\..\..\Documents\3D\art_work\2D\UI\monsel_back.png">
-      <Filter>Assets</Filter>
-    </ImageContentTask>
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_frameRed.png">
       <Filter>Assets</Filter>
     </ImageContentTask>
@@ -220,6 +211,24 @@
       <Filter>Assets</Filter>
     </ImageContentTask>
     <ImageContentTask Include="Assets\modelData\stage\limit.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\monsel_back.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\MonActList\mon_mp.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\MonActList\mon_hp.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\MonActList\backBlue.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\MonActList\backRed.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\MonActList\actBlock.png">
       <Filter>Assets</Filter>
     </ImageContentTask>
   </ItemGroup>
