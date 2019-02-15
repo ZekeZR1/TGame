@@ -43,7 +43,7 @@ private:
 	int m_monai[6];
 	int m_dunNum = -1;
 	int m_round = 0;
-	int m_rounds[8] = { 2,2,2,2,2,2,2,2};
+	int m_rounds[8] = { 0,1,2,3,2,1,0,0};
 };
 
 static DungeonData& IDungeonData() {
