@@ -1,15 +1,11 @@
-#pragma once
+#include "stdafx.h"
+#include "Act_Guardian.h"
 
-//これはテンプレートこれをコピーすると楽かもね？
-
-#include "../MonsterAction.h"
-
-class Monster;
-
-//ちゃんとクラス名は変えようね？
-class Act_TEMP :public MonsterAction
+Act_Guardian::Act_Guardian()
 {
-public:
-	bool Action(Monster* me) override;
-private:
-};
+}
+
+bool Act_Guardian::Action(Monster * me)
+{
+	return false;
+}
