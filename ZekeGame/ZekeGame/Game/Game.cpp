@@ -22,10 +22,6 @@ void Game::GamePVPmodeInit(std::vector<std::string> files, int monsterAI[6],Mons
 }
 
 bool Game::Start() {
-	char str[256];
-	int r = IDungeonData().GetRound();
-	sprintf_s(str, "now round id %d\n", r);
-	OutputDebugStringA(str);
 	m_pi = new Pyinit;
 	NewGO<MonsterActionManeger>(0, "MAM");
 	m_model = NewGO<SkinModelRender>(0, "model");

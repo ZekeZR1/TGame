@@ -29,9 +29,10 @@ void DungeonResult::Update() {
 			SaveDungeonClearState();
 			auto dgame = FindGO<DungeonGame>("DungeonGame");
 			dgame->ClearInGameMode();
-			if (m_team == WIN) {
+			if (m_team != WIN) {
 				if (IDungeonData().isFinalRound(m_dunNum)) {
-					ToNextStage();
+					//ToNextStage();
+					ToDungeonSelect();
 				}
 				else {
 					ToNextRound();
@@ -89,10 +90,12 @@ void DungeonResult::ToNextRound() {
 	int round = IDungeonData().GetRound();
 	IDungeonData().SetRound(round + 1);
 	int r  = IDungeonData().GetRound();
-	sprintf_s(str, "next Round %d\n", r);
+	sprintf_s(str, "Round Clear Start next Round %d\n", r);
 	OutputDebugStringA(str);
 	auto dGame = FindGO<DungeonGame>("DungeonGame");
 	dGame->StartTransition();
+	dGame->NextRound();
+	OutputDebugStringA("---------------------Next Round-------------------\n");
 	DeleteGO(this);
 }
 
@@ -100,6 +103,8 @@ void DungeonResult::ToNextStage(){
 	OutputDebugStringA("Stage Clear\n Start Next Duneon Stage\n");
 	auto dGame = FindGO<DungeonGame>("DungeonGame");
 	dGame->StartNextDungeon();
+	dGame->StageClear();
+	OutputDebugStringA("++++++++++++++++Next Stage++++++++++++++++++++++\n");
 	//DeleteGO(dGame);
 	//NewGO<DungeonSelect>(0);
 
@@ -129,5 +134,16 @@ void DungeonResult::InitUI() {
 void DungeonResult::Lose() {
 	IDungeonData().SetRound(0);
 	NewGO<DungeonSelect>(0);
+	auto dGame = FindGO<DungeonGame>("DungeonGame");
+	dGame->Relese();
+	DeleteGO(this);
+}
+
+
+void DungeonResult::ToDungeonSelect() {
+	IDungeonData().SetRound(0);
+	NewGO<DungeonSelect>(0);
+	auto dGame = FindGO<DungeonGame>("DungeonGame");
+	dGame->Relese();
 	DeleteGO(this);
 }
