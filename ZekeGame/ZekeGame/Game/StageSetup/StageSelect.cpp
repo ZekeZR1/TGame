@@ -1,4 +1,6 @@
 #include "stdafx.h"
+#include "../Dungeon/DungeonGame.h"
+#include "../Dungeon/DungeonData.h"
 #include "../GameCursor.h"
 #include "../Game.h"
 #include "StageSetup.h"
@@ -26,10 +28,13 @@ bool StageSelect::Start() {
 		game->DungeonMode(m_dunNum);
 		StageSetup::DungeonSetup(m_files, m_enemyFiles, m_monai, m_ids, m_dunNum);
 		StageSetup::StageSet(m_dunNum % 3);
+		OutputDebugStringA("StageSelect\n");
+		auto dgame = FindGO<DungeonGame>("DungeonGame");
+		dgame->SetInGameMode();
 		DeleteGO(this);
 		return true;
 	}
-	CVector3 pos = m_firstImgaePos;
+	/*CVector3 pos = m_firstImgaePos;
 	for (int i = 0; i < m_NumStage; i++) {
 		m_stageImages.push_back(NewGO<SpriteRender>(0, "stageImage"));
 		wchar_t stagePath[256];
@@ -44,7 +49,7 @@ bool StageSelect::Start() {
 		m_stageNumberMap[m_stageImages[i]] = i;
 	}
 	m_cur = NewGO<GameCursor>(0, "cursor");
-	return true;
+	return true;*/
 }
 
 void StageSelect::Update() {
@@ -54,7 +59,7 @@ void StageSelect::Update() {
 	case enOnlinePvP:
 		break;
 	case enDungeon:
-		for (auto image : m_stageImages) {
+		/*for (auto image : m_stageImages) {
 			image->SetCollisionTarget(m_cur->GetCursor());
 			if (Mouse::isTrigger(enLeftClick)) {
 				if (image->isCollidingTarget()) {
@@ -66,7 +71,7 @@ void StageSelect::Update() {
 					DeleteGO(this);
 				}
 			}
-		}
+		}*/
 		break;
 	}
 }

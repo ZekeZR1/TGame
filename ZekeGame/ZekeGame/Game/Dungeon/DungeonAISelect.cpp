@@ -83,6 +83,7 @@ void DungeonAISelect::Update() {
 			}
 			auto dun = NewGO<DungeonGame>(0,"DungeonGame");
 			dun->SetGameData(m_files, m_enemyFiles, monai, moid, m_dunNum);
+			OutputDebugStringA("AI Selected!! Start Transation!\n");
 			dun->StartTransition();
 			DeleteGO(this);
 		}
