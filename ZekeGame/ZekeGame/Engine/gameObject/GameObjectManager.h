@@ -50,6 +50,10 @@ public:
 	void ClearShadowCasters() {
 		m_shadowMap.ClearShadowCasters();
 	}
+
+	void ClearACaster(SkinModel* casterModel) {
+		m_shadowMap.ClearACaster(casterModel);
+	}
 	/*!
  *@brief	インスタンスの取得。
  */
