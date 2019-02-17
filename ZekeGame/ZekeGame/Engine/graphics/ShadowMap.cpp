@@ -66,7 +66,7 @@ void ShadowMap::RenderToShadowMap()
 	m_shadowMapRT.ClearRenderTarget(clearColor);
 
 	//シャドウキャスターをシャドウマップにレンダリング。
-	for (auto& caster : m_shadowCasters) {
+	for (auto caster : m_shadowCasters) {
 		caster->Draw(
 			enRenderMode_CreateShadowMap,
 			m_lightViewMatrix,
