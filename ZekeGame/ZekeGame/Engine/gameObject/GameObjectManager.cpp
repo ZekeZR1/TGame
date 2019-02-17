@@ -24,17 +24,18 @@ void GameObjectManager::Execute()
 		}
 	}
 
-	//シャドウマップを更新。
-	m_shadowMap.UpdateFromLightTarget(
-		{ 1000.0f, 1000.0f, 1000.0f },
-		{ 0.0f, 0.0f, 0.0f }
-	);
 
 	for (GameObjectList objList : m_gameObjectListArray) {
 		for (GameObject* obj : objList) {
 			obj->PostUpdateWrapper();
 		}
 	}
+
+	//シャドウマップを更新。
+	m_shadowMap.UpdateFromLightTarget(
+		{ 1000.0f, 1000.0f, 1000.0f },
+		{ 0.0f, 0.0f, 0.0f }
+	);
 
 	m_postEffect.Update();
 

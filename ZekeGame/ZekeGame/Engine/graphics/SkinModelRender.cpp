@@ -9,10 +9,13 @@ SkinModelRender::SkinModelRender()
 
 SkinModelRender::~SkinModelRender()
 {
+	IGameObjectManager().ClearACaster(&m_skinModel);
 }
 
 
 bool SkinModelRender::Start() {
+	IGameObjectManager().AddShadowCaster(&m_skinModel);
+
 	return true;
 }
 

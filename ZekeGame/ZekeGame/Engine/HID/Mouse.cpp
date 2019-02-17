@@ -18,9 +18,9 @@ namespace Mouse {
 		cursorpos.y *= -1.f;
 		//カーソル表示
 		ShowCursor(FALSE);
-#if _DEBUG
+//#if _DEBUG
 		ShowCursor(TRUE);
-#endif
+//#endif
 		//Mouse
 		if (notch > 0) {
 			trigger[enNotchUp] = 1 ^ press[enNotchUp];
