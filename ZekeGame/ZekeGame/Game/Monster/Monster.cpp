@@ -259,6 +259,7 @@ void Monster::Setpos(CVector3 v)
 {
 	m_pos = v;
 	m_smr->SetPosition(v);
+	m_cc.SetPosition(v);
 }
 
 void Monster::SetRotation(CQuaternion rot)

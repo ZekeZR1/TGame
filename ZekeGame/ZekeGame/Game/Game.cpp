@@ -13,6 +13,7 @@
 #include "Result/Win/Win.h"
 #include "Result/DungeonResult.h"
 
+
 void Game::GamePVPmodeInit(std::vector<std::string> files, int monsterAI[6],MonsterID MonsterID[6])
 {
 	ss = new StageSetup();
@@ -31,6 +32,12 @@ bool Game::Start() {
 	if(m_isOnlineGame)
 		Engine::IEngine().CreateNetworkSystem();
 	camera = new GameCamera;
+
+	m_smd = NewGO<SkinModelDummy>(0, "smd");
+	m_smd->Init(L"Assets/modelData/limit.cmo", enFbxUpAxisZ);
+	m_smd->SetPosition(CVector3::Zero());
+	m_smd->CreatePhysicsStaticObject();
+
 	OutputDebugStringA("Start Battle");
 	return true;
 }
@@ -82,6 +89,16 @@ void Game::Update() {
 
 			}*/
 			//StageSetup::SuddenDeath(files, monids, team);
+			for (auto mon : g_mons)
+			{
+				if (mon == NULL)
+					break;
+				float maxhp = mon->GetMaxHP() / 10;
+				float hp = maxhp * mon->GetHP() / mon->GetMaxHP();
+				mon->SetMaxHP(maxhp);
+				mon->SetHP(hp);
+
+			}
 			SuddenDeath();
 		}
 		else

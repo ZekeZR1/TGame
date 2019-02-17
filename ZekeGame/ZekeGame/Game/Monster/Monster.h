@@ -110,6 +110,22 @@ public:
 		return m_MPrecov;
 	}
 
+	float GetMaxHP()
+	{
+		return m_maxHP;
+	}
+	float GetMaxMP()
+	{
+		return m_maxMP;
+	}
+	void SetMaxHP(float max)
+	{
+		m_maxHP = max;
+	}
+	void SetMaxMP(float max)
+	{
+		m_maxMP = max;
+	}
 
 	float GetDefense()
 	{

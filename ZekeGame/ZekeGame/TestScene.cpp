@@ -60,11 +60,13 @@ void TestScene::Update() {
 	camera2d->Update();
 	camera3d->Update();
 	static float alpha = 1.f;
-	if (g_pad[0].IsPress(enButtonUp)) {
-		alpha += 0.1f;
+	if (Mouse::isTrigger(enNotchUp)) {
+		OutputDebugStringA("ahhhhhh!!!! Notch Up shiteruuu!!\n");
+		//alpha += 0.1f;
 	}
-	if (g_pad[0].IsPress(enButtonDown)) {
-		alpha -= 0.1f;
+	if (Mouse::isTrigger(enNotchDown)) {
+		//alpha -= 0.1f;
+		OutputDebugStringA("ahhhhhh!!!! Notch Doowwwwwwwwwwwwn shiteruuu!!\n");
 	}
 	m_white->SetMulCol({ 0.f,1.f,0.f,alpha });
 
