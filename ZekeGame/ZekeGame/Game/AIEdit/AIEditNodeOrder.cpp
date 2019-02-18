@@ -6,9 +6,13 @@
 #include "AIEditNodeNum.h"
 #include "AIEditNodeClick.h"
 #include "AIEditLine.h"
+#include "AIEditNodeTarget.h"
 #include "../GameCursor.h"
 
 #include "AIEditNodeOrder.h"
+#include "AIEditNodeProcess.h"
+#include "AIEditNodeTechnique.h"
+#include "AIEdtiNodeAbnormalState.h"
 AIEditNodeOrder::~AIEditNodeOrder()
 {
 	DeleteGO(m_spriteRender);
@@ -17,46 +21,85 @@ AIEditNodeOrder::~AIEditNodeOrder()
 
 bool AIEditNodeOrder::Start()
 {
+	static bool Click = 0;
 
 	m_gamecursor = FindGO<GameCursor>("cursor");
-	m_aieditnodeclick = FindGO<AIEditNodeClick>("firstbutton");
-	m_aieditnode = FindGO<AIEditNode>("window");
+	m_aieditnodeclick = FindGO<AIEditNodeClick>("click");
+	m_aieditnode = FindGO<AIEditNode>("firstwin");
 	m_aieditnodeinequ = FindGO<AIEditNodeInequ>("Inequality");
 	m_aieditnodenum = FindGO<AIEditNodeNum>("Num");
+	m_aieditnodetarget = FindGO<AIEditNodeTarget>("target");
 	m_aieditline = FindGO<AIEditLine>("Line");
-	m_aieditline = NewGO<AIEditLine>(0, "Line");
+	m_aieditnodeabnormalstate = FindGO<AIEditNodeAbnormalState>("Abnormal");
+	m_aieditnodetechnique = FindGO<AIEditNodeTechnique>("Technique");
+	m_aieditnodeprocess = FindGO<AIEditNodeProcess>("process");
+	
+	CVector3 v = CVector3::Zero();
+	QueryGOs<AIEditLine>("Line", [&](auto go)->bool
+	{
+		v = go->GetPos();
+		return true;
+	});
+	m_pos = v;
+
+	m_pos.x += 300;
+
+	if (Click == false) {                                   //Clickがあるとき。
+		m_pos = m_aieditnodeclick->GetPosition();
+		m_pos.x += 30;
+	}
 
 
+	m_spriteRender = NewGO<SpriteRender>(8, "mass");
+	m_spriteRender->Init(L"Assets/sprite/masss.dds", 300, 120);  //last
+	m_spriteRender->SetPosition(m_pos);
+	Click = true;
 
-	//if (Click == false) {
-	//	m_pos = m_aieditnodeclick->GetPosition();
-	//}
+	//技を選択したら出ないようにする。
+	if(Technique == false){
+		m_aieditline = NewGO<AIEditLine>(0, "Line");
+		m_aieditline->SetPos(m_pos);
+	}
 
-	//if (Click == true) {
-	//	m_pos = m_aieditnodetriangle->GetPos();
-	//}
 
-	//m_pos.x += 30;
-	//m_spriteRender = NewGO<SpriteRender>(8, "mass");
-	//m_spriteRender->Init(L"Assets/sprite/masss.dds", 300, 120);  //last
-	//m_spriteRender->SetPosition(m_pos);
+	if (m_aieditnodetarget != nullptr) {
+		DeleteGO(m_aieditnodetarget);
+		m_aieditnodetarget = nullptr;
+	}
 
-	//各フラグをリセットする。
+	if (m_aieditnode != nullptr) {
+		DeleteGO(m_aieditnode);
+		m_aieditnode = nullptr;
+	}
 
-	//m_aieditnodeclick->GetChoice0(false);
+	if (m_aieditnodeinequ != nullptr) {
+		DeleteGO(m_aieditnodeinequ);
+		m_aieditnodeinequ = nullptr;
+	}
 
-	//大事よ
-	/*m_aieditnode->SetChoice1(false);
-	m_aieditnodeinequ->GetChoice2(false);
-	m_aieditnodenum->GetChoice3(false);*/
+	if (m_aieditnodenum != nullptr) {
+		DeleteGO(m_aieditnodenum);
+		m_aieditnodenum = nullptr;
+	}
 
-	//DeleteGO(m_aieditnode);
-	//DeleteGO(m_aieditnodeinequ);
-	//DeleteGO(m_aieditnodenum);
-	//if (Click == false) {
-	//	DeleteGO(m_aieditnodeclick);
-	//	Click = true;
-	//}
+	if (m_aieditnodeclick != nullptr) {
+		DeleteGO(m_aieditnodeclick);
+		m_aieditnodeclick = nullptr;
+	}
+
+	if (m_aieditnodeabnormalstate != nullptr) {
+		DeleteGO(m_aieditnodeabnormalstate);
+		m_aieditnodeabnormalstate = nullptr;
+	}
+
+	if (m_aieditnodetechnique != nullptr) {
+		DeleteGO(m_aieditnodetechnique);
+		m_aieditnodetechnique = nullptr;
+		//Clickを表示する。
+		m_aieditnodeprocess->enSecond();
+		m_aieditnodeprocess = NewGO<AIEditNodeProcess>(0, "process");
+	}
+
 	return true;
 
 }
@@ -65,25 +108,5 @@ bool AIEditNodeOrder::Start()
 void AIEditNodeOrder::Update()
 {
 
-	//if (Click == false) {
-		m_pos = m_aieditnodeclick->GetPosition();
-	//}
-
-	//if (Click == true) {
-	//	m_pos = m_aieditline->GetPos();
-	//}
-
-	m_pos.x += 30;
-	m_spriteRender = NewGO<SpriteRender>(8, "mass");
-	m_spriteRender->Init(L"Assets/sprite/masss.dds", 300, 120);  //last
-	m_spriteRender->SetPosition(m_pos);
-
-	if (Click == false) {
-	DeleteGO(m_aieditnode);
-	DeleteGO(m_aieditnodeinequ);
-	DeleteGO(m_aieditnodenum);
-	DeleteGO(m_aieditnodeclick);
-	Click = true;
-	}
 
 }

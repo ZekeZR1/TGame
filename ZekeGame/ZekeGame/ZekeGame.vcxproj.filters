@@ -1,11 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\GUI\MonActList\hp.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\MonActList\mp.png" />
-    <ImageContentTask Include="Assets\Sprite\monsho\dun_stage0.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_back.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_three.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\button1.png" />
     <ImageContentTask Include="Assets\Sprite\result\blueteamp.png" />
     <ImageContentTask Include="Assets\Sprite\result\redteamp.png" />
@@ -51,9 +46,6 @@
     <ImageContentTask Include="Assets\Sprite\Mp.png" />
     <ImageContentTask Include="Assets\Sprite\karipoint.png" />
     <ImageContentTask Include="Assets\Sprite\winkari.png" />
-    <ImageContentTask Include="Assets\modelData\fairy\hnd.God2.png" />
-    <ImageContentTask Include="Assets\modelData\fairy\hnd.hane.png" />
-    <ImageContentTask Include="Assets\modelData\fairy\hnd.png" />
     <ImageContentTask Include="Assets\Sprite\Hp.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\clear.png" />
     <ImageContentTask Include="Assets\modelData\uma\uma.png" />
@@ -159,7 +151,6 @@
     <ClCompile Include="Game\AIEdit\AIEditNodeTechnique.cpp" />
     <ClCompile Include="Game\Dungeon\DungeonAISelect.cpp" />
     <ClCompile Include="Game\Dungeon\DungeonSelect.cpp" />
-    <ClCompile Include="Game\Dungeon\DungeonTransition.cpp" />
     <ClCompile Include="Game\Game.cpp" />
     <ClCompile Include="Game\GameCamera2D.cpp" />
     <ClCompile Include="Game\GameCamera3D.cpp" />
@@ -170,7 +161,6 @@
     <ClCompile Include="Game\main.cpp" />
     <ClCompile Include="Game\Monster\Action\Act_Atack.cpp" />
     <ClCompile Include="Game\Monster\Action\Act_Chase.cpp" />
-    <ClCompile Include="Game\Monster\Action\Act_Fire.cpp" />
     <ClCompile Include="Game\Monster\Action\Act_Leave.cpp" />
     <ClCompile Include="Game\Monster\Monster.cpp" />
     <ClCompile Include="Game\Monster\MonsterAction.cpp" />
@@ -178,7 +168,6 @@
     <ClCompile Include="Game\Monster\MonsterActionManeger.cpp" />
     <ClCompile Include="Game\Monster\MonsterEffect.cpp" />
     <ClCompile Include="Game\Monster\MonsterMarker.cpp" />
-    <ClCompile Include="Game\Monster\Monsters\Fairy.cpp" />
     <ClCompile Include="Game\Monster\Monsters\TestMons.cpp" />
     <ClCompile Include="Game\Monster\Monsters\Uma.cpp" />
     <ClCompile Include="Game\PythonBridge\PythonBridge.cpp" />
@@ -210,15 +199,16 @@
     <ClCompile Include="Game\AIEdit\AIEditNodeButton.cpp" />
     <ClCompile Include="Game\AIEdit\AIEditNodeTarget.cpp" />
     <ClCompile Include="Game\AIEdit\AIEdtiNodeAbnormalState.cpp" />
+    <ClCompile Include="Game\Dungeon\DungeonTransition.cpp" />
+    <ClCompile Include="Game\Monster\Action\Act_Fire.cpp" />
+    <ClCompile Include="Game\Monster\Monsters\Fairy.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <MeshContentTask Include="Assets\modelData\fairy\hnd.FBX" />
     <MeshContentTask Include="Assets\modelData\stage\map.FBX" />
     <MeshContentTask Include="Assets\modelData\Test.FBX" />
     <MeshContentTask Include="Assets\modelData\testMons\tesEnemy2.fbx" />
     <MeshContentTask Include="Assets\modelData\testMons\tesEnemy3.fbx" />
     <MeshContentTask Include="Assets\modelData\uma\uma.fbx" />
-    <MeshContentTask Include="Assets\modelData\dungeon\dungeonBack.FBX" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\character\CharacterController.h" />
@@ -315,7 +305,6 @@
     <ClInclude Include="Game\AIEdit\AIEditNodeTechnique.h" />
     <ClInclude Include="Game\Dungeon\DungeonAISelect.h" />
     <ClInclude Include="Game\Dungeon\DungeonSelect.h" />
-    <ClInclude Include="Game\Dungeon\DungeonTransition.h" />
     <ClInclude Include="Game\Game.h" />
     <ClInclude Include="Game\GameCamera2D.h" />
     <ClInclude Include="Game\GameCamera3D.h" />
@@ -325,7 +314,6 @@
     <ClInclude Include="Game\GameMenu\MenuButton.h" />
     <ClInclude Include="Game\Monster\Action\Act_Atack.h" />
     <ClInclude Include="Game\Monster\Action\Act_Chase.h" />
-    <ClInclude Include="Game\Monster\Action\Act_Fire.h" />
     <ClInclude Include="Game\Monster\Action\Act_Leave.h" />
     <ClInclude Include="Game\Monster\Monster.h" />
     <ClInclude Include="Game\Monster\MonsterAction.h" />
@@ -333,7 +321,6 @@
     <ClInclude Include="Game\Monster\MonsterActionManeger.h" />
     <ClInclude Include="Game\Monster\MonsterEffect.h" />
     <ClInclude Include="Game\Monster\MonsterMarker.h" />
-    <ClInclude Include="Game\Monster\Monsters\Fairy.h" />
     <ClInclude Include="Game\Monster\Monsters\TestMons.h" />
     <ClInclude Include="Game\Monster\Monsters\Uma.h" />
     <ClInclude Include="Game\PythonBridge\include\abstract.h" />
@@ -465,6 +452,9 @@
     <ClInclude Include="Game\AIEdit\AIEditNodeButton.h" />
     <ClInclude Include="Game\AIEdit\AIEditNodeTarget.h" />
     <ClInclude Include="Game\AIEdit\AIEdtiNodeAbnormalState.h" />
+    <ClInclude Include="Game\Dungeon\DungeonTransition.h" />
+    <ClInclude Include="Game\Monster\Action\Act_Fire.h" />
+    <ClInclude Include="Game\Monster\Monsters\Fairy.h" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="Assets\modelData\uma.tks" />
@@ -476,9 +466,6 @@
     <Image Include="Assets\modelData\boxTex.png" />
     <Image Include="Assets\modelData\stage\handle010.jpg" />
     <Image Include="Assets\modelData\testMons\asu.png" />
-    <Image Include="Assets\effect\fire1\Fire.png" />
-    <Image Include="Assets\effect\fire1\Particle01.png" />
-    <Image Include="Assets\effect\fire1\Smoke.png" />
   </ItemGroup>
   <ItemGroup>
     <CopyFileToFolders Include="Game\dlllib\python36.dll" />
@@ -489,15 +476,8 @@
     <CopyFileToFolders Include="PythonAIs\testBrain1.py" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\modelData\fairy\hnd_atack.tka" />
-    <None Include="Assets\modelData\fairy\hnd_ex1.tka" />
-    <None Include="Assets\modelData\fairy\hnd_idle.tka" />
-    <None Include="Assets\modelData\hnd.tks" />
     <None Include="Assets\modelData\仮保管庫\move.tka" />
     <None Include="Game\PythonBridge\include\pydtrace.d" />
-    <None Include="PythonAIs\testBrain2.py" />
     <None Include="PythonAIs\Threader.py" />
-    <None Include="PythonAIs\_MiddleExecute.py" />
-    <None Include="Assets\effect\fire1\fire1.efk" />
   </ItemGroup>
 </Project>

@@ -2,7 +2,7 @@
 
 class AIEditNode;
 class AIEditNodeInequ;
-class AIEditNum;
+class AIEditNodeNum;
 class AIEditNodeOrder;
 class AIEditLine;
 class AIEditNodeTarget;
@@ -18,20 +18,56 @@ public:
 	void Update();
 	void ButtonPosition();
 
-	enum State
+	bool GetTheOrder()
 	{
-		FirstOrder,
-		SecondOrder,
-		LastOrder
 
-	};
+		return m_state;
+	}
+
+	void SetTheOrderNum(bool a)
+	{
+
+		StateNum = a;
+	}
+
+	void enSecond()
+	{
+
+		m_state = enSecondOrder;
+	}
+
+	bool GetPosy()
+	{
+		return y;
+	}
 
 private:
 
-	bool NewChoice1 = false;    //AIEditNodeが表示されていない場合。
-	bool NewChoice2 = false;    //AIEditNodeInequが表示されていない場合。
-	bool NewChoice3 = false;    //AIEditNodeNumが表示されていない場合。
+	int StateNum = 1;
+	int y = 0; //Clickのｙ座標
+
+	bool Choice1 = false;    
+	bool Choice2 = false;   
+	bool Choice3 = false;    
+	bool Choice4 = false;    
+	bool Choice5 = false;    
+	bool Choice6 = false;    
+	bool Choice7 = false;    
+	bool Choice8 = false;    
 	bool OrderChoice = false;   //AIEditNodeOrderが表示されていないとき
+
+	enum State
+	{
+		enFirstOrder,     //clickをおした時の処理
+		enSecondOrder,
+		enThirdOrder,
+		enFourthOrder,
+		enFifthOrder,
+		enSixthOrder,
+		enSeventhOrder,
+		enEighthOrder
+
+	};
 
 	AIEditNode * m_aieditnode;
 	AIEditNodeInequ * m_aieditnodeinequ;
@@ -41,5 +77,7 @@ private:
 	AIEditNodeTarget* m_aieditnodetarget;
 	AIEditNodeClick* m_aieditnodeclick;
 	SpriteRender * m_spriteRender;
+
+	State m_state = enFirstOrder;
 
 };

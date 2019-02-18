@@ -17,6 +17,8 @@ AIEditNodeInequ::~AIEditNodeInequ()
 	{
 		DeleteGO(sp);
 	}
+	for (auto fonts : m_fonts)
+		DeleteGO(fonts);
 }
 
 bool AIEditNodeInequ::Start()
@@ -33,30 +35,6 @@ bool AIEditNodeInequ::Start()
 	cursorpos.y += -140.0f;
 	m_position = cursorpos;
 	m_spriteRender->SetPosition(m_position);	//AIEditNodeのボタンの座標座標
-
-
-	//int x = 35;			//ボタンのX座標
-	//int y = 120;		//ボタンのY座標
-
-	//					//ボタン専用
-	//for (int i = 0; i < 5; i++)		//iは数を回すだけのハム太郎  i<x xのところがボタンの数
-	//{
-	//	x *= -1;
-
-	//	if (i % 2 == 0)
-	//	{
-	//		y -= 50;
-
-	//	}
-
-	//	SetPointPos(x, y);
-	//	sr = NewGO<SpriteRender>(4, "miniwin");
-	//	sr->Init(L"Assets/sprite/karipoint.dds", 70, 50, true);
-	//	sr->SetPosition(m_pointposition);
-	//	m_spriteRenders.push_back(sr);
-
-	//}
-
 	
 
 	for (int i = 0; i < button; i++) {               //ボタンの数分ループする。
@@ -67,23 +45,21 @@ bool AIEditNodeInequ::Start()
 		m_nodebuttons.push_back(m_aieditnodebutton);
 	}
 
+	//フォント
+	for (int i = 0; i < button; i++) {
+		m_fonts.push_back(NewGO<FontRender>(5));
+	}
+	auto bacon = m_nodebuttons[0]->GetPos();
+	CVector2 m_fontpos = CVector2::Zero();
+	m_fontpos.x = bacon.x - 55.0;
+	m_fontpos.y = bacon.y + 110.0;
+	m_fonts[0]->Init(L"より大", { m_fontpos }, 0.0, CVector4::White, 0.8, { 0.0,0.0 });
+	m_fontpos.y -= 55.f;
+	m_fonts[1]->Init(L"より小", { m_fontpos }, 0.0, CVector4::White, 0.8, { 0.0,0.0 });
 	return true;
 
 }
 
-
-//選択ボタンの手打ち補助
-//void AIEditNodeInequ::SetPointPos(int numx, int numy)
-//{
-//	//仮の値
-//	float x = 0;
-//	float y = 0;
-//	x = m_position.x;
-//	y = m_position.y;
-//	m_pointposition.x = x + numx;
-//	m_pointposition.y = y + numy;
-//
-//}
 
 
 void AIEditNodeInequ::Num()
