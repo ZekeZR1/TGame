@@ -140,8 +140,15 @@ void MonsterActionList::Update()
 				break;
 			case enDefense:
 				ws = L"Defense";
+				break;
 			case enFire:
 				ws = L"Fire";
+				break;
+			case enTackle:
+				ws = L"Tackle";
+				break;
+			case enGuardian:
+				ws = L"Guardian";
 				break;
 			}
 			m_frs[i]->Init(ws, { p.x,p.y +45}, 0, CVector4::White, 1, { 0,0 });
