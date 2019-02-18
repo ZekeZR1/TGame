@@ -19,6 +19,10 @@ public:
 		m_shadowCasters.clear();
 	}
 
+	void ClearACaster(SkinModel* casterModel) {
+		m_shadowCasters.erase(remove(m_shadowCasters.begin(), m_shadowCasters.end(), casterModel), m_shadowCasters.end());
+	}
+
 	void UpdateFromLightTarget(CVector3 lightCameraPos, CVector3 lightCameraTarget);
 
 	void UpdateFromLightDirection(CVector3 lightCameraPos, CVector3 lightDir);

@@ -14,8 +14,9 @@ public:
 	void PostRender() override;
 private:
 	SkinModelRender* m_model = nullptr;
+	SkinModelRender* m_back = nullptr;
 	SpriteRender* m_sp = nullptr;
-	CVector3 pos = CVector3::Zero();
 	AnimationClip m_anim[1];
+	CVector3 pos = CVector3::Zero();
 	SpriteRender* m_white = nullptr;
 };
