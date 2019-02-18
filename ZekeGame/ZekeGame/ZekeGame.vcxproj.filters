@@ -231,6 +231,9 @@
     <ImageContentTask Include="Assets\Sprite\GUI\MonActList\actBlock.png">
       <Filter>Assets</Filter>
     </ImageContentTask>
+    <ImageContentTask Include="Assets\modelData\stage\dun2.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp" />
@@ -659,6 +662,12 @@
     <ClCompile Include="Game\Monster\Monsters\TestMons.cpp">
       <Filter>Game\Monster</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Monster\Action\Act_Guardian.cpp">
+      <Filter>act</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\Action\Act_Tackle.cpp">
+      <Filter>act</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\fairy\hnd.FBX">
@@ -681,6 +690,9 @@
     </MeshContentTask>
     <MeshContentTask Include="Assets\modelData\dungeon\dungeonBack.FBX" />
     <MeshContentTask Include="Assets\modelData\stage\limit.FBX">
+      <Filter>Assets</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\stage\dun.fbx">
       <Filter>Assets</Filter>
     </MeshContentTask>
   </ItemGroup>
@@ -1417,6 +1429,12 @@
     </ClInclude>
     <ClInclude Include="Game\Monster\Monsters\TestMons.h">
       <Filter>Game\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\Action\Act_Guardian.h">
+      <Filter>act</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\Action\Act_Tackle.h">
+      <Filter>act</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

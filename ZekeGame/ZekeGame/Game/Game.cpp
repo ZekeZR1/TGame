@@ -25,7 +25,7 @@ bool Game::Start() {
 	m_pi = new Pyinit;
 	NewGO<MonsterActionManeger>(0, "MAM");
 	m_model = NewGO<SkinModelRender>(0, "model");
-	m_model->Init(L"Assets/modelData/map.cmo");
+	m_model->Init(L"Assets/modelData/dun.cmo");
 	m_model->SetPosition(CVector3::Zero());
 	m_menu = NewGO<GameMenu>(0, "gm");
 	m_menu->init(m_playMode,m_dunNum);
@@ -39,6 +39,8 @@ bool Game::Start() {
 	m_smd->CreatePhysicsStaticObject();
 
 	OutputDebugStringA("Start Battle");
+
+	m_fr = NewGO<FontRender>(0, "fr");
 	return true;
 }
 
@@ -58,7 +60,7 @@ void Game::OnDestroy() {
 }
 
 void Game::Update() {
-	if (m_END || m_menu->isOpen())
+	if (m_END)
 		return;
 	if (m_suddenDeath)
 	{
@@ -100,13 +102,22 @@ void Game::Update() {
 
 			}
 			SuddenDeath();
+			DeleteGO(m_fr);
 		}
 		else
 		{
+			int m = m_time / 60;
+			float s = m_time - m * 60;
+			wchar_t text[255];
+
+			swprintf_s(text, L"%02d:%02.2f", m, s);
+			m_fr->Init(text, {440,360 }, 0, CVector4::White, 1, {0,0 });
 			m_time -= IGameTime().GetFrameDeltaTime();
 		}
 	}
 	
+	if (m_menu->isOpen())
+		return;
 	
 
 	camera->SetTarget(CVector3::Zero());

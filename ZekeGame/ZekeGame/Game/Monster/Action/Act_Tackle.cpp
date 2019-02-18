@@ -10,7 +10,7 @@ Act_Tackle::Act_Tackle()
 
 bool Act_Tackle::Action(Monster * me)
 {
-	if (m_target == NULL)
+	if (m_target == nullptr)
 		return true;
 	float mp = me->GetMP();
 	if (ismp)

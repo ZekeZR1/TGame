@@ -160,7 +160,6 @@ void Monster::Move()
 	move *= m_speed;
 	m_pos = m_cc.Execute(IGameTime().GetFrameDeltaTime(), move);
 	
-	
 	m_smr->SetPosition(m_pos);
 	if (m_isKnockback)
 	{
@@ -171,7 +170,6 @@ void Monster::Move()
 		Turn();
 		//TurnEx();
 	}
-	
 }
 
 void Monster::Turn()

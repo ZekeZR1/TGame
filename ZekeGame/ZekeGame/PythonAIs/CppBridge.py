@@ -80,6 +80,7 @@ class ACTION(IntEnum):
     Defense = 3
     Fire = 4
     Tackle = 5
+    Guardian = 6
 
 class GameData:
     def fuck__init__(self):
@@ -360,7 +361,7 @@ def GetEnemyHighHP():
 
 
 MonsterUseAction = [
-    [ACTION.Chase,ACTION.Atack,ACTION.Leave,ACTION.Defense],
+    [ACTION.Chase,ACTION.Atack,ACTION.Leave,ACTION.Defense,ACTION.Fire,ACTION.Tackle,ACTION.Guardian],
     [ACTION.Chase,ACTION.Atack,ACTION.Defense,ACTION.Tackle],
     [ACTION.Chase,ACTION.Atack,ACTION.Leave,ACTION.Defense,ACTION.Fire]
     ]
@@ -394,6 +395,9 @@ def Fire(target):
 
 def Tackle(target):
     addAction(target,ACTION.Tackle)
+
+def Guardian(target):
+    addAction(target,ACTION.Guardian)
 
 
 def End():

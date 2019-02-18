@@ -9,6 +9,7 @@
 #include "Action/Act_Defense.h"
 #include "Action/Act_Fire.h"
 #include "Action/Act_Tackle.h"
+#include "Action/Act_Guardian.h"
 
 MonsterAction * MonsterActionManeger::LoadAction(int id,int target)
 {
@@ -41,6 +42,10 @@ MonsterAction * MonsterActionManeger::LoadAction(int id,int target)
 		return ac;
 	case enTackle:
 		ac = NewGO<Act_Tackle>(0, "action");
+		ac->Settarget(target);
+		return ac;
+	case enGuardian:
+		ac = NewGO<Act_Guardian>(0, "action");
 		ac->Settarget(target);
 		return ac;
 	}
