@@ -33,7 +33,9 @@ public:
 
 		return m_spriteRender;
 	}
-
+	CVector3 GetPos() {
+		return kari;
+	}
 private:
 
 	int button;
