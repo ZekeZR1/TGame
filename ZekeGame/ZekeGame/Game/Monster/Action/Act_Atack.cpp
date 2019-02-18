@@ -13,15 +13,24 @@ bool Act_Atack::Action(Monster * me)
 {
 	if (m_target == nullptr)
 		return true;
-	me->anim_atack();
-	CVector3 v = m_target->Getpos() - me->Getpos();
-	if (v.Length() < me->Getradius() + m_target->Getradius() + 10)
+	if (m_isfirst)
 	{
-		float dm = 3 * me->GetAttack();
-		m_target->Damage(dm);
-		v.Normalize();
-		v *= 50;
-		m_target->StartKnockback(v);
+		me->anim_atack();
+		CVector3 v = m_target->Getpos() - me->Getpos();
+		if (v.Length() < me->Getradius() + m_target->Getradius() + 10)
+		{
+			float dm = 3 * me->GetAttack();
+			m_target->Damage(dm);
+			v.Normalize();
+			v *= 50;
+			m_target->StartKnockback(v);
+		}
+		m_isfirst = false;
 	}
-	return true;
+	else if (!me->isAnimPlay())
+	{
+		return true;
+	}
+	
+	return false;
 }

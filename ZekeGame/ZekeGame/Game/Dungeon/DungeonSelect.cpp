@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include <memory>
 #include <fstream>
+#include "DungeonData.h"
 #include "../Title/ModeSelect.h"
 #include "../GameCursor.h"
 #include "../StageSetup/StageSetup.h"
@@ -174,10 +175,20 @@ void DungeonSelect::DungeonSelectClick() {
 	m_leftSp->SetCollisionTarget(tar);
 	m_rightSp->SetCollisionTarget(tar);
 	if (m_leftSp->isCollidingTarget() && Mouse::isTrigger(enLeftClick)) {
+		if (m_selectedNum == 1) {
+			return;
+		}
 		left = true;
+		if(addPos.x == 0)
+			m_selectedNum--;
 	}
 	if (m_rightSp->isCollidingTarget() && Mouse::isTrigger(enLeftClick)) {
+		if (m_selectedNum == m_numDungeon) {
+			return;
+		}
 		right = true;
+		if (addPos.x == 0)
+			m_selectedNum++;
 	}
 	if (left) {
 		time += 0.1f;
@@ -185,6 +196,7 @@ void DungeonSelect::DungeonSelectClick() {
 			left = false;
 			time = 0.f;
 		}
+
 		addPos.x = EASE::InOutQuad(change, 0.f, duration, time);
 	}
 	if (right) {
@@ -196,6 +208,10 @@ void DungeonSelect::DungeonSelectClick() {
 		addPos.x = EASE::InOutQuad(change, 0.f, duration, time) * -1;
 	}
 	m_isPositionUpdating = left || right;
+
+	char str[256];
+	sprintf_s(str, "Selecting Dungeon %d\n", m_selectedNum);
+	OutputDebugStringA(str);
 }
 
 void DungeonSelect::StartDungeon() {
@@ -210,6 +226,8 @@ void DungeonSelect::StartDungeon() {
 					return;
 				auto dunAi = NewGO<DungeonAISelect>(0, "pvp");
 				dunAi->SetDungeonNumber(dunNum);
+				IDungeonData().SetDunNum(dunNum);
+				IDungeonData().SetRound(0);
 				DeleteGO(this);
 			}
 		}

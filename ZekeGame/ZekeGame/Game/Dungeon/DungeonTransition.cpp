@@ -41,7 +41,7 @@ bool DungeonTransition::Start() {
 		pos.x += 80.f;
 	}
 	m_camera = NewGO<DungeonTCamera>(0);
-
+	OutputDebugStringA("Play Transition\n");
 	return true;
 }
 
@@ -61,7 +61,7 @@ void DungeonTransition::Update() {
 	}
 	m_camera->SetTarget(m_monsters[1]->GetPosition());
 	auto p = m_monsters[0]->GetPosition();
-	if (p.z > 0.f) {
+	if (p.z > -300.f || g_pad[0].IsTrigger(enEscape)) {
 		auto select = NewGO<StageSelect>(0, "selectScene");
 		select->SetDungeonGameData(m_files, m_enemyFiles, m_monai, m_ids, m_dunNum);
 		DeleteGO(this);

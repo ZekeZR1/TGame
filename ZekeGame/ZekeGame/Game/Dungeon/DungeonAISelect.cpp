@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include <string>
+#include "DungeonGame.h"
 #include "../Title/ModeSelect.h"
 #include "../GameData.h"
 #include "../GameCursor.h"
@@ -80,14 +81,18 @@ void DungeonAISelect::Update() {
 				moid[i] = static_cast<MonsterID>(m_pmms[i]->GetMonsterID());
 				monai[i] = m_pmms[i]->GetAI();
 			}
-			auto tra = NewGO<DungeonTransition>(0);
-			tra->SetGameData(m_files, m_enemyFiles, monai, moid, m_dunNum);
+			auto dun = NewGO<DungeonGame>(0,"DungeonGame");
+			dun->SetGameData(m_files, m_enemyFiles, monai, moid, m_dunNum);
+			OutputDebugStringA("AI Selected!! Start Transation!\n");
+			dun->StartTransition();
 			DeleteGO(this);
 		}
 	}
 	if (g_pad[0].IsTrigger(enButtonA)) {
 		DeleteGO(this);
 		NewGO<ModeSelect>(0, "modesel");
+		auto dgame = FindGO<DungeonGame>("DungeonGame");
+		DeleteGO(dgame);
 	}
 }
 

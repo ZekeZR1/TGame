@@ -2,7 +2,7 @@
 
 HWND g_hwnd = NULL;
 GraphicsEngine* g_graphicsEngine = NULL;
-int notch;
+int notch = 0;
 bool mEve[10];
 
 //TODO : フルスクリーン表示できるようにする
@@ -70,10 +70,10 @@ LRESULT CALLBACK MsgProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 		break;
 	}
 	default:
-		notch = 0;
-		return DefWindowProc(hWnd, msg, wParam, lParam);
+		break;
 	}
-	return 0;
+	return DefWindowProc(hWnd, msg, wParam, lParam);
+	//return 0;
 }
 
 void InitWindow(

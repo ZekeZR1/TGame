@@ -18,6 +18,48 @@ StageSetup::~StageSetup()
 {
 }
 
+void StageSetup::SuddenDeath(const char* files[6], MonsterID monids[6], int teams[6])
+{
+	for (auto mon : g_mons)
+	{
+		if (mon == NULL)
+			break;
+		DeleteGO(mon);
+	}
+
+	CVector3 poss[6];
+	poss[0] = { 250,0,500 };
+	poss[1] = { 0,0,500 };
+	poss[2] = { -250,0,500 };
+	poss[3] = { 250,0,-500 };
+	poss[4] = { 0,0,-500 };
+	poss[5] = { -250,0,-500 };
+	int poi = 0;
+
+	bool isp = true;
+	for (int i = 0; i < 6; i++)
+	{
+		if (monids[i] == -1)
+			break;
+		if (teams[i] == 1 && isp)
+		{
+			poi = 3;
+			isp = false;
+		}
+		Monster* mon = GameData::LoadMonster(monids[i]);
+		mon->Setpos(poss[poi]);
+		mon->Setnum(i);
+		mon->Setteam(teams[i]);
+		mon->SetpyFile(files[i]);
+		g_mons[i] = mon;
+
+		mon->SuddenDeath();
+		g_mons[i] = mon;
+
+		poi++;
+	}
+}
+
 void StageSetup::PVPSetup(std::vector<std::string> files, int monsterAI[6],MonsterID monids[6])
 {
 	int team = 0;
@@ -119,36 +161,36 @@ void StageSetup::DungeonSetup(PyFile files, PyFile eneFiles, int monsterAI[6], M
 void StageSetup::SetEnemyAI(int dun, int* monAI, MonsterID* monId) {
 	switch (dun) {
 	case 0:
-		monAI[3] = 1;
-		monId[3] = enTest;
-		monAI[4] = 1;
-		monId[4] = enTest;
-		monAI[5] = 1;
-		monId[5] = enTest;
+		monAI[3] = 0;
+		monId[3] = enUmataur;
+		monAI[4] = 0;
+		monId[4] = enUmataur;
+		monAI[5] = 0;
+		monId[5] = enUmataur;
 		break;
 	case 1:
 		monAI[3] = 1;
-		monId[3] = enTest;
+		monId[3] = enUmataur;
 		monAI[4] = 1;
-		monId[4] = enTest;
+		monId[4] = enUmataur;
 		monAI[5] = 1;
-		monId[5] = enTest;
+		monId[5] = enUmataur;
 		break;
 	case 2:
 		monAI[3] = 1;
-		monId[3] = enTest;
+		monId[3] = enUmataur;
 		monAI[4] = 1;
-		monId[4] = enTest;
+		monId[4] = enUmataur;
 		monAI[5] = 1;
-		monId[5] = enTest;
+		monId[5] = enUmataur;
 		break;
 	case 3:
 		monAI[3] = 1;
-		monId[3] = enTest;
+		monId[3] = enUmataur;
 		monAI[4] = 1;
-		monId[4] = enTest;
+		monId[4] = enUmataur;
 		monAI[5] = 1;
-		monId[5] = enTest;
+		monId[5] = enUmataur;
 		break;
 	case 4:
 		monAI[3] = 1;

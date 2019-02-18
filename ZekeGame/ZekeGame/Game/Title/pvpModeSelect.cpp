@@ -26,23 +26,27 @@ PvPModeSelect::~PvPModeSelect()
 		DeleteGO(go);
 	}
 	DeleteGO(m_GO);
+	DeleteGO(m_back);
 }
 
 bool PvPModeSelect::Start()
 {
+	m_back = NewGO<SpriteRender>(0, "sp");
+	m_back->Init(L"Assets/sprite/monsel_back.dds", 1280, 720);
+
 	m_files = PythonFileLoad::FilesLoad();
 	m_cursor = NewGO<GameCursor>(0, "cursor");
 	
-	CVector3 pos = { -320,210,0 };
+	CVector3 pos = { -290,180,0 };
 	for (int i = 0; i < 6; i++)
 	{
 		if (i == 3)
 		{
-			pos = { -320,-200,0 };
+			pos = { -290,-180,0 };
 		}
 		PMMonster* pmm = NewGO<PMMonster>(0, "pmm");
 		pmm->init(i,pos);
-		pos += {240, 0, 0};
+		pos += {260, 0, 0};
 		std::wstring ws = std::wstring(m_files[g_AIset[i]].begin(), m_files[g_AIset[i]].end());
 		pmm->SetPython(ws.c_str(), g_AIset[i]);
 		m_pmms.push_back(pmm);
@@ -55,10 +59,9 @@ bool PvPModeSelect::Start()
 		sp->Init(L"Assets/sprite/mon",);*/
 	}
 
-	m_GO = NewGO<SpriteRender>(0
-		, "sp");
+	m_GO = NewGO<SpriteRender>(0, "sp");
 	m_GO->Init(L"Assets/sprite/GO.dds", 193, 93, true);
-	m_GO->SetPosition({ 400,-160,0 });
+	m_GO->SetPosition({ 520,240,0 });
 
 	return true;
 }
