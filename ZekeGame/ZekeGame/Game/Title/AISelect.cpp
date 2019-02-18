@@ -22,13 +22,14 @@ bool AISelect::Start()
 	m_cursor = FindGO<GameCursor>("cursor");
 
 	m_back = NewGO<SpriteRender>(5, "sp");
-	m_back->Init(L"Assets/sprite/ai_back.dds", 383, 720,true);
+	m_back->Init(L"Assets/sprite/ai_back_R.dds", 383, 720,true);
 	m_back->SetPosition({ -448.5f,0,0});
 	
 	m_ppms = FindGO<SuperMonsterSelect>("pvp");
 	int count = m_ppms->GetFiles().size();
 
 	CVector3 pos = { -454,316.5f,0 };
+	pos = { -454,230.5f,0 };
 	for (int i = 0; i < count; i++)
 	{
 		IconAI* ia = NewGO<IconAI>(0, "ia");
@@ -40,6 +41,7 @@ bool AISelect::Start()
 		pos.y -= 82;
 	}
 	m_minScroll = 316.5f;
+	m_minScroll = 230.5f;
 	m_maxScroll = pos.y * -1;
 	return true;
 }
@@ -66,9 +68,13 @@ void AISelect::Update()
 	m_back->SetCollisionTarget(m_cursor->GetCursor());
 	if (m_back->isCollidingTarget())
 	{
+		static int i = 0;
 		int notch = Mouse::GetMouseNotch() * -1;
 		if (notch != 0)
 		{
+			
+			if (i >= 2)
+				int a = 0;
 			if (!(m_scroll <= m_minScroll && notch < 0) && !(m_scroll >= m_maxScroll && notch > 0))
 			{
 				m_scroll += notch * 10;
@@ -80,8 +86,11 @@ void AISelect::Update()
 					pos.y -= 82.0f;
 				}
 			}
+			i++;
 
 		}
+		else
+			i = 0;
 	}
 }
 

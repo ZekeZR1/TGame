@@ -2,7 +2,6 @@
 //#include "GameCamera.h"
 
 #include "StageSetup/StageSetup.h"
-
 enum MonsterID;
 class GameCamera;
 class TestListener;
@@ -16,6 +15,11 @@ public:
 	bool Start() override;
 	void OnDestroy() override;
 	void Update() override;
+
+	void SuddenDeath()
+	{
+		m_suddenDeath = true;
+	}
 
 	enum Mode
 	{
@@ -49,5 +53,11 @@ private:
 
 	bool m_END = false;
 	bool m_isOnlineGame = false;
+	bool m_suddenDeath = false;
+
+	float m_time = 180.0f;
+
+	SkinModelDummy* m_smd = nullptr;
+	FontRender* m_fr = nullptr;
 };
 

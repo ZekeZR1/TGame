@@ -18,9 +18,26 @@ namespace Mouse {
 		cursorpos.y *= -1.f;
 		//カーソル表示
 		ShowCursor(FALSE);
-#if _DEBUG
+//#if _DEBUG
 		ShowCursor(TRUE);
-#endif
+//#endif
+		//Mouse
+		if (notch > 0) {
+			trigger[enNotchUp] = 1 ^ press[enNotchUp];
+			press[enNotchUp] = 1;
+		}
+		else {
+			trigger[enNotchUp] = 0;
+			press[enNotchUp] = 0;
+		}
+		if (notch < 0) {
+			trigger[enNotchDown] = 1 ^ press[enNotchDown];
+			press[enNotchDown] = 1;
+		}
+		else {
+			trigger[enNotchDown] = 0;
+			press[enNotchDown] = 0;
+		}
 		//左トリガー入力判定。
 		if (mEve[0] != 0) {
 			trigger[enLeftClick] = 1 ^ press[enLeftClick];
@@ -48,8 +65,11 @@ namespace Mouse {
 			trigger[enMiddleClick] = 0;
 			press[enMiddleClick] = 0;
 		}
-	}
 
+		if (!(isTrigger(enNotchUp) || isTrigger(enNotchDown))) {
+			notch = 0;
+		}
+	}
 	CVector3 GetCursorPos() {
 		return cursorpos;
 	}

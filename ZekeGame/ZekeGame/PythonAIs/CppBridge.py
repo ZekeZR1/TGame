@@ -56,6 +56,8 @@ class Monster:
         self.AttackEx = 0
         self.Defence = 0
         self.DefenceEx = 0
+        self.speed = 0
+        self.movespeed = Vector3()
         self.state = 0
     def SetPosition(self,x,y,z):
         self.position.SetVector(x,y,z)
@@ -75,7 +77,10 @@ class ACTION(IntEnum):
     Chase = 0
     Atack = 1
     Leave = 2
-    Fire = 3
+    Defense = 3
+    Fire = 4
+    Tackle = 5
+    Guardian = 6
 
 class GameData:
     def fuck__init__(self):
@@ -141,6 +146,15 @@ class GameData:
             
             pos = datas[i][5]
             mon.SetPosition(pos[0],pos[1],pos[2])
+
+            mon.Attack = datas[i][6]
+            mon.AttackEx = datas[i][7]
+            mon.Defence = datas[i][8]
+            mon.DefenceEx = datas[i][9]
+
+            mon.speed = datas[i][10]
+            pos = datas[i][11]
+            mon.movespeed.SetVector(pos[0],pos[1],pos[2])
 
             self.Buddy.append(mon)
 
@@ -347,9 +361,9 @@ def GetEnemyHighHP():
 
 
 MonsterUseAction = [
-    [ACTION.Chase,ACTION.Atack,ACTION.Leave],
-    [ACTION.Chase,ACTION.Atack],
-    [ACTION.Chase,ACTION.Atack,ACTION.Leave,ACTION.Fire]
+    [ACTION.Chase,ACTION.Atack,ACTION.Leave,ACTION.Defense,ACTION.Fire,ACTION.Tackle,ACTION.Guardian],
+    [ACTION.Chase,ACTION.Atack,ACTION.Defense,ACTION.Tackle],
+    [ACTION.Chase,ACTION.Atack,ACTION.Leave,ACTION.Defense,ACTION.Fire]
     ]
 
 actions = []
@@ -357,7 +371,7 @@ actions = []
 
 def addAction(target,action):
     """モジュール外から使わないでね!"""
-    if len(actions) >= 5 or target == None:
+    if len(actions) >= 3 or target == None:
         return
     for ac in MonsterUseAction[gameData.me.ID]:
         if ac == action:
@@ -373,8 +387,17 @@ def Atack(target):
 def Leave(target):
     addAction(target,ACTION.Leave)
 
+def Defense(target):
+    addAction(target,ACTION.Defense)
+
 def Fire(target):
     addAction(target,ACTION.Fire)
+
+def Tackle(target):
+    addAction(target,ACTION.Tackle)
+
+def Guardian(target):
+    addAction(target,ACTION.Guardian)
 
 
 def End():

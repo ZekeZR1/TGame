@@ -25,9 +25,9 @@ void IconAI::init(std::string py,int num,GameCursor* cursor)
 	m_num = num;
 	m_frame = NewGO<SpriteRender>(6, "sp");
 	if (((m_num + 1) % 2) == 0)
-		m_frame->Init(L"Assets/sprite/ai_even.dds", 372, 77);
+		m_frame->Init(L"Assets/sprite/ai_even.dds", 360, 77);
 	else
-		m_frame->Init(L"Assets/sprite/ai_odd.dds", 372, 77);
+		m_frame->Init(L"Assets/sprite/ai_even.dds", 360, 77);
 	m_dummy = NewGO<SpriteRender>(0, "sp");
 	m_dummy->Init(nullptr, 372, 77, true);
 
@@ -56,9 +56,9 @@ void IconAI::Update()
 		if (m_issel)
 		{
 			if (((m_num + 1) % 2) == 0)
-				m_frame->Init(L"Assets/sprite/ai_even.dds", 372, 77);
+				m_frame->Init(L"Assets/sprite/ai_even.dds", 360, 77);
 			else
-				m_frame->Init(L"Assets/sprite/ai_odd.dds", 372, 77);
+				m_frame->Init(L"Assets/sprite/ai_even.dds", 360, 77);
 			m_issel = false;
 		}
 	}

@@ -18,13 +18,12 @@ PMMonster::PMMonster()
 	m_mon = NewGO<SpriteRender>(1, "sp");
 	m_mon->Init(L"Assets/sprite/mon_one.dds", 128, 128,true);
 	
-	m_frame = NewGO<SpriteRender>(0, "sp");
-	m_frame->Init(L"Assets/sprite/mon_none.dds", 128, 128);
+	
 }
 
 bool PMMonster::Start()
 {
-	m_fr = NewGO<FontRender>(0, "font");
+	m_fr = NewGO<FontRender>(1, "font");
 	m_cursor = FindGO<GameCursor>("cursor");
 	return true;
 }
@@ -32,6 +31,17 @@ bool PMMonster::Start()
 void PMMonster::init(int num,CVector3 pos)
 {
 	m_num = num;
+	int t = m_num+1-3;
+	if (t <= 0)
+		m_team = 0;
+	else
+		m_team = 1;
+
+	m_frame = NewGO<SpriteRender>(0, "sp");
+	if (m_team == 0)
+		m_frame->Init(L"Assets/sprite/mon_frameRed.dds", 240, 340);
+	else
+		m_frame->Init(L"Assets/sprite/mon_frameBlue.dds", 240, 340);
 	m_mon->SetPosition(pos);
 	m_frame->SetPosition(pos);
 
@@ -77,7 +87,7 @@ void PMMonster::Update()
 	{
 		if (!m_issel)
 		{
-			m_frame->Init(L"Assets/sprite/mon_frame.dds", 128, 128);
+			m_frame->Init(L"Assets/sprite/mon_frameYellow.dds", 240, 340);
 			m_issel = true;
 		}
 		if (Mouse::isTrigger(enLeftClick))
@@ -91,7 +101,10 @@ void PMMonster::Update()
 	{
 		if (m_issel && issel)
 		{
-			m_frame->Init(L"Assets/sprite/mon_none.dds", 128, 128);
+			if(m_team == 0)
+				m_frame->Init(L"Assets/sprite/mon_frameRed.dds", 240, 340);
+			else
+				m_frame->Init(L"Assets/sprite/mon_frameblue.dds", 240, 340);
 			m_issel = false;
 		}
 	}
@@ -105,7 +118,7 @@ void PMMonster::ChengeImage(int monid)
 	m_monid = (MonsterID)monid;
 	delete[] ws;*/
 	m_monid = (MonsterID)monid;
-	m_mon->Init(GameData::GetMonsterIconPath(monid), 128, 128);
+	m_mon->Init(GameData::GetMonsterIconPath(monid), 240, 340);
 	/*switch (monid)
 	{
 	case enTest:
@@ -127,14 +140,14 @@ void PMMonster::SetPython(const wchar_t * py,int num)
 {
 	m_selAI = num;
 
-	for (int i = 0; i < 16; i++)
+	for (int i = 0; i < 12; i++)
 	{
 		m_python[i] = py[i];
 		if (py[i] == L'\0')
 		{
 			break;
 		}
-		else if (i == 15)
+		else if (i == 11)
 		{
 			m_python[i - 1] = L'~';
 			m_python[i] = L'\0';

@@ -51,4 +51,6 @@ private:
 
 	bool m_isselC = false;
 	bool m_isselO = false;
+
+	SpriteRender* m_Black;
 };

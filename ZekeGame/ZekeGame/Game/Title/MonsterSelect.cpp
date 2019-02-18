@@ -29,7 +29,7 @@ bool MonsterSelect::Start()
 	CVector3 pos = { -257,330,0 };
 	m_back->SetPosition(pos);
 
-	pos += { 70,-70,0 };
+	pos += { 78,-78,0 };
 	for (int i = 0; i < m_monstercount; i++)
 	{
 		IconMon* im = NewGO<IconMon>(0, "im");
@@ -56,9 +56,9 @@ bool MonsterSelect::Start()
 		if (((i+1) % 5) == 0)
 		{
 			pos.x = 30;
-			pos.y -= 148;
+			pos.y -= 133;
 		}
-		else pos += {148,0, 0};
+		else pos += {133,0, 0};
 		m_icons.push_back(im);
 		//m_paths.push_back(path);
 	}
