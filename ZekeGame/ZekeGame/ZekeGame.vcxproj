@@ -229,6 +229,7 @@
     <ClCompile Include="Engine\PreCompile.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Engine\sound\CSound.cpp" />
     <ClCompile Include="Engine\sound\SoundEngine.cpp" />
     <ClCompile Include="Engine\time\GameTime.cpp" />
     <ClCompile Include="Engine\window\Window.cpp" />
@@ -380,6 +381,7 @@
     <ClInclude Include="Engine\physics\RigitBody.h" />
     <ClInclude Include="Engine\physics\SpriteBoxCollider.h" />
     <ClInclude Include="Engine\PreCompile.h" />
+    <ClInclude Include="Engine\sound\CSound.h" />
     <ClInclude Include="Engine\sound\SoundEngine.h" />
     <ClInclude Include="Engine\time\GameTime.h" />
     <ClInclude Include="Engine\util\Util.h" />
@@ -553,19 +555,6 @@
     <ClInclude Include="TestScene2.h" />
   </ItemGroup>
   <ItemGroup>
-    <MeshContentTask Include="Assets\modelData\dungeon\dungeonBack.FBX" />
-    <MeshContentTask Include="Assets\modelData\fairy\hnd.FBX" />
-    <MeshContentTask Include="Assets\modelData\stage\limit.FBX" />
-    <MeshContentTask Include="Assets\modelData\stage\map.FBX" />
-    <MeshContentTask Include="Assets\modelData\testMons\tesEnemy2.fbx" />
-    <MeshContentTask Include="Assets\modelData\testMons\tesEnemy3.fbx" />
-    <MeshContentTask Include="Assets\modelData\uma\uma.fbx" />
-  </ItemGroup>
-  <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\result\win.png" />
-    <ImageContentTask Include="Assets\Sprite\winkari.png" />
-  </ItemGroup>
-  <ItemGroup>
     <CopyFileToFolders Include="Game\dlllib\python36.dll">
       <FileType>Document</FileType>
     </CopyFileToFolders>
@@ -597,65 +586,6 @@
     <CustomBuild Include="python36_d.lib">
       <FileType>Document</FileType>
     </CustomBuild>
-  </ItemGroup>
-  <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\GUI\button\sb_cancel.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\button\sb_OK.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\button\simple_button.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\button\simple_button_blue.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\DadanDanBk.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\leftButton.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\nextDungeon.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\rightButton.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\dungeonG.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\dungeonW.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_back.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_back2.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_back_B.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_back_R.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_even.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_main.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_odd.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_sel.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\B_alpha.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\monsel_back.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_back.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_frame.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_frameBlue.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_frameRed.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_frameYellow.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_none.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_one.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_three.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_two.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_uma.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\MonActList\actBlock.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\MonActList\backBlue.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\MonActList\backRed.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\MonActList\hp.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\MonActList\mp.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\Stage\gameStage1.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\Stage\gameStage2.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\Stage\gameStage3.png" />
-    <ImageContentTask Include="Assets\Sprite\marker\mark_1.png" />
-    <ImageContentTask Include="Assets\Sprite\marker\mark_2.png" />
-    <ImageContentTask Include="Assets\Sprite\marker\mark_3.png" />
-    <ImageContentTask Include="Assets\Sprite\marker\mark_blue.png" />
-    <ImageContentTask Include="Assets\Sprite\marker\mark_red.png" />
-    <ImageContentTask Include="Assets\Sprite\monsho\dun_stage0.png" />
-    <ImageContentTask Include="Assets\Sprite\result\blueteamp.png" />
-    <ImageContentTask Include="Assets\Sprite\result\lose.png" />
-    <ImageContentTask Include="Assets\Sprite\result\redteamp.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\GUI\button1.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\clear.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\cursor.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\GO.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

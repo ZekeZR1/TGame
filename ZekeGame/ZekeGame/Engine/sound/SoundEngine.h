@@ -1,17 +1,16 @@
 #pragma once
-class Sound {
+
+class SoundEngine {
 public:
-	Sound();
-	~Sound();
+	SoundEngine();
+	~SoundEngine();
 	void Update();
-	void Init(const wchar_t*, bool);
-	void Play();
-	bool isPlaying();
-	void Play(bool);
-	void Stop();
+//private:
 	std::unique_ptr<DirectX::AudioEngine> audEngine;
-	std::unique_ptr<DirectX::SoundEffect> soundEffect;
-	std::unique_ptr<DirectX::SoundEffectInstance> effect;
 };
 
+static SoundEngine& ISoundEngine() {
+	static SoundEngine soundEngine;
+	return soundEngine;
+}
 
