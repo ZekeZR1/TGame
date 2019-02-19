@@ -246,6 +246,7 @@ float4 PSMainSkin(PSInput In) : SV_Target0
 		specLig = pow(t, specPow) * mColor[i].xyz;
 		lig += specLig;
 	}
+	lig += albedoColor.xyz  * ambientLight;
 	if (isShadowReciever == 1) {	//シャドウレシーバー。
 									//LVP空間から見た時の最も手前の深度値をシャドウマップから取得する。
 		float2 shadowMapUV = In.posInLVP.xy / In.posInLVP.w;
