@@ -17,19 +17,27 @@ MonsterSelect::~MonsterSelect()
 	{
 		DeleteGO(ic);
 	}
+	DeleteGO(m_monsel);
 }
 
 bool MonsterSelect::Start()
 {
+	m_monsel = NewGO<SpriteRender>(28, "sp");
+	m_monsel->Init(L"Assets/sprite/Monselect.dds", 570, 84);
+	m_monsel->SetPivot({ 0,1 });
+	m_monsel->SetPosition({ -246,360,0 });
+
 	m_cursor = FindGO<GameCursor>("cursor");
 
 	m_back = NewGO<SpriteRender>(2, "sp");
 	m_back->Init(L"Assets/sprite/mon_back.dds", m_backsize.x * 4, m_backsize.y * 5);
 	m_back->SetPivot({ 0,1 });
-	CVector3 pos = { -257,330,0 };
+	CVector3 pos = { -257,360,0 };
+	//CVector3 pos = { -257,230.5f,0 };
 	m_back->SetPosition(pos);
 
 	pos += { 78,-78,0 };
+	pos.y = 205.0f;
 	for (int i = 0; i < m_monstercount; i++)
 	{
 		IconMon* im = NewGO<IconMon>(0, "im");

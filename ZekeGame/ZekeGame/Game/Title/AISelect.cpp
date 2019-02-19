@@ -15,10 +15,16 @@ AISelect::~AISelect()
 	{
 		DeleteGO(ia);
 	}
+	DeleteGO(m_AIsel);
 }
 
 bool AISelect::Start()
 {
+	m_AIsel = NewGO<SpriteRender>(27, "sp");
+	m_AIsel->Init(L"Assets/sprite/AIselect.dds", 371, 84);
+	m_AIsel->SetPivot({ 0,1 });
+	m_AIsel->SetPosition({ -640,360,0 });
+
 	m_cursor = FindGO<GameCursor>("cursor");
 
 	m_back = NewGO<SpriteRender>(5, "sp");
@@ -77,7 +83,7 @@ void AISelect::Update()
 				int a = 0;
 			if (!(m_scroll <= m_minScroll && notch < 0) && !(m_scroll >= m_maxScroll && notch > 0))
 			{
-				m_scroll += notch * 10;
+				m_scroll += notch * 50;
 				CVector3 pos = m_icons[0]->Getpos();
 				pos.y = m_scroll;
 				for (auto icon : m_icons)

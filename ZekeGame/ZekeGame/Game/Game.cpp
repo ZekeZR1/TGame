@@ -41,6 +41,12 @@ bool Game::Start() {
 	OutputDebugStringA("Start Battle");
 
 	m_fr = NewGO<FontRender>(0, "fr");
+
+	e = NewGO<CEffect>(0, "s");
+	e->SetPosition(CVector3::Zero());
+	e->SetScale({ 500,500,500 });
+	e->Play(L"Assets/effect/l/laser.efk");
+	
 	return true;
 }
 
