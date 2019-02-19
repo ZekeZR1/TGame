@@ -59,5 +59,7 @@ private:
 
 	SkinModelDummy* m_smd = nullptr;
 	FontRender* m_fr = nullptr;
+
+	CEffect* e;
 };
 

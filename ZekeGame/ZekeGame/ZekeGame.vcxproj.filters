@@ -231,7 +231,10 @@
     <ImageContentTask Include="Assets\Sprite\GUI\MonActList\actBlock.png">
       <Filter>Assets</Filter>
     </ImageContentTask>
-    <ImageContentTask Include="Assets\modelData\stage\dun2.png">
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\AIselect.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\Monselect.png">
       <Filter>Assets</Filter>
     </ImageContentTask>
   </ItemGroup>
@@ -662,11 +665,14 @@
     <ClCompile Include="Game\Monster\Monsters\TestMons.cpp">
       <Filter>Game\Monster</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Monster\Action\Act_Tackle.cpp">
+      <Filter>act</Filter>
+    </ClCompile>
     <ClCompile Include="Game\Monster\Action\Act_Guardian.cpp">
       <Filter>act</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Monster\Action\Act_Tackle.cpp">
-      <Filter>act</Filter>
+    <ClCompile Include="Game\AIEdit\AIEditNodeTarget.cpp">
+      <Filter>Game\AIEdite</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -690,9 +696,6 @@
     </MeshContentTask>
     <MeshContentTask Include="Assets\modelData\dungeon\dungeonBack.FBX" />
     <MeshContentTask Include="Assets\modelData\stage\limit.FBX">
-      <Filter>Assets</Filter>
-    </MeshContentTask>
-    <MeshContentTask Include="Assets\modelData\stage\dun.fbx">
       <Filter>Assets</Filter>
     </MeshContentTask>
   </ItemGroup>
@@ -1436,6 +1439,9 @@
     <ClInclude Include="Game\Monster\Action\Act_Tackle.h">
       <Filter>act</Filter>
     </ClInclude>
+    <ClInclude Include="Game\AIEdit\AIEditNodeTarget.h">
+      <Filter>Game\AIEdite</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="python36.lib" />
@@ -1518,6 +1524,9 @@
     <None Include="PythonAIs\Threader.py">
       <Filter>Game</Filter>
     </None>
+    <None Include="C:\Users\kokoa\Pictures\Effekseer142cWin\shot.efk">
+      <Filter>Assets</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="act">
@@ -1549,6 +1558,9 @@
     </Filter>
     <Filter Include="Game\Monster">
       <UniqueIdentifier>{41811a72-fa96-427d-ad8a-b178db29047b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets\sound">
+      <UniqueIdentifier>{d2edc291-b975-4667-84bc-0a560c01e0b8}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

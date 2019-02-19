@@ -24,6 +24,9 @@ bool Act_Atack::Action(Monster * me)
 			v.Normalize();
 			v *= 50;
 			m_target->StartKnockback(v);
+			
+			s.Init(L"Assets/sound/kick-low1.wav", false);
+			s.Play();
 		}
 		m_isfirst = false;
 	}
