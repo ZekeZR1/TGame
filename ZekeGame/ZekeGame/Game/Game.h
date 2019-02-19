@@ -43,6 +43,8 @@ public:
 private:
 	Pyinit* m_pi;
 	SkinModelRender* m_model;
+	SkinModelRender* m_floor;
+
 	SpriteRender* m_sprite;
 	GameCamera* camera = nullptr;
 	StageSetup* ss;

@@ -231,6 +231,21 @@
     <ImageContentTask Include="Assets\Sprite\GUI\MonActList\actBlock.png">
       <Filter>Assets</Filter>
     </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\AIselect.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\Monselect.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\menu\mn_monsel.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\menu\mn_fuck.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\menu\mn_mainmn.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp" />
@@ -659,17 +674,17 @@
     <ClCompile Include="Game\Monster\Monsters\TestMons.cpp">
       <Filter>Game\Monster</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\sound\CSound.cpp">
-      <Filter>Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\AIEdit\AIEditNodeTarget.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
     <ClCompile Include="Game\Monster\Action\Act_Tackle.cpp">
-      <Filter>Game</Filter>
+      <Filter>act</Filter>
     </ClCompile>
     <ClCompile Include="Game\Monster\Action\Act_Guardian.cpp">
-      <Filter>Game</Filter>
+      <Filter>act</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\AIEdit\AIEditNodeTarget.cpp">
+      <Filter>Game\AIEdite</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\sound\CSound.cpp">
+      <Filter>Engine</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -695,7 +710,7 @@
     <MeshContentTask Include="Assets\modelData\stage\limit.FBX">
       <Filter>Assets</Filter>
     </MeshContentTask>
-    <MeshContentTask Include="Assets\modelData\stage\dun.fbx">
+    <MeshContentTask Include="Assets\modelData\stage\dun_yuka.fbx">
       <Filter>Assets</Filter>
     </MeshContentTask>
   </ItemGroup>
@@ -1433,17 +1448,17 @@
     <ClInclude Include="Game\Monster\Monsters\TestMons.h">
       <Filter>Game\Monster</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\sound\CSound.h">
-      <Filter>Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\AIEdit\AIEditNodeTarget.h">
-      <Filter>Game</Filter>
+    <ClInclude Include="Game\Monster\Action\Act_Guardian.h">
+      <Filter>act</Filter>
     </ClInclude>
     <ClInclude Include="Game\Monster\Action\Act_Tackle.h">
-      <Filter>Game</Filter>
+      <Filter>act</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Monster\Action\Act_Guardian.h">
-      <Filter>Game</Filter>
+    <ClInclude Include="Game\AIEdit\AIEditNodeTarget.h">
+      <Filter>Game\AIEdite</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\sound\CSound.h">
+      <Filter>Engine</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1476,6 +1491,12 @@
       <Filter>Assets</Filter>
     </Image>
     <Image Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_back2.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\modelData\stage\yuka.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\modelData\stage\dunge.png">
       <Filter>Assets</Filter>
     </Image>
   </ItemGroup>
@@ -1527,6 +1548,9 @@
     <None Include="PythonAIs\Threader.py">
       <Filter>Game</Filter>
     </None>
+    <None Include="C:\Users\kokoa\Pictures\Effekseer142cWin\shot.efk">
+      <Filter>Assets</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="act">
@@ -1534,9 +1558,6 @@
     </Filter>
     <Filter Include="Game">
       <UniqueIdentifier>{bbca8a34-1f3d-4b20-a230-eadf10875c5b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Engine">
-      <UniqueIdentifier>{a32add72-d2d5-4075-8ed3-87990a0e0a4d}</UniqueIdentifier>
     </Filter>
     <Filter Include="Assets">
       <UniqueIdentifier>{8ce8e5a7-04bc-4bca-bf79-eb3f32644d8a}</UniqueIdentifier>
@@ -1559,5 +1580,22 @@
     <Filter Include="Game\Monster">
       <UniqueIdentifier>{41811a72-fa96-427d-ad8a-b178db29047b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Assets\sound">
+      <UniqueIdentifier>{d2edc291-b975-4667-84bc-0a560c01e0b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine">
+      <UniqueIdentifier>{a32add72-d2d5-4075-8ed3-87990a0e0a4d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="Assets\sound\kick-low1.wav">
+      <Filter>Assets\sound</Filter>
+    </Media>
+    <Media Include="Assets\sound\punch-middle2.wav">
+      <Filter>Assets\sound</Filter>
+    </Media>
+    <Media Include="Assets\sound\punch-high2.wav">
+      <Filter>Assets\sound</Filter>
+    </Media>
   </ItemGroup>
 </Project>
