@@ -29,7 +29,7 @@ void DungeonResult::Update() {
 			SaveDungeonClearState();
 			auto dgame = FindGO<DungeonGame>("DungeonGame");
 			dgame->ClearInGameMode();
-			if (m_team != WIN) {
+			if (m_team == WIN) {
 				if (IDungeonData().isFinalRound(m_dunNum)) {
 					//ToNextStage();
 					ToDungeonSelect();

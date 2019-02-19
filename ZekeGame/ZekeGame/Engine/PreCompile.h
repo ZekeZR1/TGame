@@ -50,3 +50,5 @@
 #include "Engine/time/GameTime.h"
 #include "graphics/ShadowMap.h"
 
+#include "sound\CSound.h"
+

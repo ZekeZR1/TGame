@@ -1,7 +1,8 @@
 #include "stdafx.h"
 #include "SoundEngine.h"
 
-Sound::Sound() {
+
+SoundEngine::SoundEngine() {
 	// This is only needed in Windows desktop apps
 	CoInitializeEx(nullptr, COINIT_MULTITHREADED);
 
@@ -12,11 +13,11 @@ Sound::Sound() {
 	audEngine = std::make_unique<DirectX::AudioEngine>(eflags);
 }
 
-Sound::~Sound() {
+SoundEngine::~SoundEngine() {
 
 }
 
-void Sound::Update() {
+void SoundEngine::Update() {
 	if (!audEngine->Update())
 	{
 		// No audio device is active
@@ -26,44 +27,3 @@ void Sound::Update() {
 	}
 }
 
-void Sound::Init(const wchar_t* filepath, bool roopflag) {
-	if (roopflag) {
-		soundEffect = std::make_unique<DirectX::SoundEffect>(audEngine.get(), filepath);
-		effect = soundEffect->CreateInstance();
-	}
-	else {
-		soundEffect = std::make_unique<DirectX::SoundEffect>(audEngine.get(), filepath);
-	}
-}
-
-void Sound::Play() {
-	soundEffect->Play(0.5f, 0.f, 0.f);
-}
-
-void Sound::Play(bool roopflag) {
-	if(roopflag)
-		effect->Play(true);
-}
-
-void Sound::Stop() {
-	effect->Stop();
-}
-
-bool Sound::isPlaying() {
-	if (soundEffect->IsInUse()) {
-		return true;
-		/*
-		char message[256];
-		sprintf_s(message, "Playing sound\n");
-		OutputDebugStringA(message);
-		*/
-	}
-	else {
-		return false;
-		/*
-		char message[256];
-		sprintf_s(message, "Not playing sound\n");
-		OutputDebugStringA(message);
-		*/
-	}
-}
