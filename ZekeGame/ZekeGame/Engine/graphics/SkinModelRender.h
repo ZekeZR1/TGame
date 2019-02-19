@@ -101,7 +101,7 @@ private:
 	CVector3 m_pos;
 	CQuaternion m_rot = CQuaternion::Identity();
 	CVector3 m_scale = CVector3::One();
-	CVector4 m_dirCol = { 1.f,1.f,1.f,1.f };
+	CVector4 m_dirCol = {0.5,0.5f,0.5f,1.f};
 	CVector4 m_dirLight = { 0.707,-0.707,0.0f,0.0f };
 	const CVector4 m_defCol = { 1.f,1.f,1.f,1.f };
 	const CVector4 m_defDir = { 0.707,-0.707,0.0f,0.0f };
