@@ -109,6 +109,10 @@ void Monster::Update()
 				isLoading = false;
 			}
 			m_actionTime = 0;
+			if (!m_smr->IsPlayingAnimation())
+			{
+				anim_idle();
+			}
 		}
 		break;
 	case en_Execute:
@@ -130,10 +134,7 @@ void Monster::Update()
 		}
 	}
 
-	if (!m_smr->IsPlayingAnimation())
-	{
-		anim_idle();
-	}
+	
 
 	m_actionTime += IGameTime().GetFrameDeltaTime();
 	m_MPRecvTime += IGameTime().GetFrameDeltaTime();

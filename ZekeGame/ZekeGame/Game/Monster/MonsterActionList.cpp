@@ -130,25 +130,25 @@ void MonsterActionList::Update()
 			switch (mas[i]->GetactionID())
 			{
 			case enChase:
-				ws = L"Chase";
+				ws = L"追跡";
 				break;
 			case enAtack:
-				ws = L"Atack";
+				ws = L"パンチ";
 				break;
 			case enLeave:
-				ws = L"Leave";
+				ws = L"逃げる";
 				break;
 			case enDefense:
-				ws = L"Defense";
+				ws = L"守る";
 				break;
 			case enFire:
-				ws = L"Fire";
+				ws = L"ファイア";
 				break;
 			case enTackle:
-				ws = L"Tackle";
+				ws = L"タックル";
 				break;
 			case enGuardian:
-				ws = L"Guardian";
+				ws = L"守護";
 				break;
 			}
 			m_frs[i]->Init(ws, { p.x,p.y +45}, 0, CVector4::White, 1, { 0,0 });
