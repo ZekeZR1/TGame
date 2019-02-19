@@ -60,6 +60,7 @@ void Game::OnDestroy() {
 	DeleteGO(m_model);
 	DeleteGO(m_sprite);
 	DeleteGO(FindGO<SkinModelRender>("stageModel"));
+	DeleteGO(m_fr);
 	if(m_isOnlineGame)
 		Engine::IEngine().DestroyNetworkSystem();
 	delete m_pi;
@@ -109,6 +110,7 @@ void Game::Update() {
 			}
 			SuddenDeath();
 			DeleteGO(m_fr);
+			m_fr = nullptr;
 		}
 		else
 		{
