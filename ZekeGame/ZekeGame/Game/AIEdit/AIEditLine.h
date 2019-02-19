@@ -2,6 +2,7 @@
 
 class AIEditNode;
 class AIEditNodeOrder;
+class AIEditNodeTarget;
 class AIEditLine : public GameObject
 {
 
@@ -18,6 +19,12 @@ public:
 		return m_pos;
 	}
 
+	CVector3 SetPos(CVector3 a)
+	{
+
+		m_pos = a;
+		return m_pos;
+	}
 private:
 
 	int x = 50;
@@ -26,5 +33,6 @@ private:
 	SpriteRender * m_spriteRender;
 	AIEditNodeOrder * m_aieditnodeorder;
 	AIEditNode * m_aieditnode;
+	AIEditNodeTarget* m_aieditnodetarget;
 
 };

@@ -51,9 +51,9 @@ void MonsterActionList::init(Monster * mon)
 
 
 	m_hp = NewGO<SpriteRender>(2, "sp");
-	m_hp->Init(L"Assets/sprite/hp.dds", 104, 40);
+	m_hp->Init(L"Assets/sprite/mon_hp.dds", 104, 40);
 	m_mp = NewGO<SpriteRender>(2, "sp");
-	m_mp->Init(L"Assets/sprite/mp.dds", 104, 40);
+	m_mp->Init(L"Assets/sprite/mon_mp.dds", 104, 40);
 	
 	m_hp->SetPivot({ 0,0 });
 	m_mp->SetPivot({ 0,0 });
@@ -140,8 +140,15 @@ void MonsterActionList::Update()
 				break;
 			case enDefense:
 				ws = L"Defense";
+				break;
 			case enFire:
 				ws = L"Fire";
+				break;
+			case enTackle:
+				ws = L"Tackle";
+				break;
+			case enGuardian:
+				ws = L"Guardian";
 				break;
 			}
 			m_frs[i]->Init(ws, { p.x,p.y +45}, 0, CVector4::White, 1, { 0,0 });

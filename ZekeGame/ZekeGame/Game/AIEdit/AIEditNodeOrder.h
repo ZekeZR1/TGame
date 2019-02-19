@@ -6,6 +6,10 @@ class AIEditNodeNum;
 class AIEditNodeClick;
 class AIEditLine;
 class GameCursor;
+class AIEditNodeTarget;
+class AIEditNodeProcess;
+class AIEditNodeTechnique;
+class AIEditNodeAbnormalState;
 class AIEditNodeOrder :public GameObject
 {
 
@@ -22,16 +26,22 @@ public:
 		return Technique;
 	}
 
+	void SetTec(bool a)
+	{
+		Technique = a;
+	}
+
 	CVector3 GetPos()
 	{
 
 		return m_pos;
 	}
 
+
 private:
 
-	bool Technique = false;		//技選択まで終了したときfalse戻る。　
-	bool Click = false;         //クリックが消滅したときにfalseに戻る。
+	bool Technique = false;		//技を選択したときtrueになる。　
+	int num = 1;
 
 	CVector3 m_pos = CVector3::Zero();
 	GameCursor * m_gamecursor;
@@ -42,5 +52,9 @@ private:
 	AIEditNodeClick* m_aieditnodeclick;
 	AIEditLine * m_aieditline;
 	SpriteRender * m_spriteRender;
+	AIEditNodeTarget* m_aieditnodetarget;
+	AIEditNodeProcess* m_aieditnodeprocess;
+	AIEditNodeTechnique* m_aieditnodetechnique;
+	AIEditNodeAbnormalState* m_aieditnodeabnormalstate;
 
 };

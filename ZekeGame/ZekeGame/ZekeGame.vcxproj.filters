@@ -1,6 +1,241 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <ImageContentTask Include="Assets\Sprite\result\win.png" />
+    <ImageContentTask Include="Assets\Sprite\winkari.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_back.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_even.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_main.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_odd.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_sel.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\AIeditG.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\AIeditW.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\button1.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\result\blueteamp.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\clear.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\cursor.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\d1.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\d2.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\DadanDanBk.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\monsho\dun_stage0.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\dungeonG.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\DungeonSp.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\DungeonSpS.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\dungeonW.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\easyeditG.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\easyeditW.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\Stage\gameStage1.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\Stage\gameStage2.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\Stage\gameStage3.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\GO.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\modelData\fairy\hnd.God2.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\modelData\fairy\hnd.hane.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\modelData\fairy\hnd.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\Hp.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\kanshouG.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\kanshouW.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\kariline.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\karipoint.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\marker\mark_red.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\localpvpG.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\localpvpW.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\result\lose.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\marker\mark_1.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\marker\mark_2.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\marker\mark_3.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\marker\mark_blue.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_back.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_none.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_one.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_three.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_two.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\Mp.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\pythoneditG.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\pythoneditW.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\randompvpG.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\randompvpW.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\result\redteamp.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\button\sb_cancel.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\button\sb_OK.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\button\simple_button.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\button\simple_button_blue.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\Test.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\PriTest2.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\PriTest1.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\modelData\uma\uma_eye.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\modelData\uma\uma.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_back_B.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_back_R.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\B_alpha.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_frame.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_frameRed.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_frameBlue.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_frameYellow.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_uma.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\modelData\stage\limit.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\monsel_back.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\MonActList\mon_mp.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\MonActList\mon_hp.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\MonActList\backBlue.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\MonActList\backRed.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\MonActList\actBlock.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\modelData\stage\dun2.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+  </ItemGroup>
+  <ItemGroup>
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="Game\Monster\Action\Act_Atack.cpp">
       <Filter>act</Filter>
@@ -224,6 +459,9 @@
     <ClCompile Include="Engine\graphics\SkinModelShaderConst.cpp">
       <Filter>Engine</Filter>
     </ClCompile>
+    <ClCompile Include="Engine\sound\SoundEngine.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
     <ClCompile Include="Engine\graphics\Sprite\SpBuffer.cpp">
       <Filter>Engine</Filter>
     </ClCompile>
@@ -424,12 +662,39 @@
     <ClCompile Include="Game\Monster\Monsters\TestMons.cpp">
       <Filter>Game\Monster</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\sound\SoundEngine.cpp">
-      <Filter>Engine\Sound</Filter>
+    <ClCompile Include="Game\Monster\Action\Act_Guardian.cpp">
+      <Filter>act</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\sound\CSound.cpp">
-      <Filter>Engine\Sound</Filter>
+    <ClCompile Include="Game\Monster\Action\Act_Tackle.cpp">
+      <Filter>act</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <MeshContentTask Include="Assets\modelData\fairy\hnd.FBX">
+      <Filter>Assets</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\stage\map.FBX">
+      <Filter>Assets</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\testMons\tesEnemy2.fbx">
+      <Filter>Assets</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\testMons\tesEnemy3.fbx">
+      <Filter>Assets</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\Test.FBX">
+      <Filter>Assets</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\uma\uma.fbx">
+      <Filter>Assets</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\dungeon\dungeonBack.FBX" />
+    <MeshContentTask Include="Assets\modelData\stage\limit.FBX">
+      <Filter>Assets</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\stage\dun.fbx">
+      <Filter>Assets</Filter>
+    </MeshContentTask>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\PythonBridge\include\unicodeobject.h" />
@@ -780,6 +1045,9 @@
       <Filter>Engine</Filter>
     </ClInclude>
     <ClInclude Include="Engine\graphics\SkinModelShaderConst.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\sound\SoundEngine.h">
       <Filter>Engine</Filter>
     </ClInclude>
     <ClInclude Include="Engine\graphics\Sprite\SpBuffer.h">
@@ -1162,16 +1430,45 @@
     <ClInclude Include="Game\Monster\Monsters\TestMons.h">
       <Filter>Game\Monster</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\sound\SoundEngine.h">
-      <Filter>Engine\Sound</Filter>
+    <ClInclude Include="Game\Monster\Action\Act_Guardian.h">
+      <Filter>act</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\sound\CSound.h">
-      <Filter>Engine\Sound</Filter>
+    <ClInclude Include="Game\Monster\Action\Act_Tackle.h">
+      <Filter>act</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="python36.lib" />
     <CustomBuild Include="python36_d.lib" />
+    <CustomBuild Include="Assets\modelData\boneTestMove.tka">
+      <Filter>Assets</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\modelData\uma.tks">
+      <Filter>Assets</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Assets\modelData\testMons\asu.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\modelData\boxTex.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\effect\fire1\Fire.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\modelData\stage\handle010.jpg">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\effect\fire1\Smoke.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\effect\fire1\Particle01.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_back2.png">
+      <Filter>Assets</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <CopyFileToFolders Include="Game\dlllib\python36.dll" />
@@ -1196,6 +1493,24 @@
     </None>
     <None Include="Game\PythonBridge\include\pydtrace.d">
       <Filter>Python</Filter>
+    </None>
+    <None Include="Assets\effect\fire1\fire1.efk">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="Assets\modelData\hnd.tks">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="Assets\modelData\fairy\hnd_atack.tka">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="Assets\modelData\fairy\hnd_ex1.tka">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="Assets\modelData\fairy\hnd_idle.tka">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="Assets\modelData\仮保管庫\move.tka">
+      <Filter>Assets</Filter>
     </None>
     <None Include="PythonAIs\testBrain2.py">
       <Filter>Game</Filter>
@@ -1234,12 +1549,6 @@
     </Filter>
     <Filter Include="Game\Monster">
       <UniqueIdentifier>{41811a72-fa96-427d-ad8a-b178db29047b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Assets\sp">
-      <UniqueIdentifier>{3ecbf7ab-aee5-4ec3-8ba6-8f3952a95e66}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Engine\Sound">
-      <UniqueIdentifier>{69a12759-f837-4fa8-b989-cebedee416d9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
