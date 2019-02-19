@@ -27,6 +27,11 @@ bool Game::Start() {
 	m_model = NewGO<SkinModelRender>(0, "model");
 	m_model->Init(L"Assets/modelData/dun.cmo");
 	m_model->SetPosition(CVector3::Zero());
+
+	m_floor = NewGO<SkinModelRender>(0, "model");
+	m_floor->Init(L"Assets/modelData/dun_yuka.cmo");
+	m_floor->SetPosition(CVector3::Zero());
+
 	m_menu = NewGO<GameMenu>(0, "gm");
 	m_menu->init(m_playMode,m_dunNum);
 	if(m_isOnlineGame)
