@@ -188,7 +188,7 @@ void SkinModel::Draw(EnRenderMode renderMode, CMatrix viewMatrix, CMatrix projMa
 	else {
 		modelFxCb.isShadowReciever = 0;
 	}
-
+	modelFxCb.ambientLight = g_graphicsEngine->GetAmbientLight();
 	deviceContext->UpdateSubresource(m_cb, 0, nullptr, &modelFxCb, 0, 0);
 	//ライト用の定数バッファを更新。
 	//deviceContext->UpdateSubresource(m_lightCb, 0, nullptr, &m_dirLight, 0, 0);
