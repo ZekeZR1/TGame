@@ -3,9 +3,10 @@
 #include "AIEditNode.h"
 #include "AIEditLine.h"
 #include "../GameCursor.h"
-
+#include "AIEditNodeTarget.h"
 //camera
 #include "../../GameCamera.h"
+#include "AIEditNodeProcess.h"
 
 AIEditNodeClick::~AIEditNodeClick()
 {
@@ -17,9 +18,19 @@ AIEditNodeClick::~AIEditNodeClick()
 bool AIEditNodeClick::Start()
 {
 	m_gamecursor = FindGO<GameCursor>("cursor");
+	m_aieditnodeprocess = FindGO<AIEditNodeProcess>("process");
 
-	m_position.x = x;
-	m_position.y = y;
+	if (process == true){
+		m_position.x = x;
+		m_position.y = m_aieditnodeprocess->GetPosy();
+	}
+
+	if (process == false) {
+		m_position.x = x;
+		m_position.y = y;
+		//process = true;
+	}
+
 	m_spriteRender = NewGO<SpriteRender>(0, "mass");
 	m_spriteRender->Init(L"Assets/sprite/click.dds", 250, 150,true); //last
 	m_spriteRender->SetPosition(m_position);
@@ -42,7 +53,7 @@ void AIEditNodeClick::Update()
 
 			if (m_spriteRender->isCollidingTarget()) {
 
-				m_aieditnode = NewGO<AIEditNode>(0, "window");
+				m_aieditnodetarget = NewGO<AIEditNodeTarget>(0, "target");
 
 				Choice0 = true;
 			}

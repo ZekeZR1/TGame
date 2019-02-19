@@ -13,6 +13,8 @@ Act_Fire::Act_Fire()
 
 bool Act_Fire::Action(Monster * me)
 {
+	if (m_target == nullptr)
+		return true;
 	if (!m_isPlayAnim)
 	{
 		me->anim_extra1();

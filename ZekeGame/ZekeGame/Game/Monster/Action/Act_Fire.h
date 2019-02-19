@@ -3,7 +3,7 @@
 #include "../MonsterAction.h"
 class Monster;
 
-//extra1
+//ANIMATION AXTRA1
 class Act_Fire :public MonsterAction
 {
 public:

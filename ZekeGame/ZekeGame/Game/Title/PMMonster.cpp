@@ -23,7 +23,7 @@ PMMonster::PMMonster()
 
 bool PMMonster::Start()
 {
-	m_fr = NewGO<FontRender>(0, "font");
+	m_fr = NewGO<FontRender>(1, "font");
 	m_cursor = FindGO<GameCursor>("cursor");
 	return true;
 }

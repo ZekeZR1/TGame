@@ -4,7 +4,7 @@
 #include "../GameCursor.h"
 #include "AIEdtiNodeAbnormalState.h"
 #include "AIEditNodeButton.h"
-
+#include "AIEditNodeOrder.h"
 
 AIEditNodeAbnormalState::~AIEditNodeAbnormalState()
 {
@@ -14,7 +14,8 @@ AIEditNodeAbnormalState::~AIEditNodeAbnormalState()
 	{
 		DeleteGO(sp);
 	}
-
+	for (auto fonts : m_fonts)
+		DeleteGO(fonts);
 }
 
 
@@ -40,14 +41,59 @@ bool AIEditNodeAbnormalState::Start()
 		m_nodebuttons.push_back(m_aieditnodebutton);
 	}
 
+	//フォント
+	for (int i = 0; i < button; i++) {
+		m_fonts.push_back(NewGO<FontRender>(5));
+	}
+	auto bacon = m_nodebuttons[0]->GetPos();
+	CVector2 m_fontpos = CVector2::Zero();
+	m_fontpos.x = bacon.x - 50.0;
+	m_fontpos.y = bacon.y + 110.0;
+	m_fonts[0]->Init(L" 毒", { m_fontpos }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
+	m_fontpos.y -= 55.f;
+	m_fonts[1]->Init(L"火傷", { m_fontpos }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
+	m_fontpos.x -= 20.f;
+	m_fontpos.y -= 55.f;
+	m_fonts[2]->Init(L" 氷結", { m_fontpos }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
+	m_fontpos.x -= 14.f;
+	m_fontpos.y -= 55.f;
+	m_fonts[3]->Init(L" スタン", { m_fontpos }, 0.0, CVector4::White, 0.9, { 0.0,0.0 });
 	return true;
 }
 
+
+void AIEditNodeAbnormalState::Order()
+{
+
+	if (Mouse::isTrigger(enLeftClick)) {	//左クリック
+		m_aieditnodeorder = NewGO<AIEditNodeOrder>(0, "Order");
+		Choice6 = true;
+	}
+}
 
 
 void AIEditNodeAbnormalState::Update()
 {
 
+	CVector3 cursorpos = m_gamecursor->GetCursor();
 
+	for (int i = 0; i < button; i++) {
+		SpriteRender* sp = m_nodebuttons[i]->GetSpriteRender();
+		sp->SetCollisionTarget(cursorpos);
+
+	}
+
+	if (Choice6 == false) { //何も選択していないとき
+
+		for (int i = 0; i < button; i++) {
+			if (m_nodebuttons[i]->GetSpriteRender()->isCollidingTarget())	//選択しているか	
+			{
+				Order();
+
+			}
+
+		}
+
+	}
 
 }
