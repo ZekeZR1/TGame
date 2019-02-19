@@ -48,6 +48,10 @@ bool Act_Tackle::Action(Monster * me)
 				float dam = 5.0f * me->GetAttack();
 				mon->Damage(dam);
 				me->Setspeed(CVector3::Zero());
+
+				Sound* se = NewGO<Sound>(0, "snd");
+				se->Init(L"Assets/sound/punch-high2.wav");
+				se->Play();
 				return true;
 			}
 			else
@@ -59,6 +63,10 @@ bool Act_Tackle::Action(Monster * me)
 
 				float dam = 0.3f * me->GetAttack();
 				mon->Damage(dam);
+
+				Sound* se = NewGO<Sound>(0, "snd");
+				se->Init(L"Assets/sound/punch-middle2.wav");
+				se->Play();
 			}
 		}
 	}

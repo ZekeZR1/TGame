@@ -17,8 +17,8 @@ bool Act_Chase::Action(Monster* me)
 		me->anim_idle();
 		return true;
 	}
-
-	CVector3 v = m_target->Getpos() - me->Getpos();
+	CVector3 mepo = me->Getpos();
+	CVector3 v = m_target->Getpos() - mepo;
 	if (v.Length() < 30+m_target->Getradius())
 	{
 		me->Setspeed(CVector3::Zero());
@@ -28,6 +28,8 @@ bool Act_Chase::Action(Monster* me)
 	}
 	me->anim_walk();
 	v.Normalize();
+	
+	
 	v *= 15;
 	me->Setspeed(v);
 	me->Setiswalk(true);

@@ -296,6 +296,13 @@ class GameData:
                 himon = mon
         return himon
 
+    def GetEnemyLowHPMonster(self):
+        lomon = None
+        for mon in self.Enemys:
+            if lomon == None or lomon.HP > mon.HP:
+                lomon = mon
+        return lomon
+
 
 gameData = GameData()
 
@@ -358,6 +365,9 @@ def GetBuddyHighHPMonster():
 def GetEnemyHighHP():
     """#一番HPの高い敵のモンスターを返します"""
     return gameData.GetEnemyHighHP()
+
+def GetEnemyLowHPMonster():
+    return gameData.GetEnemyLowHPMonster()
 
 
 MonsterUseAction = [

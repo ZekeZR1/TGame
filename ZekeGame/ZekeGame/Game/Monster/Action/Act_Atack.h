@@ -9,5 +9,5 @@ public:
 	bool Action(Monster* me) override;
 private:
 	bool m_isfirst = true;
-	Sound s;
+	Sound* s;
 };
