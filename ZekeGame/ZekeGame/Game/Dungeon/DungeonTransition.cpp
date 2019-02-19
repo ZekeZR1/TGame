@@ -34,6 +34,7 @@ bool DungeonTransition::Start() {
 			m_monsters[i]->PlayAnimation(0);
 			break;
 		default:
+			OutputDebugStringA("Trasan Anime < ‚È‚ñ‚ÅHHH\n");
 			break;
 
 		}
