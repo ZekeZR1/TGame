@@ -74,6 +74,8 @@ void GameMenu::Update()
 		{
 			for (auto go : m_buttons)
 				DeleteGO(go);
+			m_buttons.clear();
+			m_buttons.shrink_to_fit();
 			DeleteGO(m_cursor);
 
 			m_isOpen = false;
