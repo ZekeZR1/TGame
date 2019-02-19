@@ -22,7 +22,7 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{DD699856-A074-41E8-925F-5B771B6EC69E}</ProjectGuid>
     <RootNamespace>ZekeGame</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -229,6 +229,7 @@
     <ClCompile Include="Engine\PreCompile.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Engine\sound\CSound.cpp" />
     <ClCompile Include="Engine\sound\SoundEngine.cpp" />
     <ClCompile Include="Engine\time\GameTime.cpp" />
     <ClCompile Include="Engine\window\Window.cpp" />
@@ -244,6 +245,7 @@
     <ClCompile Include="Game\AIEdit\AIEditNodeNum.cpp" />
     <ClCompile Include="Game\AIEdit\AIEditNodeOrder.cpp" />
     <ClCompile Include="Game\AIEdit\AIEditNodeProcess.cpp" />
+    <ClCompile Include="Game\AIEdit\AIEditNodeTarget.cpp" />
     <ClCompile Include="Game\AIEdit\AIEditNodeTechnique.cpp" />
     <ClCompile Include="Game\AIEdit\AIEdtiNodeAbnormalState.cpp" />
     <ClCompile Include="Game\Dungeon\DungeonAISelect.cpp" />
@@ -263,7 +265,9 @@
     <ClCompile Include="Game\Monster\Action\Act_Chase.cpp" />
     <ClCompile Include="Game\Monster\Action\Act_Defense.cpp" />
     <ClCompile Include="Game\Monster\Action\Act_Fire.cpp" />
+    <ClCompile Include="Game\Monster\Action\Act_Guardian.cpp" />
     <ClCompile Include="Game\Monster\Action\Act_Leave.cpp" />
+    <ClCompile Include="Game\Monster\Action\Act_Tackle.cpp" />
     <ClCompile Include="Game\Monster\Monster.cpp" />
     <ClCompile Include="Game\Monster\MonsterAction.cpp" />
     <ClCompile Include="Game\Monster\MonsterActionList.cpp" />
@@ -380,6 +384,7 @@
     <ClInclude Include="Engine\physics\RigitBody.h" />
     <ClInclude Include="Engine\physics\SpriteBoxCollider.h" />
     <ClInclude Include="Engine\PreCompile.h" />
+    <ClInclude Include="Engine\sound\CSound.h" />
     <ClInclude Include="Engine\sound\SoundEngine.h" />
     <ClInclude Include="Engine\time\GameTime.h" />
     <ClInclude Include="Engine\util\Util.h" />
@@ -396,6 +401,7 @@
     <ClInclude Include="Game\AIEdit\AIEditNodeNum.h" />
     <ClInclude Include="Game\AIEdit\AIEditNodeOrder.h" />
     <ClInclude Include="Game\AIEdit\AIEditNodeProcess.h" />
+    <ClInclude Include="Game\AIEdit\AIEditNodeTarget.h" />
     <ClInclude Include="Game\AIEdit\AIEditNodeTechnique.h" />
     <ClInclude Include="Game\AIEdit\AIEdtiNodeAbnormalState.h" />
     <ClInclude Include="Game\Dungeon\DungeonAISelect.h" />
@@ -414,7 +420,9 @@
     <ClInclude Include="Game\Monster\Action\Act_Chase.h" />
     <ClInclude Include="Game\Monster\Action\Act_Defense.h" />
     <ClInclude Include="Game\Monster\Action\Act_Fire.h" />
+    <ClInclude Include="Game\Monster\Action\Act_Guardian.h" />
     <ClInclude Include="Game\Monster\Action\Act_Leave.h" />
+    <ClInclude Include="Game\Monster\Action\Act_Tackle.h" />
     <ClInclude Include="Game\Monster\Monster.h" />
     <ClInclude Include="Game\Monster\MonsterAction.h" />
     <ClInclude Include="Game\Monster\MonsterActionList.h" />
@@ -555,6 +563,7 @@
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\dungeon\dungeonBack.FBX" />
     <MeshContentTask Include="Assets\modelData\fairy\hnd.FBX" />
+    <MeshContentTask Include="Assets\modelData\stage\dun.fbx" />
     <MeshContentTask Include="Assets\modelData\stage\limit.FBX" />
     <MeshContentTask Include="Assets\modelData\stage\map.FBX" />
     <MeshContentTask Include="Assets\modelData\Test.FBX" />
