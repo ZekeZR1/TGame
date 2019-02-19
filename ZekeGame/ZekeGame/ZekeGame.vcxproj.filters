@@ -713,6 +713,9 @@
     <MeshContentTask Include="Assets\modelData\stage\dun_yuka.fbx">
       <Filter>Assets</Filter>
     </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\stage\dun.fbx">
+      <Filter>Assets</Filter>
+    </MeshContentTask>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\PythonBridge\include\unicodeobject.h" />
