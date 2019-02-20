@@ -43,6 +43,8 @@ public:
 private:
 	Pyinit* m_pi;
 	SkinModelRender* m_model;
+	SkinModelRender* m_floor;
+
 	SpriteRender* m_sprite;
 	GameCamera* camera = nullptr;
 	StageSetup* ss;
@@ -55,8 +57,11 @@ private:
 	bool m_isOnlineGame = false;
 	bool m_suddenDeath = false;
 
-	float m_time = 10.0f;
+	float m_time = 180.0f;
 
 	SkinModelDummy* m_smd = nullptr;
+	FontRender* m_fr = nullptr;
+
+	CEffect* e;
 };
 

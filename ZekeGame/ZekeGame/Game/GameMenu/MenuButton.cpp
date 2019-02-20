@@ -12,7 +12,7 @@ MenuButton::~MenuButton()
 
 bool MenuButton::Start()
 {
-	m_button = NewGO<SpriteRender>(28, "sp");
+	m_button = NewGO<SpriteRender>(27, "sp");
 	m_button->Init(L"Assets/sprite/simple_button.dds", 400.0f, 89.6f);
 	m_dummy = NewGO<SpriteRender>(0, "sp");
 	m_dummy->Init(L"", 400.0f, 89.6f, true);

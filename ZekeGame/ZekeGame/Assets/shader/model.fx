@@ -38,6 +38,7 @@ cbuffer VSPSCb : register(b0) {
 	float4x4 mLightView;	//ライトビュー行列。
 	float4x4 mLightProj;	//ライトプロジェクション行列。
 	int isShadowReciever;	//シャドウレシーバーフラグ。
+	float ambientLight;
 };
 
 cbuffer ShadowMapCb : register(b1) {
@@ -193,6 +194,8 @@ float4 PSMain(PSInput In) : SV_Target0
 		specLig = pow(t, specPow) * mColor[i].xyz;
 		lig += specLig;
 	}
+	//ambient
+	lig += albedoColor.xyz  * ambientLight;
 	if (isShadowReciever == 1) {	//シャドウレシーバー。
 									//LVP空間から見た時の最も手前の深度値をシャドウマップから取得する。
 		float2 shadowMapUV = In.posInLVP.xy / In.posInLVP.w;
@@ -243,6 +246,7 @@ float4 PSMainSkin(PSInput In) : SV_Target0
 		specLig = pow(t, specPow) * mColor[i].xyz;
 		lig += specLig;
 	}
+	lig += albedoColor.xyz  * ambientLight;
 	if (isShadowReciever == 1) {	//シャドウレシーバー。
 									//LVP空間から見た時の最も手前の深度値をシャドウマップから取得する。
 		float2 shadowMapUV = In.posInLVP.xy / In.posInLVP.w;

@@ -79,6 +79,8 @@ class ACTION(IntEnum):
     Leave = 2
     Defense = 3
     Fire = 4
+    Tackle = 5
+    Guardian = 6
 
 class GameData:
     def fuck__init__(self):
@@ -294,6 +296,13 @@ class GameData:
                 himon = mon
         return himon
 
+    def GetEnemyLowHPMonster(self):
+        lomon = None
+        for mon in self.Enemys:
+            if lomon == None or lomon.HP > mon.HP:
+                lomon = mon
+        return lomon
+
 
 gameData = GameData()
 
@@ -357,10 +366,13 @@ def GetEnemyHighHP():
     """#一番HPの高い敵のモンスターを返します"""
     return gameData.GetEnemyHighHP()
 
+def GetEnemyLowHPMonster():
+    return gameData.GetEnemyLowHPMonster()
+
 
 MonsterUseAction = [
-    [ACTION.Chase,ACTION.Atack,ACTION.Leave,ACTION.Defense],
-    [ACTION.Chase,ACTION.Atack,ACTION.Defense],
+    [ACTION.Chase,ACTION.Atack,ACTION.Leave,ACTION.Defense,ACTION.Fire,ACTION.Tackle,ACTION.Guardian],
+    [ACTION.Chase,ACTION.Atack,ACTION.Defense,ACTION.Tackle],
     [ACTION.Chase,ACTION.Atack,ACTION.Leave,ACTION.Defense,ACTION.Fire]
     ]
 
@@ -390,6 +402,12 @@ def Defense(target):
 
 def Fire(target):
     addAction(target,ACTION.Fire)
+
+def Tackle(target):
+    addAction(target,ACTION.Tackle)
+
+def Guardian(target):
+    addAction(target,ACTION.Guardian)
 
 
 def End():

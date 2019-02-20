@@ -26,7 +26,7 @@ private:
 	int button = 2;							//ボタンの数。
 	bool Choice2 = false;					//何かが選択されたらtrueになる。
 
-
+	std::vector<FontRender*> m_fonts;
 	SpriteRender * m_spriteRender;
 	SpriteRender* sr;
 	GameCursor * m_gamecursor;

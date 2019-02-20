@@ -20,7 +20,8 @@ AIEditNode::~AIEditNode()
 	{
 		DeleteGO(sp);
 	}
-
+	for (auto fonts : m_fonts)
+		DeleteGO(fonts);
 }
 
 
@@ -34,27 +35,13 @@ bool AIEditNode::Start()
 	m_spriteRender = NewGO<SpriteRender>(1, "firstwin");
 	m_spriteRender->Init(L"Assets/sprite/sieat.dds", 150, 250);
 	CVector3 cursorpos = m_gamecursor->GetCursor();
+	cursorpos.x += 135.0f;
+	cursorpos.y += -140.0f;
 	m_position = cursorpos;
 	m_spriteRender->SetPosition(m_position);			//カーソルの座標
-	
-	////ボタン専用
-	//for (int i = 0; i < button; i++)		//iは数を回すだけのハム太郎  
-	//{
-	//	x *= -1;					
-	//	if (i % 2 == 0)
-	//	{
-	//		y -= 50;
-	//	}
-	//	SetPointPos(x,y);
-	//	sr = NewGO<SpriteRender>(2, "miniwin");
-	//	sr->Init(L"Assets/sprite/karipoint.dds", 70, 50, true);
-	//	sr->SetPosition(m_pointposition);
-	//	m_spriteRenders.push_back(sr);
-	//	
-	//}
-	
 
-	//改造中
+
+	//ぼたん。
 	for (int i = 0; i < button; i++) {               //ボタンの数分ループする。
 		m_aieditnodebutton = NewGO<AIEditNodeButton>(2, "button");
 		m_aieditnodebutton->SetPri(2);
@@ -62,6 +49,27 @@ bool AIEditNode::Start()
 		m_aieditnodebutton->SetPos(m_position);
 		m_nodebuttons.push_back(m_aieditnodebutton);
 	}
+
+	//フォント。
+	for (int i = 0; i < button; i++) {
+		m_fonts.push_back(NewGO<FontRender>(5));
+	}
+
+	auto bacon = m_nodebuttons[0]->GetPos();
+
+	CVector2 m_fontpos = CVector2::Zero();
+	m_fontpos.x = bacon.x - 50.0;
+	m_fontpos.y = bacon.y + 110.0;
+	m_fonts[0]->Init(L" HP", { m_fontpos }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
+	m_fontpos.y -= 57.f;
+	m_fonts[1]->Init(L" MP", { m_fontpos }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
+	m_fontpos.x -= 14.f;
+	m_fontpos.y -= 63.f;
+	m_fonts[2]->Init(L"状態異常", { m_fontpos }, 0.0, CVector4::White, 0.7, { 0.0,0.0 });
+	m_fontpos.x += 14.f;
+	m_fontpos.y -= 45.f;
+	m_fonts[3]->Init(L" 技", { m_fontpos }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
+
 	return true;
 
 }

@@ -6,8 +6,8 @@ def Brain(MeNum,MeTeam):
     game.init(MeNum,MeTeam)
     mon = game.GetEnemyHighHP()
 
-    game.Chase( mon )
-    game.Atack( mon )
+
+    game.Tackle( mon )
     
     game.End()
     #return cb.gameData.tesGetEneNum()

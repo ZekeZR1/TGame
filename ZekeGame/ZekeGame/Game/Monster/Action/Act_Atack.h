@@ -8,4 +8,6 @@ public:
 	Act_Atack();
 	bool Action(Monster* me) override;
 private:
+	bool m_isfirst = true;
+	Sound* s;
 };

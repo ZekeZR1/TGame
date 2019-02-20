@@ -31,17 +31,17 @@ bool AIEditNodeButton::Start()
 	}
 
 	//仕様変更前
-	//for (int i = 0; i < button; i++)		//buttonがボタンの数になる
-	//{
-	//	x *= -1;
+	/*for (int i = 0; i < button; i++)		//buttonがボタンの数になる
+	{
+		x *= -1;
 
-	//	if (i % 2 == 0)
-	//	{
-	//		y -= 50;
+		if (i % 2 == 0)
+		{
+			y -= 50;
 
-	//	}
+		}
 
-	//}
+	}*/
 
 
 

@@ -32,15 +32,13 @@ public:
 		return Choice1;
 	}
 
-	
-
 		
 private:
 
+	
 	int button = 4;						//ƒ{ƒ^ƒ“‚Ì”
 	bool Choice1 = false;				//‰½‚©‚ğ‘I‘ğ‚·‚é‚Ætrue‚É‚È‚é
-
-	
+	std::vector<FontRender*> m_fonts;
 	GameCursor * m_gamecursor;
 	AIEditNodeHp * m_aieditnodehp;
 	AIEditNodeInequ* m_aieditnodeinequ;
