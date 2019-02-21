@@ -52,7 +52,7 @@ public:
 		Clickflag = a;
 	}
 
-	bool GettechniqeCount()
+	int GettechniqeCount()
 	{
 		return TechniqueCount;
 	}

@@ -229,6 +229,7 @@
     <ClCompile Include="Engine\PreCompile.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Engine\sound\CSound.cpp" />
     <ClCompile Include="Engine\sound\SoundEngine.cpp" />
     <ClCompile Include="Engine\time\GameTime.cpp" />
     <ClCompile Include="Engine\window\Window.cpp" />
@@ -383,6 +384,7 @@
     <ClInclude Include="Engine\physics\RigitBody.h" />
     <ClInclude Include="Engine\physics\SpriteBoxCollider.h" />
     <ClInclude Include="Engine\PreCompile.h" />
+    <ClInclude Include="Engine\sound\CSound.h" />
     <ClInclude Include="Engine\sound\SoundEngine.h" />
     <ClInclude Include="Engine\time\GameTime.h" />
     <ClInclude Include="Engine\util\Util.h" />
