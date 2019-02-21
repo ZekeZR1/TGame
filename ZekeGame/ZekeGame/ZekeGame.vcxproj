@@ -601,6 +601,11 @@
     <ImageContentTask Include="Assets\Sprite\GUI\menu\mn_monsel.png" />
     <Image Include="Assets\modelData\stage\dunge.png" />
     <Image Include="Assets\modelData\stage\yuka.png" />
+    <ImageContentTask Include="Assets\Sprite\AIEdit\haik.png" />
+    <ImageContentTask Include="Assets\Sprite\AIEdit\arrow.png" />
+    <ImageContentTask Include="Assets\Sprite\AIEdit\click.png" />
+    <ImageContentTask Include="Assets\Sprite\AIEdit\masss.png" />
+    <ImageContentTask Include="Assets\Sprite\AIEdit\sieat.png" />
     <Image Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_back2.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_frame.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\B_alpha.png" />
