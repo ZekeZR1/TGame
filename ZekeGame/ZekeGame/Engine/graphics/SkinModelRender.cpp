@@ -29,6 +29,7 @@ void SkinModelRender::Render() {
 	m_skinModel.SetDirColor(m_dirCol,0);
 	m_skinModel.SetDirLight(m_dirLight,0);
 	m_skinModel.SetShadowMap(IGameObjectManager().GetShadowMap()->GetShadowMapSRV());
+	//m_skinModel.Draw(enRenderMode_Normal,
 	m_skinModel.Draw(enRenderMode_Normal,
 		camera3d->GetViewMatrix(),
 		camera3d->GetProjectionMatrix());
