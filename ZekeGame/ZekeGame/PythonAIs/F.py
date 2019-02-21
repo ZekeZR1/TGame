@@ -3,9 +3,10 @@ import PythonAIs.CppBridge as cb
 
 def Brain(num,team):
     cb.init(num,team)
-    mon = cb.GetEnemyHighHP()
-
+    mon = cb.GetEnemyLowHPMonster()
+    me = cb.GetMe()
     cb.Leave(mon)
-    cb.Fire(mon)
-    cb.Defense(mon)
+    if me.MP >= 20:
+        cb.Fire(mon)
+    cb.Leave(mon)
     cb.End()

@@ -24,11 +24,15 @@ bool Act_Atack::Action(Monster * me)
 			v.Normalize();
 			v *= 50;
 			m_target->StartKnockback(v);
+			s = NewGO<Sound>(0, "snd");
+			s->Init(L"Assets/sound/kick-low1.wav", false);
+			s->Play();
 		}
 		m_isfirst = false;
 	}
 	else if (!me->isAnimPlay())
 	{
+		me->anim_idle();
 		return true;
 	}
 	

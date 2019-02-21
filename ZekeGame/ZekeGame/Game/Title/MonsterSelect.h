@@ -26,4 +26,6 @@ private:
 	std::vector<std::wstring> m_paths;
 
 	int m_monstercount = 3;
+
+	SpriteRender* m_monsel = nullptr;
 };
