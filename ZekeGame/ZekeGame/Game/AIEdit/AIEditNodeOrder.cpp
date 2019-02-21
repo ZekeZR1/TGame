@@ -21,8 +21,7 @@ AIEditNodeOrder::~AIEditNodeOrder()
 
 bool AIEditNodeOrder::Start()
 {
-	static bool Click = 0;
-
+	
 	m_gamecursor = FindGO<GameCursor>("cursor");
 	m_aieditnodeclick = FindGO<AIEditNodeClick>("click");
 	m_aieditnode = FindGO<AIEditNode>("firstwin");
@@ -44,7 +43,7 @@ bool AIEditNodeOrder::Start()
 
 	m_pos.x += 300;
 
-	if (Click == false) {                                   //Clickがあるとき。
+	if (m_aieditnodeprocess->GetClickFlag() == false) {                                   //Clickがあるとき。
 		m_pos = m_aieditnodeclick->GetPosition();
 		m_pos.x += 30;
 	}
@@ -53,7 +52,7 @@ bool AIEditNodeOrder::Start()
 	m_spriteRender = NewGO<SpriteRender>(8, "mass");
 	m_spriteRender->Init(L"Assets/sprite/masss.dds", 300, 120);  //last
 	m_spriteRender->SetPosition(m_pos);
-	Click = true;
+	m_aieditnodeprocess->SetClickFlag(true);
 
 	//技を選択したら出ないようにする。
 	if(Technique == false){
@@ -96,8 +95,9 @@ bool AIEditNodeOrder::Start()
 		DeleteGO(m_aieditnodetechnique);
 		m_aieditnodetechnique = nullptr;
 		//Clickを表示する。
-		m_aieditnodeprocess->enSecond();
-		m_aieditnodeprocess = NewGO<AIEditNodeProcess>(0, "process");
+		m_aieditnodeprocess->Click();
+		
+		m_aieditnodeprocess->SetClickFlag(false);
 	}
 
 	return true;

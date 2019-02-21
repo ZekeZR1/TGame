@@ -4,7 +4,9 @@
 #include "../GameCursor.h"
 
 #include "AIEditNodeTarget.h"
-#include"AIEditNodeButton.h"
+#include "AIEditNodeButton.h"
+#include "AIEditNodeTechnique.h"
+#include "AIEditNodeProcess.h"
 AIEditNodeTarget::~AIEditNodeTarget()
 {
 	DeleteGO(m_spriteRender);
@@ -22,6 +24,7 @@ AIEditNodeTarget::~AIEditNodeTarget()
 bool AIEditNodeTarget::Start()
 {
 	m_gamecursor = FindGO<GameCursor>("cursor");
+	m_aieditnodeprocess = FindGO<AIEditNodeProcess>("process");
 
 	m_spriteRender = NewGO<SpriteRender>(0, "target");
 	m_spriteRender->Init(L"Assets/sprite/sieat.dds", 150, 190);
@@ -66,10 +69,23 @@ void AIEditNodeTarget::Num()
 	if (Mouse::isTrigger(enLeftClick))	//左クリック
 	{
 		NewGO<AIEditNode>(0, "firstwin");
-
+		
 		Choice0 = true;
 	}
 
+
+}
+
+void AIEditNodeTarget::Technique()
+{
+
+	if (Mouse::isTrigger(enLeftClick))	//左クリック
+	{
+		m_aieditnodetechique = NewGO<AIEditNodeTechnique>(0, "technique");
+
+		Choice0 = true;
+
+	}
 
 }
 
@@ -88,7 +104,7 @@ void AIEditNodeTarget::Update()
 
 		for (int i = 0; i < button; i++) {
 			if (m_nodebuttons[i]->GetSpriteRender()->isCollidingTarget())	//選択しているか	
-			{
+			{	
 				Num();
 
 			}

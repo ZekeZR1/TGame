@@ -3,6 +3,7 @@
 class AIEditNode;
 class AIEditNodeOrder;
 class AIEditNodeTarget;
+class AIEditNodeProcess;
 class AIEditLine : public GameObject
 {
 
@@ -34,5 +35,6 @@ private:
 	AIEditNodeOrder * m_aieditnodeorder;
 	AIEditNode * m_aieditnode;
 	AIEditNodeTarget* m_aieditnodetarget;
+	AIEditNodeProcess* m_aieditnodeprocess;
 
 };

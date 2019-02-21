@@ -12,6 +12,7 @@ public:
 
 	bool Start() override final;
 	void Update() override final;
+	void SetPosition(CVector3 m_pos);
 
 	void GetChoice0(bool a)
 	{
