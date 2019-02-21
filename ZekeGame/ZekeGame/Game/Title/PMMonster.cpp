@@ -17,14 +17,14 @@ PMMonster::PMMonster()
 {
 	m_mon = NewGO<SpriteRender>(1, "sp");
 	m_mon->Init(L"Assets/sprite/mon_one.dds", 128, 128,true);
-	
-	
+	m_fr = NewGO<FontRender>(1, "font");
+	m_cursor = FindGO<GameCursor>("cursor");
 }
 
 bool PMMonster::Start()
 {
-	m_fr = NewGO<FontRender>(1, "font");
-	m_cursor = FindGO<GameCursor>("cursor");
+	
+	
 	return true;
 }
 
@@ -154,6 +154,14 @@ void PMMonster::SetPython(const wchar_t * py,int num)
 		}
 	}
 	g_AIset[m_num] = m_selAI;
+
+	CVector3 spos = m_mon->GetPosition();
+	CVector2 pos;
+	pos.x = spos.x - 90;
+	pos.y = spos.y - 68;
+	pos.y = spos.y - 130;
+
+	m_fr->Init(m_python, pos, 0, CVector4::White, 1, { 0.5f,0.5f });
 }
 
 void PMMonster::yesSelect()
@@ -172,13 +180,7 @@ void PMMonster::PostRender()
 {
 	//font.Begin();
 
-	CVector3 spos = m_mon->GetPosition();
-	CVector2 pos;
-	pos.x = spos.x-90;
-	pos.y = spos.y-68;
-
-	//font.Draw(m_python, pos);
-	m_fr->Init(m_python, pos, 0, CVector4::White, 1, { 0.5f,0.5f });
+	
 
 	//font.End();
 }
