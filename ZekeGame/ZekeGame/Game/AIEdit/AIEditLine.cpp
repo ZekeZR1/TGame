@@ -42,7 +42,7 @@ void AIEditLine::Update()
 		//if (m_aieditnode->GetChoice1() == false) {
 		if (Choice1 == false) {
 
-			if (m_aieditnodeprocess->GettechniqeCount() <= 1) {
+			if (m_aieditnodeprocess->GettechniqeCount() <= 0) {
 				m_aieditnodeprocess->Target();
 				Choice1 = true;
 			}
@@ -51,7 +51,7 @@ void AIEditLine::Update()
 
 		if (Choice1 == false) {
 
-			if (m_aieditnodeprocess->GettechniqeCount() >= 2){
+			if (m_aieditnodeprocess->GettechniqeCount() >= 1){
 				m_aieditnodeprocess->Technique();
 				Choice1 = true;
 			}

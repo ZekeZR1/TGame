@@ -29,10 +29,13 @@ bool AIEditNodeTarget::Start()
 	m_spriteRender = NewGO<SpriteRender>(0, "target");
 	m_spriteRender->Init(L"Assets/sprite/sieat.dds", 150, 190);
 	m_spriteRender->SetPivot({ 0.5f, 0.35f });
-	CVector3 cursorpos = m_gamecursor->GetCursor();
-	cursorpos.x += 135.0f;
-	cursorpos.y += -140.0f;
-	m_position = cursorpos;
+
+	//CVector3 cursorpos = m_gamecursor->GetCursor();
+	//cursorpos.x += 135.0f;
+	//cursorpos.y += -140.0f;
+	//m_position = cursorpos;
+	m_position.x -= 100;
+	m_position.y = 150;
 	m_spriteRender->SetPosition(m_position);	//AIEditNodeのボタンの座標座標
 
 	//ぼたん
