@@ -573,6 +573,7 @@
     <MeshContentTask Include="Assets\modelData\uma\uma.fbx" />
   </ItemGroup>
   <ItemGroup>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_back_aiedit.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_back_dung.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_back_local.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_aiedi.png" />
@@ -651,7 +652,6 @@
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\pythoneditW.png" />
     <ImageContentTask Include="Assets\Sprite\kariline.png" />
     <ImageContentTask Include="Assets\Sprite\Mp.png" />
-    <ImageContentTask Include="Assets\Sprite\karipoint.png" />
     <ImageContentTask Include="Assets\Sprite\winkari.png" />
     <Image Include="Assets\effect\fire1\Fire.png" />
     <Image Include="Assets\effect\fire1\Particle01.png" />

@@ -204,6 +204,7 @@ void ModeSelect::Update()
 				case enRandompvp:
 					break;
 				case enAIedit:
+					m_back->Init(L"Assets/sprite/modesel_back_AIedit.dds", 1280, 720);
 					break;
 				}
 			}

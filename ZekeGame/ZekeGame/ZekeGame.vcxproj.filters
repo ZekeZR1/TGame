@@ -228,21 +228,6 @@
     <ImageContentTask Include="Assets\Sprite\GUI\MonActList\actBlock.png">
       <Filter>Assets</Filter>
     </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\AIEdit\arrow.png">
-      <Filter>Assets</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\AIEdit\sieat.png">
-      <Filter>Assets</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\AIEdit\click.png">
-      <Filter>Assets</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\AIEdit\haik.png">
-      <Filter>Assets</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\AIEdit\masss.png">
-      <Filter>Assets</Filter>
-    </ImageContentTask>
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_fairy.png">
       <Filter>Assets</Filter>
     </ImageContentTask>
@@ -268,6 +253,14 @@
       <Filter>Assets</Filter>
     </ImageContentTask>
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_back_dung.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\Monselect.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\AIselect.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\menu\mn_fuck.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\menu\mn_mainmn.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\menu\mn_monsel.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_back_aiedit.png">
       <Filter>Assets</Filter>
     </ImageContentTask>
   </ItemGroup>
@@ -707,6 +700,7 @@
     <ClCompile Include="Game\Monster\Action\Act_Tackle.cpp">
       <Filter>Game\Monster</Filter>
     </ClCompile>
+    <ClCompile Include="Engine\sound\CSound.cpp" />
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\fairy\hnd.FBX">
@@ -731,6 +725,8 @@
     <MeshContentTask Include="Assets\modelData\stage\limit.FBX">
       <Filter>Assets</Filter>
     </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\stage\dun.fbx" />
+    <MeshContentTask Include="Assets\modelData\stage\dun_yuka.fbx" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\PythonBridge\include\unicodeobject.h" />
@@ -1475,6 +1471,7 @@
     <ClInclude Include="Game\Monster\Action\Act_Tackle.h">
       <Filter>Game\Monster</Filter>
     </ClInclude>
+    <ClInclude Include="Engine\sound\CSound.h" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="python36.lib" />
@@ -1508,9 +1505,8 @@
     <Image Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_back2.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\Sprite\AIEdit\w">
-      <Filter>Assets</Filter>
-    </Image>
+    <Image Include="Assets\modelData\stage\dunge.png" />
+    <Image Include="Assets\modelData\stage\yuka.png" />
   </ItemGroup>
   <ItemGroup>
     <CopyFileToFolders Include="Game\dlllib\python36.dll" />
@@ -1560,6 +1556,7 @@
     <None Include="PythonAIs\Threader.py">
       <Filter>Game</Filter>
     </None>
+    <None Include="C:\Users\kokoa\Pictures\Effekseer142cWin\shot.efk" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="act">
@@ -1592,5 +1589,10 @@
     <Filter Include="Game\Monster">
       <UniqueIdentifier>{41811a72-fa96-427d-ad8a-b178db29047b}</UniqueIdentifier>
     </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="Assets\sound\kick-low1.wav" />
+    <Media Include="Assets\sound\punch-high2.wav" />
+    <Media Include="Assets\sound\punch-middle2.wav" />
   </ItemGroup>
 </Project>
