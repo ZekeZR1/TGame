@@ -42,7 +42,7 @@ void AIEditNodeProcess::Click()
 {
 	if (num <= 7) {
 		m_aieditnodeclick = NewGO<AIEditNodeClick>(0, "click");
-		float y = 288 - 40 * num;
+		float y = 288 - 87 * num;
 		num += 1;
 		m_aieditnodeclick->SetPosition({ -446,y,0 });
 	}
@@ -60,7 +60,7 @@ void AIEditNodeProcess::Target()
 void AIEditNodeProcess::Technique()
 {
 	//if (TechniqueCount == 2) {
-		m_aieditnodetechnique = NewGO<AIEditNodeTechnique>(0, "Technique");
+		m_aieditnodetechnique = NewGO<AIEditNodeTechnique>(10, "Technique");
 		TechniqueCount = 0;
 	//}
 }
