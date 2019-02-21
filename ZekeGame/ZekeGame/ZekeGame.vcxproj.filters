@@ -99,9 +99,6 @@
     <ImageContentTask Include="Assets\Sprite\kariline.png">
       <Filter>Assets</Filter>
     </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\karipoint.png">
-      <Filter>Assets</Filter>
-    </ImageContentTask>
     <ImageContentTask Include="Assets\Sprite\marker\mark_red.png">
       <Filter>Assets</Filter>
     </ImageContentTask>
@@ -231,7 +228,19 @@
     <ImageContentTask Include="Assets\Sprite\GUI\MonActList\actBlock.png">
       <Filter>Assets</Filter>
     </ImageContentTask>
-    <ImageContentTask Include="Assets\modelData\stage\dun2.png">
+    <ImageContentTask Include="Assets\Sprite\AIEdit\arrow.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\AIEdit\sieat.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\AIEdit\click.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\AIEdit\haik.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\AIEdit\masss.png">
       <Filter>Assets</Filter>
     </ImageContentTask>
   </ItemGroup>
@@ -662,11 +671,14 @@
     <ClCompile Include="Game\Monster\Monsters\TestMons.cpp">
       <Filter>Game\Monster</Filter>
     </ClCompile>
+    <ClCompile Include="Game\AIEdit\AIEditNodeTarget.cpp">
+      <Filter>Game\AIEdite</Filter>
+    </ClCompile>
     <ClCompile Include="Game\Monster\Action\Act_Guardian.cpp">
-      <Filter>act</Filter>
+      <Filter>Game\Monster</Filter>
     </ClCompile>
     <ClCompile Include="Game\Monster\Action\Act_Tackle.cpp">
-      <Filter>act</Filter>
+      <Filter>Game\Monster</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -690,9 +702,6 @@
     </MeshContentTask>
     <MeshContentTask Include="Assets\modelData\dungeon\dungeonBack.FBX" />
     <MeshContentTask Include="Assets\modelData\stage\limit.FBX">
-      <Filter>Assets</Filter>
-    </MeshContentTask>
-    <MeshContentTask Include="Assets\modelData\stage\dun.fbx">
       <Filter>Assets</Filter>
     </MeshContentTask>
   </ItemGroup>
@@ -1430,11 +1439,14 @@
     <ClInclude Include="Game\Monster\Monsters\TestMons.h">
       <Filter>Game\Monster</Filter>
     </ClInclude>
+    <ClInclude Include="Game\AIEdit\AIEditNodeTarget.h">
+      <Filter>Game\AIEdite</Filter>
+    </ClInclude>
     <ClInclude Include="Game\Monster\Action\Act_Guardian.h">
-      <Filter>act</Filter>
+      <Filter>Game\Monster</Filter>
     </ClInclude>
     <ClInclude Include="Game\Monster\Action\Act_Tackle.h">
-      <Filter>act</Filter>
+      <Filter>Game\Monster</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1467,6 +1479,9 @@
       <Filter>Assets</Filter>
     </Image>
     <Image Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_back2.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Sprite\AIEdit\w">
       <Filter>Assets</Filter>
     </Image>
   </ItemGroup>
