@@ -680,6 +680,9 @@
     <ClCompile Include="Game\Monster\Action\Act_Tackle.cpp">
       <Filter>Game\Monster</Filter>
     </ClCompile>
+    <ClCompile Include="Engine\sound\CSound.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\fairy\hnd.FBX">
@@ -1447,6 +1450,9 @@
     </ClInclude>
     <ClInclude Include="Game\Monster\Action\Act_Tackle.h">
       <Filter>Game\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\sound\CSound.h">
+      <Filter>Game\AIEdite</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
