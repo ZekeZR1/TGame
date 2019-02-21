@@ -563,6 +563,8 @@
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\dungeon\dungeonBack.FBX" />
     <MeshContentTask Include="Assets\modelData\fairy\hnd.FBX" />
+    <MeshContentTask Include="Assets\modelData\stage\dun.fbx" />
+    <MeshContentTask Include="Assets\modelData\stage\dun_yuka.fbx" />
     <MeshContentTask Include="Assets\modelData\stage\limit.FBX" />
     <MeshContentTask Include="Assets\modelData\stage\map.FBX" />
     <MeshContentTask Include="Assets\modelData\Test.FBX" />
@@ -571,6 +573,17 @@
     <MeshContentTask Include="Assets\modelData\uma\uma.fbx" />
   </ItemGroup>
   <ItemGroup>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_back_aiedit.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_back_dung.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_back_local.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_aiedi.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_back.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_dung.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_frame.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_local.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_world.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_fairy.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\Monselect.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\MonActList\actBlock.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\MonActList\backBlue.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\MonActList\backRed.png" />
@@ -582,12 +595,12 @@
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_frameBlue.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_frameRed.png" />
     <ImageContentTask Include="Assets\modelData\stage\limit.png" />
-    <ImageContentTask Include="Assets\Sprite\AIEdit\arrow.png" />
-    <ImageContentTask Include="Assets\Sprite\AIEdit\click.png" />
-    <ImageContentTask Include="Assets\Sprite\AIEdit\haik.png" />
-    <Image Include="Assets\Sprite\AIEdit\w" />
-    <ImageContentTask Include="Assets\Sprite\AIEdit\masss.png" />
-    <ImageContentTask Include="Assets\Sprite\AIEdit\sieat.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\AIselect.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\menu\mn_fuck.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\menu\mn_mainmn.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\menu\mn_monsel.png" />
+    <Image Include="Assets\modelData\stage\dunge.png" />
+    <Image Include="Assets\modelData\stage\yuka.png" />
     <Image Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_back2.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_frame.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\B_alpha.png" />
@@ -683,6 +696,7 @@
     <None Include="Assets\modelData\fairy\hnd_idle.tka" />
     <None Include="Assets\modelData\hnd.tks" />
     <None Include="Assets\modelData\仮保管庫\move.tka" />
+    <None Include="C:\Users\kokoa\Pictures\Effekseer142cWin\shot.efk" />
     <None Include="Game\PythonBridge\include\pydtrace.d" />
     <CopyFileToFolders Include="PythonAIs\ang.py">
       <FileType>Document</FileType>
@@ -708,6 +722,11 @@
     <CustomBuild Include="python36_d.lib">
       <FileType>Document</FileType>
     </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="Assets\sound\kick-low1.wav" />
+    <Media Include="Assets\sound\punch-high2.wav" />
+    <Media Include="Assets\sound\punch-middle2.wav" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
