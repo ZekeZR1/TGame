@@ -38,6 +38,7 @@ cbuffer VSPSCb : register(b0) {
 	float4x4 mLightView;	//ライトビュー行列。
 	float4x4 mLightProj;	//ライトプロジェクション行列。
 	int isShadowReciever;	//シャドウレシーバーフラグ。
+	float ambientLight;
 };
 
 cbuffer ShadowMapCb : register(b1) {
@@ -193,6 +194,8 @@ float4 PSMain(PSInput In) : SV_Target0
 		specLig = pow(t, specPow) * mColor[i].xyz;
 		lig += specLig;
 	}
+	//ambient
+	lig += albedoColor.xyz  * ambientLight;
 	if (isShadowReciever == 1) {	//シャドウレシーバー。
 									//LVP空間から見た時の最も手前の深度値をシャドウマップから取得する。
 		float2 shadowMapUV = In.posInLVP.xy / In.posInLVP.w;
@@ -243,6 +246,7 @@ float4 PSMainSkin(PSInput In) : SV_Target0
 		specLig = pow(t, specPow) * mColor[i].xyz;
 		lig += specLig;
 	}
+	lig += albedoColor.xyz  * ambientLight;
 	if (isShadowReciever == 1) {	//シャドウレシーバー。
 									//LVP空間から見た時の最も手前の深度値をシャドウマップから取得する。
 		float2 shadowMapUV = In.posInLVP.xy / In.posInLVP.w;
@@ -271,10 +275,23 @@ float4 PSMainSkin(PSInput In) : SV_Target0
 	return finalColor;
 }
 
-PSInput_ShadowMap VSMain_ShadowMap(VSInputNmTxVcTangent In)
+PSInput_ShadowMap VSMain_ShadowMap(VSInputNmTxWeights In)
 {
+	float4x4 skinning = 0;
+	float4 pos = 0;
+	{
+
+		float w = 0.0f;
+		for (int i = 0; i < 3; i++)
+		{
+			skinning += boneMatrix[In.Indices[i]] * In.Weights[i];
+			w += In.Weights[i];
+		}
+		skinning += boneMatrix[In.Indices[3]] * (1.0f - w);
+		pos = mul(skinning, In.Position);
+	}
 	PSInput_ShadowMap psInput = (PSInput_ShadowMap)0;
-	float4 pos = mul(mWorld, In.Position);
+	float4 worldPos = mul(mWorld, In.Position);
 	pos = mul(mView, pos);
 	pos = mul(mProj, pos);
 	psInput.Position = pos;

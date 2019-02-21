@@ -8,5 +8,4 @@ public:
 	Act_Chase();
 	bool Action(Monster* me) override;
 private:
-	
 };

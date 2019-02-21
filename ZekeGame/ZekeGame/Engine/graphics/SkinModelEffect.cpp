@@ -32,6 +32,8 @@ void __cdecl ModelEffect::Apply(ID3D11DeviceContext* deviceContext)
 	if (m_renderMode == enRenderMode_CreateShadowMap) {
 		deviceContext->VSSetShader((ID3D11VertexShader*)m_vsShadowMap.GetBody(), NULL, 0);
 		deviceContext->PSSetShader((ID3D11PixelShader*)m_psShadowMap.GetBody(), NULL, 0);
+		//deviceContext->PSSetShaderResources(enSkinModelSRVReg_AlbedoTexture, 1, &m_albedoTex);
+		//deviceContext->PSSetShaderResources(2, 1, &m_shadowMapSRV);
 	}
 	else{
 		deviceContext->VSSetShader((ID3D11VertexShader*)m_pVSShader->GetBody(), NULL, 0);

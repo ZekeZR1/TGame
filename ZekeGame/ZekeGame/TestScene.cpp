@@ -6,7 +6,7 @@
 #include "Game/GameCursor.h"
 #include "TestScene.h"
 #include "TestScene2.h"
-
+#include "Engine\sound\CSound.h"
 
 TestScene::TestScene()
 {
@@ -45,9 +45,13 @@ bool TestScene::Start() {
 	m_anim[0].SetLoopFlag(true);
 	m_model->Init(L"Assets/modelData/uma.cmo",m_anim,1);
 	m_model->PlayAnimation(0);
+	m_model->SetShadowReciever(false);
 	//IGameObjectManager().AddShadowCaster(&(m_model->GetSkinModel()));
 	m_back = NewGO<SkinModelRender>(0);
 	m_back->Init(L"Assets/modelData/map.cmo");
+
+	g_graphicsEngine->SetAmbientLight(1.f);
+
 	/*m_white = NewGO<SpriteRender>(0);
 	m_white->Init(L"Assets/Sprite/DadanDanBk.dds", 500.f, 500.f);
 	m_white->ChangeCameraProjMatrix(Camera::enUpdateProjMatrixFunc_Ortho);
@@ -68,7 +72,10 @@ void TestScene::Update() {
 	camera2d->Update();
 	camera3d->Update();
 	static CVector3 p = CVector3::Zero();
-	if (g_pad[0].IsPress(enButtonA)) {
+	if (g_pad[0].IsTrigger(enButtonA)) {
+	//	auto s = NewGO<Sound>(0);
+//		s->Init(L"Assets/sound/coinGet.wav");
+		//s->Play();
 		p.z += 10.f;
 	}
 	if (g_pad[0].IsPress(enButtonB)) {

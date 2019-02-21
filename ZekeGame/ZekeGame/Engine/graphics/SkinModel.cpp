@@ -78,18 +78,17 @@ void SkinModel::InitConstantBuffer()
 }
 
 void SkinModel::InitDirectionLight() {
-		m_DirLight[0] = { 1.0f, 0.0f, 0.0f, 0.0f };
-		m_DirCol[0] = { 0.f, 0.0f, 0.0f, 1.0f };
+		m_DirLight[0] = CVector3::Zero();
+		m_DirCol[0] = CVector4::Zero;
 
-		m_DirLight[1] = { -1.0f, 0.0f, 0.0f, 0.0f };
-		m_DirCol[1] = { 0.f, 0.0f, 0.0f, 1.0f };
+		m_DirLight[1] = CVector3::Zero();
+		m_DirCol[1] = CVector4::Zero;
 
-		m_DirLight[2] = { 0.0f, 0.0f, -1.0f, 0.0f };
-		m_DirCol[2] = { 1.f, 1.0f, 1.f, 1.0f };
+		m_DirLight[2] = CVector3::Zero();
+		m_DirCol[2] = CVector4::Zero;
 
-
-		m_DirLight[3] = { 1.0f, 0.0f, -1.0f, 0.0f };
-		m_DirCol[3] = { 0.0f, 0.0f, 0.0f, 0.0f };
+		m_DirLight[3] = CVector3::Zero();
+		m_DirCol[3] = CVector4::Zero;
 }
 
 void SkinModel::InitSamplerState()
@@ -188,7 +187,7 @@ void SkinModel::Draw(EnRenderMode renderMode, CMatrix viewMatrix, CMatrix projMa
 	else {
 		modelFxCb.isShadowReciever = 0;
 	}
-
+	modelFxCb.ambientLight = g_graphicsEngine->GetAmbientLight();
 	deviceContext->UpdateSubresource(m_cb, 0, nullptr, &modelFxCb, 0, 0);
 	//ライト用の定数バッファを更新。
 	//deviceContext->UpdateSubresource(m_lightCb, 0, nullptr, &m_dirLight, 0, 0);

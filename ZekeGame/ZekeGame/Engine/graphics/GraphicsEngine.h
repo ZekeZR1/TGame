@@ -76,6 +76,14 @@ public:
 	void ChangeRenderTarget(RenderTarget* renderTarget, D3D11_VIEWPORT* viewport);
 	void ChangeRenderTarget(ID3D11RenderTargetView* renderTarget, ID3D11DepthStencilView* depthStensil, D3D11_VIEWPORT* viewport);
 
+	void SetAmbientLight(float amb) {
+		m_ambientLight = amb;
+	}
+
+	const float GetAmbientLight() {
+		return m_ambientLight;
+	}
+
 private:
 	CShaderResource m_shaderResources;
 	ID3D11Device* m_pd3dDevice = NULL;
@@ -93,5 +101,6 @@ private:
 	int						m_2dSpaceScreenHeight = 720;
 	int						m_frameBufferWidth = 0;
 	int						m_frameBufferHeight = 0;
+	float						m_ambientLight = 0.5f;
 };
 
