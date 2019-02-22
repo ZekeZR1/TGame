@@ -42,9 +42,7 @@ bool AIEditNodeTechnique::Start()
 		m_nodebuttons.push_back(m_aieditnodebutton);
 	}
 
-	//if (m_aieditnodeorder != nullptr) {
-	//	m_aieditnodeorder->SetTec(true);
-	//}
+
 
 	//ƒtƒHƒ“ƒg
 	for (int i = 0; i < button; i++) {

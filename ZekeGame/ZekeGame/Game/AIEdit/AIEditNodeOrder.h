@@ -19,6 +19,8 @@ public:
 	
 	bool Start() override final;
 	void Update() override final;
+	void DeleteGOs();
+	void Fonts();
 
 	bool GetTec()
 	{
@@ -44,6 +46,7 @@ private:
 	bool Technique = false;		//‹Z‚ğ‘I‘ğ‚µ‚½‚Æ‚«true‚É‚È‚éB@
 	int num = 1;
 
+	std::vector<FontRender*> m_fonts;
 	CVector3 m_pos = CVector3::Zero();
 	GameCursor * m_gamecursor;
 	AIEditMode * m_aieditmode;
