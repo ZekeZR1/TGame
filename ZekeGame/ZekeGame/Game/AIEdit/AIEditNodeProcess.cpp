@@ -60,7 +60,7 @@ void AIEditNodeProcess::Target()
 void AIEditNodeProcess::Technique()
 {
 	//if (TechniqueCount == 2) {
-		m_aieditnodetechnique = NewGO<AIEditNodeTechnique>(10, "Technique");
+		m_aieditnodetechnique = NewGO<AIEditNodeTechnique>(0, "Technique");
 		TechniqueCount = 0;
 	//}
 }

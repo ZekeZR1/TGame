@@ -58,8 +58,89 @@ bool AIEditNodeOrder::Start()
 	if(Technique == false){
 		m_aieditline = NewGO<AIEditLine>(0, "Line");
 		m_aieditline->SetPos(m_pos);
+		Fonts();
 	}
 
+	
+	DeleteGOs();
+
+
+	return true;
+
+}
+
+void AIEditNodeOrder::Fonts()
+{
+
+	//フォント
+	for (int i = 0; i < 6; i++) {
+		m_fonts.push_back(NewGO<FontRender>(9));
+	}
+
+	auto bacon = m_pos;
+	CVector2 m_fontpos1 = CVector2::Zero();
+	m_fontpos1.x = m_pos.x - 120;
+	m_fontpos1.y = m_pos.y + 45;
+	if (m_aieditnodetarget->GetTarget() == 100) {
+		m_fonts[0]->Init(L"自分", { m_fontpos1 }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
+	}
+	if (m_aieditnodetarget->GetTarget() == 101) {
+		m_fonts[0]->Init(L"味方", { m_fontpos1 }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
+	}
+	if (m_aieditnodetarget->GetTarget() == 102) {
+		m_fonts[0]->Init(L"敵", { m_fontpos1 }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
+	}
+
+	CVector2 m_fontpos2 = CVector2::Zero();
+	m_fontpos2.x = m_pos.x - 100;
+	m_fontpos2.y = m_pos.y + 5;
+	if (m_aieditnode->GetNode() == 200) {
+		m_fonts[1]->Init(L"HP", { m_fontpos2 }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
+	}
+	if (m_aieditnode->GetNode() == 201) {
+		m_fonts[1]->Init(L"MP", { m_fontpos2 }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
+	}
+
+	CVector2 m_fontpos3 = CVector2::Zero();
+	m_fontpos3.x = m_pos.x;
+	m_fontpos3.y = m_pos.y + 5;
+	if (m_aieditnodeinequ->GetInequ() == 300) {
+		m_fonts[2]->Init(L"以上", { m_fontpos3 }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
+	}
+	if (m_aieditnodeinequ->GetInequ() == 301) {
+		m_fonts[2]->Init(L"以下", { m_fontpos3 }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
+	}
+
+	CVector2 m_fontpos4 = CVector2::Zero();
+	m_fontpos4.x = m_pos.x - 50;
+	m_fontpos4.y = m_pos.y + 5;
+	if (m_aieditnodenum->GetNum() == 400) {
+		m_fonts[7]->Init(L"1％", { m_fontpos3 }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
+	}
+	if (m_aieditnodenum->GetNum() == 401) {
+		m_fonts[6]->Init(L"10％", { m_fontpos3 }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
+	}
+	if (m_aieditnodenum->GetNum() == 402) {
+		m_fonts[5]->Init(L"30％", { m_fontpos3 }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
+	}
+	if (m_aieditnodenum->GetNum() == 403) {
+		m_fonts[4]->Init(L"50％", { m_fontpos3 }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
+	}
+	if (m_aieditnodenum->GetNum() == 404) {
+		m_fonts[3]->Init(L"70％", { m_fontpos3 }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
+	}
+	if (m_aieditnodenum->GetNum() == 405) {
+		m_fonts[2]->Init(L"90％", { m_fontpos3 }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
+	}
+	if (m_aieditnodenum->GetNum() == 406) {
+		m_fonts[1]->Init(L"100％", { m_fontpos3 }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
+	}
+}
+
+
+
+void AIEditNodeOrder::DeleteGOs()
+{
 
 	if (m_aieditnodetarget != nullptr) {
 		DeleteGO(m_aieditnodetarget);
@@ -96,14 +177,10 @@ bool AIEditNodeOrder::Start()
 		m_aieditnodetechnique = nullptr;
 		//Clickを表示する。
 		m_aieditnodeprocess->Click();
-		
+
 		m_aieditnodeprocess->SetClickFlag(false);
 	}
-
-	return true;
-
 }
-
 
 void AIEditNodeOrder::Update()
 {

@@ -32,11 +32,23 @@ public:
 		return Choice1;
 	}
 
+	enum Node {
+
+		enHp = 200,
+		enMp,
+		enAb,
+		enNull,
+	};
+
+	int GetNode()
+	{
+		return m_Node;
+	}
 		
 private:
 
-	
-	int button = 4;						//ボタンの数
+	Node m_Node = enNull;
+	int button = 3;						//ボタンの数
 	bool Choice1 = false;				//何かを選択するとtrueになる
 	std::vector<FontRender*> m_fonts;
 	GameCursor * m_gamecursor;
