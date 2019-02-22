@@ -42,7 +42,6 @@ public:
 
 private:
 
-
 	bool Technique = false;		//‹Z‚ğ‘I‘ğ‚µ‚½‚Æ‚«true‚É‚È‚éB@
 	int num = 1;
 

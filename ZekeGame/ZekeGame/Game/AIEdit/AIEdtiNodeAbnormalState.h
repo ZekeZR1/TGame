@@ -13,8 +13,23 @@ public:
 	void Update();
 	void Order();
 
+	enum Abnormal {
+
+		endoku,
+		enyakedo,
+		enhyouketu,
+		ensutan,
+		ennull,
+	};
+
+	int GetAbnormal()
+	{
+		return m_abnormal;
+	}
+
 private:
 
+	Abnormal m_abnormal = ennull;
 	int button = 4;
 	bool Choice6 = false;
 	std::vector<FontRender*> m_fonts;

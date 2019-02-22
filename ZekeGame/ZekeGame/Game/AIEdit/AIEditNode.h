@@ -8,6 +8,7 @@ class AIEditNodeInequ;
 class AIEditNodeButton;
 class AIEditNodeTechnique;
 class AIEditNodeAbnormalState;
+class AIEditNodeProcess;
 class AIEditNode : public GameObject
 {
 
@@ -37,6 +38,7 @@ public:
 		enHp = 200,
 		enMp,
 		enAb,
+		enTechnique,
 		enNull,
 	};
 
@@ -48,7 +50,7 @@ public:
 private:
 
 	Node m_Node = enNull;
-	int button = 3;						//ボタンの数
+	int button = 4;						//ボタンの数
 	bool Choice1 = false;				//何かを選択するとtrueになる
 	std::vector<FontRender*> m_fonts;
 	GameCursor * m_gamecursor;
@@ -59,6 +61,7 @@ private:
 	AIEditNodeButton * m_aieditnodebutton;
 	AIEditNodeTechnique* m_aieditnodetechnique;
 	AIEditNodeAbnormalState* m_aieditnodeabnorimalstate;
+	AIEditNodeProcess* m_aieditnodeprocess;
 	CVector3 m_position = CVector3::Zero();
 	CVector3 m_pointposition = CVector3::Zero();
 	CFont m_font;

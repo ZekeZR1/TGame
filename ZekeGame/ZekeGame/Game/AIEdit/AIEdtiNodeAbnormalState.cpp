@@ -65,7 +65,8 @@ bool AIEditNodeAbnormalState::Start()
 void AIEditNodeAbnormalState::Order()
 {
 
-	if (Mouse::isTrigger(enLeftClick)) {	//左クリック
+	//if (Mouse::isTrigger(enLeftClick)) {	//左クリック
+	if(Choice6 ==false){
 		m_aieditnodeorder = NewGO<AIEditNodeOrder>(0, "Order");
 		Choice6 = true;
 	}
@@ -88,12 +89,32 @@ void AIEditNodeAbnormalState::Update()
 		for (int i = 0; i < button; i++) {
 			if (m_nodebuttons[i]->GetSpriteRender()->isCollidingTarget())	//選択しているか	
 			{
-				Order();
+				//Order();
 
 			}
 
 		}
 
+		if (Mouse::isTrigger(enLeftClick)) {	//左クリック
+
+			if (m_nodebuttons[button - 1]->GetSpriteRender()->isCollidingTarget()) {
+				m_abnormal = endoku;
+				Order();
+			}
+			if (m_nodebuttons[button - 1]->GetSpriteRender()->isCollidingTarget()) {
+				m_abnormal = enyakedo;
+				Order();
+			}
+			if (m_nodebuttons[button - 1]->GetSpriteRender()->isCollidingTarget()) {
+				m_abnormal = enhyouketu;
+				Order();
+			}
+			if (m_nodebuttons[button - 1]->GetSpriteRender()->isCollidingTarget()) {
+				m_abnormal = ensutan;
+				Order();
+			}
+
+		}
 	}
 
 }
