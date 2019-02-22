@@ -6,6 +6,7 @@ class MonsterEffect;
 class MonsterActionList;
 class MonsterMarker;
 class PythonBridge;
+enum ActionID;
 class Monster:public GameObject
 {
 public:
@@ -16,6 +17,12 @@ public:
 
 	bool Start() override final;
 	void Update() override final;
+
+	void SetUseAction(ActionID ua[6]);
+	ActionID* GetUseAction()
+	{
+		return m_UseAction;
+	}
 
 	//Monsterのアクションを実行する関数
 	void execute();
@@ -353,6 +360,7 @@ protected:
 
 	PythonBridge* m_PB;
 
+	ActionID* m_UseAction;
 	std::vector<MonsterAction*> m_actions;		//使うアクション
 	en_State m_state = en_NowLoading;
 	bool isLoading = false;

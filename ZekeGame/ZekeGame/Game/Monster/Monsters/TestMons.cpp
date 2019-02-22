@@ -32,6 +32,14 @@ TestMons::TestMons()
 		m_smr,	//‚rkin ‚lodel ‚qender
 		0		//ƒAƒjƒ[ƒVƒ‡ƒ“‚Ì”
 	);
+	ActionID* ua = new ActionID[6];
+	ua[enAtack] = enAtack;
+	ua[enChase] = enChase;
+	ua[enLeave] = enLeave;
+	ua[enDefense] = enDefense;
+	ua[4] = enTackle;
+	ua[5] = enActNone;
+	SetUseAction(ua);
 	//m_PB = FindGO<PythonBridge>("PB");
 
 	m_ID = 0;

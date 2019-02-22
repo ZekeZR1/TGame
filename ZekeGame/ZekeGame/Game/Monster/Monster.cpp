@@ -17,7 +17,7 @@ Monster::~Monster()
 	DeleteGO(m_PB);
 	ReleaseMAL();
 	ReleaseMark();
-	
+	delete[] m_UseAction;
 }
 
 void Monster::ReleaseMAL()
@@ -56,6 +56,11 @@ void Monster::init(float HP, float MP,float Defense,float ExDefense, float Attac
 	m_height = height;
 	m_smr = smr;
 	m_AnimNum = animnum;
+}
+
+void Monster::SetUseAction(ActionID ua[6])
+{
+	m_UseAction = ua;
 }
 
 void Monster::SuddenDeath()
@@ -139,6 +144,8 @@ void Monster::Update()
 	m_actionTime += IGameTime().GetFrameDeltaTime();
 	m_MPRecvTime += IGameTime().GetFrameDeltaTime();
 }
+
+
 
 void Monster::execute()
 {
@@ -268,7 +275,8 @@ void Monster::SetRotation(CQuaternion rot)
 
 void Monster::AddAction(MonsterAction * ma)
 {
-	m_actions.push_back(ma);
+	if(ma != nullptr)
+		m_actions.push_back(ma);
 }
 
 

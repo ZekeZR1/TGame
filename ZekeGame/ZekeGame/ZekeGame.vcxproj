@@ -301,6 +301,8 @@
     <ClCompile Include="Game\Title\pvpModeSelect.cpp" />
     <ClCompile Include="Game\Title\SuperMonsterSelect.cpp" />
     <ClCompile Include="Game\Title\Title.cpp" />
+    <ClCompile Include="Game\VisualScriptAI\VisualScriptAI.cpp" />
+    <ClCompile Include="Game\VisualScriptAI\VisualScriptRun.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
     </ClCompile>
@@ -556,6 +558,8 @@
     <ClInclude Include="Game\Title\pvpModeSelect.h" />
     <ClInclude Include="Game\Title\SuperMonsterSelect.h" />
     <ClInclude Include="Game\Title\Title.h" />
+    <ClInclude Include="Game\VisualScriptAI\VisualScriptAI.h" />
+    <ClInclude Include="Game\VisualScriptAI\VisualScriptRun.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="TestScene.h" />
     <ClInclude Include="TestScene2.h" />
@@ -573,6 +577,9 @@
     <MeshContentTask Include="Assets\modelData\uma\uma.fbx" />
   </ItemGroup>
   <ItemGroup>
+    <ImageContentTask Include="Assets\Sprite\GUI\returnButton\moji_return.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\returnButton\returnButton.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\returnButton\returnButton_push.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_back_aiedit.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_back_dung.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_back_local.png" />
@@ -606,6 +613,8 @@
     <ImageContentTask Include="Assets\Sprite\AIEdit\click.png" />
     <ImageContentTask Include="Assets\Sprite\AIEdit\masss.png" />
     <ImageContentTask Include="Assets\Sprite\AIEdit\sieat.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\leftButton.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\rightButton.png" />
     <Image Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_back2.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_frame.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\B_alpha.png" />

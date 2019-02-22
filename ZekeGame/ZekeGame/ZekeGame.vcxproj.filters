@@ -278,6 +278,21 @@
     <ImageContentTask Include="Assets\Sprite\AIEdit\sieat.png">
       <Filter>Assets</Filter>
     </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\leftButton.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\rightButton.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\returnButton\moji_return.png">
+      <Filter>Assets\returnButton</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\returnButton\returnButton.png">
+      <Filter>Assets\returnButton</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\returnButton\returnButton_push.png">
+      <Filter>Assets\returnButton</Filter>
+    </ImageContentTask>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp" />
@@ -716,6 +731,12 @@
       <Filter>Game\Monster</Filter>
     </ClCompile>
     <ClCompile Include="Engine\sound\CSound.cpp" />
+    <ClCompile Include="Game\VisualScriptAI\VisualScriptAI.cpp">
+      <Filter>Game\VisualScriptAI</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\VisualScriptAI\VisualScriptRun.cpp">
+      <Filter>Game\VisualScriptAI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\fairy\hnd.FBX">
@@ -1487,6 +1508,12 @@
       <Filter>Game\Monster</Filter>
     </ClInclude>
     <ClInclude Include="Engine\sound\CSound.h" />
+    <ClInclude Include="Game\VisualScriptAI\VisualScriptAI.h">
+      <Filter>Game\VisualScriptAI</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\VisualScriptAI\VisualScriptRun.h">
+      <Filter>Game\VisualScriptAI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="python36.lib" />
@@ -1603,6 +1630,12 @@
     </Filter>
     <Filter Include="Game\Monster">
       <UniqueIdentifier>{41811a72-fa96-427d-ad8a-b178db29047b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets\returnButton">
+      <UniqueIdentifier>{9f4b8fa2-12ac-4bf6-89f5-853abc6bd1c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\VisualScriptAI">
+      <UniqueIdentifier>{99ba0e27-c2c2-4248-833f-399b23411c3e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
