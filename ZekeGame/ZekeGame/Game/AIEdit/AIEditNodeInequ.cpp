@@ -64,12 +64,12 @@ bool AIEditNodeInequ::Start()
 
 void AIEditNodeInequ::Num()
 {
-
-	if (Mouse::isTrigger(enLeftClick)) {	//左クリック
+	if (Choice2 == false) { //何も選択していないとき
 		m_aieditnodenum = NewGO<AIEditNodeNum>(0, "Num");
 
 		Choice2 = true;
 	}
+	
 }
 
 
@@ -84,15 +84,27 @@ void AIEditNodeInequ::Update()
 
 	}
 
-	if (Choice2 == false) { //何も選択していないとき
+	
 
-		for (int i = 0; i < button; i++) {
-			if (m_nodebuttons[i]->GetSpriteRender()->isCollidingTarget())	//選択しているか	
-			{
+	for (int i = 0; i < button; i++) {
+		if (m_nodebuttons[i]->GetSpriteRender()->isCollidingTarget())	//選択しているか	
+		{
+			//Num();
+
+		}
+
+		if (Mouse::isTrigger(enLeftClick)) {	//左クリック
+			if (m_nodebuttons[button - 2]->GetSpriteRender()->isCollidingTarget()) {
+				m_inequ = enDainari;
 				Num();
+			}
 
+			if (m_nodebuttons[button - 1]->GetSpriteRender()->isCollidingTarget()) {
+				m_inequ = enShowers;
+				Num();
 			}
 
 		}
+		
 	}
 }

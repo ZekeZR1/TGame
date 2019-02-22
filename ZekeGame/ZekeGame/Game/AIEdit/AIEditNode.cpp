@@ -66,9 +66,9 @@ bool AIEditNode::Start()
 	m_fontpos.x -= 14.f;
 	m_fontpos.y -= 63.f;
 	m_fonts[2]->Init(L"状態異常", { m_fontpos }, 0.0, CVector4::White, 0.7, { 0.0,0.0 });
-	m_fontpos.x += 14.f;
-	m_fontpos.y -= 45.f;
-	m_fonts[3]->Init(L" 技", { m_fontpos }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
+	//m_fontpos.x += 14.f;
+	//m_fontpos.y -= 45.f;
+	//m_fonts[3]->Init(L" 技", { m_fontpos }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
 
 	return true;
 
@@ -101,12 +101,10 @@ void AIEditNode::Technique()
 void AIEditNode::Abnormal()
 {
 
-	if (Mouse::isTrigger(enLeftClick))	//左クリック
-	{
 		NewGO<AIEditNodeAbnormalState>(0, "Abnormal");
 
 		Choice1 = true;
-	}
+	
 
 }
 
@@ -122,25 +120,32 @@ void AIEditNode::Update()
 
 	if (Choice1 == false) { //何も選択していないとき
 
-		for (int i = 0; i < button - 2; i++) {
-			if (m_nodebuttons[i]->GetSpriteRender()->isCollidingTarget())	//選択しているか	
-			{
+		//for (int i = 0; i < button - 2; i++) {
+		//	if (m_nodebuttons[i]->GetSpriteRender()->isCollidingTarget())	//選択しているか	
+		//	{
+		//		Inequ();
+
+		//	}
+
+		//}
+		if (Mouse::isTrigger(enLeftClick)) {	//左クリック
+			if (m_nodebuttons[button - 3]->GetSpriteRender()->isCollidingTarget()) {
+				m_Node = enHp;
 				Inequ();
-			
 			}
-			
-		}
 
-		if (m_nodebuttons[button - 2]->GetSpriteRender()->isCollidingTarget()) {
+			if (m_nodebuttons[button - 2]->GetSpriteRender()->isCollidingTarget()) {
+				m_Node = enMp;
+				Inequ();
+			}
 
-			Abnormal();
-		}
+			if (m_nodebuttons[button - 1]->GetSpriteRender()->isCollidingTarget()) {
 
-		if (m_nodebuttons[button - 1]->GetSpriteRender()->isCollidingTarget()) {
+				Abnormal();
+			}
 
-			Technique();
 		}
 	}
-	
 }
 
+	

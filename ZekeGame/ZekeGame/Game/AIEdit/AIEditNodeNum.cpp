@@ -76,10 +76,12 @@ bool AIEditNodeNum::Start()
 void AIEditNodeNum::Order()
 {
 
-	if (Mouse::isTrigger(enLeftClick)) {	//左クリック
+	//if (Mouse::isTrigger(enLeftClick)) {	//左クリック
+	if (Choice3 == false) {
 		m_aieditnodeorder = NewGO<AIEditNodeOrder>(0, "Order");
 		Choice3 = true;
 	}
+	//}
 }
 
 void AIEditNodeNum::Update()
@@ -98,8 +100,47 @@ void AIEditNodeNum::Update()
 		if (Choice3 == false) {
 			if (m_nodebuttons[i]->GetSpriteRender()->isCollidingTarget())
 			{
+				//Order();
+			}
+
+		}
+
+		if (Mouse::isTrigger(enLeftClick)) {	//左クリック
+			if (m_nodebuttons[button - 7]->GetSpriteRender()->isCollidingTarget()) {
+				m_num = en1;
 				Order();
 			}
+
+			if (m_nodebuttons[button - 6]->GetSpriteRender()->isCollidingTarget()) {
+				m_num = en10;
+				Order();
+			}
+
+			if (m_nodebuttons[button - 5]->GetSpriteRender()->isCollidingTarget()) {
+				m_num = en30;
+				Order();
+			}
+
+			if (m_nodebuttons[button - 4]->GetSpriteRender()->isCollidingTarget()) {
+				m_num = en50;
+				Order();
+			}
+
+			if (m_nodebuttons[button - 3]->GetSpriteRender()->isCollidingTarget()) {
+				m_num = en70;
+				Order();
+			}
+
+			if (m_nodebuttons[button - 2]->GetSpriteRender()->isCollidingTarget()) {
+				m_num = en90;
+				Order();
+			}
+
+			if (m_nodebuttons[button - 1]->GetSpriteRender()->isCollidingTarget()) {
+				m_num = en100;
+				Order();
+			}
+
 		}
 	}
 

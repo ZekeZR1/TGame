@@ -20,8 +20,28 @@ public:
 		Choice3 = a;
 	}
 
+	enum Num {
+
+		en1 = 400,
+		en10,
+		en30,
+		en50,
+		en70,
+		en90,
+		en100,
+		ennull
+
+	};
+
+	int GetNum()
+	{
+
+		return m_num;
+	}
+
 private:
 
+	Num m_num = ennull;
 	int button = 7;					//ボタン。
 	bool Choice3 = false;				//何かが選択されたらtrueになる。
 

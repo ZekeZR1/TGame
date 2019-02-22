@@ -18,10 +18,26 @@ public:
 	void Num();
 	void Technique();
 
+	enum target {
+
+		enme = 100,
+		enbaddy,
+		enenemy,
+		entechnique,
+		ennull,
+	};
+
+	int GetTarget()
+	{
+		return m_target;
+	}
+	
+
 private:
 
+	target m_target = ennull;
 	std::vector<FontRender*> m_fonts;
-	int button = 3;
+	int button = 4;
 	bool Choice0;
 	CVector3 m_position = CVector3::Zero();
 	AIEditNodeButton* m_aieditnodebutton;
