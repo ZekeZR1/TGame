@@ -25,11 +25,12 @@ ModeSelect::~ModeSelect()
 	m_buttons.shrink_to_fit();
 
 	DeleteGO(m_back);
+	DeleteGO(m_cursor);
 }
 
 bool ModeSelect::Start()
 {
-	m_cursor = NewGO<GameCursor>(0, "cursor");
+	m_cursor = NewGO<GameCursor>(0, "cur");
 
 	m_back = NewGO<SpriteRender>(0, "sp");
 	m_back->Init(L"Assets/sprite/modesel_back.dds", 1280, 720);
