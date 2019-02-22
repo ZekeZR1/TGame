@@ -60,9 +60,6 @@ bool AIEditNodeTarget::Start()
 	m_fonts[1]->Init(L"味方", { m_fontpos }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
 	m_fontpos.y -= 55.f;
 	m_fonts[2]->Init(L" 敵", { m_fontpos }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
-	m_fontpos.y -= 55.f;
-	m_fonts[3]->Init(L" 技", { m_fontpos }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
-
 
 	return true;
 }
@@ -110,30 +107,30 @@ void AIEditNodeTarget::Update()
 
 		}
 		if (Mouse::isTrigger(enLeftClick)) {	//左クリック
-			if (m_nodebuttons[button - 4]->GetSpriteRender()->isCollidingTarget()) {
+			if (m_nodebuttons[button - 3]->GetSpriteRender()->isCollidingTarget()) {
 				m_target = enme;
 				Num();
 			}
 
-			if (m_nodebuttons[button - 3]->GetSpriteRender()->isCollidingTarget()) {
+			if (m_nodebuttons[button - 2]->GetSpriteRender()->isCollidingTarget()) {
 				m_target = enbaddy;
 				Num();
 			}
 
-			if (m_nodebuttons[button - 2]->GetSpriteRender()->isCollidingTarget()) {
+			if (m_nodebuttons[button - 1]->GetSpriteRender()->isCollidingTarget()) {
 				m_target = enenemy;
 				Num();
 			}
 
-			if (m_nodebuttons[button - 1]->GetSpriteRender()->isCollidingTarget()) {
+			//if (m_nodebuttons[button - 1]->GetSpriteRender()->isCollidingTarget()) {
 
-				//Technique();
-				if (Mouse::isTrigger(enLeftClick)) {	//左クリック
-					m_aieditnodeprocess->Technique();
-					m_target = entechnique;
-					Choice0 = true;
-				}
-			}
+			//	//Technique();
+			//	if (Mouse::isTrigger(enLeftClick)) {	//左クリック
+			//		m_aieditnodeprocess->Technique();
+			//		m_target = entechnique;
+			//		Choice0 = true;
+			//	}
+			//}
 		}
 	}
 }

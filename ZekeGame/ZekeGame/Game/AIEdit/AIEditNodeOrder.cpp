@@ -92,7 +92,7 @@ void AIEditNodeOrder::Fonts()
 	}
 
 	CVector2 m_fontpos2 = CVector2::Zero();
-	m_fontpos2.x = m_pos.x - 100;
+	m_fontpos2.x = m_pos.x - 120;
 	m_fontpos2.y = m_pos.y + 5;
 	if (m_aieditnode->GetNode() == 200) {
 		m_fonts[1]->Init(L"HP", { m_fontpos2 }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
@@ -102,7 +102,7 @@ void AIEditNodeOrder::Fonts()
 	}
 
 	CVector2 m_fontpos3 = CVector2::Zero();
-	m_fontpos3.x = m_pos.x;
+	m_fontpos3.x = m_pos.x + 30;
 	m_fontpos3.y = m_pos.y + 5;
 	if (m_aieditnodeinequ->GetInequ() == 300) {
 		m_fonts[2]->Init(L"ˆÈã", { m_fontpos3 }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
@@ -112,29 +112,71 @@ void AIEditNodeOrder::Fonts()
 	}
 
 	CVector2 m_fontpos4 = CVector2::Zero();
-	m_fontpos4.x = m_pos.x - 50;
+	m_fontpos4.x = m_pos.x - 75;
 	m_fontpos4.y = m_pos.y + 5;
 	if (m_aieditnodenum->GetNum() == 400) {
-		m_fonts[7]->Init(L"1“", { m_fontpos3 }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
+		m_fonts[3]->Init(L"1“", { m_fontpos4 }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
 	}
 	if (m_aieditnodenum->GetNum() == 401) {
-		m_fonts[6]->Init(L"10“", { m_fontpos3 }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
+		m_fonts[3]->Init(L"10“", { m_fontpos4 }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
 	}
 	if (m_aieditnodenum->GetNum() == 402) {
-		m_fonts[5]->Init(L"30“", { m_fontpos3 }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
+		m_fonts[3]->Init(L"30“", { m_fontpos4 }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
 	}
 	if (m_aieditnodenum->GetNum() == 403) {
-		m_fonts[4]->Init(L"50“", { m_fontpos3 }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
+		m_fonts[3]->Init(L"50“", { m_fontpos4 }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
 	}
 	if (m_aieditnodenum->GetNum() == 404) {
-		m_fonts[3]->Init(L"70“", { m_fontpos3 }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
+		m_fonts[3]->Init(L"70“", { m_fontpos4 }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
 	}
 	if (m_aieditnodenum->GetNum() == 405) {
-		m_fonts[2]->Init(L"90“", { m_fontpos3 }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
+		m_fonts[3]->Init(L"90“", { m_fontpos4 }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
 	}
 	if (m_aieditnodenum->GetNum() == 406) {
-		m_fonts[1]->Init(L"100“", { m_fontpos3 }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
+		m_fonts[3]->Init(L"100“", { m_fontpos4 }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
 	}
+
+	CVector2 m_fontpos5 = CVector2::Zero();
+	m_fontpos5.x = m_pos.x - 45;
+	m_fontpos5.y = m_pos.y + 5;
+	if (m_aieditnodetechnique->Gettechnique() == 500) {
+		m_fonts[4]->Init(L"UŒ‚", { m_fontpos5 }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
+	}
+	if (m_aieditnodetechnique->Gettechnique() == 501) {
+		m_fonts[4]->Init(L"“¦‚°‚é", { m_fontpos5 }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
+	}
+	if (m_aieditnodetechnique->Gettechnique() == 502) {
+		m_fonts[4]->Init(L"’ÇÕ", { m_fontpos5 }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
+	}
+	if (m_aieditnodetechnique->Gettechnique() == 503) {
+		m_fonts[4]->Init(L"Žç‚é", { m_fontpos5 }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
+	}
+	if (m_aieditnodetechnique->Gettechnique() == 504) {
+		m_fonts[4]->Init(L"‰ñ•œ", { m_fontpos5 }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
+	}
+	if (m_aieditnodetechnique->Gettechnique() == 505) {
+		m_fonts[4]->Init(L"“ÁŽê‹Z‚P", { m_fontpos5 }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
+	}
+	if (m_aieditnodetechnique->Gettechnique() == 506) {
+		m_fonts[4]->Init(L"“ÁŽê‹Z‚Q", { m_fontpos5 }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
+	}
+
+	CVector2 m_fontpos6 = CVector2::Zero();
+	m_fontpos6.x = m_pos.x - 45;
+	m_fontpos6.y = m_pos.y + 5;
+	if (m_aieditnodeabnormalstate->GetAbnormal() == 600) {
+		m_fonts[5]->Init(L"“Å", { m_fontpos6 }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
+	}
+	if (m_aieditnodeabnormalstate->GetAbnormal() == 601) {
+		m_fonts[5]->Init(L"‰Î", { m_fontpos6 }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
+	}
+	if (m_aieditnodeabnormalstate->GetAbnormal() == 602) {
+		m_fonts[5]->Init(L"•XŒ‹", { m_fontpos6 }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
+	}
+	if (m_aieditnodeabnormalstate->GetAbnormal() == 603) {
+		m_fonts[5]->Init(L"ƒXƒ^ƒ“", { m_fontpos6 }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
+	}
+
 }
 
 

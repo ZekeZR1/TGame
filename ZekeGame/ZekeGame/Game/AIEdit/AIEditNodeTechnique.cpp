@@ -43,7 +43,6 @@ bool AIEditNodeTechnique::Start()
 	}
 
 
-
 	//フォント
 	for (int i = 0; i < button; i++) {
 		m_fonts.push_back(NewGO<FontRender>(5));
@@ -61,11 +60,13 @@ bool AIEditNodeTechnique::Start()
 	m_fonts[2]->Init(L"追跡", { m_fontpos }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
 	m_fontpos.y -= 55.f;
 	m_fonts[3]->Init(L"守る", { m_fontpos }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
+	m_fontpos.y -= 55.f;
+	m_fonts[4]->Init(L"回復", { m_fontpos }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
 	m_fontpos.x -= 10.f;
 	m_fontpos.y -= 65.f;
-	m_fonts[4]->Init(L"特殊技1", { m_fontpos }, 0.0, CVector4::White, 0.7, { 0.0,0.0 });
+	m_fonts[5]->Init(L"特殊技1", { m_fontpos }, 0.0, CVector4::White, 0.7, { 0.0,0.0 });
 	m_fontpos.y -= 55.f;
-	m_fonts[5]->Init(L"特殊技2", { m_fontpos }, 0.0, CVector4::White, 0.7, { 0.0,0.0 });
+	m_fonts[6]->Init(L"特殊技2", { m_fontpos }, 0.0, CVector4::White, 0.7, { 0.0,0.0 });
 
 	return true;
 }
@@ -73,7 +74,8 @@ bool AIEditNodeTechnique::Start()
 void AIEditNodeTechnique::Order()
 {
 
-	if (Mouse::isTrigger(enLeftClick)) {	//左クリック
+	//if (Mouse::isTrigger(enLeftClick)) {	//左クリック
+	if(Choice4==false){
 		m_aieditnodeorder = NewGO<AIEditNodeOrder>(0, "Order");
 		Choice4 = true;
 		m_aieditnodeorder->SetTec(true);
@@ -96,6 +98,37 @@ void AIEditNodeTechnique::Update()
 		if (Choice4 == false) {
 			if (m_nodebuttons[i]->GetSpriteRender()->isCollidingTarget())
 			{
+				//Order();
+			}
+		}
+		if (Mouse::isTrigger(enLeftClick)) {	//左クリック
+
+			if (m_nodebuttons[button - 7]->GetSpriteRender()->isCollidingTarget()) {
+				m_technique = enAttak;
+				Order();
+			}
+			if (m_nodebuttons[button - 6]->GetSpriteRender()->isCollidingTarget()) {
+				m_technique = enEscape;
+				Order();
+			}
+			if (m_nodebuttons[button - 5]->GetSpriteRender()->isCollidingTarget()) {
+				m_technique = encCase;
+				Order();
+			}
+			if (m_nodebuttons[button - 4]->GetSpriteRender()->isCollidingTarget()) {
+				m_technique = enProtect;
+				Order();
+			}
+			if (m_nodebuttons[button - 3]->GetSpriteRender()->isCollidingTarget()) {
+				m_technique = enHeel;
+				Order();
+			}
+			if (m_nodebuttons[button - 2]->GetSpriteRender()->isCollidingTarget()) {
+				m_technique = enSpecial1;
+				Order();
+			}
+			if (m_nodebuttons[button - 1]->GetSpriteRender()->isCollidingTarget()) {
+				m_technique = enSpecial2;
 				Order();
 			}
 		}
