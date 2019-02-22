@@ -60,7 +60,8 @@ bool AIEditNodeTarget::Start()
 	m_fonts[1]->Init(L"味方", { m_fontpos }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
 	m_fontpos.y -= 55.f;
 	m_fonts[2]->Init(L" 敵", { m_fontpos }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
-
+	m_fontpos.y -= 55.f;
+	m_fonts[3]->Init(L" 技", { m_fontpos }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
 
 
 	return true;
@@ -68,14 +69,9 @@ bool AIEditNodeTarget::Start()
 
 void AIEditNodeTarget::Num() 
 {
-
-	if (Mouse::isTrigger(enLeftClick))	//左クリック
-	{
-		NewGO<AIEditNode>(0, "firstwin");
+	NewGO<AIEditNode>(0, "firstwin");
 		
-		Choice0 = true;
-	}
-
+	Choice0 = true;
 
 }
 
@@ -84,7 +80,7 @@ void AIEditNodeTarget::Technique()
 
 	if (Mouse::isTrigger(enLeftClick))	//左クリック
 	{
-		m_aieditnodetechique = NewGO<AIEditNodeTechnique>(0, "technique");
+		m_aieditnodetechique = NewGO<AIEditNodeTechnique>(0, "Technique");
 
 		Choice0 = true;
 
@@ -105,14 +101,39 @@ void AIEditNodeTarget::Update()
 
 	if (Choice0 == false) { //何も選択していないとき
 
-		for (int i = 0; i < button; i++) {
+		for (int i = 0; i < button - 1; i++) {
 			if (m_nodebuttons[i]->GetSpriteRender()->isCollidingTarget())	//選択しているか	
 			{	
-				Num();
+				//Num();
 
 			}
 
 		}
+		if (Mouse::isTrigger(enLeftClick)) {	//左クリック
+			if (m_nodebuttons[button - 4]->GetSpriteRender()->isCollidingTarget()) {
+				m_target = enme;
+				Num();
+			}
 
+			if (m_nodebuttons[button - 3]->GetSpriteRender()->isCollidingTarget()) {
+				m_target = enbaddy;
+				Num();
+			}
+
+			if (m_nodebuttons[button - 2]->GetSpriteRender()->isCollidingTarget()) {
+				m_target = enenemy;
+				Num();
+			}
+
+			if (m_nodebuttons[button - 1]->GetSpriteRender()->isCollidingTarget()) {
+
+				//Technique();
+				if (Mouse::isTrigger(enLeftClick)) {	//左クリック
+					m_aieditnodeprocess->Technique();
+					m_target = entechnique;
+					Choice0 = true;
+				}
+			}
+		}
 	}
 }

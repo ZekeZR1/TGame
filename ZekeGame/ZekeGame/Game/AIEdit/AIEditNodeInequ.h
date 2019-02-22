@@ -21,8 +21,22 @@ public:
 		Choice2 = a;
 	}
 
+	enum Inequ {
+
+		enDainari = 300,
+		enShowers,
+		enNull,
+	};
+
+	int GetInequ()
+	{
+		return m_inequ;
+	}
+
+
 private:
 
+	Inequ m_inequ = enNull;
 	int button = 2;							//ボタンの数。
 	bool Choice2 = false;					//何かが選択されたらtrueになる。
 
