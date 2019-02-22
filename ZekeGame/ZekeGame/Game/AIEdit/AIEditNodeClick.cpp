@@ -20,22 +20,17 @@ bool AIEditNodeClick::Start()
 	m_gamecursor = FindGO<GameCursor>("cursor");
 	m_aieditnodeprocess = FindGO<AIEditNodeProcess>("process");
 
-	if (process == true){
-		m_position.x = x;
-		m_position.y = m_aieditnodeprocess->GetPosy();
-	}
-
-	if (process == false) {
-		m_position.x = x;
-		m_position.y = y;
-		//process = true;
-	}
-
 	m_spriteRender = NewGO<SpriteRender>(0, "mass");
 	m_spriteRender->Init(L"Assets/sprite/click.dds", 250, 150,true); //last
 	m_spriteRender->SetPosition(m_position);
 
 	return true;
+
+}
+
+void AIEditNodeClick::SetPosition(CVector3 m_pos)
+{
+	m_position = m_pos;
 
 }
 
@@ -59,5 +54,7 @@ void AIEditNodeClick::Update()
 			}
 
 		}
+
 	}
+
 }

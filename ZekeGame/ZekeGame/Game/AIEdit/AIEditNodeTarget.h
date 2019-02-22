@@ -2,6 +2,8 @@
 class GameCursor;
 class AIEditNodeButton;
 class AIEditNode;
+class AIEditNodeTechnique;
+class AIEditNodeProcess;
 class AIEditNodeTarget : public GameObject
 {
 
@@ -14,8 +16,10 @@ public:
 	bool Start();
 	void Update();
 	void Num();
+	void Technique();
 
 private:
+
 	std::vector<FontRender*> m_fonts;
 	int button = 3;
 	bool Choice0;
@@ -25,6 +29,8 @@ private:
 	FontRender* m_fontRender;
 	GameCursor * m_gamecursor;
 	AIEditNode* m_aieditnode;
+	AIEditNodeTechnique* m_aieditnodetechique;
+	AIEditNodeProcess* m_aieditnodeprocess;
 
 	std::vector<AIEditNodeButton*> m_nodebuttons;
 };

@@ -22,7 +22,7 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{DD699856-A074-41E8-925F-5B771B6EC69E}</ProjectGuid>
     <RootNamespace>ZekeGame</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -573,6 +573,16 @@
     <MeshContentTask Include="Assets\modelData\uma\uma.fbx" />
   </ItemGroup>
   <ItemGroup>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_back_aiedit.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_back_dung.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_back_local.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_aiedi.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_back.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_dung.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_frame.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_local.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_world.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_fairy.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\Monselect.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\MonActList\actBlock.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\MonActList\backBlue.png" />
@@ -591,6 +601,11 @@
     <ImageContentTask Include="Assets\Sprite\GUI\menu\mn_monsel.png" />
     <Image Include="Assets\modelData\stage\dunge.png" />
     <Image Include="Assets\modelData\stage\yuka.png" />
+    <ImageContentTask Include="Assets\Sprite\AIEdit\haik.png" />
+    <ImageContentTask Include="Assets\Sprite\AIEdit\arrow.png" />
+    <ImageContentTask Include="Assets\Sprite\AIEdit\click.png" />
+    <ImageContentTask Include="Assets\Sprite\AIEdit\masss.png" />
+    <ImageContentTask Include="Assets\Sprite\AIEdit\sieat.png" />
     <Image Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_back2.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_frame.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\B_alpha.png" />
@@ -642,7 +657,6 @@
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\pythoneditW.png" />
     <ImageContentTask Include="Assets\Sprite\kariline.png" />
     <ImageContentTask Include="Assets\Sprite\Mp.png" />
-    <ImageContentTask Include="Assets\Sprite\karipoint.png" />
     <ImageContentTask Include="Assets\Sprite\winkari.png" />
     <Image Include="Assets\effect\fire1\Fire.png" />
     <Image Include="Assets\effect\fire1\Particle01.png" />

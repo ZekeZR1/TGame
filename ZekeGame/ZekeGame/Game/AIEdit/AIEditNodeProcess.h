@@ -7,6 +7,7 @@ class AIEditNodeOrder;
 class AIEditLine;
 class AIEditNodeTarget;
 class AIEditNodeClick;
+class AIEditNodeTechnique;
 class AIEditNodeProcess :public GameObject
 {
 
@@ -17,6 +18,11 @@ public:
 	bool Start();
 	void Update();
 	void ButtonPosition();
+	void Click();
+	void Target();
+	void Technique();
+	
+
 
 	bool GetTheOrder()
 	{
@@ -36,15 +42,29 @@ public:
 		m_state = enSecondOrder;
 	}
 
-	bool GetPosy()
+	bool GetClickFlag()
 	{
-		return y;
+		return Clickflag;
 	}
+
+	void SetClickFlag(bool a)
+	{
+		Clickflag = a;
+	}
+
+	int GettechniqeCount()
+	{
+		return TechniqueCount;
+	}
+
 
 private:
 
 	int StateNum = 1;
-	int y = 0; //ClickÇÃÇôç¿ïW
+	
+	int num = 0;
+	int TechniqueCount = 0;
+	bool Clickflag = 0;
 
 	bool Choice1 = false;    
 	bool Choice2 = false;   
@@ -77,6 +97,7 @@ private:
 	AIEditNodeTarget* m_aieditnodetarget;
 	AIEditNodeClick* m_aieditnodeclick;
 	SpriteRender * m_spriteRender;
+	AIEditNodeTechnique* m_aieditnodetechnique;
 
 	State m_state = enFirstOrder;
 

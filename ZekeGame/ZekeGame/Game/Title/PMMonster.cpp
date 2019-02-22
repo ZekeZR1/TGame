@@ -16,15 +16,15 @@ PMMonster::~PMMonster()
 PMMonster::PMMonster()
 {
 	m_mon = NewGO<SpriteRender>(1, "sp");
-	m_mon->Init(L"Assets/sprite/mon_one.dds", 128, 128,true);
-	
-	
+	m_mon->Init(L"Assets/sprite/mon_one.dds", 240, 340,true);
+	m_fr = NewGO<FontRender>(1, "font");
+	m_cursor = FindGO<GameCursor>("cursor");
 }
 
 bool PMMonster::Start()
 {
-	m_fr = NewGO<FontRender>(1, "font");
-	m_cursor = FindGO<GameCursor>("cursor");
+	
+	
 	return true;
 }
 
@@ -64,7 +64,7 @@ void PMMonster::Update()
 		return;
 	}*/
 
-	bool isothersel = false;
+	/*bool isothersel = false;
 	bool issel = false;
 	QueryGOs<PMMonster>("pmm", [&](PMMonster* pmm)->bool
 	{
@@ -80,7 +80,7 @@ void PMMonster::Update()
 		return true;
 	});
 	if (isothersel)
-		return;
+		return;*/
 	m_mon->SetCollisionTarget(m_cursor->GetCursor());
 	
 	if (!m_ismonsel && m_mon->isCollidingTarget())
@@ -99,7 +99,7 @@ void PMMonster::Update()
 	}
 	else
 	{
-		if (m_issel && issel)
+		if (m_issel /*&& issel*/)
 		{
 			if(m_team == 0)
 				m_frame->Init(L"Assets/sprite/mon_frameRed.dds", 240, 340);
@@ -118,7 +118,7 @@ void PMMonster::ChengeImage(int monid)
 	m_monid = (MonsterID)monid;
 	delete[] ws;*/
 	m_monid = (MonsterID)monid;
-	m_mon->Init(GameData::GetMonsterIconPath(monid), 240, 340);
+	m_mon->Init(GameData::GetMonsterIconPath(monid), 240, 340,true);
 	/*switch (monid)
 	{
 	case enTest:
@@ -154,6 +154,14 @@ void PMMonster::SetPython(const wchar_t * py,int num)
 		}
 	}
 	g_AIset[m_num] = m_selAI;
+
+	CVector3 spos = m_mon->GetPosition();
+	CVector2 pos;
+	pos.x = spos.x - 90;
+	pos.y = spos.y - 68;
+	pos.y = spos.y - 130;
+
+	m_fr->Init(m_python, pos, 0, CVector4::White, 1, { 0.5f,0.5f });
 }
 
 void PMMonster::yesSelect()
@@ -172,13 +180,7 @@ void PMMonster::PostRender()
 {
 	//font.Begin();
 
-	CVector3 spos = m_mon->GetPosition();
-	CVector2 pos;
-	pos.x = spos.x-90;
-	pos.y = spos.y-68;
-
-	//font.Draw(m_python, pos);
-	m_fr->Init(m_python, pos, 0, CVector4::White, 1, { 0.5f,0.5f });
+	
 
 	//font.End();
 }
