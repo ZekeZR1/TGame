@@ -8,6 +8,7 @@ class AIEditLine;
 class AIEditNodeTarget;
 class AIEditNodeClick;
 class AIEditNodeTechnique;
+class AIEditNodeMenu;
 class AIEditNodeProcess :public GameObject
 {
 
@@ -98,6 +99,7 @@ private:
 	AIEditNodeClick* m_aieditnodeclick;
 	SpriteRender * m_spriteRender;
 	AIEditNodeTechnique* m_aieditnodetechnique;
+	AIEditNodeMenu* m_aieditnodemenu;
 
 	State m_state = enFirstOrder;
 

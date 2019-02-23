@@ -28,19 +28,19 @@ bool AIEditNodeNum::Start()
 	m_gamecursor = FindGO<GameCursor>("cursor");
 
 	//UIの基盤
-	m_spriteRender = NewGO<SpriteRender>(5, "firstwinhp");
+	m_spriteRender = NewGO<SpriteRender>(12, "firstwinhp");
 	m_spriteRender->Init(L"Assets/sprite/sieat.dds", 150, 400);
 	m_spriteRender->SetPivot({ 0.5f, 0.7f });
 	CVector3 cursorpos = m_gamecursor->GetCursor();
 	cursorpos.x += 135.0f;
-	cursorpos.y += -140.0f;
+	//cursorpos.y += -140.0f;
 	m_position = cursorpos;
 	m_spriteRender->SetPosition(m_position);	//AIEditNodeのボタンの座標座標
 
 	//ボタン
 	for (int i = 0; i < button; i++) {               //ボタンの数分ループする。
-		m_aieditnodebutton = NewGO<AIEditNodeButton>(6, "button");
-		m_aieditnodebutton->SetPri(6);
+		m_aieditnodebutton = NewGO<AIEditNodeButton>(13, "button");
+		m_aieditnodebutton->SetPri(13);
 		m_aieditnodebutton->SetButton(i + 1);
 		m_aieditnodebutton->SetPos(m_position);
 		m_nodebuttons.push_back(m_aieditnodebutton);
@@ -48,7 +48,7 @@ bool AIEditNodeNum::Start()
 
 	//フォント
 	for (int i = 0; i < button; i++) {
-		m_fonts.push_back(NewGO<FontRender>(7));
+		m_fonts.push_back(NewGO<FontRender>(14));
 	}
 
 	auto bacon = m_nodebuttons[0]->GetPos();
