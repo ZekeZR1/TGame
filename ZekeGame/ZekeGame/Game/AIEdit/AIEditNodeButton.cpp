@@ -46,16 +46,16 @@ bool AIEditNodeButton::Start()
 
 
 	m_spriteRender = NewGO<SpriteRender>(priority, "button");
-	m_spriteRender->Init(L"Assets/sprite/karipoint.dds", 140, 60, true);
+	m_spriteRender->Init(L"Assets/sprite/karipoint.dds", sizex, sizey, true);
 	kari.x += x;
 	kari.y += y;
 	m_spriteRender->SetPosition(kari);          //âºç¿ïW
 
 	return true;
 
-	FontRender* font = NewGO<FontRender>(0, "f");
-	font->Init(L"hj", { 2,2 }, 0, CVector4::White, 1, { 0.5f,0.5f });
-	font->SetPosition({5,6});
+	//FontRender* font = NewGO<FontRender>(0, "f");
+	//font->Init(L"hj", { 2,2 }, 0, CVector4::White, 1, { 0.5f,0.5f });
+	//font->SetPosition({5,6});
 
 }
 

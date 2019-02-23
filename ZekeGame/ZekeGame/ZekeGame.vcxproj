@@ -242,6 +242,7 @@
     <ClCompile Include="Game\AIEdit\AIEditNodeHp.cpp" />
     <ClCompile Include="Game\AIEdit\AIEditNodeInequ.cpp" />
     <ClCompile Include="Game\AIEdit\AIEditNodeMass.cpp" />
+    <ClCompile Include="Game\AIEdit\AIEditNodeMenu.cpp" />
     <ClCompile Include="Game\AIEdit\AIEditNodeNum.cpp" />
     <ClCompile Include="Game\AIEdit\AIEditNodeOrder.cpp" />
     <ClCompile Include="Game\AIEdit\AIEditNodeProcess.cpp" />
@@ -399,6 +400,7 @@
     <ClInclude Include="Game\AIEdit\AIEditNodeHp.h" />
     <ClInclude Include="Game\AIEdit\AIEditNodeInequ.h" />
     <ClInclude Include="Game\AIEdit\AIEditNodeMass.h" />
+    <ClInclude Include="Game\AIEdit\AIEditNodeMenu.h" />
     <ClInclude Include="Game\AIEdit\AIEditNodeNum.h" />
     <ClInclude Include="Game\AIEdit\AIEditNodeOrder.h" />
     <ClInclude Include="Game\AIEdit\AIEditNodeProcess.h" />
@@ -613,6 +615,7 @@
     <ImageContentTask Include="Assets\Sprite\AIEdit\sieat.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\leftButton.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\rightButton.png" />
+    <ImageContentTask Include="Assets\Sprite\AIEdit\menu.png" />
     <Image Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_back2.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_frame.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\B_alpha.png" />
