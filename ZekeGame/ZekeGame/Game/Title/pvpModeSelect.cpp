@@ -29,6 +29,7 @@ PvPModeSelect::~PvPModeSelect()
 	DeleteGO(m_back);
 	DeleteGO(m_return);
 	DeleteGO(m_returnMoji);
+	DeleteGO(FindGO<Sound>("BGM"));
 }
 
 bool PvPModeSelect::Start()

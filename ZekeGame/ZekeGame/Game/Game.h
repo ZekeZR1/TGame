@@ -63,5 +63,7 @@ private:
 	FontRender* m_fr = nullptr;
 
 	CEffect* e;
+
+	Sound* m_BGM = nullptr;
 };
 
