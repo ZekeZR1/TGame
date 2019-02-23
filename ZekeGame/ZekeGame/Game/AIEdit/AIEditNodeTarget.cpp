@@ -26,7 +26,7 @@ bool AIEditNodeTarget::Start()
 	m_gamecursor = FindGO<GameCursor>("cursor");
 	m_aieditnodeprocess = FindGO<AIEditNodeProcess>("process");
 
-	m_spriteRender = NewGO<SpriteRender>(0, "target");
+	m_spriteRender = NewGO<SpriteRender>(3, "target");
 	m_spriteRender->Init(L"Assets/sprite/sieat.dds", 150, 190);
 	m_spriteRender->SetPivot({ 0.5f, 0.35f });
 
@@ -40,7 +40,7 @@ bool AIEditNodeTarget::Start()
 
 	//ぼたん
 	for (int i = 0; i < button; i++) {               //ボタンの数分ループする。
-		m_aieditnodebutton = NewGO<AIEditNodeButton>(1, "button");
+		m_aieditnodebutton = NewGO<AIEditNodeButton>(4, "button");
 		m_aieditnodebutton->SetPri(4);
 		m_aieditnodebutton->SetButton(i + 1);
 		m_aieditnodebutton->SetPos(m_position);
@@ -66,10 +66,17 @@ bool AIEditNodeTarget::Start()
 
 void AIEditNodeTarget::Num() 
 {
-	NewGO<AIEditNode>(0, "firstwin");
-		
-	Choice0 = true;
+	if (m_aieditnodeprocess->GettechniqeCount() <= 1) {
+		NewGO<AIEditNode>(0, "firstwin");
 
+		Choice0 = true;
+	}
+
+	if (m_aieditnodeprocess->GettechniqeCount() > 1) {
+		m_aieditnodeprocess->Technique();
+
+		Choice0 = true;
+	}
 }
 
 void AIEditNodeTarget::Technique()

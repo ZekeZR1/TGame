@@ -15,7 +15,7 @@ public:
 
 	enum Abnormal {
 
-		endoku,
+		endoku =600,
 		enyakedo,
 		enhyouketu,
 		ensutan,

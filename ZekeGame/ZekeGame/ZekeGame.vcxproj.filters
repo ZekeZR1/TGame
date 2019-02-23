@@ -734,9 +734,6 @@
     <ClCompile Include="Game\VisualScriptAI\VisualScriptAI.cpp">
       <Filter>Game\VisualScriptAI</Filter>
     </ClCompile>
-    <ClCompile Include="Game\VisualScriptAI\VisualScriptRun.cpp">
-      <Filter>Game\VisualScriptAI</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\fairy\hnd.FBX">
@@ -1509,9 +1506,6 @@
     </ClInclude>
     <ClInclude Include="Engine\sound\CSound.h" />
     <ClInclude Include="Game\VisualScriptAI\VisualScriptAI.h">
-      <Filter>Game\VisualScriptAI</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\VisualScriptAI\VisualScriptRun.h">
       <Filter>Game\VisualScriptAI</Filter>
     </ClInclude>
   </ItemGroup>
