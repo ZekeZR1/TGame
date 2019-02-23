@@ -80,7 +80,12 @@ public:
 
 	void SetHP(float hp)
 	{
-		m_HP = hp;
+		if ((m_maxHP - hp) < 0)
+		{
+			m_HP = m_maxHP;
+		}
+		else 
+			m_HP = hp;
 	}
 
 	//ƒ_ƒ[ƒW
@@ -104,7 +109,10 @@ public:
 
 	void SetMP(float mp)
 	{
-		m_MP = mp;
+		if ((m_maxMP - mp) < 0)
+			m_MP = m_maxMP;
+		else 
+			m_MP = mp;
 	}
 
 	void SetMPrecv(float rmp)
