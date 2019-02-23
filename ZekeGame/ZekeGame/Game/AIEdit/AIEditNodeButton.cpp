@@ -46,7 +46,7 @@ bool AIEditNodeButton::Start()
 
 
 	m_spriteRender = NewGO<SpriteRender>(priority, "button");
-	m_spriteRender->Init(L"Assets/sprite/karipoint.dds", 140, 60, true);
+	m_spriteRender->Init(L"Assets/sprite/karipoint.dds", sizex, sizey, true);
 	kari.x += x;
 	kari.y += y;
 	m_spriteRender->SetPosition(kari);          //âºç¿ïW

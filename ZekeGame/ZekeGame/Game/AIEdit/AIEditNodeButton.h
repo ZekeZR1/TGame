@@ -38,8 +38,18 @@ public:
 		return kari;
 	}
 
+	void SetX(int x) {
+		sizex = x;
+	}
+
+	void SetY(int y) {
+		sizey = y;
+	}
+
 private:
 
+	int sizex = 140;
+	int sizey = 60;
 	int button;
 	int priority = 0;
 	//int x = 35;			//ƒ{ƒ^ƒ“‚ÌXÀ•W
