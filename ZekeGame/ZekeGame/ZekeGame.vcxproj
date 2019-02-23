@@ -739,6 +739,8 @@
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
+    <Media Include="Assets\sound\BGM\bgm_maoudamashii_fantasy12.wav" />
+    <Media Include="Assets\sound\BGM\PerituneMaterial_Strategy5_loop.wav" />
     <Media Include="Assets\sound\kick-low1.wav" />
     <Media Include="Assets\sound\punch-high2.wav" />
     <Media Include="Assets\sound\punch-middle2.wav" />

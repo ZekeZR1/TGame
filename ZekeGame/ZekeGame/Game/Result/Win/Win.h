@@ -33,4 +33,6 @@ private:
 
 	SpriteRender* m_srwin = nullptr;
 	SpriteRender* m_srteam = nullptr;
+
+	Sound* m_BGM = nullptr;
 };
