@@ -27,6 +27,17 @@ bool Act_Atack::Action(Monster * me)
 			s = NewGO<Sound>(0, "snd");
 			s->Init(L"Assets/sound/kick-low1.wav", false);
 			s->Play();
+
+			CEffect* effe = NewGO<CEffect>(0, "effe");
+			effe->Play(L"Assets/effect/panti/panti.efk");
+			effe->SetPosition(m_target->Getpos());
+			CQuaternion rot = me->GetRotation();
+			effe->SetRotation(rot);
+			effe->SetScale({ 3,3,3 });
+			QueryGOs<MonsterAction>("action", [&](auto go)->bool
+			{
+				return true;
+			});
 		}
 		m_isfirst = false;
 	}

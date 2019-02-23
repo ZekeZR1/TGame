@@ -724,18 +724,15 @@
     <ClCompile Include="Game\AIEdit\AIEditNodeTarget.cpp">
       <Filter>Game\AIEdite</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Monster\Action\Act_Guardian.cpp">
-      <Filter>Game\Monster</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Monster\Action\Act_Tackle.cpp">
-      <Filter>Game\Monster</Filter>
-    </ClCompile>
     <ClCompile Include="Engine\sound\CSound.cpp" />
     <ClCompile Include="Game\VisualScriptAI\VisualScriptAI.cpp">
       <Filter>Game\VisualScriptAI</Filter>
     </ClCompile>
-    <ClCompile Include="Game\VisualScriptAI\VisualScriptRun.cpp">
-      <Filter>Game\VisualScriptAI</Filter>
+    <ClCompile Include="Game\Monster\Action\Act_Tackle.cpp">
+      <Filter>act</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\Action\Act_Guardian.cpp">
+      <Filter>act</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1501,18 +1498,15 @@
     <ClInclude Include="Game\AIEdit\AIEditNodeTarget.h">
       <Filter>Game\AIEdite</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Monster\Action\Act_Guardian.h">
-      <Filter>Game\Monster</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Monster\Action\Act_Tackle.h">
-      <Filter>Game\Monster</Filter>
-    </ClInclude>
     <ClInclude Include="Engine\sound\CSound.h" />
     <ClInclude Include="Game\VisualScriptAI\VisualScriptAI.h">
       <Filter>Game\VisualScriptAI</Filter>
     </ClInclude>
-    <ClInclude Include="Game\VisualScriptAI\VisualScriptRun.h">
-      <Filter>Game\VisualScriptAI</Filter>
+    <ClInclude Include="Game\Monster\Action\Act_Tackle.h">
+      <Filter>act</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\Action\Act_Guardian.h">
+      <Filter>act</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
