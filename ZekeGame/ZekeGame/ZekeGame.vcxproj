@@ -302,7 +302,6 @@
     <ClCompile Include="Game\Title\SuperMonsterSelect.cpp" />
     <ClCompile Include="Game\Title\Title.cpp" />
     <ClCompile Include="Game\VisualScriptAI\VisualScriptAI.cpp" />
-    <ClCompile Include="Game\VisualScriptAI\VisualScriptRun.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
     </ClCompile>
@@ -559,7 +558,6 @@
     <ClInclude Include="Game\Title\SuperMonsterSelect.h" />
     <ClInclude Include="Game\Title\Title.h" />
     <ClInclude Include="Game\VisualScriptAI\VisualScriptAI.h" />
-    <ClInclude Include="Game\VisualScriptAI\VisualScriptRun.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="TestScene.h" />
     <ClInclude Include="TestScene2.h" />
