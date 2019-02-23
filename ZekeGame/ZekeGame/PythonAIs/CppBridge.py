@@ -81,6 +81,7 @@ class ACTION(IntEnum):
     Fire = 4
     Tackle = 5
     Guardian = 6
+    Recovery = 7
 
 class GameData:
     def fuck__init__(self):
@@ -372,8 +373,8 @@ def GetEnemyLowHPMonster():
 
 MonsterUseAction = [
     [ACTION.Chase,ACTION.Atack,ACTION.Leave,ACTION.Defense,ACTION.Fire,ACTION.Tackle,ACTION.Guardian],
-    [ACTION.Chase,ACTION.Atack,ACTION.Defense,ACTION.Tackle],
-    [ACTION.Chase,ACTION.Atack,ACTION.Leave,ACTION.Defense,ACTION.Fire]
+    [ACTION.Chase,ACTION.Atack,ACTION.Defense,ACTION.Tackle,ACTION.Guardian],
+    [ACTION.Chase,ACTION.Atack,ACTION.Leave,ACTION.Defense,ACTION.Fire,ACTION.Recovery]
     ]
 
 actions = []
@@ -409,6 +410,8 @@ def Tackle(target):
 def Guardian(target):
     addAction(target,ACTION.Guardian)
 
+def Recovery(target):
+    addAction(target,ACTION.Recovery)
 
 def End():
     SendGame.SetAction(actions,gameData.me.num);

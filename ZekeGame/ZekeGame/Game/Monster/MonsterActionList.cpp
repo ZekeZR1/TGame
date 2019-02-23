@@ -150,6 +150,8 @@ void MonsterActionList::Update()
 			case enGuardian:
 				ws = L"ŽçŒì";
 				break;
+			case enRecovery:
+				ws = L"‰ñ•œ";
 			}
 			m_frs[i]->Init(ws, { p.x,p.y +45}, 0, CVector4::White, 1, { 0,0 });
 		}
