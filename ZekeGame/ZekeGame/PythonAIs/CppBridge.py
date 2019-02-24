@@ -304,6 +304,12 @@ class GameData:
                 lomon = mon
         return lomon
 
+    def GetBuddyLowHPMonster(self):
+        lomon = None
+        for mon in self.Buddy:
+            if lomon == None or lomon.HP > mon.HP:
+                lomon = mon
+        return lomon
 
 gameData = GameData()
 
@@ -337,6 +343,9 @@ def GetMe():
 def GetMePercentHP():
     return gameData.me.HP / GetMonsStateHP(gameData.me.ID)
 
+def GetPercentHP(mon):
+    return mon.HP / GetMonsStateHP(mon.ID)
+
 def GetFarMonster():
     return gameData.GetFarMonster()
 
@@ -363,12 +372,15 @@ def GetBuddyHighHPMonster():
     """#一番HPの高い仲間のモンスターを返します"""
     return gameData.GetBuddyHighHPMonster()
 
-def GetEnemyHighHP():
+def GetEnemyHighHPMonster():
     """#一番HPの高い敵のモンスターを返します"""
     return gameData.GetEnemyHighHP()
 
 def GetEnemyLowHPMonster():
     return gameData.GetEnemyLowHPMonster()
+
+def GetBuddyLowHPMonster():
+    return gameData.GetBuddyLowHPMonster()
 
 
 MonsterUseAction = [

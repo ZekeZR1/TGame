@@ -93,12 +93,12 @@ public:
 	void Damage(float d)
 	{
 		//m_HP -= d;
-		m_Damage = d;
+		m_Damage += d;
 	}
 
 	void DamageEx(float d)
 	{
-		m_DamageEx = d;
+		m_DamageEx += d;
 	}
 
 	//MP‚ð•Ô‚·

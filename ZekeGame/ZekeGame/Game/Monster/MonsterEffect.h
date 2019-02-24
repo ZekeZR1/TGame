@@ -30,4 +30,6 @@ private:
 	CVector3 m_scale = CVector3::Zero();
 
 	Motion m_motion = en_front;
+
+	float m_time = 0.0f;
 };

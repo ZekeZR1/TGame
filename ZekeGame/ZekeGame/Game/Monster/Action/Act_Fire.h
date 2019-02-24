@@ -13,4 +13,7 @@ private:
 	CEffect* m_effect = nullptr;
 	bool m_isPlayAnim = false;
 	CVector3 m_pos = CVector3::Zero();
+	CVector3 m_efs = { 5,5,5 };
+
+	bool m_first = true;
 };
