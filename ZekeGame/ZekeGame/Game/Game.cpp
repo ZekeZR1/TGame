@@ -43,7 +43,7 @@ bool Game::Start() {
 	camera = new GameCamera;
 
 	m_smd = NewGO<SkinModelDummy>(0, "smd");
-	m_smd->Init(L"Assets/modelData/limit.cmo", enFbxUpAxisZ);
+	m_smd->Init(L"Assets/modelData/limit2.cmo", enFbxUpAxisZ);
 	m_smd->SetPosition(CVector3::Zero());
 	m_smd->CreatePhysicsStaticObject();
 

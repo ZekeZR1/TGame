@@ -296,6 +296,24 @@
     <ImageContentTask Include="Assets\Sprite\AIEdit\menu.png">
       <Filter>Assets</Filter>
     </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\MonActList\mon_actlist_Blue1.png">
+      <Filter>Assets\monActListNum</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\MonActList\mon_actlist_Blue2.png">
+      <Filter>Assets\monActListNum</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\MonActList\mon_actlist_Blue3.png">
+      <Filter>Assets\monActListNum</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\MonActList\mon_actlist_Red1.png">
+      <Filter>Assets\monActListNum</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\MonActList\mon_actlist_Red2.png">
+      <Filter>Assets\monActListNum</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\MonActList\mon_actlist_Red3.png">
+      <Filter>Assets\monActListNum</Filter>
+    </ImageContentTask>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp" />
@@ -769,6 +787,9 @@
     </MeshContentTask>
     <MeshContentTask Include="Assets\modelData\stage\dun.fbx" />
     <MeshContentTask Include="Assets\modelData\stage\dun_yuka.fbx" />
+    <MeshContentTask Include="Assets\modelData\stage\limit2.fbx">
+      <Filter>Assets</Filter>
+    </MeshContentTask>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\PythonBridge\include\unicodeobject.h" />
@@ -1664,6 +1685,12 @@
     <Filter Include="Assets\effect\panti">
       <UniqueIdentifier>{107c573f-e01f-4d8a-ada0-e42e584b7851}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Assets\SE">
+      <UniqueIdentifier>{989b7302-585b-468b-922e-08fd132320e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets\monActListNum">
+      <UniqueIdentifier>{2f73a362-a789-451a-baee-c4d1dca0e13e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Media Include="Assets\sound\kick-low1.wav" />
@@ -1677,6 +1704,15 @@
     </Media>
     <Media Include="Assets\sound\BGM\PerituneMaterial_OverWorld5_loop.wav">
       <Filter>Assets\BGM</Filter>
+    </Media>
+    <Media Include="Assets\sound\pickup.wav">
+      <Filter>Assets\SE</Filter>
+    </Media>
+    <Media Include="Assets\sound\button.wav">
+      <Filter>Assets\SE</Filter>
+    </Media>
+    <Media Include="Assets\sound\bom.wav">
+      <Filter>Assets\SE</Filter>
     </Media>
   </ItemGroup>
 </Project>
