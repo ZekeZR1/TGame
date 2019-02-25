@@ -22,7 +22,7 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{DD699856-A074-41E8-925F-5B771B6EC69E}</ProjectGuid>
     <RootNamespace>ZekeGame</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -572,6 +572,7 @@
     <MeshContentTask Include="Assets\modelData\stage\dun.fbx" />
     <MeshContentTask Include="Assets\modelData\stage\dun_yuka.fbx" />
     <MeshContentTask Include="Assets\modelData\stage\limit.FBX" />
+    <MeshContentTask Include="Assets\modelData\stage\limit2.fbx" />
     <MeshContentTask Include="Assets\modelData\stage\map.FBX" />
     <MeshContentTask Include="Assets\modelData\Test.FBX" />
     <MeshContentTask Include="Assets\modelData\testMons\tesEnemy2.fbx" />
@@ -579,6 +580,12 @@
     <MeshContentTask Include="Assets\modelData\uma\uma.fbx" />
   </ItemGroup>
   <ItemGroup>
+    <ImageContentTask Include="Assets\Sprite\GUI\MonActList\mon_actlist_Blue1.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\MonActList\mon_actlist_Blue2.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\MonActList\mon_actlist_Blue3.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\MonActList\mon_actlist_Red1.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\MonActList\mon_actlist_Red2.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\MonActList\mon_actlist_Red3.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\returnButton\moji_return.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\returnButton\returnButton.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\returnButton\returnButton_push.png" />
@@ -747,7 +754,10 @@
     <Media Include="Assets\sound\BGM\bgm_maoudamashii_fantasy12.wav" />
     <Media Include="Assets\sound\BGM\PerituneMaterial_OverWorld5_loop.wav" />
     <Media Include="Assets\sound\BGM\PerituneMaterial_Strategy5_loop.wav" />
+    <Media Include="Assets\sound\bom.wav" />
+    <Media Include="Assets\sound\button.wav" />
     <Media Include="Assets\sound\kick-low1.wav" />
+    <Media Include="Assets\sound\pickup.wav" />
     <Media Include="Assets\sound\punch-high2.wav" />
     <Media Include="Assets\sound\punch-middle2.wav" />
   </ItemGroup>
