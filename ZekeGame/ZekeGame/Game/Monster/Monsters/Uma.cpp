@@ -31,6 +31,14 @@ Uma::Uma()
 		sr,
 		3
 	);
+	ActionID* ua = new ActionID[6];
+	ua[enAtack] = enAtack;
+	ua[enChase] = enChase;
+	ua[enLeave] = enActNone;
+	ua[enDefense] = enDefense;
+	ua[4] = enTackle;
+	ua[5] = enGuardian;
+	SetUseAction(ua);
 	//tginit(10, 10, 10, 20, 70, sr, 0);
 
 	m_ID = 1;

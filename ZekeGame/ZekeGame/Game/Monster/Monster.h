@@ -6,6 +6,7 @@ class MonsterEffect;
 class MonsterActionList;
 class MonsterMarker;
 class PythonBridge;
+enum ActionID;
 class Monster:public GameObject
 {
 public:
@@ -16,6 +17,12 @@ public:
 
 	bool Start() override final;
 	void Update() override final;
+
+	void SetUseAction(ActionID ua[6]);
+	ActionID* GetUseAction()
+	{
+		return m_UseAction;
+	}
 
 	//Monsterのアクションを実行する関数
 	void execute();
@@ -73,7 +80,12 @@ public:
 
 	void SetHP(float hp)
 	{
-		m_HP = hp;
+		if ((m_maxHP - hp) < 0)
+		{
+			m_HP = m_maxHP;
+		}
+		else 
+			m_HP = hp;
 	}
 
 	//ダメージ
@@ -81,12 +93,12 @@ public:
 	void Damage(float d)
 	{
 		//m_HP -= d;
-		m_Damage = d;
+		m_Damage += d;
 	}
 
 	void DamageEx(float d)
 	{
-		m_DamageEx = d;
+		m_DamageEx += d;
 	}
 
 	//MPを返す
@@ -97,7 +109,10 @@ public:
 
 	void SetMP(float mp)
 	{
-		m_MP = mp;
+		if ((m_maxMP - mp) < 0)
+			m_MP = m_maxMP;
+		else 
+			m_MP = mp;
 	}
 
 	void SetMPrecv(float rmp)
@@ -353,6 +368,7 @@ protected:
 
 	PythonBridge* m_PB;
 
+	ActionID* m_UseAction;
 	std::vector<MonsterAction*> m_actions;		//使うアクション
 	en_State m_state = en_NowLoading;
 	bool isLoading = false;

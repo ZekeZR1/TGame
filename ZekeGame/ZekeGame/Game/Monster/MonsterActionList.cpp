@@ -98,6 +98,8 @@ void MonsterActionList::Update()
 	if (len != m_len)
 	{
 		CVector3 pos = m_back->GetPosition();
+		pos.x += 10;
+		pos.y += 10;
 		if (len < m_len)
 		{
 			for (int i = m_len-1; i > len-1; i--)
@@ -122,7 +124,7 @@ void MonsterActionList::Update()
 			a->Init(L"", { 0,0 }, 0, CVector4::White, 1, { 0,0 });
 
 
-		
+		pos.y -= 4;
 		for (int i = 0; i < len; i++)
 		{
 			CVector3 p = {pos.x,(float)(pos.y + (45 * i)),0 };
@@ -150,6 +152,8 @@ void MonsterActionList::Update()
 			case enGuardian:
 				ws = L"ŽçŒì";
 				break;
+			case enRecovery:
+				ws = L"‰ñ•œ";
 			}
 			m_frs[i]->Init(ws, { p.x,p.y +45}, 0, CVector4::White, 1, { 0,0 });
 		}

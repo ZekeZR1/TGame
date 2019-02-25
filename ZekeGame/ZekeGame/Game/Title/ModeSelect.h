@@ -43,4 +43,6 @@ private:
 
 	GameCursor* m_cursor = nullptr;
 	int m_count = 0;
+
+	Sound* m_BGM = nullptr;
 };

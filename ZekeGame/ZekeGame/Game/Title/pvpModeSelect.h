@@ -31,4 +31,9 @@ private:
 
 	SpriteRender* m_GO = nullptr;
 	SpriteRender* m_back = nullptr;
+
+	SpriteRender* m_return = nullptr;
+	SpriteRender* m_returnMoji = nullptr;
+	bool isReturnOver = false;
+	CVector2 m_returnS = { 604,256 };
 };

@@ -27,6 +27,9 @@ PvPModeSelect::~PvPModeSelect()
 	}
 	DeleteGO(m_GO);
 	DeleteGO(m_back);
+	DeleteGO(m_return);
+	DeleteGO(m_returnMoji);
+	DeleteGO(FindGO<Sound>("BGM"));
 }
 
 bool PvPModeSelect::Start()
@@ -63,6 +66,15 @@ bool PvPModeSelect::Start()
 	m_GO->Init(L"Assets/sprite/GO.dds", 193, 93, true);
 	m_GO->SetPosition({ 520,240,0 });
 
+	CVector3 repo = { -520,-260,0 };
+	m_returnS.x /= 3;
+	m_returnS.y /= 3;
+	m_return = NewGO<SpriteRender>(0, "sp");
+	m_return->Init(L"Assets/sprite/simple_button.dds", m_returnS.x, m_returnS.y);
+	m_returnMoji = NewGO<SpriteRender>(0, "sp");
+	m_returnMoji->Init(L"Assets/sprite/moji_return.dds", m_returnS.x, m_returnS.y,true);
+	m_return->SetPosition(repo);
+	m_returnMoji->SetPosition(repo);
 	return true;
 }
 
@@ -82,7 +94,8 @@ void PvPModeSelect::Update()
 	}
 	if (ismonsel)
 		return;
-	m_GO->SetCollisionTarget(m_cursor->GetCursor());
+	CVector3 curs = m_cursor->GetCursor();
+	m_GO->SetCollisionTarget(curs);
 	if (m_GO->isCollidingTarget())
 	{
 		if (Mouse::isTrigger(enLeftClick))
@@ -98,6 +111,26 @@ void PvPModeSelect::Update()
 			StageSetup::PVPSetup(m_files,monai,moid);
 			DeleteGO(this);
 		}
+	}
+
+	m_returnMoji->SetCollisionTarget(curs);
+	if (m_returnMoji->isCollidingTarget())
+	{
+		if (!isReturnOver)
+		{
+			m_return->Init(L"Assets/sprite/simple_button_blue.dds", m_returnS.x, m_returnS.y);
+			isReturnOver = true;
+		}
+		if (Mouse::isTrigger(enLeftClick))
+		{
+			NewGO<ModeSelect>(0, "modesel");
+			DeleteGO(this);
+		}
+	}
+	else if(isReturnOver)
+	{
+		m_return->Init(L"Assets/sprite/simple_button.dds", m_returnS.x, m_returnS.y);
+		isReturnOver = false;
 	}
 
 	

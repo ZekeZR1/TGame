@@ -24,7 +24,7 @@ bool AIEditNodeAbnormalState::Start()
 {
 	m_gamecursor = FindGO<GameCursor>("cursor");
 
-	m_spriteRender = NewGO<SpriteRender>(0, "target");
+	m_spriteRender = NewGO<SpriteRender>(9, "target");
 	m_spriteRender->Init(L"Assets/sprite/sieat.dds", 150, 250);
 	CVector3 cursorpos = m_gamecursor->GetCursor();
 	cursorpos.x += 135.0f;
@@ -34,8 +34,8 @@ bool AIEditNodeAbnormalState::Start()
 
 
 	for (int i = 0; i < button; i++) {               //ボタンの数分ループする。
-		m_aieditnodebutton = NewGO<AIEditNodeButton>(4, "button");
-		m_aieditnodebutton->SetPri(4);
+		m_aieditnodebutton = NewGO<AIEditNodeButton>(10, "button");
+		m_aieditnodebutton->SetPri(10);
 		m_aieditnodebutton->SetButton(i + 1);
 		m_aieditnodebutton->SetPos(m_position);
 		m_nodebuttons.push_back(m_aieditnodebutton);
@@ -43,7 +43,7 @@ bool AIEditNodeAbnormalState::Start()
 
 	//フォント
 	for (int i = 0; i < button; i++) {
-		m_fonts.push_back(NewGO<FontRender>(5));
+		m_fonts.push_back(NewGO<FontRender>(11));
 	}
 	auto bacon = m_nodebuttons[0]->GetPos();
 	CVector2 m_fontpos = CVector2::Zero();
@@ -65,7 +65,8 @@ bool AIEditNodeAbnormalState::Start()
 void AIEditNodeAbnormalState::Order()
 {
 
-	if (Mouse::isTrigger(enLeftClick)) {	//左クリック
+	//if (Mouse::isTrigger(enLeftClick)) {	//左クリック
+	if(Choice6 ==false){
 		m_aieditnodeorder = NewGO<AIEditNodeOrder>(0, "Order");
 		Choice6 = true;
 	}
@@ -88,12 +89,32 @@ void AIEditNodeAbnormalState::Update()
 		for (int i = 0; i < button; i++) {
 			if (m_nodebuttons[i]->GetSpriteRender()->isCollidingTarget())	//選択しているか	
 			{
-				Order();
+				//Order();
 
 			}
 
 		}
 
+		if (Mouse::isTrigger(enLeftClick)) {	//左クリック
+
+			if (m_nodebuttons[button - 4]->GetSpriteRender()->isCollidingTarget()) {
+				m_abnormal = endoku;
+				Order();
+			}
+			if (m_nodebuttons[button - 3]->GetSpriteRender()->isCollidingTarget()) {
+				m_abnormal = enyakedo;
+				Order();
+			}
+			if (m_nodebuttons[button - 2]->GetSpriteRender()->isCollidingTarget()) {
+				m_abnormal = enhyouketu;
+				Order();
+			}
+			if (m_nodebuttons[button - 1]->GetSpriteRender()->isCollidingTarget()) {
+				m_abnormal = ensutan;
+				Order();
+			}
+
+		}
 	}
 
 }

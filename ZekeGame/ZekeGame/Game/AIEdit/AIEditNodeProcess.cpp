@@ -11,6 +11,7 @@
 #include "AIEditNodeTarget.h"
 #include "AIEditNodeClick.h"
 #include "AIEditNodeTechnique.h"
+#include "AIEditNodeMenu.h"
 #include "../GameCursor.h"
 
 //camera
@@ -33,6 +34,7 @@ bool AIEditNodeProcess::Start()
 	if (num <= 7) {
 		Click();
 	}
+	m_aieditnodemenu = NewGO<AIEditNodeMenu>(0, "menu");
 	
 	return true;
 }
@@ -60,7 +62,7 @@ void AIEditNodeProcess::Target()
 void AIEditNodeProcess::Technique()
 {
 	//if (TechniqueCount == 2) {
-		m_aieditnodetechnique = NewGO<AIEditNodeTechnique>(10, "Technique");
+		m_aieditnodetechnique = NewGO<AIEditNodeTechnique>(0, "Technique");
 		TechniqueCount = 0;
 	//}
 }

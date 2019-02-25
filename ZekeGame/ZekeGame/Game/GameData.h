@@ -19,7 +19,10 @@ enum ActionID
 	enDefense,
 	enFire,
 	enTackle,
-	enGuardian
+	enGuardian,
+	enRecovery,
+
+	enActNone = 999
 };
 
 //static std::vector<Monster*> g_mons;

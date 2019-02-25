@@ -64,7 +64,7 @@ void PMMonster::Update()
 		return;
 	}*/
 
-	/*bool isothersel = false;
+	bool isothersel = false;
 	bool issel = false;
 	QueryGOs<PMMonster>("pmm", [&](PMMonster* pmm)->bool
 	{
@@ -80,7 +80,7 @@ void PMMonster::Update()
 		return true;
 	});
 	if (isothersel)
-		return;*/
+		return;
 	m_mon->SetCollisionTarget(m_cursor->GetCursor());
 	
 	if (!m_ismonsel && m_mon->isCollidingTarget())

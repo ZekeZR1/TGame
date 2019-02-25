@@ -18,8 +18,23 @@ public:
 	void Num();
 	void Technique();
 
+	enum target {
+
+		enme = 100,
+		enbaddy,
+		enenemy,
+		ennull,
+	};
+
+	int GetTarget()
+	{
+		return m_target;
+	}
+	
+
 private:
 
+	target m_target = ennull;
 	std::vector<FontRender*> m_fonts;
 	int button = 3;
 	bool Choice0;

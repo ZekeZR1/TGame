@@ -30,6 +30,10 @@ ModeSelect::~ModeSelect()
 
 bool ModeSelect::Start()
 {
+	m_BGM = NewGO<Sound>(0, "BGM");
+	m_BGM->Init(L"Assets/sound/BGM/PerituneMaterial_Strategy5_loop.wav", true);
+	m_BGM->Play();
+
 	m_cursor = NewGO<GameCursor>(0, "cur");
 
 	m_back = NewGO<SpriteRender>(0, "sp");

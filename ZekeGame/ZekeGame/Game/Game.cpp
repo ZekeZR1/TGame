@@ -22,6 +22,10 @@ void Game::GamePVPmodeInit(std::vector<std::string> files, int monsterAI[6],Mons
 }
 
 bool Game::Start() {
+	m_BGM = NewGO<Sound>(0, "BGM");
+	m_BGM->Init(L"Assets/sound/BGM/bgm_maoudamashii_fantasy12.wav", true);
+	m_BGM->Play();
+
 	m_pi = new Pyinit;
 	NewGO<MonsterActionManeger>(0, "MAM");
 	m_model = NewGO<SkinModelRender>(0, "model");
@@ -67,6 +71,7 @@ void Game::OnDestroy() {
 	DeleteGO(FindGO<SkinModelRender>("stageModel"));
 	DeleteGO(m_fr);
 	DeleteGO(m_floor);
+	DeleteGO(m_BGM);
 	if(m_isOnlineGame)
 		Engine::IEngine().DestroyNetworkSystem();
 	delete m_pi;
@@ -117,6 +122,8 @@ void Game::Update() {
 			SuddenDeath();
 			DeleteGO(m_fr);
 			m_fr = nullptr;
+
+			
 		}
 		else
 		{
@@ -143,6 +150,9 @@ void Game::Update() {
 		int team = g_mons[0]->Getteam();
 		DeleteGO(m_menu);
 		m_menu = nullptr;
+
+		DeleteGO(m_BGM);
+		m_BGM = nullptr;
 		QueryGOs<Monster>("monster", [&](auto obj)->bool
 		{
 			obj->ReleaseMAL();

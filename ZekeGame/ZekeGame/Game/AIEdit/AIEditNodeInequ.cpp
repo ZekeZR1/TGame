@@ -27,7 +27,7 @@ bool AIEditNodeInequ::Start()
 	m_aieditnode = FindGO<AIEditNode>("firstwin");
 
 	//UIの基盤
-	m_spriteRender = NewGO<SpriteRender>(3, "firstwinhp");
+	m_spriteRender = NewGO<SpriteRender>(9, "firstwinhp");
 	m_spriteRender->Init(L"Assets/sprite/sieat.dds", 150, 120);
 	m_spriteRender->SetPivot({ 0.5f, 0.0f });
 	CVector3 cursorpos = m_gamecursor->GetCursor();
@@ -38,8 +38,8 @@ bool AIEditNodeInequ::Start()
 	
 
 	for (int i = 0; i < button; i++) {               //ボタンの数分ループする。
-		m_aieditnodebutton = NewGO<AIEditNodeButton>(4, "button ");
-		m_aieditnodebutton->SetPri(4);
+		m_aieditnodebutton = NewGO<AIEditNodeButton>(10, "button ");
+		m_aieditnodebutton->SetPri(10);
 		m_aieditnodebutton->SetButton(i + 1);
 		m_aieditnodebutton->SetPos(m_position);
 		m_nodebuttons.push_back(m_aieditnodebutton);
@@ -47,7 +47,7 @@ bool AIEditNodeInequ::Start()
 
 	//フォント
 	for (int i = 0; i < button; i++) {
-		m_fonts.push_back(NewGO<FontRender>(5));
+		m_fonts.push_back(NewGO<FontRender>(11));
 	}
 	auto bacon = m_nodebuttons[0]->GetPos();
 	CVector2 m_fontpos = CVector2::Zero();
@@ -64,12 +64,12 @@ bool AIEditNodeInequ::Start()
 
 void AIEditNodeInequ::Num()
 {
-
-	if (Mouse::isTrigger(enLeftClick)) {	//左クリック
+	if (Choice2 == false) { //何も選択していないとき
 		m_aieditnodenum = NewGO<AIEditNodeNum>(0, "Num");
 
 		Choice2 = true;
 	}
+	
 }
 
 
@@ -84,15 +84,27 @@ void AIEditNodeInequ::Update()
 
 	}
 
-	if (Choice2 == false) { //何も選択していないとき
+	
 
-		for (int i = 0; i < button; i++) {
-			if (m_nodebuttons[i]->GetSpriteRender()->isCollidingTarget())	//選択しているか	
-			{
+	for (int i = 0; i < button; i++) {
+		if (m_nodebuttons[i]->GetSpriteRender()->isCollidingTarget())	//選択しているか	
+		{
+			//Num();
+
+		}
+
+		if (Mouse::isTrigger(enLeftClick)) {	//左クリック
+			if (m_nodebuttons[button - 2]->GetSpriteRender()->isCollidingTarget()) {
+				m_inequ = enDainari;
 				Num();
+			}
 
+			if (m_nodebuttons[button - 1]->GetSpriteRender()->isCollidingTarget()) {
+				m_inequ = enShowers;
+				Num();
 			}
 
 		}
+		
 	}
 }

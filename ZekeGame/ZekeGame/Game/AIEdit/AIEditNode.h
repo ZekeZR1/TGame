@@ -8,6 +8,7 @@ class AIEditNodeInequ;
 class AIEditNodeButton;
 class AIEditNodeTechnique;
 class AIEditNodeAbnormalState;
+class AIEditNodeProcess;
 class AIEditNode : public GameObject
 {
 
@@ -32,10 +33,23 @@ public:
 		return Choice1;
 	}
 
+	enum Node {
+
+		enHp = 200,
+		enMp,
+		enAb,
+		enTechnique,
+		enNull,
+	};
+
+	int GetNode()
+	{
+		return m_Node;
+	}
 		
 private:
 
-	
+	Node m_Node = enNull;
 	int button = 4;						//É{É^ÉìÇÃêî
 	bool Choice1 = false;				//âΩÇ©ÇëIëÇ∑ÇÈÇ∆trueÇ…Ç»ÇÈ
 	std::vector<FontRender*> m_fonts;
@@ -47,6 +61,7 @@ private:
 	AIEditNodeButton * m_aieditnodebutton;
 	AIEditNodeTechnique* m_aieditnodetechnique;
 	AIEditNodeAbnormalState* m_aieditnodeabnorimalstate;
+	AIEditNodeProcess* m_aieditnodeprocess;
 	CVector3 m_position = CVector3::Zero();
 	CVector3 m_pointposition = CVector3::Zero();
 	CFont m_font;

@@ -12,6 +12,7 @@
 #include "AIEditNodeButton.h"
 #include "AIEditNodeTechnique.h"
 #include "AIEdtiNodeAbnormalState.h"
+#include "AIEditNodeProcess.h"
 
 AIEditNode::~AIEditNode()
 {
@@ -30,9 +31,10 @@ bool AIEditNode::Start()
 {
 
 	m_gamecursor = FindGO<GameCursor>("cursor");
+	m_aieditnodeprocess = FindGO<AIEditNodeProcess>("process");
 
 	//UIの基盤
-	m_spriteRender = NewGO<SpriteRender>(1, "firstwin");
+	m_spriteRender = NewGO<SpriteRender>(6, "firstwin");
 	m_spriteRender->Init(L"Assets/sprite/sieat.dds", 150, 250);
 	CVector3 cursorpos = m_gamecursor->GetCursor();
 	cursorpos.x += 135.0f;
@@ -43,8 +45,8 @@ bool AIEditNode::Start()
 
 	//ぼたん。
 	for (int i = 0; i < button; i++) {               //ボタンの数分ループする。
-		m_aieditnodebutton = NewGO<AIEditNodeButton>(2, "button");
-		m_aieditnodebutton->SetPri(2);
+		m_aieditnodebutton = NewGO<AIEditNodeButton>(7, "button");
+		m_aieditnodebutton->SetPri(7);
 		m_aieditnodebutton->SetButton(i + 1);
 		m_aieditnodebutton->SetPos(m_position);
 		m_nodebuttons.push_back(m_aieditnodebutton);
@@ -52,7 +54,7 @@ bool AIEditNode::Start()
 
 	//フォント。
 	for (int i = 0; i < button; i++) {
-		m_fonts.push_back(NewGO<FontRender>(5));
+		m_fonts.push_back(NewGO<FontRender>(8));
 	}
 
 	auto bacon = m_nodebuttons[0]->GetPos();
@@ -91,8 +93,8 @@ void AIEditNode::Technique()
 
 	if (Mouse::isTrigger(enLeftClick))	//左クリック
 	{
-		NewGO<AIEditNodeTechnique>(0, "Technique");
-
+		//NewGO<AIEditNodeTechnique>(0, "Technique");
+		m_aieditnodeprocess->Technique();
 		Choice1 = true;
 	}
 
@@ -101,12 +103,10 @@ void AIEditNode::Technique()
 void AIEditNode::Abnormal()
 {
 
-	if (Mouse::isTrigger(enLeftClick))	//左クリック
-	{
 		NewGO<AIEditNodeAbnormalState>(0, "Abnormal");
 
 		Choice1 = true;
-	}
+	
 
 }
 
@@ -122,25 +122,36 @@ void AIEditNode::Update()
 
 	if (Choice1 == false) { //何も選択していないとき
 
-		for (int i = 0; i < button - 2; i++) {
-			if (m_nodebuttons[i]->GetSpriteRender()->isCollidingTarget())	//選択しているか	
-			{
+		//for (int i = 0; i < button - 2; i++) {
+		//	if (m_nodebuttons[i]->GetSpriteRender()->isCollidingTarget())	//選択しているか	
+		//	{
+		//		Inequ();
+
+		//	}
+
+		//}
+		if (Mouse::isTrigger(enLeftClick)) {	//左クリック
+			if (m_nodebuttons[button - 4]->GetSpriteRender()->isCollidingTarget()) {
+				m_Node = enHp;
 				Inequ();
-			
 			}
-			
-		}
 
-		if (m_nodebuttons[button - 2]->GetSpriteRender()->isCollidingTarget()) {
+			if (m_nodebuttons[button - 3]->GetSpriteRender()->isCollidingTarget()) {
+				m_Node = enMp;
+				Inequ();
+			}
 
-			Abnormal();
-		}
+			if (m_nodebuttons[button - 2]->GetSpriteRender()->isCollidingTarget()) {
+				m_Node = enAb;
+				Abnormal();
+			}
 
-		if (m_nodebuttons[button - 1]->GetSpriteRender()->isCollidingTarget()) {
-
-			Technique();
+			if (m_nodebuttons[button - 1]->GetSpriteRender()->isCollidingTarget()) {
+				m_Node = enTechnique;
+				Technique();
+			}
 		}
 	}
-	
 }
 
+	

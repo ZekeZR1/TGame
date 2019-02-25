@@ -40,5 +40,14 @@ Fairy::Fairy()
 		smr,
 		7
 	);
+	ActionID* ua = new ActionID[6];
+	ua[enAtack] = enAtack;
+	ua[enChase] = enChase;
+	ua[enLeave] = enLeave;
+	ua[enDefense] = enDefense;
+	ua[4] = enFire;
+	ua[5] = enActNone;
+	SetUseAction(ua);
+
 	m_ID = enFairy;
 }
