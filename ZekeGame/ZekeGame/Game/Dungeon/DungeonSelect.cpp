@@ -179,6 +179,7 @@ void DungeonSelect::DungeonSelectClick() {
 			return;
 		}
 		left = true;
+		//TODO : —V‚Ñ’l‚¢‚ê‚é
 		if(addPos.x == 0)
 			m_selectedNum--;
 	}
