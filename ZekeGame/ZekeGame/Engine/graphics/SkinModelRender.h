@@ -89,8 +89,12 @@ public:
 	void SetDirLigColor (const CVector4& col, const int index) {
 		m_skinModel.SetDirColor(col, index);
 	}
-
+	void SetShadowCasterFlag(bool flag)
+	{
+		m_isShadowCaster = flag;
+	}
 private:
+	bool m_isShadowCaster = true;
 	SkinModel m_skinModel;
 	EnFbxUpAxis m_enFbxUpAxis;
 	const char* m_psmain;

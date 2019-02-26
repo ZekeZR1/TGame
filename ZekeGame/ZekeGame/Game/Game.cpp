@@ -29,7 +29,8 @@ bool Game::Start() {
 	m_pi = new Pyinit;
 	NewGO<MonsterActionManeger>(0, "MAM");
 	m_model = NewGO<SkinModelRender>(0, "model");
-	m_model->Init(L"Assets/modelData/dun.cmo");
+	m_model->SetShadowCasterFlag(false);
+	m_model->Init(L"Assets/modelData/dun.cmo",nullptr, 0, enFbxUpAxisZ, "PSMainStage");
 	m_model->SetPosition(CVector3::Zero());
 
 	m_floor = NewGO<SkinModelRender>(0, "model");
