@@ -14,8 +14,9 @@ bool Act_Recovery::Action(Monster * me)
 		return true;
 	if (m_first)
 	{
+		float CMP = 5.f;
 		float mp = me->GetMP();
-		if (mp < 20)
+		if (mp < CMP)
 			return true;
 		me->anim_extra1();
 		
@@ -23,7 +24,7 @@ bool Act_Recovery::Action(Monster * me)
 		hp += 20;
 		m_target->SetHP(hp);
 
-		mp -= 20;
+		mp -= CMP;
 		me->SetMP(mp);
 
 		m_first = false;

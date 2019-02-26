@@ -14,7 +14,9 @@ SkinModelRender::~SkinModelRender()
 
 
 bool SkinModelRender::Start() {
-	IGameObjectManager().AddShadowCaster(&m_skinModel);
+	if (m_isShadowCaster) {
+		IGameObjectManager().AddShadowCaster(&m_skinModel);
+	}
 
 	return true;
 }

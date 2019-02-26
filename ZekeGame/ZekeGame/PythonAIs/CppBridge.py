@@ -311,6 +311,32 @@ class GameData:
                 lomon = mon
         return lomon
 
+    def FindEnemyMonster(self,monID):
+        for mon in self.Enemys:
+            if mon.ID == monID:
+                return mon
+        return None
+
+    def FindBuddyMonster(self,monID):
+        for mon in self.Buddy:
+            if mon.ID == monID:
+                return mon
+        return None
+
+    def FindEnemyMonsters(self,monID):
+        mons = list()
+        for mon in self.Enemys:
+            if mon.ID == monID:
+                mons.append(mon)
+        return mons
+
+    def FindBuddyMonsters(self,monID):
+        mons = list()
+        for mon in self.Buddy:
+            if mon.ID == monID:
+                mons.append(mon)
+        return mons
+
 gameData = GameData()
 
 
@@ -381,6 +407,18 @@ def GetEnemyLowHPMonster():
 
 def GetBuddyLowHPMonster():
     return gameData.GetBuddyLowHPMonster()
+
+def FindBuddyMonster(monID):
+    return gameData.FindBuddyMonster(monID)
+
+def FindBuddyMonsters(monID):
+    return gameData.FindBuddyMonsters(monID)
+
+def FindEnemyMonster(monID):
+    return gameData.FindEnemyMonster(monID)
+
+def FindEnemyMonsters(monID):
+    return gameData.FindEnemyMonsters(monID)
 
 
 MonsterUseAction = [
