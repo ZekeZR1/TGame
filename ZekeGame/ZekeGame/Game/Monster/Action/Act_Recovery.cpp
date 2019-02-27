@@ -41,6 +41,13 @@ bool Act_Recovery::Action(Monster * me)
 		snd->Init(L"Assets/sound/se_maoudamashii_magical11.wav");
 		snd->Play();
 
+		CVector3 v = m_target->Getpos() - me->Getpos();
+
+		float cta = atan2f(v.x, v.y);
+		CQuaternion rot;
+		rot.SetRotation(CVector3::AxisY(), cta);
+		me->SetRotation(rot);
+
 		m_first = false;
 	}
 	else
