@@ -8,12 +8,20 @@ enum Motion
 	en_left,
 	en_right,
 };
+enum Form
+{
+	enAdhesion,
+	enFixed,
+};
 class MonsterEffect :public GameObject
 {
 public:
 	~MonsterEffect();
 	void init(const wchar_t* path,Motion motion,Monster* me,CVector3 offset,CVector3 scale);
 	void Update() override final;
+
+	void FAdhesion();
+	void FFixed();
 
 	void MFront();
 	void MRotate();
