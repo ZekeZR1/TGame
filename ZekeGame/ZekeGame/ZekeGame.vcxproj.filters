@@ -767,6 +767,7 @@
     <ClCompile Include="Game\Monster\Action\ACTEffect.cpp">
       <Filter>act</Filter>
     </ClCompile>
+    <ClCompile Include="Engine\physics\PhysicsDebugDraw.cpp" />
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\fairy\hnd.FBX">
@@ -1556,6 +1557,7 @@
     <ClInclude Include="Game\Monster\Action\ACTEffect.h">
       <Filter>act</Filter>
     </ClInclude>
+    <ClInclude Include="Engine\physics\PhysicsDebugDraw.h" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="python36.lib" />
