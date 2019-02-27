@@ -223,6 +223,7 @@
     <ClCompile Include="Engine\physics\CSphereCollider.cpp" />
     <ClCompile Include="Engine\physics\MeshCollider.cpp" />
     <ClCompile Include="Engine\physics\Physics.cpp" />
+    <ClCompile Include="Engine\physics\PhysicsDebugDraw.cpp" />
     <ClCompile Include="Engine\physics\PhysicsStaticObject.cpp" />
     <ClCompile Include="Engine\physics\RigitBody.cpp" />
     <ClCompile Include="Engine\physics\SpriteBoxCollider.cpp" />
@@ -383,6 +384,7 @@
     <ClInclude Include="Engine\physics\ICollider.h" />
     <ClInclude Include="Engine\physics\MeshCollider.h" />
     <ClInclude Include="Engine\physics\Physics.h" />
+    <ClInclude Include="Engine\physics\PhysicsDebugDraw.h" />
     <ClInclude Include="Engine\physics\PhysicsStaticObject.h" />
     <ClInclude Include="Engine\physics\RigitBody.h" />
     <ClInclude Include="Engine\physics\SpriteBoxCollider.h" />

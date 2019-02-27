@@ -9,6 +9,7 @@ class PhysicsWorld {
 	btBroadphaseInterface* overlappingPairCache = nullptr;
 	btSequentialImpulseConstraintSolver* constraintSolver = nullptr;
 	btDiscreteDynamicsWorld*	 dynamicWorld = nullptr;		
+	btIDebugDraw* debugDrawer = nullptr;
 public:
 	~PhysicsWorld();
 	void Init();

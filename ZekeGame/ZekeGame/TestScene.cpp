@@ -19,12 +19,14 @@ TestScene::~TestScene()
 {
 	DeleteGO(m_white);
 	DeleteGO(m_model);
+	DeleteGO(m_mo2);
 	//DeleteGO(m_sp);
 }
 
 //TODO : alpha, shadow
 bool TestScene::Start() {
 	{
+		g_physics.GetDynamicWorld()->getDebugDrawer()->setDebugMode(1);
 		camera2d = new Camera;
 		camera2d->SetTarget(CVector3::Zero());
 		camera2d->SetPosition({ 0.0f, 0.0f, -10.0f });
@@ -50,6 +52,10 @@ bool TestScene::Start() {
 	m_model->PlayAnimation(0);
 	m_model->SetShadowReciever(false);
 	m_charaCon.Init(30,20,CVector3::Zero(),enFbxUpAxisY);
+	m_mo2 = NewGO<SkinModelRender>(0);
+	m_mo2->Init(L"Assets/modelData/uma.cmo");
+	m_mo2->SetPosition(pos2);
+	m_charaCon2.Init(30, 50, pos2, enFbxUpAxisY);
 	//IGameObjectManager().AddShadowCaster(&(m_model->GetSkinModel()));
 	m_back = NewGO<SkinModelRender>(0);
 	m_back->Init(L"Assets/modelData/dun.cmo");
@@ -102,7 +108,7 @@ void TestScene::Update() {
 	//CVector3 pos = m_charaCon.Execute(IGameTime().GetFrameDeltaTime(), moveSpeed);
 	m_model->SetPosition(m_charaCon.Execute(IGameTime().GetFrameDeltaTime(), moveSpeed));
 
-	static float alpha = 1.f;
+	static float alpha = 0.f;
 	if (Mouse::isTrigger(enNotchUp)) {
 		alpha += 0.1f;
 	}
