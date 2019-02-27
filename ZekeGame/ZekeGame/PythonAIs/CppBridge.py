@@ -311,6 +311,30 @@ class GameData:
                 lomon = mon
         return lomon
 
+    def GetHighATKMonster(self):
+        lomon = None
+        for mon in self.Enemys:
+            if lomon == None or lomon.Attack < mon.Attack:
+                lomon = mon
+        for mon in self.Buddy:
+            if lomon.Attack < mon.Attack:
+                lomon = mon
+        return lomon
+
+    def GetEnemyHighATKMonster(self):
+        lomon = None
+        for mon in self.Enemys:
+            if lomon == None or lomon.Attack < mon.Attack:
+                lomon = mon
+        return lomon
+
+    def GetBuddyHighATKMonster(self):
+        lomon = None
+        for mon in self.Buddy:
+            if lomon == None or lomon.Attack < mon.Attack:
+                lomon = mon
+        return lomon
+
     def FindEnemyMonster(self,monID):
         for mon in self.Enemys:
             if mon.ID == monID:
@@ -372,11 +396,10 @@ def GetMePercentHP():
 def GetPercentHP(mon):
     return mon.HP / GetMonsStateHP(mon.ID)
 
+
+
 def GetFarMonster():
     return gameData.GetFarMonster()
-
-def GetNeerMonster():
-    return gameData.GetNeerMonster()
 
 def GetBuddyFarMonster():
     return gameData.GetBuddyFarMonster()
@@ -384,11 +407,18 @@ def GetBuddyFarMonster():
 def GetEnemyFarMonster():
     return gameData.GetEnemyFarMonster()
 
+
+
+def GetNeerMonster():
+    return gameData.GetNeerMonster()
+
 def GetBuddyNeerMonster():
     return gameData.GetBuddyNeerMonster()
 
 def GetEnemyNeerMonster():
     return gameData.GetEnemyNeerMonster()
+
+
 
 def GetHighHPMonster():
     """#一番HPの高いモンスターを返します"""
@@ -408,16 +438,29 @@ def GetEnemyLowHPMonster():
 def GetBuddyLowHPMonster():
     return gameData.GetBuddyLowHPMonster()
 
+
+
+def GetHighATKMonster():
+    return gameData.GetHighATKMonster()
+
+def GetEnemyHighATKMonster():
+    return gameData.GetEnemyHighATKMonster()
+
+def GetBuddyHighATKMonster():
+    return gameData.GetBuddyHighATKMonster()
+
+
+
 def FindBuddyMonster(monID):
     return gameData.FindBuddyMonster(monID)
 
-def FindBuddyMonsters(monID):
+def FindBuddyMonsterList(monID):
     return gameData.FindBuddyMonsters(monID)
 
 def FindEnemyMonster(monID):
     return gameData.FindEnemyMonster(monID)
 
-def FindEnemyMonsters(monID):
+def FindEnemyMonsterList(monID):
     return gameData.FindEnemyMonsters(monID)
 
 
@@ -443,6 +486,9 @@ def Chase(target):
     addAction(target,ACTION.Chase)
 
 def Atack(target):
+    """タイプミスの産物"""
+    addAction(target,ACTION.Atack)
+def Attack(target):
     addAction(target,ACTION.Atack)
 
 def Leave(target):

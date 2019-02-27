@@ -33,6 +33,10 @@ bool Act_Fire::Action(Monster * me)
 		m_effect->SetPosition(m_pos);
 		m_effect->Play(L"Assets/effect/fire1/fire1.efk");
 
+		Sound* sound = NewGO<Sound>(0, "snd");
+		sound->Init(L"Assets/sound/bom.wav");
+		sound->Play();
+
 		m_first = false;
 	}
 	else if (!m_effect->IsPlay())

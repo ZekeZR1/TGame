@@ -36,4 +36,6 @@ private:
 	SpriteRender* m_returnMoji = nullptr;
 	bool isReturnOver = false;
 	CVector2 m_returnS = { 604,256 };
+
+	Sound* m_BGM = nullptr;
 };

@@ -38,7 +38,7 @@ bool MonsterSelect::Start()
 
 	pos += { 78,-78,0 };
 	pos.y = 205.0f;
-	for (int i = 0; i < m_monstercount; i++)
+	for (int i = 1; i < m_monstercount; i++)
 	{
 		IconMon* im = NewGO<IconMon>(0, "im");
 		//std::wstring path;
@@ -61,7 +61,7 @@ bool MonsterSelect::Start()
 			break;
 		}*/
 		im->Setpos(pos);
-		if (((i+1) % 5) == 0)
+		if (((i) % 5) == 0)
 		{
 			pos.x = 30;
 			pos.y -= 133;
@@ -91,7 +91,7 @@ void MonsterSelect::Update()
 	{
 		if (m_icons[i]->isClick())
 		{
-			m_aims->Setmon(i);
+			m_aims->Setmon(i+1);
 			//m_pmm->ChengeImage(m_paths[i].c_str(),i);
 		}
 	}

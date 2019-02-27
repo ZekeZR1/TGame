@@ -30,7 +30,8 @@ Fairy::Fairy()
 	//smr->SetScale({ 1.8f,1.8f,1.8f });
 	init
 	(
-		160,
+		//160,
+		60,
 		30,
 		5,
 		15,

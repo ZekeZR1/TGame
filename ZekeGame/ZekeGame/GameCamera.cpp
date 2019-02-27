@@ -21,6 +21,7 @@ GameCamera::GameCamera()
 	camera3d->SetFar(50000.0f);
 	camera3d->Update();*/
 	m_Scamera.Init(camera3d, 10000, false, 0.f);
+	camera3d->SetViewAngle(CMath::DegToRad(30));
 }
 
 

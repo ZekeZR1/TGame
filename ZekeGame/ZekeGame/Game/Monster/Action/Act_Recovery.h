@@ -12,4 +12,5 @@ public:
 	bool Action(Monster* me) override;
 private:
 	bool m_first = true;
+	CEffect* eff = nullptr;
 };

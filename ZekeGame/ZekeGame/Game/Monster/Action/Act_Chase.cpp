@@ -19,7 +19,7 @@ bool Act_Chase::Action(Monster* me)
 	}
 	CVector3 mepo = me->Getpos();
 	CVector3 v = m_target->Getpos() - mepo;
-	if (v.Length() < 30+m_target->Getradius())
+	if (v.Length() < m_target->Getradius()+me->Getradius()+1)
 	{
 		me->Setspeed(CVector3::Zero());
 		//me->Setiswalk(false);
