@@ -2,6 +2,7 @@
 #include "Act_Recovery.h"
 
 #include "../../GameData.h"
+#include "ACTEffect.h"
 
 Act_Recovery::Act_Recovery()
 {
@@ -14,18 +15,31 @@ bool Act_Recovery::Action(Monster * me)
 		return true;
 	if (m_first)
 	{
-		float CMP = 5.f;
+		float CMP = 0.1f;
 		float mp = me->GetMP();
 		if (mp < CMP)
 			return true;
 		me->anim_extra1();
 		
 		float hp = m_target->GetHP();
-		hp += 20;
+		//hp += 20;
+		hp += 50;
 		m_target->SetHP(hp);
 
 		mp -= CMP;
 		me->SetMP(mp);
+
+		eff = NewGO<CEffect>(0, "ef");
+		eff->SetScale({ 4,4,4 });
+		eff->SetPosition(m_target->Getpos());
+		eff->Play(L"Assets/effect/heal.efk");
+
+		ACTEffectGrant* actEG = NewGO<ACTEffectGrant>(0, "actEG");
+		actEG->init(eff, m_target);
+		
+		Sound* snd = NewGO<Sound>(0, "snd");
+		snd->Init(L"Assets/sound/se_maoudamashii_magical11.wav");
+		snd->Play();
 
 		m_first = false;
 	}

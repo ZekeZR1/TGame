@@ -29,11 +29,18 @@ PvPModeSelect::~PvPModeSelect()
 	DeleteGO(m_back);
 	DeleteGO(m_return);
 	DeleteGO(m_returnMoji);
-	DeleteGO(FindGO<Sound>("BGM"));
 }
 
 bool PvPModeSelect::Start()
 {
+	m_BGM = FindGO<Sound>("BGM");
+	if (m_BGM == nullptr)
+	{
+		m_BGM = NewGO<Sound>(0,"BGM");
+		m_BGM->Init(L"Assets/sound/BGM/PerituneMaterial_Strategy5_loop.wav", true);
+		m_BGM->Play();
+	}
+
 	m_back = NewGO<SpriteRender>(0, "sp");
 	m_back->Init(L"Assets/sprite/monsel_back.dds", 1280, 720);
 
@@ -109,6 +116,7 @@ void PvPModeSelect::Update()
 			Game* game = NewGO<Game>(0, "Game");
 			////game->GamePVPmodeInit(m_files, monai,moid);
 			StageSetup::PVPSetup(m_files,monai,moid);
+			DeleteGO(m_BGM);
 			DeleteGO(this);
 		}
 	}

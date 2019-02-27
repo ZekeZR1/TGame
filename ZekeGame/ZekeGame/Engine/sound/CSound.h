@@ -20,6 +20,7 @@ public:
 		pan = pa;
 	}
 private:
+	bool m_isInited = false;
 	bool m_roofFlag = false;
 	float volume = 1.f;
 	float pitch = 0.f;
