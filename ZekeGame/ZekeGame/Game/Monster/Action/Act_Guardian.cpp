@@ -14,10 +14,11 @@ bool Act_Guardian::Action(Monster * me)
 
 	if (m_first)
 	{
+		float CMP = 1;
 		float mp = me->GetMP();
-		if (mp < 10)
+		if (mp < CMP)
 			return true;
-		me->SetMP(mp - 10.0f);
+		me->SetMP(mp - CMP);
 
 		me->anim_defenseF();
 		m_def = me->GetDefense();
@@ -44,7 +45,9 @@ bool Act_Guardian::Action(Monster * me)
 
 	for (auto mon : g_mons)
 	{
-		if (mon == me)
+		if (mon == nullptr)
+			break;
+		if (mon == me || mon->Getactions().size() == 0)
 			continue;
 		if (m_target == mon->Getactions()[0]->Gettarget())
 		{

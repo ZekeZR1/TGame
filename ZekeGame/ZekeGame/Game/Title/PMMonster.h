@@ -68,4 +68,5 @@ private:
 	wchar_t m_python[16] = L"testBrain";
 	CFont font;
 	FontRender* m_fr = nullptr;
+	FontRender* m_frShadow = nullptr;
 };

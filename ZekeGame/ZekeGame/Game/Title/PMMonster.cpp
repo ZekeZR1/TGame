@@ -11,12 +11,14 @@ PMMonster::~PMMonster()
 	DeleteGO(m_frame);
 	DeleteGO(m_mon);
 	DeleteGO(m_fr);
+	DeleteGO(m_frShadow);
 }
 
 PMMonster::PMMonster()
 {
 	m_mon = NewGO<SpriteRender>(1, "sp");
-	m_mon->Init(L"Assets/sprite/mon_one.dds", 240, 340,true);
+	//m_mon->Init(L"Assets/sprite/mon_one.dds", 240, 340,true);
+	m_frShadow = NewGO<FontRender>(1, "font");
 	m_fr = NewGO<FontRender>(1, "font");
 	m_cursor = FindGO<GameCursor>("cursor");
 }
@@ -42,10 +44,11 @@ void PMMonster::init(int num,CVector3 pos)
 		m_frame->Init(L"Assets/sprite/mon_frameRed.dds", 240, 340);
 	else
 		m_frame->Init(L"Assets/sprite/mon_frameBlue.dds", 240, 340);
-	m_mon->SetPosition(pos);
+	
 	m_frame->SetPosition(pos);
 
 	ChengeImage(g_monset[m_num]);
+	m_mon->SetPosition(pos);
 }
 
 void PMMonster::Update()
@@ -162,6 +165,7 @@ void PMMonster::SetPython(const wchar_t * py,int num)
 	pos.y = spos.y - 130;
 
 	m_fr->Init(m_python, pos, 0, CVector4::White, 1, { 0.5f,0.5f });
+	m_frShadow->Init(m_python, { pos.x + 5,pos.y - 5 }, 0, { 0,0,0,1 }, 1, { 0.5f,0.5f });
 }
 
 void PMMonster::yesSelect()

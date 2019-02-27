@@ -25,10 +25,13 @@ Fairy::Fairy()
 
 
 	SkinModelRender* smr = NewGO<SkinModelRender>(0, "smr");
+	
 	smr->Init(L"Assets/modelData/hnd.cmo",m_anim,7);
+	//smr->SetScale({ 1.8f,1.8f,1.8f });
 	init
 	(
-		160,
+		//160,
+		60,
 		30,
 		5,
 		15,

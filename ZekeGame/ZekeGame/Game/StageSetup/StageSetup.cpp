@@ -77,25 +77,37 @@ void StageSetup::PVPSetup(std::vector<std::string> files, int monsterAI[6],Monst
 		if (i == 3)
 			team++;
 
-		Monster* mon = GameData::LoadMonster(monids[i]);
-		/*switch (monids[i])
+		Monster* mon = nullptr;
+		std::string* path;
+		if (i == 3)
 		{
-		case enTest:
-			mon = NewGO<TestMons>(0, "monster");
-			break;
-		case enUmataur:
-			mon = NewGO<Uma>(0, "monster");
-			break;
-		case enFairy:
-			mon = NewGO<Fairy>(0, "monster");
-			break;
-		}*/
+			mon = GameData::LoadMonster(enFairy);
+
+			path = new std::string("PythonAIs.");
+			//std::string* path = new std::string("");
+			*path += "1Q";
+		}
+		else if (i == 4 || i == 5)
+		{
+			mon = GameData::LoadMonster(enUmataur);
+
+			path = new std::string("PythonAIs.");
+			//std::string* path = new std::string("");
+			*path += "1Q";
+		}
+		else
+		{
+			mon = GameData::LoadMonster(monids[i]);
+
+			path = new std::string("PythonAIs.");
+			//std::string* path = new std::string("");
+			*path += "1A";
+			//*path += files[monsterAI[i]];
+		}
 		mon->Setpos(poss[i]);
 		mon->Setnum(i);
 		mon->Setteam(team);
-		std::string* path = new std::string("PythonAIs.");
-		//std::string* path = new std::string("");
-		*path += files[monsterAI[i]];
+		
 		mon->SetpyFile(path->c_str());
 		g_mons[i] = mon;
 

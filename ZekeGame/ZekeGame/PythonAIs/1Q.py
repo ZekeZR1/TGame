@@ -6,21 +6,12 @@ def Brain(num,team):
     me = cb.GetMe()
     if me.ID == cb.UmataurID:
         mon = cb.GetEnemyNeerMonster()
-        if me.MP >= 20:
-            cb.Tackle( mon )
-        else:
-            cb.Chase(mon)
-            cb.Atack(mon)
+        cb.Defense(mon)
+        cb.Chase(mon)
+        cb.Attack(mon)
     elif me.ID == cb.FairyID:
-        if me.MP >= 20:
+        if me.MP >= 5:
             mon = cb.GetBuddyLowHPMonster()
-            if cb.GetPercentHP(mon) < 0.4:
-                cb.Recovery(mon)
-            else:
-                mon = cb.GetEnemyLowHPMonster()
-                cb.Fire(mon)
-        mon = cb.GetEnemyNeerMonster()
-        cb.Leave(mon)
+            cb.Recovery(mon)
 
     cb.End()
-    return 1

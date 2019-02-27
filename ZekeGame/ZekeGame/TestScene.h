@@ -14,11 +14,14 @@ public:
 private:
 	SkinModelRender* m_model = nullptr;
 	SkinModelRender* m_back = nullptr;
+	SkinModelRender* m_mo2 = nullptr;
 	SpriteRender* m_sp = nullptr;
 	AnimationClip m_anim[1];
 	CVector3 pos = CVector3::Zero();
+	CVector3 pos2 = { 0.f,0.f,-400.f };
 	SpriteRender* m_white = nullptr;
 	PhysicsStaticObject m_phy;
 	PhysicsStaticObject m_phy2;
 	CharacterController m_charaCon;
+	CharacterController m_charaCon2;
 };

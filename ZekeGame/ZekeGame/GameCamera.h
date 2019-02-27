@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Engine/graphics\SpringCamera.h"
+#include "Engine/graphics/SpringCamera.h"
 
 class SpringCamera;
 
@@ -25,6 +25,7 @@ private:
 	//CVector3 m_toCameraPos = { 0.0f, 50.0f, 300.0f };
 	CVector3 m_toCameraPos = { 0.0f, 50.0f, 1000.0f };
 
+	SpringCamera m_Scamera;
 
 	int m_inm = -1;
 };
