@@ -761,6 +761,9 @@
     <ClCompile Include="Game\Monster\Action\Act_Tackle.cpp">
       <Filter>act</Filter>
     </ClCompile>
+    <ClCompile Include="Engine\physics\PhysicsDebugDraw.cpp">
+      <Filter>Engine\physics</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\fairy\hnd.FBX">
@@ -1544,6 +1547,9 @@
     <ClInclude Include="Game\Monster\Action\Act_Guardian.h">
       <Filter>act</Filter>
     </ClInclude>
+    <ClInclude Include="Engine\physics\PhysicsDebugDraw.h">
+      <Filter>Engine\physics</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="python36.lib" />
@@ -1690,6 +1696,9 @@
     </Filter>
     <Filter Include="Assets\monActListNum">
       <UniqueIdentifier>{2f73a362-a789-451a-baee-c4d1dca0e13e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\physics">
+      <UniqueIdentifier>{260856a4-a7f6-4981-a2c3-ad436ee3516a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

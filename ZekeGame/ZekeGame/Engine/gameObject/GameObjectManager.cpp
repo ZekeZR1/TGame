@@ -82,6 +82,8 @@ void GameObjectManager::Execute()
 	}
 
 	m_postEffect.Draw();
+	//physics
+	g_physics.GetDynamicWorld()->debugDrawWorld();
 	//レンダリングターゲットをフレームバッファに戻す。
 	g_graphicsEngine->ChangeRenderTarget(
 		m_frameBufferRenderTargetView,

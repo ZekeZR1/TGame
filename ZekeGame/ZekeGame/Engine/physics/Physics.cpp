@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "Engine/physics/Physics.h"
 #include "RigitBody.h"
+#include "PhysicsDebugDraw.h"
 
 PhysicsWorld g_physics;
 
@@ -15,12 +16,14 @@ void PhysicsWorld::Release()
 	delete overlappingPairCache;
 	delete collisionDispatcher;
 	delete collisionConfig;
+	delete debugDrawer;
 
 	dynamicWorld = nullptr;
 	constraintSolver = nullptr;
 	overlappingPairCache = nullptr;
 	collisionDispatcher = nullptr;
 	collisionConfig = nullptr;
+	debugDrawer = nullptr;
 }
 void PhysicsWorld::Init()
 {
@@ -46,6 +49,10 @@ void PhysicsWorld::Init()
 	);
 
 	dynamicWorld->setGravity(btVector3(0, -10, 0));
+
+	debugDrawer = new PhysicsDebugDraw;
+	dynamicWorld->setDebugDrawer(debugDrawer);
+	debugDrawer->setDebugMode(1);
 }
 void PhysicsWorld::Update()
 {
