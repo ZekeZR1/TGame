@@ -19,6 +19,8 @@ MonsterActionList::~MonsterActionList()
 	DeleteGO(m_fhp);
 	DeleteGO(m_fmp);
 	DeleteGO(m_monNumBack);
+	DeleteGO(m_monNum);
+	DeleteGO(m_SmonNum);
 
 	DeleteGO(m_HPfr);
 	DeleteGO(m_MPfr);

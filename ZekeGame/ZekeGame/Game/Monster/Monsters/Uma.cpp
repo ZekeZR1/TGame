@@ -15,7 +15,7 @@ Uma::Uma()
 
 	SkinModelRender* sr = NewGO<SkinModelRender>(0, "smr");
 	sr->Init(L"Assets/modelData/uma.cmo",m_anim,3);
-	sr->SetScale({ 1.8f,1.8f,1.8f });
+	//sr->SetScale({ 1.8f,1.8f,1.8f });
 	//sr->Init(L"Assets/modelData/uma.bone.cmo");
 	sr->SetPosition(CVector3::Zero());
 	init
@@ -27,7 +27,7 @@ Uma::Uma()
 		10,
 		0,
 		10,
-		30,
+		50,
 		70,
 		sr,
 		3
