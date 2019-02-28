@@ -22,6 +22,10 @@ public:
 	void SetColor(CVector4 col) {
 		m_color = col;
 	}
+
+	void SetTextType(CFont::TextType type) {
+		m_font.SetTextType(type);
+	}
 private:
 	CFont m_font;
 	wchar_t  m_text[256];
