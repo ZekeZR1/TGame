@@ -183,8 +183,6 @@ void ModeSelect::Update()
 	}*/
 
 
-
-
 	CVector3 curpos = m_cursor->GetCursor();
 	int count = 0;
 	for (auto button : m_buttons)

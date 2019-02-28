@@ -26,7 +26,8 @@ TestScene::~TestScene()
 //TODO : alpha, shadow
 bool TestScene::Start() {
 	{
-		g_physics.GetDynamicWorld()->getDebugDrawer()->setDebugMode(1);
+		//g_physics.GetDynamicWorld()->getDebugDrawer()->setDebugMode(1);
+		g_physics.SetDebugDraw(true);
 		camera2d = new Camera;
 		camera2d->SetTarget(CVector3::Zero());
 		camera2d->SetPosition({ 0.0f, 0.0f, -10.0f });
