@@ -32,4 +32,5 @@ private:
 
 	CFont m_font;
 	FontRender* m_fr = nullptr;
+	FontRender* m_frShadow = nullptr;
 };

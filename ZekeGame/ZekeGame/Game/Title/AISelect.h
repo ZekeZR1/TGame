@@ -26,7 +26,6 @@ private:
 
 	std::vector<IconAI*> m_icons;
 	SuperMonsterSelect* m_ppms = nullptr;
-	CFont font;
 
 	SpriteRender* m_AIsel = nullptr;
 };
