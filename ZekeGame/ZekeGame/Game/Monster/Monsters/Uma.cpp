@@ -20,7 +20,8 @@ Uma::Uma()
 	sr->SetPosition(CVector3::Zero());
 	init
 	(
-		160,
+		//160,
+		80,
 		30,
 		10,
 		0,

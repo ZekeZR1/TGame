@@ -368,6 +368,9 @@ TestmonsID = 0
 UmataurID = 1
 FairyID = 2
 
+Uma = 1
+Yousei = 2
+
 def GetMonsStateHP(id):
     hp = 1
     if TestmonsID == id:
@@ -458,6 +461,9 @@ def FindBuddyMonsterList(monID):
     return gameData.FindBuddyMonsters(monID)
 
 def FindEnemyMonster(monID):
+    return gameData.FindEnemyMonster(monID)
+
+def FindEnemy(monID):
     return gameData.FindEnemyMonster(monID)
 
 def FindEnemyMonsterList(monID):
