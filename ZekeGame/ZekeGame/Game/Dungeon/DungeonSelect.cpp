@@ -83,6 +83,7 @@ void DungeonSelect::InitDungeonButtons() {
 		m_sps[i]->SetPosition(pos);
 		//init text
 		m_fonts.push_back(NewGO<FontRender>(1, "font"));
+		m_fonts[i]->SetTextType(CFont::TextType::en_Japanese);
 		wchar_t dungeon[256];
 		swprintf_s(dungeon, L"ƒ_ƒ“ƒWƒ‡ƒ“%d", i + 1);
 		CVector4 fontCol;
@@ -124,6 +125,7 @@ void DungeonSelect::InitBackButton() {
 	CVector3 sPos = { -500.f, -270.f, 0.f };
 	m_backSp->SetPosition(sPos);
 	m_backTx = NewGO<FontRender>(0);
+	m_backTx->SetTextType(CFont::TextType::en_Japanese);
 	CVector2 tPos;
 	tPos.x = sPos.x;
 	tPos.x += -45;

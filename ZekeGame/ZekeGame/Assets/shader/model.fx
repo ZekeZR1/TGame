@@ -352,7 +352,19 @@ float4 PSMainSkin(PSInput In) : SV_Target0
 	return finalColor;
 }
 
-PSInput_ShadowMap VSMain_ShadowMap(VSInputNmTxWeights In)
+////none bone
+PSInput_ShadowMap VSMain_ShadowMap(VSInputNmTxVcTangent In)
+{
+	//float4 pos = 0;
+	PSInput_ShadowMap psInput = (PSInput_ShadowMap)0;
+	float4 worldPos = mul(mWorld, In.Position);
+	worldPos = mul(mView, worldPos);
+	worldPos = mul(mProj, worldPos);
+	psInput.Position = worldPos;
+	return psInput;
+}
+
+PSInput_ShadowMap VSMainSkin_ShadowMap(VSInputNmTxWeights In)
 {
 	float4x4 skinning = 0;
 	float4 pos = 0;

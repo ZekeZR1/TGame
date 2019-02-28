@@ -3,6 +3,7 @@
 #include "CShaderResource.h"
 #include "Effect\CEffectEngine.h"
 #include "../graphics/RenderTarget.h"
+#include "../graphics/font/CFONT.h"
 
 class CShaderResource;
 class CEffectEngine;
@@ -38,9 +39,16 @@ public:
 	{
 		return m_spriteBatch.get();
 	}
-	DirectX::SpriteFont* GetSpriteFont() const
+	DirectX::SpriteFont* GetSpriteFont(CFont::TextType type) const
 	{
-		return m_spriteFont.get();
+		switch (type) {
+		case CFont::TextType::en_Alphabet:
+			return m_spriteFont.get();
+			break;
+		case CFont::TextType::en_Japanese:
+			return m_spriteFontJa.get();
+			break;
+		}
 	}
 	int GetFrameBufferWidth() const
 	{
@@ -96,6 +104,7 @@ private:
 	ID3D11DepthStencilView* m_depthStencilView = NULL;
 	std::unique_ptr<DirectX::SpriteBatch>	m_spriteBatch;
 	std::unique_ptr<DirectX::SpriteFont>	m_spriteFont;
+	std::unique_ptr<DirectX::SpriteFont>	m_spriteFontJa;
 	CEffectEngine m_effectEngine;
 	int						m_2dSpaceScreenWidth = 1280;
 	int						m_2dSpaceScreenHeight = 720;

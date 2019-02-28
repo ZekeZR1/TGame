@@ -187,6 +187,7 @@
     <ClCompile Include="Engine\graphics\postEffect\Dof.cpp" />
     <ClCompile Include="Engine\graphics\postEffect\GaussianBlur.cpp" />
     <ClCompile Include="Engine\graphics\postEffect\PostEffect.cpp" />
+    <ClCompile Include="Engine\graphics\Primitive.cpp" />
     <ClCompile Include="Engine\graphics\RenderTarget.cpp" />
     <ClCompile Include="Engine\graphics\Shader.cpp" />
     <ClCompile Include="Engine\graphics\ShaderResouceView.cpp" />
@@ -348,6 +349,7 @@
     <ClInclude Include="Engine\graphics\postEffect\Dof.h" />
     <ClInclude Include="Engine\graphics\postEffect\GaussianBlur.h" />
     <ClInclude Include="Engine\graphics\postEffect\PostEffect.h" />
+    <ClInclude Include="Engine\graphics\Primitive.h" />
     <ClInclude Include="Engine\graphics\RenderTarget.h" />
     <ClInclude Include="Engine\graphics\Shader.h" />
     <ClInclude Include="Engine\graphics\ShaderResouceView.h" />
