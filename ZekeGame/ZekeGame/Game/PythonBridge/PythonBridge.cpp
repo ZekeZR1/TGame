@@ -561,6 +561,7 @@ void PythonBridge::py_exe(int num,int team,const char* file)
 
 	//pName = PyUnicode_DecodeFSDefault(file);
 	if (team != 256)
+		//pName = PyUnicode_DecodeFSDefault("_MiddleExecute");
 		pName = PyUnicode_DecodeFSDefault("PythonAIs._MiddleExecute");
 	else
 		pName = PyUnicode_DecodeFSDefault("PythonEnemyAIs._MiddleExecute");
@@ -587,6 +588,9 @@ void PythonBridge::py_exe(int num,int team,const char* file)
 
 	if (pValue == NULL || va == 0)
 	{
+		if(pValue != NULL)
+			Py_DECREF(pValue);
+
 		SetCurrentDirectory("../");
 		Py_Finalize();
 		end = true;

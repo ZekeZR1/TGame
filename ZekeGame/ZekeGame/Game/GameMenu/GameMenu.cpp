@@ -87,7 +87,7 @@ void GameMenu::Update()
 		{
 			m_cursor = NewGO<GameCursor>(0, "cursor");
 			CVector3 pos = { 0,200,0 };
-			for (int i = 0; i < 3; i++)
+			for (int i = 0; i < /*3*/2; i++)
 			{
 				SpriteRender* moji = NewGO<SpriteRender>(29, "sp");
 				switch (i)

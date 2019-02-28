@@ -79,31 +79,11 @@ void StageSetup::PVPSetup(std::vector<std::string> files, int monsterAI[6],Monst
 
 		Monster* mon = nullptr;
 		std::string* path;
-		if (i == 3)
-		{
-			mon = GameData::LoadMonster(enFairy);
 
-			path = new std::string("PythonAIs.");
-			//std::string* path = new std::string("");
-			*path += "1Q";
-		}
-		else if (i == 4 || i == 5)
-		{
-			mon = GameData::LoadMonster(enUmataur);
+		mon = GameData::LoadMonster(monids[i]);
+		path = new std::string("PythonAIs.");
+		*path += files[monsterAI[i]];
 
-			path = new std::string("PythonAIs.");
-			//std::string* path = new std::string("");
-			*path += "1Q";
-		}
-		else
-		{
-			mon = GameData::LoadMonster(monids[i]);
-
-			path = new std::string("PythonAIs.");
-			//std::string* path = new std::string("");
-			*path += "1A";
-			//*path += files[monsterAI[i]];
-		}
 		mon->Setpos(poss[i]);
 		mon->Setnum(i);
 		mon->Setteam(team);
@@ -237,6 +217,141 @@ void StageSetup::SetEnemyAI(int dun, int* monAI, MonsterID* monId) {
 		monId[5] = enTest;
 		break;
 	}
+}
+
+void StageSetup::OshiFes()
+{
+
+	int team = 0;
+	int num = 0;
+	CVector3 poss[6];
+	poss[0] = { 250,0,500 };
+	poss[1] = { 0,0,500 };
+	poss[2] = { -250,0,500 };
+	poss[3] = { 250,0,-500 };
+	poss[4] = { 0,0,-500 };
+	poss[5] = { -250,0,-500 };
+
+	CQuaternion rot;
+	rot.SetRotationDeg(CVector3::AxisY(), 180);
+
+	for (int i = 0; i < 6; i++)
+	{
+		if (i == 3)
+			team++;
+
+		Monster* mon = nullptr;
+		std::string* path = nullptr;
+		if (i == 3)
+		{
+			mon = GameData::LoadMonster(enFairy);
+
+			path = new std::string("PythonAIs.1Q");
+			//path = new std::string("1Q");
+		}
+		else if (i == 4 || i == 5)
+		{
+			mon = GameData::LoadMonster(enUmataur);
+
+			path = new std::string("PythonAIs.1Q");
+			//path = new std::string("1Q");
+		}
+		else
+		{
+			mon = GameData::LoadMonster(enUmataur);
+
+			path = new std::string("PythonAIs.1A");
+			//path = new std::string("1A");
+		}
+		if (i < 3)
+			mon->SetRotation(rot);
+
+		mon->Setpos(poss[i]);
+		mon->Setnum(i);
+		mon->Setteam(team);
+
+		
+		mon->SetpyFile(path->c_str());
+		g_mons[i] = mon;
+
+	}
+
+	g_buddyCount = 3;
+	g_enemyCount = 3;
+	g_monsCount = 6;
+}
+
+void StageSetup::OshiFes2()
+{
+	int team = 0;
+	int num = 0;
+	CVector3 poss[6];
+	poss[0] = { 250,0,500 };
+	poss[1] = { 0,0,500 };
+	poss[2] = { -250,0,500 };
+	poss[3] = { 250,0,-500 };
+	poss[4] = { 0,0,-500 };
+	poss[5] = { -250,0,-500 };
+
+	CQuaternion rot;
+	rot.SetRotationDeg(CVector3::AxisY(), 180);
+
+	for (int i = 0; i < 6; i++)
+	{
+		if (i == 3)
+			team++;
+
+		Monster* mon = nullptr;
+		std::string* path;
+		if (i == 3)
+		{
+			mon = GameData::LoadMonster(enFairy);
+
+			path = new std::string("PythonAIs.");
+			//std::string* path = new std::string("");
+			*path += "2Q";
+		}
+		else if (i == 4 || i == 5)
+		{
+			mon = GameData::LoadMonster(enUmataur);
+
+			path = new std::string("PythonAIs.");
+			//std::string* path = new std::string("");
+			*path += "2Q";
+		}
+		else if(i == 2)
+		{
+			mon = GameData::LoadMonster(enFairy);
+
+			path = new std::string("PythonAIs.");
+			//std::string* path = new std::string("");
+			*path += "2A-fairy";
+			//*path += files[monsterAI[i]];
+		}
+		else
+		{
+			mon = GameData::LoadMonster(enUmataur);
+
+			path = new std::string("PythonAIs.");
+			//std::string* path = new std::string("");
+			*path += "2A-uma";
+			//*path += files[monsterAI[i]];
+		}
+		if (i < 3)
+			mon->SetRotation(rot);
+
+		mon->Setpos(poss[i]);
+		mon->Setnum(i);
+		mon->Setteam(team);
+
+		mon->SetpyFile(path->c_str());
+		g_mons[i] = mon;
+
+	}
+
+	g_buddyCount = 3;
+	g_enemyCount = 3;
+	g_monsCount = 6;
 }
 
 void StageSetup::StageSet(int stage) {
