@@ -5,6 +5,10 @@
 
 PhysicsWorld g_physics;
 
+PhysicsWorld::PhysicsWorld() {
+
+}
+
 PhysicsWorld::~PhysicsWorld()
 {
 	Release();
@@ -47,10 +51,10 @@ void PhysicsWorld::Init()
 		constraintSolver,
 		collisionConfig
 	);
-
+	m_debugDraw = new PhysicsDebugDraw;
+	m_debugDraw->Init();
+	debugDrawer = m_debugDraw;
 	dynamicWorld->setGravity(btVector3(0, -10, 0));
-
-	debugDrawer = new PhysicsDebugDraw;
 	dynamicWorld->setDebugDrawer(debugDrawer);
 	debugDrawer->setDebugMode(1);
 }
@@ -65,4 +69,10 @@ void PhysicsWorld::AddRigidBody(RigidBody& rb)
 void PhysicsWorld::RemoveRigidBody(RigidBody& rb)
 {
 	dynamicWorld->removeRigidBody(rb.GetBody());
+}
+
+void PhysicsWorld::DebugDraw() {
+	m_debugDraw->BeginDraw();
+	dynamicWorld->debugDrawWorld();
+	m_debugDraw->EndDraw();
 }

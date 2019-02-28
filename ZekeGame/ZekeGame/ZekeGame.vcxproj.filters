@@ -764,6 +764,10 @@
     <ClCompile Include="Game\Monster\Effect\EFire.cpp">
       <Filter>Game\Effect</Filter>
     </ClCompile>
+    <ClCompile Include="Engine\physics\PhysicsDebugDraw.cpp" />
+    <ClCompile Include="Engine\graphics\Primitive.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\fairy\hnd.FBX">
@@ -1549,6 +1553,10 @@
     </ClInclude>
     <ClInclude Include="Game\Monster\Effect\EFire.h">
       <Filter>Game\Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\physics\PhysicsDebugDraw.h" />
+    <ClInclude Include="Engine\graphics\Primitive.h">
+      <Filter>Engine</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
