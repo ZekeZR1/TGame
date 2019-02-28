@@ -10,7 +10,7 @@ def Brain(MeNum,MeTeam):
         game.Tackle( mon )
     else:
         game.Chase(mon)
-        game.Atack(mon)
+        game.Attack(mon)
     
     game.End()
     #return cb.gameData.tesGetEneNum()

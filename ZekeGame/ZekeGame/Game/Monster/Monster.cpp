@@ -270,6 +270,7 @@ void Monster::Setpos(CVector3 v)
 
 void Monster::SetRotation(CQuaternion rot)
 {
+	m_rot = rot;
 	m_smr->SetRotation(rot);
 }
 

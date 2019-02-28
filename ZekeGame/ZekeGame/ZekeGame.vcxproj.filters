@@ -764,10 +764,10 @@
     <ClCompile Include="Game\Monster\Effect\EFire.cpp">
       <Filter>Game\Effect</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\physics\PhysicsDebugDraw.cpp" />
-    <ClCompile Include="Engine\graphics\Primitive.cpp">
-      <Filter>Engine</Filter>
+    <ClCompile Include="Game\Monster\Action\ACTEffect.cpp">
+      <Filter>act</Filter>
     </ClCompile>
+    <ClCompile Include="Engine\physics\PhysicsDebugDraw.cpp" />
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\fairy\hnd.FBX">
@@ -1554,10 +1554,10 @@
     <ClInclude Include="Game\Monster\Effect\EFire.h">
       <Filter>Game\Effect</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\physics\PhysicsDebugDraw.h" />
-    <ClInclude Include="Engine\graphics\Primitive.h">
-      <Filter>Engine</Filter>
+    <ClInclude Include="Game\Monster\Action\ACTEffect.h">
+      <Filter>act</Filter>
     </ClInclude>
+    <ClInclude Include="Engine\physics\PhysicsDebugDraw.h" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="python36.lib" />
@@ -1651,6 +1651,9 @@
     <None Include="C:\Users\kokoa\Pictures\Effekseer142cWin\shot.efk" />
     <None Include="Assets\effect\panti\panti.efk">
       <Filter>Assets\effect\panti</Filter>
+    </None>
+    <None Include="PythonAIs\1A.py">
+      <Filter>Game\PyAI</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
