@@ -39,7 +39,8 @@ private:
 	CVector2 m_returnS = { 604,256 };
 
 	Sound* m_BGM = nullptr;
+	float m_vol = 1;
 
 	Fade* m_fade = nullptr;
-	bool isfade = false;
+	bool m_isfade = false;
 };

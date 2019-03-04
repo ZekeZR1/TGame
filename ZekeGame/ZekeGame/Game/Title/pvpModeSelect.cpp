@@ -19,6 +19,7 @@
 #include "PMMonster.h"
 
 #include "../Fade/Fade.h"
+#include "../Fade/MusicFade.h"
 
 PvPModeSelect::~PvPModeSelect()
 {
@@ -40,6 +41,7 @@ bool PvPModeSelect::Start()
 	{
 		m_BGM = NewGO<Sound>(0,"BGM");
 		m_BGM->Init(L"Assets/sound/BGM/PerituneMaterial_Strategy5_loop.wav", true);
+		m_BGM->SetVolume(m_vol);
 		m_BGM->Play();
 	}
 
@@ -92,6 +94,24 @@ bool PvPModeSelect::Start()
 
 void PvPModeSelect::Update()
 {
+	if (m_isfade)
+	{
+		if (m_fade->isFadeStop())
+		{
+			MonsterID moid[6];
+			for (int i = 0; i < 6; i++)
+			{
+				moid[i] = (MonsterID)m_pmms[i]->GetMonsterID();
+				monai[i] = m_pmms[i]->GetAI();
+			}
+			Game* game = NewGO<Game>(0, "Game");
+			////game->GamePVPmodeInit(m_files, monai,moid);
+			StageSetup::PVPSetup(m_files, monai, moid);
+			//m_BGM->Stop();
+			DeleteGO(this);
+		}
+	}
+
 	bool ismonsel = false;
 	int count = 0;
 	for (auto pmm : m_pmms)
@@ -112,17 +132,10 @@ void PvPModeSelect::Update()
 	{
 		if (Mouse::isTrigger(enLeftClick))
 		{
-			MonsterID moid[6];
-			for (int i = 0;i < 6;i++)
-			{
-				moid[i] = (MonsterID)m_pmms[i]->GetMonsterID();
-				monai[i] = m_pmms[i]->GetAI();
-			}
-			Game* game = NewGO<Game>(0, "Game");
-			////game->GamePVPmodeInit(m_files, monai,moid);
-			StageSetup::PVPSetup(m_files,monai,moid);
-			m_BGM->Stop();
-			DeleteGO(this);
+			m_fade->FadeOut();
+			m_isfade = true;
+			MusicFade* mf = NewGO<MusicFade>(0, "mf");
+			mf->init(m_BGM, m_vol);
 		}
 	}
 

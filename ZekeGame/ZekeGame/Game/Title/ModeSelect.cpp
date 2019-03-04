@@ -10,6 +10,7 @@
 #include "../GameCursor.h"
 
 #include "../Fade/Fade.h"
+#include "../Fade/MusicFade.h"
 
 
 ModeSelect::~ModeSelect()
