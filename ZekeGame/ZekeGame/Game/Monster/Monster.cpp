@@ -18,6 +18,7 @@ Monster::~Monster()
 	ReleaseMAL();
 	ReleaseMark();
 	delete[] m_UseAction;
+	delete m_pyFile;
 }
 
 void Monster::ReleaseMAL()
@@ -108,7 +109,7 @@ void Monster::Update()
 			//m_PB->py_exe(m_num, m_team, m_pyFile);
 			if (!isLoading)
 			{
-				m_PB->py_exe(m_num, m_team, m_pyFile);
+				m_PB->py_exe(m_num, m_team, m_pyFile->c_str());
 				//m_PB->py_exeEX(m_num, m_team, m_pyFile);
 				isLoading = true;
 			}

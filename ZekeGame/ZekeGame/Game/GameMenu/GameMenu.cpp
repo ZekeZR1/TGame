@@ -16,8 +16,13 @@ GameMenu::~GameMenu()
 	{
 		for (auto go : m_buttons)
 			DeleteGO(go);
-		DeleteGO(m_cursor);
+		
 	}
+}
+
+void GameMenu::OnDestroy()
+{
+	DeleteGO(m_cursor);
 }
 
 void GameMenu::Release()

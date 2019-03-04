@@ -50,7 +50,7 @@ void StageSetup::SuddenDeath(const char* files[6], MonsterID monids[6], int team
 		mon->Setpos(poss[poi]);
 		mon->Setnum(i);
 		mon->Setteam(teams[i]);
-		mon->SetpyFile(files[i]);
+		//mon->SetpyFile(files[i]);
 		g_mons[i] = mon;
 
 		mon->SuddenDeath();
@@ -88,7 +88,7 @@ void StageSetup::PVPSetup(std::vector<std::string> files, int monsterAI[6],Monst
 		mon->Setnum(i);
 		mon->Setteam(team);
 		
-		mon->SetpyFile(path->c_str());
+		mon->SetpyFile(path);
 		g_mons[i] = mon;
 
 	}
@@ -135,13 +135,13 @@ void StageSetup::DungeonSetup(PyFile files, PyFile eneFiles, int monsterAI[6], M
 			//team
 			std::string* path = new std::string("PythonAIs.");
 			*path += files[monsterAI[i]];
-			mon->SetpyFile(path->c_str());
+			mon->SetpyFile(path);
 		}
 		else{
 			//enemy
 			std::string* path = new std::string("PythonEnemyAIs.");
 			*path += eneFiles[monsterAI[i]];
-			mon->SetpyFile(path->c_str());
+			mon->SetpyFile(path);
 		}
 		g_mons[i] = mon;
 	}
@@ -271,7 +271,7 @@ void StageSetup::OshiFes()
 		mon->Setteam(team);
 
 		
-		mon->SetpyFile(path->c_str());
+		mon->SetpyFile(path);
 		g_mons[i] = mon;
 
 	}
@@ -344,7 +344,7 @@ void StageSetup::OshiFes2()
 		mon->Setnum(i);
 		mon->Setteam(team);
 
-		mon->SetpyFile(path->c_str());
+		mon->SetpyFile(path);
 		g_mons[i] = mon;
 
 	}

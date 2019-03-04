@@ -7,6 +7,7 @@ class GameMenu :public GameObject
 {
 public:
 	~GameMenu();
+	void OnDestroy() override;
 	void Release();
 	bool Start()override;
 	void init(int playmode,int dunnum)
