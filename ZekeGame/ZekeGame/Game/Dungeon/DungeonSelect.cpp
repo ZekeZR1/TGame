@@ -14,6 +14,13 @@ bool DungeonSelect::Start() {
 	CheckDungeonClearState();
 	InitDungeonButtons();
 	InitBackButton();
+	auto bgm = FindGO<Sound>("BGM");
+	if (bgm == nullptr)
+	{
+		bgm = NewGO<Sound>(0, "BGM");
+		bgm->Init(L"Assets/sound/BGM/PerituneMaterial_Strategy5_loop.wav", true);
+		bgm->Play();
+	}
 	return true;
 }
 
@@ -176,21 +183,20 @@ void DungeonSelect::DungeonSelectClick() {
 
 	m_leftSp->SetCollisionTarget(tar);
 	m_rightSp->SetCollisionTarget(tar);
-	if (m_leftSp->isCollidingTarget() && Mouse::isTrigger(enLeftClick)) {
+	if (m_leftSp->isCollidingTarget() && Mouse::isTrigger(enLeftClick) && time == 0.f) {
 		if (m_selectedNum == 1) {
 			return;
 		}
 		left = true;
-		//TODO : —V‚Ñ’l‚¢‚ê‚é
-		if(addPos.x == 0)
+		if(addPos.x == 0.f)
 			m_selectedNum--;
 	}
-	if (m_rightSp->isCollidingTarget() && Mouse::isTrigger(enLeftClick)) {
+	if (m_rightSp->isCollidingTarget() && Mouse::isTrigger(enLeftClick) && time == 0.f) {
 		if (m_selectedNum == m_numDungeon) {
 			return;
 		}
 		right = true;
-		if (addPos.x == 0)
+		if (addPos.x == 0.f)
 			m_selectedNum++;
 	}
 	if (left) {
@@ -212,13 +218,13 @@ void DungeonSelect::DungeonSelectClick() {
 	}
 	m_isPositionUpdating = left || right;
 
-	char str[256];
-	sprintf_s(str, "Selecting Dungeon %d\n", m_selectedNum);
-	OutputDebugStringA(str);
+	//char str[256];
+	//sprintf_s(str, "addpos.x %f\n", addPos.x);
+	//OutputDebugStringA(str);
 }
 
 void DungeonSelect::StartDungeon() {
-	if (m_isPositionUpdating)
+	if (m_isPositionUpdating || m_backSp->isCollidingTarget())
 		return;
 	for (auto i : m_sps) {
 		i->SetCollisionTarget(m_cur->GetCursor());
