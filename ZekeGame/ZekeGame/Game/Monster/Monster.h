@@ -61,13 +61,13 @@ public:
 
 	//使うpythonのファイルを設定する
 	//st: ファイルの名前
-	void SetpyFile(const char* st)
+	void SetpyFile(std::string* st)
 	{
 		m_pyFile = st;
 	}
 
 	//使うpythonファイルの名前を返す
-	const char* GetpyFile()
+	std::string* GetpyFile()
 	{
 		return m_pyFile;
 	}
@@ -328,7 +328,8 @@ public:
 	}
 
 protected:
-	const char* m_pyFile = NULL;				//使うpythonファイルの名前
+	//const char* m_pyFile = NULL;				//使うpythonファイルの名前
+	std::string* m_pyFile = nullptr;
 	int m_ID = 0;								//モンスターの種類を判断するためのID
 	int m_num = 0;								//背番号みたいな感じ
 	int m_team = 0;								//チーム番号
