@@ -8,10 +8,14 @@ ACTEffectGrant::~ACTEffectGrant()
 	
 }
 
-void ACTEffectGrant::init(CEffect * effect, Monster * target)
+void ACTEffectGrant::init(CEffect * effect, Monster * target, int state, float dam, float time)
 {
 	m_effect = effect;
 	m_target = target;
+
+	m_state = (State)state;
+	m_dam = dam;
+	m_damTime = time;
 }
 
 void ACTEffectGrant::Update()
@@ -21,5 +25,20 @@ void ACTEffectGrant::Update()
 		DeleteGO(this);
 	}
 
+	if (m_damTime < -0.00001f || m_damTime <= m_time)
+	{
+		switch (m_state)
+		{
+		case enDamage:
+			float HP = m_target->GetHP();
+			m_target->SetHP(HP - m_dam);
+			break;
+		}
+		m_time = 0;
+	}
+	
+	
 	m_effect->SetPosition(m_target->Getpos());
+
+	m_time += IGameTime().GetFrameDeltaTime();
 }
