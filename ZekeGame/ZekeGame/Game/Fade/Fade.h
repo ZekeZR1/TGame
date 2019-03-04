@@ -17,6 +17,10 @@ public:
 		m_mulcol = col;
 	}
 
+	float GetSpeed()
+	{
+		return m_speed;
+	}
 	void SetSpeed(float sp)
 	{
 		m_speed = sp;
