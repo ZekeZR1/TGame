@@ -314,6 +314,7 @@
     <ImageContentTask Include="Assets\Sprite\GUI\MonActList\mon_actlist_Red3.png">
       <Filter>Assets\monActListNum</Filter>
     </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\Fade\fade_black.png" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp" />
@@ -768,6 +769,13 @@
       <Filter>act</Filter>
     </ClCompile>
     <ClCompile Include="Engine\physics\PhysicsDebugDraw.cpp" />
+    <ClCompile Include="Engine\graphics\Primitive.cpp" />
+    <ClCompile Include="Game\Fade\Fade.cpp">
+      <Filter>Game\fade</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Fade\MusicFade.cpp">
+      <Filter>Game\fade</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\fairy\hnd.FBX">
@@ -1558,6 +1566,13 @@
       <Filter>act</Filter>
     </ClInclude>
     <ClInclude Include="Engine\physics\PhysicsDebugDraw.h" />
+    <ClInclude Include="Engine\graphics\Primitive.h" />
+    <ClInclude Include="Game\Fade\Fade.h">
+      <Filter>Game\fade</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Fade\MusicFade.h">
+      <Filter>Game\fade</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="python36.lib" />
@@ -1655,6 +1670,9 @@
     <None Include="PythonAIs\1A.py">
       <Filter>Game\PyAI</Filter>
     </None>
+    <None Include="PythonAIs\2Q.py">
+      <Filter>Game\PyAI</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="act">
@@ -1710,6 +1728,12 @@
     </Filter>
     <Filter Include="Game\Effect">
       <UniqueIdentifier>{c0f3dabb-43d8-4371-b3f0-8a4654f5015e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\fade">
+      <UniqueIdentifier>{4afdf807-ed67-485c-851d-6773a20eddcf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets\fade">
+      <UniqueIdentifier>{3ed1854a-560a-48ea-8167-107681e38fb9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
