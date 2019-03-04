@@ -76,7 +76,7 @@ void Game::OnDestroy() {
 	DeleteGO(m_fr);
 	DeleteGO(m_floor);
 	DeleteGO(m_smd);
-	DeleteGO(m_BGM);
+	m_BGM->Stop();
 	if(m_isOnlineGame)
 		Engine::IEngine().DestroyNetworkSystem();
 	delete m_pi;

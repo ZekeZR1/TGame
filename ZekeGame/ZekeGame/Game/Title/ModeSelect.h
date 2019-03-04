@@ -1,6 +1,7 @@
 #pragma once
 class GameCamera;
 class GameCursor;
+class Fade;
 struct button
 {
 	button()
@@ -45,4 +46,8 @@ private:
 	int m_count = 0;
 
 	Sound* m_BGM = nullptr;
+
+	Fade* m_fade = nullptr;
+	bool m_isfade = false;
+	int m_mode = enDungeon;
 };

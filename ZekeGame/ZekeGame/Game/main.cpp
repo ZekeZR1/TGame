@@ -6,6 +6,8 @@
 #include "Title/ModeSelect.h"
 #include "../TestScene.h"
 
+#include "Fade/Fade.h"
+
 #include "Dungeon/DungeonTransition.h"
 
 int WINAPI wWinMain(
@@ -18,7 +20,8 @@ int WINAPI wWinMain(
 	//NewGO<Game>(0,"Game");
 	//NewGO<PvPModeSelect>(0, "pvp");
 
-	
+
+	NewGO<Fade>(0, "fade");
 
 	NewGO<GameCamera3D>(0, "cam3d");
 	NewGO<GameCamera2D>(0, "cam2d");

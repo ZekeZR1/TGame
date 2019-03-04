@@ -257,6 +257,7 @@
     <ClCompile Include="Game\Dungeon\DungeonGame.cpp" />
     <ClCompile Include="Game\Dungeon\DungeonSelect.cpp" />
     <ClCompile Include="Game\Dungeon\DungeonTransition.cpp" />
+    <ClCompile Include="Game\Fade\Fade.cpp" />
     <ClCompile Include="Game\Game.cpp" />
     <ClCompile Include="Game\GameCamera2D.cpp" />
     <ClCompile Include="Game\GameCamera3D.cpp" />
@@ -421,6 +422,7 @@
     <ClInclude Include="Game\Dungeon\DungeonGame.h" />
     <ClInclude Include="Game\Dungeon\DungeonSelect.h" />
     <ClInclude Include="Game\Dungeon\DungeonTransition.h" />
+    <ClInclude Include="Game\Fade\Fade.h" />
     <ClInclude Include="Game\Game.h" />
     <ClInclude Include="Game\GameCamera2D.h" />
     <ClInclude Include="Game\GameCamera3D.h" />
@@ -637,7 +639,7 @@
     <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\leftButton.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\rightButton.png" />
     <ImageContentTask Include="Assets\Sprite\AIEdit\menu.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\nextDungeon.png" />
+    <ImageContentTask Include="Assets\Sprite\Fade\fade_black.png" />
     <Image Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_back2.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_frame.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\B_alpha.png" />
