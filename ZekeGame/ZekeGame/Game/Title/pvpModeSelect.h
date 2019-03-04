@@ -3,6 +3,7 @@
 class PMMonster;
 class GameCursor;
 class SuperMonsterSelect;
+class Fade;
 class PvPModeSelect :public SuperMonsterSelect
 {
 public:
@@ -38,4 +39,7 @@ private:
 	CVector2 m_returnS = { 604,256 };
 
 	Sound* m_BGM = nullptr;
+
+	Fade* m_fade = nullptr;
+	bool isfade = false;
 };

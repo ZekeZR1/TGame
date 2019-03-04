@@ -39,7 +39,7 @@ Win::~Win()
 
 void Win::OnDestroy()
 {
-	DeleteGO(m_BGM);
+	m_BGM->Stop();
 }
 
 void Win::init(int team)
