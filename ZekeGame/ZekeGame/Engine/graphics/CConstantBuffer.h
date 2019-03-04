@@ -1,6 +1,5 @@
 #pragma once
-#include "graphics/GPUBuffer/CGPUBuffer.h"
-
+#include "../graphics/GPUBuffer/CGPUBuffer.h"
 class CConstantBuffer : public CGPUBuffer {
 public:
 	CConstantBuffer();
