@@ -16,8 +16,13 @@ GameMenu::~GameMenu()
 	{
 		for (auto go : m_buttons)
 			DeleteGO(go);
-		DeleteGO(m_cursor);
+		
 	}
+}
+
+void GameMenu::OnDestroy()
+{
+	DeleteGO(m_cursor);
 }
 
 void GameMenu::Release()
@@ -87,7 +92,7 @@ void GameMenu::Update()
 		{
 			m_cursor = NewGO<GameCursor>(0, "cursor");
 			CVector3 pos = { 0,200,0 };
-			for (int i = 0; i < 3; i++)
+			for (int i = 0; i < /*3*/2; i++)
 			{
 				SpriteRender* moji = NewGO<SpriteRender>(29, "sp");
 				switch (i)

@@ -1660,6 +1660,9 @@
     <None Include="PythonAIs\1A.py">
       <Filter>Game\PyAI</Filter>
     </None>
+    <None Include="PythonAIs\2Q.py">
+      <Filter>Game\PyAI</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="act">

@@ -24,6 +24,7 @@ void Game::GamePVPmodeInit(std::vector<std::string> files, int monsterAI[6],Mons
 bool Game::Start() {
 	m_BGM = NewGO<Sound>(0, "BGM");
 	m_BGM->Init(L"Assets/sound/BGM/bgm_maoudamashii_fantasy12.wav", true);
+	m_BGM->SetVolume(0.3f);
 	m_BGM->Play();
 
 	m_pi = new Pyinit;
@@ -50,7 +51,9 @@ bool Game::Start() {
 
 	OutputDebugStringA("Start Battle");
 
+	m_frS = NewGO<FontRender>(0, "fr");
 	m_fr = NewGO<FontRender>(0, "fr");
+
 
 	e = NewGO<CEffect>(0, "s");
 	e->SetPosition(CVector3::Zero());
@@ -72,6 +75,7 @@ void Game::OnDestroy() {
 	DeleteGO(FindGO<SkinModelRender>("stageModel"));
 	DeleteGO(m_fr);
 	DeleteGO(m_floor);
+	DeleteGO(m_smd);
 	DeleteGO(m_BGM);
 	if(m_isOnlineGame)
 		Engine::IEngine().DestroyNetworkSystem();
@@ -133,7 +137,9 @@ void Game::Update() {
 			wchar_t text[255];
 
 			swprintf_s(text, L"%02d:%02.2f", m, s);
-			m_fr->Init(text, {440,360 }, 0, CVector4::White, 1, {0,0 });
+			m_fr->Init(text, {350,360 }, 0, CVector4::White, 1, {0,0 });
+			m_frS->Init(text, { 350 + 5,360 - 5 }, 0, {0,0,0,1}, 1, { 0,0 });
+
 			m_time -= IGameTime().GetFrameDeltaTime();
 		}
 	}

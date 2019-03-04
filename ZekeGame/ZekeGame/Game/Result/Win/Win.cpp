@@ -34,6 +34,11 @@ Win::~Win()
 	DeleteGO(m_srteam);
 	DeleteGO(m_srwin);
 	DeleteGO(FindGO<Game>("Game"));
+	
+}
+
+void Win::OnDestroy()
+{
 	DeleteGO(m_BGM);
 }
 

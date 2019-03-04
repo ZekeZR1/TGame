@@ -7,6 +7,7 @@ public:
 	Win(int team);
 	Win();
 	~Win();
+	void OnDestroy() override;
 	void init(int team);
 	bool Start();
 	void Update();
