@@ -140,6 +140,7 @@ void GraphicsEngine::InitDirectX(HWND hwnd) {
 
 	m_spriteBatch = std::make_unique<DirectX::SpriteBatch>(m_pd3dDeviceContext);
 	m_spriteFont = std::make_unique<DirectX::SpriteFont>(m_pd3dDevice, L"Assets/font/myfile.spritefont");
+	m_spriteFontJa = std::make_unique<DirectX::SpriteFont>(m_pd3dDevice, L"Assets/font/myfileJa.spritefont");
 
 	m_effectEngine.Init();
 }

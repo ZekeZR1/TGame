@@ -42,9 +42,9 @@ void Engine::Update() {
 	}
 
 	IGameObjectManager().Execute();
-//#if _DEBUG
+#if _DEBUG
 	FPS->Draw();
-//#endif
+#endif
 }
 
 void Engine::CreateNetworkSystem() {

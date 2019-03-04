@@ -50,6 +50,7 @@ bool DungeonAISelect::Start() {
 	m_dunSp->Init(L"Assets/Sprite/DadandanBk.dds", 350.f, 70.f);
 	m_dunSp->SetPosition({ 0.f,300.f,0.f });
 	m_font = NewGO<FontRender>(0, "font");
+	m_font->SetTextType(CFont::en_Japanese);
 	wchar_t dungeon[256];
 	swprintf_s(dungeon, L"ƒ_ƒ“ƒWƒ‡ƒ“%d\n", m_dunNum + 1);
 	m_font->Init(dungeon, { -140.f, 320.f }, 0.f, CVector4::White, 1.f, { 0.f,0.f });
