@@ -23,7 +23,7 @@ bool Act_Recovery::Action(Monster * me)
 		
 		float hp = m_target->GetHP();
 		//hp += 20;
-		hp += 50;
+		hp += 80;
 		m_target->SetHP(hp);
 
 		mp -= CMP;
@@ -39,11 +39,12 @@ bool Act_Recovery::Action(Monster * me)
 		
 		Sound* snd = NewGO<Sound>(0, "snd");
 		snd->Init(L"Assets/sound/se_maoudamashii_magical11.wav");
+		snd->SetVolume(1.2f);
 		snd->Play();
 
 		CVector3 v = m_target->Getpos() - me->Getpos();
 
-		float cta = atan2f(v.x, v.y);
+		float cta = atan2f(v.x, v.z);
 		CQuaternion rot;
 		rot.SetRotation(CVector3::AxisY(), cta);
 		me->SetRotation(rot);

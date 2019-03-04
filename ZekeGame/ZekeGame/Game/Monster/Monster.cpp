@@ -18,6 +18,7 @@ Monster::~Monster()
 	ReleaseMAL();
 	ReleaseMark();
 	delete[] m_UseAction;
+	delete m_pyFile;
 }
 
 void Monster::ReleaseMAL()
@@ -92,6 +93,10 @@ void Monster::Update()
 		return;
 	if (m_HP <= 0)
 	{
+		Sound* se = NewGO<Sound>(0, "se");
+		se->Init(L"Assets/sound/ani_fa_mon07.wav");
+		se->Play();
+
 		m_state = en_Dead;
 		GameData::deletemons(this);
 		DeleteGO(this);
@@ -99,12 +104,12 @@ void Monster::Update()
 	switch (m_state)
 	{
 	case en_NowLoading:
-		if (m_actionTime > 1)
+		if (m_actionTime > 2)
 		{
 			//m_PB->py_exe(m_num, m_team, m_pyFile);
 			if (!isLoading)
 			{
-				m_PB->py_exe(m_num, m_team, m_pyFile);
+				m_PB->py_exe(m_num, m_team, m_pyFile->c_str());
 				//m_PB->py_exeEX(m_num, m_team, m_pyFile);
 				isLoading = true;
 			}
@@ -206,6 +211,7 @@ void Monster::TurnEx()
 
 void Monster::receiveDamage()
 {
+	bool isdam = false;
 	if (m_Damage > 0)
 	{
 		float dm = m_Damage - m_Defense;
@@ -213,6 +219,8 @@ void Monster::receiveDamage()
 		if (dm > 0)
 			m_HP -= dm;
 		m_Damage = 0;
+
+		isdam = true;
 	}
 
 	if (m_DamageEx)
@@ -222,6 +230,15 @@ void Monster::receiveDamage()
 		if (dm > 0)
 			m_HP -= dm;
 		m_DamageEx = 0;
+
+		isdam = true;
+	}
+
+	if (isdam)
+	{
+		Sound* se = NewGO<Sound>(0, "se");
+		se->Init(L"Assets/sound/ani_fa_mon03.wav");
+		se->Play();
 	}
 }
 

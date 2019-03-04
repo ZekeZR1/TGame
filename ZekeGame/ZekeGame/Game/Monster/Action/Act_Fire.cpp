@@ -37,6 +37,12 @@ bool Act_Fire::Action(Monster * me)
 		sound->Init(L"Assets/sound/bom.wav");
 		sound->Play();
 
+		CVector3 v = m_target->Getpos() - me->Getpos();
+		float cta = atan2f(v.x, v.z);
+		CQuaternion rot;
+		rot.SetRotation(CVector3::AxisY(), cta);
+		me->SetRotation(rot);
+
 		m_first = false;
 	}
 	else if (!m_effect->IsPlay())
