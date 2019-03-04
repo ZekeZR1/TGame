@@ -116,6 +116,8 @@ void DungeonResult::InitUI() {
 	else {
 		m_resultSp->Init(L"Assets/Sprite/lose.dds", 500.f, 200.f, true);
 	}
+	m_resultSp->SetPosition({ -410,160,0 });
+
 	m_cursor = NewGO<GameCursor>(0);
 }
 

@@ -1719,6 +1719,9 @@
     <Filter Include="Game\Effect">
       <UniqueIdentifier>{c0f3dabb-43d8-4371-b3f0-8a4654f5015e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\network">
+      <UniqueIdentifier>{e34ecc51-3fef-4d61-a4ce-57e75e3d2830}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Media Include="Assets\sound\kick-low1.wav" />
