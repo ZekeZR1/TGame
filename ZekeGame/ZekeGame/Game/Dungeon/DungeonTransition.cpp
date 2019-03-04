@@ -52,6 +52,8 @@ void DungeonTransition::OnDestroy() {
 	for (auto model : m_monsters) {
 		DeleteGO(model);
 	}
+	auto bgm = FindGO<Sound>("BGM");
+	bgm->Stop();
 }
 
 void DungeonTransition::Update() {

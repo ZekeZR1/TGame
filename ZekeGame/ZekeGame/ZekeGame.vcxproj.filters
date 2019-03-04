@@ -314,6 +314,9 @@
     <ImageContentTask Include="Assets\Sprite\GUI\MonActList\mon_actlist_Red3.png">
       <Filter>Assets\monActListNum</Filter>
     </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\nextDungeon.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp" />
@@ -768,6 +771,7 @@
       <Filter>act</Filter>
     </ClCompile>
     <ClCompile Include="Engine\physics\PhysicsDebugDraw.cpp" />
+    <ClCompile Include="Engine\graphics\Primitive.cpp" />
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\fairy\hnd.FBX">
@@ -1558,6 +1562,7 @@
       <Filter>act</Filter>
     </ClInclude>
     <ClInclude Include="Engine\physics\PhysicsDebugDraw.h" />
+    <ClInclude Include="Engine\graphics\Primitive.h" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="python36.lib" />
