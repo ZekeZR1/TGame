@@ -315,6 +315,9 @@
       <Filter>Assets\monActListNum</Filter>
     </ImageContentTask>
     <ImageContentTask Include="Assets\Sprite\Fade\fade_black.png" />
+    <ImageContentTask Include="Assets\Sprite\Fade\fade_white.png">
+      <Filter>Assets\fade</Filter>
+    </ImageContentTask>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp" />

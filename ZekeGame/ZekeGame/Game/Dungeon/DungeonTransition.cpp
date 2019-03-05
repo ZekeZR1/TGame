@@ -68,6 +68,11 @@ void DungeonTransition::Update() {
 	m_camera->SetTarget(m_monsters[1]->GetPosition());
 	auto p = m_monsters[0]->GetPosition();
 	if (p.z > -300.f || g_pad[0].IsTrigger(enEscape)) {
+		m_fade->FadeOut();
+		//m_fade->SetMulCol(CVector4::White);
+		m_isfade = true;
+	}
+	if (m_isfade && m_fade->isFadeStop()) {
 		auto select = NewGO<StageSelect>(0, "selectScene");
 		select->SetDungeonGameData(m_files, m_enemyFiles, m_monai, m_ids, m_dunNum);
 		DeleteGO(this);
