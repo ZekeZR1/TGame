@@ -1,7 +1,7 @@
 #pragma once
 #include "../Title/SuperMonsterSelect.h"
 class PMMonster;
-
+class Fade;
 class DungeonAISelect : public SuperMonsterSelect
 {
 public:
@@ -31,5 +31,9 @@ private:
 	int m_dunNum = -1;
 	SpriteRender* m_dunSp = nullptr;
 	FontRender* m_font = nullptr;
+	Fade* m_fade = nullptr;
+	bool m_isfade = false;
+	bool isfade = false;
+	MonsterID moid[m_numMonster];
 };
 

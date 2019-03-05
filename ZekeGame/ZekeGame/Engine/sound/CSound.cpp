@@ -75,3 +75,9 @@ bool Sound::isPlaying() {
 		*/
 	}
 }
+
+void Sound::SetVolume(float vol) {
+	volume = vol;
+	if (m_roofFlag)
+		effect->SetVolume(vol);
+}

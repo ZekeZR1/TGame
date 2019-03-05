@@ -1,6 +1,6 @@
 #pragma once
 class DungeonTCamera;
-
+class Fade;
 class DungeonTransition : public GameObject
 {
 private:
@@ -23,6 +23,8 @@ private:
 	int m_dunNum = -1;
 private:
 	static const int m_numMonster = 3;
+	bool m_isfade = false;
+	Fade* m_fade;
 	SkinModelRender* m_back = nullptr;
 	std::vector<SkinModelRender*> m_monsters;
 	CVector3 m_backPos = CVector3::Zero();
