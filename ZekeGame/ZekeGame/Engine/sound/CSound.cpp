@@ -53,7 +53,7 @@ void Sound::Play() {
 }
 
 void Sound::Stop() {
-	effect->Stop();
+//	effect->Stop();
 	DeleteGO(this);
 }
 

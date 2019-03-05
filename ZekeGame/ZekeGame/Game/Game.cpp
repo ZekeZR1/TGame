@@ -12,6 +12,7 @@
 #include "Monster/Monsters/TestMons.h"
 #include "Result/Win/Win.h"
 #include "Result/DungeonResult.h"
+#include "Fade/Fade.h"
 
 
 void Game::GamePVPmodeInit(std::vector<std::string> files, int monsterAI[6],MonsterID MonsterID[6])
@@ -26,7 +27,8 @@ bool Game::Start() {
 	m_BGM->Init(L"Assets/sound/BGM/bgm_maoudamashii_fantasy12.wav", true);
 	m_BGM->SetVolume(0.3f);
 	m_BGM->Play();
-
+	auto fade = FindGO<Fade>("fade");
+	fade->FadeIn();
 	m_pi = new Pyinit;
 	NewGO<MonsterActionManeger>(0, "MAM");
 	m_model = NewGO<SkinModelRender>(0, "model");
@@ -64,6 +66,7 @@ bool Game::Start() {
 }
 
 void Game::OnDestroy() {
+	m_BGM->Stop();
 	for (auto mon : g_mons)
 	{
 		if (mon == NULL)
@@ -76,7 +79,6 @@ void Game::OnDestroy() {
 	DeleteGO(m_fr);
 	DeleteGO(m_floor);
 	DeleteGO(m_smd);
-	m_BGM->Stop();
 	if(m_isOnlineGame)
 		Engine::IEngine().DestroyNetworkSystem();
 	delete m_pi;
