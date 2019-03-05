@@ -42,7 +42,7 @@ bool ModeSelect::Start()
 	}
 
 	m_fade = FindGO<Fade>("fade");
-
+	m_fade->FadeIn();
 	m_cursor = NewGO<GameCursor>(0, "cur");
 
 	m_back = NewGO<SpriteRender>(0, "sp");

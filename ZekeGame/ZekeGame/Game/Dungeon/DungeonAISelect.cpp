@@ -2,6 +2,7 @@
 #include <string>
 #include "DungeonGame.h"
 #include "../Title/ModeSelect.h"
+#include "../Fade/Fade.h"
 #include "../GameData.h"
 #include "../GameCursor.h"
 #include "../Title/SuperMonsterSelect.h"
@@ -32,6 +33,8 @@ DungeonAISelect::~DungeonAISelect()
 }
 
 bool DungeonAISelect::Start() {
+	m_fade = FindGO<Fade>("fade");
+	m_fade->FadeIn();
 	m_files = PythonFileLoad::FilesLoad();
 	m_enemyFiles = PythonFileLoad::FilesLoadEnemy();
 	m_cursor = NewGO<GameCursor>(0, "cursor");
@@ -76,23 +79,30 @@ void DungeonAISelect::Update() {
 	{
 		if (Mouse::isTrigger(enLeftClick))
 		{
-			MonsterID moid[m_numMonster];
 			for (int i = 0; i < m_numPmm; i++)
 			{
 				moid[i] = static_cast<MonsterID>(m_pmms[i]->GetMonsterID());
 				monai[i] = m_pmms[i]->GetAI();
 			}
-			auto dun = NewGO<DungeonGame>(0,"DungeonGame");
-			dun->SetGameData(m_files, m_enemyFiles, monai, moid, m_dunNum);
-			OutputDebugStringA("AI Selected!! Start Transation!\n");
-			dun->StartTransition();
-			DeleteGO(this);
+			m_fade->FadeOut();
+			m_isfade = true;
 		}
 	}
-	if (g_pad[0].IsTrigger(enButtonA)) {
+	if (m_isfade && m_fade->isFadeStop()) {
+		auto dun = NewGO<DungeonGame>(0, "DungeonGame");
+		dun->SetGameData(m_files, m_enemyFiles, monai, moid, m_dunNum);
+		OutputDebugStringA("AI Selected!! Start Transation!\n");
+		dun->StartTransition();
 		DeleteGO(this);
+	}
+	if (g_pad[0].IsTrigger(enButtonA)) {
+		m_fade->FadeOut();
+		isfade = true;
+	}
+	if (isfade && m_fade->isFadeStop()) {
 		NewGO<ModeSelect>(0, "modesel");
 		auto dgame = FindGO<DungeonGame>("DungeonGame");
+		DeleteGO(this);
 		DeleteGO(dgame);
 	}
 }
