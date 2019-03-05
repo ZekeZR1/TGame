@@ -642,7 +642,6 @@
     <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\rightButton.png" />
     <ImageContentTask Include="Assets\Sprite\AIEdit\menu.png" />
     <ImageContentTask Include="Assets\Sprite\Fade\fade_black.png" />
-    <ImageContentTask Include="Assets\Sprite\Fade\fade_white.png" />
     <Image Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_back2.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_frame.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\B_alpha.png" />

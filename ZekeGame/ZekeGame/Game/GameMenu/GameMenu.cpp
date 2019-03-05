@@ -9,6 +9,7 @@
 #include "../Dungeon/DungeonAISelect.h"
 
 #include "MenuButton.h"
+#include "../Dungeon/DungeonGame.h"
 
 GameMenu::~GameMenu()
 {
@@ -23,6 +24,7 @@ GameMenu::~GameMenu()
 void GameMenu::OnDestroy()
 {
 	DeleteGO(m_cursor);
+	auto game = FindGO<Game>("Game");
 }
 
 void GameMenu::Release()
@@ -50,7 +52,8 @@ void GameMenu::Update()
 				case 0:
 					DeleteGO(game);
 					DeleteGO(this);
-
+					if (game->GetGameMode() == Game::enDungeon)
+						DeleteGO(FindGO<DungeonGame>("DungeonGame"));
 					NewGO<ModeSelect>(0,"modesel");
 					break;
 				case 1:
@@ -64,6 +67,8 @@ void GameMenu::Update()
 						NewGO<PvPModeSelect>(0, "pvp");
 						break;
 					case Game::enDungeon:
+						if (game->GetGameMode() == Game::enDungeon)
+							DeleteGO(FindGO<DungeonGame>("DungeonGame"));
 						DungeonAISelect* DAS = NewGO<DungeonAISelect>(0, "pvp");
 						DAS->SetDungeonNumber(m_dunnum);
 						break;

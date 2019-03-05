@@ -68,9 +68,11 @@ void DungeonTransition::Update() {
 	m_camera->SetTarget(m_monsters[1]->GetPosition());
 	auto p = m_monsters[0]->GetPosition();
 	if (p.z > -300.f || g_pad[0].IsTrigger(enEscape)) {
-		m_fade->FadeOut();
-		//m_fade->SetMulCol(CVector4::White);
-		m_isfade = true;
+		if (!m_isfade) {
+			m_fade->FadeOut();
+			//m_fade->SetMulCol(CVector4::White);
+			m_isfade = true;
+		}
 	}
 	if (m_isfade && m_fade->isFadeStop()) {
 		auto select = NewGO<StageSelect>(0, "selectScene");
@@ -86,6 +88,7 @@ bool DungeonTCamera::Start() {
 	camera3d->SetUpdateProjMatrixFunc(Camera::enUpdateProjMatrixFunc_Perspective);
 	camera3d->SetNear(0.1f);
 	camera3d->SetFar(50000.0f);
+	camera3d->SetViewAngle(CMath::DegToRad(60.f));
 	camera3d->Update();
 	return true;
 }
