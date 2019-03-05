@@ -2,8 +2,11 @@
 #include "../GameData.h"
 #include "DungeonTransition.h"
 #include "../StageSetup/StageSelect.h"
-
+#include "../Fade/Fade.h"
 bool DungeonTransition::Start() {
+	m_fade = FindGO<Fade>("fade");
+	m_fade->FadeIn();
+
 	m_back = NewGO<SkinModelRender>(0);
 	m_back->Init(L"Assets/modelData/dungeonBack.cmo");
 	CQuaternion m_rot = CQuaternion::Identity();
