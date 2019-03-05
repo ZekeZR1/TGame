@@ -10,9 +10,7 @@ public:
 	void Play();
 	bool isPlaying();
 	void Stop();
-	void SetVolume(float vol) {
-		volume = vol;
-	}
+	void SetVolume(float vol);
 	void SetPitch(float p) {
 		pitch = p;
 	}

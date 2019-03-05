@@ -7,6 +7,7 @@
 #include "../StageSetup/StageSetup.h"
 #include "DungeonAISelect.h"
 #include "DungeonSelect.h"
+#include "../Fade/Fade.h"
 
 bool DungeonSelect::Start() {
 	m_cur = NewGO<GameCursor>(2, "cur");
@@ -21,6 +22,8 @@ bool DungeonSelect::Start() {
 		bgm->Init(L"Assets/sound/BGM/PerituneMaterial_Strategy5_loop.wav", true);
 		bgm->Play();
 	}
+	m_fade = FindGO<Fade>("fade");
+	m_fade->FadeIn();
 	return true;
 }
 
@@ -226,20 +229,25 @@ void DungeonSelect::DungeonSelectClick() {
 void DungeonSelect::StartDungeon() {
 	if (m_isPositionUpdating || m_backSp->isCollidingTarget())
 		return;
+	int dunNum = 0;
 	for (auto i : m_sps) {
 		i->SetCollisionTarget(m_cur->GetCursor());
 		if (Mouse::isTrigger(enLeftClick)) {
 			if (i->isCollidingTarget()) {
-				int dunNum = m_dungeonButton[i];
+				dunNum = m_dungeonButton[i];
 				if (dunNum > m_clearedDunNum + 1)
 					return;
-				auto dunAi = NewGO<DungeonAISelect>(0, "pvp");
-				dunAi->SetDungeonNumber(dunNum);
-				IDungeonData().SetDunNum(dunNum);
-				IDungeonData().SetRound(0);
-				DeleteGO(this);
+				m_fade->FadeOut();
+				m_isfade = true;
 			}
 		}
+	}
+	if (m_isfade && m_fade->isFadeStop()) {
+		auto dunAi = NewGO<DungeonAISelect>(0, "pvp");
+		dunAi->SetDungeonNumber(dunNum);
+		IDungeonData().SetDunNum(dunNum);
+		IDungeonData().SetRound(0);
+		DeleteGO(this);
 	}
 }
 
