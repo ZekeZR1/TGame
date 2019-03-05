@@ -53,7 +53,7 @@ void Sound::Play() {
 }
 
 void Sound::Stop() {
-	effect->Stop();
+//	effect->Stop();
 	DeleteGO(this);
 }
 
@@ -74,4 +74,10 @@ bool Sound::isPlaying() {
 		OutputDebugStringA(message);
 		*/
 	}
+}
+
+void Sound::SetVolume(float vol) {
+	volume = vol;
+	if (m_roofFlag)
+		effect->SetVolume(vol);
 }

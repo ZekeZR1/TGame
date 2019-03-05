@@ -20,14 +20,15 @@ public:
 	{
 		m_suddenDeath = true;
 	}
-
 	enum Mode
 	{
 		enLocalPVP,
 		enRandomPVP,
 		enDungeon
 	};
-
+	Mode GetGameMode() {
+		return m_playMode;
+	}
 	void LocalPVP()
 	{
 		m_playMode = enLocalPVP;
