@@ -3,6 +3,7 @@
 #include "stdafx.h"
 #include "Dungeon/DungeonData.h"
 #include "Game.h"
+#include "Dungeon/DungeonGame.h"
 #include "GameCamera.h"
 #include "GameData.h"
 #include "GameMenu/GameMenu.h"
