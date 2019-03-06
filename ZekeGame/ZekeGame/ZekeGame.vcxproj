@@ -616,6 +616,9 @@
     <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\leftButton.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\rightButton.png" />
     <ImageContentTask Include="Assets\Sprite\AIEdit\menu.png" />
+    <ImageContentTask Include="Assets\Sprite\AIEdit\karipoint.png" />
+    <ImageContentTask Include="Assets\Sprite\AIEdit\menu2.png" />
+    <ImageContentTask Include="Assets\Sprite\AIEdit\point.png" />
     <Image Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_back2.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_frame.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\B_alpha.png" />
