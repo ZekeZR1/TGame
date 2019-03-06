@@ -378,9 +378,6 @@
     <ClCompile Include="Engine\graphics\animation\AnimationPlayController.cpp">
       <Filter>Engine</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\Network\BaseView.cpp">
-      <Filter>Engine</Filter>
-    </ClCompile>
     <ClCompile Include="Engine\graphics\postEffect\Bloom.cpp">
       <Filter>Engine</Filter>
     </ClCompile>
@@ -424,9 +421,6 @@
       <Filter>Engine</Filter>
     </ClCompile>
     <ClCompile Include="Engine\graphics\ConstantBufferGPU.cpp">
-      <Filter>Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\Network\Console.cpp">
       <Filter>Engine</Filter>
     </ClCompile>
     <ClCompile Include="Engine\graphics\CPrimitive.cpp">
@@ -579,9 +573,6 @@
     <ClCompile Include="Game\Result\Lose\Lose_randomPVP.cpp">
       <Filter>Game</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\Network\LoadBalancingListener.cpp">
-      <Filter>Engine</Filter>
-    </ClCompile>
     <ClCompile Include="Engine\level\MapChip.cpp">
       <Filter>Engine</Filter>
     </ClCompile>
@@ -592,12 +583,6 @@
       <Filter>Engine</Filter>
     </ClCompile>
     <ClCompile Include="Engine\HID\Mouse.cpp">
-      <Filter>Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\Network\NetworkLogic.cpp">
-      <Filter>Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\Network\OutputListener.cpp">
       <Filter>Engine</Filter>
     </ClCompile>
     <ClCompile Include="Engine\HID\Pad.cpp">
@@ -664,9 +649,6 @@
       <Filter>Game</Filter>
     </ClCompile>
     <ClCompile Include="Engine\graphics\StructedBuffer.cpp">
-      <Filter>Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\Network\TestView.cpp">
       <Filter>Engine</Filter>
     </ClCompile>
     <ClCompile Include="Engine\graphics\TScopedResource.cpp">
@@ -776,6 +758,21 @@
     <ClCompile Include="Game\Fade\MusicFade.cpp">
       <Filter>Game\fade</Filter>
     </ClCompile>
+    <ClCompile Include="Engine\Network\Console.cpp">
+      <Filter>Engine\network</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Network\NetworkLogic.cpp">
+      <Filter>Engine\network</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Network\OutputListener.cpp">
+      <Filter>Engine\network</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Network\TestView.cpp">
+      <Filter>Game\online</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Network\LoadBalancingListener.cpp">
+      <Filter>Game\online</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\fairy\hnd.FBX">
@@ -881,9 +878,6 @@
     <ClInclude Include="Game\PythonBridge\include\ast.h">
       <Filter>Engine</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\Network\BaseView.h">
-      <Filter>Engine</Filter>
-    </ClInclude>
     <ClInclude Include="Engine\graphics\postEffect\Bloom.h">
       <Filter>Engine</Filter>
     </ClInclude>
@@ -948,9 +942,6 @@
       <Filter>Engine</Filter>
     </ClInclude>
     <ClInclude Include="Engine\graphics\ConstantBufferGPU.h">
-      <Filter>Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\Network\Console.h">
       <Filter>Engine</Filter>
     </ClInclude>
     <ClInclude Include="Game\PythonBridge\include\cellobject.h">
@@ -1268,9 +1259,6 @@
     <ClInclude Include="Engine\physics\ICollider.h">
       <Filter>Engine</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\Network\LoadBalancingListener.h">
-      <Filter>Engine</Filter>
-    </ClInclude>
     <ClInclude Include="Engine\level\MapChip.h">
       <Filter>Engine</Filter>
     </ClInclude>
@@ -1325,13 +1313,7 @@
     <ClInclude Include="Engine\HID\Mouse.h">
       <Filter>Engine</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\Network\NetworkLogic.h">
-      <Filter>Engine</Filter>
-    </ClInclude>
     <ClInclude Include="Engine\graphics\Noncopyable.h">
-      <Filter>Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\Network\OutputListener.h">
       <Filter>Engine</Filter>
     </ClInclude>
     <ClInclude Include="Game\StageSetup\StageSetup.h">
@@ -1463,9 +1445,6 @@
     <ClInclude Include="Engine\graphics\StructedBuffer.h">
       <Filter>Engine</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\Network\TestView.h">
-      <Filter>Engine</Filter>
-    </ClInclude>
     <ClInclude Include="Engine\graphics\TScopedResource.h">
       <Filter>Engine</Filter>
     </ClInclude>
@@ -1572,6 +1551,24 @@
     </ClInclude>
     <ClInclude Include="Game\Fade\MusicFade.h">
       <Filter>Game\fade</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Network\Console.h">
+      <Filter>Engine\network</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Network\NetworkLogic.h">
+      <Filter>Engine\network</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Network\OutputListener.h">
+      <Filter>Engine\network</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Network\TestView.h">
+      <Filter>Game\online</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Network\LoadBalancingListener.h">
+      <Filter>Game\online</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Network\BaseView.h">
+      <Filter>Game\online</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1734,6 +1731,12 @@
     </Filter>
     <Filter Include="Assets\fade">
       <UniqueIdentifier>{3ed1854a-560a-48ea-8167-107681e38fb9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\network">
+      <UniqueIdentifier>{0f980495-6e70-4afe-8bcd-ca622cabac29}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\online">
+      <UniqueIdentifier>{cdc10122-b187-495e-88da-f226b04770a2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

@@ -215,7 +215,6 @@
     <ClCompile Include="Engine\math\kMath.cpp" />
     <ClCompile Include="Engine\math\Matrix.cpp" />
     <ClCompile Include="Engine\math\Vector.cpp" />
-    <ClCompile Include="Engine\Network\BaseView.cpp" />
     <ClCompile Include="Engine\Network\Console.cpp" />
     <ClCompile Include="Engine\Network\LoadBalancingListener.cpp" />
     <ClCompile Include="Engine\Network\NetworkLogic.cpp" />

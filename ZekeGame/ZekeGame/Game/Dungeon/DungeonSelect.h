@@ -41,6 +41,7 @@ private:
 	const CVector2 m_toFixMisalignment = { -150.f, 20.f };
 	bool m_isPositionUpdating = false;
 	bool m_isfade = false;
+	bool m_backfade = false;
 	int m_selectedNum = 1;
 };
 
