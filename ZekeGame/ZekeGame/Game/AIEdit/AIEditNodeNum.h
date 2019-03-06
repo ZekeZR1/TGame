@@ -5,6 +5,7 @@ class AIEditNodeInequ;
 class AIEditNodeOrder;
 class AIEditLine;
 class AIEditNodeButton;
+class AIEditNodeProcess;
 class AIEditNodeNum : public GameObject
 {
 public:
@@ -29,7 +30,7 @@ public:
 		en70,
 		en90,
 		en100,
-		ennull
+		ennull = 0 
 
 	};
 
@@ -53,6 +54,7 @@ private:
 	AIEditNodeOrder * m_aieditnodeorder;
 	AIEditLine * m_aieditline;
 	AIEditNodeButton* m_aieditnodebutton;
+	AIEditNodeProcess* m_aieditnodeprocess;
 	CVector3 m_position = CVector3::Zero();
 	CVector3 m_pointposition = CVector3::Zero();
 	std::vector<SpriteRender*> m_spriteRenders;

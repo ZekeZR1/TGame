@@ -12,7 +12,7 @@ class AIEditNodeOrder;
 class AIEditNodeTarget;
 class AIEditNodeTechnique;
 class AIEditNodeAbnormalState;
-//class AIeditModeSelect;
+class ModeSelect;
 class AIEditNodeMenu : public GameObject
 {
 
@@ -43,7 +43,7 @@ private:
 	AIEditNodeTarget* m_aieditnodetarget;
 	AIEditNodeTechnique* m_aieditnodetechnique;
 	AIEditNodeAbnormalState* m_aieditnodeabnormalstate;
-//	AIeditModeSelect* m_aieditmodeselect;
+	ModeSelect* m_modeselect;
 
 	std::vector<AIEditNodeButton*> m_nodebuttons;
 };

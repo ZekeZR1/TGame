@@ -296,6 +296,15 @@
     <ImageContentTask Include="Assets\Sprite\AIEdit\menu.png">
       <Filter>Assets</Filter>
     </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\AIEdit\karipoint.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\AIEdit\menu2.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\AIEdit\point.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp" />

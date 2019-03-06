@@ -9,13 +9,12 @@ AIEditNodeButton::~AIEditNodeButton()
 {
 
 	DeleteGO(m_spriteRender);
+
 }
 
 void AIEditNodeButton::Awake()
 {
 	m_gamecursor = FindGO<GameCursor>("cursor");
-
-	
 
 }
 
@@ -46,20 +45,19 @@ bool AIEditNodeButton::Start()
 
 
 	m_spriteRender = NewGO<SpriteRender>(priority, "button");
-	m_spriteRender->Init(L"Assets/sprite/karipoint.dds", sizex, sizey, true);
+	m_spriteRender->Init(L"Assets/sprite/point.dds", sizex, sizey, true);
 	kari.x += x;
 	kari.y += y;
 	m_spriteRender->SetPosition(kari);          //仮座標
 
 	return true;
 
-	//FontRender* font = NewGO<FontRender>(0, "f");
-	//font->Init(L"hj", { 2,2 }, 0, CVector4::White, 1, { 0.5f,0.5f });
-	//font->SetPosition({5,6});
 
 }
 
 //各クラスにこんな感じで書く。                //ボタンの数分ループする。
+// 各クラスの.hでボタンの数を定義する。例）int button = 5;
+//↓.cpp
 //for (int i = 0; i < button; i++) {
 //	m_aieditnodebutton = NewGO<AIEditNodeButton>(2, "button");
 //	m_aieditnodebutton->SetButton(i + 1);//
