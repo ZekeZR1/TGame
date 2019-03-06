@@ -254,6 +254,10 @@ void DungeonSelect::StartDungeon() {
 void DungeonSelect::BackToMenu() {
 	m_backSp->SetCollisionTarget(m_cur->GetCursor());
 	if (Mouse::isTrigger(enLeftClick) && m_backSp->isCollidingTarget()) {
+		m_fade->FadeOut();
+		m_backfade = true;
+	}
+	if (m_fade->isFadeStop() && m_backfade) {
 		NewGO<ModeSelect>(0);
 		DeleteGO(this);
 	}
