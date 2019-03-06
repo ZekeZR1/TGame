@@ -82,6 +82,13 @@ void GameObjectManager::Execute()
 	}
 
 	m_postEffect.Draw();
+	//physics
+#if _DEBUG
+	if(g_physics.IsDrawDebugLine())
+		g_physics.DebugDraw();
+#endif
+	//g_physics.GetDynamicWorld()->debugDrawWorld();
+
 	//レンダリングターゲットをフレームバッファに戻す。
 	g_graphicsEngine->ChangeRenderTarget(
 		m_frameBufferRenderTargetView,
@@ -132,7 +139,6 @@ void GameObjectManager::Init(int gameObjectPrioMax)
 	m_gameObjectListArray.resize(gameObjectPrioMax);
 	m_deleteObjectArray[0].resize(gameObjectPrioMax);
 	m_deleteObjectArray[1].resize(gameObjectPrioMax);
-
 	m_mainRenderTarget.Create(
 		FRAME_BUFFER_W,
 		FRAME_BUFFER_H,

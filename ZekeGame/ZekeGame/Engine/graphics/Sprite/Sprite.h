@@ -54,6 +54,10 @@ public:
 	Camera::EnUpdateProjMatrixFunc m_cameraMode = Camera::enUpdateProjMatrixFunc_Ortho;
 	ID3D11Buffer*				m_vertexBuffer = NULL;				
 	ID3D11Buffer*				m_indexBuffer = NULL;				
+	ID3D11DepthStencilState* m_depthStencilState = NULL;
+	ID3D11DepthStencilState*	spriteRender = NULL;
+	ID3D11RasterizerState*	rspriteRender = NULL;
+
 	Effect						m_effect;								
 	ID3D11ShaderResourceView*	m_texture = NULL;						
 	ID3D11SamplerState*			m_samplerState = NULL;				

@@ -20,14 +20,15 @@ public:
 	{
 		m_suddenDeath = true;
 	}
-
 	enum Mode
 	{
 		enLocalPVP,
 		enRandomPVP,
 		enDungeon
 	};
-
+	Mode GetGameMode() {
+		return m_playMode;
+	}
 	void LocalPVP()
 	{
 		m_playMode = enLocalPVP;
@@ -61,7 +62,10 @@ private:
 
 	SkinModelDummy* m_smd = nullptr;
 	FontRender* m_fr = nullptr;
+	FontRender* m_frS = nullptr;
 
 	CEffect* e;
+
+	Sound* m_BGM = nullptr;
 };
 

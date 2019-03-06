@@ -1,7 +1,6 @@
 #pragma once
-
+#include "PhysicsDebugDraw.h"
 class RigidBody;
-
 
 class PhysicsWorld {
 	btDefaultCollisionConfiguration* collisionConfig = nullptr;
@@ -9,10 +8,21 @@ class PhysicsWorld {
 	btBroadphaseInterface* overlappingPairCache = nullptr;
 	btSequentialImpulseConstraintSolver* constraintSolver = nullptr;
 	btDiscreteDynamicsWorld*	 dynamicWorld = nullptr;		
+	btIDebugDraw* debugDrawer = nullptr;
+	PhysicsDebugDraw* m_debugDraw;
+	bool m_isDrawLine = false;
 public:
+	PhysicsWorld();
 	~PhysicsWorld();
 	void Init();
+	void SetDebugDraw(bool flag) {
+		m_isDrawLine = flag;
+	}
+	const bool IsDrawDebugLine() {
+		return m_isDrawLine;
+	}
 	void Update();
+	void DebugDraw();
 	void Release();
 	/*!
 	* @brief	ダイナミックワールドを取得。

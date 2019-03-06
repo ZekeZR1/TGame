@@ -6,6 +6,8 @@
 #include "Title/ModeSelect.h"
 #include "../TestScene.h"
 
+#include "Fade/Fade.h"
+
 #include "Dungeon/DungeonTransition.h"
 
 int WINAPI wWinMain(
@@ -18,12 +20,13 @@ int WINAPI wWinMain(
 	//NewGO<Game>(0,"Game");
 	//NewGO<PvPModeSelect>(0, "pvp");
 
-	
+
+	NewGO<Fade>(0, "fade");
 
 	NewGO<GameCamera3D>(0, "cam3d");
 	NewGO<GameCamera2D>(0, "cam2d");
 	NewGO<ModeSelect>(0, "modesel");
-
+	g_physics.SetDebugDraw(true);
 	SkinModelRender* sm = NewGO<SkinModelRender>(0, "sm");
 	sm->Init(L"Assets/modelData/tesEnemy3.cmo");
 	sm->SetPosition(CVector3::Zero());
