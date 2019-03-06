@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include <string>
 #include "DungeonGame.h"
+#include "DungeonSelect.h"
 #include "../Title/ModeSelect.h"
 #include "../Fade/Fade.h"
 #include "../GameData.h"
@@ -107,7 +108,7 @@ void DungeonAISelect::Update() {
 		isfade = true;
 	}
 	if (isfade && m_fade->isFadeStop()) {
-		NewGO<ModeSelect>(0, "modesel");
+		NewGO<DungeonSelect>(0, "DungeonSelect");
 		auto dgame = FindGO<DungeonGame>("DungeonGame");
 		DeleteGO(this);
 		DeleteGO(dgame);
