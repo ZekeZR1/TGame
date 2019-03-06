@@ -758,13 +758,7 @@
     <ClCompile Include="Game\Fade\MusicFade.cpp">
       <Filter>Game\fade</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\Network\BaseView.cpp">
-      <Filter>Engine\network</Filter>
-    </ClCompile>
     <ClCompile Include="Engine\Network\Console.cpp">
-      <Filter>Engine\network</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\Network\LoadBalancingListener.cpp">
       <Filter>Engine\network</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Network\NetworkLogic.cpp">
@@ -774,7 +768,10 @@
       <Filter>Engine\network</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Network\TestView.cpp">
-      <Filter>Engine\network</Filter>
+      <Filter>Game\online</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Network\LoadBalancingListener.cpp">
+      <Filter>Game\online</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1555,13 +1552,7 @@
     <ClInclude Include="Game\Fade\MusicFade.h">
       <Filter>Game\fade</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\Network\BaseView.h">
-      <Filter>Engine\network</Filter>
-    </ClInclude>
     <ClInclude Include="Engine\Network\Console.h">
-      <Filter>Engine\network</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\Network\LoadBalancingListener.h">
       <Filter>Engine\network</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Network\NetworkLogic.h">
@@ -1571,7 +1562,13 @@
       <Filter>Engine\network</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Network\TestView.h">
-      <Filter>Engine\network</Filter>
+      <Filter>Game\online</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Network\LoadBalancingListener.h">
+      <Filter>Game\online</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Network\BaseView.h">
+      <Filter>Game\online</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1737,6 +1734,9 @@
     </Filter>
     <Filter Include="Engine\network">
       <UniqueIdentifier>{0f980495-6e70-4afe-8bcd-ca622cabac29}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\online">
+      <UniqueIdentifier>{cdc10122-b187-495e-88da-f226b04770a2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
