@@ -10,9 +10,7 @@ public:
 	void Play();
 	bool isPlaying();
 	void Stop();
-	void SetVolume(float vol) {
-		volume = vol;
-	}
+	void SetVolume(float vol);
 	void SetPitch(float p) {
 		pitch = p;
 	}
@@ -20,6 +18,7 @@ public:
 		pan = pa;
 	}
 private:
+	bool m_isInited = false;
 	bool m_roofFlag = false;
 	float volume = 1.f;
 	float pitch = 0.f;

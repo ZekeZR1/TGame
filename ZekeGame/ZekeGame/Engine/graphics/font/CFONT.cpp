@@ -3,7 +3,7 @@
 CFont::CFont()
 {
 	m_spriteBatch = g_graphicsEngine->GetSpriteBatch();
-	m_spriteFont = g_graphicsEngine->GetSpriteFont();
+	m_spriteFont = g_graphicsEngine->GetSpriteFont(m_type);
 	m_scaleMat.MakeScaling(
 		{
 			g_graphicsEngine->GetFrameBufferWidth() / static_cast<float>(g_graphicsEngine->Get2DSpaceScreenWidth()),
@@ -23,6 +23,8 @@ void CFont::Begin()
 	dc->RSGetState(&m_rasterizerState);
 	dc->OMGetDepthStencilState(&m_depthStencilState, &m_StencilRef);
 	m_spriteBatch->Begin();
+	if (m_type == en_Japanese)
+		m_spriteFont = g_graphicsEngine->GetSpriteFont(en_Japanese);
 }
 void CFont::End()
 {

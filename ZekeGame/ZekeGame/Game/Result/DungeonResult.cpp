@@ -1,5 +1,7 @@
 #include "stdafx.h"
+#include "../GameData.h"
 #include "../Game.h"
+#include "../Monster/Monster.h"
 #include "../Dungeon/DungeonSelect.h"
 #include "ResultCamera.h"
 #include "../GameCursor.h"
@@ -10,7 +12,8 @@
 #include "../Dungeon/DungeonGame.h"
 
 bool DungeonResult::Start() {
-	InitUI();
+	MonsterSet();
+	CameraSet();
 	return true;
 }
 
@@ -20,29 +23,14 @@ void DungeonResult::OnDestroy() {
 	DeleteGO(m_buttonSp);
 	DeleteGO(m_buttonText);
 	DeleteGO(m_cursor);
+	DeleteGO(m_cam);
+	auto bgm = FindGO<Sound>("BGM");
+	bgm->Stop();
 }
 
 void DungeonResult::Update() {
-	m_buttonSp->SetCollisionTarget(m_cursor->GetCursor());
-	if (Mouse::isTrigger(enLeftClick)) {
-		if (m_buttonSp->isCollidingTarget()) {
-			SaveDungeonClearState();
-			auto dgame = FindGO<DungeonGame>("DungeonGame");
-			dgame->ClearInGameMode();
-			if (m_team == WIN) {
-				if (IDungeonData().isFinalRound(m_dunNum)) {
-					//ToNextStage();
-					ToDungeonSelect();
-				}
-				else {
-					ToNextRound();
-				}
-			}
-			else {
-				Lose();
-			}
-		}
-	}
+	ButtonUpdate();
+	CameraUpdate();
 }
 
 void DungeonResult::SaveDungeonClearState(){
@@ -128,6 +116,8 @@ void DungeonResult::InitUI() {
 	else {
 		m_resultSp->Init(L"Assets/Sprite/lose.dds", 500.f, 200.f, true);
 	}
+	m_resultSp->SetPosition({ -410,160,0 });
+
 	m_cursor = NewGO<GameCursor>(0);
 }
 
@@ -146,4 +136,104 @@ void DungeonResult::ToDungeonSelect() {
 	auto dGame = FindGO<DungeonGame>("DungeonGame");
 	dGame->Relese();
 	DeleteGO(this);
+}
+
+void DungeonResult::MonsterSet()
+{
+	std::vector<Monster*> mons;
+	for (auto mon : g_mons)
+	{
+		if (mon == NULL)
+			break;
+		if (mon->Getteam() == m_team)
+		{
+			mons.push_back(mon);
+		}
+	}
+	CVector3 poss[3] = { {0,0,0},{30,0,-10},{-30,0,-10} };
+	CVector3 pos = CVector3::Zero();
+	for (int i = 0; i < mons.size(); i++)
+	{
+		mons[i]->ReleaseMark();
+		mons[i]->end();
+		mons[i]->Setpos(poss[i]);
+		mons[i]->SetRotation(CQuaternion::Identity());
+		mons[i]->anim_idle();
+	}
+}
+
+void DungeonResult::CameraSet() {
+	m_cam = NewGO<ResultCamera>(0, "rescam");
+	m_cam->SetPos({ 0,30,500 });
+	m_cam->SetTar(CVector3::Zero());
+	m_firstpos = { -350,10,500 };
+	m_firsttar = { 0,30,0 };
+	m_firstpos = { -350,10,500 };
+	m_firsttar = { 0,30,0 };
+
+	m_cam->SetPos(m_firstpos);
+	m_cam->SetTar(m_firsttar);
+
+	m_lastpos = { -35,50,50 };
+	m_lasttar = { 0,55,0 };
+	switch (g_mons[0]->GetID())
+	{
+	case enTest:
+		break;
+	case enUmataur:
+		m_lastpos = { -20,150,72 };
+		m_lasttar = { 30,165,0 };
+		break;
+	case enFairy:
+		m_lastpos = { -35,90,50 };
+		m_lasttar = { 0,90,0 };
+		break;
+	}
+
+	m_addpos = (m_lastpos - m_firstpos) / 8.0f;
+	m_addtar = (m_lasttar - m_firsttar) / 8.0f;
+}
+
+void DungeonResult::ButtonUpdate() {
+	if (m_buttonSp == nullptr)
+		return;
+	m_buttonSp->SetCollisionTarget(m_cursor->GetCursor());
+	if (Mouse::isTrigger(enLeftClick)) {
+		if (m_buttonSp->isCollidingTarget()) {
+			SaveDungeonClearState();
+			auto dgame = FindGO<DungeonGame>("DungeonGame");
+			dgame->ClearInGameMode();
+			if (m_team == WIN) {
+				if (IDungeonData().isFinalRound(m_dunNum)) {
+					//ToNextStage();
+					ToDungeonSelect();
+				}
+				else {
+					ToNextRound();
+				}
+			}
+			else {
+				Lose();
+			}
+		}
+	}
+}
+
+void DungeonResult::CameraUpdate() {
+	if (m_cmove)
+	{
+		m_firstpos += m_addpos;
+		m_firsttar += m_addtar;
+		m_cam->SetPos(m_firstpos);
+		m_cam->SetTar(m_firsttar);
+
+		if ((m_firstpos - m_lastpos).Length() < 0.5f)
+		{
+			InitUI();
+			m_BGM = NewGO<Sound>(0, "BGM");
+			m_BGM->Init(L"Assets/sound/BGM/PerituneMaterial_OverWorld5_loop.wav", true);
+			m_BGM->Play();
+			m_cmove = false;
+		}
+	}
 }

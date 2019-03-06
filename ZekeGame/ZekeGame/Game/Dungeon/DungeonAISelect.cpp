@@ -1,7 +1,9 @@
 #include "stdafx.h"
 #include <string>
 #include "DungeonGame.h"
+#include "DungeonSelect.h"
 #include "../Title/ModeSelect.h"
+#include "../Fade/Fade.h"
 #include "../GameData.h"
 #include "../GameCursor.h"
 #include "../Title/SuperMonsterSelect.h"
@@ -29,9 +31,12 @@ DungeonAISelect::~DungeonAISelect()
 		DeleteGO(go);
 	}
 	DeleteGO(m_GO);
+	DeleteGO(m_backSp);
 }
 
 bool DungeonAISelect::Start() {
+	m_fade = FindGO<Fade>("fade");
+	m_fade->FadeIn();
 	m_files = PythonFileLoad::FilesLoad();
 	m_enemyFiles = PythonFileLoad::FilesLoadEnemy();
 	m_cursor = NewGO<GameCursor>(0, "cursor");
@@ -50,9 +55,14 @@ bool DungeonAISelect::Start() {
 	m_dunSp->Init(L"Assets/Sprite/DadandanBk.dds", 350.f, 70.f);
 	m_dunSp->SetPosition({ 0.f,300.f,0.f });
 	m_font = NewGO<FontRender>(0, "font");
+	m_font->SetTextType(CFont::en_Japanese);
 	wchar_t dungeon[256];
 	swprintf_s(dungeon, L"ƒ_ƒ“ƒWƒ‡ƒ“%d\n", m_dunNum + 1);
 	m_font->Init(dungeon, { -140.f, 320.f }, 0.f, CVector4::White, 1.f, { 0.f,0.f });
+	m_backSp = NewGO<SpriteRender>(0);
+	m_backSp->Init(L"Assets/Sprite/returnButton.dds", 200.f, 50.f, true);
+	CVector3 p = { -430.f,-300.f,0.f };
+	m_backSp->SetPosition(p);
 	return true;
 }
 
@@ -75,23 +85,32 @@ void DungeonAISelect::Update() {
 	{
 		if (Mouse::isTrigger(enLeftClick))
 		{
-			MonsterID moid[m_numMonster];
 			for (int i = 0; i < m_numPmm; i++)
 			{
 				moid[i] = static_cast<MonsterID>(m_pmms[i]->GetMonsterID());
 				monai[i] = m_pmms[i]->GetAI();
 			}
-			auto dun = NewGO<DungeonGame>(0,"DungeonGame");
-			dun->SetGameData(m_files, m_enemyFiles, monai, moid, m_dunNum);
-			OutputDebugStringA("AI Selected!! Start Transation!\n");
-			dun->StartTransition();
-			DeleteGO(this);
+			m_fade->FadeOut();
+			m_isfade = true;
 		}
 	}
-	if (g_pad[0].IsTrigger(enButtonA)) {
+	if (m_isfade && m_fade->isFadeStop()) {
+		auto dun = NewGO<DungeonGame>(0, "DungeonGame");
+		dun->SetGameData(m_files, m_enemyFiles, monai, moid, m_dunNum);
+		OutputDebugStringA("AI Selected!! Start Transation!\n");
+		dun->StartTransition();
 		DeleteGO(this);
-		NewGO<ModeSelect>(0, "modesel");
+	}
+	m_backSp->SetCollisionTarget(m_cursor->GetCursor());
+//	if (g_pad[0].IsTrigger(enButtonA)) {
+	if(m_backSp->isCollidingTarget() && Mouse::isTrigger(enLeftClick)){
+		m_fade->FadeOut();
+		isfade = true;
+	}
+	if (isfade && m_fade->isFadeStop()) {
+		NewGO<DungeonSelect>(0, "DungeonSelect");
 		auto dgame = FindGO<DungeonGame>("DungeonGame");
+		DeleteGO(this);
 		DeleteGO(dgame);
 	}
 }

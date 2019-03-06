@@ -7,6 +7,7 @@
 #include "../StageSetup/StageSetup.h"
 #include "DungeonAISelect.h"
 #include "DungeonSelect.h"
+#include "../Fade/Fade.h"
 
 bool DungeonSelect::Start() {
 	m_cur = NewGO<GameCursor>(2, "cur");
@@ -14,6 +15,15 @@ bool DungeonSelect::Start() {
 	CheckDungeonClearState();
 	InitDungeonButtons();
 	InitBackButton();
+	auto bgm = FindGO<Sound>("BGM");
+	if (bgm == nullptr)
+	{
+		bgm = NewGO<Sound>(0, "BGM");
+		bgm->Init(L"Assets/sound/BGM/PerituneMaterial_Strategy5_loop.wav", true);
+		bgm->Play();
+	}
+	m_fade = FindGO<Fade>("fade");
+	m_fade->FadeIn();
 	return true;
 }
 
@@ -83,6 +93,7 @@ void DungeonSelect::InitDungeonButtons() {
 		m_sps[i]->SetPosition(pos);
 		//init text
 		m_fonts.push_back(NewGO<FontRender>(1, "font"));
+		m_fonts[i]->SetTextType(CFont::TextType::en_Japanese);
 		wchar_t dungeon[256];
 		swprintf_s(dungeon, L"ƒ_ƒ“ƒWƒ‡ƒ“%d", i + 1);
 		CVector4 fontCol;
@@ -124,6 +135,7 @@ void DungeonSelect::InitBackButton() {
 	CVector3 sPos = { -500.f, -270.f, 0.f };
 	m_backSp->SetPosition(sPos);
 	m_backTx = NewGO<FontRender>(0);
+	m_backTx->SetTextType(CFont::TextType::en_Japanese);
 	CVector2 tPos;
 	tPos.x = sPos.x;
 	tPos.x += -45;
@@ -174,20 +186,20 @@ void DungeonSelect::DungeonSelectClick() {
 
 	m_leftSp->SetCollisionTarget(tar);
 	m_rightSp->SetCollisionTarget(tar);
-	if (m_leftSp->isCollidingTarget() && Mouse::isTrigger(enLeftClick)) {
+	if (m_leftSp->isCollidingTarget() && Mouse::isTrigger(enLeftClick) && time == 0.f) {
 		if (m_selectedNum == 1) {
 			return;
 		}
 		left = true;
-		if(addPos.x == 0)
+		if(addPos.x == 0.f)
 			m_selectedNum--;
 	}
-	if (m_rightSp->isCollidingTarget() && Mouse::isTrigger(enLeftClick)) {
+	if (m_rightSp->isCollidingTarget() && Mouse::isTrigger(enLeftClick) && time == 0.f) {
 		if (m_selectedNum == m_numDungeon) {
 			return;
 		}
 		right = true;
-		if (addPos.x == 0)
+		if (addPos.x == 0.f)
 			m_selectedNum++;
 	}
 	if (left) {
@@ -209,34 +221,43 @@ void DungeonSelect::DungeonSelectClick() {
 	}
 	m_isPositionUpdating = left || right;
 
-	char str[256];
-	sprintf_s(str, "Selecting Dungeon %d\n", m_selectedNum);
-	OutputDebugStringA(str);
+	//char str[256];
+	//sprintf_s(str, "addpos.x %f\n", addPos.x);
+	//OutputDebugStringA(str);
 }
 
 void DungeonSelect::StartDungeon() {
-	if (m_isPositionUpdating)
+	if (m_isPositionUpdating || m_backSp->isCollidingTarget())
 		return;
+	int dunNum = 0;
 	for (auto i : m_sps) {
 		i->SetCollisionTarget(m_cur->GetCursor());
 		if (Mouse::isTrigger(enLeftClick)) {
 			if (i->isCollidingTarget()) {
-				int dunNum = m_dungeonButton[i];
+				dunNum = m_dungeonButton[i];
 				if (dunNum > m_clearedDunNum + 1)
 					return;
-				auto dunAi = NewGO<DungeonAISelect>(0, "pvp");
-				dunAi->SetDungeonNumber(dunNum);
-				IDungeonData().SetDunNum(dunNum);
-				IDungeonData().SetRound(0);
-				DeleteGO(this);
+				m_fade->FadeOut();
+				m_isfade = true;
 			}
 		}
+	}
+	if (m_isfade && m_fade->isFadeStop()) {
+		auto dunAi = NewGO<DungeonAISelect>(0, "pvp");
+		dunAi->SetDungeonNumber(dunNum);
+		IDungeonData().SetDunNum(dunNum);
+		IDungeonData().SetRound(0);
+		DeleteGO(this);
 	}
 }
 
 void DungeonSelect::BackToMenu() {
 	m_backSp->SetCollisionTarget(m_cur->GetCursor());
 	if (Mouse::isTrigger(enLeftClick) && m_backSp->isCollidingTarget()) {
+		m_fade->FadeOut();
+		m_backfade = true;
+	}
+	if (m_fade->isFadeStop() && m_backfade) {
 		NewGO<ModeSelect>(0);
 		DeleteGO(this);
 	}

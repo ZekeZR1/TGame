@@ -50,6 +50,7 @@ void DungeonGame::PostRender() {
 	wchar_t str[256];
 	int round = IDungeonData().GetNumRound(m_dunNum);
 	swprintf_s(str, L"Dungeon %d : Round %d/%d",m_dunNum + 1,m_round + 1, round + 1);
-	m_font.Draw(str, {160.f , 344.f },CVector4::White,0.f,1.f);
+	//m_font.Draw(str, {160.f , 344.f },CVector4::White,0.f,1.f);
+	m_font.Draw(str, {-400.f , 344.f },CVector4::White,0.f,1.f);
 	m_font.End();
 }

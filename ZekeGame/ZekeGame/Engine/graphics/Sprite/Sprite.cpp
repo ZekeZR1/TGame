@@ -30,6 +30,12 @@ Sprite::~Sprite()
 	if (pBlendState != NULL) {
 		pBlendState->Release();
 	}
+	if (spriteRender != NULL) {
+		spriteRender->Release();
+	}
+	if (rspriteRender != NULL) {
+		rspriteRender->Release();
+	}
 }
 
 void Sprite::Update(const CVector3& trans, const CQuaternion& rot, const CVector3& scale, CVector2 pivot)
@@ -178,15 +184,23 @@ void Sprite::InitCommon(float w, float h)
 	//定数バッファを初期化。
 	InitConstantBuffer();
 
+	CD3D11_DEFAULT def;
+	CD3D11_BLEND_DESC BlendDesc(def);
+	BlendDesc.AlphaToCoverageEnable = TRUE;
+	BlendDesc.IndependentBlendEnable = TRUE;
+	BlendDesc.RenderTarget[0].BlendEnable = TRUE;
+	BlendDesc.RenderTarget[0].SrcBlend = D3D11_BLEND_SRC_ALPHA;
+	BlendDesc.RenderTarget[0].DestBlend = D3D11_BLEND_INV_SRC_ALPHA;
+	BlendDesc.RenderTarget[0].BlendOp = D3D11_BLEND_OP_ADD;
+	g_graphicsEngine->GetD3DDevice()->CreateBlendState(&BlendDesc, &pBlendState);
 }
 
 void Sprite::Init(ID3D11ShaderResourceView* srv, float w, float h)
 {
-	//共通の初期化処理を呼び出す。
 	InitCommon(w, h);
 	m_texture = srv;
 	if (m_texture != nullptr) {
-		m_texture->AddRef();	//参照カウンタを増やす。
+		m_texture->AddRef();	
 	}
 }
 
@@ -214,15 +228,52 @@ void Sprite::Init(const wchar_t* texFilePath, float w, float h)
 	);
 	InitConstantBuffer();
 
-	CD3D11_DEFAULT def;
-	CD3D11_BLEND_DESC BlendDesc(def);
-	BlendDesc.AlphaToCoverageEnable = TRUE;
-	BlendDesc.IndependentBlendEnable = TRUE;
-	BlendDesc.RenderTarget[0].BlendEnable = TRUE;
-	BlendDesc.RenderTarget[0].SrcBlend = D3D11_BLEND_SRC_ALPHA;
-	BlendDesc.RenderTarget[0].DestBlend = D3D11_BLEND_INV_SRC_ALPHA;
-	BlendDesc.RenderTarget[0].BlendOp = D3D11_BLEND_OP_ADD;
-	g_graphicsEngine->GetD3DDevice()->CreateBlendState(&BlendDesc, &pBlendState);
+	D3D11_BLEND_DESC blendDesc;
+	ZeroMemory(&blendDesc, sizeof(blendDesc));
+	ID3D11Device* pd3d = g_graphicsEngine->GetD3DDevice();
+	blendDesc.RenderTarget[0].BlendEnable = true;
+	//blendDesc.RenderTarget[0].SrcBlend = D3D11_BLEND_ONE;
+	blendDesc.RenderTarget[0].SrcBlend = D3D11_BLEND_SRC_ALPHA;
+	//blendDesc.RenderTarget[0].DestBlend = D3D11_BLEND_ONE;
+	blendDesc.RenderTarget[0].DestBlend = D3D11_BLEND_INV_SRC_ALPHA;
+	blendDesc.RenderTarget[0].BlendOp = D3D11_BLEND_OP_ADD;
+	blendDesc.RenderTarget[0].SrcBlendAlpha = D3D11_BLEND_ONE;
+	blendDesc.RenderTarget[0].DestBlendAlpha = D3D11_BLEND_ZERO;
+	blendDesc.RenderTarget[0].BlendOpAlpha = D3D11_BLEND_OP_ADD;
+	blendDesc.RenderTarget[0].RenderTargetWriteMask = D3D11_COLOR_WRITE_ENABLE_RED | D3D11_COLOR_WRITE_ENABLE_BLUE | D3D11_COLOR_WRITE_ENABLE_GREEN;
+	pd3d->CreateBlendState(&blendDesc, &pBlendState);
+	{
+		{
+			D3D11_DEPTH_STENCIL_DESC desc;
+			ZeroMemory(&desc, sizeof(desc));
+			ID3D11Device* pd3d = g_graphicsEngine->GetD3DDevice();
+			desc.DepthEnable = true;
+			desc.DepthWriteMask = D3D11_DEPTH_WRITE_MASK_ALL;
+			desc.DepthFunc = D3D11_COMPARISON_LESS_EQUAL;
+			desc.StencilEnable = false;
+			desc.FrontFace.StencilFailOp = D3D11_STENCIL_OP_KEEP;
+			desc.FrontFace.StencilDepthFailOp = D3D11_STENCIL_OP_KEEP;
+			desc.FrontFace.StencilPassOp = D3D11_STENCIL_OP_KEEP;
+			desc.FrontFace.StencilFunc = D3D11_COMPARISON_ALWAYS;
+
+			desc.BackFace.StencilFailOp = D3D11_STENCIL_OP_KEEP;
+			desc.BackFace.StencilDepthFailOp = D3D11_STENCIL_OP_KEEP;
+			desc.BackFace.StencilPassOp = D3D11_STENCIL_OP_KEEP;
+			desc.BackFace.StencilFunc = D3D11_COMPARISON_ALWAYS;
+			desc.DepthEnable = false;
+			desc.DepthWriteMask = D3D11_DEPTH_WRITE_MASK_ZERO;
+			pd3d->CreateDepthStencilState(&desc, &spriteRender);
+		}
+		{
+			D3D11_RASTERIZER_DESC desc = {};
+			ID3D11Device* pd3d = g_graphicsEngine->GetD3DDevice();
+			desc.CullMode = D3D11_CULL_FRONT;
+			desc.FillMode = D3D11_FILL_SOLID;
+			desc.DepthClipEnable = true;
+			desc.MultisampleEnable = true;
+			pd3d->CreateRasterizerState(&desc, &rspriteRender);
+		}
+	}
 }
 
 void Sprite::Draw()
@@ -261,7 +312,8 @@ void Sprite::Draw()
 	g_graphicsEngine->GetD3DDeviceContext()->OMSetBlendState(pBlendState, blendFactor, 0xffffffff);
 	g_graphicsEngine->GetD3DDeviceContext()->PSSetShaderResources(0, 1, &m_texture);
 	g_graphicsEngine->GetD3DDeviceContext()->PSSetSamplers(0, 1, &m_samplerState);
-
+	//g_graphicsEngine->GetD3DDeviceContext()->OMSetDepthStencilState(spriteRender, 0);
+	//g_graphicsEngine->GetD3DDeviceContext()->RSSetState(rspriteRender);
 	ConstantBuffer cb;
 	cb.WVP = m_world;
 	if (m_cameraMode == Camera::enUpdateProjMatrixFunc_Ortho) {

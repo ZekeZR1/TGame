@@ -7,6 +7,7 @@ public:
 	Win(int team);
 	Win();
 	~Win();
+	void OnDestroy() override;
 	void init(int team);
 	bool Start();
 	void Update();
@@ -33,4 +34,6 @@ private:
 
 	SpriteRender* m_srwin = nullptr;
 	SpriteRender* m_srteam = nullptr;
+
+	Sound* m_BGM = nullptr;
 };

@@ -1,6 +1,7 @@
 #pragma once
 
 class GameCursor;
+class Fade;
 
 class DungeonSelect : public GameObject
 {
@@ -30,6 +31,7 @@ private:
 	GameCursor* m_cur;
 	FontRender* m_backTx = nullptr;
 	CVector3 addPos = CVector3::Zero();
+	Fade* m_fade = nullptr;
 	const CVector4 m_notYetClearCol = { 0.5,0.5f,0.5f,1.f };
 	const CVector4 m_ClearCol = CVector4::White;
 	const int m_numDungeon = 8;
@@ -38,6 +40,8 @@ private:
 	const float SPRITE_H  = 600.f;
 	const CVector2 m_toFixMisalignment = { -150.f, 20.f };
 	bool m_isPositionUpdating = false;
+	bool m_isfade = false;
+	bool m_backfade = false;
 	int m_selectedNum = 1;
 };
 

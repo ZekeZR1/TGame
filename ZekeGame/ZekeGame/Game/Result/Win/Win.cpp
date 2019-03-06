@@ -34,6 +34,12 @@ Win::~Win()
 	DeleteGO(m_srteam);
 	DeleteGO(m_srwin);
 	DeleteGO(FindGO<Game>("Game"));
+	
+}
+
+void Win::OnDestroy()
+{
+	m_BGM->Stop();
 }
 
 void Win::init(int team)
@@ -111,6 +117,10 @@ void Win::Update()
 				m_srteam->Init(L"Assets/sprite/blueteamp.dds", 795.75f, 315.75f);
 			}
 			m_srteam->SetPosition({ -240,-210,0 });
+
+			m_BGM = NewGO<Sound>(0, "BGM");
+			m_BGM->Init(L"Assets/sound/BGM/PerituneMaterial_OverWorld5_loop.wav", true);
+			m_BGM->Play();
 
 			m_cmove = false;
 		}

@@ -3,6 +3,7 @@
 #include "stdafx.h"
 #include "Dungeon/DungeonData.h"
 #include "Game.h"
+#include "Dungeon/DungeonGame.h"
 #include "GameCamera.h"
 #include "GameData.h"
 #include "GameMenu/GameMenu.h"
@@ -12,6 +13,7 @@
 #include "Monster/Monsters/TestMons.h"
 #include "Result/Win/Win.h"
 #include "Result/DungeonResult.h"
+#include "Fade/Fade.h"
 
 
 void Game::GamePVPmodeInit(std::vector<std::string> files, int monsterAI[6],MonsterID MonsterID[6])
@@ -22,10 +24,17 @@ void Game::GamePVPmodeInit(std::vector<std::string> files, int monsterAI[6],Mons
 }
 
 bool Game::Start() {
+	m_BGM = NewGO<Sound>(0, "BGM");
+	m_BGM->Init(L"Assets/sound/BGM/bgm_maoudamashii_fantasy12.wav", true);
+	m_BGM->SetVolume(0.3f);
+	m_BGM->Play();
+	auto fade = FindGO<Fade>("fade");
+	fade->FadeIn();
 	m_pi = new Pyinit;
 	NewGO<MonsterActionManeger>(0, "MAM");
 	m_model = NewGO<SkinModelRender>(0, "model");
-	m_model->Init(L"Assets/modelData/dun.cmo");
+	m_model->SetShadowCasterFlag(false);
+	m_model->Init(L"Assets/modelData/dun.cmo",nullptr, 0, enFbxUpAxisZ, "PSMainStage");
 	m_model->SetPosition(CVector3::Zero());
 
 	m_floor = NewGO<SkinModelRender>(0, "model");
@@ -39,13 +48,15 @@ bool Game::Start() {
 	camera = new GameCamera;
 
 	m_smd = NewGO<SkinModelDummy>(0, "smd");
-	m_smd->Init(L"Assets/modelData/limit.cmo", enFbxUpAxisZ);
+	m_smd->Init(L"Assets/modelData/limit2.cmo", enFbxUpAxisZ);
 	m_smd->SetPosition(CVector3::Zero());
 	m_smd->CreatePhysicsStaticObject();
 
 	OutputDebugStringA("Start Battle");
 
+	m_frS = NewGO<FontRender>(0, "fr");
 	m_fr = NewGO<FontRender>(0, "fr");
+
 
 	e = NewGO<CEffect>(0, "s");
 	e->SetPosition(CVector3::Zero());
@@ -56,6 +67,7 @@ bool Game::Start() {
 }
 
 void Game::OnDestroy() {
+	m_BGM->Stop();
 	for (auto mon : g_mons)
 	{
 		if (mon == NULL)
@@ -67,6 +79,7 @@ void Game::OnDestroy() {
 	DeleteGO(FindGO<SkinModelRender>("stageModel"));
 	DeleteGO(m_fr);
 	DeleteGO(m_floor);
+	DeleteGO(m_smd);
 	if(m_isOnlineGame)
 		Engine::IEngine().DestroyNetworkSystem();
 	delete m_pi;
@@ -117,6 +130,8 @@ void Game::Update() {
 			SuddenDeath();
 			DeleteGO(m_fr);
 			m_fr = nullptr;
+
+			
 		}
 		else
 		{
@@ -125,7 +140,9 @@ void Game::Update() {
 			wchar_t text[255];
 
 			swprintf_s(text, L"%02d:%02.2f", m, s);
-			m_fr->Init(text, {440,360 }, 0, CVector4::White, 1, {0,0 });
+			m_fr->Init(text, {350,360 }, 0, CVector4::White, 1, {0,0 });
+			m_frS->Init(text, { 350 + 5,360 - 5 }, 0, {0,0,0,1}, 1, { 0,0 });
+
 			m_time -= IGameTime().GetFrameDeltaTime();
 		}
 	}
@@ -143,6 +160,9 @@ void Game::Update() {
 		int team = g_mons[0]->Getteam();
 		DeleteGO(m_menu);
 		m_menu = nullptr;
+
+		DeleteGO(m_BGM);
+		m_BGM = nullptr;
 		QueryGOs<Monster>("monster", [&](auto obj)->bool
 		{
 			obj->ReleaseMAL();

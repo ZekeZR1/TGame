@@ -20,6 +20,8 @@ GameCamera::GameCamera()
 	camera3d->SetNear(0.1f);
 	camera3d->SetFar(50000.0f);
 	camera3d->Update();*/
+	m_Scamera.Init(camera3d, 10000, false, 0.f);
+	camera3d->SetViewAngle(CMath::DegToRad(30));
 }
 
 
@@ -61,11 +63,31 @@ void GameCamera::Update() {
 		focus();
 	}
 	
-	camera3d->Update();
+	m_Scamera.Update();
+
+	//camera3d->Update();
 }
 
 void GameCamera::normal()
 {
+#if 1
+	CVector3 sum = CVector3::Zero();
+	int count = 0;
+	for (auto mon : g_mons)
+	{
+		if (mon == nullptr)
+			break;
+		sum += mon->Getpos();
+		count++;
+	}
+	sum /= count;
+	m_Scamera.SetTarget(sum);
+	sum += {1000, 700, 1000};
+	//sum += {0, 3000, 0};
+	//camera3d->SetUp({ 1.0, 0, 0 });
+	m_Scamera.SetPosition(sum);
+
+#else
 	/*SkinModelRender* i_model = nullptr;
 	i_model = FindGO<SkinModelRender>("model");*/
 	//m_target = i_model->GetPosition();
@@ -129,8 +151,11 @@ void GameCamera::normal()
 
 	CVector3 pos = m_target + m_toCameraPos;
 
-	camera3d->SetTarget(m_target);
-	camera3d->SetPosition(pos);
+	//camera3d->SetTarget(m_target);
+	m_Scamera.SetPosition(m_pos);
+	m_Scamera.SetTarget(m_target);
+	//camera3d->SetPosition(pos);
+#endif
 }
 
 void GameCamera::focus()
@@ -149,7 +174,10 @@ void GameCamera::focus()
 	cpo.y += 150;
 
 	CVector3 cta = pos + vec * 250;
-	camera3d->SetTarget(cta);
-	camera3d->SetPosition(cpo);
+
+	m_Scamera.SetPosition(m_pos);
+	m_Scamera.SetTarget(m_target);
+	//camera3d->SetTarget(cta);
+	//camera3d->SetPosition(cpo);
 
 }

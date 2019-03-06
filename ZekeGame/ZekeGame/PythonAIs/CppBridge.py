@@ -81,6 +81,7 @@ class ACTION(IntEnum):
     Fire = 4
     Tackle = 5
     Guardian = 6
+    Recovery = 7
 
 class GameData:
     def fuck__init__(self):
@@ -303,6 +304,62 @@ class GameData:
                 lomon = mon
         return lomon
 
+    def GetBuddyLowHPMonster(self):
+        lomon = None
+        for mon in self.Buddy:
+            if lomon == None or lomon.HP > mon.HP:
+                lomon = mon
+        return lomon
+
+    def GetHighATKMonster(self):
+        lomon = None
+        for mon in self.Enemys:
+            if lomon == None or lomon.Attack < mon.Attack:
+                lomon = mon
+        for mon in self.Buddy:
+            if lomon.Attack < mon.Attack:
+                lomon = mon
+        return lomon
+
+    def GetEnemyHighATKMonster(self):
+        lomon = None
+        for mon in self.Enemys:
+            if lomon == None or lomon.Attack < mon.Attack:
+                lomon = mon
+        return lomon
+
+    def GetBuddyHighATKMonster(self):
+        lomon = None
+        for mon in self.Buddy:
+            if lomon == None or lomon.Attack < mon.Attack:
+                lomon = mon
+        return lomon
+
+    def FindEnemyMonster(self,monID):
+        for mon in self.Enemys:
+            if mon.ID == monID:
+                return mon
+        return None
+
+    def FindBuddyMonster(self,monID):
+        for mon in self.Buddy:
+            if mon.ID == monID:
+                return mon
+        return None
+
+    def FindEnemyMonsters(self,monID):
+        mons = list()
+        for mon in self.Enemys:
+            if mon.ID == monID:
+                mons.append(mon)
+        return mons
+
+    def FindBuddyMonsters(self,monID):
+        mons = list()
+        for mon in self.Buddy:
+            if mon.ID == monID:
+                mons.append(mon)
+        return mons
 
 gameData = GameData()
 
@@ -310,6 +367,9 @@ gameData = GameData()
 TestmonsID = 0
 UmataurID = 1
 FairyID = 2
+
+Uma = 1
+Yousei = 2
 
 def GetMonsStateHP(id):
     hp = 1
@@ -336,11 +396,13 @@ def GetMe():
 def GetMePercentHP():
     return gameData.me.HP / GetMonsStateHP(gameData.me.ID)
 
+def GetPercentHP(mon):
+    return mon.HP / GetMonsStateHP(mon.ID)
+
+
+
 def GetFarMonster():
     return gameData.GetFarMonster()
-
-def GetNeerMonster():
-    return gameData.GetNeerMonster()
 
 def GetBuddyFarMonster():
     return gameData.GetBuddyFarMonster()
@@ -348,11 +410,18 @@ def GetBuddyFarMonster():
 def GetEnemyFarMonster():
     return gameData.GetEnemyFarMonster()
 
+
+
+def GetNeerMonster():
+    return gameData.GetNeerMonster()
+
 def GetBuddyNeerMonster():
     return gameData.GetBuddyNeerMonster()
 
 def GetEnemyNeerMonster():
     return gameData.GetEnemyNeerMonster()
+
+
 
 def GetHighHPMonster():
     """#一番HPの高いモンスターを返します"""
@@ -362,18 +431,49 @@ def GetBuddyHighHPMonster():
     """#一番HPの高い仲間のモンスターを返します"""
     return gameData.GetBuddyHighHPMonster()
 
-def GetEnemyHighHP():
+def GetEnemyHighHPMonster():
     """#一番HPの高い敵のモンスターを返します"""
     return gameData.GetEnemyHighHP()
 
 def GetEnemyLowHPMonster():
     return gameData.GetEnemyLowHPMonster()
 
+def GetBuddyLowHPMonster():
+    return gameData.GetBuddyLowHPMonster()
+
+
+
+def GetHighATKMonster():
+    return gameData.GetHighATKMonster()
+
+def GetEnemyHighATKMonster():
+    return gameData.GetEnemyHighATKMonster()
+
+def GetBuddyHighATKMonster():
+    return gameData.GetBuddyHighATKMonster()
+
+
+
+def FindBuddyMonster(monID):
+    return gameData.FindBuddyMonster(monID)
+
+def FindBuddyMonsterList(monID):
+    return gameData.FindBuddyMonsters(monID)
+
+def FindEnemyMonster(monID):
+    return gameData.FindEnemyMonster(monID)
+
+def FindEnemy(monID):
+    return gameData.FindEnemyMonster(monID)
+
+def FindEnemyMonsterList(monID):
+    return gameData.FindEnemyMonsters(monID)
+
 
 MonsterUseAction = [
     [ACTION.Chase,ACTION.Atack,ACTION.Leave,ACTION.Defense,ACTION.Fire,ACTION.Tackle,ACTION.Guardian],
-    [ACTION.Chase,ACTION.Atack,ACTION.Defense,ACTION.Tackle],
-    [ACTION.Chase,ACTION.Atack,ACTION.Leave,ACTION.Defense,ACTION.Fire]
+    [ACTION.Chase,ACTION.Atack,ACTION.Defense,ACTION.Tackle,ACTION.Guardian],
+    [ACTION.Chase,ACTION.Atack,ACTION.Leave,ACTION.Defense,ACTION.Fire,ACTION.Recovery]
     ]
 
 actions = []
@@ -392,6 +492,9 @@ def Chase(target):
     addAction(target,ACTION.Chase)
 
 def Atack(target):
+    """タイプミスの産物"""
+    addAction(target,ACTION.Atack)
+def Attack(target):
     addAction(target,ACTION.Atack)
 
 def Leave(target):
@@ -409,6 +512,8 @@ def Tackle(target):
 def Guardian(target):
     addAction(target,ACTION.Guardian)
 
+def Recovery(target):
+    addAction(target,ACTION.Recovery)
 
 def End():
     SendGame.SetAction(actions,gameData.me.num);

@@ -49,6 +49,6 @@
 #include "HID/Mouse.h"
 #include "Engine/time/GameTime.h"
 #include "graphics/ShadowMap.h"
-
+#include "graphics//Primitive.h"
 #include "sound\CSound.h"
 

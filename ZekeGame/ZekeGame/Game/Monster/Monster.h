@@ -61,13 +61,13 @@ public:
 
 	//使うpythonのファイルを設定する
 	//st: ファイルの名前
-	void SetpyFile(const char* st)
+	void SetpyFile(std::string* st)
 	{
 		m_pyFile = st;
 	}
 
 	//使うpythonファイルの名前を返す
-	const char* GetpyFile()
+	std::string* GetpyFile()
 	{
 		return m_pyFile;
 	}
@@ -80,7 +80,12 @@ public:
 
 	void SetHP(float hp)
 	{
-		m_HP = hp;
+		if ((m_maxHP - hp) < 0)
+		{
+			m_HP = m_maxHP;
+		}
+		else 
+			m_HP = hp;
 	}
 
 	//ダメージ
@@ -88,12 +93,12 @@ public:
 	void Damage(float d)
 	{
 		//m_HP -= d;
-		m_Damage = d;
+		m_Damage += d;
 	}
 
 	void DamageEx(float d)
 	{
-		m_DamageEx = d;
+		m_DamageEx += d;
 	}
 
 	//MPを返す
@@ -104,7 +109,10 @@ public:
 
 	void SetMP(float mp)
 	{
-		m_MP = mp;
+		if ((m_maxMP - mp) < 0)
+			m_MP = m_maxMP;
+		else 
+			m_MP = mp;
 	}
 
 	void SetMPrecv(float rmp)
@@ -320,7 +328,8 @@ public:
 	}
 
 protected:
-	const char* m_pyFile = NULL;				//使うpythonファイルの名前
+	//const char* m_pyFile = NULL;				//使うpythonファイルの名前
+	std::string* m_pyFile = nullptr;
 	int m_ID = 0;								//モンスターの種類を判断するためのID
 	int m_num = 0;								//背番号みたいな感じ
 	int m_team = 0;								//チーム番号

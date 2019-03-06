@@ -9,6 +9,9 @@
 #include "../../GameCamera.h"
 #include "../GameCursor.h"
 
+#include "../Fade/Fade.h"
+#include "../Fade/MusicFade.h"
+
 
 ModeSelect::~ModeSelect()
 {
@@ -30,6 +33,16 @@ ModeSelect::~ModeSelect()
 
 bool ModeSelect::Start()
 {
+	m_BGM = FindGO<Sound>("BGM");
+	if (m_BGM == nullptr)
+	{
+		m_BGM = NewGO<Sound>(0, "BGM");
+		m_BGM->Init(L"Assets/sound/BGM/PerituneMaterial_Strategy5_loop.wav", true);
+		m_BGM->Play();
+	}
+
+	m_fade = FindGO<Fade>("fade");
+	m_fade->FadeIn();
 	m_cursor = NewGO<GameCursor>(0, "cur");
 
 	m_back = NewGO<SpriteRender>(0, "sp");
@@ -176,7 +189,31 @@ void ModeSelect::Update()
 
 
 
-
+	if (m_isfade)
+	{
+		if (m_fade->isFadeStop())
+		{
+			switch (m_mode)
+			{
+			case enDungeon:
+				NewGO<DungeonSelect>(0, "dan");
+				DeleteGO(this);
+				break;
+			case enLocalpvp:
+				NewGO<PvPModeSelect>(0, "pvp");
+				m_fade->FadeOut();
+				DeleteGO(this);
+				break;
+			case enRandompvp:
+				break;
+			case enAIedit:
+				NewGO<AIEditModeSelect>(0, "AIedit");
+				DeleteGO(this);
+				break;
+			}
+		}
+		return;
+	}
 	CVector3 curpos = m_cursor->GetCursor();
 	int count = 0;
 	for (auto button : m_buttons)
@@ -211,23 +248,9 @@ void ModeSelect::Update()
 			}
 			if (Mouse::isTrigger(enLeftClick))
 			{
-				switch (count)
-				{
-				case enDungeon:
-					NewGO<DungeonSelect>(0, "dan");
-					DeleteGO(this);
-					break;
-				case enLocalpvp:
-					NewGO<PvPModeSelect>(0, "pvp");
-					DeleteGO(this);
-					break;
-				case enRandompvp:
-					break;
-				case enAIedit:
-					NewGO<AIEditModeSelect>(0, "AIedit");
-					DeleteGO(this);
-					break;
-				}
+				m_fade->FadeOut();
+				m_mode = count;
+				m_isfade = true;
 			}
 		}
 		else
