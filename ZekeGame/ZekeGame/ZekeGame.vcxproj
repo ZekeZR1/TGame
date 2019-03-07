@@ -582,6 +582,7 @@
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\dungeon\dungeonBack.FBX" />
     <MeshContentTask Include="Assets\modelData\fairy\hnd.FBX" />
+    <MeshContentTask Include="Assets\modelData\mimic.fbx" />
     <MeshContentTask Include="Assets\modelData\stage\dun.fbx" />
     <MeshContentTask Include="Assets\modelData\stage\dun_yuka.fbx" />
     <MeshContentTask Include="Assets\modelData\stage\limit.FBX" />

@@ -10,7 +10,8 @@
 Texture2D<float4> albedoTexture : register(t0);
 //ShadowMap
 Texture2D<float4> g_shadowMap : register(t2);		
-
+Texture2D<float4> normalMap : register(t3);
+//Texture2D<float4> specularMap : register(t4);
 //ƒ{[ƒ“s—ñ
 StructuredBuffer<float4x4> boneMatrix : register(t1);
 
