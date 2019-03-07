@@ -6,6 +6,7 @@
 #include "../../GameCamera.h"
 #include "AIEditNodeButton.h"
 #include "AIEditNodeOrder.h"
+#include "AIEditNodeProcess.h"
 
 AIEditNodeTechnique ::~AIEditNodeTechnique()
 {
@@ -26,8 +27,9 @@ bool AIEditNodeTechnique::Start()
 
 	m_gamecursor = FindGO<GameCursor>("cursor");
 	m_spriteRender = NewGO<SpriteRender>(6, "Technique");	
-	m_spriteRender->Init(L"Assets/sprite/sieat.dds", 150, 400);
-	m_spriteRender->SetPivot({ 0.5f, 0.7f });
+	m_aieditnodeprocess = FindGO<AIEditNodeProcess>("process");
+	m_spriteRender->Init(L"Assets/sprite/menu2.dds", 175, 470);
+	m_spriteRender->SetPivot({ 0.5f, 0.67f });
 	CVector3 cursorpos = m_gamecursor->GetCursor();
 	cursorpos.x += 135.0f;
 	//cursorpos.y += -140.0f;
@@ -94,45 +96,49 @@ void AIEditNodeTechnique::Update()
 
 	}
 
-	for (int i = 0; i < button; i++)
-	{
-		if (Choice4 == false) {
-			if (m_nodebuttons[i]->GetSpriteRender()->isCollidingTarget())
-			{
-				//Order();
-			}
-		}
-		if (Mouse::isTrigger(enLeftClick)) {	//左クリック
 
-			if (m_nodebuttons[button - 7]->GetSpriteRender()->isCollidingTarget()) {
-				m_technique = enAttak;
-				Order();
-			}
-			if (m_nodebuttons[button - 6]->GetSpriteRender()->isCollidingTarget()) {
-				m_technique = enEscape;
-				Order();
-			}
-			if (m_nodebuttons[button - 5]->GetSpriteRender()->isCollidingTarget()) {
-				m_technique = encCase;
-				Order();
-			}
-			if (m_nodebuttons[button - 4]->GetSpriteRender()->isCollidingTarget()) {
-				m_technique = enProtect;
-				Order();
-			}
-			if (m_nodebuttons[button - 3]->GetSpriteRender()->isCollidingTarget()) {
-				m_technique = enHeel;
-				Order();
-			}
-			if (m_nodebuttons[button - 2]->GetSpriteRender()->isCollidingTarget()) {
-				m_technique = enSpecial1;
-				Order();
-			}
-			if (m_nodebuttons[button - 1]->GetSpriteRender()->isCollidingTarget()) {
-				m_technique = enSpecial2;
-				Order();
-			}
+	if (Mouse::isTrigger(enLeftClick)) {	//左クリック
+
+		if (m_nodebuttons[button - 7]->GetSpriteRender()->isCollidingTarget()) {
+			m_technique = enAttak;
+			m_aieditnodeprocess->Setkeeptechnique(enAttak);
+			Order();
+		}
+
+		if (m_nodebuttons[button - 6]->GetSpriteRender()->isCollidingTarget()) {
+			m_technique = enEscape;
+			m_aieditnodeprocess->Setkeeptechnique(enEscape);
+			Order();
+		}
+
+		if (m_nodebuttons[button - 5]->GetSpriteRender()->isCollidingTarget()) {
+			m_technique = enCase;
+			m_aieditnodeprocess->Setkeeptechnique(enCase);
+			Order();
+		}
+
+		if (m_nodebuttons[button - 4]->GetSpriteRender()->isCollidingTarget()) {
+			m_technique = enProtect;
+			m_aieditnodeprocess->Setkeeptechnique(enProtect);
+			Order();
+		}
+
+		if (m_nodebuttons[button - 3]->GetSpriteRender()->isCollidingTarget()) {
+			m_technique = enHeel;
+			m_aieditnodeprocess->Setkeeptechnique(enHeel);
+			Order();
+		}
+
+		if (m_nodebuttons[button - 2]->GetSpriteRender()->isCollidingTarget()) {
+			m_technique = enSpecial1;
+			m_aieditnodeprocess->Setkeeptechnique(enSpecial1);
+			Order();
+		}
+
+		if (m_nodebuttons[button - 1]->GetSpriteRender()->isCollidingTarget()) {
+			m_technique = enSpecial2;
+			m_aieditnodeprocess->Setkeeptechnique(enSpecial2);
+			Order();
 		}
 	}
-
 }

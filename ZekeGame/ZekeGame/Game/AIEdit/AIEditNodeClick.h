@@ -41,8 +41,8 @@ private:
 	bool Choice0 = false;
 	bool process = false;
 
-    int x = -446;
-	int y = 288;
+ //   int x = -446;
+	//int y = 288;
 
 	//int y = 0;
 	

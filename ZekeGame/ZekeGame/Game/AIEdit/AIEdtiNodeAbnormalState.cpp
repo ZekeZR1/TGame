@@ -5,6 +5,7 @@
 #include "AIEdtiNodeAbnormalState.h"
 #include "AIEditNodeButton.h"
 #include "AIEditNodeOrder.h"
+#include "AIEditNodeProcess.h"
 
 AIEditNodeAbnormalState::~AIEditNodeAbnormalState()
 {
@@ -23,9 +24,10 @@ AIEditNodeAbnormalState::~AIEditNodeAbnormalState()
 bool AIEditNodeAbnormalState::Start()
 {
 	m_gamecursor = FindGO<GameCursor>("cursor");
+	m_aieditnodeprocess = FindGO<AIEditNodeProcess>("process");
 
 	m_spriteRender = NewGO<SpriteRender>(9, "target");
-	m_spriteRender->Init(L"Assets/sprite/sieat.dds", 150, 250);
+	m_spriteRender->Init(L"Assets/sprite/menu2.dds", 175, 275);
 	CVector3 cursorpos = m_gamecursor->GetCursor();
 	cursorpos.x += 135.0f;
 	cursorpos.y += -140.0f;
@@ -99,18 +101,22 @@ void AIEditNodeAbnormalState::Update()
 
 			if (m_nodebuttons[button - 4]->GetSpriteRender()->isCollidingTarget()) {
 				m_abnormal = endoku;
+				m_aieditnodeprocess->Setkeepabnormal(endoku);
 				Order();
 			}
 			if (m_nodebuttons[button - 3]->GetSpriteRender()->isCollidingTarget()) {
 				m_abnormal = enyakedo;
+				m_aieditnodeprocess->Setkeepabnormal(enyakedo);
 				Order();
 			}
 			if (m_nodebuttons[button - 2]->GetSpriteRender()->isCollidingTarget()) {
 				m_abnormal = enhyouketu;
+				m_aieditnodeprocess->Setkeepabnormal(enhyouketu);
 				Order();
 			}
 			if (m_nodebuttons[button - 1]->GetSpriteRender()->isCollidingTarget()) {
 				m_abnormal = ensutan;
+				m_aieditnodeprocess->Setkeepabnormal(ensutan);
 				Order();
 			}
 

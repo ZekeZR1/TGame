@@ -23,13 +23,10 @@ AIEditNodeProcess::~AIEditNodeProcess()
 
 }
 
-
-
 bool AIEditNodeProcess::Start()
 {
 
 	m_aieditnodeclick = FindGO<AIEditNodeClick>("click");
-	State state;
 
 	if (num <= 7) {
 		Click();
@@ -44,41 +41,48 @@ void AIEditNodeProcess::Click()
 {
 	if (num <= 7) {
 		m_aieditnodeclick = NewGO<AIEditNodeClick>(0, "click");
-		float y = 288 - 87 * num;
+		float y = ClickePosY - 85 * num;
 		num += 1;
-		m_aieditnodeclick->SetPosition({ -446,y,0 });
+		m_aieditnodeclick->SetPosition({ -430,y,0 });
 	}
 }
 
 void AIEditNodeProcess::Target()
 {
-	//if (TechniqueCount <= 1) {
-		m_aieditnodetarget = NewGO<AIEditNodeTarget>(0, "target");
-		TechniqueCount += 1;
-	//}
+
+	m_aieditnodetarget = NewGO<AIEditNodeTarget>(0, "target");
+	TechniqueCount += 1;
 
 }
 
 void AIEditNodeProcess::Technique()
 {
-	//if (TechniqueCount == 2) {
-		m_aieditnodetechnique = NewGO<AIEditNodeTechnique>(0, "Technique");
-		TechniqueCount = 0;
-	//}
+
+	m_aieditnodetechnique = NewGO<AIEditNodeTechnique>(0, "Technique");
+	TechniqueCount = 0;
+
+}
+
+void AIEditNodeProcess::AISave()
+{
+	FILE* f = fopen("Assets/VisualAI/AISave.va","a");
+	
+	for (int i0 =0;i0 < 8;i0++)
+	{
+		for (int i1 = 0;i1 < 3;i1++)
+		{
+			for (int i2 = 0; i2 < 6; i2++)
+			{
+				fwrite(&flagkeep[i0][i1][i2], 3, 1, f);
+			}
+		}
+	}
+	fclose(f);
 }
 
 void AIEditNodeProcess::Update()
 {
 		
-
-
-}
-
-//シートの座標指定？
-//何で作ったか忘れた
-void AIEditNodeProcess::ButtonPosition()
-{
-
 
 
 }

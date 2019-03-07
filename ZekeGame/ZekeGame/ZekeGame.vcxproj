@@ -22,7 +22,7 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{DD699856-A074-41E8-925F-5B771B6EC69E}</ProjectGuid>
     <RootNamespace>ZekeGame</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -140,7 +140,6 @@
       <ConformanceMode>true</ConformanceMode>
       <PreprocessorDefinitions>_MBCS;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <PrecompiledHeader>Use</PrecompiledHeader>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -188,7 +187,6 @@
     <ClCompile Include="Engine\graphics\postEffect\Dof.cpp" />
     <ClCompile Include="Engine\graphics\postEffect\GaussianBlur.cpp" />
     <ClCompile Include="Engine\graphics\postEffect\PostEffect.cpp" />
-    <ClCompile Include="Engine\graphics\Primitive.cpp" />
     <ClCompile Include="Engine\graphics\RenderTarget.cpp" />
     <ClCompile Include="Engine\graphics\Shader.cpp" />
     <ClCompile Include="Engine\graphics\ShaderResouceView.cpp" />
@@ -215,6 +213,7 @@
     <ClCompile Include="Engine\math\kMath.cpp" />
     <ClCompile Include="Engine\math\Matrix.cpp" />
     <ClCompile Include="Engine\math\Vector.cpp" />
+    <ClCompile Include="Engine\Network\BaseView.cpp" />
     <ClCompile Include="Engine\Network\Console.cpp" />
     <ClCompile Include="Engine\Network\LoadBalancingListener.cpp" />
     <ClCompile Include="Engine\Network\NetworkLogic.cpp" />
@@ -224,7 +223,6 @@
     <ClCompile Include="Engine\physics\CSphereCollider.cpp" />
     <ClCompile Include="Engine\physics\MeshCollider.cpp" />
     <ClCompile Include="Engine\physics\Physics.cpp" />
-    <ClCompile Include="Engine\physics\PhysicsDebugDraw.cpp" />
     <ClCompile Include="Engine\physics\PhysicsStaticObject.cpp" />
     <ClCompile Include="Engine\physics\RigitBody.cpp" />
     <ClCompile Include="Engine\physics\SpriteBoxCollider.cpp" />
@@ -256,8 +254,6 @@
     <ClCompile Include="Game\Dungeon\DungeonGame.cpp" />
     <ClCompile Include="Game\Dungeon\DungeonSelect.cpp" />
     <ClCompile Include="Game\Dungeon\DungeonTransition.cpp" />
-    <ClCompile Include="Game\Fade\Fade.cpp" />
-    <ClCompile Include="Game\Fade\MusicFade.cpp" />
     <ClCompile Include="Game\Game.cpp" />
     <ClCompile Include="Game\GameCamera2D.cpp" />
     <ClCompile Include="Game\GameCamera3D.cpp" />
@@ -266,16 +262,13 @@
     <ClCompile Include="Game\GameMenu\GameMenu.cpp" />
     <ClCompile Include="Game\GameMenu\MenuButton.cpp" />
     <ClCompile Include="Game\main.cpp" />
-    <ClCompile Include="Game\Monster\Action\ACTEffect.cpp" />
     <ClCompile Include="Game\Monster\Action\Act_Atack.cpp" />
     <ClCompile Include="Game\Monster\Action\Act_Chase.cpp" />
     <ClCompile Include="Game\Monster\Action\Act_Defense.cpp" />
     <ClCompile Include="Game\Monster\Action\Act_Fire.cpp" />
     <ClCompile Include="Game\Monster\Action\Act_Guardian.cpp" />
     <ClCompile Include="Game\Monster\Action\Act_Leave.cpp" />
-    <ClCompile Include="Game\Monster\Action\Act_Recovery.cpp" />
     <ClCompile Include="Game\Monster\Action\Act_Tackle.cpp" />
-    <ClCompile Include="Game\Monster\Effect\EFire.cpp" />
     <ClCompile Include="Game\Monster\Monster.cpp" />
     <ClCompile Include="Game\Monster\MonsterAction.cpp" />
     <ClCompile Include="Game\Monster\MonsterActionList.cpp" />
@@ -312,7 +305,6 @@
     <ClCompile Include="Game\VisualScriptAI\VisualScriptAI.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="TestScene.cpp" />
     <ClCompile Include="TestScene2.cpp" />
@@ -352,7 +344,6 @@
     <ClInclude Include="Engine\graphics\postEffect\Dof.h" />
     <ClInclude Include="Engine\graphics\postEffect\GaussianBlur.h" />
     <ClInclude Include="Engine\graphics\postEffect\PostEffect.h" />
-    <ClInclude Include="Engine\graphics\Primitive.h" />
     <ClInclude Include="Engine\graphics\RenderTarget.h" />
     <ClInclude Include="Engine\graphics\Shader.h" />
     <ClInclude Include="Engine\graphics\ShaderResouceView.h" />
@@ -391,7 +382,6 @@
     <ClInclude Include="Engine\physics\ICollider.h" />
     <ClInclude Include="Engine\physics\MeshCollider.h" />
     <ClInclude Include="Engine\physics\Physics.h" />
-    <ClInclude Include="Engine\physics\PhysicsDebugDraw.h" />
     <ClInclude Include="Engine\physics\PhysicsStaticObject.h" />
     <ClInclude Include="Engine\physics\RigitBody.h" />
     <ClInclude Include="Engine\physics\SpriteBoxCollider.h" />
@@ -422,8 +412,6 @@
     <ClInclude Include="Game\Dungeon\DungeonGame.h" />
     <ClInclude Include="Game\Dungeon\DungeonSelect.h" />
     <ClInclude Include="Game\Dungeon\DungeonTransition.h" />
-    <ClInclude Include="Game\Fade\Fade.h" />
-    <ClInclude Include="Game\Fade\MusicFade.h" />
     <ClInclude Include="Game\Game.h" />
     <ClInclude Include="Game\GameCamera2D.h" />
     <ClInclude Include="Game\GameCamera3D.h" />
@@ -431,16 +419,13 @@
     <ClInclude Include="Game\GameData.h" />
     <ClInclude Include="Game\GameMenu\GameMenu.h" />
     <ClInclude Include="Game\GameMenu\MenuButton.h" />
-    <ClInclude Include="Game\Monster\Action\ACTEffect.h" />
     <ClInclude Include="Game\Monster\Action\Act_Atack.h" />
     <ClInclude Include="Game\Monster\Action\Act_Chase.h" />
     <ClInclude Include="Game\Monster\Action\Act_Defense.h" />
     <ClInclude Include="Game\Monster\Action\Act_Fire.h" />
     <ClInclude Include="Game\Monster\Action\Act_Guardian.h" />
     <ClInclude Include="Game\Monster\Action\Act_Leave.h" />
-    <ClInclude Include="Game\Monster\Action\Act_Recovery.h" />
     <ClInclude Include="Game\Monster\Action\Act_Tackle.h" />
-    <ClInclude Include="Game\Monster\Effect\EFire.h" />
     <ClInclude Include="Game\Monster\Monster.h" />
     <ClInclude Include="Game\Monster\MonsterAction.h" />
     <ClInclude Include="Game\Monster\MonsterActionList.h" />
@@ -582,10 +567,10 @@
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\dungeon\dungeonBack.FBX" />
     <MeshContentTask Include="Assets\modelData\fairy\hnd.FBX" />
+    <MeshContentTask Include="Assets\modelData\mimic.fbx" />
     <MeshContentTask Include="Assets\modelData\stage\dun.fbx" />
     <MeshContentTask Include="Assets\modelData\stage\dun_yuka.fbx" />
     <MeshContentTask Include="Assets\modelData\stage\limit.FBX" />
-    <MeshContentTask Include="Assets\modelData\stage\limit2.fbx" />
     <MeshContentTask Include="Assets\modelData\stage\map.FBX" />
     <MeshContentTask Include="Assets\modelData\Test.FBX" />
     <MeshContentTask Include="Assets\modelData\testMons\tesEnemy2.fbx" />
@@ -593,12 +578,6 @@
     <MeshContentTask Include="Assets\modelData\uma\uma.fbx" />
   </ItemGroup>
   <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\GUI\MonActList\mon_actlist_Blue1.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\MonActList\mon_actlist_Blue2.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\MonActList\mon_actlist_Blue3.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\MonActList\mon_actlist_Red1.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\MonActList\mon_actlist_Red2.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\MonActList\mon_actlist_Red3.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\returnButton\moji_return.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\returnButton\returnButton.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\returnButton\returnButton_push.png" />
@@ -628,8 +607,6 @@
     <ImageContentTask Include="Assets\Sprite\GUI\menu\mn_fuck.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\menu\mn_mainmn.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\menu\mn_monsel.png" />
-    <Image Include="Assets\effect\panti\Shock_wave_ring001.png" />
-    <Image Include="Assets\effect\panti\starpart.PNG" />
     <Image Include="Assets\modelData\stage\dunge.png" />
     <Image Include="Assets\modelData\stage\yuka.png" />
     <ImageContentTask Include="Assets\Sprite\AIEdit\haik.png" />
@@ -640,7 +617,9 @@
     <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\leftButton.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\rightButton.png" />
     <ImageContentTask Include="Assets\Sprite\AIEdit\menu.png" />
-    <ImageContentTask Include="Assets\Sprite\Fade\fade_black.png" />
+    <ImageContentTask Include="Assets\Sprite\AIEdit\karipoint.png" />
+    <ImageContentTask Include="Assets\Sprite\AIEdit\menu2.png" />
+    <ImageContentTask Include="Assets\Sprite\AIEdit\point.png" />
     <Image Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_back2.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_frame.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\B_alpha.png" />
@@ -731,7 +710,6 @@
       <FileType>Document</FileType>
     </CustomBuild>
     <None Include="Assets\effect\fire1\fire1.efk" />
-    <None Include="Assets\effect\panti\panti.efk" />
     <None Include="Assets\modelData\fairy\hnd_atack.tka" />
     <None Include="Assets\modelData\fairy\hnd_ex1.tka" />
     <None Include="Assets\modelData\fairy\hnd_idle.tka" />
@@ -751,8 +729,6 @@
     <CopyFileToFolders Include="PythonAIs\testBrain1.py">
       <FileType>Document</FileType>
     </CopyFileToFolders>
-    <None Include="PythonAIs\1A.py" />
-    <None Include="PythonAIs\2Q.py" />
     <None Include="PythonAIs\F.py" />
     <None Include="PythonAIs\testBrain2.py" />
     <None Include="PythonAIs\Threader.py" />
@@ -767,13 +743,7 @@
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <Media Include="Assets\sound\BGM\bgm_maoudamashii_fantasy12.wav" />
-    <Media Include="Assets\sound\BGM\PerituneMaterial_OverWorld5_loop.wav" />
-    <Media Include="Assets\sound\BGM\PerituneMaterial_Strategy5_loop.wav" />
-    <Media Include="Assets\sound\bom.wav" />
-    <Media Include="Assets\sound\button.wav" />
     <Media Include="Assets\sound\kick-low1.wav" />
-    <Media Include="Assets\sound\pickup.wav" />
     <Media Include="Assets\sound\punch-high2.wav" />
     <Media Include="Assets\sound\punch-middle2.wav" />
   </ItemGroup>

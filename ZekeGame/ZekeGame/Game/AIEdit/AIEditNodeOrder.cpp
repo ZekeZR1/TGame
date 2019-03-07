@@ -16,7 +16,8 @@
 AIEditNodeOrder::~AIEditNodeOrder()
 {
 	DeleteGO(m_spriteRender);
-
+	for (auto fonts : m_fonts)
+		DeleteGO(fonts);
 }
 
 bool AIEditNodeOrder::Start()
@@ -50,7 +51,7 @@ bool AIEditNodeOrder::Start()
 
 
 	m_spriteRender = NewGO<SpriteRender>(2, "mass");
-	m_spriteRender->Init(L"Assets/sprite/masss.dds", 300, 120);  //last
+	m_spriteRender->Init(L"Assets/sprite/masss.dds", 300, 115);  //last
 	m_spriteRender->SetPosition(m_pos);
 	m_aieditnodeprocess->SetClickFlag(true);
 
