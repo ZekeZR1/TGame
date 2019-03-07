@@ -48,13 +48,11 @@ public:
 
 private:
 
-	int sizex = 140;
-	int sizey = 60;
-	int button;
-	int priority = 0;
-	//int x = 35;			//ボタンのX座標
-	int x = 0;
-	//int y = 120;		//ボタンのY座標
+	int sizex = 140;      //ボタンのサイズx
+	int sizey = 50;       //ボタンのサイズy
+	int button;          
+	int priority = 0;     //描画優先順位
+	int x = 0;   
 	int y = 140;
 	SpriteRender * m_spriteRender;
 	CVector3 kari = CVector3::Zero();

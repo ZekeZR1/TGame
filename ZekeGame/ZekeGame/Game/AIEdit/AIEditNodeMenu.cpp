@@ -14,7 +14,8 @@
 #include "AIEditNodeTarget.h"
 #include "AIEditNodeTechnique.h"
 #include "AIEdtiNodeAbnormalState.h"
-//#include "AIeditModeSelect.h"
+#include "AIEditMode.h"
+#include "../Title/ModeSelect.h"
 
 AIEditNodeMenu::~AIEditNodeMenu()
 {
@@ -95,13 +96,13 @@ void AIEditNodeMenu::BackMenu()
 		m_aieditnodetechnique = nullptr;
 	}*/
 
-	QueryGOs<AIEditLine>("line", [&](AIEditLine* go)->bool
+	QueryGOs<AIEditLine>("Line", [&](AIEditLine* go)->bool
 	{
 		DeleteGO(go);
 		return true;
 	});
 
-	QueryGOs<AIEditMode>("Mode", [&](AIEditMode* go)->bool
+	QueryGOs<AIEditMode>("AIEM", [&](AIEditMode* go)->bool
 	{
 		DeleteGO(go);
 		return true;
@@ -113,7 +114,7 @@ void AIEditNodeMenu::BackMenu()
 		return true;
 	});
 
-	QueryGOs<AIEditNodeAbnormalState>("abnormal", [&](AIEditNodeAbnormalState* go)->bool
+	QueryGOs<AIEditNodeAbnormalState>("Abnormal", [&](AIEditNodeAbnormalState* go)->bool
 	{
 		DeleteGO(go);
 		return true;
@@ -131,7 +132,7 @@ void AIEditNodeMenu::BackMenu()
 		return true;
 	});
 
-	QueryGOs<AIEditNodeInequ>("lnequ", [&](AIEditNodeInequ* go)->bool
+	QueryGOs<AIEditNodeInequ>("Inequality", [&](AIEditNodeInequ* go)->bool
 	{
 		DeleteGO(go);
 		return true;
@@ -143,19 +144,13 @@ void AIEditNodeMenu::BackMenu()
 		return true;
 	});
 
-	QueryGOs<AIEditNodeNum>("num", [&](AIEditNodeNum* go)->bool
+	QueryGOs<AIEditNodeNum>("Num", [&](AIEditNodeNum* go)->bool
 	{
 		DeleteGO(go);
 		return true;
 	});
 
-	QueryGOs<AIEditNodeOrder>("order", [&](AIEditNodeOrder* go)->bool
-	{
-		DeleteGO(go);
-		return true;
-	});
-
-	QueryGOs<AIEditNodeProcess>("process", [&](AIEditNodeProcess* go)->bool
+	QueryGOs<AIEditNodeOrder>("Order", [&](AIEditNodeOrder* go)->bool
 	{
 		DeleteGO(go);
 		return true;
@@ -173,6 +168,14 @@ void AIEditNodeMenu::BackMenu()
 		return true;
 	});
 
+	QueryGOs<AIEditNodeProcess>("process", [&](AIEditNodeProcess* go)->bool
+	{
+		DeleteGO(go);
+		return true;
+	});
+
+	//セレクトをNewする。
+	m_modeselect = NewGO<ModeSelect>(0, "modeselect");
 
 	DeleteGO(this);
 }
@@ -212,7 +215,9 @@ void AIEditNodeMenu::Update()
 			if (m_spriteRender->isCollidingTarget())
 			{
 				BackMenu();
+
 			}
+			
 		}
 	}
 	
