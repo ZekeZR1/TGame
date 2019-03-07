@@ -5,7 +5,10 @@
 
 ACTEffectGrant::~ACTEffectGrant()
 {
-	
+	if (m_abnormal != Monster::abNull)
+	{
+		m_target->ClearAbnormalState(m_abnormal);
+	}
 }
 
 void ACTEffectGrant::init(CEffect * effect, Monster * target, int state, float dam, float time)
@@ -41,4 +44,11 @@ void ACTEffectGrant::Update()
 	m_effect->SetPosition(m_target->Getpos());
 
 	m_time += IGameTime().GetFrameDeltaTime();
+}
+
+void ACTEffectGrant::SetAbnormalState(int abn)
+{
+	m_abnormal = abn;
+	m_target->SetAbnormalState(abn);
+
 }
