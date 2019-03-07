@@ -4,6 +4,7 @@ class GameCamera;
 
 class AIEditNodeButton;
 class AIEditNodeOrder;
+class AIEditNodeProcess;
 class AIEditNodeTechnique : public GameObject
 {
 
@@ -26,12 +27,12 @@ public:
 
 		enAttak = 500,
 		enEscape,
-		encCase,
+		enCase,
 		enProtect,
 		enHeel,
 		enSpecial1,
 		enSpecial2,
-		ennull,
+		ennull = 0,
 	};
 
 	int Gettechnique()
@@ -54,6 +55,7 @@ private:
 	GameCursor * m_gamecursor;
 	AIEditNodeButton* m_aieditnodebutton;
 	AIEditNodeOrder* m_aieditnodeorder;
+	AIEditNodeProcess* m_aieditnodeprocess;
 
 	std::vector<AIEditNodeButton*> m_nodebuttons;
 };

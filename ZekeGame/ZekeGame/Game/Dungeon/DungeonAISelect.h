@@ -30,6 +30,7 @@ private:
 	const int m_numPmm = 3;
 	int m_dunNum = -1;
 	SpriteRender* m_dunSp = nullptr;
+	SpriteRender* m_backSp = nullptr;
 	FontRender* m_font = nullptr;
 	Fade* m_fade = nullptr;
 	bool m_isfade = false;

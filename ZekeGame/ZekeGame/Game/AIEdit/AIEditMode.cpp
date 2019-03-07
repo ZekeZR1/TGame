@@ -17,6 +17,7 @@ AIEditMode::~AIEditMode()
 
 	//CURSOR IS DEAD.
 	DeleteGO(m_cursor);
+	DeleteGO(m_spriteRender);
 }
 
 bool AIEditMode::Start()

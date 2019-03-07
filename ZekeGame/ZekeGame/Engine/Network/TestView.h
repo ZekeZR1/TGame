@@ -1,7 +1,7 @@
 #pragma once
 
 //シーンクラスみたいな物
-//BaseViewを継承して、ここでオーバライドしたものをLoadBalancingListenerから呼ぶ
+//BaseViewを継承して、ここでオーバライドしたものをLoadBalancingListenerから呼ぶようにしてる
 class TestView : public BaseView
 {
 public:

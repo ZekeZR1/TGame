@@ -9,6 +9,7 @@
 #include "AIEditNode.h"
 #include "AIEditNodeNum.h"
 #include "AIEditNodeButton.h"
+#include "AIEditNodeProcess.h"
 
 AIEditNodeInequ::~AIEditNodeInequ()
 {
@@ -25,11 +26,12 @@ bool AIEditNodeInequ::Start()
 {
 	m_gamecursor = FindGO<GameCursor>("cursor");
 	m_aieditnode = FindGO<AIEditNode>("firstwin");
+	m_aieditnodeprocess = FindGO<AIEditNodeProcess>("process");
 
 	//UI‚ÌŠî”Õ
 	m_spriteRender = NewGO<SpriteRender>(9, "firstwinhp");
-	m_spriteRender->Init(L"Assets/sprite/sieat.dds", 150, 120);
-	m_spriteRender->SetPivot({ 0.5f, 0.0f });
+	m_spriteRender->Init(L"Assets/sprite/menu2.dds", 175, 140);
+	m_spriteRender->SetPivot({ 0.5f, 0.1f });
 	CVector3 cursorpos = m_gamecursor->GetCursor();
 	cursorpos.x += 135.0f;
 	cursorpos.y += -140.0f;
@@ -96,11 +98,13 @@ void AIEditNodeInequ::Update()
 		if (Mouse::isTrigger(enLeftClick)) {	//¶ƒNƒŠƒbƒN
 			if (m_nodebuttons[button - 2]->GetSpriteRender()->isCollidingTarget()) {
 				m_inequ = enDainari;
+				m_aieditnodeprocess->Setkeepinequ(enDainari);
 				Num();
 			}
 
 			if (m_nodebuttons[button - 1]->GetSpriteRender()->isCollidingTarget()) {
 				m_inequ = enShowers;
+				m_aieditnodeprocess->Setkeepinequ(enShowers);
 				Num();
 			}
 

@@ -35,7 +35,7 @@ bool AIEditNode::Start()
 
 	//UIの基盤
 	m_spriteRender = NewGO<SpriteRender>(6, "firstwin");
-	m_spriteRender->Init(L"Assets/sprite/sieat.dds", 150, 250);
+	m_spriteRender->Init(L"Assets/sprite/menu2.dds", 175, 280);
 	CVector3 cursorpos = m_gamecursor->GetCursor();
 	cursorpos.x += 135.0f;
 	cursorpos.y += -140.0f;
@@ -113,45 +113,39 @@ void AIEditNode::Abnormal()
 void AIEditNode::Update()
 {
 	CVector3 cursorpos = m_gamecursor->GetCursor();
-	 
+
 	for (int i = 0; i < button; i++) {
 		SpriteRender* sp = m_nodebuttons[i]->GetSpriteRender();
 		sp->SetCollisionTarget(cursorpos);
 
 	}
-
-	if (Choice1 == false) { //何も選択していないとき
-
-		//for (int i = 0; i < button - 2; i++) {
-		//	if (m_nodebuttons[i]->GetSpriteRender()->isCollidingTarget())	//選択しているか	
-		//	{
-		//		Inequ();
-
-		//	}
-
-		//}
+	if (Choice1 == false) {
 		if (Mouse::isTrigger(enLeftClick)) {	//左クリック
 			if (m_nodebuttons[button - 4]->GetSpriteRender()->isCollidingTarget()) {
 				m_Node = enHp;
+				m_aieditnodeprocess->Setkeeonode(enHp);
 				Inequ();
 			}
 
 			if (m_nodebuttons[button - 3]->GetSpriteRender()->isCollidingTarget()) {
 				m_Node = enMp;
+				m_aieditnodeprocess->Setkeeonode(enMp);
 				Inequ();
 			}
 
 			if (m_nodebuttons[button - 2]->GetSpriteRender()->isCollidingTarget()) {
 				m_Node = enAb;
+				m_aieditnodeprocess->Setkeeonode(enAb);
 				Abnormal();
 			}
 
 			if (m_nodebuttons[button - 1]->GetSpriteRender()->isCollidingTarget()) {
 				m_Node = enTechnique;
+				m_aieditnodeprocess->Setkeeonode(enTechnique);
 				Technique();
 			}
 		}
 	}
-}
 
+}
 	
