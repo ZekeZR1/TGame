@@ -3,6 +3,7 @@
 class GameCursor;
 class AIEditNodeButton;
 class AIEditNodeOrder;
+class AIEditNodeProcess;
 class AIEditNodeAbnormalState : public GameObject
 {
 
@@ -19,7 +20,7 @@ public:
 		enyakedo,
 		enhyouketu,
 		ensutan,
-		ennull,
+		ennull = 0,
 	};
 
 	int GetAbnormal()
@@ -37,6 +38,7 @@ private:
 	SpriteRender* m_spriteRender;
 	AIEditNodeButton* m_aieditnodebutton;
 	AIEditNodeOrder* m_aieditnodeorder;
+	AIEditNodeProcess* m_aieditnodeprocess;
 
 	CVector3 m_position = CVector3::Zero();
 

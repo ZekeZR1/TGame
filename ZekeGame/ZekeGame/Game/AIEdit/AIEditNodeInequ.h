@@ -6,6 +6,7 @@ class GameCamera;
 class AIEditNode;
 class AIEditNodeNum;
 class AIEditNodeButton;
+class AIEditNodeProcess;
 class AIEditNodeInequ : public GameObject
 {
 
@@ -25,7 +26,7 @@ public:
 
 		enDainari = 300,
 		enShowers,
-		enNull,
+		enNull = 0,
 	};
 
 	int GetInequ()
@@ -46,6 +47,7 @@ private:
 	GameCursor * m_gamecursor;
 	AIEditNodeNum* m_aieditnodenum;
 	AIEditNodeButton* m_aieditnodebutton;
+	AIEditNodeProcess* m_aieditnodeprocess;
 	CVector3 m_position = CVector3::Zero();
 	CVector3 m_pointposition = CVector3::Zero();
 	AIEditNode * m_aieditnode;

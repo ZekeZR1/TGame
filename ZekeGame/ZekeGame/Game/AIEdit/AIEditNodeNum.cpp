@@ -10,6 +10,7 @@
 #include "AIEditNodeOrder.h"
 #include "AIEditLine.h"
 #include "AIEditNodeButton.h"
+#include "AIEditNodeProcess.h"
 
 AIEditNodeNum::~AIEditNodeNum()
 {
@@ -26,11 +27,12 @@ AIEditNodeNum::~AIEditNodeNum()
 bool AIEditNodeNum::Start()
 {
 	m_gamecursor = FindGO<GameCursor>("cursor");
+	m_aieditnodeprocess = FindGO<AIEditNodeProcess>("process");
 
 	//UIの基盤
 	m_spriteRender = NewGO<SpriteRender>(12, "firstwinhp");
-	m_spriteRender->Init(L"Assets/sprite/sieat.dds", 150, 400);
-	m_spriteRender->SetPivot({ 0.5f, 0.7f });
+	m_spriteRender->Init(L"Assets/sprite/menu2.dds", 175, 470);
+	m_spriteRender->SetPivot({ 0.5f, 0.67f });
 	CVector3 cursorpos = m_gamecursor->GetCursor();
 	cursorpos.x += 135.0f;
 	//cursorpos.y += -140.0f;
@@ -75,13 +77,11 @@ bool AIEditNodeNum::Start()
 
 void AIEditNodeNum::Order()
 {
-
-	//if (Mouse::isTrigger(enLeftClick)) {	//左クリック
 	if (Choice3 == false) {
 		m_aieditnodeorder = NewGO<AIEditNodeOrder>(0, "Order");
 		Choice3 = true;
 	}
-	//}
+	
 }
 
 void AIEditNodeNum::Update()
@@ -94,54 +94,51 @@ void AIEditNodeNum::Update()
 		sp->SetCollisionTarget(cursorpos);
 
 	}
-	
-	for (int i = 0; i < button; i++)
-	{
-		if (Choice3 == false) {
-			if (m_nodebuttons[i]->GetSpriteRender()->isCollidingTarget())
-			{
-				//Order();
-			}
 
+	if (Mouse::isTrigger(enLeftClick)) {	//左クリック
+		if (m_nodebuttons[button - 7]->GetSpriteRender()->isCollidingTarget()) {
+			m_num = en1;
+			m_aieditnodeprocess->Setkeepnum(en1);
+			Order();
+			
 		}
 
-		if (Mouse::isTrigger(enLeftClick)) {	//左クリック
-			if (m_nodebuttons[button - 7]->GetSpriteRender()->isCollidingTarget()) {
-				m_num = en1;
-				Order();
-			}
-
-			if (m_nodebuttons[button - 6]->GetSpriteRender()->isCollidingTarget()) {
-				m_num = en10;
-				Order();
-			}
-
-			if (m_nodebuttons[button - 5]->GetSpriteRender()->isCollidingTarget()) {
-				m_num = en30;
-				Order();
-			}
-
-			if (m_nodebuttons[button - 4]->GetSpriteRender()->isCollidingTarget()) {
-				m_num = en50;
-				Order();
-			}
-
-			if (m_nodebuttons[button - 3]->GetSpriteRender()->isCollidingTarget()) {
-				m_num = en70;
-				Order();
-			}
-
-			if (m_nodebuttons[button - 2]->GetSpriteRender()->isCollidingTarget()) {
-				m_num = en90;
-				Order();
-			}
-
-			if (m_nodebuttons[button - 1]->GetSpriteRender()->isCollidingTarget()) {
-				m_num = en100;
-				Order();
-			}
-
+		if (m_nodebuttons[button - 6]->GetSpriteRender()->isCollidingTarget()) {
+			m_num = en10;
+			m_aieditnodeprocess->Setkeepnum(en10);
+			Order();
 		}
+
+		if (m_nodebuttons[button - 5]->GetSpriteRender()->isCollidingTarget()) {
+			m_num = en30;
+			m_aieditnodeprocess->Setkeepnum(en30);
+			Order();
+		}
+
+		if (m_nodebuttons[button - 4]->GetSpriteRender()->isCollidingTarget()) {
+			m_num = en50;
+			m_aieditnodeprocess->Setkeepnum(en50);
+			Order();
+		}
+
+		if (m_nodebuttons[button - 3]->GetSpriteRender()->isCollidingTarget()) {
+			m_num = en70;
+			m_aieditnodeprocess->Setkeepnum(en70);
+			Order();
+		}
+
+		if (m_nodebuttons[button - 2]->GetSpriteRender()->isCollidingTarget()) {
+			m_num = en90;
+			m_aieditnodeprocess->Setkeepnum(en90);
+			Order();
+		}
+
+		if (m_nodebuttons[button - 1]->GetSpriteRender()->isCollidingTarget()) {
+			m_num = en100;
+			m_aieditnodeprocess->Setkeepnum(en100);
+			Order();
+		}
+
 	}
 
 }

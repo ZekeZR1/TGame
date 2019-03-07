@@ -27,7 +27,7 @@ bool AIEditNodeTarget::Start()
 	m_aieditnodeprocess = FindGO<AIEditNodeProcess>("process");
 
 	m_spriteRender = NewGO<SpriteRender>(3, "target");
-	m_spriteRender->Init(L"Assets/sprite/sieat.dds", 150, 190);
+	m_spriteRender->Init(L"Assets/sprite/menu2.dds", 175, 205);
 	m_spriteRender->SetPivot({ 0.5f, 0.35f });
 
 	//CVector3 cursorpos = m_gamecursor->GetCursor();
@@ -105,39 +105,26 @@ void AIEditNodeTarget::Update()
 
 	if (Choice0 == false) { //何も選択していないとき
 
-		for (int i = 0; i < button - 1; i++) {
-			if (m_nodebuttons[i]->GetSpriteRender()->isCollidingTarget())	//選択しているか	
-			{	
-				//Num();
 
-			}
-
-		}
 		if (Mouse::isTrigger(enLeftClick)) {	//左クリック
 			if (m_nodebuttons[button - 3]->GetSpriteRender()->isCollidingTarget()) {
 				m_target = enme;
+				m_aieditnodeprocess->Setkeeptarget(enme);
 				Num();
 			}
 
 			if (m_nodebuttons[button - 2]->GetSpriteRender()->isCollidingTarget()) {
 				m_target = enbaddy;
+				m_aieditnodeprocess->Setkeeptarget(enbaddy);
 				Num();
 			}
 
 			if (m_nodebuttons[button - 1]->GetSpriteRender()->isCollidingTarget()) {
 				m_target = enenemy;
+				m_aieditnodeprocess->Setkeeptarget(enenemy);
 				Num();
 			}
 
-			//if (m_nodebuttons[button - 1]->GetSpriteRender()->isCollidingTarget()) {
-
-			//	//Technique();
-			//	if (Mouse::isTrigger(enLeftClick)) {	//左クリック
-			//		m_aieditnodeprocess->Technique();
-			//		m_target = entechnique;
-			//		Choice0 = true;
-			//	}
-			//}
 		}
 	}
 }

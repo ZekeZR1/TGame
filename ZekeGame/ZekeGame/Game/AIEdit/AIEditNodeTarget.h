@@ -23,7 +23,7 @@ public:
 		enme = 100,
 		enbaddy,
 		enenemy,
-		ennull,
+		ennull = 0,
 	};
 
 	int GetTarget()
