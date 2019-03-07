@@ -39,7 +39,7 @@ public:
 		enMp,
 		enAb,
 		enTechnique,
-		enNull,
+		enNull = 0,
 	};
 
 	int GetNode()

@@ -36,11 +36,14 @@ private:
 	const CVector4 m_ClearCol = CVector4::White;
 	const int m_numDungeon = 8;
 	const float m_spaceToNextSprite = 800.f;
-	const float SPRITE_W = 600.f;
-	const float SPRITE_H  = 600.f;
-	const CVector2 m_toFixMisalignment = { -150.f, 20.f };
+	const float SPRITE_W = 400.f;
+	const float SPRITE_H  = 400.f;
+	const CVector2 m_toFixMisalignment = { -150.f, -200.f };
 	bool m_isPositionUpdating = false;
 	bool m_isfade = false;
+	bool m_backfade = false;
+	bool m_isChanged = false;
 	int m_selectedNum = 1;
+	int dunNum = 0;
 };
 

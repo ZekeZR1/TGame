@@ -89,7 +89,7 @@ void DungeonSelect::InitDungeonButtons() {
 	for (int i = 0; i < m_numDungeon; i++) {
 		//init sprite
 		m_sps.push_back(NewGO<SpriteRender>(0, "sp"));
-		m_sps[i]->Init(L"Assets/Sprite/DadandanBk.dds", SPRITE_W, SPRITE_H, true);
+		m_sps[i]->Init(L"Assets/Sprite/dun_stage0.dds", SPRITE_W, SPRITE_H, true);
 		m_sps[i]->SetPosition(pos);
 		//init text
 		m_fonts.push_back(NewGO<FontRender>(1, "font"));
@@ -183,9 +183,22 @@ void DungeonSelect::DungeonSelectClick() {
 	const double duration = 1.f;
 	static double time = 0.f;
 	auto tar = m_cur->GetCursor();
-
+	static CVector3 selectSize = { 0.8f,0.8f,0.8f };
+	static CVector3 unselectSize = CVector3::One();
 	m_leftSp->SetCollisionTarget(tar);
 	m_rightSp->SetCollisionTarget(tar);
+	if (m_leftSp->isCollidingTarget()) {
+		m_leftSp->SetScale(selectSize);
+	}
+	else {
+		m_leftSp->SetScale(unselectSize);
+	}
+	if (m_rightSp->isCollidingTarget()) {
+		m_rightSp->SetScale(selectSize);
+	}
+	else {
+		m_rightSp->SetScale(unselectSize);
+	}
 	if (m_leftSp->isCollidingTarget() && Mouse::isTrigger(enLeftClick) && time == 0.f) {
 		if (m_selectedNum == 1) {
 			return;
@@ -208,7 +221,6 @@ void DungeonSelect::DungeonSelectClick() {
 			left = false;
 			time = 0.f;
 		}
-
 		addPos.x = EASE::InOutQuad(change, 0.f, duration, time);
 	}
 	if (right) {
@@ -229,7 +241,6 @@ void DungeonSelect::DungeonSelectClick() {
 void DungeonSelect::StartDungeon() {
 	if (m_isPositionUpdating || m_backSp->isCollidingTarget())
 		return;
-	int dunNum = 0;
 	for (auto i : m_sps) {
 		i->SetCollisionTarget(m_cur->GetCursor());
 		if (Mouse::isTrigger(enLeftClick)) {
@@ -254,7 +265,12 @@ void DungeonSelect::StartDungeon() {
 void DungeonSelect::BackToMenu() {
 	m_backSp->SetCollisionTarget(m_cur->GetCursor());
 	if (Mouse::isTrigger(enLeftClick) && m_backSp->isCollidingTarget()) {
+		m_fade->FadeOut();
+		m_backfade = true;
+	}
+	if (m_fade->isFadeStop() && m_backfade) {
 		NewGO<ModeSelect>(0);
 		DeleteGO(this);
 	}
 }
+

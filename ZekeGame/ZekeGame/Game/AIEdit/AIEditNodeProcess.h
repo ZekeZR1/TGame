@@ -18,30 +18,11 @@ public:
 
 	bool Start();
 	void Update();
-	void ButtonPosition();
 	void Click();
 	void Target();
 	void Technique();
-	
 
-
-	bool GetTheOrder()
-	{
-
-		return m_state;
-	}
-
-	void SetTheOrderNum(bool a)
-	{
-
-		StateNum = a;
-	}
-
-	void enSecond()
-	{
-
-		m_state = enSecondOrder;
-	}
+	void AISave();
 
 	bool GetClickFlag()
 	{
@@ -58,37 +39,61 @@ public:
 		return TechniqueCount;
 	}
 
+	//ここから下で各クラスのenumを保存していく。
+	void Setkeeptarget(int n)
+	{
+		flagkeep[keep1][keep2][0] = n;
+	}
+
+	void Setkeeonode(int n)
+	{
+		flagkeep[keep1][keep2][1] = n;
+	}
+
+	void Setkeepinequ(int n)
+	{
+		flagkeep[keep1][keep2][2] = n;
+	}
+
+	void Setkeepnum(int n)
+	{
+		flagkeep[keep1][keep2][3] = n; 
+		keep2 += 1;
+	}
+
+	void Setkeepabnormal(int n)
+	{
+		flagkeep[keep1][keep2][4] = n;
+		keep2 += 1;
+	}
+
+	void Setkeeptechnique(int n)
+	{
+		flagkeep[keep1][keep2][5] = n;
+		keep1 += 1;
+		keep2 = 0;
+	}
 
 private:
+
+	int flagkeep[8][3][6];   //各クラスで何を選択したかを保持しておくためのもの。
+	int keep1 = 0; //８行ある内の何個目か。
+	int keep2 = 0; //３列のうちの何個目か。
+	int keep3 = 0; /*どのクラスを選択したか。 0 = target
+				                              1 = node
+											  2 = inequ
+											  3 = num
+											  4 = abnormal
+											  5 = technique 　　*/
 
 	int StateNum = 1;
 	
 	int num = 0;
 	int TechniqueCount = 0;
+	float ClickePosY = 275;     //AIEditNodeClickをNewするときのY座標。
 	bool Clickflag = 0;
+	bool OrderChoice = false;   //AIEditNodeOrderが表示されていないとき。
 
-	bool Choice1 = false;    
-	bool Choice2 = false;   
-	bool Choice3 = false;    
-	bool Choice4 = false;    
-	bool Choice5 = false;    
-	bool Choice6 = false;    
-	bool Choice7 = false;    
-	bool Choice8 = false;    
-	bool OrderChoice = false;   //AIEditNodeOrderが表示されていないとき
-
-	enum State
-	{
-		enFirstOrder,     //clickをおした時の処理
-		enSecondOrder,
-		enThirdOrder,
-		enFourthOrder,
-		enFifthOrder,
-		enSixthOrder,
-		enSeventhOrder,
-		enEighthOrder
-
-	};
 
 	AIEditNode * m_aieditnode;
 	AIEditNodeInequ * m_aieditnodeinequ;
@@ -100,7 +105,5 @@ private:
 	SpriteRender * m_spriteRender;
 	AIEditNodeTechnique* m_aieditnodetechnique;
 	AIEditNodeMenu* m_aieditnodemenu;
-
-	State m_state = enFirstOrder;
 
 };
