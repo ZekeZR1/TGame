@@ -305,6 +305,18 @@
     <ImageContentTask Include="Assets\Sprite\AIEdit\point.png">
       <Filter>Assets</Filter>
     </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\AIEdit\menuselect.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\AIEdit\help.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\AIEdit\hozon.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\AIEdit\menuselectsieat.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp" />
@@ -336,9 +348,6 @@
       <Filter>Game\AIEdite</Filter>
     </ClCompile>
     <ClCompile Include="Game\AIEdit\AIEditNodeClick.cpp">
-      <Filter>Game\AIEdite</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\AIEdit\AIEditNodeHp.cpp">
       <Filter>Game\AIEdite</Filter>
     </ClCompile>
     <ClCompile Include="Game\AIEdit\AIEditNodeInequ.cpp">
@@ -749,6 +758,18 @@
     <ClCompile Include="Game\AIEdit\AIEditNodeMenu.cpp">
       <Filter>Game\AIEdite</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Fade\Fade.cpp" />
+    <ClCompile Include="Game\Fade\MusicFade.cpp" />
+    <ClCompile Include="Engine\physics\PhysicsDebugDraw.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\graphics\Primitive.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\Action\Act_Recovery.cpp" />
+    <ClCompile Include="Game\Monster\Action\ACTEffect.cpp">
+      <Filter>act</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\fairy\hnd.FBX">
@@ -775,6 +796,9 @@
     </MeshContentTask>
     <MeshContentTask Include="Assets\modelData\stage\dun.fbx" />
     <MeshContentTask Include="Assets\modelData\stage\dun_yuka.fbx" />
+    <MeshContentTask Include="Assets\modelData\stage\limit2.fbx">
+      <Filter>Assets</Filter>
+    </MeshContentTask>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\PythonBridge\include\unicodeobject.h" />
@@ -813,9 +837,6 @@
       <Filter>Game\AIEdite</Filter>
     </ClInclude>
     <ClInclude Include="Game\AIEdit\AIEditNodeClick.h">
-      <Filter>Game\AIEdite</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\AIEdit\AIEditNodeHp.h">
       <Filter>Game\AIEdite</Filter>
     </ClInclude>
     <ClInclude Include="Game\AIEdit\AIEditNodeInequ.h">
@@ -1525,6 +1546,18 @@
     </ClInclude>
     <ClInclude Include="Game\AIEdit\AIEditNodeMenu.h">
       <Filter>Game\AIEdite</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Fade\Fade.h" />
+    <ClInclude Include="Game\Fade\MusicFade.h" />
+    <ClInclude Include="Engine\physics\PhysicsDebugDraw.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\graphics\Primitive.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\Action\Act_Recovery.h" />
+    <ClInclude Include="Game\Monster\Action\ACTEffect.h">
+      <Filter>act</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

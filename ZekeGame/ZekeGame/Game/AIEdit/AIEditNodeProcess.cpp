@@ -32,6 +32,19 @@ bool AIEditNodeProcess::Start()
 		Click();
 	}
 	m_aieditnodemenu = NewGO<AIEditNodeMenu>(0, "menu");
+
+	//‚·‚×‚Ä‚Ìflagkeep‚Énull‚ğ‘ã“ü‚µ‚Ä‚¨‚­B
+	for (int i = 0; i <= 7; i++) {
+
+		for (int j = 0; j <= 1; j++) {
+
+			for (int k = 0; k <= 4; k++) {
+
+				flagkeep[i][j][k] = 0;            //0‚Í‰½‚à‘I‘ğ‚µ‚Ä‚¢‚È‚¢ó‘ÔB(nulptr)
+
+			}
+		}
+	}
 	
 	return true;
 }
@@ -65,7 +78,7 @@ void AIEditNodeProcess::Technique()
 
 void AIEditNodeProcess::AISave()
 {
-	FILE* f = fopen("Assets/VisualAI/AISave.va","a");
+	FILE* f = fopen("Assets/VisualAI/AISave.va","w");
 	
 	for (int i0 =0;i0 < 8;i0++)
 	{
@@ -73,7 +86,7 @@ void AIEditNodeProcess::AISave()
 		{
 			for (int i2 = 0; i2 < 6; i2++)
 			{
-				fwrite(&flagkeep[i0][i1][i2], 3, 1, f);
+				fwrite(&flagkeep[i0][i1][i2], 2, 1, f);
 			}
 		}
 	}
