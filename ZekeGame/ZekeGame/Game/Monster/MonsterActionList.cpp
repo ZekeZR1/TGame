@@ -270,8 +270,9 @@ void MonsterActionList::Update()
 				//ws = L"回復";
 				ws = L"HEAL";
 			}
-			m_frs[i]->Init(ws, { p.x,p.y +45-5}, 0, CVector4::White, 0.7f, { 0,0 });
-			m_Sfrs[i]->Init(ws, { p.x+5,p.y + 45-5-5 }, 0, {0,0,0,1}, 0.7f, { 0,0 });
+			//todo: フォント変更座標変更
+			m_frs[i]->Init(ws, { p.x,p.y +45-5+/*これ→*/8}, 0, CVector4::White, 0.7f, { 0,0 });
+			m_Sfrs[i]->Init(ws, { p.x+5,p.y + 45-5-5+/**/8 }, 0, {0,0,0,1}, 0.7f, { 0,0 });
 		}
 
 		m_len = len;

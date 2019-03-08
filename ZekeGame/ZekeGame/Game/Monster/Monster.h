@@ -59,6 +59,39 @@ public:
 		return m_state;
 	}
 
+
+	enum AbnormalState
+	{
+		abNull,		//None
+		abPoison,	//毒
+		abStan,		//スタン
+		abBurn,		//やけど
+	};
+
+	//状態異常の設定
+	//abn: enum
+	void SetAbnormalState(int abn)
+	{
+		//m_abnormalState = (AbnormalState)abn;
+		m_abnormalStates.push_back((AbnormalState)abn);
+	}
+
+	void ClearAbnormalState(int abn)
+	{
+		std::vector<AbnormalState>::iterator ite;
+		ite = std::find(m_abnormalStates.begin(), m_abnormalStates.end(), (AbnormalState)abn);
+		m_abnormalStates.erase(ite);
+
+	}
+	
+	//状態異常の取得
+	//return 状態異常
+	std::vector<AbnormalState> GetAbnormalState()
+	{
+		return m_abnormalStates;
+	}
+	
+
 	//使うpythonのファイルを設定する
 	//st: ファイルの名前
 	void SetpyFile(std::string* st)
@@ -366,6 +399,9 @@ protected:
 	CQuaternion m_rot = CQuaternion::Identity();//回転
 	int m_turncount = 0;
 	float m_rotangle = 0;
+
+	AbnormalState m_abnormalState = abNull;
+	std::vector<AbnormalState> m_abnormalStates;
 
 	PythonBridge* m_PB;
 

@@ -1,7 +1,6 @@
 #pragma once
 
 #include "Engine/graphics/Shader.h"
-
 /*!
 *@brief	モデルエフェクト。
 */
@@ -17,6 +16,7 @@ protected:
 	bool isSkining;
 	ID3D11ShaderResourceView* m_albedoTex = nullptr;
 	ID3D11ShaderResourceView* m_shadowMapSRV = nullptr;
+	ID3D11ShaderResourceView* m_normalTexture = nullptr;
 	//std::array<ID3D11ShaderResourceView*, 4> m_albedoTextureStack = { nullptr };
 	int m_albedoTextureStackPos = 0;
 	EnRenderMode m_renderMode = enRenderMode_Invalid;	//レンダリングモード。
@@ -46,6 +46,9 @@ public:
 	void SetAlbedoTexture(ID3D11ShaderResourceView* tex)
 	{
 		m_albedoTex = tex;
+	}
+	void SetNormalTexture(ID3D11ShaderResourceView* tex) {
+		m_normalTexture = tex;
 	}
 	void SetMatrialName(const wchar_t* matName)
 	{
@@ -110,6 +113,9 @@ public:
 		EffectFactory(device) {}
 	std::shared_ptr<DirectX::IEffect> __cdecl CreateEffect(const EffectInfo& info, ID3D11DeviceContext* deviceContext)override
 	{
+		if (info.enableNormalMaps) {
+			assert(false);
+		}
 		std::shared_ptr<ModelEffect> effect;
 		if (info.enableSkinning) {
 			//スキニングあり。
@@ -126,6 +132,11 @@ public:
 			DirectX::EffectFactory::CreateTexture(info.diffuseTexture, deviceContext, &texSRV);
 			effect->SetAlbedoTexture(texSRV);
 		}
+		/*if (info.normalTexture && *info.normalTexture) {
+			ID3D11ShaderResourceView* normalSRV;
+			DirectX::EffectFactory::CreateTexture(info.normalTexture, deviceContext, &normalSRV);
+			effect->SetNormalTexture(normalSRV);
+		}*/
 		return effect;
 	}
 
