@@ -53,4 +53,9 @@ bool TestScene::Start() {
 void TestScene::Update() {
 	camera2d->Update();
 	camera3d->Update();
+	static CQuaternion rot = CQuaternion::Identity();
+	CQuaternion rott = CQuaternion::Identity();
+	rott.SetRotationDeg(CVector3::AxisY(), 5.f);
+	rot.Multiply(rott);
+	m_model->SetRotation(rot);
 }

@@ -305,6 +305,7 @@
     <ImageContentTask Include="Assets\Sprite\AIEdit\point.png">
       <Filter>Assets</Filter>
     </ImageContentTask>
+    <ImageContentTask Include="Assets\modelData\tes_Normal.png" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp" />
@@ -749,6 +750,22 @@
     <ClCompile Include="Game\AIEdit\AIEditNodeMenu.cpp">
       <Filter>Game\AIEdite</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Fade\MusicFade.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\physics\PhysicsDebugDraw.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Fade\Fade.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\graphics\Primitive.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\Action\Act_Recovery.cpp" />
+    <ClCompile Include="Game\Monster\Action\ACTEffect.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\fairy\hnd.FBX">
@@ -775,6 +792,7 @@
     </MeshContentTask>
     <MeshContentTask Include="Assets\modelData\stage\dun.fbx" />
     <MeshContentTask Include="Assets\modelData\stage\dun_yuka.fbx" />
+    <MeshContentTask Include="Assets\modelData\mimic.fbx" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\PythonBridge\include\unicodeobject.h" />
@@ -1525,6 +1543,22 @@
     </ClInclude>
     <ClInclude Include="Game\AIEdit\AIEditNodeMenu.h">
       <Filter>Game\AIEdite</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Fade\MusicFade.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\physics\PhysicsDebugDraw.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Fade\Fade.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\graphics\Primitive.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\Action\Act_Recovery.h" />
+    <ClInclude Include="Game\Monster\Action\ACTEffect.h">
+      <Filter>Game</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
