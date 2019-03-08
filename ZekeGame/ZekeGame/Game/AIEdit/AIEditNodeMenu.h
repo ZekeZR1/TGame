@@ -34,6 +34,7 @@ private:
 	CVector3 m_position2 = CVector3::Zero();
 	CVector3 m_position3 = CVector3::Zero();
 	CVector3 m_position4 = CVector3::Zero();
+	CVector3 m_position5 = CVector3::Zero();
 
 	GameCursor* m_gamecursor;
 
@@ -43,6 +44,7 @@ private:
 	SpriteRender* m_spriterender2;
 	SpriteRender* m_spriterender3;
 	SpriteRender* m_spriterender4;
+	SpriteRender* m_spriterender5;
 
 	AIEditNodeButton* m_aieditnodebutton;
 	AIEditNodeProcess* m_aieditnodeprocess;
