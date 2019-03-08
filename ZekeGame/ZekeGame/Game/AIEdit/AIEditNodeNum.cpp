@@ -51,6 +51,7 @@ bool AIEditNodeNum::Start()
 	//ƒtƒHƒ“ƒg
 	for (int i = 0; i < button; i++) {
 		m_fonts.push_back(NewGO<FontRender>(14));
+		m_fonts[i]->SetTextType(CFont::en_Japanese);
 	}
 
 	auto bacon = m_nodebuttons[0]->GetPos();

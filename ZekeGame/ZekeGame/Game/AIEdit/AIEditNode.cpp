@@ -6,8 +6,6 @@
 
 // THIS IS CAMERA.
 #include "../../GameCamera.h"
-
-#include "AIEditNodeHp.h"
 #include "AIEditNodeInequ.h"
 #include "AIEditNodeButton.h"
 #include "AIEditNodeTechnique.h"
@@ -55,6 +53,7 @@ bool AIEditNode::Start()
 	//フォント。
 	for (int i = 0; i < button; i++) {
 		m_fonts.push_back(NewGO<FontRender>(8));
+		m_fonts[i]->SetTextType(CFont::en_Japanese);
 	}
 
 	auto bacon = m_nodebuttons[0]->GetPos();

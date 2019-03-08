@@ -20,7 +20,7 @@ bool AIEditLine::Start()
 	m_aieditnodeorder = FindGO<AIEditNodeOrder>("Order");
 	m_aieditnodeprocess = FindGO<AIEditNodeProcess>("process");
 	m_spriteRender = NewGO<SpriteRender>(1, "line");
-	m_spriteRender->Init(L"Assets/sprite/arrow.dds", 20, 250);  //last
+	m_spriteRender->Init(L"Assets/sprite/arrow.dds", 1, 250);  //last
 	m_pos.x += 120;
 	m_spriteRender->SetPosition(m_pos);
 	m_spriteRender->SetPivot({ 0.0f, 0.5f });
@@ -30,10 +30,10 @@ bool AIEditLine::Start()
 void AIEditLine::Update()
 {
 	if (x <= 180) {
-		x += 6;
+		x += 6.0;
 		//todo ロードが走っているので、激重。SpriteRenderに拡大率を設定できるようになったらそっちにする。
-		m_spriteRender->Init(L"Assets/sprite/arrow.dds", x , 200);
-		//m_spriteRender->SetScale();
+		//m_spriteRender->Init(L"Assets/sprite/arrow.dds", x , 200);
+		m_spriteRender->SetScale({x,1,1});
 	}
 	
 
