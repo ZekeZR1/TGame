@@ -14,6 +14,7 @@ public:
 private:
 	SkinModelRender* m_model = nullptr;
 	SkinModelRender* m_back = nullptr;
+	SkinModelRender* m_mimic = nullptr;
 	SkinModelRender* m_mo2 = nullptr;
 	SpriteRender* m_sp = nullptr;
 	AnimationClip m_anim[1];

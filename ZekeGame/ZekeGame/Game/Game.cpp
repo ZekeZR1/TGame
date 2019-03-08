@@ -78,6 +78,7 @@ void Game::OnDestroy() {
 	DeleteGO(m_sprite);
 	DeleteGO(FindGO<SkinModelRender>("stageModel"));
 	DeleteGO(m_fr);
+	DeleteGO(m_frS);
 	DeleteGO(m_floor);
 	DeleteGO(m_smd);
 	if(m_isOnlineGame)
