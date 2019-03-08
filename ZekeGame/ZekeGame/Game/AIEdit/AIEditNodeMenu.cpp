@@ -20,14 +20,10 @@
 AIEditNodeMenu::~AIEditNodeMenu()
 {
 	DeleteGO(m_spriteRender);
-	//QueryGOs<AIEditNodeMenu>("menuselectsieat", [&](AIEditNodeMenu* menu) {
-	//	DeleteGO(menu);
-	//	return true;
-	//});
-
 	DeleteGO(m_spriterender2);
 	DeleteGO(m_spriterender3);
 	DeleteGO(m_spriterender4);
+	DeleteGO(m_spriterender5);
 	for (auto fonts : m_fonts)
 		DeleteGO(fonts);
 	for (auto button : m_buttons)
@@ -50,7 +46,7 @@ bool AIEditNodeMenu::Start()
 
 	m_spriterender3 = NewGO<SpriteRender>(2, "menu");
 	m_spriterender3->Init(L"Assets/sprite/help.dds", 40, 40, true);
-	m_position3.x += 415;
+	m_position3.x += 330;
 	m_position3.y += 340;
 	m_spriterender3->SetPosition(m_position3);
 
@@ -60,6 +56,13 @@ bool AIEditNodeMenu::Start()
 	//m_position4.y += 340;
 	m_position4.y += 300;  // ‰¼B
 	m_spriterender4->SetPosition(m_position4);
+
+	m_spriterender5 = NewGO<SpriteRender>(2, "menu");
+	m_spriterender5->Init(L"Assets/sprite/open.dds", 80, 40, true);
+	m_position5.x += 415;
+	//m_position4.y += 340;
+	m_position5.y += 300;  // ‰¼B
+	m_spriterender5->SetPosition(m_position5);
 
 	return true;
 }
