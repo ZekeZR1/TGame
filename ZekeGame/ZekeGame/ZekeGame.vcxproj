@@ -288,6 +288,7 @@
     <ClCompile Include="Game\Monster\Monsters\TestMons.cpp" />
     <ClCompile Include="Game\Monster\Monsters\Uma.cpp" />
     <ClCompile Include="Game\PythonBridge\PythonBridge.cpp" />
+    <ClCompile Include="Game\ReadyGO\ReadyGO.cpp" />
     <ClCompile Include="Game\Result\DungeonResult.cpp" />
     <ClCompile Include="Game\Result\Lose\Lose.cpp" />
     <ClCompile Include="Game\Result\Lose\Lose_localPVP.cpp" />
@@ -554,6 +555,7 @@
     <ClInclude Include="Game\PythonBridge\include\warnings.h" />
     <ClInclude Include="Game\PythonBridge\include\weakrefobject.h" />
     <ClInclude Include="Game\PythonBridge\PythonBridge.h" />
+    <ClInclude Include="Game\ReadyGO\ReadyGO.h" />
     <ClInclude Include="Game\Result\DungeonResult.h" />
     <ClInclude Include="Game\Result\Lose\Lose.h" />
     <ClInclude Include="Game\Result\Lose\Lose_localPVP.h" />
@@ -596,6 +598,12 @@
     <MeshContentTask Include="Assets\modelData\uma\uma.fbx" />
   </ItemGroup>
   <ItemGroup>
+    <ImageContentTask Include="Assets\Sprite\readyGO\r_go.png" />
+    <ImageContentTask Include="Assets\Sprite\readyGO\Ready2.png" />
+    <ImageContentTask Include="Assets\Sprite\result\res_blueteam.png" />
+    <ImageContentTask Include="Assets\Sprite\result\res_Lose.png" />
+    <ImageContentTask Include="Assets\Sprite\result\res_redteam.png" />
+    <ImageContentTask Include="Assets\Sprite\result\res_Win.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\MonActList\mon_actlist_Blue1.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\MonActList\mon_actlist_Blue2.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\MonActList\mon_actlist_Blue3.png" />

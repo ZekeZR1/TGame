@@ -331,6 +331,24 @@
     <ImageContentTask Include="Assets\Sprite\winkari.png">
       <Filter>Assets</Filter>
     </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\result\res_blueteam.png">
+      <Filter>Assets\result</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\result\res_Lose.png">
+      <Filter>Assets\result</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\result\res_redteam.png">
+      <Filter>Assets\result</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\result\res_Win.png">
+      <Filter>Assets\result</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\readyGO\Ready2.png">
+      <Filter>Assets\readyGO</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\readyGO\r_go.png">
+      <Filter>Assets\readyGO</Filter>
+    </ImageContentTask>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp" />
@@ -804,6 +822,9 @@
     </ClCompile>
     <ClCompile Include="Game\Monster\AbnormalState\AbnormalStates.cpp">
       <Filter>Game\Monster\abnSta</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\ReadyGO\ReadyGO.cpp">
+      <Filter>Game\ReadyGO</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1615,6 +1636,9 @@
     <ClInclude Include="Game\Monster\AbnormalState\AbnormalStates.h">
       <Filter>Game\Monster\abnSta</Filter>
     </ClInclude>
+    <ClInclude Include="Game\ReadyGO\ReadyGO.h">
+      <Filter>Game\ReadyGO</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="python36.lib" />
@@ -1783,6 +1807,15 @@
     </Filter>
     <Filter Include="Game\Monster\abnSta">
       <UniqueIdentifier>{56a184c7-6437-43bb-af80-c02ee3d54b21}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets\result">
+      <UniqueIdentifier>{ec9e3912-31e6-485d-88ad-6b059f1d7805}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\ReadyGO">
+      <UniqueIdentifier>{9d35a062-52e0-4c3c-801d-841f807dcc91}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets\readyGO">
+      <UniqueIdentifier>{c0b5965d-e20a-4ff1-adf8-6d1e7df907f5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

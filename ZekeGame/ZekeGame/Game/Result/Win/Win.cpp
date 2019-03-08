@@ -104,19 +104,24 @@ void Win::Update()
 		if ((m_firstpos - m_lastpos).Length() < 0.5f)
 		{
 			m_srwin = NewGO<SpriteRender>(0, "sr");
-			m_srwin->Init(L"Assets/sprite/win.dds", 462, 262);
-			m_srwin->SetPosition({ -410,160,0 });
+			//m_srwin->Init(L"Assets/sprite/win.dds", 462, 262);
+			m_srwin->Init(L"Assets/sprite/res_Win.dds", 462*1.1f, 183.256f*1.1f);
+			m_srwin->SetPivot({ 0,0.5f });
+			m_srwin->SetPosition({ -610,210,0 });
 
 			m_srteam = NewGO<SpriteRender>(0, "sr");
 			if (m_team == 0)
 			{
-				m_srteam->Init(L"Assets/sprite/redteamp.dds", 768.0f, 315.75f);
+				//m_srteam->Init(L"Assets/sprite/redteamp.dds", 768.0f, 315.75f);
+				m_srteam->Init(L"Assets/sprite/res_redteam.dds", 768.0f*1.5f, 212.21f*1.5f);
 			}
 			else
 			{
-				m_srteam->Init(L"Assets/sprite/blueteamp.dds", 795.75f, 315.75f);
+				//m_srteam->Init(L"Assets/sprite/blueteamp.dds", 795.75f, 315.75f);
+				m_srteam->Init(L"Assets/sprite/res_blueteam.dds", 795.75f*1.5f, 212.21f*1.5f);
 			}
-			m_srteam->SetPosition({ -240,-210,0 });
+			m_srteam->SetPivot({ 0,0.5f });
+			m_srteam->SetPosition({ -620,-210,0 });
 
 			m_BGM = NewGO<Sound>(0, "BGM");
 			m_BGM->Init(L"Assets/sound/BGM/PerituneMaterial_OverWorld5_loop.wav", true);
