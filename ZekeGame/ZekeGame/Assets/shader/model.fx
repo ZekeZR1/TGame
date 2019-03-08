@@ -20,6 +20,13 @@ StructuredBuffer<float4x4> boneMatrix : register(t1);
 /////////////////////////////////////////////////////////////
 sampler Sampler : register(s0);
 
+//normal
+float3 CalcNormal(float3 normal, float3 biNormal, float3 tangent, float2 uv) {
+	float3 binSpaceNormal = normalMap.Sample(Sampler, uv).xyz;
+	binSpaceNormal = (binSpaceNormal * 2.0f) - 1.0f;
+	normal = tangent * binSpaceNormal.x + biNormal * binSpaceNormal.y + normal * binSpaceNormal.z;
+	return normal;
+}
 /////////////////////////////////////////////////////////////
 // 定数バッファ。
 /////////////////////////////////////////////////////////////
@@ -210,12 +217,15 @@ float4 PSMain(PSInput In) : SV_Target0
 #if 1
 	//テクスチャカラー
 	float4 albedoColor = albedoTexture.Sample(Sampler, In.TexCoord);
+	//float4 albedoColor = normalMap.Sample(Sampler, In.TexCoord);
+	float3 biNormal = normalize(cross(In.Tangent, In.Normal));
+	float3 normal = CalcNormal(In.Normal, biNormal, In.Tangent, In.TexCoord);
 	float4 shadowColor = albedoColor * 0.5f;
 	//ディレクションライト
 #if 1
 	//こっちはトゥーン
 	float lig = 0.0f;
-	lig = max(0.0f, dot(In.Normal * -1.0f, mDirLight[0]));
+	lig = max(0.0f, dot(normal * -1.0f, mDirLight[0]));
 	if (lig < 0.2f) {
 		albedoColor.xyz = shadowColor.xyz;
 	}

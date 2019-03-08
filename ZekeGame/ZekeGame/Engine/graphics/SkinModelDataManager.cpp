@@ -33,7 +33,7 @@ DirectX::Model* SkinModelDataManager::Load(const wchar_t* filePath, const Skelet
 		auto model = DirectX::Model::CreateFromCMO(	
 			g_graphicsEngine->GetD3DDevice(),			
 			filePath,								
-			effectFactory,					
+			effectFactory,						
 			false,										
 			false,
 			onFindBone
