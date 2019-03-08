@@ -126,8 +126,19 @@ void Monster::Update()
 		}
 		break;
 	case en_Execute:
-		if(!m_isKnockback)
+	{
+		bool isAbnormal = true;
+		for (auto as : m_abnormalStates)
+		{
+			if (as == abStan)
+			{
+				isAbnormal = false;
+				break;
+			}
+		}
+		if (!m_isKnockback && isAbnormal)
 			execute();
+	}
 		break;
 	case en_Dead:
 		break;
