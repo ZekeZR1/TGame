@@ -242,7 +242,6 @@
     <ClCompile Include="Game\AIEdit\AIEditNode.cpp" />
     <ClCompile Include="Game\AIEdit\AIEditNodeButton.cpp" />
     <ClCompile Include="Game\AIEdit\AIEditNodeClick.cpp" />
-    <ClCompile Include="Game\AIEdit\AIEditNodeHp.cpp" />
     <ClCompile Include="Game\AIEdit\AIEditNodeInequ.cpp" />
     <ClCompile Include="Game\AIEdit\AIEditNodeMass.cpp" />
     <ClCompile Include="Game\AIEdit\AIEditNodeMenu.cpp" />
@@ -307,6 +306,9 @@
     <ClCompile Include="Game\Title\IconAI.cpp" />
     <ClCompile Include="Game\Title\IconMon.cpp" />
     <ClCompile Include="Game\Title\ModeSelect.cpp" />
+    <ClCompile Include="Game\Title\MonAIPreset\MonAIPreset.cpp" />
+    <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetLoad.cpp" />
+    <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetSave.cpp" />
     <ClCompile Include="Game\Title\MonsterSelect.cpp" />
     <ClCompile Include="Game\Title\PMMonster.cpp" />
     <ClCompile Include="Game\Title\pvpModeSelect.cpp" />
@@ -410,7 +412,6 @@
     <ClInclude Include="Game\AIEdit\AIEditNode.h" />
     <ClInclude Include="Game\AIEdit\AIEditNodeButton.h" />
     <ClInclude Include="Game\AIEdit\AIEditNodeClick.h" />
-    <ClInclude Include="Game\AIEdit\AIEditNodeHp.h" />
     <ClInclude Include="Game\AIEdit\AIEditNodeInequ.h" />
     <ClInclude Include="Game\AIEdit\AIEditNodeMass.h" />
     <ClInclude Include="Game\AIEdit\AIEditNodeMenu.h" />
@@ -574,6 +575,9 @@
     <ClInclude Include="Game\Title\IconAI.h" />
     <ClInclude Include="Game\Title\IconMon.h" />
     <ClInclude Include="Game\Title\ModeSelect.h" />
+    <ClInclude Include="Game\Title\MonAIPreset\MonAIPreset.h" />
+    <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetLoad.h" />
+    <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetSave.h" />
     <ClInclude Include="Game\Title\MonsterSelect.h" />
     <ClInclude Include="Game\Title\PMMonster.h" />
     <ClInclude Include="Game\Title\pvpModeSelect.h" />

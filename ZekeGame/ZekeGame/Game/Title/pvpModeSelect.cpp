@@ -21,6 +21,9 @@
 #include "../Fade/Fade.h"
 #include "../Fade/MusicFade.h"
 
+
+#include "MonAIPreset/MonAIPresetSave.h"
+
 PvPModeSelect::~PvPModeSelect()
 {
 	DeleteGO(m_cursor);
@@ -36,6 +39,9 @@ PvPModeSelect::~PvPModeSelect()
 
 bool PvPModeSelect::Start()
 {
+	MonAIPresetSave* maps = NewGO<MonAIPresetSave>(0, "maps");
+	maps->init(this,4);
+
 	m_BGM = FindGO<Sound>("BGM");
 	if (m_BGM == nullptr)
 	{
