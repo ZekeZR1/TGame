@@ -15,7 +15,7 @@ SkinModel::~SkinModel()
 	}
 }
 
-void SkinModel::Init(const wchar_t* filePath, EnFbxUpAxis enFbxUpAxis, const char* entryPS, const char* entryVS)
+void SkinModel::Init(const wchar_t* filePath, EnFbxUpAxis enFbxUpAxis, const char* entryPS, const char* entryVS, const wchar_t* normalMap)
 {
 	m_psmain = entryPS;
 	m_vsmain= entryVS;
@@ -31,9 +31,11 @@ void SkinModel::Init(const wchar_t* filePath, EnFbxUpAxis enFbxUpAxis, const cha
 	
 	//ディレクションライトの初期化
 	InitDirectionLight();
-
+	if (normalMap) {
+		m_hasNormalMap = true;
+	}
 	//SkinModelDataManagerを使用してCMOファイルのロード。
-	m_modelDx = g_skinModelDataManager.Load(filePath, m_skeleton, m_psmain, m_vsmain);
+	m_modelDx = g_skinModelDataManager.Load(filePath, m_skeleton, m_psmain, m_vsmain, normalMap);
 	m_enFbxUpAxis = enFbxUpAxis;
 }
 void SkinModel::InitSkeleton(const wchar_t* filePath)
@@ -186,6 +188,12 @@ void SkinModel::Draw(EnRenderMode renderMode, CMatrix viewMatrix, CMatrix projMa
 	}
 	else {
 		modelFxCb.isShadowReciever = 0;
+	}
+	if (m_hasNormalMap) {
+		modelFxCb.hasNormalMap = 1;
+	}
+	else {
+		modelFxCb.hasNormalMap = 0;
 	}
 	modelFxCb.ambientLight = g_graphicsEngine->GetAmbientLight();
 	deviceContext->UpdateSubresource(m_cb, 0, nullptr, &modelFxCb, 0, 0);

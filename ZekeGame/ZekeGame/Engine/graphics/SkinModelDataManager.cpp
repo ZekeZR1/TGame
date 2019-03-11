@@ -5,7 +5,7 @@
 
 SkinModelDataManager g_skinModelDataManager;
 
-DirectX::Model* SkinModelDataManager::Load(const wchar_t* filePath, const Skeleton& skeleton, const char* psmain, const char* vsmain)
+DirectX::Model* SkinModelDataManager::Load(const wchar_t* filePath, const Skeleton& skeleton, const char* psmain, const char* vsmain, const wchar_t* normalMap)
 {
 	DirectX::Model* retModel = NULL;
 	//ボーンを発見したときのコールバック関数。
@@ -26,7 +26,7 @@ DirectX::Model* SkinModelDataManager::Load(const wchar_t* filePath, const Skelet
 	if (it == m_directXModelMap.end()) {
 		//未登録なので、新規でロードする。
 		//エフェクトファクトリ。
-		SkinModelEffectFactory effectFactory(g_graphicsEngine->GetD3DDevice(), psmain, vsmain);
+		SkinModelEffectFactory effectFactory(g_graphicsEngine->GetD3DDevice(), psmain, vsmain, normalMap);
 		//テクスチャがあるフォルダを設定する。
 		effectFactory.SetDirectory(L"Assets/modelData");
 		//CMOファイルのロード。

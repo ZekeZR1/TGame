@@ -10,6 +10,7 @@
 Texture2D<float4> albedoTexture : register(t0);
 //ShadowMap
 Texture2D<float4> g_shadowMap : register(t2);		
+//法線マップ
 Texture2D<float4> normalMap : register(t3);
 //Texture2D<float4> specularMap : register(t4);
 //ボーン行列
@@ -47,6 +48,7 @@ cbuffer VSPSCb : register(b0) {
 	float4x4 mLightProj;	//ライトプロジェクション行列。
 	int isShadowReciever;	//シャドウレシーバーフラグ。
 	float ambientLight;
+	int hasNormalMap;
 };
 
 cbuffer ShadowMapCb : register(b1) {
@@ -219,7 +221,13 @@ float4 PSMain(PSInput In) : SV_Target0
 	float4 albedoColor = albedoTexture.Sample(Sampler, In.TexCoord);
 	//float4 albedoColor = normalMap.Sample(Sampler, In.TexCoord);
 	float3 biNormal = normalize(cross(In.Tangent, In.Normal));
-	float3 normal = CalcNormal(In.Normal, biNormal, In.Tangent, In.TexCoord);
+	float3 normal;
+	if (hasNormalMap == 1) {
+		normal = CalcNormal(In.Normal, biNormal, In.Tangent, In.TexCoord);
+	}
+	else {
+		normal = In.Normal;
+	}
 	float4 shadowColor = albedoColor * 0.5f;
 	//ディレクションライト
 #if 1
@@ -254,7 +262,7 @@ float4 PSMain(PSInput In) : SV_Target0
 	}
 #else
 	//こっちはファーシェード。
-		//スペキュラ
+	//スペキュラ
 	float3 toEyeDir = normalize(eyePos - In.worldPos);
 	float t = 1.0f - max(0.0f, dot(In.Normal, toEyeDir));
 	albedoColor += pow(t, 10) * 0.5f;
