@@ -382,9 +382,6 @@
     <ClCompile Include="Game\AIEdit\AIEditNodeClick.cpp">
       <Filter>Game\AIEdite</Filter>
     </ClCompile>
-    <ClCompile Include="Game\AIEdit\AIEditNodeHp.cpp">
-      <Filter>Game\AIEdite</Filter>
-    </ClCompile>
     <ClCompile Include="Game\AIEdit\AIEditNodeInequ.cpp">
       <Filter>Game\AIEdite</Filter>
     </ClCompile>
@@ -826,6 +823,15 @@
     <ClCompile Include="Game\ReadyGO\ReadyGO.cpp">
       <Filter>Game\ReadyGO</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Title\MonAIPreset\MonAIPreset.cpp">
+      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetSave.cpp">
+      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetLoad.cpp">
+      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\fairy\hnd.FBX">
@@ -893,9 +899,6 @@
       <Filter>Game\AIEdite</Filter>
     </ClInclude>
     <ClInclude Include="Game\AIEdit\AIEditNodeClick.h">
-      <Filter>Game\AIEdite</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\AIEdit\AIEditNodeHp.h">
       <Filter>Game\AIEdite</Filter>
     </ClInclude>
     <ClInclude Include="Game\AIEdit\AIEditNodeInequ.h">
@@ -1639,6 +1642,15 @@
     <ClInclude Include="Game\ReadyGO\ReadyGO.h">
       <Filter>Game\ReadyGO</Filter>
     </ClInclude>
+    <ClInclude Include="Game\Title\MonAIPreset\MonAIPreset.h">
+      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetSave.h">
+      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetLoad.h">
+      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="python36.lib" />
@@ -1816,6 +1828,9 @@
     </Filter>
     <Filter Include="Assets\readyGO">
       <UniqueIdentifier>{c0b5965d-e20a-4ff1-adf8-6d1e7df907f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\AIMonSelect\AIMonPreset">
+      <UniqueIdentifier>{8b2f22ae-5b7d-4128-8ee5-77b2561904bd}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
