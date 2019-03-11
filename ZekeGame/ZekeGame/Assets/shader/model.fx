@@ -254,7 +254,7 @@ float4 PSMain(PSInput In) : SV_Target0
 	}
 #else
 	//こっちはファーシェード。
-		//スペキュラ
+	//スペキュラ
 	float3 toEyeDir = normalize(eyePos - In.worldPos);
 	float t = 1.0f - max(0.0f, dot(In.Normal, toEyeDir));
 	albedoColor += pow(t, 10) * 0.5f;

@@ -14,7 +14,7 @@ public:
 	*@param[in]	filePath	ファイルパス。
 	*@param[in]	skeleton	スケルトン。
 	*/
-	DirectX::Model* Load(const wchar_t* filePath, const Skeleton& sketon, const char*,const char*);
+	DirectX::Model* Load(const wchar_t* filePath, const Skeleton& sketon, const char*,const char*, const wchar_t* normalMap);
 	/*!
 	*@brief	モデルデータを全開放。
 	*/
