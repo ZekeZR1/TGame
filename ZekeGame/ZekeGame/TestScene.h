@@ -13,6 +13,7 @@ public:
 	void Update();
 private:
 	SkinModelRender* m_model = nullptr;
+	SkinModelRender* m_modell = nullptr;
 	SkinModelRender* m_back = nullptr;
 	SkinModelRender* m_mimic = nullptr;
 	SkinModelRender* m_mo2 = nullptr;

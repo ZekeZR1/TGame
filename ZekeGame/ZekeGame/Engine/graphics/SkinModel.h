@@ -28,8 +28,11 @@ public:
 	*@param[in]	filePath		ロードするcmoファイルのファイルパス。
 	*@param[in] enFbxUpAxis		fbxの上軸。デフォルトはenFbxUpAxisZ。
 	*/
-	void Init(const wchar_t* filePath, EnFbxUpAxis enFbxUpAxis = enFbxUpAxisZ, const char* entryPS = "PSMain", const char* entryVS = "VSMain");
+	void Init(const wchar_t* filePath, EnFbxUpAxis enFbxUpAxis = enFbxUpAxisZ, const char* entryPS = "PSMain", const char* entryVS = "VSMain", const wchar_t* normalMap = nullptr);
 
+	//void SetNormalMap(const wchar_t* path) {
+	//	path;
+	//}
 	CMatrix GetWorldMatrix() {
 		return m_worldMatrix;
 	}
@@ -139,6 +142,7 @@ private:
 		CMatrix mLightProj;		//todo ライトプロジェクション行列。
 		int isShadowReciever;	//todo シャドウレシーバーのフラグ。
 		float ambientLight;
+		int hasNormalMap;
 	};
 	EnFbxUpAxis			m_enFbxUpAxis = enFbxUpAxisZ;	//!<FBXの上方向。
 	ID3D11Buffer*		m_cb = nullptr;					//!<定数バッファ。
@@ -153,6 +157,7 @@ private:
 	const char* m_vsmain;
 	const char* m_psmain;
 	bool m_isShadowReciever = true;
+	bool m_hasNormalMap = false;
 	EnRenderMode m_renderMode = enRenderMode_Invalid;	//レンダリングモード。
 	ID3D11ShaderResourceView* m_shadowMapSRV = nullptr;
 	//DirectionLight m_light;q
