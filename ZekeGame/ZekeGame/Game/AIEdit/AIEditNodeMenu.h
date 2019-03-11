@@ -23,14 +23,29 @@ public:
 	bool Start();
 	void Update();
 	void BackMenu();
+	void Menuwin();
 
 private:
-	int button = 1;
+	int button = 2;
 	bool menu = false;
 	std::vector<FontRender*> m_fonts;
 	CVector3 m_position = CVector3::Zero();
+	CVector3 m_positionselect = CVector3::Zero();
+	CVector3 m_position2 = CVector3::Zero();
+	CVector3 m_position3 = CVector3::Zero();
+	CVector3 m_position4 = CVector3::Zero();
+	CVector3 m_position5 = CVector3::Zero();
+
 	GameCursor* m_gamecursor;
-	SpriteRender * m_spriteRender;
+
+	SpriteRender* m_spriteRender;
+	std::vector<SpriteRender*> m_buttons;
+	std::vector<SpriteRender*> m_spriteRender2;
+	SpriteRender* m_spriterender2;
+	SpriteRender* m_spriterender3;
+	SpriteRender* m_spriterender4;
+	SpriteRender* m_spriterender5;
+
 	AIEditNodeButton* m_aieditnodebutton;
 	AIEditNodeProcess* m_aieditnodeprocess;
 	AIEditLine* m_aieditline;

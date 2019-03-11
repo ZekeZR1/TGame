@@ -50,6 +50,7 @@ bool AIEditNodeTarget::Start()
 	//フォント
 	for (int i = 0; i < button; i++) {
 		m_fonts.push_back(NewGO<FontRender>(5));
+		m_fonts[i]->SetTextType(CFont::en_Japanese);
 	}
 	auto bacon = m_nodebuttons[0]->GetPos();
 	CVector2 m_fontpos = CVector2::Zero();
@@ -104,7 +105,6 @@ void AIEditNodeTarget::Update()
 	}
 
 	if (Choice0 == false) { //何も選択していないとき
-
 
 		if (Mouse::isTrigger(enLeftClick)) {	//左クリック
 			if (m_nodebuttons[button - 3]->GetSpriteRender()->isCollidingTarget()) {

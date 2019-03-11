@@ -28,7 +28,7 @@ public:
 	}
 private:
 
-	int x = 50;
+	float x = 50;
 	bool Choice1 = false;
 	CVector3 m_pos = CVector3::Zero();
 	SpriteRender * m_spriteRender;
