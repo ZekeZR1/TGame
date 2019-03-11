@@ -13,7 +13,9 @@ public:
 	void Init(const wchar_t* filePath,
 		AnimationClip* animationClips = nullptr,
 		int numAnimationClips = 0,
-		EnFbxUpAxis = enFbxUpAxisZ, const char* psmain = "PSMain", const char* vsmain = "VSMain");
+		EnFbxUpAxis = enFbxUpAxisZ, const char* psmain = "PSMain", const char* vsmain = "VSMain",
+		const wchar_t* normalMap = nullptr
+	);
 		
 	void InitAnimation(AnimationClip* animationClips, int numAnimationClips);
 
@@ -21,7 +23,6 @@ public:
 	{
 		m_animation.Play(animNo, interpolateTime);
 	}
-	
 	/*!
 	* @brief	アニメーションの再生中？
 	*/

@@ -35,6 +35,12 @@ public:
 		if (m_albedoTex) {
 			m_albedoTex->Release();
 		}
+		if (m_shadowMapSRV) {
+			m_shadowMapSRV->Release();
+		}
+		if (m_normalTexture) {
+			m_normalTexture->Release();
+		}
 	}
 	void __cdecl Apply(ID3D11DeviceContext* deviceContext) override;
 
@@ -107,15 +113,15 @@ public:
 */
 class SkinModelEffectFactory : public DirectX::EffectFactory {
 public:
-	SkinModelEffectFactory(ID3D11Device* device, const char* psmain, const char* vsmain) :
+	SkinModelEffectFactory(ID3D11Device* device, const char* psmain, const char* vsmain, const wchar_t* normalMap) :
 		m_psmain(psmain),
 		m_vsmain(vsmain),
-		EffectFactory(device) {}
+		m_normalMapPath(normalMap),
+		EffectFactory(device) {
+	}
 	std::shared_ptr<DirectX::IEffect> __cdecl CreateEffect(const EffectInfo& info, ID3D11DeviceContext* deviceContext)override
 	{
-		if (info.enableNormalMaps) {
-			assert(false);
-		}
+		OutputDebugStringW(info.name);
 		std::shared_ptr<ModelEffect> effect;
 		if (info.enableSkinning) {
 			//スキニングあり。
@@ -132,11 +138,12 @@ public:
 			DirectX::EffectFactory::CreateTexture(info.diffuseTexture, deviceContext, &texSRV);
 			effect->SetAlbedoTexture(texSRV);
 		}
-		/*if (info.normalTexture && *info.normalTexture) {
+		if (m_normalMapPath) {
 			ID3D11ShaderResourceView* normalSRV;
-			DirectX::EffectFactory::CreateTexture(info.normalTexture, deviceContext, &normalSRV);
+			SetDirectory(L"Assets/modelData");
+			DirectX::EffectFactory::CreateTexture(m_normalMapPath, deviceContext, &normalSRV);
 			effect->SetNormalTexture(normalSRV);
-		}*/
+		}
 		return effect;
 	}
 
@@ -146,4 +153,5 @@ public:
 	}
 	const char* m_psmain;
 	const char* m_vsmain;
+	const wchar_t* m_normalMapPath;
 };

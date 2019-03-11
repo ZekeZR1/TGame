@@ -15,7 +15,7 @@ SkinModel::~SkinModel()
 	}
 }
 
-void SkinModel::Init(const wchar_t* filePath, EnFbxUpAxis enFbxUpAxis, const char* entryPS, const char* entryVS)
+void SkinModel::Init(const wchar_t* filePath, EnFbxUpAxis enFbxUpAxis, const char* entryPS, const char* entryVS, const wchar_t* normalMap)
 {
 	m_psmain = entryPS;
 	m_vsmain= entryVS;
@@ -31,9 +31,8 @@ void SkinModel::Init(const wchar_t* filePath, EnFbxUpAxis enFbxUpAxis, const cha
 	
 	//ディレクションライトの初期化
 	InitDirectionLight();
-
 	//SkinModelDataManagerを使用してCMOファイルのロード。
-	m_modelDx = g_skinModelDataManager.Load(filePath, m_skeleton, m_psmain, m_vsmain);
+	m_modelDx = g_skinModelDataManager.Load(filePath, m_skeleton, m_psmain, m_vsmain, normalMap);
 	m_enFbxUpAxis = enFbxUpAxis;
 }
 void SkinModel::InitSkeleton(const wchar_t* filePath)
