@@ -13,6 +13,9 @@
 #include "Monster/Monsters/TestMons.h"
 #include "Result/Win/Win.h"
 #include "Result/DungeonResult.h"
+
+#include "ReadyGO/ReadyGO.h"
+
 #include "Fade/Fade.h"
 
 
@@ -28,8 +31,11 @@ bool Game::Start() {
 	m_BGM->Init(L"Assets/sound/BGM/bgm_maoudamashii_fantasy12.wav", true);
 	m_BGM->SetVolume(0.3f);
 	m_BGM->Play();
-	auto fade = FindGO<Fade>("fade");
-	fade->FadeIn();
+
+	m_fade = FindGO<Fade>("fade");
+	m_fade->FadeIn();
+	m_fade->SetSpeed(5);
+
 	m_pi = new Pyinit;
 	NewGO<MonsterActionManeger>(0, "MAM");
 	m_model = NewGO<SkinModelRender>(0, "model");
@@ -62,6 +68,8 @@ bool Game::Start() {
 	e->SetPosition(CVector3::Zero());
 	e->SetScale({ 500,500,500 });
 	e->Play(L"Assets/effect/l/laser.efk");
+
+	
 	
 	return true;
 }
@@ -78,6 +86,7 @@ void Game::OnDestroy() {
 	DeleteGO(m_sprite);
 	DeleteGO(FindGO<SkinModelRender>("stageModel"));
 	DeleteGO(m_fr);
+	DeleteGO(m_frS);
 	DeleteGO(m_floor);
 	DeleteGO(m_smd);
 	if(m_isOnlineGame)
@@ -86,6 +95,22 @@ void Game::OnDestroy() {
 }
 
 void Game::Update() {
+	if (!m_fade->isFadeStop())
+		return;
+	else if(m_Ffirst)
+	{
+		m_readyGO = NewGO<ReadyGO>(0, "rg");
+		m_Ffirst = false;
+	}
+	else 
+	{
+		if (!m_isEndReady)
+		{
+			m_isEndReady = m_readyGO->IsEnd();
+			if(m_isEndReady)
+				DeleteGO(m_readyGO);
+		}
+	}
 	if (m_END)
 		return;
 	if (m_suddenDeath)

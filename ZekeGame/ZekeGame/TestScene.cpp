@@ -45,7 +45,9 @@ bool TestScene::Start() {
 	}
 	g_graphicsEngine->SetAmbientLight(1.f);
 	m_model = NewGO<SkinModelRender>(0);
-	m_model->Init(L"Assets/modelData/Test.cmo");
+	m_model->Init(L"Assets/modelData/Test.cmo",nullptr,0, enFbxUpAxisZ,"PSMain","VSMain",L"tes_Normal.png");
+	m_modell = NewGO<SkinModelRender>(0);
+	m_modell->Init(L"Assets/modelData/Test.cmo");
 	return true;
 }
 
@@ -53,4 +55,30 @@ bool TestScene::Start() {
 void TestScene::Update() {
 	camera2d->Update();
 	camera3d->Update();
+	static CVector3 pos = CVector3::Zero();
+	const float movesp = 50.f;
+	if (g_pad[0].IsPress(enButtonUp)) {
+		pos.z += movesp;
+	}
+	if (g_pad[0].IsPress(enButtonDown)) {
+		pos.z -= movesp;
+	}
+	if (g_pad[0].IsPress(enButtonLeft)) {
+		pos.x += movesp;
+	}
+	if (g_pad[0].IsPress(enButtonRight)) {
+		pos.x -= movesp;
+	}
+	if (g_pad[0].IsPress(enButtonA)) {
+		pos.y += movesp;
+	}
+	if (g_pad[0].IsPress(enButtonB)) {
+		pos.y -= movesp;
+	}
+	static CQuaternion rot = CQuaternion::Identity();
+	CQuaternion rott = CQuaternion::Identity();
+	rott.SetRotationDeg(CVector3::AxisY(), 5.f);
+	rot.Multiply(rott);
+	//m_model->SetRotation(rot);
+	m_model->SetPosition(pos);
 }

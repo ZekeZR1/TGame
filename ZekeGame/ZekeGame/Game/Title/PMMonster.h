@@ -39,6 +39,16 @@ public:
 	{
 		return m_selAI;
 	}
+
+	int Getnum()
+	{
+		return m_num;
+	}
+	int Getteam()
+	{
+		return m_team;
+	}
+
 	bool isMonSel()
 	{
 		return m_ismonsel;

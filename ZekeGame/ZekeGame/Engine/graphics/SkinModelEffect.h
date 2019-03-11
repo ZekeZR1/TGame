@@ -1,7 +1,6 @@
 #pragma once
 
 #include "Engine/graphics/Shader.h"
-
 /*!
 *@brief	モデルエフェクト。
 */
@@ -17,6 +16,7 @@ protected:
 	bool isSkining;
 	ID3D11ShaderResourceView* m_albedoTex = nullptr;
 	ID3D11ShaderResourceView* m_shadowMapSRV = nullptr;
+	ID3D11ShaderResourceView* m_normalTexture = nullptr;
 	//std::array<ID3D11ShaderResourceView*, 4> m_albedoTextureStack = { nullptr };
 	int m_albedoTextureStackPos = 0;
 	EnRenderMode m_renderMode = enRenderMode_Invalid;	//レンダリングモード。
@@ -35,6 +35,12 @@ public:
 		if (m_albedoTex) {
 			m_albedoTex->Release();
 		}
+		if (m_shadowMapSRV) {
+			m_shadowMapSRV->Release();
+		}
+		if (m_normalTexture) {
+			m_normalTexture->Release();
+		}
 	}
 	void __cdecl Apply(ID3D11DeviceContext* deviceContext) override;
 
@@ -46,6 +52,9 @@ public:
 	void SetAlbedoTexture(ID3D11ShaderResourceView* tex)
 	{
 		m_albedoTex = tex;
+	}
+	void SetNormalTexture(ID3D11ShaderResourceView* tex) {
+		m_normalTexture = tex;
 	}
 	void SetMatrialName(const wchar_t* matName)
 	{
@@ -104,12 +113,15 @@ public:
 */
 class SkinModelEffectFactory : public DirectX::EffectFactory {
 public:
-	SkinModelEffectFactory(ID3D11Device* device, const char* psmain, const char* vsmain) :
+	SkinModelEffectFactory(ID3D11Device* device, const char* psmain, const char* vsmain, const wchar_t* normalMap) :
 		m_psmain(psmain),
 		m_vsmain(vsmain),
-		EffectFactory(device) {}
+		m_normalMapPath(normalMap),
+		EffectFactory(device) {
+	}
 	std::shared_ptr<DirectX::IEffect> __cdecl CreateEffect(const EffectInfo& info, ID3D11DeviceContext* deviceContext)override
 	{
+		OutputDebugStringW(info.name);
 		std::shared_ptr<ModelEffect> effect;
 		if (info.enableSkinning) {
 			//スキニングあり。
@@ -126,6 +138,12 @@ public:
 			DirectX::EffectFactory::CreateTexture(info.diffuseTexture, deviceContext, &texSRV);
 			effect->SetAlbedoTexture(texSRV);
 		}
+		if (m_normalMapPath) {
+			ID3D11ShaderResourceView* normalSRV;
+			SetDirectory(L"Assets/modelData");
+			DirectX::EffectFactory::CreateTexture(m_normalMapPath, deviceContext, &normalSRV);
+			effect->SetNormalTexture(normalSRV);
+		}
 		return effect;
 	}
 
@@ -135,4 +153,5 @@ public:
 	}
 	const char* m_psmain;
 	const char* m_vsmain;
+	const wchar_t* m_normalMapPath;
 };
