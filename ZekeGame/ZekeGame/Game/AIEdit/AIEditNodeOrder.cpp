@@ -76,6 +76,7 @@ void AIEditNodeOrder::Fonts()
 	//ƒtƒHƒ“ƒg
 	for (int i = 0; i < 6; i++) {
 		m_fonts.push_back(NewGO<FontRender>(3));
+		m_fonts[i]->SetTextType(CFont::en_Japanese);
 	}
 
 	auto bacon = m_pos;

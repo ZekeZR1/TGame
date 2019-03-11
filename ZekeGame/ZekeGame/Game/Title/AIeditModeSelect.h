@@ -1,5 +1,6 @@
 #pragma once
 
+class Fade;
 class AIEditModeSelect :public GameObject
 {
 public:
@@ -14,6 +15,9 @@ private:
 		
 	};
 	SpriteRender* m_spMode[2];
+
 	int m_sel = 0;
+
+	Fade* m_fade;
 
 };

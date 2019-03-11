@@ -46,7 +46,9 @@ bool AIEditNodeAbnormalState::Start()
 	//ƒtƒHƒ“ƒg
 	for (int i = 0; i < button; i++) {
 		m_fonts.push_back(NewGO<FontRender>(11));
+		m_fonts[i]->SetTextType(CFont::en_Japanese);
 	}
+
 	auto bacon = m_nodebuttons[0]->GetPos();
 	CVector2 m_fontpos = CVector2::Zero();
 	m_fontpos.x = bacon.x - 50.0;
