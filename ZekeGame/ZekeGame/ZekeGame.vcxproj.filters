@@ -1,8 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\result\win.png" />
-    <ImageContentTask Include="Assets\Sprite\winkari.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_back.png">
       <Filter>Assets</Filter>
     </ImageContentTask>
@@ -255,11 +253,6 @@
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_back_dung.png">
       <Filter>Assets</Filter>
     </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\Monselect.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\AIselect.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\menu\mn_fuck.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\menu\mn_mainmn.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\menu\mn_monsel.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_back_aiedit.png">
       <Filter>Assets</Filter>
     </ImageContentTask>
@@ -296,16 +289,66 @@
     <ImageContentTask Include="Assets\Sprite\AIEdit\menu.png">
       <Filter>Assets</Filter>
     </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\AIEdit\karipoint.png">
+    <ImageContentTask Include="Assets\Sprite\GUI\MonActList\mon_actlist_Blue1.png">
+      <Filter>Assets\monActListNum</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\MonActList\mon_actlist_Blue2.png">
+      <Filter>Assets\monActListNum</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\MonActList\mon_actlist_Blue3.png">
+      <Filter>Assets\monActListNum</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\MonActList\mon_actlist_Red1.png">
+      <Filter>Assets\monActListNum</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\MonActList\mon_actlist_Red2.png">
+      <Filter>Assets\monActListNum</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\MonActList\mon_actlist_Red3.png">
+      <Filter>Assets\monActListNum</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\Monselect.png">
       <Filter>Assets</Filter>
     </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\AIEdit\menu2.png">
+    <ImageContentTask Include="Assets\Sprite\GUI\menu\mn_fuck.png">
       <Filter>Assets</Filter>
     </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\AIEdit\point.png">
+    <ImageContentTask Include="Assets\Sprite\GUI\menu\mn_mainmn.png">
       <Filter>Assets</Filter>
     </ImageContentTask>
-    <ImageContentTask Include="Assets\modelData\tes_Normal.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\menu\mn_monsel.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\Fade\fade_black.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\AIselect.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\result\win.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\winkari.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\result\res_blueteam.png">
+      <Filter>Assets\result</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\result\res_Lose.png">
+      <Filter>Assets\result</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\result\res_redteam.png">
+      <Filter>Assets\result</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\result\res_Win.png">
+      <Filter>Assets\result</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\readyGO\Ready2.png">
+      <Filter>Assets\readyGO</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\readyGO\r_go.png">
+      <Filter>Assets\readyGO</Filter>
+    </ImageContentTask>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp" />
@@ -705,8 +748,6 @@
     <ClCompile Include="Game\AIEdit\AIEditNodeButton.cpp">
       <Filter>Game\AIEdite</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Dungeon\DungeonData.cpp" />
-    <ClCompile Include="Game\Dungeon\DungeonGame.cpp" />
     <ClCompile Include="Game\Monster\Monster.cpp">
       <Filter>Game\Monster</Filter>
     </ClCompile>
@@ -737,34 +778,53 @@
     <ClCompile Include="Game\AIEdit\AIEditNodeTarget.cpp">
       <Filter>Game\AIEdite</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Monster\Action\Act_Guardian.cpp">
-      <Filter>Game\Monster</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Monster\Action\Act_Tackle.cpp">
-      <Filter>Game\Monster</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\sound\CSound.cpp" />
     <ClCompile Include="Game\VisualScriptAI\VisualScriptAI.cpp">
       <Filter>Game\VisualScriptAI</Filter>
     </ClCompile>
     <ClCompile Include="Game\AIEdit\AIEditNodeMenu.cpp">
       <Filter>Game\AIEdite</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Fade\MusicFade.cpp">
-      <Filter>Game</Filter>
+    <ClCompile Include="Game\Monster\Action\Act_Recovery.cpp">
+      <Filter>act</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\physics\PhysicsDebugDraw.cpp">
-      <Filter>Game</Filter>
+    <ClCompile Include="Game\Monster\Action\Act_Guardian.cpp">
+      <Filter>act</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\Action\Act_Tackle.cpp">
+      <Filter>act</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\Effect\EFire.cpp">
+      <Filter>Game\Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\Action\ACTEffect.cpp">
+      <Filter>act</Filter>
     </ClCompile>
     <ClCompile Include="Game\Fade\Fade.cpp">
-      <Filter>Game</Filter>
+      <Filter>Game\fade</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Fade\MusicFade.cpp">
+      <Filter>Game\fade</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Dungeon\DungeonData.cpp">
+      <Filter>Game\Dungeon</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Dungeon\DungeonGame.cpp">
+      <Filter>Game\Dungeon</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\physics\PhysicsDebugDraw.cpp">
+      <Filter>Engine</Filter>
     </ClCompile>
     <ClCompile Include="Engine\graphics\Primitive.cpp">
       <Filter>Engine</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Monster\Action\Act_Recovery.cpp" />
-    <ClCompile Include="Game\Monster\Action\ACTEffect.cpp">
-      <Filter>Game</Filter>
+    <ClCompile Include="Engine\sound\CSound.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\AbnormalState\AbnormalStates.cpp">
+      <Filter>Game\Monster\abnSta</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\ReadyGO\ReadyGO.cpp">
+      <Filter>Game\ReadyGO</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -792,7 +852,9 @@
     </MeshContentTask>
     <MeshContentTask Include="Assets\modelData\stage\dun.fbx" />
     <MeshContentTask Include="Assets\modelData\stage\dun_yuka.fbx" />
-    <MeshContentTask Include="Assets\modelData\mimic.fbx" />
+    <MeshContentTask Include="Assets\modelData\stage\limit2.fbx">
+      <Filter>Assets</Filter>
+    </MeshContentTask>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\PythonBridge\include\unicodeobject.h" />
@@ -1499,8 +1561,6 @@
     <ClInclude Include="Game\AIEdit\AIEdtiNodeAbnormalState.h">
       <Filter>Game\AIEdite</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Dungeon\DungeonData.h" />
-    <ClInclude Include="Game\Dungeon\DungeonGame.h" />
     <ClInclude Include="Game\Monster\Monster.h">
       <Filter>Game\Monster</Filter>
     </ClInclude>
@@ -1531,34 +1591,53 @@
     <ClInclude Include="Game\AIEdit\AIEditNodeTarget.h">
       <Filter>Game\AIEdite</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Monster\Action\Act_Guardian.h">
-      <Filter>Game\Monster</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Monster\Action\Act_Tackle.h">
-      <Filter>Game\Monster</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\sound\CSound.h" />
     <ClInclude Include="Game\VisualScriptAI\VisualScriptAI.h">
       <Filter>Game\VisualScriptAI</Filter>
     </ClInclude>
     <ClInclude Include="Game\AIEdit\AIEditNodeMenu.h">
       <Filter>Game\AIEdite</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Fade\MusicFade.h">
-      <Filter>Game</Filter>
+    <ClInclude Include="Game\Monster\Action\Act_Recovery.h">
+      <Filter>act</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\physics\PhysicsDebugDraw.h">
-      <Filter>Game</Filter>
+    <ClInclude Include="Game\Monster\Action\Act_Tackle.h">
+      <Filter>act</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\Action\Act_Guardian.h">
+      <Filter>act</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\Effect\EFire.h">
+      <Filter>Game\Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\Action\ACTEffect.h">
+      <Filter>act</Filter>
     </ClInclude>
     <ClInclude Include="Game\Fade\Fade.h">
-      <Filter>Game</Filter>
+      <Filter>Game\fade</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Fade\MusicFade.h">
+      <Filter>Game\fade</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Dungeon\DungeonGame.h">
+      <Filter>Game\Dungeon</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Dungeon\DungeonData.h">
+      <Filter>Game\Dungeon</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\physics\PhysicsDebugDraw.h">
+      <Filter>Engine</Filter>
     </ClInclude>
     <ClInclude Include="Engine\graphics\Primitive.h">
       <Filter>Engine</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Monster\Action\Act_Recovery.h" />
-    <ClInclude Include="Game\Monster\Action\ACTEffect.h">
-      <Filter>Game</Filter>
+    <ClInclude Include="Engine\sound\CSound.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\AbnormalState\AbnormalStates.h">
+      <Filter>Game\Monster\abnSta</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\ReadyGO\ReadyGO.h">
+      <Filter>Game\ReadyGO</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1593,8 +1672,18 @@
     <Image Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_back2.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\modelData\stage\dunge.png" />
-    <Image Include="Assets\modelData\stage\yuka.png" />
+    <Image Include="Assets\effect\panti\Shock_wave_ring001.png">
+      <Filter>Assets\effect\panti</Filter>
+    </Image>
+    <Image Include="Assets\effect\panti\starpart.PNG">
+      <Filter>Assets\effect\panti</Filter>
+    </Image>
+    <Image Include="Assets\modelData\stage\dunge.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\modelData\stage\yuka.png">
+      <Filter>Assets</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <CopyFileToFolders Include="Game\dlllib\python36.dll" />
@@ -1645,6 +1734,15 @@
       <Filter>Game</Filter>
     </None>
     <None Include="C:\Users\kokoa\Pictures\Effekseer142cWin\shot.efk" />
+    <None Include="Assets\effect\panti\panti.efk">
+      <Filter>Assets\effect\panti</Filter>
+    </None>
+    <None Include="PythonAIs\1A.py">
+      <Filter>Game\PyAI</Filter>
+    </None>
+    <None Include="PythonAIs\2Q.py">
+      <Filter>Game\PyAI</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="act">
@@ -1683,10 +1781,64 @@
     <Filter Include="Game\VisualScriptAI">
       <UniqueIdentifier>{99ba0e27-c2c2-4248-833f-399b23411c3e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Assets\BGM">
+      <UniqueIdentifier>{155d7623-0e58-46e5-b804-39c19244d196}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets\effect">
+      <UniqueIdentifier>{56ce5bf2-3741-4603-a90a-05ceed3a57b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets\effect\panti">
+      <UniqueIdentifier>{107c573f-e01f-4d8a-ada0-e42e584b7851}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets\SE">
+      <UniqueIdentifier>{989b7302-585b-468b-922e-08fd132320e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets\monActListNum">
+      <UniqueIdentifier>{2f73a362-a789-451a-baee-c4d1dca0e13e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Effect">
+      <UniqueIdentifier>{c0f3dabb-43d8-4371-b3f0-8a4654f5015e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\fade">
+      <UniqueIdentifier>{4afdf807-ed67-485c-851d-6773a20eddcf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets\fade">
+      <UniqueIdentifier>{3ed1854a-560a-48ea-8167-107681e38fb9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Monster\abnSta">
+      <UniqueIdentifier>{56a184c7-6437-43bb-af80-c02ee3d54b21}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets\result">
+      <UniqueIdentifier>{ec9e3912-31e6-485d-88ad-6b059f1d7805}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\ReadyGO">
+      <UniqueIdentifier>{9d35a062-52e0-4c3c-801d-841f807dcc91}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets\readyGO">
+      <UniqueIdentifier>{c0b5965d-e20a-4ff1-adf8-6d1e7df907f5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Media Include="Assets\sound\kick-low1.wav" />
     <Media Include="Assets\sound\punch-high2.wav" />
     <Media Include="Assets\sound\punch-middle2.wav" />
+    <Media Include="Assets\sound\BGM\bgm_maoudamashii_fantasy12.wav">
+      <Filter>Assets\BGM</Filter>
+    </Media>
+    <Media Include="Assets\sound\BGM\PerituneMaterial_Strategy5_loop.wav">
+      <Filter>Assets\BGM</Filter>
+    </Media>
+    <Media Include="Assets\sound\BGM\PerituneMaterial_OverWorld5_loop.wav">
+      <Filter>Assets\BGM</Filter>
+    </Media>
+    <Media Include="Assets\sound\pickup.wav">
+      <Filter>Assets\SE</Filter>
+    </Media>
+    <Media Include="Assets\sound\button.wav">
+      <Filter>Assets\SE</Filter>
+    </Media>
+    <Media Include="Assets\sound\bom.wav">
+      <Filter>Assets\SE</Filter>
+    </Media>
   </ItemGroup>
 </Project>
