@@ -241,7 +241,6 @@
     <ClCompile Include="Game\AIEdit\AIEditNode.cpp" />
     <ClCompile Include="Game\AIEdit\AIEditNodeButton.cpp" />
     <ClCompile Include="Game\AIEdit\AIEditNodeClick.cpp" />
-    <ClCompile Include="Game\AIEdit\AIEditNodeHp.cpp" />
     <ClCompile Include="Game\AIEdit\AIEditNodeInequ.cpp" />
     <ClCompile Include="Game\AIEdit\AIEditNodeMass.cpp" />
     <ClCompile Include="Game\AIEdit\AIEditNodeMenu.cpp" />
@@ -285,6 +284,7 @@
     <ClCompile Include="Game\Monster\Monsters\TestMons.cpp" />
     <ClCompile Include="Game\Monster\Monsters\Uma.cpp" />
     <ClCompile Include="Game\PythonBridge\PythonBridge.cpp" />
+    <ClCompile Include="Game\ReadyGO\ReadyGO.cpp" />
     <ClCompile Include="Game\Result\DungeonResult.cpp" />
     <ClCompile Include="Game\Result\Lose\Lose.cpp" />
     <ClCompile Include="Game\Result\Lose\Lose_localPVP.cpp" />
@@ -405,7 +405,6 @@
     <ClInclude Include="Game\AIEdit\AIEditNode.h" />
     <ClInclude Include="Game\AIEdit\AIEditNodeButton.h" />
     <ClInclude Include="Game\AIEdit\AIEditNodeClick.h" />
-    <ClInclude Include="Game\AIEdit\AIEditNodeHp.h" />
     <ClInclude Include="Game\AIEdit\AIEditNodeInequ.h" />
     <ClInclude Include="Game\AIEdit\AIEditNodeMass.h" />
     <ClInclude Include="Game\AIEdit\AIEditNodeMenu.h" />
@@ -548,6 +547,7 @@
     <ClInclude Include="Game\PythonBridge\include\warnings.h" />
     <ClInclude Include="Game\PythonBridge\include\weakrefobject.h" />
     <ClInclude Include="Game\PythonBridge\PythonBridge.h" />
+    <ClInclude Include="Game\ReadyGO\ReadyGO.h" />
     <ClInclude Include="Game\Result\DungeonResult.h" />
     <ClInclude Include="Game\Result\Lose\Lose.h" />
     <ClInclude Include="Game\Result\Lose\Lose_localPVP.h" />
