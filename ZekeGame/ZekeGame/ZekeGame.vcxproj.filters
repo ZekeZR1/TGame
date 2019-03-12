@@ -1,9 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ImageContentTask Include="Assets\modelData\tes_Normal.png" />
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="Game\Monster\Action\Act_Atack.cpp">
       <Filter>act</Filter>
@@ -467,9 +464,6 @@
     <ClCompile Include="Engine\sound\CSound.cpp">
       <Filter>Engine</Filter>
     </ClCompile>
-    <ClCompile Include="Game\ReadyGO\ReadyGO.cpp">
-      <Filter>Game\AIEdite</Filter>
-    </ClCompile>
     <ClCompile Include="Game\Title\MonAIPreset\MonAIPreset.cpp">
       <Filter>Game\AIMonSelect\AIMonPreset</Filter>
     </ClCompile>
@@ -478,6 +472,12 @@
     </ClCompile>
     <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetLoad.cpp">
       <Filter>Game\AIMonSelect\AIMonPreset</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\ReadyGO\ReadyGO.cpp">
+      <Filter>Game\ReadyGO</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Input\KeyBoard.cpp">
+      <Filter>Game\Input</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -505,7 +505,6 @@
     </MeshContentTask>
     <MeshContentTask Include="Assets\modelData\stage\dun.fbx" />
     <MeshContentTask Include="Assets\modelData\stage\dun_yuka.fbx" />
-    <MeshContentTask Include="Assets\modelData\mimic.fbx" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\PythonBridge\include\unicodeobject.h" />
@@ -1278,9 +1277,6 @@
     <ClInclude Include="Engine\sound\CSound.h">
       <Filter>Engine</Filter>
     </ClInclude>
-    <ClInclude Include="Game\ReadyGO\ReadyGO.h">
-      <Filter>Game\AIEdite</Filter>
-    </ClInclude>
     <ClInclude Include="Game\Title\MonAIPreset\MonAIPreset.h">
       <Filter>Game\AIMonSelect\AIMonPreset</Filter>
     </ClInclude>
@@ -1289,6 +1285,12 @@
     </ClInclude>
     <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetLoad.h">
       <Filter>Game\AIMonSelect\AIMonPreset</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\ReadyGO\ReadyGO.h">
+      <Filter>Game\ReadyGO</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Input\KeyBoard.h">
+      <Filter>Game\Input</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1304,6 +1306,117 @@
   <ItemGroup>
     <Image Include="Assets\modelData\stage\handle010.jpg">
       <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Sprite\result\win.png">
+      <Filter>Assets\result</Filter>
+    </Image>
+    <Image Include="Assets\Sprite\result\blueteamp.png">
+      <Filter>Assets\result</Filter>
+    </Image>
+    <Image Include="Assets\Sprite\result\lose.png">
+      <Filter>Assets\result</Filter>
+    </Image>
+    <Image Include="Assets\Sprite\result\redteamp.png">
+      <Filter>Assets\result</Filter>
+    </Image>
+    <Image Include="Assets\Sprite\result\res_blueteam.png">
+      <Filter>Assets\result</Filter>
+    </Image>
+    <Image Include="Assets\Sprite\result\res_Lose.png">
+      <Filter>Assets\result</Filter>
+    </Image>
+    <Image Include="Assets\Sprite\result\res_redteam.png">
+      <Filter>Assets\result</Filter>
+    </Image>
+    <Image Include="Assets\Sprite\result\res_Win.png">
+      <Filter>Assets\result</Filter>
+    </Image>
+    <Image Include="Assets\Sprite\AIEdit\arrow.png">
+      <Filter>Assets\AIEdit</Filter>
+    </Image>
+    <Image Include="Assets\Sprite\AIEdit\click.png">
+      <Filter>Assets\AIEdit</Filter>
+    </Image>
+    <Image Include="Assets\Sprite\AIEdit\haik.png">
+      <Filter>Assets\AIEdit</Filter>
+    </Image>
+    <Image Include="Assets\Sprite\AIEdit\help.png">
+      <Filter>Assets\AIEdit</Filter>
+    </Image>
+    <Image Include="Assets\Sprite\AIEdit\hozon.png">
+      <Filter>Assets\AIEdit</Filter>
+    </Image>
+    <Image Include="Assets\Sprite\AIEdit\karipoint.png">
+      <Filter>Assets\AIEdit</Filter>
+    </Image>
+    <Image Include="Assets\Sprite\AIEdit\masss.png">
+      <Filter>Assets\AIEdit</Filter>
+    </Image>
+    <Image Include="Assets\Sprite\AIEdit\menu.png">
+      <Filter>Assets\AIEdit</Filter>
+    </Image>
+    <Image Include="Assets\Sprite\AIEdit\menu2.png">
+      <Filter>Assets\AIEdit</Filter>
+    </Image>
+    <Image Include="Assets\Sprite\AIEdit\menuselect.png">
+      <Filter>Assets\AIEdit</Filter>
+    </Image>
+    <Image Include="Assets\Sprite\AIEdit\menuselectsieat.png">
+      <Filter>Assets\AIEdit</Filter>
+    </Image>
+    <Image Include="Assets\Sprite\AIEdit\open.png">
+      <Filter>Assets\AIEdit</Filter>
+    </Image>
+    <Image Include="Assets\Sprite\AIEdit\point.png">
+      <Filter>Assets\AIEdit</Filter>
+    </Image>
+    <Image Include="Assets\Sprite\AIEdit\sieat.png">
+      <Filter>Assets\AIEdit</Filter>
+    </Image>
+    <Image Include="Assets\Sprite\Fade\fade_black.png">
+      <Filter>Assets\fade</Filter>
+    </Image>
+    <Image Include="Assets\Sprite\readyGO\r_go.png">
+      <Filter>Assets\readyGO</Filter>
+    </Image>
+    <Image Include="Assets\Sprite\readyGO\Ready2.png">
+      <Filter>Assets\readyGO</Filter>
+    </Image>
+    <Image Include="Assets\Sprite\GUI\Dungeon\d1.png">
+      <Filter>Assets\dungeon</Filter>
+    </Image>
+    <Image Include="Assets\Sprite\GUI\Dungeon\d2.png">
+      <Filter>Assets\dungeon</Filter>
+    </Image>
+    <Image Include="Assets\Sprite\GUI\Dungeon\d3.png">
+      <Filter>Assets\dungeon</Filter>
+    </Image>
+    <Image Include="Assets\Sprite\GUI\Dungeon\d4.png">
+      <Filter>Assets\dungeon</Filter>
+    </Image>
+    <Image Include="Assets\Sprite\GUI\Dungeon\d5.png">
+      <Filter>Assets\dungeon</Filter>
+    </Image>
+    <Image Include="Assets\Sprite\GUI\Dungeon\DadanDanBk.png">
+      <Filter>Assets\dungeon</Filter>
+    </Image>
+    <Image Include="Assets\Sprite\GUI\Dungeon\DungeonSp.png">
+      <Filter>Assets\dungeon</Filter>
+    </Image>
+    <Image Include="Assets\Sprite\GUI\Dungeon\DungeonSpS.png">
+      <Filter>Assets\dungeon</Filter>
+    </Image>
+    <Image Include="Assets\Sprite\GUI\Dungeon\leftButton.png">
+      <Filter>Assets\dungeon</Filter>
+    </Image>
+    <Image Include="Assets\Sprite\GUI\Dungeon\nextDungeon.png">
+      <Filter>Assets\dungeon</Filter>
+    </Image>
+    <Image Include="Assets\Sprite\GUI\Dungeon\rightButton.png">
+      <Filter>Assets\dungeon</Filter>
+    </Image>
+    <Image Include="Assets\Sprite\monsho\dun_stage0.png">
+      <Filter>Assets\dungeon</Filter>
     </Image>
   </ItemGroup>
   <ItemGroup>
@@ -1431,6 +1544,15 @@
     </Filter>
     <Filter Include="Game\AIMonSelect\AIMonPreset">
       <UniqueIdentifier>{8b2f22ae-5b7d-4128-8ee5-77b2561904bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets\AIEdit">
+      <UniqueIdentifier>{c9ae396b-b5d9-4d7e-87e9-12d4b84b172e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets\dungeon">
+      <UniqueIdentifier>{b3dcee6e-1f99-46be-b6dd-31307adf43fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Input">
+      <UniqueIdentifier>{12da6ca0-c822-400f-8b4e-89ca2e6419f7}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
