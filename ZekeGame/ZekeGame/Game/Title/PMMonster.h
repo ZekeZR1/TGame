@@ -11,6 +11,7 @@ public:
 	bool Start() override;
 	void init(int num, CVector3 pos);
 	void Update() override;
+	void Open();
 	void ChengeImage(int monid);
 	void SetPython(const wchar_t* py,int num);
 
@@ -44,6 +45,11 @@ public:
 	{
 		return m_num;
 	}
+
+	void Setteam(int team)
+	{
+		m_team = team;
+	}
 	int Getteam()
 	{
 		return m_team;
@@ -56,6 +62,19 @@ public:
 	void notMonSel()
 	{
 		m_ismonsel = false;
+	}
+
+	bool isOpen()
+	{
+		return m_isOpen;
+	}
+	void Close()
+	{
+		m_isOpen = false;
+	}
+	bool isClick()
+	{
+		return m_isClick;
 	}
 private:
 	int m_num = 0;
@@ -79,4 +98,7 @@ private:
 	CFont font;
 	FontRender* m_fr = nullptr;
 	FontRender* m_frShadow = nullptr;
+
+	bool m_isClick = false;
+	bool m_isOpen = false;
 };

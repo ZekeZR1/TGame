@@ -7,23 +7,25 @@
 
 bool MonAIPresetSave::Start()
 {
-	m_cursor = FindGO<GameCursor>("cursor");
+	//m_cursor = FindGO<GameCursor>("cursor");
 
 	m_button = NewGO<SpriteRender>(15, "sp");
 	m_button->Init(L"Assets/sprite/fade_black.dds", 40, 30,true);
-	m_button->SetPosition({ -540,320,0 });
-
+	m_button->SetPosition(m_pos);
+	
 	m_font = NewGO<FontRender>(15, "fr");
 	m_font->SetTextType(CFont::en_Japanese);
-	m_font->Init(L"•Û‘¶", { -540,320 }, 0, CVector4::White, 1, { 0.5f,0.5f });
+	m_font->Init(L"•Û‘¶", { m_pos.x,m_pos.y }, 0, CVector4::White, 1, { 0.5f,0.5f });
+	m_font->DrawShadow();
 
 	return true;
 }
 
-void MonAIPresetSave::init(SuperMonsterSelect * ppms,int No)
+void MonAIPresetSave::init(SuperMonsterSelect * ppms,int No,GameCursor* cursor)
 {
 	m_ppms = ppms;
 	num = No;
+	m_cursor = cursor;
 }
 
 void MonAIPresetSave::Update()
