@@ -14,7 +14,8 @@ public:
 		AnimationClip* animationClips = nullptr,
 		int numAnimationClips = 0,
 		EnFbxUpAxis = enFbxUpAxisZ, const char* psmain = "PSMain", const char* vsmain = "VSMain",
-		const wchar_t* normalMap = nullptr
+		const wchar_t* normalMap = nullptr,
+		const wchar_t* specularMap = nullptr
 	);
 		
 	void InitAnimation(AnimationClip* animationClips, int numAnimationClips);

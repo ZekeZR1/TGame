@@ -21,6 +21,7 @@ private:
 	AnimationClip m_anim[1];
 	CVector3 pos = CVector3::Zero();
 	CVector3 pos2 = { 0.f,0.f,-400.f };
+	CQuaternion m_rot = CQuaternion::Identity();
 	SpriteRender* m_white = nullptr;
 	PhysicsStaticObject m_phy;
 	PhysicsStaticObject m_phy2;
