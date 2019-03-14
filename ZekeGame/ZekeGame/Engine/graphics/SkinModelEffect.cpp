@@ -45,4 +45,5 @@ void __cdecl ModelEffect::Apply(ID3D11DeviceContext* deviceContext)
 		deviceContext->PSSetShaderResources(enSkinModelSRVReg_ShadowMap, 1, &m_shadowMapSRV);
 	}
 	deviceContext->PSSetShaderResources(enSkinModelSRVReg_NormalMap, 1, &m_normalTexture);
+	deviceContext->PSSetShaderResources(enSkinModelSRVReg_SpecularMap,1,&m_specularMapSRV);
 }
