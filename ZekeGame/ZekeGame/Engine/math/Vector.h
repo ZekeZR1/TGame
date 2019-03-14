@@ -26,6 +26,12 @@ public:
 		struct { float x, y; };
 		float v[2];
 	};
+
+	void Add(CVector2 v1, CVector2 v2)
+	{
+		vec.x = v1.x + v2.x;
+		vec.y = v1.y + v2.y;
+	}
 	/*!
 	* @brief	üŒ`•âŠÔB
 	*@details
