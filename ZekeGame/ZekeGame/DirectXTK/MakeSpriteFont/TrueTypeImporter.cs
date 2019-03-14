@@ -134,7 +134,7 @@ namespace MakeSpriteFont
             return points * 96 / 72;
         }
 
-        
+
         // Rasterizes a single character glyph.
         static Glyph ImportGlyph(char character, Font font, Brush brush, StringFormat stringFormat, Bitmap bitmap, Graphics graphics)
         {
@@ -167,8 +167,22 @@ namespace MakeSpriteFont
             BitmapUtils.ConvertGreyToAlpha(glyphBitmap);
 
             // Query its ABC spacing.
+#if false
             float? abc = GetCharacterWidth(character, font, graphics);
-
+#else
+            float? abc;
+            // GetCharacterWidth‚ª‚¢‚¢‰ÁŒ¸‚È’l‚ð•Ô‚·‚Ì‚Å
+            // ŒÅ’è‚Ì•‚É
+            if (character > 0xff)//‚Þ‚è‚â‚è‘SŠp•¶Žš”»’è
+            {
+                abc = (float)Math.Ceiling(font.Size);
+            }
+            else
+            {
+                //abc = (float)Math.Ceiling(font.Size) / 2.0f;
+                abc = GetCharacterWidth(character, font, graphics);
+            }
+#endif
             // Construct the output Glyph object.
             return new Glyph(character, glyphBitmap)
             {
