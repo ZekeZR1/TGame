@@ -27,6 +27,7 @@ private:
 	SpriteRender* m_backSp = nullptr;
 	SpriteRender* m_rightSp = nullptr;
 	SpriteRender* m_leftSp = nullptr;
+	SpriteRender* m_wallpaper = nullptr;
 	CVector2 m_fPivot = { 0.5f,0.5f };
 	GameCursor* m_cur;
 	FontRender* m_backTx = nullptr;
