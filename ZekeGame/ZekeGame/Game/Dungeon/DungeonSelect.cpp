@@ -10,7 +10,7 @@
 #include "../Fade/Fade.h"
 
 bool DungeonSelect::Start() {
-	m_cur = NewGO<GameCursor>(2, "cur");
+	m_cur = NewGO<GameCursor>(3, "cur");
 	InitSideButtons();
 	CheckDungeonClearState();
 	InitDungeonButtons();
@@ -22,6 +22,8 @@ bool DungeonSelect::Start() {
 		bgm->Init(L"Assets/sound/BGM/PerituneMaterial_Strategy5_loop.wav", true);
 		bgm->Play();
 	}
+	m_wallpaper = NewGO<SpriteRender>(0);
+	m_wallpaper->Init(L"Assets/Sprite/d1.dds", 1280.f, 720.f);
 	m_fade = FindGO<Fade>("fade");
 	m_fade->FadeIn();
 	return true;
@@ -42,6 +44,7 @@ void DungeonSelect::OnDestroy() {
 	DeleteGO(m_backTx);
 	DeleteGO(m_leftSp);
 	DeleteGO(m_rightSp);
+	DeleteGO(m_wallpaper);
 	m_dungeonButton.clear();
 }
 
@@ -88,11 +91,11 @@ void DungeonSelect::InitDungeonButtons() {
 	CVector3  pos = CVector3::Zero();
 	for (int i = 0; i < m_numDungeon; i++) {
 		//init sprite
-		m_sps.push_back(NewGO<SpriteRender>(0, "sp"));
+		m_sps.push_back(NewGO<SpriteRender>(1, "sp"));
 		m_sps[i]->Init(L"Assets/Sprite/dun_stage0.dds", SPRITE_W, SPRITE_H, true);
 		m_sps[i]->SetPosition(pos);
 		//init text
-		m_fonts.push_back(NewGO<FontRender>(1, "font"));
+		m_fonts.push_back(NewGO<FontRender>(2, "font"));
 		m_fonts[i]->SetTextType(CFont::TextType::en_Japanese);
 		wchar_t dungeon[256];
 		swprintf_s(dungeon, L"ƒ_ƒ“ƒWƒ‡ƒ“%d", i + 1);
@@ -120,21 +123,21 @@ void DungeonSelect::InitDungeonButtons() {
 void DungeonSelect::InitSideButtons() {
 	{
 		CVector3 pos = { 400.f,0.f,0.f };
-		m_leftSp = NewGO<SpriteRender>(2);
+		m_leftSp = NewGO<SpriteRender>(3);
 		m_leftSp->Init(L"Assets/Sprite/leftButton.dds", 50.f, 100.f, true);
 		m_leftSp->SetPosition(pos * -1);
-		m_rightSp = NewGO<SpriteRender>(2);
+		m_rightSp = NewGO<SpriteRender>(3);
 		m_rightSp->Init(L"Assets/Sprite/rightButton.dds", 50.f, 100.f, true);
 		m_rightSp->SetPosition(pos);
 	}
 }
 
 void DungeonSelect::InitBackButton() {
-	m_backSp = NewGO<SpriteRender>(0);
+	m_backSp = NewGO<SpriteRender>(1);
 	m_backSp->Init(L"Assets/Sprite/button1.dds", 180.f, 60.f, true);
 	CVector3 sPos = { -500.f, -270.f, 0.f };
 	m_backSp->SetPosition(sPos);
-	m_backTx = NewGO<FontRender>(0);
+	m_backTx = NewGO<FontRender>(1);
 	m_backTx->SetTextType(CFont::TextType::en_Japanese);
 	CVector2 tPos;
 	tPos.x = sPos.x;
