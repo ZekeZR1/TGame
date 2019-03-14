@@ -27,6 +27,7 @@ namespace MakeSpriteFont
             int largestWidth = 1;
             int largestHeight = 1;
 
+            
             for (int i = 0; i < sourceGlyphs.Length; i++)
             {
                 ArrangedGlyph glyph = new ArrangedGlyph();
@@ -78,6 +79,8 @@ namespace MakeSpriteFont
             // Build up a list of all the glyphs needing to be arranged.
             List<ArrangedGlyph> glyphs = new List<ArrangedGlyph>();
 
+            int font_h = 0;//フォント最大高さ
+
             for (int i = 0; i < sourceGlyphs.Length; i++)
             {
                 ArrangedGlyph glyph = new ArrangedGlyph();
@@ -87,6 +90,8 @@ namespace MakeSpriteFont
                 // Leave a one pixel border around every glyph in the output bitmap.
                 glyph.Width = sourceGlyphs[i].Subrect.Width + 2;
                 glyph.Height = sourceGlyphs[i].Subrect.Height + 2;
+
+                font_h = Math.Max(font_h, glyph.Height);//フォント最大高さ
 
                 glyphs.Add(glyph);
             }
@@ -99,14 +104,16 @@ namespace MakeSpriteFont
             int outputHeight = 0;
 
             // Choose positions for each glyph, one at a time.
+            int last_x = 0, last_y = 0;
             for (int i = 0; i < glyphs.Count; i++)
             {
                 if (i > 0 && (i % 500) == 0)
                 {
                     Console.Write(".");
                 }
-
-                PositionGlyph(glyphs, i, outputWidth);
+                //毎回左上から隙間を1ドット単位で検索　遅すぎる！！
+                PositionGlyph(glyphs, i, outputWidth,font_h,ref last_x,ref last_y);
+                // 漢字は矩形内に収まるので順番に詰めていく　詰めた場所をlast_xyで保存しておく
 
                 outputHeight = Math.Max(outputHeight, glyphs[i].Y + glyphs[i].Height);
             }
@@ -168,10 +175,10 @@ namespace MakeSpriteFont
 
 
         // Works out where to position a single glyph.
-        static void PositionGlyph(List<ArrangedGlyph> glyphs, int index, int outputWidth)
+        static void PositionGlyph(List<ArrangedGlyph> glyphs, int index, int outputWidth,int font_h,ref int last_x,ref int last_y)
         {
-            int x = 0;
-            int y = 0;
+            int x = last_x;
+            int y = last_y;
 
             while (true)
             {
@@ -182,6 +189,9 @@ namespace MakeSpriteFont
                 {
                     glyphs[index].X = x;
                     glyphs[index].Y = y;
+
+                    last_x = x;
+                    last_y = y;
 
                     return;
                 }
@@ -194,6 +204,8 @@ namespace MakeSpriteFont
                 {
                     x = 0;
                     y++;
+
+                    y += font_h;//すべて同じ高さに固定　qgなどで隙間ができるけど気にしない　速度重視
                 }
             }
         }
