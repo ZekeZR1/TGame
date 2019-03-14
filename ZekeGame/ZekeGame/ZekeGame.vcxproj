@@ -264,6 +264,7 @@
     <ClCompile Include="Game\GameData.cpp" />
     <ClCompile Include="Game\GameMenu\GameMenu.cpp" />
     <ClCompile Include="Game\GameMenu\MenuButton.cpp" />
+    <ClCompile Include="Game\Input\KeyBoard.cpp" />
     <ClCompile Include="Game\main.cpp" />
     <ClCompile Include="Game\Monster\Action\ACTEffect.cpp" />
     <ClCompile Include="Game\Monster\Action\Act_Atack.cpp" />
@@ -431,6 +432,7 @@
     <ClInclude Include="Game\GameData.h" />
     <ClInclude Include="Game\GameMenu\GameMenu.h" />
     <ClInclude Include="Game\GameMenu\MenuButton.h" />
+    <ClInclude Include="Game\Input\KeyBoard.h" />
     <ClInclude Include="Game\Monster\Action\ACTEffect.h" />
     <ClInclude Include="Game\Monster\Action\Act_Atack.h" />
     <ClInclude Include="Game\Monster\Action\Act_Chase.h" />
@@ -585,7 +587,6 @@
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\dungeon\dungeonBack.FBX" />
     <MeshContentTask Include="Assets\modelData\fairy\hnd.FBX" />
-    <MeshContentTask Include="Assets\modelData\mimic.fbx" />
     <MeshContentTask Include="Assets\modelData\stage\dun.fbx" />
     <MeshContentTask Include="Assets\modelData\stage\dun_yuka.fbx" />
     <MeshContentTask Include="Assets\modelData\stage\limit.FBX" />
@@ -597,7 +598,43 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\modelData\stage\handle010.jpg" />
-    <ImageContentTask Include="Assets\modelData\tes_Normal.png" />
+    <Image Include="Assets\Sprite\AIEdit\arrow.png" />
+    <Image Include="Assets\Sprite\AIEdit\click.png" />
+    <Image Include="Assets\Sprite\AIEdit\haik.png" />
+    <Image Include="Assets\Sprite\AIEdit\help.png" />
+    <Image Include="Assets\Sprite\AIEdit\hozon.png" />
+    <Image Include="Assets\Sprite\AIEdit\karipoint.png" />
+    <Image Include="Assets\Sprite\AIEdit\masss.png" />
+    <Image Include="Assets\Sprite\AIEdit\menu.png" />
+    <Image Include="Assets\Sprite\AIEdit\menu2.png" />
+    <Image Include="Assets\Sprite\AIEdit\menuselect.png" />
+    <Image Include="Assets\Sprite\AIEdit\menuselectsieat.png" />
+    <Image Include="Assets\Sprite\AIEdit\open.png" />
+    <Image Include="Assets\Sprite\AIEdit\point.png" />
+    <Image Include="Assets\Sprite\AIEdit\sieat.png" />
+    <Image Include="Assets\Sprite\Fade\fade_black.png" />
+    <Image Include="Assets\Sprite\GUI\Dungeon\d1.png" />
+    <Image Include="Assets\Sprite\GUI\Dungeon\d2.png" />
+    <Image Include="Assets\Sprite\GUI\Dungeon\d3.png" />
+    <Image Include="Assets\Sprite\GUI\Dungeon\d4.png" />
+    <Image Include="Assets\Sprite\GUI\Dungeon\d5.png" />
+    <Image Include="Assets\Sprite\GUI\Dungeon\DadanDanBk.png" />
+    <Image Include="Assets\Sprite\GUI\Dungeon\DungeonSp.png" />
+    <Image Include="Assets\Sprite\GUI\Dungeon\DungeonSpS.png" />
+    <Image Include="Assets\Sprite\GUI\Dungeon\leftButton.png" />
+    <Image Include="Assets\Sprite\GUI\Dungeon\nextDungeon.png" />
+    <Image Include="Assets\Sprite\GUI\Dungeon\rightButton.png" />
+    <Image Include="Assets\Sprite\monsho\dun_stage0.png" />
+    <Image Include="Assets\Sprite\readyGO\Ready2.png" />
+    <Image Include="Assets\Sprite\readyGO\r_go.png" />
+    <Image Include="Assets\Sprite\result\blueteamp.png" />
+    <Image Include="Assets\Sprite\result\lose.png" />
+    <Image Include="Assets\Sprite\result\redteamp.png" />
+    <Image Include="Assets\Sprite\result\res_blueteam.png" />
+    <Image Include="Assets\Sprite\result\res_Lose.png" />
+    <Image Include="Assets\Sprite\result\res_redteam.png" />
+    <Image Include="Assets\Sprite\result\res_Win.png" />
+    <Image Include="Assets\Sprite\result\win.png" />
   </ItemGroup>
   <ItemGroup>
     <CopyFileToFolders Include="Game\dlllib\python36.dll">

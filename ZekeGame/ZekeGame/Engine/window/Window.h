@@ -6,3 +6,7 @@ bool DispatchWindowMessage();
 
 extern int notch;
 extern bool mEve[10];
+
+
+extern int g_Key;
+extern bool g_isPressShift;
