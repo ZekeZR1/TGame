@@ -24,4 +24,5 @@ enum EnSkinModelSRVReg {
 	enSkinModelSRVReg_BoneMatrixArray,		//!<ボーン行列の配列。
 	enSkinModelSRVReg_ShadowMap,
 	enSkinModelSRVReg_NormalMap,
+	enSkinModelSRVReg_SpecularMap,
 };

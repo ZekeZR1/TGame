@@ -17,6 +17,7 @@ protected:
 	ID3D11ShaderResourceView* m_albedoTex = nullptr;
 	ID3D11ShaderResourceView* m_shadowMapSRV = nullptr;
 	ID3D11ShaderResourceView* m_normalTexture = nullptr;
+	ID3D11ShaderResourceView* m_specularMapSRV = nullptr;
 	//std::array<ID3D11ShaderResourceView*, 4> m_albedoTextureStack = { nullptr };
 	int m_albedoTextureStackPos = 0;
 	EnRenderMode m_renderMode = enRenderMode_Invalid;	//レンダリングモード。
@@ -41,6 +42,9 @@ public:
 		if (m_normalTexture) {
 			m_normalTexture->Release();
 		}
+		if (m_specularMapSRV) {
+			m_shadowMapSRV->Release();
+		}
 	}
 	void __cdecl Apply(ID3D11DeviceContext* deviceContext) override;
 
@@ -56,11 +60,13 @@ public:
 	void SetNormalTexture(ID3D11ShaderResourceView* tex) {
 		m_normalTexture = tex;
 	}
+	void SetSpecularMap(ID3D11ShaderResourceView* tex) {
+		m_specularMapSRV = tex;
+	}
 	void SetMatrialName(const wchar_t* matName)
 	{
 		m_materialName = matName;
 	}
-
 	bool EqualMaterialName(const wchar_t* name) const
 	{
 		return wcscmp(name, m_materialName.c_str()) == 0;
@@ -113,10 +119,11 @@ public:
 */
 class SkinModelEffectFactory : public DirectX::EffectFactory {
 public:
-	SkinModelEffectFactory(ID3D11Device* device, const char* psmain, const char* vsmain, const wchar_t* normalMap) :
+	SkinModelEffectFactory(ID3D11Device* device, const char* psmain, const char* vsmain, const wchar_t* normalMap,const wchar_t* specularMap) :
 		m_psmain(psmain),
 		m_vsmain(vsmain),
 		m_normalMapPath(normalMap),
+		m_specularMapPath(specularMap),
 		EffectFactory(device) {
 	}
 	std::shared_ptr<DirectX::IEffect> __cdecl CreateEffect(const EffectInfo& info, ID3D11DeviceContext* deviceContext)override
@@ -144,6 +151,12 @@ public:
 			DirectX::EffectFactory::CreateTexture(m_normalMapPath, deviceContext, &normalSRV);
 			effect->SetNormalTexture(normalSRV);
 		}
+		if (m_specularMapPath) {
+			ID3D11ShaderResourceView* specularSRV;
+			SetDirectory(L"Assets/modelData");
+			DirectX::EffectFactory::CreateTexture(m_specularMapPath, deviceContext, &specularSRV);
+			effect->SetSpecularMap(specularSRV);
+		}
 		return effect;
 	}
 
@@ -154,4 +167,5 @@ public:
 	const char* m_psmain;
 	const char* m_vsmain;
 	const wchar_t* m_normalMapPath;
+	const wchar_t* m_specularMapPath;
 };
