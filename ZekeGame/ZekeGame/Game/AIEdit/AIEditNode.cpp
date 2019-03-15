@@ -64,12 +64,12 @@ bool AIEditNode::Start()
 	m_fonts[0]->Init(L" HP", { m_fontpos }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
 	m_fontpos.y -= 57.f;
 	m_fonts[1]->Init(L" MP", { m_fontpos }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
-	m_fontpos.x -= 14.f;
+	m_fontpos.x -= 17.f;
 	m_fontpos.y -= 63.f;
-	m_fonts[2]->Init(L"状態異常", { m_fontpos }, 0.0, CVector4::White, 0.7, { 0.0,0.0 });
-	m_fontpos.x += 14.f;
-	m_fontpos.y -= 45.f;
-	m_fonts[3]->Init(L" 技", { m_fontpos }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
+	m_fonts[2]->Init(L"じょうたい", { m_fontpos }, 0.0, CVector4::White, 0.6, { 0.0,0.0 });
+	m_fontpos.x += 1.f;
+	m_fontpos.y -= 52.f;
+	m_fonts[3]->Init(L" わざ", { m_fontpos }, 0.0, CVector4::White, 0.9, { 0.0,0.0 });
 
 	return true;
 
@@ -78,12 +78,14 @@ bool AIEditNode::Start()
 
 void AIEditNode::Inequ()
 {
-	if (Mouse::isTrigger(enLeftClick))	//左クリック
-	{
+	//if (Mouse::isTrigger(enLeftClick))	//左クリック
+	//{
 		NewGO<AIEditNodeInequ>(0, "Inequality");
 			
 		Choice1 = true;
-	}
+
+		Nodefont = true;
+	//}
 
 }
 
@@ -105,6 +107,8 @@ void AIEditNode::Abnormal()
 		NewGO<AIEditNodeAbnormalState>(0, "Abnormal");
 
 		Choice1 = true;
+
+		Nodefont = true;
 	
 
 }

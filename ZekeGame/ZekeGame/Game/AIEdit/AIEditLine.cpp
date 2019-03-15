@@ -6,6 +6,7 @@
 #include "../GameCursor.h"
 #include "AIEditNodeTarget.h"
 #include "AIEditNodeProcess.h"
+#include"AIEditNodeSelectFonts.h"
 
 //camera
 #include "../../GameCamera.h"

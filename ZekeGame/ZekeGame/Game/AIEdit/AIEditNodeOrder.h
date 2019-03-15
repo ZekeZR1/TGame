@@ -10,6 +10,7 @@ class AIEditNodeTarget;
 class AIEditNodeProcess;
 class AIEditNodeTechnique;
 class AIEditNodeAbnormalState;
+class AIEditNodeSelectFonts;
 class AIEditNodeOrder :public GameObject
 {
 
@@ -44,6 +45,8 @@ private:
 
 	bool Technique = false;		//ãZÇëIëÇµÇΩÇ∆Ç´trueÇ…Ç»ÇÈÅBÅ@
 	int num = 1;
+	int fonttimer = 60;
+	bool timer = false;
 
 	std::vector<FontRender*> m_fonts;
 	CVector3 m_pos = CVector3::Zero();
@@ -59,5 +62,6 @@ private:
 	AIEditNodeProcess* m_aieditnodeprocess;
 	AIEditNodeTechnique* m_aieditnodetechnique;
 	AIEditNodeAbnormalState* m_aieditnodeabnormalstate;
+	AIEditNodeSelectFonts* m_aieditonodeselectfonts;
 
 };
