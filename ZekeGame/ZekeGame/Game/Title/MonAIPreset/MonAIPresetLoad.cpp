@@ -2,11 +2,21 @@
 #include "MonAIPresetLoad.h"
 #include "MonAIPresetSave.h"
 
+#include "MonAIPreset.h"
+
 #include "../PMMonster.h"
 #include "../SuperMonsterSelect.h"
 #include "../../GameCursor.h"
 
+#include "../../GameData.h"
+
 #include <locale>
+
+void MonAIPresetLoad::OnDestroy()
+{
+	DeleteGO(m_font);
+	DeleteGO(m_button);
+}
 
 bool MonAIPresetLoad::Start()
 {
@@ -20,12 +30,13 @@ bool MonAIPresetLoad::Start()
 	return true;
 }
 
-void MonAIPresetLoad::init(SuperMonsterSelect* sms, int num,int team, GameCursor* cursor)
+void MonAIPresetLoad::init(SuperMonsterSelect* sms, int num,int team, GameCursor* cursor,MonAIPreset* mapr)
 {
 	m_sms = sms;
 	m_num = num;
 	m_team = team;
 	m_cursor = cursor;
+	m_map = mapr;
 }
 
 void MonAIPresetLoad::Update()
@@ -91,9 +102,12 @@ void MonAIPresetLoad::Update()
 					size_t size = 0;
 					mbstowcs_s(&size, ws, 20, chn[i].str,_TRUNCATE);
 					pmm->SetPython(ws, ind[i]);
+					
+					pmm->ChengeImage((MonsterID)chn[i].monID);
 				}
 				i++;
 			}
+			m_map->Close();
 		}
 	}
 

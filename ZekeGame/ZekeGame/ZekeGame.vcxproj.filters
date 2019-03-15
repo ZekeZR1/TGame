@@ -485,6 +485,12 @@
     <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetClose.cpp">
       <Filter>Game\AIMonSelect\AIMonPreset</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetIcons.cpp">
+      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetIcon.cpp">
+      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\fairy\hnd.FBX">
@@ -1304,6 +1310,12 @@
     <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetClose.h">
       <Filter>Game\AIMonSelect\AIMonPreset</Filter>
     </ClInclude>
+    <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetIcons.h">
+      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetIcon.h">
+      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="python36.lib" />
@@ -1524,6 +1536,9 @@
     <Filter Include="Game\Input">
       <UniqueIdentifier>{12da6ca0-c822-400f-8b4e-89ca2e6419f7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Assets\MainMenu">
+      <UniqueIdentifier>{5f3bc4d2-2b96-4ecf-82a7-84b5e12678d7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Media Include="Assets\sound\kick-low1.wav" />
@@ -1572,6 +1587,18 @@
     </ImageContentTask>
     <ImageContentTask Include="Assets\Sprite\AIEdit\sieat.png">
       <Filter>Assets\AIEdit</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_back.png">
+      <Filter>Assets\MainMenu</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_back_aiedit.png">
+      <Filter>Assets\MainMenu</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_back_dung.png">
+      <Filter>Assets\MainMenu</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_back_local.png">
+      <Filter>Assets\MainMenu</Filter>
     </ImageContentTask>
   </ItemGroup>
 </Project>

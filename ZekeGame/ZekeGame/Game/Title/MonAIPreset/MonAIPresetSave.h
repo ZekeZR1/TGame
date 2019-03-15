@@ -12,6 +12,7 @@ struct chank
 class MonAIPresetSave :public GameObject
 {
 public:
+	void OnDestroy() override;
 	bool Start();
 
 	//‰Šú‰»ŠÖ”
@@ -32,6 +33,7 @@ public:
 private:
 	SpriteRender* m_button = nullptr;
 	FontRender* m_font = nullptr;
+
 	GameCursor* m_cursor = nullptr;
 
 	int num = 0;

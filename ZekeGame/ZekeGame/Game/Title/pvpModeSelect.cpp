@@ -37,6 +37,7 @@ PvPModeSelect::~PvPModeSelect()
 	DeleteGO(m_back);
 	DeleteGO(m_return);
 	DeleteGO(m_returnMoji);
+	DeleteGO(m_mapo);
 }
 
 bool PvPModeSelect::Start()
@@ -138,69 +139,73 @@ void PvPModeSelect::Update()
 		if (ispmm)
 			break;
 	}
-	if (m_mapo->IsOpen() || ispmm)
-		return;
 
-	if (m_mapo->IsClick())
+	static bool isopen = false;
+	if (!(m_mapo->IsOpen() || ispmm || isopen))
 	{
-		m_mapo->OpenPreset();
-	}
-	for (auto pmm: m_pmms)
-	{
-		if (pmm->isClick())
+
+
+		if (m_mapo->IsClick())
 		{
-			pmm->Open();
+			m_mapo->OpenPreset();
 		}
-	}
-
-	bool ismonsel = false;
-	int count = 0;
-	for (auto pmm : m_pmms)
-	{
-		ismonsel = pmm->isMonSel();
-		if (ismonsel || pmm->isSelect())
+		for (auto pmm : m_pmms)
 		{
-			break;
+			if (pmm->isClick())
+			{
+				pmm->Open();
+			}
 		}
 
-		count++;
-	}
-	if (ismonsel)
-		return;
-	CVector3 curs = m_cursor->GetCursor();
-	m_GO->SetCollisionTarget(curs);
-	if (m_GO->isCollidingTarget())
-	{
-		if (Mouse::isTrigger(enLeftClick))
-		{
-			m_fade->FadeOut();
-			m_isfade = true;
-			MusicFade* mf = NewGO<MusicFade>(0, "mf");
-			mf->init(m_BGM, m_vol);
-		}
-	}
 
-	m_returnMoji->SetCollisionTarget(curs);
-	if (m_returnMoji->isCollidingTarget())
-	{
-		if (!isReturnOver)
+		bool ismonsel = false;
+		int count = 0;
+		for (auto pmm : m_pmms)
 		{
-			m_return->Init(L"Assets/sprite/simple_button_blue.dds", m_returnS.x, m_returnS.y);
-			isReturnOver = true;
-		}
-		if (Mouse::isTrigger(enLeftClick))
-		{
-			NewGO<ModeSelect>(0, "modesel");
-			DeleteGO(this);
-		}
-	}
-	else if(isReturnOver)
-	{
-		m_return->Init(L"Assets/sprite/simple_button.dds", m_returnS.x, m_returnS.y);
-		isReturnOver = false;
-	}
+			ismonsel = pmm->isMonSel();
+			if (ismonsel || pmm->isSelect())
+			{
+				break;
+			}
 
-	
+			count++;
+		}
+		if (ismonsel)
+			return;
+		CVector3 curs = m_cursor->GetCursor();
+		m_GO->SetCollisionTarget(curs);
+		if (m_GO->isCollidingTarget())
+		{
+			if (Mouse::isTrigger(enLeftClick))
+			{
+				m_fade->FadeOut();
+				m_isfade = true;
+				MusicFade* mf = NewGO<MusicFade>(0, "mf");
+				mf->init(m_BGM, m_vol);
+			}
+		}
+
+		m_returnMoji->SetCollisionTarget(curs);
+		if (m_returnMoji->isCollidingTarget())
+		{
+			if (!isReturnOver)
+			{
+				m_return->Init(L"Assets/sprite/simple_button_blue.dds", m_returnS.x, m_returnS.y);
+				isReturnOver = true;
+			}
+			if (Mouse::isTrigger(enLeftClick))
+			{
+				NewGO<ModeSelect>(0, "modesel");
+				DeleteGO(this);
+			}
+		}
+		else if (isReturnOver)
+		{
+			m_return->Init(L"Assets/sprite/simple_button.dds", m_returnS.x, m_returnS.y);
+			isReturnOver = false;
+		}
+	}
+	isopen = m_mapo->IsOpen();
 	//if (count == 6)
 	//{
 	//	count = 0;
