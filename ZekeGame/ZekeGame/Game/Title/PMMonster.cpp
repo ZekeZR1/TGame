@@ -53,6 +53,7 @@ void PMMonster::init(int num,CVector3 pos)
 
 void PMMonster::Update()
 {
+	m_isClick = false;
 	if (m_ismonsel && Mouse::isTrigger(enRightClick))
 	{
 		DeleteGO(m_ms);
@@ -95,9 +96,10 @@ void PMMonster::Update()
 		}
 		if (Mouse::isTrigger(enLeftClick))
 		{
-			AIMSelect* aims = NewGO<AIMSelect>(0, "aims");
+			m_isClick = true;
+			/*AIMSelect* aims = NewGO<AIMSelect>(0, "aims");
 			aims->init(this, m_selAI, m_monid);
-			m_ismonsel = true;
+			m_ismonsel = true;*/
 		}
 	}
 	else
@@ -111,6 +113,13 @@ void PMMonster::Update()
 			m_issel = false;
 		}
 	}
+}
+
+void PMMonster::Open()
+{
+	AIMSelect* aims = NewGO<AIMSelect>(0, "aims");
+	aims->init(this, m_selAI, m_monid);
+	m_ismonsel = true;
 }
 
 void PMMonster::ChengeImage(int monid)

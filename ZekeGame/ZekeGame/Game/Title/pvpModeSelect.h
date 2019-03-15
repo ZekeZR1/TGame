@@ -4,6 +4,8 @@ class PMMonster;
 class GameCursor;
 class SuperMonsterSelect;
 class Fade;
+
+class MonAIPresetOpen;
 class PvPModeSelect :public SuperMonsterSelect
 {
 public:
@@ -16,6 +18,10 @@ public:
 	std::vector<std::string> GetFiles()
 	{
 		return m_files;
+	}
+	std::vector<PMMonster*> GetPMMonster()
+	{
+		return m_pmms;
 	}
 private:
 	CFont font;
@@ -40,6 +46,8 @@ private:
 
 	Sound* m_BGM = nullptr;
 	float m_vol = 1;
+
+	MonAIPresetOpen* m_mapo = nullptr;
 
 	Fade* m_fade = nullptr;
 	bool m_isfade = false;

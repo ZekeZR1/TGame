@@ -6,6 +6,9 @@ enum MonsterID;
 class GameCamera;
 class TestListener;
 class GameMenu;
+class Fade;
+
+class ReadyGO;
 struct Pyinit;
 
 class Game : public GameObject
@@ -65,6 +68,11 @@ private:
 	FontRender* m_frS = nullptr;
 
 	CEffect* e;
+	ReadyGO* m_readyGO = nullptr;
+	bool m_isEndReady = false;
+
+	Fade* m_fade = nullptr;
+	bool m_Ffirst = true;
 
 	Sound* m_BGM = nullptr;
 };
