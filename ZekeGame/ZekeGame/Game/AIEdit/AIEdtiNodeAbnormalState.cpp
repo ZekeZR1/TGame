@@ -51,17 +51,17 @@ bool AIEditNodeAbnormalState::Start()
 
 	auto bacon = m_nodebuttons[0]->GetPos();
 	CVector2 m_fontpos = CVector2::Zero();
-	m_fontpos.x = bacon.x - 50.0;
-	m_fontpos.y = bacon.y + 110.0;
-	m_fonts[0]->Init(L" 毒", { m_fontpos }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
-	m_fontpos.y -= 55.f;
-	m_fonts[1]->Init(L"火傷", { m_fontpos }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
+	m_fontpos.x = bacon.x - 45.f;
+	m_fontpos.y = bacon.y + 107.f;
+	m_fonts[0]->Init(L"どく", { m_fontpos }, 0.0, CVector4::White, 0.9, { 0.0,0.0 });
 	m_fontpos.x -= 20.f;
+	m_fontpos.y -= 57.f;
+	m_fonts[1]->Init(L"やけど", { m_fontpos }, 0.0, CVector4::White, 0.9, { 0.0,0.0 });
 	m_fontpos.y -= 55.f;
-	m_fonts[2]->Init(L" 氷結", { m_fontpos }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
-	m_fontpos.x -= 14.f;
+	m_fonts[2]->Init(L"こおり", { m_fontpos }, 0.0, CVector4::White, 0.9, { 0.0,0.0 });
+	m_fontpos.x += 20.f;
 	m_fontpos.y -= 55.f;
-	m_fonts[3]->Init(L" スタン", { m_fontpos }, 0.0, CVector4::White, 0.9, { 0.0,0.0 });
+	m_fonts[3]->Init(L"まひ", { m_fontpos }, 0.0, CVector4::White, 0.9, { 0.0,0.0 });
 	return true;
 }
 
@@ -73,6 +73,8 @@ void AIEditNodeAbnormalState::Order()
 	if(Choice6 ==false){
 		m_aieditnodeorder = NewGO<AIEditNodeOrder>(0, "Order");
 		Choice6 = true;
+
+		abnormalfont = true;
 	}
 }
 
@@ -89,15 +91,6 @@ void AIEditNodeAbnormalState::Update()
 	}
 
 	if (Choice6 == false) { //何も選択していないとき
-
-		for (int i = 0; i < button; i++) {
-			if (m_nodebuttons[i]->GetSpriteRender()->isCollidingTarget())	//選択しているか	
-			{
-				//Order();
-
-			}
-
-		}
 
 		if (Mouse::isTrigger(enLeftClick)) {	//左クリック
 

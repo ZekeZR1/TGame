@@ -40,11 +40,17 @@ public:
 		return m_num;
 	}
 
+	bool Getnumfont()
+	{
+		return Numfont;
+	}
+
 private:
 
 	Num m_num = ennull;
 	int button = 7;					//ボタン。
 	bool Choice3 = false;				//何かが選択されたらtrueになる。
+	bool Numfont = false;
 
 	std::vector<FontRender*> m_fonts;
 	SpriteRender * m_spriteRender;

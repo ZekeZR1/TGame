@@ -10,6 +10,7 @@
 #include "AIEditNodeNum.h"
 #include "AIEditNodeButton.h"
 #include "AIEditNodeProcess.h"
+#include "AIEditNodeSelectFonts.h"
 
 AIEditNodeInequ::~AIEditNodeInequ()
 {
@@ -55,9 +56,9 @@ bool AIEditNodeInequ::Start()
 	auto bacon = m_nodebuttons[0]->GetPos();
 	CVector2 m_fontpos = CVector2::Zero();
 	m_fontpos.x = bacon.x - 55.0;
-	m_fontpos.y = bacon.y + 110.0;
+	m_fontpos.y = bacon.y + 105.0;
 	m_fonts[0]->Init(L"より大", { m_fontpos }, 0.0, CVector4::White, 0.8, { 0.0,0.0 });
-	m_fontpos.y -= 55.f;
+	m_fontpos.y -= 57.f;
 	m_fonts[1]->Init(L"より小", { m_fontpos }, 0.0, CVector4::White, 0.8, { 0.0,0.0 });
 	return true;
 
@@ -71,6 +72,7 @@ void AIEditNodeInequ::Num()
 		m_aieditnodenum = NewGO<AIEditNodeNum>(0, "Num");
 
 		Choice2 = true;
+		Inequfont = true;
 	}
 	
 }
@@ -87,29 +89,20 @@ void AIEditNodeInequ::Update()
 
 	}
 
-	
 
-	for (int i = 0; i < button; i++) {
-		if (m_nodebuttons[i]->GetSpriteRender()->isCollidingTarget())	//選択しているか	
-		{
-			//Num();
-
+	if (Mouse::isTrigger(enLeftClick)) {	//左クリック
+		if (m_nodebuttons[button - 2]->GetSpriteRender()->isCollidingTarget()) {
+			m_inequ = enDainari;
+			m_aieditnodeprocess->Setkeepinequ(enDainari);
+			Num();
 		}
 
-		if (Mouse::isTrigger(enLeftClick)) {	//左クリック
-			if (m_nodebuttons[button - 2]->GetSpriteRender()->isCollidingTarget()) {
-				m_inequ = enDainari;
-				m_aieditnodeprocess->Setkeepinequ(enDainari);
-				Num();
-			}
-
-			if (m_nodebuttons[button - 1]->GetSpriteRender()->isCollidingTarget()) {
-				m_inequ = enShowers;
-				m_aieditnodeprocess->Setkeepinequ(enShowers);
-				Num();
-			}
-
+		if (m_nodebuttons[button - 1]->GetSpriteRender()->isCollidingTarget()) {
+			m_inequ = enShowers;
+			m_aieditnodeprocess->Setkeepinequ(enShowers);
+			Num();
 		}
-		
+
 	}
+		
 }
