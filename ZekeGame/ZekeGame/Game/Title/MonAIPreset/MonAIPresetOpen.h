@@ -5,6 +5,7 @@ class GameCursor;
 class MonAIPresetOpen :public GameObject
 {
 public:
+	void OnDestroy();
 	//Start
 	bool Start();
 
@@ -33,6 +34,12 @@ public:
 	bool IsOpen()
 	{
 		return m_isOpen;
+	}
+
+	//•Â‚¶‚é
+	void Close()
+	{
+		m_isOpen = false;
 	}
 
 private:

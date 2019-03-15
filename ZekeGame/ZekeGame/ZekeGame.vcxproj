@@ -309,6 +309,8 @@
     <ClCompile Include="Game\Title\ModeSelect.cpp" />
     <ClCompile Include="Game\Title\MonAIPreset\MonAIPreset.cpp" />
     <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetClose.cpp" />
+    <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetIcon.cpp" />
+    <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetIcons.cpp" />
     <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetLoad.cpp" />
     <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetOpen.cpp" />
     <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetSave.cpp" />
@@ -578,6 +580,8 @@
     <ClInclude Include="Game\Title\ModeSelect.h" />
     <ClInclude Include="Game\Title\MonAIPreset\MonAIPreset.h" />
     <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetClose.h" />
+    <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetIcon.h" />
+    <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetIcons.h" />
     <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetLoad.h" />
     <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetOpen.h" />
     <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetSave.h" />
@@ -631,6 +635,10 @@
     <Image Include="Assets\Sprite\GUI\Dungeon\leftButton.png" />
     <Image Include="Assets\Sprite\GUI\Dungeon\nextDungeon.png" />
     <Image Include="Assets\Sprite\GUI\Dungeon\rightButton.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_back.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_back_aiedit.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_back_dung.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_back_local.png" />
     <Image Include="Assets\Sprite\monsho\dun_stage0.png" />
     <Image Include="Assets\Sprite\readyGO\Ready2.png" />
     <Image Include="Assets\Sprite\readyGO\r_go.png" />
