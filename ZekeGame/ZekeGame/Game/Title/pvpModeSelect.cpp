@@ -21,6 +21,11 @@
 #include "../Fade/Fade.h"
 #include "../Fade/MusicFade.h"
 
+
+#include "MonAIPreset/MonAIPresetSave.h"
+#include "MonAIPreset/MonAIPresetLoad.h"
+#include "MonAIPreset/MonAIPresetOpen.h"
+
 PvPModeSelect::~PvPModeSelect()
 {
 	DeleteGO(m_cursor);
@@ -36,6 +41,8 @@ PvPModeSelect::~PvPModeSelect()
 
 bool PvPModeSelect::Start()
 {
+	
+
 	m_BGM = FindGO<Sound>("BGM");
 	if (m_BGM == nullptr)
 	{
@@ -53,6 +60,17 @@ bool PvPModeSelect::Start()
 
 	m_files = PythonFileLoad::FilesLoad();
 	m_cursor = NewGO<GameCursor>(0, "cursor");
+
+
+	/*MonAIPresetSave* maps = NewGO<MonAIPresetSave>(0, "maps");
+	maps->init(this, 0,m_cursor);
+
+	MonAIPresetLoad* mapl = NewGO<MonAIPresetLoad>(0, "mapl");
+	mapl->init(this, 0, 0, m_cursor);*/
+
+	m_mapo = NewGO<MonAIPresetOpen>(0, "mapo");
+	m_mapo->init(this, m_cursor, 0);
+
 	
 	CVector3 pos = { -290,180,0 };
 	for (int i = 0; i < 6; i++)
@@ -63,6 +81,7 @@ bool PvPModeSelect::Start()
 		}
 		PMMonster* pmm = NewGO<PMMonster>(0, "pmm");
 		pmm->init(i,pos);
+		pmm->Setteam(i >= 3);
 		pos += {260, 0, 0};
 		std::wstring ws = std::wstring(m_files[g_AIset[i]].begin(), m_files[g_AIset[i]].end());
 		pmm->SetPython(ws.c_str(), g_AIset[i]);
@@ -94,6 +113,7 @@ bool PvPModeSelect::Start()
 
 void PvPModeSelect::Update()
 {
+	
 	if (m_isfade)
 	{
 		if (m_fade->isFadeStop())
@@ -109,6 +129,27 @@ void PvPModeSelect::Update()
 			StageSetup::PVPSetup(m_files, monai, moid);
 			//m_BGM->Stop();
 			DeleteGO(this);
+		}
+	}
+	bool ispmm = false;
+	for (auto pmm : m_pmms)
+	{
+		ispmm = pmm->isOpen();
+		if (ispmm)
+			break;
+	}
+	if (m_mapo->IsOpen() || ispmm)
+		return;
+
+	if (m_mapo->IsClick())
+	{
+		m_mapo->OpenPreset();
+	}
+	for (auto pmm: m_pmms)
+	{
+		if (pmm->isClick())
+		{
+			pmm->Open();
 		}
 	}
 
@@ -160,111 +201,111 @@ void PvPModeSelect::Update()
 	}
 
 	
-	if (count == 6)
-	{
-		count = 0;
-	}
-	if (!ismonsel)
-	{
-		if (g_pad[0].IsTrigger(enButtonB))
-		{
-		}
-		else if (g_pad[0].IsTrigger(enButtonDown))
-		{
-			if (count < 3)
-			{
-				m_pmms[count]->notSelect();
-				count += 3;
-				m_pmms[count]->yesSelect();
-			}
-		}
-		else if (g_pad[0].IsTrigger(enButtonUp))
-		{
-			if (count > 2)
-			{
-				m_pmms[count]->notSelect();
-				count -= 3;
-				m_pmms[count]->yesSelect();
-			}
-		}
-		else if (g_pad[0].IsTrigger(enButtonLeft))
-		{
-			if (count != 0 && count != 3)
-			{
-				m_pmms[count]->notSelect();
-				count--;
-				m_pmms[count]->yesSelect();
-			}
-		}
-		else if (g_pad[0].IsTrigger(enButtonRight))
-		{
-			if (count != 2 && count != 5)
-			{
-				m_pmms[count]->notSelect();
-				count++;
-				m_pmms[count]->yesSelect();
-			}
-		}
-	}
+	//if (count == 6)
+	//{
+	//	count = 0;
+	//}
+	//if (!ismonsel)
+	//{
+	//	if (g_pad[0].IsTrigger(enButtonB))
+	//	{
+	//	}
+	//	else if (g_pad[0].IsTrigger(enButtonDown))
+	//	{
+	//		if (count < 3)
+	//		{
+	//			m_pmms[count]->notSelect();
+	//			count += 3;
+	//			m_pmms[count]->yesSelect();
+	//		}
+	//	}
+	//	else if (g_pad[0].IsTrigger(enButtonUp))
+	//	{
+	//		if (count > 2)
+	//		{
+	//			m_pmms[count]->notSelect();
+	//			count -= 3;
+	//			m_pmms[count]->yesSelect();
+	//		}
+	//	}
+	//	else if (g_pad[0].IsTrigger(enButtonLeft))
+	//	{
+	//		if (count != 0 && count != 3)
+	//		{
+	//			m_pmms[count]->notSelect();
+	//			count--;
+	//			m_pmms[count]->yesSelect();
+	//		}
+	//	}
+	//	else if (g_pad[0].IsTrigger(enButtonRight))
+	//	{
+	//		if (count != 2 && count != 5)
+	//		{
+	//			m_pmms[count]->notSelect();
+	//			count++;
+	//			m_pmms[count]->yesSelect();
+	//		}
+	//	}
+	//}
 
-	if (g_pad[0].IsTrigger(enButtonA))
-	{
-		if (curpos == 6)
-		{
-			Game* game = NewGO<Game>(0, "Game");
-			//game->GamePVPmodeInit(m_files, monai);.
-			
-			DeleteGO(this);
-		}
-		else if (!sel)
-		{
-			sel = true;
-		}
-		else
-		{
-			sel = false;
-		}
-	}
+	//if (g_pad[0].IsTrigger(enButtonA))
+	//{
+	//	if (curpos == 6)
+	//	{
+	//		Game* game = NewGO<Game>(0, "Game");
+	//		//game->GamePVPmodeInit(m_files, monai);.
+	//		
+	//		DeleteGO(this);
+	//	}
+	//	else if (!sel)
+	//	{
+	//		sel = true;
+	//	}
+	//	else
+	//	{
+	//		sel = false;
+	//	}
+	//}
 
-	if (!sel)
-	{
-		if (g_pad[0].IsTrigger(enButtonB))
-		{
-			NewGO<ModeSelect>(0, "modesel");
-			DeleteGO(this);
-		}
-		else if (g_pad[0].IsTrigger(enButtonDown))
-		{
-			if (curpos < 5+1)
-			{
-				curpos++;
-			}
-		}
-		else if (g_pad[0].IsTrigger(enButtonUp))
-		{
-			if (curpos > 0)
-			{
-				curpos--;
-			}
-		}
-	}
-	else
-	{
-		if (g_pad[0].IsTrigger(enButtonLeft))
-		{
-			if (monai[curpos] > 0)
-			{
-				monai[curpos]--;
-			}
-		}
-		else if (g_pad[0].IsTrigger(enButtonRight))
-		{
-			if (monai[curpos] < m_files.size()-1)
-			{
-				monai[curpos]++;
-			}
-		}
-	}
+	//if (!sel)
+	//{
+	//	if (g_pad[0].IsTrigger(enButtonB))
+	//	{
+	//		NewGO<ModeSelect>(0, "modesel");
+	//		DeleteGO(this);
+	//	}
+	//	else if (g_pad[0].IsTrigger(enButtonDown))
+	//	{
+	//		if (curpos < 5+1)
+	//		{
+	//			curpos++;
+	//		}
+	//	}
+	//	else if (g_pad[0].IsTrigger(enButtonUp))
+	//	{
+	//		if (curpos > 0)
+	//		{
+	//			curpos--;
+	//		}
+	//	}
+	//}
+	//else
+	//{
+	//	if (g_pad[0].IsTrigger(enButtonLeft))
+	//	{
+	//		if (monai[curpos] > 0)
+	//		{
+	//			monai[curpos]--;
+	//		}
+	//	}
+	//	else if (g_pad[0].IsTrigger(enButtonRight))
+	//	{
+	//		if (monai[curpos] < m_files.size()-1)
+	//		{
+	//			monai[curpos]++;
+	//		}
+	//	}
+	//}
 }
 
 void PvPModeSelect::LoadFiles()

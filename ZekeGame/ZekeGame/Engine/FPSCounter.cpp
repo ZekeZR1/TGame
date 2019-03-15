@@ -36,7 +36,7 @@ CFPSCounter::CFPSCounter(unsigned int smp)
 	// Œv‘ª
 	GetFPS();
 
-	m_font = NewGO<FontRender>(0, "fontrender");
+	m_font = NewGO<FontRender>(31, "fontrender");
 }
 
 

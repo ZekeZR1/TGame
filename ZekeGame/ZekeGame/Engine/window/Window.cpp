@@ -4,11 +4,13 @@ HWND g_hwnd = NULL;
 GraphicsEngine* g_graphicsEngine = NULL;
 int notch = 0;
 bool mEve[10];
-
+int g_Key = 0;
+bool g_isPressShift = false;
 //TODO : フルスクリーン表示できるようにする
 LRESULT CALLBACK MsgProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 {
 	static int nWheelFraction = 0;	// 回転量の端数
+	
 	switch (msg)
 	{
 	case WM_DESTROY:
@@ -67,6 +69,36 @@ LRESULT CALLBACK MsgProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 	{
 		//右ボタンを離した
 		mEve[2] = false;
+		break;
+	}
+	case WM_KEYDOWN:
+	{
+		
+		g_Key = wParam;
+		if (wParam == VK_SHIFT)
+		{
+			g_isPressShift = true;
+		}
+		/*switch (wParam)
+		{
+		case VK_RETURN:
+			break;
+		case VK_BACK:
+			break;
+		case VK_SHIFT:
+			break;
+		case VK_OEM_102:
+			break;
+		}*/
+		break;
+	}
+	case WM_KEYUP:
+	{
+		
+		if (wParam == VK_SHIFT)
+		{
+			g_isPressShift = false;
+		}
 		break;
 	}
 	default:

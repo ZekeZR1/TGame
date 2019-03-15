@@ -12,6 +12,8 @@
 #include "../Fade/Fade.h"
 #include "../Fade/MusicFade.h"
 
+#include "../Input/KeyBoard.h"
+
 
 ModeSelect::~ModeSelect()
 {
@@ -116,6 +118,43 @@ bool ModeSelect::Start()
 
 void ModeSelect::Update()
 {
+	static char code[4] = {0};
+	char buf = Keyboard::GetKeyChar();
+	if (buf != 0)
+	{
+		
+		int cur = 0;
+		if (strlen(code) == 3)
+		{
+			
+			for (int i = 0; i < 3; i++)
+			{
+				code[i] = 0;
+			}
+		}
+		else
+		{
+			for (int i = 0; i < 3; i++)
+			{
+				if (code[i] == 0)
+				{
+					cur = i;
+					break;
+				}
+			}
+		}
+		code[cur] = buf;
+
+		char st[255];
+		sprintf(st, "%s\n", code);
+		OutputDebugStringA(st);
+
+		if (strcmp(code, "End") == 0)
+		{
+			exit(0);
+			return;
+		}
+	}
 	/*if (g_pad[0].IsTrigger(enButtonA))
 	{
 		switch (m_sel)
