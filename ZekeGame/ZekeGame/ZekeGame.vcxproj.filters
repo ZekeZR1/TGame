@@ -485,6 +485,15 @@
     <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetClose.cpp">
       <Filter>Game\AIMonSelect\AIMonPreset</Filter>
     </ClCompile>
+    <ClCompile Include="Game\AIEdit\AIEditNodeMenuConfirmation.cpp">
+      <Filter>Game\AIEdite</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\AIEdit\AIEditNodeMenuWindow.cpp">
+      <Filter>Game\AIEdite</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\AIEdit\AIEditNodeSelectFonts.cpp">
+      <Filter>Game\AIEdite</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\fairy\hnd.FBX">
@@ -1304,6 +1313,15 @@
     <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetClose.h">
       <Filter>Game\AIMonSelect\AIMonPreset</Filter>
     </ClInclude>
+    <ClInclude Include="Game\AIEdit\AIEditNodeMenuConfirmation.h">
+      <Filter>Game\AIEdite</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\AIEdit\AIEditNodeMenuWindow.h">
+      <Filter>Game\AIEdite</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\AIEdit\AIEditNodeSelectFonts.h">
+      <Filter>Game\AIEdite</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="python36.lib" />
@@ -1572,6 +1590,9 @@
     </ImageContentTask>
     <ImageContentTask Include="Assets\Sprite\AIEdit\sieat.png">
       <Filter>Assets\AIEdit</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\AIEdit\buttyon.png">
+      <Filter>Assets</Filter>
     </ImageContentTask>
   </ItemGroup>
 </Project>

@@ -4,6 +4,7 @@ class AIEditNodeButton;
 class AIEditNode;
 class AIEditNodeTechnique;
 class AIEditNodeProcess;
+class AIEditNodeSelectFonts;
 class AIEditNodeTarget : public GameObject
 {
 
@@ -30,6 +31,11 @@ public:
 	{
 		return m_target;
 	}
+
+	bool Getfonttarget()
+	{
+		return fonttarget;
+	}
 	
 
 private:
@@ -37,7 +43,10 @@ private:
 	target m_target = ennull;
 	std::vector<FontRender*> m_fonts;
 	int button = 3;
-	bool Choice0;
+	bool Choice0 = false;
+	bool fonttarget = false;
+	bool fonts = false;
+
 	CVector3 m_position = CVector3::Zero();
 	AIEditNodeButton* m_aieditnodebutton;
 	SpriteRender* m_spriteRender;
@@ -46,6 +55,7 @@ private:
 	AIEditNode* m_aieditnode;
 	AIEditNodeTechnique* m_aieditnodetechique;
 	AIEditNodeProcess* m_aieditnodeprocess;
+	AIEditNodeSelectFonts* m_aieditnodeselectfonts;
 
 	std::vector<AIEditNodeButton*> m_nodebuttons;
 };

@@ -5,6 +5,7 @@ class GameCamera;
 class AIEditNodeButton;
 class AIEditNodeOrder;
 class AIEditNodeProcess;
+class AIEditNodeSelectFonts;
 class AIEditNodeTechnique : public GameObject
 {
 
@@ -41,12 +42,19 @@ public:
 		return m_technique;
 	}
 
+	bool Gettechniquefont()
+	{
+		return techniquefont;
+	}
+
 private:
 
 	Technique m_technique = ennull;
 	bool Tec = false;
 	bool Choice4 = false;
 	int button = 7;
+	int techniquefont = false;
+
 	CVector3 m_position = CVector3::Zero();
 	CVector3 m_pointposition = CVector3::Zero();
 
@@ -56,6 +64,7 @@ private:
 	AIEditNodeButton* m_aieditnodebutton;
 	AIEditNodeOrder* m_aieditnodeorder;
 	AIEditNodeProcess* m_aieditnodeprocess;
+	AIEditNodeSelectFonts* m_aieditnodeselectfonts;
 
 	std::vector<AIEditNodeButton*> m_nodebuttons;
 };

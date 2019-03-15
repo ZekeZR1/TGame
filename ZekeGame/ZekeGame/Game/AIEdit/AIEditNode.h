@@ -46,12 +46,18 @@ public:
 	{
 		return m_Node;
 	}
+
+	bool Getnodefont()
+	{
+		return Nodefont;
+	}
 		
 private:
 
 	Node m_Node = enNull;
 	int button = 4;						//ƒ{ƒ^ƒ“‚Ì”
 	bool Choice1 = false;				//‰½‚©‚ğ‘I‘ğ‚·‚é‚Ætrue‚É‚È‚é
+	bool Nodefont = false;
 	std::vector<FontRender*> m_fonts;
 	GameCursor * m_gamecursor;
 	AIEditNodeHp * m_aieditnodehp;
