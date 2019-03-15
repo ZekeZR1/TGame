@@ -45,7 +45,11 @@ bool TestScene::Start() {
 	}
 	g_graphicsEngine->SetAmbientLight(1.f);
 	m_model = NewGO<SkinModelRender>(0);
-	m_model->Init(L"Assets/modelData/Test.cmo", nullptr, 0, enFbxUpAxisZ, "PSMain", "VSMain", L"tes_Normal.png", L"tes_Normal.png");
+	m_model->Init(L"Assets/modelData/Test.cmo", nullptr, 0, enFbxUpAxisZ, "PSMain", "VSMain",nullptr , L"spectest.jpg");
+	CVector3 moveSpeed;
+
+	pos + moveSpeed * IGameTime().GetFrameDeltaTime();
+	m_model->SetPosition(pos);
 	return true;
 }
 
