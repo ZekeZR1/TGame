@@ -343,7 +343,7 @@ float4 PSMain(PSInput In) : SV_Target0
 	//float specularPow = 0.f;
 	//if (hasSpecularMap == 1) {
 	//	float4 specular = specularMap.Sample(Sampler, In.TexCoord);
-	//	specularPow = specular.x;
+	//	specularPow = specular.r;
 	//}
 	//else {
 	//	specularPow = specPow;
@@ -368,8 +368,8 @@ float4 PSMain(PSInput In) : SV_Target0
 	//	lig += specLig;
 	//}
 	////ambient
-	////lig += albedoColor.xyz  * ambientLight;
-	//lig += albedoColor.xyz  * 2.f;
+	//lig += albedoColor.xyz  * ambientLight;
+	////lig += albedoColor.xyz;//  *2.f;
 	//if (isShadowReciever == 1) {	//シャドウレシーバー。
 	//								//LVP空間から見た時の最も手前の深度値をシャドウマップから取得する。
 	//	float2 shadowMapUV = In.posInLVP.xy / In.posInLVP.w;

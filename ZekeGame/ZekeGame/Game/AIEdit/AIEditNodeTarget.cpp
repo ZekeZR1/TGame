@@ -7,6 +7,8 @@
 #include "AIEditNodeButton.h"
 #include "AIEditNodeTechnique.h"
 #include "AIEditNodeProcess.h"
+#include "AIEditNodeSelectFonts.h"
+#include "AIEditNodeSelectFonts.h"
 AIEditNodeTarget::~AIEditNodeTarget()
 {
 	DeleteGO(m_spriteRender);
@@ -29,6 +31,8 @@ bool AIEditNodeTarget::Start()
 	m_spriteRender = NewGO<SpriteRender>(3, "target");
 	m_spriteRender->Init(L"Assets/sprite/menu2.dds", 175, 205);
 	m_spriteRender->SetPivot({ 0.5f, 0.35f });
+
+	m_aieditnodeselectfonts = NewGO<AIEditNodeSelectFonts>(0, "fonts");
 
 	//CVector3 cursorpos = m_gamecursor->GetCursor();
 	//cursorpos.x += 135.0f;
@@ -54,13 +58,15 @@ bool AIEditNodeTarget::Start()
 	}
 	auto bacon = m_nodebuttons[0]->GetPos();
 	CVector2 m_fontpos = CVector2::Zero();
-	m_fontpos.x = bacon.x - 50.0;
-	m_fontpos.y = bacon.y + 110.0;
-	m_fonts[0]->Init(L"Ž©•ª", { m_fontpos }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
+	m_fontpos.x = bacon.x - 65.0;
+	m_fontpos.y = bacon.y + 105.0;
+	m_fonts[0]->Init(L"‚¶‚Ô‚ñ", { m_fontpos }, 0.0, CVector4::White, 0.9, { 0.0,0.0 });
 	m_fontpos.y -= 55.f;
-	m_fonts[1]->Init(L"–¡•û", { m_fontpos }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
+	m_fonts[1]->Init(L"‚Ý‚©‚½", { m_fontpos }, 0.0, CVector4::White, 0.9, { 0.0,0.0 });
+	m_fontpos.x += 20.f;
 	m_fontpos.y -= 55.f;
-	m_fonts[2]->Init(L" “G", { m_fontpos }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
+	m_fonts[2]->Init(L"‚Ä‚«", { m_fontpos }, 0.0, CVector4::White, 0.9, { 0.0,0.0 });
+
 
 	return true;
 }
@@ -69,14 +75,14 @@ void AIEditNodeTarget::Num()
 {
 	if (m_aieditnodeprocess->GettechniqeCount() <= 1) {
 		NewGO<AIEditNode>(0, "firstwin");
-
 		Choice0 = true;
+		fonttarget = true;
 	}
 
 	if (m_aieditnodeprocess->GettechniqeCount() > 1) {
 		m_aieditnodeprocess->Technique();
-
 		Choice0 = true;
+		fonttarget = true;
 	}
 }
 
@@ -97,7 +103,7 @@ void AIEditNodeTarget::Update()
 {
 
 	CVector3 cursorpos = m_gamecursor->GetCursor();
-
+	
 	for (int i = 0; i < button; i++) {
 		SpriteRender* sp = m_nodebuttons[i]->GetSpriteRender();
 		sp->SetCollisionTarget(cursorpos);

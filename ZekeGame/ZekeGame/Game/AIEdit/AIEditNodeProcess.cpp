@@ -33,6 +33,7 @@ bool AIEditNodeProcess::Start()
 	}
 	m_aieditnodemenu = NewGO<AIEditNodeMenu>(0, "menu");
 
+
 	//‚·‚×‚Ä‚Ìflagkeep‚Énull‚ğ‘ã“ü‚µ‚Ä‚¨‚­B
 	for (int i = 0; i <= 7; i++) {
 

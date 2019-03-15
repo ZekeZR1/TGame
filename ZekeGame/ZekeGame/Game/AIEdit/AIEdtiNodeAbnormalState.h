@@ -28,11 +28,18 @@ public:
 		return m_abnormal;
 	}
 
+	bool Getabnormalfont()
+	{
+		return abnormalfont;
+	}
+
 private:
 
 	Abnormal m_abnormal = ennull;
 	int button = 4;
 	bool Choice6 = false;
+	bool abnormalfont = false;
+
 	std::vector<FontRender*> m_fonts;
 	GameCursor* m_gamecursor;
 	SpriteRender* m_spriteRender;

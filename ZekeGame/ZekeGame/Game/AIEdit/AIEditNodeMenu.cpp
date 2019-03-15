@@ -16,6 +16,9 @@
 #include "AIEdtiNodeAbnormalState.h"
 #include "AIEditMode.h"
 #include "../Title/ModeSelect.h"
+#include "AIEditNodeMenuConfirmation.h"
+#include "AIEditNodeMenuWindow.h"
+#include "AIEditNodeSelectFonts.h"
 
 AIEditNodeMenu::~AIEditNodeMenu()
 {
@@ -34,7 +37,6 @@ AIEditNodeMenu::~AIEditNodeMenu()
 bool AIEditNodeMenu::Start()
 {
 	m_gamecursor = FindGO<GameCursor>("cursor");
-	m_aieditnodebutton = FindGO<AIEditNodeButton>("button");
 	m_aieditnodeprocess = FindGO<AIEditNodeProcess>("process");
 
 	m_spriterender2 = NewGO<SpriteRender>(2,"menu");
@@ -148,6 +150,18 @@ void AIEditNodeMenu::BackMenu()
 		return true;
 	});
 
+	QueryGOs<AIEditNodeMenuConfirmation>("menuconf", [&](AIEditNodeMenuConfirmation*go)->bool 
+	{
+		DeleteGO(go);
+		return true;
+	});
+
+	QueryGOs<AIEditNodeSelectFonts>("fonts", [&](AIEditNodeSelectFonts*go)->bool 
+	{
+		DeleteGO(go);
+		return true;
+	});
+
 	//セレクトをNewする。
 	m_modeselect = NewGO<ModeSelect>(0, "modeselect");
 
@@ -156,6 +170,8 @@ void AIEditNodeMenu::BackMenu()
 
 void AIEditNodeMenu::Menuwin()
 {
+
+	//m_aieditnodemenuwindow = NewGO<AIEditNodeMenuWindow>(0, "menuwin");
 
 	if (Mouse::isTrigger(enLeftClick)) {	//左クリック
 
@@ -166,48 +182,76 @@ void AIEditNodeMenu::Menuwin()
 				m_spriteRender->Init(L"Assets/sprite/menu.dds", 400, 400, true);
 				m_spriteRender->SetPosition(m_position);
 				m_positionselect = m_position;
-				m_positionselect.y += 300.f;
+				m_positionselect.y += 260.f;
 
 				for (int i = 0; i < button; i++) {
-					SpriteRender* sp = NewGO<SpriteRender>(16, "menuselectsieat");
-					sp->Init(L"Assets/sprite/menuselectsieat.dds", 350, 120, true);
-					m_positionselect.y -= 200.f;
-					sp->SetPosition(m_positionselect);
-					m_buttons.push_back(sp);
+				    sp.push_back(NewGO<SpriteRender>(16, "menuselectsieat"));
+					sp[i]->Init(L"Assets/sprite/menuselectsieat.dds", 350, 120, true);
+					m_positionselect.y -= 130.f;
+					sp[i]->SetPosition(m_positionselect);
+					m_buttons.push_back(sp[i]);
 					m_fonts.push_back(NewGO<FontRender>(17));
 					m_fonts[i]->SetTextType(CFont::en_Japanese);
 				}
-				//auto bacon = m_nodebuttons[0]->GetPos();
+
 				CVector2 m_fontpos = CVector2::Zero();
 				m_fontpos.x += m_positionselect.x -= 100;
-				m_fontpos.y += m_positionselect.y += 220;
+				m_fontpos.y += m_positionselect.y += 300;
 				m_fonts[0]->Init(L"セレクトメニューへ戻る", { m_fontpos }, 0.0, CVector4::Red, 1.0, { 0.0,0.0 });
-				m_fontpos.y += m_positionselect.y -= 620;
-				m_fonts[1]->Init(L"戻る", { m_fontpos }, 0.0, CVector4::Red, 1.0, { 0.0,0.0 });
+				m_fontpos.y += m_positionselect.y -= 320;
+				m_fonts[1]->Init(L"特殊技一覧", { m_fontpos }, 0.0, CVector4::Red, 1.0, { 0.0,0.0 });
+				m_fontpos.y += m_positionselect.y += 20;
+				m_fonts[2]->Init(L"戻る", { m_fontpos }, 0.0, CVector4::Red, 1.0, { 0.0,0.0 });
 				menu = true;
+
+			}
+		}
+	}
+}
+
+
+void AIEditNodeMenu::Update()
+{
+
+	CVector3 cursorpos = m_gamecursor->GetCursor();
+	if (menuselect == false) {
+		m_spriterender2->SetCollisionTarget(cursorpos);
+		if (Mouse::isTrigger(enLeftClick)) {
+			if (m_spriterender2->isCollidingTarget()) {
+				Menuwin();
+				menuselect = true;
 			}
 		}
 	}
 
-}
-
-void AIEditNodeMenu::Update()
-{
-	CVector3 cursorpos = m_gamecursor->GetCursor();
-
-	m_spriterender2->SetCollisionTarget(cursorpos);
-
-	Menuwin();
+	if(menuselect == true){
+		for (int i = 0; i < button; i++) {
+			//SpriteRender* sp2 = sp[i];
+			sp[i]->SetCollisionTarget(cursorpos);
+		}
+	}
 
 	if (menu == true) {
-
 		m_spriteRender->SetCollisionTarget(cursorpos);
-
 		if (Mouse::isTrigger(enLeftClick)) {	//左クリック
-	
-			if (m_spriteRender->isCollidingTarget()){
-				BackMenu();
-				m_aieditnodeprocess->AISave();
+			
+			//メニューセレクトへ戻るを選択した場合。
+			if (sp[button - 3]->isCollidingTarget()) {
+				if (menuconf == false) {
+					m_aieditnodemenuconfirmation = NewGO<AIEditNodeMenuConfirmation>(0, "menuconf");
+					//m_aieditnodeprocess->AISave();
+					menuconf = true;
+				}
+			}
+
+			//特殊技一覧を選択した場合。
+			if (sp[button - 2]->isCollidingTarget()) {
+
+			}
+
+			//戻るを選択した場合。
+			if (sp[button - 1]->isCollidingTarget()) {
+				//DeleteGO(Menuwin);
 			}
 		}
 	}	

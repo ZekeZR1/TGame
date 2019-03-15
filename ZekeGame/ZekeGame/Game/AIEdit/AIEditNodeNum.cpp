@@ -81,6 +81,7 @@ void AIEditNodeNum::Order()
 	if (Choice3 == false) {
 		m_aieditnodeorder = NewGO<AIEditNodeOrder>(0, "Order");
 		Choice3 = true;
+		Numfont = true;
 	}
 	
 }

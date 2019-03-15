@@ -7,6 +7,7 @@
 #include "AIEditNodeButton.h"
 #include "AIEditNodeOrder.h"
 #include "AIEditNodeProcess.h"
+#include "AIEditNodeSelectFonts.h"
 
 AIEditNodeTechnique ::~AIEditNodeTechnique()
 {
@@ -26,20 +27,19 @@ bool AIEditNodeTechnique::Start()
 {
 
 	m_gamecursor = FindGO<GameCursor>("cursor");
-	m_spriteRender = NewGO<SpriteRender>(6, "Technique");	
+	m_spriteRender = NewGO<SpriteRender>(10, "Technique");	
 	m_aieditnodeprocess = FindGO<AIEditNodeProcess>("process");
 	m_spriteRender->Init(L"Assets/sprite/menu2.dds", 175, 470);
 	m_spriteRender->SetPivot({ 0.5f, 0.67f });
 	CVector3 cursorpos = m_gamecursor->GetCursor();
 	cursorpos.x += 135.0f;
-	//cursorpos.y += -140.0f;
 	m_position = cursorpos;
 	m_spriteRender->SetPosition(m_position);	//AIEditNodeのボタンの座標座標
 
 	//ボタン
 	for (int i = 0; i < button; i++) {               //ボタンの数分ループする。
-		m_aieditnodebutton = NewGO<AIEditNodeButton>(7, "button");
-		m_aieditnodebutton->SetPri(7);
+		m_aieditnodebutton = NewGO<AIEditNodeButton>(11, "button");
+		m_aieditnodebutton->SetPri(11);
 		m_aieditnodebutton->SetButton(i + 1);
 		m_aieditnodebutton->SetPos(m_position);
 		m_nodebuttons.push_back(m_aieditnodebutton);
@@ -48,30 +48,30 @@ bool AIEditNodeTechnique::Start()
 
 	//フォント
 	for (int i = 0; i < button; i++) {
-		m_fonts.push_back(NewGO<FontRender>(8));
+		m_fonts.push_back(NewGO<FontRender>(12));
 		m_fonts[i]->SetTextType(CFont::en_Japanese);
 	}
 	
 	auto bacon = m_nodebuttons[0]->GetPos();
 	CVector2 m_fontpos = CVector2::Zero();
-	m_fontpos.x = bacon.x - 50.0;
-	m_fontpos.y = bacon.y + 110.0;
-	m_fonts[0]->Init(L"攻撃", { m_fontpos }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
-	m_fontpos.x -= 12.f;
-	m_fontpos.y -= 57.f;
-	m_fonts[1]->Init(L"逃げる", { m_fontpos }, 0.0, CVector4::White, 0.9, { 0.0,0.0 });
-	m_fontpos.x += 12.f;
+	m_fontpos.x = bacon.x - 63.0;
+	m_fontpos.y = bacon.y + 100.0;
+	m_fonts[0]->Init(L"こうげき", { m_fontpos }, 0.0, CVector4::White, 0.7, { 0.0,0.0 });
+	m_fontpos.x += 1.f;
+	m_fontpos.y -= 49.f;
+	m_fonts[1]->Init(L"にげる", { m_fontpos }, 0.0, CVector4::White, 0.9, { 0.0,0.0 });
+	m_fontpos.x -= 1.f;
+	m_fontpos.y -= 60.f;
+	m_fonts[2]->Init(L"ついせき", { m_fontpos }, 0.0, CVector4::White, 0.7, { 0.0,0.0 });
+	m_fontpos.y -= 50.f;
+	m_fonts[3]->Init(L"まもる", { m_fontpos }, 0.0, CVector4::White, 0.9, { 0.0,0.0 });
+	m_fontpos.y -= 60.f;
+	m_fonts[4]->Init(L"かいふく", { m_fontpos }, 0.0, CVector4::White, 0.7, { 0.0,0.0 });
+	m_fontpos.x -= 8.f;
 	m_fontpos.y -= 55.f;
-	m_fonts[2]->Init(L"追跡", { m_fontpos }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
+	m_fonts[5]->Init(L"とくしゅ１", { m_fontpos }, 0.0, CVector4::White, 0.6, { 0.0,0.0 });
 	m_fontpos.y -= 55.f;
-	m_fonts[3]->Init(L"守る", { m_fontpos }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
-	m_fontpos.y -= 55.f;
-	m_fonts[4]->Init(L"回復", { m_fontpos }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
-	m_fontpos.x -= 10.f;
-	m_fontpos.y -= 65.f;
-	m_fonts[5]->Init(L"特殊技1", { m_fontpos }, 0.0, CVector4::White, 0.7, { 0.0,0.0 });
-	m_fontpos.y -= 55.f;
-	m_fonts[6]->Init(L"特殊技2", { m_fontpos }, 0.0, CVector4::White, 0.7, { 0.0,0.0 });
+	m_fonts[6]->Init(L"とくしゅ２", { m_fontpos }, 0.0, CVector4::White, 0.6, { 0.0,0.0 });
 
 	return true;
 }
@@ -84,6 +84,7 @@ void AIEditNodeTechnique::Order()
 		m_aieditnodeorder = NewGO<AIEditNodeOrder>(0, "Order");
 		Choice4 = true;
 		m_aieditnodeorder->SetTec(true);
+		techniquefont = true;
 	}
 }
 
