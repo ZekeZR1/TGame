@@ -245,9 +245,11 @@
     <ClCompile Include="Game\AIEdit\AIEditNodeInequ.cpp" />
     <ClCompile Include="Game\AIEdit\AIEditNodeMass.cpp" />
     <ClCompile Include="Game\AIEdit\AIEditNodeMenu.cpp" />
+    <ClCompile Include="Game\AIEdit\AIEditNodeMenuConfirmation.cpp" />
     <ClCompile Include="Game\AIEdit\AIEditNodeNum.cpp" />
     <ClCompile Include="Game\AIEdit\AIEditNodeOrder.cpp" />
     <ClCompile Include="Game\AIEdit\AIEditNodeProcess.cpp" />
+    <ClCompile Include="Game\AIEdit\AIEditNodeSelectFonts.cpp" />
     <ClCompile Include="Game\AIEdit\AIEditNodeTarget.cpp" />
     <ClCompile Include="Game\AIEdit\AIEditNodeTechnique.cpp" />
     <ClCompile Include="Game\AIEdit\AIEdtiNodeAbnormalState.cpp" />
@@ -419,9 +421,11 @@
     <ClInclude Include="Game\AIEdit\AIEditNodeInequ.h" />
     <ClInclude Include="Game\AIEdit\AIEditNodeMass.h" />
     <ClInclude Include="Game\AIEdit\AIEditNodeMenu.h" />
+    <ClInclude Include="Game\AIEdit\AIEditNodeMenuConfirmation.h" />
     <ClInclude Include="Game\AIEdit\AIEditNodeNum.h" />
     <ClInclude Include="Game\AIEdit\AIEditNodeOrder.h" />
     <ClInclude Include="Game\AIEdit\AIEditNodeProcess.h" />
+    <ClInclude Include="Game\AIEdit\AIEditNodeSelectFonts.h" />
     <ClInclude Include="Game\AIEdit\AIEditNodeTarget.h" />
     <ClInclude Include="Game\AIEdit\AIEditNodeTechnique.h" />
     <ClInclude Include="Game\AIEdit\AIEdtiNodeAbnormalState.h" />
