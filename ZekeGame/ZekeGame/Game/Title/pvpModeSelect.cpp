@@ -23,6 +23,8 @@
 
 
 #include "MonAIPreset/MonAIPresetSave.h"
+#include "MonAIPreset/MonAIPresetLoad.h"
+#include "MonAIPreset/MonAIPresetOpen.h"
 
 PvPModeSelect::~PvPModeSelect()
 {
@@ -35,12 +37,12 @@ PvPModeSelect::~PvPModeSelect()
 	DeleteGO(m_back);
 	DeleteGO(m_return);
 	DeleteGO(m_returnMoji);
+	DeleteGO(m_mapo);
 }
 
 bool PvPModeSelect::Start()
 {
-	MonAIPresetSave* maps = NewGO<MonAIPresetSave>(0, "maps");
-	maps->init(this,4);
+	
 
 	m_BGM = FindGO<Sound>("BGM");
 	if (m_BGM == nullptr)
@@ -59,6 +61,17 @@ bool PvPModeSelect::Start()
 
 	m_files = PythonFileLoad::FilesLoad();
 	m_cursor = NewGO<GameCursor>(0, "cursor");
+
+
+	/*MonAIPresetSave* maps = NewGO<MonAIPresetSave>(0, "maps");
+	maps->init(this, 0,m_cursor);
+
+	MonAIPresetLoad* mapl = NewGO<MonAIPresetLoad>(0, "mapl");
+	mapl->init(this, 0, 0, m_cursor);*/
+
+	m_mapo = NewGO<MonAIPresetOpen>(0, "mapo");
+	m_mapo->init(this, m_cursor, 0);
+
 	
 	CVector3 pos = { -290,180,0 };
 	for (int i = 0; i < 6; i++)
@@ -69,6 +82,7 @@ bool PvPModeSelect::Start()
 		}
 		PMMonster* pmm = NewGO<PMMonster>(0, "pmm");
 		pmm->init(i,pos);
+		pmm->Setteam(i >= 3);
 		pos += {260, 0, 0};
 		std::wstring ws = std::wstring(m_files[g_AIset[i]].begin(), m_files[g_AIset[i]].end());
 		pmm->SetPython(ws.c_str(), g_AIset[i]);
@@ -100,6 +114,7 @@ bool PvPModeSelect::Start()
 
 void PvPModeSelect::Update()
 {
+	
 	if (m_isfade)
 	{
 		if (m_fade->isFadeStop())
@@ -117,160 +132,185 @@ void PvPModeSelect::Update()
 			DeleteGO(this);
 		}
 	}
-
-	bool ismonsel = false;
-	int count = 0;
+	bool ispmm = false;
 	for (auto pmm : m_pmms)
 	{
-		ismonsel = pmm->isMonSel();
-		if (ismonsel || pmm->isSelect())
-		{
+		ispmm = pmm->isOpen();
+		if (ispmm)
 			break;
-		}
-
-		count++;
-	}
-	if (ismonsel)
-		return;
-	CVector3 curs = m_cursor->GetCursor();
-	m_GO->SetCollisionTarget(curs);
-	if (m_GO->isCollidingTarget())
-	{
-		if (Mouse::isTrigger(enLeftClick))
-		{
-			m_fade->FadeOut();
-			m_isfade = true;
-			MusicFade* mf = NewGO<MusicFade>(0, "mf");
-			mf->init(m_BGM, m_vol);
-		}
 	}
 
-	m_returnMoji->SetCollisionTarget(curs);
-	if (m_returnMoji->isCollidingTarget())
+	static bool isopen = false;
+	if (!(m_mapo->IsOpen() || ispmm || isopen))
 	{
-		if (!isReturnOver)
-		{
-			m_return->Init(L"Assets/sprite/simple_button_blue.dds", m_returnS.x, m_returnS.y);
-			isReturnOver = true;
-		}
-		if (Mouse::isTrigger(enLeftClick))
-		{
-			NewGO<ModeSelect>(0, "modesel");
-			DeleteGO(this);
-		}
-	}
-	else if(isReturnOver)
-	{
-		m_return->Init(L"Assets/sprite/simple_button.dds", m_returnS.x, m_returnS.y);
-		isReturnOver = false;
-	}
 
-	
-	if (count == 6)
-	{
-		count = 0;
-	}
-	if (!ismonsel)
-	{
-		if (g_pad[0].IsTrigger(enButtonB))
-		{
-		}
-		else if (g_pad[0].IsTrigger(enButtonDown))
-		{
-			if (count < 3)
-			{
-				m_pmms[count]->notSelect();
-				count += 3;
-				m_pmms[count]->yesSelect();
-			}
-		}
-		else if (g_pad[0].IsTrigger(enButtonUp))
-		{
-			if (count > 2)
-			{
-				m_pmms[count]->notSelect();
-				count -= 3;
-				m_pmms[count]->yesSelect();
-			}
-		}
-		else if (g_pad[0].IsTrigger(enButtonLeft))
-		{
-			if (count != 0 && count != 3)
-			{
-				m_pmms[count]->notSelect();
-				count--;
-				m_pmms[count]->yesSelect();
-			}
-		}
-		else if (g_pad[0].IsTrigger(enButtonRight))
-		{
-			if (count != 2 && count != 5)
-			{
-				m_pmms[count]->notSelect();
-				count++;
-				m_pmms[count]->yesSelect();
-			}
-		}
-	}
 
-	if (g_pad[0].IsTrigger(enButtonA))
-	{
-		if (curpos == 6)
+		if (m_mapo->IsClick())
 		{
-			Game* game = NewGO<Game>(0, "Game");
-			//game->GamePVPmodeInit(m_files, monai);.
-			
-			DeleteGO(this);
+			m_mapo->OpenPreset();
 		}
-		else if (!sel)
+		for (auto pmm : m_pmms)
 		{
-			sel = true;
+			if (pmm->isClick())
+			{
+				pmm->Open();
+			}
 		}
-		else
-		{
-			sel = false;
-		}
-	}
 
-	if (!sel)
-	{
-		if (g_pad[0].IsTrigger(enButtonB))
+
+		bool ismonsel = false;
+		int count = 0;
+		for (auto pmm : m_pmms)
 		{
-			NewGO<ModeSelect>(0, "modesel");
-			DeleteGO(this);
-		}
-		else if (g_pad[0].IsTrigger(enButtonDown))
-		{
-			if (curpos < 5+1)
+			ismonsel = pmm->isMonSel();
+			if (ismonsel || pmm->isSelect())
 			{
-				curpos++;
+				break;
+			}
+
+			count++;
+		}
+		if (ismonsel)
+			return;
+		CVector3 curs = m_cursor->GetCursor();
+		m_GO->SetCollisionTarget(curs);
+		if (m_GO->isCollidingTarget())
+		{
+			if (Mouse::isTrigger(enLeftClick))
+			{
+				m_fade->FadeOut();
+				m_isfade = true;
+				MusicFade* mf = NewGO<MusicFade>(0, "mf");
+				mf->init(m_BGM, m_vol);
 			}
 		}
-		else if (g_pad[0].IsTrigger(enButtonUp))
+
+		m_returnMoji->SetCollisionTarget(curs);
+		if (m_returnMoji->isCollidingTarget())
 		{
-			if (curpos > 0)
+			if (!isReturnOver)
 			{
-				curpos--;
+				m_return->Init(L"Assets/sprite/simple_button_blue.dds", m_returnS.x, m_returnS.y);
+				isReturnOver = true;
 			}
+			if (Mouse::isTrigger(enLeftClick))
+			{
+				NewGO<ModeSelect>(0, "modesel");
+				DeleteGO(this);
+			}
+		}
+		else if (isReturnOver)
+		{
+			m_return->Init(L"Assets/sprite/simple_button.dds", m_returnS.x, m_returnS.y);
+			isReturnOver = false;
 		}
 	}
-	else
-	{
-		if (g_pad[0].IsTrigger(enButtonLeft))
-		{
-			if (monai[curpos] > 0)
-			{
-				monai[curpos]--;
-			}
-		}
-		else if (g_pad[0].IsTrigger(enButtonRight))
-		{
-			if (monai[curpos] < m_files.size()-1)
-			{
-				monai[curpos]++;
-			}
-		}
-	}
+	isopen = m_mapo->IsOpen();
+	//if (count == 6)
+	//{
+	//	count = 0;
+	//}
+	//if (!ismonsel)
+	//{
+	//	if (g_pad[0].IsTrigger(enButtonB))
+	//	{
+	//	}
+	//	else if (g_pad[0].IsTrigger(enButtonDown))
+	//	{
+	//		if (count < 3)
+	//		{
+	//			m_pmms[count]->notSelect();
+	//			count += 3;
+	//			m_pmms[count]->yesSelect();
+	//		}
+	//	}
+	//	else if (g_pad[0].IsTrigger(enButtonUp))
+	//	{
+	//		if (count > 2)
+	//		{
+	//			m_pmms[count]->notSelect();
+	//			count -= 3;
+	//			m_pmms[count]->yesSelect();
+	//		}
+	//	}
+	//	else if (g_pad[0].IsTrigger(enButtonLeft))
+	//	{
+	//		if (count != 0 && count != 3)
+	//		{
+	//			m_pmms[count]->notSelect();
+	//			count--;
+	//			m_pmms[count]->yesSelect();
+	//		}
+	//	}
+	//	else if (g_pad[0].IsTrigger(enButtonRight))
+	//	{
+	//		if (count != 2 && count != 5)
+	//		{
+	//			m_pmms[count]->notSelect();
+	//			count++;
+	//			m_pmms[count]->yesSelect();
+	//		}
+	//	}
+	//}
+
+	//if (g_pad[0].IsTrigger(enButtonA))
+	//{
+	//	if (curpos == 6)
+	//	{
+	//		Game* game = NewGO<Game>(0, "Game");
+	//		//game->GamePVPmodeInit(m_files, monai);.
+	//		
+	//		DeleteGO(this);
+	//	}
+	//	else if (!sel)
+	//	{
+	//		sel = true;
+	//	}
+	//	else
+	//	{
+	//		sel = false;
+	//	}
+	//}
+
+	//if (!sel)
+	//{
+	//	if (g_pad[0].IsTrigger(enButtonB))
+	//	{
+	//		NewGO<ModeSelect>(0, "modesel");
+	//		DeleteGO(this);
+	//	}
+	//	else if (g_pad[0].IsTrigger(enButtonDown))
+	//	{
+	//		if (curpos < 5+1)
+	//		{
+	//			curpos++;
+	//		}
+	//	}
+	//	else if (g_pad[0].IsTrigger(enButtonUp))
+	//	{
+	//		if (curpos > 0)
+	//		{
+	//			curpos--;
+	//		}
+	//	}
+	//}
+	//else
+	//{
+	//	if (g_pad[0].IsTrigger(enButtonLeft))
+	//	{
+	//		if (monai[curpos] > 0)
+	//		{
+	//			monai[curpos]--;
+	//		}
+	//	}
+	//	else if (g_pad[0].IsTrigger(enButtonRight))
+	//	{
+	//		if (monai[curpos] < m_files.size()-1)
+	//		{
+	//			monai[curpos]++;
+	//		}
+	//	}
+	//}
 }
 
 void PvPModeSelect::LoadFiles()

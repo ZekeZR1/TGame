@@ -2,12 +2,27 @@
 
 class GameCursor;
 class SuperMonsterSelect;
+class MonAIPreset;
 class MonAIPresetLoad :public GameObject
 {
 public:
+	void OnDestroy() override;
 	bool Start();
-	void init(SuperMonsterSelect* sms,int num,GameCursor* cursor);
+	void init(SuperMonsterSelect* sms, int num, int team, GameCursor* cursor, MonAIPreset* mapr);
 	void Update();
+
+	//セットポｓ
+	//pos: セットするポジション
+	void setPos(CVector3 pos)
+	{
+		m_pos = pos;
+	}
+
+	//クリックされたか
+	bool IsClick()
+	{
+		return m_isClick;
+	}
 private:
 	SpriteRender* m_button = nullptr;
 	FontRender* m_font = nullptr;
@@ -15,4 +30,10 @@ private:
 
 	SuperMonsterSelect* m_sms = nullptr;
 	int m_num = 0;
+	int m_team = 0;
+
+	CVector3 m_pos = CVector3::Zero();
+	bool m_isClick = false;					//クッリクされたｋ？
+
+	MonAIPreset* m_map = nullptr;
 };

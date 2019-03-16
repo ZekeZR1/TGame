@@ -88,29 +88,34 @@ bool ModeSelect::Start()
 
 	b = new button();
 	b->frame->SetPosition(pos);
-	b->moji->Init(L"Assets/sprite/modesel_dung.dds",m_bSize.x, m_bSize.y);
-	b->moji->SetPosition(pos);
+	//b->moji->Init(L"Assets/sprite/modesel_dung.dds",m_bSize.x, m_bSize.y);
+	//b->moji->SetPosition(pos);
+	b->font->Init(L"ダンジョン", pos.ToTwo()+m_butoffs, 0, CVector4::White, 2, { 1,1 });
+
 	m_buttons.push_back(b);
 	pos += add;
 
 	b = new button();
 	b->frame->SetPosition(pos);
-	b->moji->Init(L"Assets/sprite/modesel_local.dds", m_bSize.x, m_bSize.y);
-	b->moji->SetPosition(pos);
+	//b->moji->Init(L"Assets/sprite/modesel_local.dds", m_bSize.x, m_bSize.y);
+	//b->moji->SetPosition(pos);
+	b->font->Init(L"対戦", pos.ToTwo()+m_butoffs, 0, CVector4::White, 2, { 1,1 });
 	m_buttons.push_back(b);
 	pos += add;
 
 	b = new button();
 	b->frame->SetPosition(pos);
-	b->moji->Init(L"Assets/sprite/modesel_world.dds", m_bSize.x, m_bSize.y);
-	b->moji->SetPosition(pos);
+	//b->moji->Init(L"Assets/sprite/modesel_world.dds", m_bSize.x, m_bSize.y);
+	//b->moji->SetPosition(pos);
+	b->font->Init(L"ネット対戦", pos.ToTwo() + m_butoffs, 0, CVector4::White, 2, { 1,1 });
 	m_buttons.push_back(b);
 	pos += add;
 
 	b = new button();
 	b->frame->SetPosition(pos);
-	b->moji->Init(L"Assets/sprite/modesel_aiedi.dds", m_bSize.x, m_bSize.y);
-	b->moji->SetPosition(pos);
+	//b->moji->Init(L"Assets/sprite/modesel_aiedi.dds", m_bSize.x, m_bSize.y);
+	//b->moji->SetPosition(pos);
+	b->font->Init(L"AIエディット", pos.ToTwo() + m_butoffs, 0, CVector4::White, 2, { 1,1 });
 	m_buttons.push_back(b);
 
 	return true;
@@ -267,7 +272,8 @@ void ModeSelect::Update()
 				CVector3 pos = frame->GetPosition();
 				pos.x -= 40;
 				frame->SetPosition(pos);
-				button->moji->SetPosition(pos);
+				button->font->SetPosition(pos.ToTwo() + m_butoffs);
+				//button->moji->SetPosition(pos);
 				m_count = count;
 
 				switch (count)
@@ -300,7 +306,8 @@ void ModeSelect::Update()
 				CVector3 pos = frame->GetPosition();
 				pos.x += 40;
 				frame->SetPosition(pos);
-				button->moji->SetPosition(pos);
+				button->font->SetPosition(pos.ToTwo() + m_butoffs);
+				//button->moji->SetPosition(pos);
 
 			}
 		}

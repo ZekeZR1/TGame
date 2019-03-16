@@ -4,6 +4,7 @@ class AIEditNode;
 class AIEditNodeOrder;
 class AIEditNodeTarget;
 class AIEditNodeProcess;
+class AIEditNodeSelectFonts;
 class AIEditLine : public GameObject
 {
 
@@ -36,5 +37,6 @@ private:
 	AIEditNode * m_aieditnode;
 	AIEditNodeTarget* m_aieditnodetarget;
 	AIEditNodeProcess* m_aieditnodeprocess;
+	AIEditNodeSelectFonts* m_aieditnodeselectfonts;
 
 };

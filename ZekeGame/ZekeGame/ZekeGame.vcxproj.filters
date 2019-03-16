@@ -479,6 +479,24 @@
     <ClCompile Include="Game\Input\KeyBoard.cpp">
       <Filter>Game\Input</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetOpen.cpp">
+      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetClose.cpp">
+      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetIcons.cpp">
+      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetIcon.cpp">
+      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\AIEdit\AIEditNodeSelectFonts.cpp">
+      <Filter>Game\AIEdite</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\AIEdit\AIEditNodeMenuConfirmation.cpp">
+      <Filter>Game\AIEdite</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\fairy\hnd.FBX">
@@ -1292,6 +1310,24 @@
     <ClInclude Include="Game\Input\KeyBoard.h">
       <Filter>Game\Input</Filter>
     </ClInclude>
+    <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetOpen.h">
+      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetClose.h">
+      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetIcons.h">
+      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetIcon.h">
+      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\AIEdit\AIEditNodeSelectFonts.h">
+      <Filter>Game\AIEdite</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\AIEdit\AIEditNodeMenuConfirmation.h">
+      <Filter>Game\AIEdite</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="python36.lib" />
@@ -1330,48 +1366,6 @@
     </Image>
     <Image Include="Assets\Sprite\result\res_Win.png">
       <Filter>Assets\result</Filter>
-    </Image>
-    <Image Include="Assets\Sprite\AIEdit\arrow.png">
-      <Filter>Assets\AIEdit</Filter>
-    </Image>
-    <Image Include="Assets\Sprite\AIEdit\click.png">
-      <Filter>Assets\AIEdit</Filter>
-    </Image>
-    <Image Include="Assets\Sprite\AIEdit\haik.png">
-      <Filter>Assets\AIEdit</Filter>
-    </Image>
-    <Image Include="Assets\Sprite\AIEdit\help.png">
-      <Filter>Assets\AIEdit</Filter>
-    </Image>
-    <Image Include="Assets\Sprite\AIEdit\hozon.png">
-      <Filter>Assets\AIEdit</Filter>
-    </Image>
-    <Image Include="Assets\Sprite\AIEdit\karipoint.png">
-      <Filter>Assets\AIEdit</Filter>
-    </Image>
-    <Image Include="Assets\Sprite\AIEdit\masss.png">
-      <Filter>Assets\AIEdit</Filter>
-    </Image>
-    <Image Include="Assets\Sprite\AIEdit\menu.png">
-      <Filter>Assets\AIEdit</Filter>
-    </Image>
-    <Image Include="Assets\Sprite\AIEdit\menu2.png">
-      <Filter>Assets\AIEdit</Filter>
-    </Image>
-    <Image Include="Assets\Sprite\AIEdit\menuselect.png">
-      <Filter>Assets\AIEdit</Filter>
-    </Image>
-    <Image Include="Assets\Sprite\AIEdit\menuselectsieat.png">
-      <Filter>Assets\AIEdit</Filter>
-    </Image>
-    <Image Include="Assets\Sprite\AIEdit\open.png">
-      <Filter>Assets\AIEdit</Filter>
-    </Image>
-    <Image Include="Assets\Sprite\AIEdit\point.png">
-      <Filter>Assets\AIEdit</Filter>
-    </Image>
-    <Image Include="Assets\Sprite\AIEdit\sieat.png">
-      <Filter>Assets\AIEdit</Filter>
     </Image>
     <Image Include="Assets\Sprite\Fade\fade_black.png">
       <Filter>Assets\fade</Filter>
@@ -1554,10 +1548,69 @@
     <Filter Include="Game\Input">
       <UniqueIdentifier>{12da6ca0-c822-400f-8b4e-89ca2e6419f7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Assets\MainMenu">
+      <UniqueIdentifier>{5f3bc4d2-2b96-4ecf-82a7-84b5e12678d7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Media Include="Assets\sound\kick-low1.wav" />
     <Media Include="Assets\sound\punch-high2.wav" />
     <Media Include="Assets\sound\punch-middle2.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageContentTask Include="Assets\Sprite\AIEdit\arrow.png">
+      <Filter>Assets\AIEdit</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\AIEdit\click.png">
+      <Filter>Assets\AIEdit</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\AIEdit\haik.png">
+      <Filter>Assets\AIEdit</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\AIEdit\help.png">
+      <Filter>Assets\AIEdit</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\AIEdit\hozon.png">
+      <Filter>Assets\AIEdit</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\AIEdit\karipoint.png">
+      <Filter>Assets\AIEdit</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\AIEdit\masss.png">
+      <Filter>Assets\AIEdit</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\AIEdit\menu.png">
+      <Filter>Assets\AIEdit</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\AIEdit\menu2.png">
+      <Filter>Assets\AIEdit</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\AIEdit\menuselect.png">
+      <Filter>Assets\AIEdit</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\AIEdit\menuselectsieat.png">
+      <Filter>Assets\AIEdit</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\AIEdit\open.png">
+      <Filter>Assets\AIEdit</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\AIEdit\point.png">
+      <Filter>Assets\AIEdit</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\AIEdit\sieat.png">
+      <Filter>Assets\AIEdit</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_back.png">
+      <Filter>Assets\MainMenu</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_back_aiedit.png">
+      <Filter>Assets\MainMenu</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_back_dung.png">
+      <Filter>Assets\MainMenu</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_back_local.png">
+      <Filter>Assets\MainMenu</Filter>
+    </ImageContentTask>
   </ItemGroup>
 </Project>

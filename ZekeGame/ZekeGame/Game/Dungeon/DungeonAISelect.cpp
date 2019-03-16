@@ -69,6 +69,22 @@ bool DungeonAISelect::Start() {
 void DungeonAISelect::Update() {
 	bool ismonsel = false;
 	int count = 0;
+	bool ispmm = false;
+	for (auto pmm : m_pmms)
+	{
+		ispmm = pmm->isOpen();
+		if (ispmm)
+			break;
+	}
+	if (ispmm)
+		return;
+	for (auto pmm : m_pmms)
+	{
+		if (pmm->isClick())
+		{
+			pmm->Open();
+		}
+	}
 	for (auto pmm : m_pmms)
 	{
 		ismonsel = pmm->isMonSel();

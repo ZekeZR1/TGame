@@ -1,5 +1,6 @@
 #pragma once
 
+class PMMonster;
 class SuperMonsterSelect :public GameObject
 {
 public:
@@ -7,6 +8,6 @@ public:
 	virtual void Update() override {};
 	virtual void PostRender() override {};
 
-	virtual std::vector<std::string> GetFiles() { return std::vector<std::string>(); };
-
+	virtual std::vector<std::string> GetFiles() { return std::vector<std::string>(); }
+	virtual std::vector<PMMonster*> GetPMMonster() { return std::vector<PMMonster*>(); }
 };

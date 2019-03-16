@@ -126,6 +126,11 @@ public:
 		Set(_v.x(), _v.y(), _v.z());
 	}
 
+	CVector2 ToTwo()
+	{
+		return CVector2(vec.x, vec.y);
+	}
+
 	/*!
 	* @brief	ベクトルを加算。
 	*/

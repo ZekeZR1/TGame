@@ -62,6 +62,7 @@ void AIMSelect::Update()
 		if (Mouse::isTrigger(enLeftClick))
 		{
 			m_pmm->notMonSel();
+			m_pmm->Close();
 			DeleteGO(this);
 		}
 		m_isselC = true;
@@ -87,6 +88,7 @@ void AIMSelect::Update()
 			m_pmm->ChengeImage(m_monnum);
 
 			m_pmm->notMonSel();
+			m_pmm->Close();
 			DeleteGO(this);
 		}
 		m_isselO = true;
