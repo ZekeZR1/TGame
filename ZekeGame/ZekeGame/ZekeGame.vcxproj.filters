@@ -491,6 +491,12 @@
     <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetIcon.cpp">
       <Filter>Game\AIMonSelect\AIMonPreset</Filter>
     </ClCompile>
+    <ClCompile Include="Game\AIEdit\AIEditNodeSelectFonts.cpp">
+      <Filter>Game\AIEdite</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\AIEdit\AIEditNodeMenuConfirmation.cpp">
+      <Filter>Game\AIEdite</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\fairy\hnd.FBX">
@@ -1315,6 +1321,12 @@
     </ClInclude>
     <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetIcon.h">
       <Filter>Game\AIMonSelect\AIMonPreset</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\AIEdit\AIEditNodeSelectFonts.h">
+      <Filter>Game\AIEdite</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\AIEdit\AIEditNodeMenuConfirmation.h">
+      <Filter>Game\AIEdite</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
