@@ -605,6 +605,7 @@
     <MeshContentTask Include="Assets\modelData\stage\dun.fbx" />
     <MeshContentTask Include="Assets\modelData\stage\dun_yuka.fbx" />
     <MeshContentTask Include="Assets\modelData\stage\limit.FBX" />
+    <MeshContentTask Include="Assets\modelData\stage\limit2.fbx" />
     <MeshContentTask Include="Assets\modelData\stage\map.FBX" />
     <MeshContentTask Include="Assets\modelData\Test.FBX" />
     <MeshContentTask Include="Assets\modelData\testMons\tesEnemy2.fbx" />
