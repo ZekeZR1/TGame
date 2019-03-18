@@ -497,6 +497,9 @@
     <ClCompile Include="Game\AIEdit\AIEditNodeMenuConfirmation.cpp">
       <Filter>Game\AIEdite</Filter>
     </ClCompile>
+    <ClCompile Include="Game\MonsterBox\MonsterBox.cpp">
+      <Filter>Game\MonsterBox</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\fairy\hnd.FBX">
@@ -523,6 +526,9 @@
     </MeshContentTask>
     <MeshContentTask Include="Assets\modelData\stage\dun.fbx" />
     <MeshContentTask Include="Assets\modelData\stage\dun_yuka.fbx" />
+    <MeshContentTask Include="Assets\modelData\stage\limit2.fbx">
+      <Filter>Assets</Filter>
+    </MeshContentTask>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\PythonBridge\include\unicodeobject.h" />
@@ -1328,6 +1334,9 @@
     <ClInclude Include="Game\AIEdit\AIEditNodeMenuConfirmation.h">
       <Filter>Game\AIEdite</Filter>
     </ClInclude>
+    <ClInclude Include="Game\MonsterBox\MonsterBox.h">
+      <Filter>Game\MonsterBox</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="python36.lib" />
@@ -1550,6 +1559,9 @@
     </Filter>
     <Filter Include="Assets\MainMenu">
       <UniqueIdentifier>{5f3bc4d2-2b96-4ecf-82a7-84b5e12678d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\MonsterBox">
+      <UniqueIdentifier>{dc0e45d8-6e18-4add-813c-216dd71d7a01}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
