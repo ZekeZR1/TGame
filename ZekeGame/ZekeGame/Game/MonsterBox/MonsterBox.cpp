@@ -7,38 +7,28 @@
 
 bool MonsterBox::isGot(MonsterID id) {
 	CheckMonsterData();
-	int x = std::pow(10, static_cast<int>(id));
-	int nums[enNumMonster];
+	int flagnum[enNumMonster];
 	int mons = m_monsters;
 	for (int i = 0; i < enNumMonster; i++) {
-		nums[i] = mons % 10;
+		flagnum[i] = mons % 10;
 		mons /= 10;
 	}
-	char str[256];
-	sprintf_s(str, "monster num %d\n", m_monsters);
-	OutputDebugStringA(str);
-	if (nums[id] != 0) {
+	if (flagnum[id] != 0)
 		return true;
-	}
-	else {
-		return false;
-	}
+	return false;
 }
 
 void MonsterBox::GetMonster(MonsterID id) {
 	int x =  std::pow(10, static_cast<int>(id));
-	int nums[enNumMonster];
+	int flagnum[enNumMonster];
 	int mons = m_monsters;
 	for (int i = 0; i < enNumMonster; i++) {
-		nums[i] = mons % 10;
+		flagnum[i] = mons % 10;
 		mons /= 10;
 	}
-	if (nums[id] == 0)
+	if (flagnum[id] == 0)
 		m_monsters += x;
-	char str[256];
 	WriteFile(m_monsters);
-	sprintf_s(str, "monster num %d\n", m_monsters);
-	OutputDebugStringA(str);
 }
 
 void MonsterBox::CheckMonsterData() {
