@@ -1,13 +1,18 @@
 #pragma once
-class MonsterBox : public GameObject
+enum MonsterID;
+
+class MonsterBox 
 {
 public:
-	MonsterBox();
-	~MonsterBox();
-	bool Start();
-	void Update();
-	//void OnDestroy();
+	bool isGot(MonsterID id);
+	void GetMonster(MonsterID id);
 private:
-
+	void CheckMonsterData();
+	void WriteFile(int);
+	int m_monsters = 0;
 };
 
+static MonsterBox& IMonsterBox() {
+	static MonsterBox monsterBox;
+	return monsterBox;
+}
