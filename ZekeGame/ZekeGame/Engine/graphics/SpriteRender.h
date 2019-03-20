@@ -24,7 +24,7 @@ public:
 	void SetPosition(const CVector3& pos)
 	{
 		m_pos = pos;
-		m_collider.Init(m_h, m_w, pos);
+		m_collider.Init(m_h, m_w, pos,m_pivot);
 	}
 
 	const CVector3& GetPosition() const
