@@ -9,7 +9,7 @@ public:
 private:
 	void CheckMonsterData();
 	void WriteFile(int);
-	int m_monsters = 0;
+	UINT m_monsters = 0;
 };
 
 static MonsterBox& IMonsterBox() {
