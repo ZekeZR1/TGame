@@ -68,7 +68,7 @@ void TestScene::Update() {
 		pos.x += movesp;
 	}
 	if (g_pad[0].IsPress(enButtonRight)) {
-		IMonsterBox().WriteFile(0);
+		/*IMonsterBox().WriteFile(0);*/
 		pos.x -= movesp;
 	}
 	if (g_pad[0].IsTrigger(enButtonA)) {

@@ -1,4 +1,5 @@
 #include "stdafx.h"
+#include "../Fade/Fade.h"
 #include "../GameData.h"
 #include "../Game.h"
 #include "../Monster/Monster.h"
@@ -10,10 +11,12 @@
 #include "../Dungeon/DungeonData.h"
 #include "../Dungeon/DungeonTransition.h"
 #include "../Dungeon/DungeonGame.h"
+#include "../Dungeon/MonsterDrop.h"
 
 bool DungeonResult::Start() {
 	MonsterSet();
 	CameraSet();
+	m_fade = FindGO<Fade>("fade");
 	return true;
 }
 
@@ -206,7 +209,11 @@ void DungeonResult::ButtonUpdate() {
 			if (m_team == WIN) {
 				if (IDungeonData().isFinalRound(m_dunNum)) {
 					//ToNextStage();
-					ToDungeonSelect();
+					//MonsterDrop
+					m_fadeFlag = true;
+					m_fade->FadeOut();
+					//ToMonsterDrop();
+					//ToDungeonSelect();
 				}
 				else {
 					ToNextRound();
@@ -217,6 +224,8 @@ void DungeonResult::ButtonUpdate() {
 			}
 		}
 	}
+	if (m_fade->isFadeStop() && m_fadeFlag)
+		ToMonsterDrop();
 }
 
 void DungeonResult::CameraUpdate() {
@@ -236,4 +245,12 @@ void DungeonResult::CameraUpdate() {
 			m_cmove = false;
 		}
 	}
+}
+
+void DungeonResult::ToMonsterDrop() {
+	IDungeonData().SetRound(0);
+	NewGO<MonsterDrop>(0);
+	auto dGame = FindGO<DungeonGame>("DungeonGame");
+	dGame->Relese();
+	DeleteGO(this);
 }
