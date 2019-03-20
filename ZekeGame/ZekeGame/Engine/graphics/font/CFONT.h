@@ -3,6 +3,7 @@ class CFont {
 public:
 	enum TextType {
 		en_Japanese,
+		en_JapaneseBIG,
 		en_Alphabet,
 		en_numType
 	};
