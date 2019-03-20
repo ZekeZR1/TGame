@@ -500,6 +500,9 @@
     <ClCompile Include="Game\MonsterBox\MonsterBox.cpp">
       <Filter>Game\MonsterBox</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Dungeon\MonsterDrop.cpp">
+      <Filter>Game\Dungeon</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\fairy\hnd.FBX">
@@ -528,6 +531,9 @@
     <MeshContentTask Include="Assets\modelData\stage\dun_yuka.fbx" />
     <MeshContentTask Include="Assets\modelData\stage\limit2.fbx">
       <Filter>Assets</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\dungeon\egg.fbx">
+      <Filter>Assets\dung</Filter>
     </MeshContentTask>
   </ItemGroup>
   <ItemGroup>
@@ -1337,6 +1343,9 @@
     <ClInclude Include="Game\MonsterBox\MonsterBox.h">
       <Filter>Game\MonsterBox</Filter>
     </ClInclude>
+    <ClInclude Include="Game\Dungeon\MonsterDrop.h">
+      <Filter>Game\Dungeon</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="python36.lib" />
@@ -1384,42 +1393,6 @@
     </Image>
     <Image Include="Assets\Sprite\readyGO\Ready2.png">
       <Filter>Assets\readyGO</Filter>
-    </Image>
-    <Image Include="Assets\Sprite\GUI\Dungeon\d1.png">
-      <Filter>Assets\dungeon</Filter>
-    </Image>
-    <Image Include="Assets\Sprite\GUI\Dungeon\d2.png">
-      <Filter>Assets\dungeon</Filter>
-    </Image>
-    <Image Include="Assets\Sprite\GUI\Dungeon\d3.png">
-      <Filter>Assets\dungeon</Filter>
-    </Image>
-    <Image Include="Assets\Sprite\GUI\Dungeon\d4.png">
-      <Filter>Assets\dungeon</Filter>
-    </Image>
-    <Image Include="Assets\Sprite\GUI\Dungeon\d5.png">
-      <Filter>Assets\dungeon</Filter>
-    </Image>
-    <Image Include="Assets\Sprite\GUI\Dungeon\DadanDanBk.png">
-      <Filter>Assets\dungeon</Filter>
-    </Image>
-    <Image Include="Assets\Sprite\GUI\Dungeon\DungeonSp.png">
-      <Filter>Assets\dungeon</Filter>
-    </Image>
-    <Image Include="Assets\Sprite\GUI\Dungeon\DungeonSpS.png">
-      <Filter>Assets\dungeon</Filter>
-    </Image>
-    <Image Include="Assets\Sprite\GUI\Dungeon\leftButton.png">
-      <Filter>Assets\dungeon</Filter>
-    </Image>
-    <Image Include="Assets\Sprite\GUI\Dungeon\nextDungeon.png">
-      <Filter>Assets\dungeon</Filter>
-    </Image>
-    <Image Include="Assets\Sprite\GUI\Dungeon\rightButton.png">
-      <Filter>Assets\dungeon</Filter>
-    </Image>
-    <Image Include="Assets\Sprite\monsho\dun_stage0.png">
-      <Filter>Assets\dungeon</Filter>
     </Image>
   </ItemGroup>
   <ItemGroup>
@@ -1471,6 +1444,96 @@
       <Filter>Game</Filter>
     </None>
     <None Include="C:\Users\kokoa\Pictures\Effekseer142cWin\shot.efk" />
+    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_back.png">
+      <Filter>Assets\dung</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\Dungeon\rightButton.png">
+      <Filter>Assets\dung</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_back_B.png">
+      <Filter>Assets\dung</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_back_R.png">
+      <Filter>Assets\dung</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_back2.png">
+      <Filter>Assets\dung</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_even.png">
+      <Filter>Assets\dung</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_main.png">
+      <Filter>Assets\dung</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_odd.png">
+      <Filter>Assets\dung</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_sel.png">
+      <Filter>Assets\dung</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\AIselect.png">
+      <Filter>Assets\dung</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\B_alpha.png">
+      <Filter>Assets\dung</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\button1.png">
+      <Filter>Assets\dung</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\cursor.png">
+      <Filter>Assets\dung</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\Dungeon\d1.png">
+      <Filter>Assets\dung</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\Dungeon\d2.png">
+      <Filter>Assets\dung</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\Dungeon\d3.png">
+      <Filter>Assets\dung</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\Dungeon\d4.png">
+      <Filter>Assets\dung</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\Dungeon\d5.png">
+      <Filter>Assets\dung</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\Dungeon\DadanDanBk.png">
+      <Filter>Assets\dung</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\Dungeon\DungeonSp.png">
+      <Filter>Assets\dung</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\Dungeon\DungeonSpS.png">
+      <Filter>Assets\dung</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\GO.png">
+      <Filter>Assets\dung</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\Dungeon\leftButton.png">
+      <Filter>Assets\dung</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\menu\mn_fuck.png">
+      <Filter>Assets\dung</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\menu\mn_mainmn.png">
+      <Filter>Assets\dung</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\menu\mn_monsel.png">
+      <Filter>Assets\dung</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\monsel_back.png">
+      <Filter>Assets\dung</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\Dungeon\nextDungeon.png">
+      <Filter>Assets\dung</Filter>
+    </None>
+    <None Include="Assets\Sprite\monsho\dun_stage0.png">
+      <Filter>Assets\dung</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\Dungeon\notifyLine.png">
+      <Filter>Assets\dung</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="act">
@@ -1563,6 +1626,9 @@
     <Filter Include="Game\MonsterBox">
       <UniqueIdentifier>{dc0e45d8-6e18-4add-813c-216dd71d7a01}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Assets\dung">
+      <UniqueIdentifier>{c018d731-b5c2-491c-8fd6-2ea7301f79a2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Media Include="Assets\sound\kick-low1.wav" />
@@ -1623,6 +1689,12 @@
     </ImageContentTask>
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_back_local.png">
       <Filter>Assets\MainMenu</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_uma.png">
+      <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_fairy.png">
+      <Filter>Assets</Filter>
     </ImageContentTask>
   </ItemGroup>
 </Project>

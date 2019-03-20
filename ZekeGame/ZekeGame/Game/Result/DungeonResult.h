@@ -17,6 +17,7 @@ private:
 	void ToNextRound();
 	void ToNextStage();
 	void ToDungeonSelect();
+	void ToMonsterDrop();
 	void InitUI();
 	void Lose();
 	void MonsterSet();
@@ -39,5 +40,7 @@ private:
 	CVector3 m_addpos = CVector3::Zero();
 	CVector3 m_addtar = CVector3::Zero();
 	bool m_cmove = true;
+	bool m_fadeFlag = false;
+	Fade* m_fade = nullptr;
 	static const int WIN = 0;
 };
