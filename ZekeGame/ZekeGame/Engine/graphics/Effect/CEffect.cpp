@@ -41,9 +41,11 @@ void CEffect::Render() {
 }
 
 
-void CEffect::Play(const wchar_t* filepath) {
+void CEffect::Play(const wchar_t* filepath, float speed) {
 	m_effect = Effekseer::Effect::Create(&(g_graphicsEngine->GetEffectEngine().GetEffekseerManager()), (const EFK_CHAR*)filepath);
 	m_handle = g_graphicsEngine->GetEffectEngine().GetEffekseerManager().Play(m_effect, 0,0,0);
+	g_graphicsEngine->GetEffectEngine().GetEffekseerManager().SetSpeed(m_handle, speed);
+
 	isPlayed = true;
 }
 
