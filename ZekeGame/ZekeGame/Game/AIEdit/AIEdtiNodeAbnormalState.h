@@ -39,6 +39,7 @@ private:
 	int button = 4;
 	bool Choice6 = false;
 	bool abnormalfont = false;
+	float scale = 0.8;
 
 	std::vector<FontRender*> m_fonts;
 	GameCursor* m_gamecursor;

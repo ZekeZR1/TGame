@@ -51,6 +51,7 @@ private:
 	int button = 7;					//ボタン。
 	bool Choice3 = false;				//何かが選択されたらtrueになる。
 	bool Numfont = false;
+	float scale = 0.9;
 
 	std::vector<FontRender*> m_fonts;
 	SpriteRender * m_spriteRender;

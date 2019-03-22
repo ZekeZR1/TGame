@@ -58,14 +58,17 @@ bool AIEditNodeTarget::Start()
 	}
 	auto bacon = m_nodebuttons[0]->GetPos();
 	CVector2 m_fontpos = CVector2::Zero();
-	m_fontpos.x = bacon.x - 65.0;
+	m_fontpos.x = bacon.x - 60.0;
 	m_fontpos.y = bacon.y + 105.0;
-	m_fonts[0]->Init(L"‚¶‚Ô‚ñ", { m_fontpos }, 0.0, CVector4::White, 0.9, { 0.0,0.0 });
+	m_fonts[0]->Init(L"‚¶‚Ô‚ñ", { m_fontpos }, 0.0, CVector4::White, 0.8, { 0.0,0.0 });
+	m_fonts[0]->DrawShadow({ 5,-5 });
 	m_fontpos.y -= 55.f;
-	m_fonts[1]->Init(L"‚Ý‚©‚½", { m_fontpos }, 0.0, CVector4::White, 0.9, { 0.0,0.0 });
-	m_fontpos.x += 20.f;
+	m_fonts[1]->Init(L"‚Ý‚©‚½", { m_fontpos }, 0.0, CVector4::White, 0.8, { 0.0,0.0 });
+	m_fonts[1]->DrawShadow({ 5,-5 });
+	m_fontpos.x += 15.f;
 	m_fontpos.y -= 55.f;
-	m_fonts[2]->Init(L"‚Ä‚«", { m_fontpos }, 0.0, CVector4::White, 0.9, { 0.0,0.0 });
+	m_fonts[2]->Init(L"‚Ä‚«", { m_fontpos }, 0.0, CVector4::White, 0.8, { 0.0,0.0 });
+	m_fonts[2]->DrawShadow({ 5,-5 });
 
 
 	return true;

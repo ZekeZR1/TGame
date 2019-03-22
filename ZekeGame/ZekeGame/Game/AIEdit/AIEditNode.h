@@ -9,6 +9,7 @@ class AIEditNodeButton;
 class AIEditNodeTechnique;
 class AIEditNodeAbnormalState;
 class AIEditNodeProcess;
+class AIEditNodeOrder;
 class AIEditNode : public GameObject
 {
 
@@ -68,6 +69,7 @@ private:
 	AIEditNodeTechnique* m_aieditnodetechnique;
 	AIEditNodeAbnormalState* m_aieditnodeabnorimalstate;
 	AIEditNodeProcess* m_aieditnodeprocess;
+	AIEditNodeOrder* m_aieditnodeoreder;
 	CVector3 m_position = CVector3::Zero();
 	CVector3 m_pointposition = CVector3::Zero();
 	CFont m_font;
