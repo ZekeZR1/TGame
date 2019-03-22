@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include <fstream>
 #include "GameCamera.h"
+#include "Game/GameData.h"
 #include "Game/Dungeon/DungeonData.h"
 #include "Game/GameCamera2D.h"
 #include "Game/GameCursor.h"
@@ -9,6 +10,7 @@
 #include "Engine\sound\CSound.h"
 #include"Engine/physics/PhysicsStaticObject.h"
 #include"Engine/character/CharacterController.h"
+#include "Game/MonsterBox/MonsterBox.h"
 
 TestScene::TestScene()
 {
@@ -45,7 +47,11 @@ bool TestScene::Start() {
 	}
 	g_graphicsEngine->SetAmbientLight(1.f);
 	m_model = NewGO<SkinModelRender>(0);
-	m_model->Init(L"Assets/modelData/Test.cmo", nullptr, 0, enFbxUpAxisZ, "PSMain", "VSMain", L"tes_Normal.png", L"tes_Normal.png");
+	m_model->Init(L"Assets/modelData/Test.cmo", nullptr, 0, enFbxUpAxisZ, "PSMain", "VSMain",nullptr , L"spectest.jpg");
+	CVector3 moveSpeed;
+
+	pos + moveSpeed * IGameTime().GetFrameDeltaTime();
+	m_model->SetPosition(pos);
 	return true;
 }
 
@@ -55,9 +61,6 @@ void TestScene::Update() {
 	camera3d->Update();
 	static CVector3 pos = CVector3::Zero();
 	const float movesp = 30.f;
-	if (g_pad[0].IsPress(enButtonX)) {
-		pos.z += movesp;
-	}
 	if (g_pad[0].IsPress(enButtonDown)) {
 		pos.z -= movesp;
 	}
@@ -65,13 +68,36 @@ void TestScene::Update() {
 		pos.x += movesp;
 	}
 	if (g_pad[0].IsPress(enButtonRight)) {
+		/*IMonsterBox().WriteFile(0);*/
 		pos.x -= movesp;
 	}
-	if (g_pad[0].IsPress(enButtonA)) {
+	if (g_pad[0].IsTrigger(enButtonA)) {
+		IMonsterBox().GetMonster(enUmataur);
+		OutputDebugStringA("I Got a Uma!!\n");
 		pos.y += movesp;
 	}
 	if (g_pad[0].IsPress(enButtonB)) {
+		IMonsterBox().GetMonster(enFairy);
+		OutputDebugStringA("I Got a Fairy!!\n");
 		pos.y -= movesp;
+	}
+	if (g_pad[0].IsPress(enButtonX)) {
+		if (IMonsterBox().isGot(enUmataur)) {
+			OutputDebugStringA("I have a Uma!!\n");
+		}
+		else {
+			OutputDebugStringA("I dont have a Uma!!\n");
+		}
+		pos.z += movesp;
+	}
+	if (g_pad[0].IsPress(enButtonY)) {
+		if (IMonsterBox().isGot(enFairy)) {
+			OutputDebugStringA("I have a enFairy!!\n");
+		}
+		else {
+			OutputDebugStringA("I dont have a enFairy!!\n");
+		}
+		pos.z += movesp;
 	}
 	float rx = g_pad[0].GetRStickXF();
 	CQuaternion rott = CQuaternion::Identity();

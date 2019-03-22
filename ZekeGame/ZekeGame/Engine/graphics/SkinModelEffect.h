@@ -1,4 +1,4 @@
-#pragma once
+		#pragma once
 
 #include "Engine/graphics/Shader.h"
 /*!
@@ -27,7 +27,6 @@ public:
 	{
 		m_psShader.Load("Assets/shader/model.fx", psmain, Shader::EnType::PS);
 		m_pPSShader = &m_psShader;
-
 		m_psShadowMap.Load("Assets/shader/model.fx", "PSMain_ShadowMap", Shader::EnType::PS);
 		m_vsShadowMap.Load("Assets/shader/model.fx", "VSMain_ShadowMap", Shader::EnType::VS);
 	}

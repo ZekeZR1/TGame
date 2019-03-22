@@ -5,6 +5,12 @@
 #include "../../GameCursor.h"
 #include "../../GameData.h"
 
+void MonAIPresetSave::OnDestroy()
+{
+	DeleteGO(m_button);
+	DeleteGO(m_font);
+}
+
 bool MonAIPresetSave::Start()
 {
 	//m_cursor = FindGO<GameCursor>("cursor");

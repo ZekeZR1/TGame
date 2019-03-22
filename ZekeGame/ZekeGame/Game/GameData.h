@@ -9,6 +9,7 @@ enum MonsterID
 	enTest,
 	enUmataur,
 	enFairy,
+	enNumMonster,
 };
 
 enum ActionID
