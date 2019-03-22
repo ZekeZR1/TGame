@@ -9,6 +9,7 @@ class MonAIPreset :public GameObject
 {
 public:
 	~MonAIPreset();
+	void OnDestroy();
 	bool Start();
 
 	//‰Šú‰»ŠÖ”
@@ -34,5 +35,6 @@ private:
 	MonAIPresetOpen* m_mapo = nullptr;
 	int m_team = 0;
 
-
+	SpriteRender* m_return = nullptr;
+	SpriteRender* m_rDummy = nullptr;
 };

@@ -5,6 +5,13 @@
 
 #include "MonAIPreset.h"
 
+void MonAIPresetOpen::OnDestroy()
+{
+	DeleteGO(m_button);
+	DeleteGO(m_dummy);
+	DeleteGO(m_font);
+}
+
 bool MonAIPresetOpen::Start()
 {
 	CVector3 pos = { -540,250,0 };
