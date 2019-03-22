@@ -8,6 +8,7 @@
 #include "AIEditNodeOrder.h"
 #include "AIEditNodeProcess.h"
 #include "AIEditNodeSelectFonts.h"
+#include "AIEditNodeDeleteKey.h"
 
 AIEditNodeTechnique ::~AIEditNodeTechnique()
 {
@@ -29,6 +30,7 @@ bool AIEditNodeTechnique::Start()
 	m_gamecursor = FindGO<GameCursor>("cursor");
 	m_spriteRender = NewGO<SpriteRender>(10, "Technique");	
 	m_aieditnodeprocess = FindGO<AIEditNodeProcess>("process");
+	m_aieditnodeorder = FindGO<AIEditNodeOrder>("order");
 	m_spriteRender->Init(L"Assets/sprite/menu2.dds", 175, 470);
 	m_spriteRender->SetPivot({ 0.5f, 0.67f });
 	CVector3 cursorpos = m_gamecursor->GetCursor();
@@ -56,22 +58,31 @@ bool AIEditNodeTechnique::Start()
 	CVector2 m_fontpos = CVector2::Zero();
 	m_fontpos.x = bacon.x - 63.0;
 	m_fontpos.y = bacon.y + 100.0;
-	m_fonts[0]->Init(L"Ç±Ç§Ç∞Ç´", { m_fontpos }, 0.0, CVector4::White, 0.7, { 0.0,0.0 });
-	m_fontpos.x += 1.f;
+	m_fonts[0]->Init(L"Ç±Ç§Ç∞Ç´", { m_fontpos }, 0.0, CVector4::White, 0.65, { 0.0,0.0 });
+	m_fonts[0]->DrawShadow({ 5,-5 });
+	m_fontpos.x += 3.f;
 	m_fontpos.y -= 49.f;
-	m_fonts[1]->Init(L"Ç…Ç∞ÇÈ", { m_fontpos }, 0.0, CVector4::White, 0.9, { 0.0,0.0 });
-	m_fontpos.x -= 1.f;
+	m_fonts[1]->Init(L"Ç…Ç∞ÇÈ", { m_fontpos }, 0.0, CVector4::White, 0.8, { 0.0,0.0 });
+	m_fonts[1]->DrawShadow({ 5,-5 });
+	m_fontpos.x -= 3.f;
 	m_fontpos.y -= 60.f;
-	m_fonts[2]->Init(L"Ç¬Ç¢ÇπÇ´", { m_fontpos }, 0.0, CVector4::White, 0.7, { 0.0,0.0 });
+	m_fonts[2]->Init(L"Ç¬Ç¢ÇπÇ´", { m_fontpos }, 0.0, CVector4::White, 0.65, { 0.0,0.0 });
+	m_fonts[2]->DrawShadow({ 5,-5 });
+	m_fontpos.x += 3.f;
 	m_fontpos.y -= 50.f;
-	m_fonts[3]->Init(L"Ç‹Ç‡ÇÈ", { m_fontpos }, 0.0, CVector4::White, 0.9, { 0.0,0.0 });
+	m_fonts[3]->Init(L"Ç‹Ç‡ÇÈ", { m_fontpos }, 0.0, CVector4::White, 0.8, { 0.0,0.0 });
+	m_fonts[3]->DrawShadow({ 5,-5 });
 	m_fontpos.y -= 60.f;
-	m_fonts[4]->Init(L"Ç©Ç¢Ç”Ç≠", { m_fontpos }, 0.0, CVector4::White, 0.7, { 0.0,0.0 });
-	m_fontpos.x -= 8.f;
+	m_fonts[4]->Init(L"Ç©Ç¢Ç”Ç≠", { m_fontpos }, 0.0, CVector4::White, 0.65, { 0.0,0.0 });
+	m_fonts[4]->DrawShadow({ 5,-5 });
+	m_fontpos.x -= 4.f;
 	m_fontpos.y -= 55.f;
-	m_fonts[5]->Init(L"Ç∆Ç≠ÇµÇ„ÇP", { m_fontpos }, 0.0, CVector4::White, 0.6, { 0.0,0.0 });
+	m_fonts[5]->Init(L"Ç∆Ç≠ÇµÇ„ÇP", { m_fontpos }, 0.0, CVector4::White, 0.55, { 0.0,0.0 });
+	m_fonts[5]->DrawShadow({ 5,-5 });
+	//m_fontpos.x += 3.f;
 	m_fontpos.y -= 55.f;
-	m_fonts[6]->Init(L"Ç∆Ç≠ÇµÇ„ÇQ", { m_fontpos }, 0.0, CVector4::White, 0.6, { 0.0,0.0 });
+	m_fonts[6]->Init(L"Ç∆Ç≠ÇµÇ„ÇQ", { m_fontpos }, 0.0, CVector4::White, 0.55, { 0.0,0.0 });
+	m_fonts[6]->DrawShadow({ 5,-5 });
 
 	return true;
 }
@@ -81,10 +92,14 @@ void AIEditNodeTechnique::Order()
 
 	//if (Mouse::isTrigger(enLeftClick)) {	//ç∂ÉNÉäÉbÉN
 	if(Choice4==false){
-		m_aieditnodeorder = NewGO<AIEditNodeOrder>(0, "Order");
+		//m_aieditnodeorder = NewGO<AIEditNodeOrder>(0, "Order");
+		m_aieditnodeorder = m_aieditnodeprocess->CreateOrder();
 		Choice4 = true;
 		m_aieditnodeorder->SetTec(true);
 		techniquefont = true;
+		
+		//DeleteKeyÇNewÇ∑ÇÈÅB
+		m_aieditnodeorder->CreateDeleteKey();
 	}
 }
 

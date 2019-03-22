@@ -9,6 +9,8 @@ class AIEditNodeTarget;
 class AIEditNodeClick;
 class AIEditNodeTechnique;
 class AIEditNodeMenu;
+class AIEditNodeSelectButtons;
+class AIEditNodeDeleteKey;
 class AIEditNodeProcess :public GameObject
 {
 
@@ -21,6 +23,9 @@ public:
 	void Click();
 	void Target();
 	void Technique();
+	void DeleteKey(AIEditNodeOrder* a);
+	AIEditNodeOrder* CreateOrder();
+	
 
 	void AISave();
 
@@ -86,6 +91,8 @@ private:
 											  4 = abnormal
 											  5 = technique Å@Å@*/
 
+	AIEditNodeOrder* m_orderkeep[8][3];
+
 	int StateNum = 1;
 	
 	int num = 0;
@@ -105,5 +112,7 @@ private:
 	SpriteRender * m_spriteRender;
 	AIEditNodeTechnique* m_aieditnodetechnique;
 	AIEditNodeMenu* m_aieditnodemenu;
+	AIEditNodeSelectButtons* m_aieditnodeselectbuttons;
+	AIEditNodeDeleteKey* m_aieditnodedeletekey;
 
 };

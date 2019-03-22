@@ -6,6 +6,7 @@ class AIEditNodeButton;
 class AIEditNodeOrder;
 class AIEditNodeProcess;
 class AIEditNodeSelectFonts;
+class AIEditNodeDeleteKey;
 class AIEditNodeTechnique : public GameObject
 {
 
@@ -65,6 +66,7 @@ private:
 	AIEditNodeOrder* m_aieditnodeorder;
 	AIEditNodeProcess* m_aieditnodeprocess;
 	AIEditNodeSelectFonts* m_aieditnodeselectfonts;
+	AIEditNodeDeleteKey* m_aieditnodedeletekey;
 
 	std::vector<AIEditNodeButton*> m_nodebuttons;
 };

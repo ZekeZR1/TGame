@@ -12,6 +12,16 @@ public:
 	bool Start();
 	void Update();
 
+	SpriteRender* Getspriterender()
+	{
+		return  m_spriteRender;
+	}
+
+	SpriteRender* Getspriterender2()
+	{
+		return  m_spriterender2;
+	}
+
 private:
 
 	int button = 3;
