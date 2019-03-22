@@ -535,6 +535,9 @@
     <MeshContentTask Include="Assets\modelData\dungeon\egg.fbx">
       <Filter>Assets\dung</Filter>
     </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\dungeon\dropwall.fbx">
+      <Filter>Assets\dung</Filter>
+    </MeshContentTask>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\PythonBridge\include\unicodeobject.h" />
@@ -1356,6 +1359,9 @@
     <CustomBuild Include="Assets\modelData\uma.tks">
       <Filter>Assets</Filter>
     </CustomBuild>
+    <CustomBuild Include="Assets\effect\dropefk.efk">
+      <Filter>Assets\dung</Filter>
+    </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\modelData\stage\handle010.jpg">
@@ -1477,9 +1483,6 @@
     <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\B_alpha.png">
       <Filter>Assets\dung</Filter>
     </None>
-    <None Include="Assets\Sprite\GUI\button1.png">
-      <Filter>Assets\dung</Filter>
-    </None>
     <None Include="Assets\Sprite\GUI\cursor.png">
       <Filter>Assets\dung</Filter>
     </None>
@@ -1529,9 +1532,6 @@
       <Filter>Assets\dung</Filter>
     </None>
     <None Include="Assets\Sprite\monsho\dun_stage0.png">
-      <Filter>Assets\dung</Filter>
-    </None>
-    <None Include="Assets\Sprite\GUI\Dungeon\notifyLine.png">
       <Filter>Assets\dung</Filter>
     </None>
   </ItemGroup>
@@ -1695,6 +1695,12 @@
     </ImageContentTask>
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_fairy.png">
       <Filter>Assets</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\notifyLine.png">
+      <Filter>Assets\dung</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\button1.png">
+      <Filter>Assets\dung</Filter>
     </ImageContentTask>
   </ItemGroup>
 </Project>

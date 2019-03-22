@@ -604,6 +604,7 @@
     <ClInclude Include="TestScene2.h" />
   </ItemGroup>
   <ItemGroup>
+    <MeshContentTask Include="Assets\modelData\dungeon\dropwall.fbx" />
     <MeshContentTask Include="Assets\modelData\dungeon\dungeonBack.FBX" />
     <MeshContentTask Include="Assets\modelData\dungeon\egg.fbx" />
     <MeshContentTask Include="Assets\modelData\fairy\hnd.FBX" />
@@ -640,7 +641,10 @@
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_back_local.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_fairy.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_uma.png" />
-    <None Include="Assets\Sprite\GUI\button1.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\button1.png" />
+    <CustomBuild Include="Assets\effect\dropefk.efk">
+      <FileType>Document</FileType>
+    </CustomBuild>
     <None Include="Assets\Sprite\GUI\cursor.png" />
     <None Include="Assets\Sprite\GUI\Dungeon\d1.png" />
     <None Include="Assets\Sprite\GUI\Dungeon\d2.png" />
@@ -669,7 +673,7 @@
     <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\B_alpha.png" />
     <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\monsel_back.png" />
     <None Include="Assets\Sprite\monsho\dun_stage0.png" />
-    <None Include="Assets\Sprite\GUI\Dungeon\notifyLine.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\notifyLine.png" />
     <Image Include="Assets\Sprite\readyGO\Ready2.png" />
     <Image Include="Assets\Sprite\readyGO\r_go.png" />
     <Image Include="Assets\Sprite\result\blueteamp.png" />
