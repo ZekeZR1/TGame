@@ -16,6 +16,8 @@ class ModeSelect;
 class AIEditNodeMenuConfirmation;
 class AIEditNodeMenuWindow;
 class AIEditNodeSelectFonts;
+class AIEditNodeSelectButtons;
+class AIEditNodeDeleteKey;
 class AIEditNodeMenu : public GameObject
 {
 
@@ -49,28 +51,18 @@ public:
 private:
 	int button = 3;          //メニューの選択ボタンの数。
 	bool menu = false;
-	bool menuselect = false;
+	//bool menuselect = false;
 	bool menuconf = false;
 	std::vector<FontRender*> m_fonts;
 	std::vector<SpriteRender*> sp;
 	CVector3 m_position = CVector3::Zero();
 	CVector3 m_positionselect = CVector3::Zero();
-	CVector3 m_position2 = CVector3::Zero();
-	CVector3 m_position3 = CVector3::Zero();
-	CVector3 m_position4 = CVector3::Zero();
-	CVector3 m_position5 = CVector3::Zero();
-	
 
 	GameCursor* m_gamecursor;
 
 	SpriteRender* m_spriteRender;
 	std::vector<SpriteRender*> m_buttons;
 	std::vector<SpriteRender*> m_spriteRender2;
-	SpriteRender* m_spriterender2;
-	SpriteRender* m_spriterender3;
-	SpriteRender* m_spriterender4;
-	SpriteRender* m_spriterender5;
-
 
 	AIEditNodeProcess* m_aieditnodeprocess;
 	AIEditLine* m_aieditline;
@@ -87,5 +79,7 @@ private:
 	AIEditNodeMenuWindow* m_aieditnodemenuwindow;
 	ModeSelect* m_modeselect;
 	AIEditNodeSelectFonts* m_aieditnodeselectfonts;
+	AIEditNodeSelectButtons* m_aieditnodeselectbuttons;
+	AIEditNodeDeleteKey* m_aieditnodedeletekey;
 
 };

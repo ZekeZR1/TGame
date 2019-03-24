@@ -1,4 +1,3 @@
-//1
 #include "stdafx.h"
 #include "AIEditNode.h"
 
@@ -11,6 +10,7 @@
 #include "AIEditNodeTechnique.h"
 #include "AIEdtiNodeAbnormalState.h"
 #include "AIEditNodeProcess.h"
+#include "AIEditNodeOrder.h"
 
 AIEditNode::~AIEditNode()
 {
@@ -30,6 +30,8 @@ bool AIEditNode::Start()
 
 	m_gamecursor = FindGO<GameCursor>("cursor");
 	m_aieditnodeprocess = FindGO<AIEditNodeProcess>("process");
+	//m_aieditnodeoreder = FindGO<AIEditNodeOrder>("order");
+
 
 	//UI‚ÌŠî”Õ
 	m_spriteRender = NewGO<SpriteRender>(6, "firstwin");
@@ -59,17 +61,21 @@ bool AIEditNode::Start()
 	auto bacon = m_nodebuttons[0]->GetPos();
 
 	CVector2 m_fontpos = CVector2::Zero();
-	m_fontpos.x = bacon.x - 50.0;
-	m_fontpos.y = bacon.y + 110.0;
-	m_fonts[0]->Init(L" HP", { m_fontpos }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
+	m_fontpos.x = bacon.x - 55.0;
+	m_fontpos.y = bacon.y + 108.0;
+	m_fonts[0]->Init(L" HP", { m_fontpos }, 0.0, CVector4::White, 0.8, { 0.0,0.0 });
+	m_fonts[0]->DrawShadow({ 5,-5 });
 	m_fontpos.y -= 57.f;
-	m_fonts[1]->Init(L" MP", { m_fontpos }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
-	m_fontpos.x -= 17.f;
+	m_fonts[1]->Init(L" MP", { m_fontpos }, 0.0, CVector4::White, 0.8, { 0.0,0.0 });
+	m_fonts[1]->DrawShadow({ 5,-5 });
+	m_fontpos.x -= 10.f;
 	m_fontpos.y -= 63.f;
-	m_fonts[2]->Init(L"‚¶‚å‚¤‚½‚¢", { m_fontpos }, 0.0, CVector4::White, 0.6, { 0.0,0.0 });
-	m_fontpos.x += 1.f;
-	m_fontpos.y -= 52.f;
-	m_fonts[3]->Init(L" ‚í‚´", { m_fontpos }, 0.0, CVector4::White, 0.9, { 0.0,0.0 });
+	m_fonts[2]->Init(L"‚¶‚å‚¤‚½‚¢", { m_fontpos }, 0.0, CVector4::White, 0.55, { 0.0,0.0 });
+	m_fonts[2]->DrawShadow({ 5,-5 });
+	m_fontpos.x += 4.f;
+	m_fontpos.y -= 48.f;
+	m_fonts[3]->Init(L" ‚í‚´", { m_fontpos }, 0.0, CVector4::White, 0.8, { 0.0,0.0 });
+	m_fonts[3]->DrawShadow({ 5,-5 });
 
 	return true;
 
