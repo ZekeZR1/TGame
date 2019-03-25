@@ -500,6 +500,30 @@
     <ClCompile Include="Game\AIEdit\AIEditNodeDeleteKey.cpp">
       <Filter>Game\AIEdite</Filter>
     </ClCompile>
+    <ClCompile Include="Game\MonsterBox\MonsterBox.cpp">
+      <Filter>Game\Dungeon</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetOpenSuper.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetLoadOpen.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetSaveOpen.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Dungeon\MonsterDrop.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Title\MonAIPreset\MonAIPresets.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetIcons.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetIcon.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\fairy\hnd.FBX">
@@ -1333,6 +1357,30 @@
     </ClInclude>
     <ClInclude Include="Game\AIEdit\AIEditNodeDeleteKey.h">
       <Filter>Game\AIEdite</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\MonsterBox\MonsterBox.h">
+      <Filter>Game\Dungeon</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetOpenSuper.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetLoadOpen.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetSaveOpen.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Dungeon\MonsterDrop.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Title\MonAIPreset\MonAIPresets.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetIcons.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetIcon.h">
+      <Filter>Game</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
