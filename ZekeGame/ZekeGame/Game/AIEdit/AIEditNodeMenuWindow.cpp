@@ -6,6 +6,11 @@
 
 AIEditNodeMenuWindow::~AIEditNodeMenuWindow()
 {
+	DeleteGO(m_spriteRender);
+	for (auto fonts : m_fonts)
+		DeleteGO(fonts);
+	for (auto button : m_buttons)
+		DeleteGO(button);
 
 }
 

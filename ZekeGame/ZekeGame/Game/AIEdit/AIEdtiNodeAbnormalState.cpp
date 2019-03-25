@@ -51,17 +51,22 @@ bool AIEditNodeAbnormalState::Start()
 
 	auto bacon = m_nodebuttons[0]->GetPos();
 	CVector2 m_fontpos = CVector2::Zero();
-	m_fontpos.x = bacon.x - 45.f;
+	m_fontpos.x = bacon.x - 40.f;
 	m_fontpos.y = bacon.y + 107.f;
-	m_fonts[0]->Init(L"Ç«Ç≠", { m_fontpos }, 0.0, CVector4::White, 0.9, { 0.0,0.0 });
+	m_fonts[0]->Init(L"Ç«Ç≠", { m_fontpos }, 0.0, CVector4::White, scale, { 0.0,0.0 });
+	m_fonts[0]->DrawShadow({ 5,-5 });
 	m_fontpos.x -= 20.f;
 	m_fontpos.y -= 57.f;
-	m_fonts[1]->Init(L"Ç‚ÇØÇ«", { m_fontpos }, 0.0, CVector4::White, 0.9, { 0.0,0.0 });
+	m_fonts[1]->Init(L"Ç‚ÇØÇ«", { m_fontpos }, 0.0, CVector4::White, scale, { 0.0,0.0 });
+	m_fonts[1]->DrawShadow({ 5,-5 });
 	m_fontpos.y -= 55.f;
-	m_fonts[2]->Init(L"Ç±Ç®ÇË", { m_fontpos }, 0.0, CVector4::White, 0.9, { 0.0,0.0 });
+	m_fonts[2]->Init(L"Ç±Ç®ÇË", { m_fontpos }, 0.0, CVector4::White, scale, { 0.0,0.0 });
+	m_fonts[2]->DrawShadow({ 5,-5 });
 	m_fontpos.x += 20.f;
 	m_fontpos.y -= 55.f;
-	m_fonts[3]->Init(L"Ç‹Ç–", { m_fontpos }, 0.0, CVector4::White, 0.9, { 0.0,0.0 });
+	m_fonts[3]->Init(L"Ç‹Ç–", { m_fontpos }, 0.0, CVector4::White, scale, { 0.0,0.0 });
+	m_fonts[3]->DrawShadow({ 5,-5 });
+
 	return true;
 }
 
@@ -71,7 +76,8 @@ void AIEditNodeAbnormalState::Order()
 
 	//if (Mouse::isTrigger(enLeftClick)) {	//ç∂ÉNÉäÉbÉN
 	if(Choice6 ==false){
-		m_aieditnodeorder = NewGO<AIEditNodeOrder>(0, "Order");
+		//m_aieditnodeorder = NewGO<AIEditNodeOrder>(0, "Order");
+		m_aieditnodeprocess->CreateOrder();
 		Choice6 = true;
 
 		abnormalfont = true;

@@ -11,7 +11,7 @@ public:
 	void Update() override;
 	void Render() override;
 	//ÑçÑÜÑäÑçÑÖÑä
-	void Play(const wchar_t* filepath);
+	void Play(const wchar_t* filepath, float speed = 1.f);
 	void Stop();
 
 	void SetPosition(const CVector3& pos) {

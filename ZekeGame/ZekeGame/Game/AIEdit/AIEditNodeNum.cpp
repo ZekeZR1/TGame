@@ -1,4 +1,3 @@
-//3
 #include "stdafx.h"
 #include "AIEditMode.h"
 #include "AIEditNode.h"
@@ -56,22 +55,31 @@ bool AIEditNodeNum::Start()
 
 	auto bacon = m_nodebuttons[0]->GetPos();
 	CVector2 m_fontpos = CVector2::Zero();
-	m_fontpos.x = bacon.x - 50.0;
-	m_fontpos.y = bacon.y + 110.0;
-	m_fonts[0]->Init(L" 1", { m_fontpos }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
+	m_fontpos.x = bacon.x - 40.0;
+	m_fontpos.y = bacon.y + 107.0;
+	m_fonts[0]->Init(L" 1", { m_fontpos }, 0.0, CVector4::White, scale, { 0.0,0.0 });
+	m_fonts[0]->DrawShadow({ 5,-5 });
+	m_fontpos.x -= 15.f;
 	m_fontpos.y -= 55.f;
-	m_fonts[1]->Init(L" 10", { m_fontpos }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
+	m_fonts[1]->Init(L" 10", { m_fontpos }, 0.0, CVector4::White, scale, { 0.0,0.0 });
+	m_fonts[1]->DrawShadow({ 5,-5 });
+	m_fontpos.x -= 5.f;
 	m_fontpos.y -= 55.f;
-	m_fonts[2]->Init(L" 30", { m_fontpos }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
+	m_fonts[2]->Init(L" 30", { m_fontpos }, 0.0, CVector4::White, scale, { 0.0,0.0 });
+	m_fonts[2]->DrawShadow({ 5,-5 });
 	m_fontpos.y -= 55.f;
-	m_fonts[3]->Init(L" 50", { m_fontpos }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
+	m_fonts[3]->Init(L" 50", { m_fontpos }, 0.0, CVector4::White, scale, { 0.0,0.0 });
+	m_fonts[3]->DrawShadow({ 5,-5 });
 	m_fontpos.y -= 55.f;
-	m_fonts[4]->Init(L" 70", { m_fontpos }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
+	m_fonts[4]->Init(L" 70", { m_fontpos }, 0.0, CVector4::White, scale, { 0.0,0.0 });
+	m_fonts[4]->DrawShadow({ 5,-5 });
 	m_fontpos.y -= 55.f;
-	m_fonts[5]->Init(L" 90", { m_fontpos }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
-	m_fontpos.x -= 20.f;
+	m_fonts[5]->Init(L" 90", { m_fontpos }, 0.0, CVector4::White, scale, { 0.0,0.0 });
+	m_fonts[5]->DrawShadow({ 5,-5 });
+	m_fontpos.x -= 10.f;
 	m_fontpos.y -= 55.f;
-	m_fonts[6]->Init(L" 100", { m_fontpos }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
+	m_fonts[6]->Init(L" 100", { m_fontpos }, 0.0, CVector4::White, scale, { 0.0,0.0 });
+	m_fonts[6]->DrawShadow({ 5,-5 });
 
 	return true;
 }
@@ -79,7 +87,8 @@ bool AIEditNodeNum::Start()
 void AIEditNodeNum::Order()
 {
 	if (Choice3 == false) {
-		m_aieditnodeorder = NewGO<AIEditNodeOrder>(0, "Order");
+		//m_aieditnodeorder = NewGO<AIEditNodeOrder>(0, "Order");
+		m_aieditnodeprocess->CreateOrder();
 		Choice3 = true;
 		Numfont = true;
 	}

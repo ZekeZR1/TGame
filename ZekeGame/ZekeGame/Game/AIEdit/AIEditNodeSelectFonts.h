@@ -22,6 +22,7 @@ private:
 	bool num = true;
 	bool technique = true;
 	bool abnormal = true;
+	float scale = 0.8;
 
 	std::vector<FontRender*> m_fonts;
 	CVector3 m_pos = CVector3::Zero();
