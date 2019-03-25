@@ -24,7 +24,8 @@ bool MonsterDrop::Start() {
 	auto drop = rnd() % 100;
 	//if (drop >= 50) 
 		//ToDungeonSelect();
-	camera3d->SetPosition({ 0.f,100.f,450.f });
+	camera3d->SetPosition({ 0.f,0.f,450.f });
+	camera3d->SetUpdateProjMatrixFunc(Camera::enUpdateProjMatrixFunc_Ortho);
 	camera3d->Update();
 	InitUI();
 	InitModels();
@@ -50,10 +51,12 @@ void MonsterDrop::OnDestroy() {
 void MonsterDrop::Update() {
 	SceneTransition();
 	EggPfm();
+#if _DEBUG
 	if (g_pad[0].IsTrigger(enButtonA)) {
 		DeleteGO(this);
 		NewGO<MonsterDrop>(0);
 	}
+#endif
 }
 
 
@@ -81,6 +84,7 @@ void MonsterDrop::SceneTransition() {
 
 void MonsterDrop::NewMonster() {
 	m_monster = NewGO<SkinModelRender>(0);
+	m_monster->SetScale(m_modelScale);
 	m_notifySp = NewGO<SpriteRender>(0);
 	m_notifySp->Init(L"Assets/Sprite/notifyLine.dds", 650.f, 50.f);
 	m_notifySp->SetPosition(m_notifyLinePos);
@@ -121,6 +125,7 @@ void MonsterDrop::InitUI() {
 void MonsterDrop::InitModels() {
 	m_egg = NewGO<SkinModelRender>(0);
 	m_egg->Init(L"Assets/modelData/egg.cmo", nullptr, 0, enFbxUpAxisY);
+	m_egg->SetPosition(m_eggPos);
 	m_back = NewGO<SkinModelRender>(0);
 	m_back->Init(L"Assets/modelData/dropwall.cmo");
 	m_back->SetPosition(m_backPosition);
@@ -130,48 +135,42 @@ void MonsterDrop::InitModels() {
 }
 
 void MonsterDrop::EggPfm() {
+	static float fixTiming = 10.f;
+	static float bigTiming = 5.f + fixTiming;
+	static float smallTiming = 5.9f + fixTiming;
+	static float effectTiming = 4.7f + fixTiming;
+	static float monsterTiming = 20.f + fixTiming;
+	static float bigSpeed = 0.01f;
+	static float smallSpeed = 0.05f;
+	static float rotationParam = 10.f;
 	if (m_egg == nullptr)
 		return;
-	CVector3 eggMove = CVector3::Zero();
-	m_eggPos += eggMove;
-	if (m_timer <= 2.f) {
-		m_timer += 0.15f;
-	}
-	else {
-		m_timer = 0.f;
-		m_eggnum++;
-	}
-	float ease = EASE::InOutQuad(4.f, -2.f, 2.f, m_timer);
-	CQuaternion rot = CQuaternion::Identity();
-	rot.SetRotationDeg(CVector3::AxisZ(), ease * m_eggnum);
-	m_eggRot.Multiply(rot);
-	m_egg->SetPosition(m_eggPos);
+	m_timer += 0.1f;
+	//rotation
+	float x =  sin(m_timer);
+	m_eggRot.SetRotationDeg(CVector3::AxisZ(), x * rotationParam);
 	m_egg->SetRotation(m_eggRot);
-	if (m_eggnum == 5.f) {
-		if (!mb_efk) {
-			m_efk = NewGO<CEffect>(0);
-			m_efk->SetScale({ 6.f,6.f,6.f });
-			m_efk->Play(L"Assets/effect/dropefk.efk", 2.5f);
-			mb_efk = true;
-		}
+	//scale
+	if (m_timer >= bigTiming && m_timer <= smallTiming) {
+		mf_eggSca += bigSpeed;
 	}
-	if (m_eggnum >= 5) {
-		//big
-		float eggsize = 1.2f;
-		if (mf_eggSca >= eggsize) {
-			mflag_eggbig = false;
-		}
-		if (mf_eggSca <= eggsize && mflag_eggbig) {
-			mf_eggSca += 0.1f;
-		}
-		if(mf_eggSca >= 0.0f && !mflag_eggbig)
-			mf_eggSca -= 0.1f;
-		m_eggSca *= mf_eggSca;
-		m_egg->SetScale(m_eggSca);
+	if (m_timer >= smallTiming && mf_eggSca >= 0.f) {
+		mf_eggSca -= smallSpeed;
 	}
-	if (m_eggnum == 14.f) {
-		DeleteGO(m_egg);
-		m_egg = nullptr;
+	m_eggSca *= mf_eggSca;
+	m_egg->SetScale(m_eggSca);
+	//effect
+	if (m_timer >= effectTiming && !m_isPlayedEffect) {
+		m_efk = NewGO<CEffect>(0);
+		//m_efk->SetScale({ 8.f,8.f,8.f });
+		m_efk->SetScale({ 9.f,9.f,9.f });
+		m_efk->SetPosition({ 0.f,-50.f,200.f });
+		m_efk->Play(L"Assets/effect/dropefk.efk", 2.5f);
+		m_isPlayedEffect = true;
+	}
+	//new monster
+	if (m_timer >= monsterTiming && !m_isDisplayMonster) {
 		NewMonster();
+		m_isDisplayMonster = true;
 	}
 }

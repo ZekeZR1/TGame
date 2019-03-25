@@ -9,7 +9,8 @@
 #include "Fade/Fade.h"
 
 #include "Dungeon/DungeonTransition.h"
-
+#include "Dungeon/MonsterDrop.h"
+#include "Dungeon/DungeonSelect.h"
 int WINAPI wWinMain(
 	HINSTANCE hInstance,
 	HINSTANCE hPrevInstance,
@@ -25,7 +26,8 @@ int WINAPI wWinMain(
 
 	NewGO<GameCamera3D>(0, "cam3d");
 	NewGO<GameCamera2D>(0, "cam2d");
-	NewGO<ModeSelect>(0, "modesel");
+	//NewGO<ModeSelect>(0, "modesel");
+	NewGO<MonsterDrop>(0, "modesel");
 	g_physics.SetDebugDraw(true);
 	SkinModelRender* sm = NewGO<SkinModelRender>(0, "sm");
 	sm->Init(L"Assets/modelData/tesEnemy3.cmo");
