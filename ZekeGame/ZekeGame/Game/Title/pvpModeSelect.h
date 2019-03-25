@@ -6,6 +6,7 @@ class SuperMonsterSelect;
 class Fade;
 
 class MonAIPresetOpen;
+class MonAIPresetOpenSuper;
 class PvPModeSelect :public SuperMonsterSelect
 {
 public:
@@ -47,7 +48,11 @@ private:
 	Sound* m_BGM = nullptr;
 	float m_vol = 1;
 
-	MonAIPresetOpen* m_mapo = nullptr;
+	//MonAIPresetOpen* m_mapo = nullptr;
+	MonAIPresetOpenSuper* m_msRed = nullptr;		//presetのセーブ用
+	MonAIPresetOpenSuper* m_mlRed = nullptr;		//presetのロード用(紅組用の)
+	MonAIPresetOpenSuper* m_msBlue = nullptr;		//presetのセーブ用
+	MonAIPresetOpenSuper* m_mlBlue = nullptr;		//presetのロード用(青組用の)
 
 	Fade* m_fade = nullptr;
 	bool m_isfade = false;
