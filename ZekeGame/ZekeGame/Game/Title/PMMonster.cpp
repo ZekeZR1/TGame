@@ -53,6 +53,11 @@ void PMMonster::init(int num,CVector3 pos)
 
 void PMMonster::Update()
 {
+	
+}
+
+void PMMonster::UpdateEX()
+{
 	m_isClick = false;
 	if (m_ismonsel && Mouse::isTrigger(enRightClick))
 	{
@@ -86,7 +91,7 @@ void PMMonster::Update()
 	if (isothersel)
 		return;
 	m_mon->SetCollisionTarget(m_cursor->GetCursor());
-	
+
 	if (!m_ismonsel && m_mon->isCollidingTarget())
 	{
 		if (!m_issel)
@@ -97,16 +102,17 @@ void PMMonster::Update()
 		if (Mouse::isTrigger(enLeftClick))
 		{
 			m_isClick = true;
-			/*AIMSelect* aims = NewGO<AIMSelect>(0, "aims");
+			AIMSelect* aims = NewGO<AIMSelect>(0, "aims");
 			aims->init(this, m_selAI, m_monid);
-			m_ismonsel = true;*/
+			m_ismonsel = true;
+			m_isOpen = true;
 		}
 	}
 	else
 	{
 		if (m_issel /*&& issel*/)
 		{
-			if(m_team == 0)
+			if (m_team == 0)
 				m_frame->Init(L"Assets/sprite/mon_frameRed.dds", 240, 340);
 			else
 				m_frame->Init(L"Assets/sprite/mon_frameblue.dds", 240, 340);
@@ -117,9 +123,7 @@ void PMMonster::Update()
 
 void PMMonster::Open()
 {
-	AIMSelect* aims = NewGO<AIMSelect>(0, "aims");
-	aims->init(this, m_selAI, m_monid);
-	m_ismonsel = true;
+	
 }
 
 void PMMonster::ChengeImage(int monid)

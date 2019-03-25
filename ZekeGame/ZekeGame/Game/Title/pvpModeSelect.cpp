@@ -26,6 +26,10 @@
 #include "MonAIPreset/MonAIPresetLoad.h"
 #include "MonAIPreset/MonAIPresetOpen.h"
 
+#include "MonAIPreset/MonAIPresetOpenSuper.h"
+#include "MonAIPreset/MonAIPresetSaveOpen.h"
+#include "MonAIPreset/MonAIPresetLoadOpen.h"
+
 PvPModeSelect::~PvPModeSelect()
 {
 	DeleteGO(m_cursor);
@@ -37,13 +41,16 @@ PvPModeSelect::~PvPModeSelect()
 	DeleteGO(m_back);
 	DeleteGO(m_return);
 	DeleteGO(m_returnMoji);
-	DeleteGO(m_mapo);
+	//DeleteGO(m_mapo);
+
+	DeleteGO(m_msRed);
+	DeleteGO(m_mlRed);
+	DeleteGO(m_msBlue);
+	DeleteGO(m_mlBlue);
 }
 
 bool PvPModeSelect::Start()
 {
-	
-
 	m_BGM = FindGO<Sound>("BGM");
 	if (m_BGM == nullptr)
 	{
@@ -69,9 +76,25 @@ bool PvPModeSelect::Start()
 	MonAIPresetLoad* mapl = NewGO<MonAIPresetLoad>(0, "mapl");
 	mapl->init(this, 0, 0, m_cursor);*/
 
-	m_mapo = NewGO<MonAIPresetOpen>(0, "mapo");
-	m_mapo->init(this, m_cursor, 0);
+	//m_mapo = NewGO<MonAIPresetOpen>(0, "mapo");
+	//m_mapo->init(this, m_cursor, 0);
 
+	//m_ms = NewGO<MonAIPresetOpenSuper>(0, "mapos");
+	//m_ms->init(this, m_cursor, L"h", { 560,100,0 }, 0);
+
+	//　紅組用のチームを保存するやつ
+	m_msRed = NewGO<MonAIPresetSaveOpen>(0, "mapso");
+	m_msRed->init(this, m_cursor, L"チームを保存", { 410,130,0 }, 0);
+	//　紅組用のチームを開くやつ
+	m_mlRed = NewGO<MonAIPresetLoadOpen>(0, "maplo");
+	m_mlRed->init(this, m_cursor, L"チームを開く", { 410,60,0 }, 0);
+
+	//　AO組用のチームを保存するやつ
+	m_msBlue = NewGO<MonAIPresetSaveOpen>(0, "mapso");
+	m_msBlue->init(this, m_cursor, L"チームを保存", { 410,-230,0 }, 1);
+	//　AO組用のチームを開くやつ
+	m_mlBlue = NewGO<MonAIPresetLoadOpen>(0, "maplo");
+	m_mlBlue->init(this, m_cursor, L"チームを開く", { 410,-300,0 }, 1);
 	
 	CVector3 pos = { -290,180,0 };
 	for (int i = 0; i < 6; i++)
@@ -132,6 +155,7 @@ void PvPModeSelect::Update()
 			DeleteGO(this);
 		}
 	}
+
 	bool ispmm = false;
 	for (auto pmm : m_pmms)
 	{
@@ -141,20 +165,30 @@ void PvPModeSelect::Update()
 	}
 
 	static bool isopen = false;
-	if (!(m_mapo->IsOpen() || ispmm || isopen))
+
+	//何か開いていた場合は他のものはクリックしても反応しない。
+	if (!(m_msRed->IsOpen() || m_mlRed->IsOpen() || m_msBlue->IsOpen() || m_mlBlue->IsOpen() || ispmm || isopen))
 	{
-
-
-		if (m_mapo->IsClick())
+		//プリセットのセーブ
+		if (m_msRed->IsClick()) 
 		{
-			m_mapo->OpenPreset();
+			m_msRed->Open();
+		}
+		if (m_mlRed->IsClick())
+		{
+			m_mlRed->Open();
+		}
+		if (m_msBlue->IsClick())
+		{
+			m_msBlue->Open();
+		}
+		if (m_mlBlue->IsClick())
+		{
+			m_mlBlue->Open();
 		}
 		for (auto pmm : m_pmms)
 		{
-			if (pmm->isClick())
-			{
-				pmm->Open();
-			}
+			pmm->UpdateEX();
 		}
 
 
@@ -205,7 +239,10 @@ void PvPModeSelect::Update()
 			isReturnOver = false;
 		}
 	}
-	isopen = m_mapo->IsOpen();
+	isopen = ispmm;
+
+	//isopen = m_mapo->IsOpen();
+
 	//if (count == 6)
 	//{
 	//	count = 0;
