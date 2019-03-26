@@ -524,6 +524,9 @@
     <ClCompile Include="Game\Dungeon\MonsterDrop.cpp">
       <Filter>Game\Dungeon</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Dungeon\DropEgg.cpp">
+      <Filter>Game\Dungeon</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\fairy\hnd.FBX">
@@ -1388,6 +1391,9 @@
     <ClInclude Include="Game\Dungeon\MonsterDrop.h">
       <Filter>Game\Dungeon</Filter>
     </ClInclude>
+    <ClInclude Include="Game\Dungeon\DropEgg.h">
+      <Filter>Game\Dungeon</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="python36.lib" />
@@ -1402,6 +1408,9 @@
   <ItemGroup>
     <Image Include="Assets\modelData\stage\handle010.jpg">
       <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Sprite\GUI\Dungeon\notifyLine.png">
+      <Filter>Assets\dungeon</Filter>
     </Image>
   </ItemGroup>
   <ItemGroup>
