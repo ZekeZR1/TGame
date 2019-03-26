@@ -261,6 +261,7 @@
     <ClCompile Include="Game\Dungeon\DungeonGame.cpp" />
     <ClCompile Include="Game\Dungeon\DungeonSelect.cpp" />
     <ClCompile Include="Game\Dungeon\DungeonTransition.cpp" />
+    <ClCompile Include="Game\Dungeon\MonsterDrop.cpp" />
     <ClCompile Include="Game\Fade\Fade.cpp" />
     <ClCompile Include="Game\Fade\MusicFade.cpp" />
     <ClCompile Include="Game\Game.cpp" />
@@ -272,6 +273,7 @@
     <ClCompile Include="Game\GameMenu\MenuButton.cpp" />
     <ClCompile Include="Game\Input\KeyBoard.cpp" />
     <ClCompile Include="Game\main.cpp" />
+    <ClCompile Include="Game\MonsterBox\MonsterBox.cpp" />
     <ClCompile Include="Game\Monster\Action\ACTEffect.cpp" />
     <ClCompile Include="Game\Monster\Action\Act_Atack.cpp" />
     <ClCompile Include="Game\Monster\Action\Act_Chase.cpp" />
@@ -312,9 +314,15 @@
     <ClCompile Include="Game\Title\ModeSelect.cpp" />
     <ClCompile Include="Game\Title\MonAIPreset\MonAIPreset.cpp" />
     <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetClose.cpp" />
+    <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetIcon.cpp" />
+    <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetIcons.cpp" />
     <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetLoad.cpp" />
+    <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetLoadOpen.cpp" />
     <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetOpen.cpp" />
+    <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetOpenSuper.cpp" />
+    <ClCompile Include="Game\Title\MonAIPreset\MonAIPresets.cpp" />
     <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetSave.cpp" />
+    <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetSaveOpen.cpp" />
     <ClCompile Include="Game\Title\MonsterSelect.cpp" />
     <ClCompile Include="Game\Title\PMMonster.cpp" />
     <ClCompile Include="Game\Title\pvpModeSelect.cpp" />
@@ -437,6 +445,7 @@
     <ClInclude Include="Game\Dungeon\DungeonGame.h" />
     <ClInclude Include="Game\Dungeon\DungeonSelect.h" />
     <ClInclude Include="Game\Dungeon\DungeonTransition.h" />
+    <ClInclude Include="Game\Dungeon\MonsterDrop.h" />
     <ClInclude Include="Game\Fade\Fade.h" />
     <ClInclude Include="Game\Fade\MusicFade.h" />
     <ClInclude Include="Game\Game.h" />
@@ -447,6 +456,7 @@
     <ClInclude Include="Game\GameMenu\GameMenu.h" />
     <ClInclude Include="Game\GameMenu\MenuButton.h" />
     <ClInclude Include="Game\Input\KeyBoard.h" />
+    <ClInclude Include="Game\MonsterBox\MonsterBox.h" />
     <ClInclude Include="Game\Monster\Action\ACTEffect.h" />
     <ClInclude Include="Game\Monster\Action\Act_Atack.h" />
     <ClInclude Include="Game\Monster\Action\Act_Chase.h" />
@@ -587,9 +597,15 @@
     <ClInclude Include="Game\Title\ModeSelect.h" />
     <ClInclude Include="Game\Title\MonAIPreset\MonAIPreset.h" />
     <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetClose.h" />
+    <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetIcon.h" />
+    <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetIcons.h" />
     <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetLoad.h" />
+    <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetLoadOpen.h" />
     <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetOpen.h" />
+    <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetOpenSuper.h" />
+    <ClInclude Include="Game\Title\MonAIPreset\MonAIPresets.h" />
     <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetSave.h" />
+    <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetSaveOpen.h" />
     <ClInclude Include="Game\Title\MonsterSelect.h" />
     <ClInclude Include="Game\Title\PMMonster.h" />
     <ClInclude Include="Game\Title\pvpModeSelect.h" />
@@ -601,7 +617,9 @@
     <ClInclude Include="TestScene2.h" />
   </ItemGroup>
   <ItemGroup>
+    <MeshContentTask Include="Assets\modelData\dungeon\dropwall.fbx" />
     <MeshContentTask Include="Assets\modelData\dungeon\dungeonBack.FBX" />
+    <MeshContentTask Include="Assets\modelData\dungeon\egg.FBX" />
     <MeshContentTask Include="Assets\modelData\fairy\hnd.FBX" />
     <MeshContentTask Include="Assets\modelData\stage\dun.fbx" />
     <MeshContentTask Include="Assets\modelData\stage\dun_yuka.fbx" />

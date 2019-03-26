@@ -23,8 +23,9 @@ void CFont::Begin()
 	dc->RSGetState(&m_rasterizerState);
 	dc->OMGetDepthStencilState(&m_depthStencilState, &m_StencilRef);
 	m_spriteBatch->Begin();
-	if (m_type == en_Japanese)
-		m_spriteFont = g_graphicsEngine->GetSpriteFont(en_Japanese);
+	m_spriteFont = g_graphicsEngine->GetSpriteFont(m_type);
+	/*if (m_type == en_Japanese)
+		m_spriteFont = g_graphicsEngine->GetSpriteFont(en_Japanese);*/
 }
 void CFont::End()
 {

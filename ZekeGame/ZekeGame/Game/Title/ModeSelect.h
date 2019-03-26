@@ -11,12 +11,13 @@ struct button
 		
 		//moji = NewGO<SpriteRender>(3, "sp");
 		font = NewGO<FontRender>(3, "fr");
-		font->SetTextType(CFont::en_Japanese);
+		font->SetTextType(CFont::en_JapaneseBIG);
 	}
 	~button()
 	{
 		DeleteGO(frame);
-		DeleteGO(moji);
+		//DeleteGO(moji);
+		DeleteGO(font);
 	}
 	SpriteRender* frame;
 	SpriteRender* moji;
@@ -39,7 +40,7 @@ private:
 	};
 	CVector2 m_bSize = { 690,150 };
 	std::vector<button*> m_buttons;
-	CVector2 m_butoffs = { -210,50 };
+	CVector2 m_butoffs = { -260,50 };
 
 	std::vector<SpriteRender*> m_selection;
 	int m_sel = 0;
