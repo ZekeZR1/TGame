@@ -512,9 +512,6 @@
     <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetSaveOpen.cpp">
       <Filter>Game</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Dungeon\MonsterDrop.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
     <ClCompile Include="Game\Title\MonAIPreset\MonAIPresets.cpp">
       <Filter>Game</Filter>
     </ClCompile>
@@ -523,6 +520,9 @@
     </ClCompile>
     <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetIcon.cpp">
       <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Dungeon\MonsterDrop.cpp">
+      <Filter>Game\Dungeon</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -550,6 +550,12 @@
     </MeshContentTask>
     <MeshContentTask Include="Assets\modelData\stage\dun.fbx" />
     <MeshContentTask Include="Assets\modelData\stage\dun_yuka.fbx" />
+    <MeshContentTask Include="Assets\modelData\dungeon\egg.FBX">
+      <Filter>Assets\dungeon</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\dungeon\dropwall.fbx">
+      <Filter>Assets\dungeon</Filter>
+    </MeshContentTask>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\PythonBridge\include\unicodeobject.h" />
@@ -1370,9 +1376,6 @@
     <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetSaveOpen.h">
       <Filter>Game</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Dungeon\MonsterDrop.h">
-      <Filter>Game</Filter>
-    </ClInclude>
     <ClInclude Include="Game\Title\MonAIPreset\MonAIPresets.h">
       <Filter>Game</Filter>
     </ClInclude>
@@ -1381,6 +1384,9 @@
     </ClInclude>
     <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetIcon.h">
       <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Dungeon\MonsterDrop.h">
+      <Filter>Game\Dungeon</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
