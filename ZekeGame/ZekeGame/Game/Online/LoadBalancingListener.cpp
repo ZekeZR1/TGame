@@ -120,6 +120,45 @@ void LoadBalancingListener::leaveRoomEventAction(int playerNr, bool isInactive)
 	}
 }
 
+//処理いろいろ
+//INFO : イベントを送信するグループもわけようと思えば分けれるよ
+//この関数を参考に色々イベントを送信する関数を定義するのよ
+void LoadBalancingListener::raiseSomeEvent() {
+	char message[256];
+	sprintf_s(message, "raiseEvent\n");
+	OutputDebugStringA(message);
+	//さまざまな種類のイベント（「移動」、「撮影」など）を区別するために
+	//別個のイベントコードを使用する
+	nByte eventCode = 2;
+	//Photonsのシリアル化によってサポートされている限り、
+	//好きな方法でペイロードデータを整理します
+	ExitGames::Common::Hashtable evData;
+	evData.put((nByte)1, m_val);
+	//配列とかはこうやって送る
+
+	//Hashtable data;
+	//nByte coords[] = { static_cast<nByte>(mLocalPlayer.x), static_cast<nByte>(mLocalPlayer.y) };
+	//data.put((nByte)1, coords, 3);
+
+	Hashtable ed;
+	nByte* codetext = (nByte*)malloc(sizeof(nByte)*(strlen(m_text) + 1));
+	for (int i = 0; i < strlen(m_text) + 1; i++)
+	{
+		codetext[i] = static_cast<nByte>(m_text[i]);
+	}
+	ed.put((nByte)enText, codetext, strlen(m_text) + 1);
+
+
+	//どこにでも到着する必要がある場合は、信頼できるものを送信します
+	bool sendReliable = false;
+	//opRaiseEventでイベント送信する。引数にオプションで色々設定できるが
+	std::string strstr = "Test message mieteruka?";
+	char sss[] = "miteruka?";
+	mpLbc->opRaiseEvent(sendReliable, sss, enText);
+
+	delete[] m_text;
+	m_text = new char('\0');
+}
 
 //opRaiseEventでイベントが送信されるとこの関数が呼ばれる
 void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, const Object& eventContentObj)
@@ -165,7 +204,7 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 		OutputDebugString("GOT A EVENT CODE  TYPE :: TEXT\n Message is ");
 		char* content = ExitGames::Common::ValueObject<char*>(eventContentObj).getDataCopy();
 		short contentElementCount = *ExitGames::Common::ValueObject<char*>(eventContentObj).getSizes();
-		//std::wcout << ExitGames::Common::JString(L"\n") + eventContentObj.toString() + L"\n";
+		OutputDebugStringW(ExitGames::Common::JString(L"\n") + eventContentObj.toString() + L"\n");
 		//auto tex = ExitGames::Common::JString(L"\n") + eventContentObj.toString() + L"\n";
 
 		//OutputDebugStringA(content);
@@ -354,42 +393,3 @@ void LoadBalancingListener::service()
 	}
 }
 
-//処理いろいろ
-//INFO : イベントを送信するグループもわけようと思えば分けれるよ
-//この関数を参考に色々イベントを送信する関数を定義するのよ
-void LoadBalancingListener::raiseSomeEvent() {
-	char message[256];
-	sprintf_s(message, "raiseEvent\n");
-	OutputDebugStringA(message);
-	//さまざまな種類のイベント（「移動」、「撮影」など）を区別するために
-	//別個のイベントコードを使用する
-	nByte eventCode = 2; 
-	//Photonsのシリアル化によってサポートされている限り、
-	//好きな方法でペイロードデータを整理します
-	ExitGames::Common::Hashtable evData;
-	evData.put((nByte)1, m_val);
-	//配列とかはこうやって送る
-	
-	//Hashtable data;
-	//nByte coords[] = { static_cast<nByte>(mLocalPlayer.x), static_cast<nByte>(mLocalPlayer.y) };
-	//data.put((nByte)1, coords, 3);
-
-	Hashtable ed;
-	nByte* codetext = (nByte*)malloc(sizeof(nByte)*(strlen(m_text) + 1));
-	for (int i = 0; i < strlen(m_text) + 1; i++)
-	{
-		codetext[i] = static_cast<nByte>(m_text[i]);
-	}
-	ed.put((nByte)enText, codetext, strlen(m_text)+1);
-	
-	
-	//どこにでも到着する必要がある場合は、信頼できるものを送信します
-	bool sendReliable = false;
-	//opRaiseEventでイベント送信する。引数にオプションで色々設定できるが
-	std::string strstr= "Test message mieteruka?";
-	char sss[] = "miteruka?";
-	mpLbc->opRaiseEvent(sendReliable, sss, enText);
-
-	delete[] m_text;
-	m_text = new char('\0');
-}
