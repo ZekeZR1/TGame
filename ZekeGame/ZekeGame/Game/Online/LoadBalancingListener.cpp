@@ -158,6 +158,12 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 
 	}
 	break;
+	case enText:
+	{
+
+
+	}
+	break;
 	default:
 	{
 		//より洗練されたデータ型を送受信する方法のコード例については、
@@ -354,13 +360,20 @@ void LoadBalancingListener::raiseSomeEvent() {
 	ExitGames::Common::Hashtable evData;
 	evData.put((nByte)1, m_val);
 	//配列とかはこうやって送る
-	/*
+	
 	Hashtable data;
 	nByte coords[] = { static_cast<nByte>(mLocalPlayer.x), static_cast<nByte>(mLocalPlayer.y) };
 	data.put((nByte)1, coords, 3);
-	*/
+
+	Hashtable ed;
+	//ed.put((nByte)enText, m_text, strlen(m_text));
+	
+	
 	//どこにでも到着する必要がある場合は、信頼できるものを送信します
 	bool sendReliable = false;
 	//opRaiseEventでイベント送信する。引数にオプションで色々設定できるが
-	mpLbc->opRaiseEvent(sendReliable, evData, eventCode);
+	mpLbc->opRaiseEvent(sendReliable, ed, eventCode);
+
+	delete[] m_text;
+	m_text = new char('\0');
 }
