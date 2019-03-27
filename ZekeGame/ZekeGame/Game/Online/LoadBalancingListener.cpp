@@ -165,8 +165,12 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 		OutputDebugString("GOT A EVENT CODE  TYPE :: TEXT\n Message is ");
 		char* content = ExitGames::Common::ValueObject<char*>(eventContentObj).getDataCopy();
 		short contentElementCount = *ExitGames::Common::ValueObject<char*>(eventContentObj).getSizes();
-		OutputDebugStringA(content);
-		ExitGames::Common::MemoryManagement::deallocateArray(content);
+		//std::wcout << ExitGames::Common::JString(L"\n") + eventContentObj.toString() + L"\n";
+		//auto tex = ExitGames::Common::JString(L"\n") + eventContentObj.toString() + L"\n";
+
+		//OutputDebugStringA(content);
+		//OutputDebugString("\n");
+		//ExitGames::Common::MemoryManagement::deallocateArray(content);
 	}
 	break;
 	default:
@@ -366,9 +370,9 @@ void LoadBalancingListener::raiseSomeEvent() {
 	evData.put((nByte)1, m_val);
 	//配列とかはこうやって送る
 	
-	Hashtable data;
-	nByte coords[] = { static_cast<nByte>(mLocalPlayer.x), static_cast<nByte>(mLocalPlayer.y) };
-	data.put((nByte)1, coords, 3);
+	//Hashtable data;
+	//nByte coords[] = { static_cast<nByte>(mLocalPlayer.x), static_cast<nByte>(mLocalPlayer.y) };
+	//data.put((nByte)1, coords, 3);
 
 	Hashtable ed;
 	nByte* codetext = (nByte*)malloc(sizeof(nByte)*(strlen(m_text) + 1));
@@ -382,8 +386,9 @@ void LoadBalancingListener::raiseSomeEvent() {
 	//どこにでも到着する必要がある場合は、信頼できるものを送信します
 	bool sendReliable = false;
 	//opRaiseEventでイベント送信する。引数にオプションで色々設定できるが
-	char str[] = "Test message mieteruka?";
-	mpLbc->opRaiseEvent(sendReliable, str, enText);
+	std::string strstr= "Test message mieteruka?";
+	char sss[] = "miteruka?";
+	mpLbc->opRaiseEvent(sendReliable, sss, enText);
 
 	delete[] m_text;
 	m_text = new char('\0');
