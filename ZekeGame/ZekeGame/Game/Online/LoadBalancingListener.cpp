@@ -366,7 +366,12 @@ void LoadBalancingListener::raiseSomeEvent() {
 	data.put((nByte)1, coords, 3);
 
 	Hashtable ed;
-	//ed.put((nByte)enText, m_text, strlen(m_text));
+	nByte* codetext = (nByte*)malloc(sizeof(nByte)*(strlen(m_text) + 1));
+	for (int i = 0; i < strlen(m_text) + 1; i++)
+	{
+		codetext[i] = static_cast<nByte>(m_text[i]);
+	}
+	ed.put((nByte)enText, codetext, strlen(m_text)+1);
 	
 	
 	//どこにでも到着する必要がある場合は、信頼できるものを送信します
