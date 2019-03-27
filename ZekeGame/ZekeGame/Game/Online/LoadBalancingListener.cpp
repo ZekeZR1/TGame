@@ -152,7 +152,6 @@ void LoadBalancingListener::raiseSomeEvent() {
 	//どこにでも到着する必要がある場合は、信頼できるものを送信します
 	bool sendReliable = false;
 	//opRaiseEventでイベント送信する。引数にオプションで色々設定できるが
-	std::string strstr = "Test message mieteruka?";
 	char sss[] = "miteruka?";
 	mpLbc->opRaiseEvent(sendReliable, sss, enText);
 
@@ -205,11 +204,7 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 		char* content = ExitGames::Common::ValueObject<char*>(eventContentObj).getDataCopy();
 		short contentElementCount = *ExitGames::Common::ValueObject<char*>(eventContentObj).getSizes();
 		OutputDebugStringW(ExitGames::Common::JString(L"\n") + eventContentObj.toString() + L"\n");
-		//auto tex = ExitGames::Common::JString(L"\n") + eventContentObj.toString() + L"\n";
-
-		//OutputDebugStringA(content);
-		//OutputDebugString("\n");
-		//ExitGames::Common::MemoryManagement::deallocateArray(content);
+		ExitGames::Common::MemoryManagement::deallocateArray(content);
 	}
 	break;
 	default:
