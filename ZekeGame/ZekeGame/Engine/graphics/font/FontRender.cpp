@@ -44,11 +44,11 @@ void FontRender::PostRender() {
 
 void FontRender::Init(
 	const wchar_t* text,
-	CVector2 pos = { 0.f,0.f },
-	float rot = 0.f,
-	CVector4 col = CVector4::White,
-	float scale = 1.f,
-	CVector2 pivot = {0.5f,0.5f}
+	CVector2 pos ,
+	float rot ,
+	CVector4 col,
+	float scale,
+	CVector2 pivot
 	) {
 	//m_text = text;
 	wcscpy(m_text,text);
