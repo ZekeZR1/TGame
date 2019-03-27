@@ -16,6 +16,18 @@ NetPVPMode::NetPVPMode()
 	m_exdata->sendData("asdfasdfasd");
 }
 
+bool NetPVPMode::Start() {
+	return true;
+}
+
 void NetPVPMode::OnDestroy()
 {
+	Engine::IEngine().DestroyNetworkSystem();
+}
+
+
+void NetPVPMode::Update() {
+	if (g_pad[0].IsTrigger(enButtonA)) {
+		Engine::IEngine().GetNetworkLogic()->GetLBL()->raiseSomeEvent();
+	}
 }

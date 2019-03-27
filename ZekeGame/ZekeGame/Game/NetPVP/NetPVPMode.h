@@ -10,7 +10,8 @@ class NetPVPMode :public GameObject
 public:
 	//初期化
 	NetPVPMode();
-
+	bool Start() override;
+	void Update() override;
 	//デストラクタ
 	void OnDestroy() override;
 private:

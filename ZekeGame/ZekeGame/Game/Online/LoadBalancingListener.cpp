@@ -160,8 +160,9 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 	break;
 	case enText:
 	{
-
-
+		OutputDebugString("GOT A EVENT CODE ! TYPE :: TEXT");
+		auto content = ExitGames::Common::ValueObject<char*>(eventContentObj).getDataCopy();
+		OutputDebugStringA(content);
 	}
 	break;
 	default:
@@ -366,18 +367,19 @@ void LoadBalancingListener::raiseSomeEvent() {
 	data.put((nByte)1, coords, 3);
 
 	Hashtable ed;
-	nByte* codetext = (nByte*)malloc(sizeof(nByte)*(strlen(m_text) + 1));
-	for (int i = 0; i < strlen(m_text) + 1; i++)
+	char test_text[256] = "TestRaiseText";
+	nByte* codetext = (nByte*)malloc(sizeof(nByte)*(strlen(test_text) + 1));
+	for (int i = 0; i < strlen(test_text) + 1; i++)
 	{
-		codetext[i] = static_cast<nByte>(m_text[i]);
+		codetext[i] = static_cast<nByte>(test_text[i]);
 	}
-	ed.put((nByte)enText, codetext, strlen(m_text)+1);
+	ed.put((nByte)enText, codetext, strlen(test_text)+1);
 	
 	
 	//どこにでも到着する必要がある場合は、信頼できるものを送信します
 	bool sendReliable = false;
 	//opRaiseEventでイベント送信する。引数にオプションで色々設定できるが
-	mpLbc->opRaiseEvent(sendReliable, ed, eventCode);
+	mpLbc->opRaiseEvent(sendReliable, ed, enText);
 
 	delete[] m_text;
 	m_text = new char('\0');
