@@ -240,8 +240,10 @@
     <ClCompile Include="Game\AIEdit\AIEditLine.cpp" />
     <ClCompile Include="Game\AIEdit\AIEditMode.cpp" />
     <ClCompile Include="Game\AIEdit\AIEditNode.cpp" />
+    <ClCompile Include="Game\AIEdit\AIEditNodeBackGround.cpp" />
     <ClCompile Include="Game\AIEdit\AIEditNodeButton.cpp" />
     <ClCompile Include="Game\AIEdit\AIEditNodeClick.cpp" />
+    <ClCompile Include="Game\AIEdit\AIEditNodeDeleteKey.cpp" />
     <ClCompile Include="Game\AIEdit\AIEditNodeInequ.cpp" />
     <ClCompile Include="Game\AIEdit\AIEditNodeMass.cpp" />
     <ClCompile Include="Game\AIEdit\AIEditNodeMenu.cpp" />
@@ -249,6 +251,7 @@
     <ClCompile Include="Game\AIEdit\AIEditNodeNum.cpp" />
     <ClCompile Include="Game\AIEdit\AIEditNodeOrder.cpp" />
     <ClCompile Include="Game\AIEdit\AIEditNodeProcess.cpp" />
+    <ClCompile Include="Game\AIEdit\AIEditNodeSelectButtons.cpp" />
     <ClCompile Include="Game\AIEdit\AIEditNodeSelectFonts.cpp" />
     <ClCompile Include="Game\AIEdit\AIEditNodeTarget.cpp" />
     <ClCompile Include="Game\AIEdit\AIEditNodeTechnique.cpp" />
@@ -258,6 +261,7 @@
     <ClCompile Include="Game\Dungeon\DungeonGame.cpp" />
     <ClCompile Include="Game\Dungeon\DungeonSelect.cpp" />
     <ClCompile Include="Game\Dungeon\DungeonTransition.cpp" />
+    <ClCompile Include="Game\Dungeon\MonsterDrop.cpp" />
     <ClCompile Include="Game\Fade\Fade.cpp" />
     <ClCompile Include="Game\Fade\MusicFade.cpp" />
     <ClCompile Include="Game\Game.cpp" />
@@ -269,6 +273,7 @@
     <ClCompile Include="Game\GameMenu\MenuButton.cpp" />
     <ClCompile Include="Game\Input\KeyBoard.cpp" />
     <ClCompile Include="Game\main.cpp" />
+    <ClCompile Include="Game\MonsterBox\MonsterBox.cpp" />
     <ClCompile Include="Game\Monster\Action\ACTEffect.cpp" />
     <ClCompile Include="Game\Monster\Action\Act_Atack.cpp" />
     <ClCompile Include="Game\Monster\Action\Act_Chase.cpp" />
@@ -420,8 +425,10 @@
     <ClInclude Include="Game\AIEdit\AIEditLine.h" />
     <ClInclude Include="Game\AIEdit\AIEditMode.h" />
     <ClInclude Include="Game\AIEdit\AIEditNode.h" />
+    <ClInclude Include="Game\AIEdit\AIEditNodeBackGround.h" />
     <ClInclude Include="Game\AIEdit\AIEditNodeButton.h" />
     <ClInclude Include="Game\AIEdit\AIEditNodeClick.h" />
+    <ClInclude Include="Game\AIEdit\AIEditNodeDeleteKey.h" />
     <ClInclude Include="Game\AIEdit\AIEditNodeInequ.h" />
     <ClInclude Include="Game\AIEdit\AIEditNodeMass.h" />
     <ClInclude Include="Game\AIEdit\AIEditNodeMenu.h" />
@@ -429,6 +436,7 @@
     <ClInclude Include="Game\AIEdit\AIEditNodeNum.h" />
     <ClInclude Include="Game\AIEdit\AIEditNodeOrder.h" />
     <ClInclude Include="Game\AIEdit\AIEditNodeProcess.h" />
+    <ClInclude Include="Game\AIEdit\AIEditNodeSelectButtons.h" />
     <ClInclude Include="Game\AIEdit\AIEditNodeSelectFonts.h" />
     <ClInclude Include="Game\AIEdit\AIEditNodeTarget.h" />
     <ClInclude Include="Game\AIEdit\AIEditNodeTechnique.h" />
@@ -438,6 +446,7 @@
     <ClInclude Include="Game\Dungeon\DungeonGame.h" />
     <ClInclude Include="Game\Dungeon\DungeonSelect.h" />
     <ClInclude Include="Game\Dungeon\DungeonTransition.h" />
+    <ClInclude Include="Game\Dungeon\MonsterDrop.h" />
     <ClInclude Include="Game\Fade\Fade.h" />
     <ClInclude Include="Game\Fade\MusicFade.h" />
     <ClInclude Include="Game\Game.h" />
@@ -448,6 +457,7 @@
     <ClInclude Include="Game\GameMenu\GameMenu.h" />
     <ClInclude Include="Game\GameMenu\MenuButton.h" />
     <ClInclude Include="Game\Input\KeyBoard.h" />
+    <ClInclude Include="Game\MonsterBox\MonsterBox.h" />
     <ClInclude Include="Game\Monster\Action\ACTEffect.h" />
     <ClInclude Include="Game\Monster\Action\Act_Atack.h" />
     <ClInclude Include="Game\Monster\Action\Act_Chase.h" />
@@ -643,17 +653,17 @@
     <ImageContentTask Include="Assets\Sprite\GUI\button\simple_button.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\button\simple_button_blue.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\cursor.png" />
-    <Image Include="Assets\Sprite\GUI\Dungeon\d1.png" />
-    <Image Include="Assets\Sprite\GUI\Dungeon\d2.png" />
-    <Image Include="Assets\Sprite\GUI\Dungeon\d3.png" />
-    <Image Include="Assets\Sprite\GUI\Dungeon\d4.png" />
-    <Image Include="Assets\Sprite\GUI\Dungeon\d5.png" />
-    <Image Include="Assets\Sprite\GUI\Dungeon\DadanDanBk.png" />
-    <Image Include="Assets\Sprite\GUI\Dungeon\DungeonSp.png" />
-    <Image Include="Assets\Sprite\GUI\Dungeon\DungeonSpS.png" />
-    <Image Include="Assets\Sprite\GUI\Dungeon\leftButton.png" />
-    <Image Include="Assets\Sprite\GUI\Dungeon\nextDungeon.png" />
-    <Image Include="Assets\Sprite\GUI\Dungeon\rightButton.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\d1.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\d2.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\d3.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\d4.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\d5.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\DadanDanBk.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\DungeonSp.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\DungeonSpS.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\leftButton.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\nextDungeon.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\rightButton.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_back.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_back_aiedit.png" />
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_back_dung.png" />
@@ -684,7 +694,7 @@
     <ImageContentTask Include="Assets\Sprite\marker\mark_3.png" />
     <ImageContentTask Include="Assets\Sprite\marker\mark_blue.png" />
     <ImageContentTask Include="Assets\Sprite\marker\mark_red.png" />
-    <Image Include="Assets\Sprite\monsho\dun_stage0.png" />
+    <ImageContentTask Include="Assets\Sprite\monsho\dun_stage0.png" />
     <ImageContentTask Include="Assets\Sprite\readyGO\Ready2.png" />
     <ImageContentTask Include="Assets\Sprite\readyGO\r_go.png" />
     <ImageContentTask Include="Assets\Sprite\result\blueteamp.png" />
