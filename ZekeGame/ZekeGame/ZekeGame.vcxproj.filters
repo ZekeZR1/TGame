@@ -59,9 +59,6 @@
     <ClCompile Include="Engine\graphics\animation\AnimationPlayController.cpp">
       <Filter>Engine</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\Network\BaseView.cpp">
-      <Filter>Engine</Filter>
-    </ClCompile>
     <ClCompile Include="Engine\graphics\postEffect\Bloom.cpp">
       <Filter>Engine</Filter>
     </ClCompile>
@@ -105,9 +102,6 @@
       <Filter>Engine</Filter>
     </ClCompile>
     <ClCompile Include="Engine\graphics\ConstantBufferGPU.cpp">
-      <Filter>Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\Network\Console.cpp">
       <Filter>Engine</Filter>
     </ClCompile>
     <ClCompile Include="Engine\graphics\CPrimitive.cpp">
@@ -260,9 +254,6 @@
     <ClCompile Include="Game\Result\Lose\Lose_randomPVP.cpp">
       <Filter>Game</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\Network\LoadBalancingListener.cpp">
-      <Filter>Engine</Filter>
-    </ClCompile>
     <ClCompile Include="Engine\level\MapChip.cpp">
       <Filter>Engine</Filter>
     </ClCompile>
@@ -273,12 +264,6 @@
       <Filter>Engine</Filter>
     </ClCompile>
     <ClCompile Include="Engine\HID\Mouse.cpp">
-      <Filter>Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\Network\NetworkLogic.cpp">
-      <Filter>Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\Network\OutputListener.cpp">
       <Filter>Engine</Filter>
     </ClCompile>
     <ClCompile Include="Engine\HID\Pad.cpp">
@@ -345,9 +330,6 @@
       <Filter>Game</Filter>
     </ClCompile>
     <ClCompile Include="Engine\graphics\StructedBuffer.cpp">
-      <Filter>Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\Network\TestView.cpp">
       <Filter>Engine</Filter>
     </ClCompile>
     <ClCompile Include="Engine\graphics\TScopedResource.cpp">
@@ -524,6 +506,33 @@
     <ClCompile Include="Game\MonsterBox\MonsterBox.cpp">
       <Filter>Game\MonsterBox</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Online\LoadBalancingListener.cpp">
+      <Filter>Game\Online</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Online\NetworkLogic.cpp">
+      <Filter>Game\Online</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Online\OutputListener.cpp">
+      <Filter>Game\Online</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Online\TestView.cpp">
+      <Filter>Game\Online</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Online\BaseView.cpp">
+      <Filter>Game\Online</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Online\Console.cpp">
+      <Filter>Game\Online</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\ExchangeData\ExchangeData.cpp">
+      <Filter>Game\ExchangeData</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Dungeon\DropEgg.cpp">
+      <Filter>Game\Dungeon</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\NetPVP\NetPVPMode.cpp">
+      <Filter>Game\NetPVP</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\fairy\hnd.FBX">
@@ -629,9 +638,6 @@
     <ClInclude Include="Game\PythonBridge\include\ast.h">
       <Filter>Engine</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\Network\BaseView.h">
-      <Filter>Engine</Filter>
-    </ClInclude>
     <ClInclude Include="Engine\graphics\postEffect\Bloom.h">
       <Filter>Engine</Filter>
     </ClInclude>
@@ -696,9 +702,6 @@
       <Filter>Engine</Filter>
     </ClInclude>
     <ClInclude Include="Engine\graphics\ConstantBufferGPU.h">
-      <Filter>Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\Network\Console.h">
       <Filter>Engine</Filter>
     </ClInclude>
     <ClInclude Include="Game\PythonBridge\include\cellobject.h">
@@ -1016,9 +1019,6 @@
     <ClInclude Include="Engine\physics\ICollider.h">
       <Filter>Engine</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\Network\LoadBalancingListener.h">
-      <Filter>Engine</Filter>
-    </ClInclude>
     <ClInclude Include="Engine\level\MapChip.h">
       <Filter>Engine</Filter>
     </ClInclude>
@@ -1073,13 +1073,7 @@
     <ClInclude Include="Engine\HID\Mouse.h">
       <Filter>Engine</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\Network\NetworkLogic.h">
-      <Filter>Engine</Filter>
-    </ClInclude>
     <ClInclude Include="Engine\graphics\Noncopyable.h">
-      <Filter>Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\Network\OutputListener.h">
       <Filter>Engine</Filter>
     </ClInclude>
     <ClInclude Include="Game\StageSetup\StageSetup.h">
@@ -1209,9 +1203,6 @@
       <Filter>Game</Filter>
     </ClInclude>
     <ClInclude Include="Engine\graphics\StructedBuffer.h">
-      <Filter>Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\Network\TestView.h">
       <Filter>Engine</Filter>
     </ClInclude>
     <ClInclude Include="Engine\graphics\TScopedResource.h">
@@ -1387,6 +1378,33 @@
     </ClInclude>
     <ClInclude Include="Game\MonsterBox\MonsterBox.h">
       <Filter>Game\MonsterBox</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Online\Console.h">
+      <Filter>Game\Online</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Online\LoadBalancingListener.h">
+      <Filter>Game\Online</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Online\NetworkLogic.h">
+      <Filter>Game\Online</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Online\OutputListener.h">
+      <Filter>Game\Online</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Online\TestView.h">
+      <Filter>Game\Online</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Online\BaseView.h">
+      <Filter>Game\Online</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\ExchangeData\ExchangeData.h">
+      <Filter>Game\ExchangeData</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Dungeon\DropEgg.h">
+      <Filter>Game\Dungeon</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\NetPVP\NetPVPMode.h">
+      <Filter>Game\NetPVP</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1571,6 +1589,15 @@
     </Filter>
     <Filter Include="Game\MonsterBox">
       <UniqueIdentifier>{5436c36d-8b43-4b41-8417-75a83a211167}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Online">
+      <UniqueIdentifier>{a0c0791e-57f9-4d37-8e63-a5b50d1e3cda}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\ExchangeData">
+      <UniqueIdentifier>{de7e27b7-648c-477e-b6ec-80400ed5dda5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\NetPVP">
+      <UniqueIdentifier>{9a212575-ae97-4cb7-b40c-e742c37e1d60}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

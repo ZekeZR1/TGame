@@ -25,6 +25,13 @@ public:
 	void service();
 	//何らかのイベントを送信する関数を定義
 	void raiseSomeEvent();
+
+	void SetText(const char* text)
+	{
+		delete[] m_text;
+		m_text = (char*)malloc(sizeof(char)*(strlen(text) + 1));
+		strcpy(m_text, text);
+	}
 private:
 	//From Common::BaseListener
 
@@ -62,11 +69,20 @@ private:
 
 	void updateState(void);
 	void afterRoomJoined(int localPlayerNr);
+
+	
 private:
+	enum EnEvetCode
+	{
+		enText = 5,
+	};
 	ExitGames::LoadBalancing::Client* mpLbc;
 	BaseView* mpView;
 	int mMap = 1;	//ルーム作成時に使うKey
 	int m_val = 10; //送信する値などを適当に定義
+
+	char* m_text = nullptr; //送るテキストデータ。
+
 	int mLocalPlayerNr; //Photonから自分に割り振られたプレイヤーナンバー
 	LocalPlayer mLocalPlayer;
 };

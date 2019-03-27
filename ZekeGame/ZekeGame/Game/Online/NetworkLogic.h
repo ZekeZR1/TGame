@@ -13,6 +13,11 @@ public:
 	void Start();
 	void Disconnect();
 	void Update();
+
+	LoadBalancingListener* GetLBL()
+	{
+		return mpLbl;
+	}
 private:
 	ExitGames::LoadBalancing::Client* mpLbc;
 	LoadBalancingListener* mpLbl;
