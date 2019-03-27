@@ -535,38 +535,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <MeshContentTask Include="Assets\modelData\fairy\hnd.FBX">
-      <Filter>Assets</Filter>
-    </MeshContentTask>
-    <MeshContentTask Include="Assets\modelData\stage\map.FBX">
-      <Filter>Assets</Filter>
-    </MeshContentTask>
-    <MeshContentTask Include="Assets\modelData\testMons\tesEnemy2.fbx">
-      <Filter>Assets</Filter>
-    </MeshContentTask>
-    <MeshContentTask Include="Assets\modelData\testMons\tesEnemy3.fbx">
-      <Filter>Assets</Filter>
-    </MeshContentTask>
-    <MeshContentTask Include="Assets\modelData\Test.FBX">
-      <Filter>Assets</Filter>
-    </MeshContentTask>
-    <MeshContentTask Include="Assets\modelData\uma\uma.fbx">
-      <Filter>Assets</Filter>
-    </MeshContentTask>
-    <MeshContentTask Include="Assets\modelData\dungeon\dungeonBack.FBX" />
-    <MeshContentTask Include="Assets\modelData\stage\limit.FBX">
-      <Filter>Assets</Filter>
-    </MeshContentTask>
-    <MeshContentTask Include="Assets\modelData\stage\dun.fbx" />
-    <MeshContentTask Include="Assets\modelData\stage\dun_yuka.fbx" />
-    <MeshContentTask Include="Assets\modelData\uma\uma.bone.fbx">
-      <Filter>Assets\Monster\uma</Filter>
-    </MeshContentTask>
-    <MeshContentTask Include="Assets\modelData\stage\limit2.fbx">
-      <Filter>Assets</Filter>
-    </MeshContentTask>
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="Game\PythonBridge\include\unicodeobject.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="Game\Monster\Action\Act_Atack.h">

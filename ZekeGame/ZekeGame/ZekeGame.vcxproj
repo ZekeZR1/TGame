@@ -624,20 +624,6 @@
     <ClInclude Include="TestScene2.h" />
   </ItemGroup>
   <ItemGroup>
-    <MeshContentTask Include="Assets\modelData\dungeon\dungeonBack.FBX" />
-    <MeshContentTask Include="Assets\modelData\fairy\hnd.FBX" />
-    <MeshContentTask Include="Assets\modelData\stage\dun.fbx" />
-    <MeshContentTask Include="Assets\modelData\stage\dun_yuka.fbx" />
-    <MeshContentTask Include="Assets\modelData\stage\limit.FBX" />
-    <MeshContentTask Include="Assets\modelData\stage\limit2.fbx" />
-    <MeshContentTask Include="Assets\modelData\stage\map.FBX" />
-    <MeshContentTask Include="Assets\modelData\Test.FBX" />
-    <MeshContentTask Include="Assets\modelData\testMons\tesEnemy2.fbx" />
-    <MeshContentTask Include="Assets\modelData\testMons\tesEnemy3.fbx" />
-    <MeshContentTask Include="Assets\modelData\uma\uma.bone.fbx" />
-    <MeshContentTask Include="Assets\modelData\uma\uma.fbx" />
-  </ItemGroup>
-  <ItemGroup>
     <Image Include="Assets\modelData\stage\handle010.jpg" />
     <ImageContentTask Include="Assets\Sprite\AIEdit\arrow.png" />
     <ImageContentTask Include="Assets\Sprite\AIEdit\click.png" />
