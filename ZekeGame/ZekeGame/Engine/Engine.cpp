@@ -3,7 +3,7 @@
 #include "Engine/FPSCounter.h"
 
 CFPSCounter* FPS = nullptr;
-NetworkLogic* m_network = nullptr;
+
 int nNotch = 0;
 
 Engine::Engine()

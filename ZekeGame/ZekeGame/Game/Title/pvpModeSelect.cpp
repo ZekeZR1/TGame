@@ -169,6 +169,10 @@ void PvPModeSelect::Update()
 	//何か開いていた場合は他のものはクリックしても反応しない。
 	if (!(m_msRed->IsOpen() || m_mlRed->IsOpen() || m_msBlue->IsOpen() || m_mlBlue->IsOpen() || ispmm || isopen))
 	{
+		m_msRed->UpdateEx();
+		m_mlRed->UpdateEx();
+		m_msBlue->UpdateEx();
+		m_mlBlue->UpdateEx();
 		//プリセットのセーブ
 		if (m_msRed->IsClick()) 
 		{
