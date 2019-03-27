@@ -23,6 +23,5 @@ void GameCursor::Update()
 	float y = g_pad[0].GetRStickYF()*10;
 
 	m_pos = Mouse::GetCursorPos();
-
 	m_cursor->SetPosition(m_pos);
 }
