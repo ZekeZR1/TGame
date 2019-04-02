@@ -19,9 +19,10 @@ NetPVPMode::NetPVPMode()
 	fseek(file, 0, SEEK_END);
 	fgetpos(file, &pos);
 	long size = pos;
-	fseek(file, 0, SEEK_CUR);
+	fseek(file, 0, SEEK_SET);
 	char text[1024] = {'\0'};
 	fread(text, size,1, file);
+	fclose(file);
 
 
 
