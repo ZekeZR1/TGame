@@ -1439,6 +1439,41 @@
       <Filter>Game</Filter>
     </None>
     <None Include="C:\Users\kokoa\Pictures\Effekseer142cWin\shot.efk" />
+    <None Include="Assets\Sprite\AIEdit\arrow.png" />
+    <None Include="Assets\Sprite\AIEdit\click.png" />
+    <None Include="Assets\Sprite\AIEdit\haik.png" />
+    <None Include="Assets\Sprite\AIEdit\help.png" />
+    <None Include="Assets\Sprite\AIEdit\hozon.png" />
+    <None Include="Assets\Sprite\AIEdit\karipoint.png" />
+    <None Include="Assets\Sprite\AIEdit\masss.png" />
+    <None Include="Assets\Sprite\AIEdit\menu.png" />
+    <None Include="Assets\Sprite\AIEdit\menu2.png" />
+    <None Include="Assets\Sprite\AIEdit\menuselect.png" />
+    <None Include="Assets\Sprite\AIEdit\menuselectsieat.png" />
+    <None Include="Assets\Sprite\AIEdit\open.png" />
+    <None Include="Assets\Sprite\AIEdit\point.png" />
+    <None Include="Assets\Sprite\AIEdit\sieat.png" />
+    <None Include="Assets\Sprite\GUI\cursor.png" />
+    <None Include="Assets\Sprite\GUI\Dungeon\d1.png" />
+    <None Include="Assets\Sprite\GUI\Dungeon\d2.png" />
+    <None Include="Assets\Sprite\GUI\Dungeon\d3.png" />
+    <None Include="Assets\Sprite\GUI\Dungeon\d4.png" />
+    <None Include="Assets\Sprite\GUI\Dungeon\d5.png" />
+    <None Include="Assets\Sprite\GUI\Dungeon\DadanDanBk.png" />
+    <None Include="Assets\Sprite\GUI\Dungeon\DungeonSp.png" />
+    <None Include="Assets\Sprite\GUI\Dungeon\DungeonSpS.png" />
+    <None Include="Assets\Sprite\GUI\Dungeon\leftButton.png" />
+    <None Include="Assets\Sprite\GUI\Dungeon\nextDungeon.png" />
+    <None Include="Assets\Sprite\GUI\Dungeon\rightButton.png" />
+    <None Include="Assets\Sprite\GUI\GO.png" />
+    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\AIselect.png" />
+    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_back_R.png" />
+    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_even.png" />
+    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_sel.png" />
+    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\B_alpha.png" />
+    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\monsel_back.png" />
+    <None Include="Assets\Sprite\GUI\modeSelect\modesel_frame.png" />
+    <None Include="Assets\Sprite\monsho\dun_stage0.png" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="act">
@@ -1574,48 +1609,6 @@
     <Media Include="Assets\sound\punch-middle2.wav" />
   </ItemGroup>
   <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\AIEdit\arrow.png">
-      <Filter>Assets\AIEdit</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\AIEdit\click.png">
-      <Filter>Assets\AIEdit</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\AIEdit\haik.png">
-      <Filter>Assets\AIEdit</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\AIEdit\help.png">
-      <Filter>Assets\AIEdit</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\AIEdit\hozon.png">
-      <Filter>Assets\AIEdit</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\AIEdit\karipoint.png">
-      <Filter>Assets\AIEdit</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\AIEdit\masss.png">
-      <Filter>Assets\AIEdit</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\AIEdit\menu.png">
-      <Filter>Assets\AIEdit</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\AIEdit\menu2.png">
-      <Filter>Assets\AIEdit</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\AIEdit\menuselect.png">
-      <Filter>Assets\AIEdit</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\AIEdit\menuselectsieat.png">
-      <Filter>Assets\AIEdit</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\AIEdit\open.png">
-      <Filter>Assets\AIEdit</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\AIEdit\point.png">
-      <Filter>Assets\AIEdit</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\AIEdit\sieat.png">
-      <Filter>Assets\AIEdit</Filter>
-    </ImageContentTask>
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_back.png">
       <Filter>Assets\MainMenu</Filter>
     </ImageContentTask>
@@ -1627,9 +1620,6 @@
     </ImageContentTask>
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_back_local.png">
       <Filter>Assets\MainMenu</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_frame.png">
-      <Filter>Assets\sprite</Filter>
     </ImageContentTask>
     <ImageContentTask Include="Assets\Sprite\GUI\MonActList\actBlock.png">
       <Filter>Assets\monActlis</Filter>
@@ -1651,30 +1641,6 @@
     </ImageContentTask>
     <ImageContentTask Include="Assets\Sprite\GUI\button\simple_button_blue.png">
       <Filter>Assets\button</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\cursor.png">
-      <Filter>Assets\sprite</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\GO.png">
-      <Filter>Assets\sprite</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_back_R.png">
-      <Filter>Assets\AIselect</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_even.png">
-      <Filter>Assets\AIselect</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_sel.png">
-      <Filter>Assets\AIselect</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\AIselect.png">
-      <Filter>Assets\AIselect</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\B_alpha.png">
-      <Filter>Assets\AIselect</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\monsel_back.png">
-      <Filter>Assets\AIselect</Filter>
     </ImageContentTask>
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_back.png">
       <Filter>Assets\Monselect</Filter>
@@ -1753,42 +1719,6 @@
     </ImageContentTask>
     <ImageContentTask Include="Assets\Sprite\result\win.png">
       <Filter>Assets\result</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\d1.png">
-      <Filter>Assets\dungeon</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\d2.png">
-      <Filter>Assets\dungeon</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\d3.png">
-      <Filter>Assets\dungeon</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\d4.png">
-      <Filter>Assets\dungeon</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\d5.png">
-      <Filter>Assets\dungeon</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\DadanDanBk.png">
-      <Filter>Assets\dungeon</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\monsho\dun_stage0.png">
-      <Filter>Assets\dungeon</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\DungeonSp.png">
-      <Filter>Assets\dungeon</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\DungeonSpS.png">
-      <Filter>Assets\dungeon</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\leftButton.png">
-      <Filter>Assets\dungeon</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\nextDungeon.png">
-      <Filter>Assets\dungeon</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\rightButton.png">
-      <Filter>Assets\dungeon</Filter>
     </ImageContentTask>
   </ItemGroup>
 </Project>

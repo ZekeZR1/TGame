@@ -31,7 +31,7 @@ int WINAPI wWinMain(
 	SkinModelRender* sm = NewGO<SkinModelRender>(0, "sm");
 	sm->Init(L"Assets/modelData/tesEnemy3.cmo");
 	sm->SetPosition(CVector3::Zero());
-	sm->SetScale({ 0.01f,0.01f,0.01f });
+	sm->SetScale({ 0.001f,0.001f,0.001f });
 	//NewGO<DungeonTransition>(0);
 	//NewGO<TestScene>(0);
 	//MainRoop
