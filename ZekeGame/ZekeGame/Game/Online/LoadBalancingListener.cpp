@@ -372,9 +372,9 @@ void LoadBalancingListener::createRoom()
 		+ (rand() % 100);
 	Hashtable props;
 	props.put(L"m", mMap);
-	RoomOptions roomOptions(bool isVisible = true, bool isOpen = true, nByte maxPlayers = 2);
-	//mpLbc->opCreateRoom(name, RoomOptions().setCustomRoomProperties(props));
-	mpLbc->opCreateRoom(name, roomOptions);
+	//RoomOptions roomOptions(bool isVisible = true, bool isOpen = true, nByte maxPlayers = 2);
+	mpLbc->opCreateRoom(name, RoomOptions().setCustomRoomProperties(props));
+	//mpLbc->opCreateRoom(name, roomOptions);
 	Console::get().writeLine(L"Creating room " + name);
 }
 
