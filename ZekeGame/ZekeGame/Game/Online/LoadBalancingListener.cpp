@@ -222,7 +222,7 @@ void LoadBalancingListener::connectReturn(int errorCode, const JString& errorStr
 	if (errorCode == ErrorCode::OK)
 	{
 		Console::get().writeLine(L"connected to cluster " + cluster + L" of region " + region);
-		mpLbc->opJoinRandomRoom();
+		mpLbc->opJoinRandomRoom(Hashtable(),2);
 	}
 	else
 		Console::get().writeLine(JString(L"Warn: connect failed ") + errorCode + L" " + errorString);
@@ -372,7 +372,9 @@ void LoadBalancingListener::createRoom()
 		+ (rand() % 100);
 	Hashtable props;
 	props.put(L"m", mMap);
-	mpLbc->opCreateRoom(name, RoomOptions().setCustomRoomProperties(props));
+	RoomOptions roomOptions(bool isVisible = true, bool isOpen = true, nByte maxPlayers = 2);
+	//mpLbc->opCreateRoom(name, RoomOptions().setCustomRoomProperties(props));
+	mpLbc->opCreateRoom(name, roomOptions);
 	Console::get().writeLine(L"Creating room " + name);
 }
 
