@@ -80,7 +80,7 @@ private:
 	BaseView* mpView;
 	int mMap = 1;	//ルーム作成時に使うKey
 	int m_val = 10; //送信する値などを適当に定義
-	int m_maxPlayer = 1;
+	int m_maxPlayer = 2;
 
 	char* m_text = nullptr; //送るテキストデータ。
 
