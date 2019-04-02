@@ -153,7 +153,7 @@ void LoadBalancingListener::raiseSomeEvent() {
 	bool sendReliable = false;
 	//opRaiseEventでイベント送信する。引数にオプションで色々設定できるが
 	char sss[] = "miteruka?";
-	mpLbc->opRaiseEvent(sendReliable, sss, enText);
+	mpLbc->opRaiseEvent(sendReliable, m_text, enText);
 
 	delete[] m_text;
 	m_text = new char('\0');
