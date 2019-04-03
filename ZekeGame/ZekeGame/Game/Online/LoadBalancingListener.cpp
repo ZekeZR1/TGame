@@ -107,6 +107,12 @@ void LoadBalancingListener::serverErrorReturn(int errorCode)
 
 void LoadBalancingListener::joinRoomEventAction(int playerNr, const JVector<int>& playernrs, const Player& player)
 {
+	if (mLocalPlayerNr != playerNr)
+	{
+		//つながった！
+		misConect = true;
+	}
+
 	Console::get().writeLine(JString("player ") + playerNr + L" " + player.getName() + L" has joined the game");
 }
 
@@ -118,6 +124,8 @@ void LoadBalancingListener::leaveRoomEventAction(int playerNr, bool isInactive)
 	{
 		Console::get().writeLine(JString(L"player ") + playerNr + L" has abandoned the game");
 	}
+
+	misConect = false;//切れた。
 }
 
 //処理いろいろ
@@ -157,6 +165,14 @@ void LoadBalancingListener::raiseSomeEvent() {
 
 	delete[] m_text;
 	m_text = new char('\0');
+}
+
+void LoadBalancingListener::raiseMonData()
+{
+	Hashtable data;
+	nByte coords[] = { static_cast<nByte>(m_monNUM), static_cast<nByte>(m_monID) };
+	data.put((nByte)1, coords, 2);
+	mpLbc->opRaiseEvent(false, data, enMonData);
 }
 
 //opRaiseEventでイベントが送信されるとこの関数が呼ばれる
@@ -205,6 +221,19 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 		short contentElementCount = *ExitGames::Common::ValueObject<char*>(eventContentObj).getSizes();
 		OutputDebugStringW(ExitGames::Common::JString(L"\n") + eventContentObj.toString() + L"\n");
 		ExitGames::Common::MemoryManagement::deallocateArray(content);
+	}
+	break;
+	case enMonData:
+	{
+		int* pContent = ExitGames::Common::ValueObject<int*>(eventContentObj).getDataCopy();
+		int** ppContent = ExitGames::Common::ValueObject<int*>(eventContentObj).getDataAddress();
+		short contentElementCount = *ExitGames::Common::ValueObject<int*>(eventContentObj).getSizes();
+		//配列をペイロードとして保持するオブジェクトでgetDataCopy（）を呼び出すときは、
+		//deallocateArray（）を使用して配列のコピーを自分で割り当て解除する必要があります。
+		ExitGames::Common::MemoryManagement::deallocateArray(pContent);
+
+		int num = pContent[0];
+		int monid = pContent[1];
 	}
 	break;
 	default:
