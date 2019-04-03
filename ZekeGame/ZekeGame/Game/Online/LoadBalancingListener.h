@@ -25,12 +25,32 @@ public:
 	void service();
 	//何らかのイベントを送信する関数を定義
 	void raiseSomeEvent();
+	//モンスターのデータを送る。
+	void raiseMonData();
+
+	/*
+	送るモンスターのデータをセットする
+	args:
+		num:何番目のモンスターか
+		monID:モンスターのID
+	*/
+	void SetMonData(int num, int monID)
+	{
+		m_monNUM = num;
+		m_monID = monID;
+	}
 
 	void SetText(const char* text)
 	{
 		delete[] m_text;
 		m_text = (char*)malloc(sizeof(char)*(strlen(text) + 1));
 		strcpy(m_text, text);
+	}
+
+	//繋がっていますか
+	bool isConect()
+	{
+		return misConect;
 	}
 private:
 	//From Common::BaseListener
@@ -75,6 +95,7 @@ private:
 	enum EnEvetCode
 	{
 		enText = 5,
+		enMonData,
 	};
 	ExitGames::LoadBalancing::Client* mpLbc;
 	BaseView* mpView;
@@ -82,9 +103,14 @@ private:
 	int m_val = 10; //送信する値などを適当に定義
 	int m_maxPlayer = 2;
 
+	int m_monNUM = 0;	//モンスターのナンバー
+	int m_monID = 0;			//モンスターのID
+
 	char* m_text = nullptr; //送るテキストデータ。
 
 	int mLocalPlayerNr; //Photonから自分に割り振られたプレイヤーナンバー
 	LocalPlayer mLocalPlayer;
+
+	bool misConect = false;		//つながってる～？
 };
 

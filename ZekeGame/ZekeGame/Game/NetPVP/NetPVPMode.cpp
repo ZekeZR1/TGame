@@ -47,4 +47,10 @@ void NetPVPMode::Update() {
 	if (g_pad[0].IsTrigger(enButtonA)) {
 		Engine::IEngine().GetNetworkLogic()->GetLBL()->raiseSomeEvent();
 	}
+	else if (g_pad[0].IsTrigger(enButtonB))
+	{
+		m_exdata->sendMonData(1, 3);
+		Engine::IEngine().GetNetworkLogic()->GetLBL()->raiseMonData();
+	}
+
 }

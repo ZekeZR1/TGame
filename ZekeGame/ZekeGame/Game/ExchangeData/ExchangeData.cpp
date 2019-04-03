@@ -7,6 +7,12 @@ ExchangeData::ExchangeData()
 	m_LBL = m_network->GetLBL();
 }
 
+void ExchangeData::sendMonData(int num, int monID)
+{
+	m_LBL->SetMonData(num, monID);
+	
+}
+
 void ExchangeData::sendData(const char * file)
 {
 	m_LBL->SetText(file);
