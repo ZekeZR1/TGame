@@ -172,7 +172,8 @@ void LoadBalancingListener::raiseMonData()
 	Hashtable data;
 	nByte coords[] = { static_cast<nByte>(m_monNUM), static_cast<nByte>(m_monID) };
 	data.put((nByte)1, coords, 3);
-	mpLbc->opRaiseEvent(false, data, enMonData);
+	int idata[] = { m_monNUM,m_monID };
+	mpLbc->opRaiseEvent(false, idata, enMonData);
 }
 
 //opRaiseEventでイベントが送信されるとこの関数が呼ばれる
@@ -225,7 +226,7 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 	break;
 	case enMonData:
 	{
-		Hashtable* pContent = ExitGames::Common::ValueObject<Hashtable*>(eventContentObj).getDataCopy();
+		int* pContent = ExitGames::Common::ValueObject<int*>(eventContentObj).getDataCopy();
 		//int** ppContent = ExitGames::Common::ValueObject<int*>(eventContentObj).getDataAddress();
 		short contentElementCount = *ExitGames::Common::ValueObject<int*>(eventContentObj).getSizes();
 
