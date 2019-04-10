@@ -4,6 +4,7 @@ class GameCursor;
 class AIEditNodeOrder;
 class AIEditLine;
 class AIEditNodeProcess;
+class AIEditNodeTechnique;
 class AIEditNodeDeleteKey : public GameObject
 {
 
@@ -16,10 +17,7 @@ public:
 	void deleteclick();
 	void SetOrder(AIEditNodeOrder* a);
 
-
-
 private:
-
 
 
 	CVector3 m_position = CVector3::Zero();
@@ -31,5 +29,6 @@ private:
 	AIEditNodeOrder* m_aieditnodeorder;
 	AIEditLine* m_aieditline;
 	AIEditNodeProcess* m_aieditnodeprocess;
+	AIEditNodeTechnique* m_aieditnodetechnique;
 	
 };

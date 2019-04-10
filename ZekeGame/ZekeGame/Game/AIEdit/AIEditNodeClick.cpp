@@ -37,7 +37,6 @@ void AIEditNodeClick::SetPosition(CVector3 m_pos)
 
 void AIEditNodeClick::Update()
 {
-
 	CVector3 cursorpos = m_gamecursor->GetCursor();
 
 	m_spriteRender->SetCollisionTarget(cursorpos);
@@ -51,10 +50,13 @@ void AIEditNodeClick::Update()
 				m_aieditnodetarget = NewGO<AIEditNodeTarget>(0, "target");
 
 				Choice0 = true;
+		
+				m_aieditnodeprocess->SetTechniqueGenerate(false);
 			}
 
 		}
 
 	}
-
 }
+
+
