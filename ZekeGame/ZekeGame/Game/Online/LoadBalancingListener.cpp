@@ -170,10 +170,18 @@ void LoadBalancingListener::raiseSomeEvent() {
 void LoadBalancingListener::raiseMonData()
 {
 	Hashtable data;
-	nByte coords[] = { static_cast<nByte>(m_monNUM), static_cast<nByte>(m_monID) };
+	nByte coords[] = { static_cast<nByte>(334), static_cast<nByte>(37) };
 	data.put((nByte)1, coords, 3);
-	int idata[] = { m_monNUM,m_monID };
-	mpLbc->opRaiseEvent(false, idata, enMonData);
+	//
+	//Hashtable data;
+	////nByte coords[] = { static_cast<nByte>(m_monNUM), static_cast<nByte>(m_monID) };
+	////data.put((nByte)1, coords, 3);
+	//int idata[] = { m_monNUM,m_monID };
+	//data.put(1, idata,3);
+	mpLbc->opRaiseEvent(false, data, enMonData);
+	//char str[256];
+	////sprintf_s(str, "num is %d / raise data num ... %d \n", m_monNUM,data.getValue(1)[0]);
+	//OutputDebugString(str);
 }
 
 //opRaiseEventでイベントが送信されるとこの関数が呼ばれる
@@ -226,7 +234,7 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 	break;
 	case enMonData:
 	{
-		int* pContent = ExitGames::Common::ValueObject<int*>(eventContentObj).getDataCopy();
+		nByte* pContent = ExitGames::Common::ValueObject<nByte*>(eventContentObj).getDataCopy();
 		//int** ppContent = ExitGames::Common::ValueObject<int*>(eventContentObj).getDataAddress();
 		short contentElementCount = *ExitGames::Common::ValueObject<int*>(eventContentObj).getSizes();
 
