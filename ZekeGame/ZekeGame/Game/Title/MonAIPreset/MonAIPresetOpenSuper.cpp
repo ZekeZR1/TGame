@@ -111,7 +111,19 @@ void MonAIPresetOpenSuper::init(SMS * sms, GameCursor * cursor, const wchar_t* t
 
 void MonAIPresetOpenSuper::Update()
 {
-	
+	if (m_isOpen)
+	{
+		int num = m_maps->GetClickNum();
+		if (num < 6)
+		{
+			Execute(num);
+			//Close();
+		}
+		else if (Mouse::isTrigger(enLeftClick))
+		{
+			//Close();
+		}
+	}
 }
 
 void MonAIPresetOpenSuper::UpdateEx()
@@ -145,19 +157,7 @@ void MonAIPresetOpenSuper::UpdateEx()
 			m_isSelect = false;
 		}
 	}
-	if (m_isOpen)
-	{
-		int num = m_maps->GetClickNum();
-		if (num < 6)
-		{
-			Execute(num);
-			//Close();
-		}
-		else if (Mouse::isTrigger(enLeftClick))
-		{
-			//Close();
-		}
-	}
+	
 }
 
 void MonAIPresetOpenSuper::Open()
