@@ -170,15 +170,13 @@ void LoadBalancingListener::raiseSomeEvent() {
 void LoadBalancingListener::raiseMonData()
 {
 	Hashtable data;
-	nByte coords[] = { static_cast<nByte>(334), static_cast<nByte>(37) };
-	data.put((nByte)1, coords, 3);
-	//
+	nByte coords[] = { static_cast<nByte>(m_monNUM), static_cast<nByte>(m_monID) };
+	data.put((nByte)1, coords, 2);
+	mpLbc->opRaiseEvent(false, data, enMonData);// , RaiseEventOptions().setInterestGroup(mSendGroup ? mSendGroup : mUseGroups ? getGroupByPos() : 0));
 	//Hashtable data;
-	////nByte coords[] = { static_cast<nByte>(m_monNUM), static_cast<nByte>(m_monID) };
-	////data.put((nByte)1, coords, 3);
-	//int idata[] = { m_monNUM,m_monID };
-	//data.put(1, idata,3);
-	mpLbc->opRaiseEvent(false, data, enMonData);
+	//nByte coords[] = { static_cast<nByte>(m_monNUM), static_cast<nByte>(m_monID) };
+	//data.put((nByte)1, coords, 3);
+	//mpLbc->opRaiseEvent(false, data, enMonData);
 	//char str[256];
 	////sprintf_s(str, "num is %d / raise data num ... %d \n", m_monNUM,data.getValue(1)[0]);
 	//OutputDebugString(str);
@@ -234,20 +232,68 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 	break;
 	case enMonData:
 	{
-		nByte* pContent = ExitGames::Common::ValueObject<nByte*>(eventContentObj).getDataCopy();
-		//int** ppContent = ExitGames::Common::ValueObject<int*>(eventContentObj).getDataAddress();
-		short contentElementCount = *ExitGames::Common::ValueObject<int*>(eventContentObj).getSizes();
+		//nByte* pContent = ExitGames::Common::ValueObject<nByte*>(eventContentObj).getDataCopy();
+		////int** ppContent = ExitGames::Common::ValueObject<int*>(eventContentObj).getDataAddress();
+		//short contentElementCount = *ExitGames::Common::ValueObject<int*>(eventContentObj).getSizes();
 
-		//int num = static_cast<int>(pContent[0]);
-		auto num = pContent[0];
-		auto monid = pContent[1];
+		////int num = static_cast<int>(pContent[0]);
+		//auto num = pContent[0];
+		//auto monid = pContent[1];
+		//char str[256];
+		//sprintf_s(str, "num is %d\n", num);
+		//OutputDebugStringA(str);
+		////配列をペイロードとして保持するオブジェクトでgetDataCopy（）を呼び出すときは、
+		////deallocateArray（）を使用して配列のコピーを自分で割り当て解除する必要があります。
+		//ExitGames::Common::MemoryManagement::deallocateArray(pContent);
+		int num, monid;
+		ExitGames::Common::Hashtable eventContent = ExitGames::Common::ValueObject<ExitGames::Common::Hashtable>(eventContentObj).getDataCopy();
+		Object const* obj = eventContent.getValue("1");
+		if (!obj)
+			obj = eventContent.getValue((nByte)1);
+		if (!obj)
+			obj = eventContent.getValue(1);
+		if (!obj)
+			obj = eventContent.getValue(1.0);
+		if (obj && obj->getDimensions() == 1 && obj->getSizes()[0] == 2)
+		{
+			int x = 0; int y = 0;
+			if (obj->getType() == TypeCode::DOUBLE)
+			{
+				double* data = ((ValueObject<double*>*)obj)->getDataCopy();
+				num = (int)data[0];
+				monid = (int)data[1];
+			}
+			if (obj->getType() == TypeCode::INTEGER)
+			{
+				int* data = ((ValueObject<int*>*)obj)->getDataCopy();
+				num = (int)data[0];
+				monid = (int)data[1];
+			}
+			else if (obj->getType() == TypeCode::BYTE)
+			{
+				nByte* data = ((ValueObject<nByte*>*)obj)->getDataCopy();
+				num = (int)data[0];
+				monid = (int)data[1];
+			}
+			else if (obj->getType() == TypeCode::OBJECT)
+			{
+				Object* data = ((ValueObject<Object*>*)obj)->getDataCopy();
+				if (data[0].getType() == TypeCode::INTEGER)
+				{
+					num = ((ValueObject<int>*)(data + 0))->getDataCopy();
+					monid = ((ValueObject<int>*)(data + 1))->getDataCopy();
+				}
+				else
+				{
+					num = (int)((ValueObject<double>*)(data + 0))->getDataCopy();
+					monid = (int)((ValueObject<double>*)(data + 1))->getDataCopy();
+				}
+				MemoryManagement::deallocateArray(data);
+			}
+		}
 		char str[256];
-		sprintf_s(str, "num is %d\n", num);
-		OutputDebugStringA(str);
-		//配列をペイロードとして保持するオブジェクトでgetDataCopy（）を呼び出すときは、
-		//deallocateArray（）を使用して配列のコピーを自分で割り当て解除する必要があります。
-		ExitGames::Common::MemoryManagement::deallocateArray(pContent);
-
+		sprintf_s(str, "get num is %d / get monid is %d\n", num, monid);
+		OutputDebugString(str);
 	}
 	break;
 	default:
