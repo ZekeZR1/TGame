@@ -627,6 +627,7 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\modelData\stage\handle010.jpg" />
+    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\dungeonSelectWallpaper.png" />
     <None Include="Assets\Sprite\AIEdit\arrow.png" />
     <None Include="Assets\Sprite\AIEdit\click.png" />
     <None Include="Assets\Sprite\AIEdit\haik.png" />
