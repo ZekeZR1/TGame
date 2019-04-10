@@ -228,12 +228,13 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 		int* pContent = ExitGames::Common::ValueObject<int*>(eventContentObj).getDataCopy();
 		int** ppContent = ExitGames::Common::ValueObject<int*>(eventContentObj).getDataAddress();
 		short contentElementCount = *ExitGames::Common::ValueObject<int*>(eventContentObj).getSizes();
+
+		int num = pContent[0];
+		int monid = pContent[1];
 		//配列をペイロードとして保持するオブジェクトでgetDataCopy（）を呼び出すときは、
 		//deallocateArray（）を使用して配列のコピーを自分で割り当て解除する必要があります。
 		ExitGames::Common::MemoryManagement::deallocateArray(pContent);
 
-		int num = pContent[0];
-		int monid = pContent[1];
 	}
 	break;
 	default:

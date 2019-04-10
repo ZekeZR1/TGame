@@ -23,7 +23,6 @@ public:
 	void Update() override final;
 	void DeleteGOs();
 	void Fonts();
-	void DeletekeyClick();
 	
 	AIEditNodeDeleteKey* CreateDeleteKey();
 
