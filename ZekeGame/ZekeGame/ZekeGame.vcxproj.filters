@@ -1574,8 +1574,10 @@
     <ImageContentTask Include="Assets\Sprite\result\res_Lose.png" />
     <ImageContentTask Include="Assets\Sprite\result\res_redteam.png" />
     <ImageContentTask Include="Assets\Sprite\result\res_Win.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\dungeonSelectWallpaper.png">
-      <Filter>Game\Dungeon</Filter>
-    </ImageContentTask>
+  </ItemGroup>
+  <ItemGroup>
+    <MeshContentTask Include="Assets\modelData\testMons\tesEnemy3.fbx">
+      <Filter>Assets</Filter>
+    </MeshContentTask>
   </ItemGroup>
 </Project>
