@@ -15,6 +15,7 @@ public:
 	bool Start() override final;
 	void Update() override final;
 	void Order();
+	void FontsConfirmation();
 
 	void GetChoice3(bool a)
 	{
@@ -52,8 +53,11 @@ private:
 	bool Choice3 = false;				//‰½‚©‚ª‘I‘ğ‚³‚ê‚½‚çtrue‚É‚È‚éB
 	bool Numfont = false;
 	float scale = 0.9;
+	bool contact1 = false;
+	bool contact2 = false;
 
 	std::vector<FontRender*> m_fonts;
+	std::vector<FontRender*> m_font;
 	SpriteRender * m_spriteRender;
 	SpriteRender * sr;
 	AIEditNode * m_aieditnode;

@@ -18,6 +18,7 @@ public:
 	void Update();
 	void Num();
 	void Technique();
+	void FontsConfirmation();
 
 	enum target {
 
@@ -42,12 +43,17 @@ private:
 
 	target m_target = ennull;
 	std::vector<FontRender*> m_fonts;
+	std::vector<FontRender*> m_font;
 	int button = 3;
 	bool Choice0 = false;
 	bool fonttarget = false;
 	bool fonts = false;
+	bool contact1 = false;
+	bool contact2 = false;
 
 	CVector3 m_position = CVector3::Zero();
+	CVector3 cursorpos = CVector3::Zero();
+
 	AIEditNodeButton* m_aieditnodebutton;
 	SpriteRender* m_spriteRender;
 	FontRender* m_fontRender;

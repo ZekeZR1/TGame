@@ -214,7 +214,6 @@ void AIEditNodeMenu::Update()
 			if (sp[button - 3]->isCollidingTarget()) {
 				if (menuconf == false) {
 					m_aieditnodemenuconfirmation = NewGO<AIEditNodeMenuConfirmation>(0, "menuconf");
-					//m_aieditnodeprocess->AISave();
 					menuconf = true;
 				}
 			}

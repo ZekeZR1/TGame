@@ -13,6 +13,7 @@ public:
 	bool Start();
 	void Update();
 	void Order();
+	void FontsConfirmation();
 
 	enum Abnormal {
 
@@ -39,9 +40,12 @@ private:
 	int button = 4;
 	bool Choice6 = false;
 	bool abnormalfont = false;
+	bool contact1 = false;
+	bool contact2 = false;
 	float scale = 0.8;
 
 	std::vector<FontRender*> m_fonts;
+	std::vector<FontRender*> m_font;
 	GameCursor* m_gamecursor;
 	SpriteRender* m_spriteRender;
 	AIEditNodeButton* m_aieditnodebutton;
