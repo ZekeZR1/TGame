@@ -7,8 +7,11 @@
 #include "../Fade/MusicFade.h"
 #include "../ExchangeData/ExchangeData.h"
 
+#include "NetAISelect.h"
+
 NetPVPMode::NetPVPMode()
 {
+	NewGO<NetAISelect>(0, "pvp");
 	char cd[255] = { '\0' };
 	GetCurrentDirectoryA(255, cd);
 	strcat(cd, "\\PythonAIs\\fuckinAI.py");
@@ -31,6 +34,8 @@ NetPVPMode::NetPVPMode()
 	Engine::IEngine().CreateNetworkSystem();
 	m_exdata = new ExchangeData();
 	m_exdata->sendData(text);
+
+
 }
 
 bool NetPVPMode::Start() {
@@ -52,5 +57,4 @@ void NetPVPMode::Update() {
 		m_exdata->sendMonData(1, 3);
 		Engine::IEngine().GetNetworkLogic()->GetLBL()->raiseMonData();
 	}
-
 }
