@@ -751,6 +751,9 @@
     <Media Include="Assets\sound\punch-high2.wav" />
     <Media Include="Assets\sound\punch-middle2.wav" />
   </ItemGroup>
+  <ItemGroup>
+    <MeshContentTask Include="Assets\modelData\testMons\tesEnemy3.fbx" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="$(VCTargetsPath)\BuildCustomizations\ImageContentTask.targets" />
