@@ -524,6 +524,9 @@
     <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetIcon.cpp">
       <Filter>Game</Filter>
     </ClCompile>
+    <ClCompile Include="Game\AIEdit\AIEditNodeMenuSave.cpp">
+      <Filter>Game\AIEdite</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\fairy\hnd.FBX">
@@ -1381,6 +1384,9 @@
     </ClInclude>
     <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetIcon.h">
       <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\AIEdit\AIEditNodeMenuSave.h">
+      <Filter>Game\AIEdite</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

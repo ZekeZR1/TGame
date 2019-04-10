@@ -18,6 +18,7 @@ public:
 	bool Start();
 	void Update();
 	void Order();
+	void FontsConfirmation();
 
 	bool GetTec()
 	{
@@ -53,6 +54,8 @@ private:
 	Technique m_technique = ennull;
 	bool Tec = false;
 	bool Choice4 = false;
+	bool contact1 = false;
+	bool contact2 = false;
 	int button = 7;
 	int techniquefont = false;
 
@@ -60,6 +63,7 @@ private:
 	CVector3 m_pointposition = CVector3::Zero();
 
 	std::vector<FontRender*> m_fonts;
+	std::vector<FontRender*> m_font;
 	SpriteRender * m_spriteRender;
 	GameCursor * m_gamecursor;
 	AIEditNodeButton* m_aieditnodebutton;
