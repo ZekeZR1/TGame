@@ -171,7 +171,7 @@ void LoadBalancingListener::raiseMonData()
 {
 	Hashtable data;
 	nByte coords[] = { static_cast<nByte>(m_monNUM), static_cast<nByte>(m_monID) };
-	data.put((nByte)1, coords, 2);
+	data.put((nByte)1, coords, 3);
 	mpLbc->opRaiseEvent(false, data, enMonData);
 }
 
