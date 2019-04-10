@@ -23,7 +23,7 @@ bool DungeonSelect::Start() {
 		bgm->Play();
 	}
 	m_wallpaper = NewGO<SpriteRender>(0);
-	m_wallpaper->Init(L"Assets/Sprite/d1.dds", 1280.f, 720.f);
+	m_wallpaper->Init(L"Assets/Sprite/dungeonSelectWallpaper.dds", 1280.f, 720.f);
 	m_fade = FindGO<Fade>("fade");
 	m_fade->FadeIn();
 	return true;
