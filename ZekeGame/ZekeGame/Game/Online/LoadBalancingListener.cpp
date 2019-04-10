@@ -4,6 +4,8 @@
 #include "LoadBalancingListener.h"
 #include "TestView.h"
 
+#include <string>
+
 using namespace ExitGames::Common;
 using namespace ExitGames::LoadBalancing;
 
@@ -105,6 +107,12 @@ void LoadBalancingListener::serverErrorReturn(int errorCode)
 
 void LoadBalancingListener::joinRoomEventAction(int playerNr, const JVector<int>& playernrs, const Player& player)
 {
+	if (mLocalPlayerNr != playerNr)
+	{
+		//つながった！
+		misConect = true;
+	}
+
 	Console::get().writeLine(JString("player ") + playerNr + L" " + player.getName() + L" has joined the game");
 }
 
@@ -116,8 +124,56 @@ void LoadBalancingListener::leaveRoomEventAction(int playerNr, bool isInactive)
 	{
 		Console::get().writeLine(JString(L"player ") + playerNr + L" has abandoned the game");
 	}
+
+	misConect = false;//切れた。
 }
 
+//処理いろいろ
+//INFO : イベントを送信するグループもわけようと思えば分けれるよ
+//この関数を参考に色々イベントを送信する関数を定義するのよ
+void LoadBalancingListener::raiseSomeEvent() {
+	char message[256];
+	sprintf_s(message, "raiseEvent\n");
+	OutputDebugStringA(message);
+	//さまざまな種類のイベント（「移動」、「撮影」など）を区別するために
+	//別個のイベントコードを使用する
+	nByte eventCode = 2;
+	//Photonsのシリアル化によってサポートされている限り、
+	//好きな方法でペイロードデータを整理します
+	ExitGames::Common::Hashtable evData;
+	evData.put((nByte)1, m_val);
+	//配列とかはこうやって送る
+
+	//Hashtable data;
+	//nByte coords[] = { static_cast<nByte>(mLocalPlayer.x), static_cast<nByte>(mLocalPlayer.y) };
+	//data.put((nByte)1, coords, 3);
+
+	Hashtable ed;
+	nByte* codetext = (nByte*)malloc(sizeof(nByte)*(strlen(m_text) + 1));
+	for (int i = 0; i < strlen(m_text) + 1; i++)
+	{
+		codetext[i] = static_cast<nByte>(m_text[i]);
+	}
+	ed.put((nByte)enText, codetext, strlen(m_text) + 1);
+
+
+	//どこにでも到着する必要がある場合は、信頼できるものを送信します
+	bool sendReliable = false;
+	//opRaiseEventでイベント送信する。引数にオプションで色々設定できるが
+	char sss[] = "miteruka?";
+	mpLbc->opRaiseEvent(sendReliable, m_text, enText);
+
+	delete[] m_text;
+	m_text = new char('\0');
+}
+
+void LoadBalancingListener::raiseMonData()
+{
+	Hashtable data;
+	nByte coords[] = { static_cast<nByte>(m_monNUM), static_cast<nByte>(m_monID) };
+	data.put((nByte)1, coords, 2);
+	mpLbc->opRaiseEvent(false, data, enMonData);
+}
 
 //opRaiseEventでイベントが送信されるとこの関数が呼ばれる
 void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, const Object& eventContentObj)
@@ -158,6 +214,29 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 
 	}
 	break;
+	case enText:
+	{
+		OutputDebugString("GOT A EVENT CODE  TYPE :: TEXT\n Message is ");
+		char* content = ExitGames::Common::ValueObject<char*>(eventContentObj).getDataCopy();
+		short contentElementCount = *ExitGames::Common::ValueObject<char*>(eventContentObj).getSizes();
+		OutputDebugStringW(ExitGames::Common::JString(L"\n") + eventContentObj.toString() + L"\n");
+		ExitGames::Common::MemoryManagement::deallocateArray(content);
+	}
+	break;
+	case enMonData:
+	{
+		int* pContent = ExitGames::Common::ValueObject<int*>(eventContentObj).getDataCopy();
+		int** ppContent = ExitGames::Common::ValueObject<int*>(eventContentObj).getDataAddress();
+		short contentElementCount = *ExitGames::Common::ValueObject<int*>(eventContentObj).getSizes();
+
+		int num = pContent[0];
+		int monid = pContent[1];
+		//配列をペイロードとして保持するオブジェクトでgetDataCopy（）を呼び出すときは、
+		//deallocateArray（）を使用して配列のコピーを自分で割り当て解除する必要があります。
+		ExitGames::Common::MemoryManagement::deallocateArray(pContent);
+
+	}
+	break;
 	default:
 	{
 		//より洗練されたデータ型を送受信する方法のコード例については、
@@ -165,18 +244,6 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 	}
 	break;
 	}
-}
-
-void LoadBalancingListener::connectReturn(int errorCode, const JString& errorString, const JString& region, const JString& cluster)
-{
-	updateState();
-	if (errorCode == ErrorCode::OK)
-	{
-		Console::get().writeLine(L"connected to cluster " + cluster + L" of region " + region);
-		mpLbc->opJoinRandomRoom();
-	}
-	else
-		Console::get().writeLine(JString(L"Warn: connect failed ") + errorCode + L" " + errorString);
 }
 
 void LoadBalancingListener::disconnectReturn(void)
@@ -321,10 +388,25 @@ void LoadBalancingListener::createRoom()
 		JString(L"native-")
 #endif
 		+ (rand() % 100);
-	Hashtable props;
-	props.put(L"m", mMap);
-	mpLbc->opCreateRoom(name, RoomOptions().setCustomRoomProperties(props));
+	//Hashtable props;
+	//props.put(L"m", mMap);
+	//RoomOptions roomOptions(bool isVisible = true, bool isOpen = true, nByte maxPlayers = 2);
+	//mpLbc->opCreateRoom(name, RoomOptions().setCustomRoomProperties(props));
+
+	mpLbc->opCreateRoom(name, RoomOptions().setMaxPlayers(m_maxPlayer));
 	Console::get().writeLine(L"Creating room " + name);
+}
+
+void LoadBalancingListener::connectReturn(int errorCode, const JString& errorString, const JString& region, const JString& cluster)
+{
+	updateState();
+	if (errorCode == ErrorCode::OK)
+	{
+		Console::get().writeLine(L"connected to cluster " + cluster + L" of region " + region);
+		mpLbc->opJoinRandomRoom(Hashtable(), m_maxPlayer);
+	}
+	else
+		Console::get().writeLine(JString(L"Warn: connect failed ") + errorCode + L" " + errorString);
 }
 
 void LoadBalancingListener::service()
@@ -339,28 +421,3 @@ void LoadBalancingListener::service()
 	}
 }
 
-//処理いろいろ
-//INFO : イベントを送信するグループもわけようと思えば分けれるよ
-//この関数を参考に色々イベントを送信する関数を定義するのよ
-void LoadBalancingListener::raiseSomeEvent() {
-	char message[256];
-	sprintf_s(message, "raiseEvent\n");
-	OutputDebugStringA(message);
-	//さまざまな種類のイベント（「移動」、「撮影」など）を区別するために
-	//別個のイベントコードを使用する
-	nByte eventCode = 2; 
-	//Photonsのシリアル化によってサポートされている限り、
-	//好きな方法でペイロードデータを整理します
-	ExitGames::Common::Hashtable evData;
-	evData.put((nByte)1, m_val);
-	//配列とかはこうやって送る
-	/*
-	Hashtable data;
-	nByte coords[] = { static_cast<nByte>(mLocalPlayer.x), static_cast<nByte>(mLocalPlayer.y) };
-	data.put((nByte)1, coords, 3);
-	*/
-	//どこにでも到着する必要がある場合は、信頼できるものを送信します
-	bool sendReliable = false;
-	//opRaiseEventでイベント送信する。引数にオプションで色々設定できるが
-	mpLbc->opRaiseEvent(sendReliable, evData, eventCode);
-}
