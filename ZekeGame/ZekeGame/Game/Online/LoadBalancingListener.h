@@ -47,10 +47,30 @@ public:
 		strcpy(m_text, text);
 	}
 
+	//送られてきたモンスターのナンバーをかえす。
+	int GetMonNum()
+	{
+		return m_hangMNUM;
+	}
+
+	//送られてきたモンスターのIDを返す。
+	int GetMonID()
+	{
+		return m_hangMID;
+	}
+
+
 	//繋がっていますか
 	bool isConect()
 	{
 		return misConect;
+	}
+
+	//データが送られてきているかどうか。
+	//あんたを探してたんだ。
+	bool isHang()
+	{
+		return misHang;
 	}
 private:
 	//From Common::BaseListener
@@ -106,11 +126,16 @@ private:
 	int m_monNUM = 0;	//モンスターのナンバー
 	int m_monID = 0;			//モンスターのID
 
+	int m_hangMNUM = 0;	//送られてきたモンスターのナンバー
+	int m_hangMID = 0;	//送られてきたモンスターのID
+
 	char* m_text = nullptr; //送るテキストデータ。
+	char* m_hangPY = nullptr; //送られて来たテキストデータ。
 
 	int mLocalPlayerNr; //Photonから自分に割り振られたプレイヤーナンバー
 	LocalPlayer mLocalPlayer;
 
 	bool misConect = false;		//つながってる～？
+	bool misHang = false;		//何か送られてきてる？
 };
 

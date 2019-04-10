@@ -26,7 +26,8 @@ int WINAPI wWinMain(
 
 	NewGO<GameCamera3D>(0, "cam3d");
 	NewGO<GameCamera2D>(0, "cam2d");
-	NewGO<NetPVPMode>(0, "modesel");
+	NewGO<ModeSelect>(0, "modesel");
+	//NewGO<NetPVPMode>(0, "modesel");
 	g_physics.SetDebugDraw(true);
 	SkinModelRender* sm = NewGO<SkinModelRender>(0, "sm");
 	sm->Init(L"Assets/modelData/tesEnemy3.cmo");
