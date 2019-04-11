@@ -38,6 +38,29 @@ NetPVPMode::NetPVPMode()
 
 }
 
+void NetPVPMode::init(std::vector<std::string> files, int monai[3], int moid[3])
+{
+	for (int i=0;i<3;i++)
+	{
+		bool OK = true;
+		for (auto s : m_files)
+		{
+			if (s == files[monai[i]])
+			{
+				OK = false;
+				break;
+			}
+		}
+		if (OK)
+			m_files.push_back(files[monai[i]]);
+
+		m_monai[i] = monai[i];
+		m_moid[i] = moid[i];
+	}
+
+
+}
+
 bool NetPVPMode::Start() {
 	return true;
 }
@@ -49,6 +72,13 @@ void NetPVPMode::OnDestroy()
 
 
 void NetPVPMode::Update() {
+	m_isConect = m_exdata->isConect();
+
+	if (m_isConect)
+	{
+
+	}
+
 	if (g_pad[0].IsTrigger(enButtonA)) {
 		Engine::IEngine().GetNetworkLogic()->GetLBL()->raiseSomeEvent();
 	}

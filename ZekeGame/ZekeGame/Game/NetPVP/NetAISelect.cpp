@@ -17,6 +17,9 @@ void NetAISelect::OnDestroy()
 
 bool NetAISelect::Start()
 {
+	m_fade = FindGO<Fade>("fade");
+	m_fade->FadeIn();
+
 	m_back = NewGO<SpriteRender>(0, "sp");
 	m_back->Init(L"Assets/sprite/monsel_back.dds", 1280, 720);
 
@@ -64,6 +67,23 @@ bool NetAISelect::Start()
 
 void NetAISelect::Update()
 {
+	if (m_isfade)
+	{
+		if (m_fade->isFadeStop())
+		{
+			MonsterID moid[6];
+			for (int i = 0; i < 6; i++)
+			{
+				moid[i] = (MonsterID)m_pmms[i]->GetMonsterID();
+				monai[i] = m_pmms[i]->GetAI();
+			}
+			NetPVPMode* netpvp = NewGO<NetPVPMode>(0, "Game");
+			//game->GamePVPmodeInit(m_files, monai,moid);
+			//m_BGM->Stop();
+			DeleteGO(this);
+		}
+	}
+
 	bool ispmm = false;
 	for (auto pmm : m_pmms)
 	{
@@ -109,6 +129,18 @@ void NetAISelect::Update()
 		if (ismonsel)
 			return;
 		CVector3 curs = m_cursor->GetCursor();
+
+		m_GO->SetCollisionTarget(curs);
+		if (m_GO->isCollidingTarget())
+		{
+			if (Mouse::isTrigger(enLeftClick))
+			{
+				m_fade->FadeOut();
+				m_isfade = true;
+				//MusicFade* mf = NewGO<MusicFade>(0, "mf");
+				//mf->init(m_BGM, m_vol);
+			}
+		}
 
 		m_returnMoji->SetCollisionTarget(curs);
 		if (m_returnMoji->isCollidingTarget())

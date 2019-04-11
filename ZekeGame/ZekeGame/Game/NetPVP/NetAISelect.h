@@ -4,6 +4,7 @@
 
 class GameCursor;
 class MonAIPresetOpenSuper;
+class Fade;
 class NetAISelect :public SuperMonsterSelect
 {
 public:
@@ -46,4 +47,7 @@ private:
 	//MonAIPresetOpen* m_mapo = nullptr;
 	MonAIPresetOpenSuper* m_msRed = nullptr;		//presetのセーブ用
 	MonAIPresetOpenSuper* m_mlRed = nullptr;		//presetのロード用
+
+	Fade* m_fade = nullptr;			//フェード
+	bool m_isfade = false;
 };
