@@ -7,6 +7,7 @@
 #include "AIeditModeSelect.h"
 #include "../Dungeon/DungeonSelect.h"
 #include "../NetPVP/NetPVPMode.h"
+#include "../NetPVP/NetAISelect.h"
 #include "../../GameCamera.h"
 #include "../GameCursor.h"
 
@@ -250,7 +251,7 @@ void ModeSelect::Update()
 				DeleteGO(this);
 				break;
 			case enRandompvp:
-				NewGO<NetPVPMode>(0, "netpvp");
+				NewGO<NetAISelect>(0, "pvp");
 				DeleteGO(this);
 				break;
 			case enAIedit:
