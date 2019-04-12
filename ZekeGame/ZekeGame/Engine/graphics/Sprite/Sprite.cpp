@@ -213,7 +213,7 @@ void Sprite::Init(const wchar_t* texFilePath, float w, float h)
 	::InitSamplerState(m_samplerState);
 	m_effect.Load("Assets/shader/sprite.fx");
 	wchar_t filePath[256];
-	DirectX::CreateDDSTextureFromFileEx(
+	auto result = DirectX::CreateDDSTextureFromFileEx(
 		g_graphicsEngine->GetD3DDevice(),
 		texFilePath,
 		0,
@@ -226,6 +226,11 @@ void Sprite::Init(const wchar_t* texFilePath, float w, float h)
 		nullptr,
 		&m_texture
 	);
+	if (FAILED(result)) {
+		std::wstring  str = L"テクスチャのロードに失敗しました。 :  ";
+		str += texFilePath;
+		MessageBoxW(nullptr, str.c_str(), L"Error",  MB_OK );
+	}
 	InitConstantBuffer();
 
 	D3D11_BLEND_DESC blendDesc;
