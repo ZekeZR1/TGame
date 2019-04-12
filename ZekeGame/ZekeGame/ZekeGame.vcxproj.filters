@@ -1712,6 +1712,12 @@
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\monsel_back.png">
       <Filter>Assets</Filter>
     </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\AIEdit\buttyon.png">
+      <Filter>Assets\AIEdit</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\AIEdit\deletepoint.png">
+      <Filter>Assets\AIEdit</Filter>
+    </ImageContentTask>
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\testMons\tesEnemy3.fbx">
