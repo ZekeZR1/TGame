@@ -1,17 +1,15 @@
 #include "stdafx.h"
 #include "NetPVPMode.h"
-
 #include "../Title/ModeSelect.h"
-
 #include "../Fade/Fade.h"
 #include "../Fade/MusicFade.h"
 #include "../ExchangeData/ExchangeData.h"
-
 #include "NetAISelect.h"
+#include "../Game.h"
 
 NetPVPMode::NetPVPMode()
 {
-	NewGO<NetAISelect>(0, "pvp");
+	//NewGO<NetAISelect>(0, "pvp");
 	char cd[255] = { '\0' };
 	GetCurrentDirectoryA(255, cd);
 	strcat(cd, "\\PythonAIs\\fuckinAI.py");
@@ -26,16 +24,11 @@ NetPVPMode::NetPVPMode()
 	char text[1024] = {'\0'};
 	fread(text, size,1, file);
 	fclose(file);
-
-
-
 	m_fade = FindGO<Fade>("fade");
 	m_fade->FadeIn();
 	Engine::IEngine().CreateNetworkSystem();
 	m_exdata = new ExchangeData();
 	m_exdata->sendData(text);
-
-
 }
 
 void NetPVPMode::init(std::vector<std::string> files, int monai[3], int moid[3])
@@ -57,34 +50,67 @@ void NetPVPMode::init(std::vector<std::string> files, int monai[3], int moid[3])
 		m_monai[i] = monai[i];
 		m_moid[i] = moid[i];
 	}
-
-
 }
 
 bool NetPVPMode::Start() {
+	m_informationSp = NewGO<SpriteRender>(0);
+	m_informationSp->Init(L"Assets/Sprite/waiting.dds",300.f,50.f);
+	m_informationSp->SetPosition(m_informationPos);
 	return true;
 }
 
 void NetPVPMode::OnDestroy()
 {
+	DeleteGO(m_informationSp);
 	Engine::IEngine().DestroyNetworkSystem();
 }
 
 
 void NetPVPMode::Update() {
 	m_isConect = m_exdata->isConect();
-
-	if (m_isConect)
-	{
-
+	if (!m_isConect)
+		return;
+	m_informationSp->Init(L"Assets/Sprite/ready.dds", 300.f, 50.f);
+	RaiseData();
+	LoadEnemyData();
+	if (m_dataLoaded && m_dataRaised) {
+		BattleStart();
 	}
+}
 
-	if (g_pad[0].IsTrigger(enButtonA)) {
-		Engine::IEngine().GetNetworkLogic()->GetLBL()->raiseSomeEvent();
-	}
-	else if (g_pad[0].IsTrigger(enButtonB))
-	{
-		m_exdata->sendMonData(1, 3);
+void NetPVPMode::RaiseData() {
+	if (m_dataRaised)
+		return;
+	//MonsterData
+	for (int i = 0; i < 3; i++) {
+		m_exdata->sendMonData(i, m_monai[i]);
 		Engine::IEngine().GetNetworkLogic()->GetLBL()->raiseMonData();
 	}
+	//Monster Code
+
+	//if(raiseMonData){
+	m_dataRaised = true;
+}
+
+void NetPVPMode::LoadEnemyData() {
+	if (m_dataLoaded) 
+		return;
+	int num = Engine::IEngine().GetNetworkLogic()->GetLBL()->GetMonNum();
+	int id = Engine::IEngine().GetNetworkLogic()->GetLBL()->GetMonID();
+	m_enemyId[num] = id;
+	if (m_enemyId[0] != -1 ||
+		m_enemyId[1] != -1 ||
+		m_enemyId[2] != -1) {
+		m_dataLoaded = true;
+	}
+}
+
+void NetPVPMode::BattleStart() {
+	auto game = NewGO<Game>(0, "Game");
+	int m_monai[3] = { 0 };				//モンスターのAI
+	int m_moid[3] = { 0 };				//モンスターのID
+	int m_enemyAi[3] = { -1 };
+	int m_enemyId[3] = { -1 };
+	StageSetup::NetworkPvPSetup(m_files,m_moid,m_monai,m_enemyId);
+	DeleteGO(this);
 }

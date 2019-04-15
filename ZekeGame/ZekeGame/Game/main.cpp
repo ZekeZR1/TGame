@@ -21,7 +21,6 @@ int WINAPI wWinMain(
 	//NewGO<Game>(0,"Game");
 	//NewGO<PvPModeSelect>(0, "pvp");
 
-
 	NewGO<Fade>(0, "fade");
 
 	NewGO<GameCamera3D>(0, "cam3d");

@@ -187,7 +187,7 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 {
 	// logging the string representation of the eventContent can be really useful for debugging, but use with care: for big events this might get expensive
 	//EGLOG(ExitGames::Common::DebugLevel::ALL, L"an event of type %d from player Nr %d with the following content has just arrived: %ls", eventCode, playerNr, eventContent.toString(true).cstr());
-
+	misHang = true;
 	switch (eventCode)
 	{
 	case 1:
@@ -235,7 +235,6 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 		//nByte* pContent = ExitGames::Common::ValueObject<nByte*>(eventContentObj).getDataCopy();
 		////int** ppContent = ExitGames::Common::ValueObject<int*>(eventContentObj).getDataAddress();
 		//short contentElementCount = *ExitGames::Common::ValueObject<int*>(eventContentObj).getSizes();
-
 		////int num = static_cast<int>(pContent[0]);
 		//auto num = pContent[0];
 		//auto monid = pContent[1];
@@ -256,7 +255,6 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 			obj = eventContent.getValue(1.0);
 		if (obj && obj->getDimensions() == 1 && obj->getSizes()[0] == 2)
 		{
-			int x = 0; int y = 0;
 			if (obj->getType() == TypeCode::DOUBLE)
 			{
 				double* data = ((ValueObject<double*>*)obj)->getDataCopy();
@@ -293,6 +291,8 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 		}
 		char str[256];
 		sprintf_s(str, "get num is %d / get monid is %d\n", num, monid);
+		m_hangMNUM = num;
+		m_hangMID = monid;
 		OutputDebugString(str);
 	}
 	break;
