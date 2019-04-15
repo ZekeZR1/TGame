@@ -370,7 +370,7 @@ void StageSetup::StageSet(int stage) {
 	}
 }
 
-void StageSetup::NetworkPvPSetup(PyFile files,int myMonsterId[3], int myMonIA[3], int enemyMonsterId[3]) {
+void StageSetup::NetworkPvPSetup(std::vector<std::string> files, int monsterAI[6], int monids[6]) {
 	int team = 0;
 	int num = 0;
 	CVector3 poss[6];
@@ -380,15 +380,18 @@ void StageSetup::NetworkPvPSetup(PyFile files,int myMonsterId[3], int myMonIA[3]
 	poss[3] = { 250,0,-500 };
 	poss[4] = { 0,0,-500 };
 	poss[5] = { -250,0,-500 };
-	//load my team
-	for (int i = 0; i < 3; i++) {
+
+	for (int i = 0; i < 6; i++)
+	{
+		if (i == 3)
+			team++;
+
 		Monster* mon = nullptr;
 		std::string* path;
 
-		mon = GameData::LoadMonster(myMonsterId[i]);
+		mon = GameData::LoadMonster(monids[i]);
 		path = new std::string("PythonAIs.");
-		//*path += files[monsterAI[i]];
-		*path += files[myMonIA[i]];
+		*path += files[monsterAI[i]];
 
 		mon->Setpos(poss[i]);
 		mon->Setnum(i);
@@ -396,29 +399,60 @@ void StageSetup::NetworkPvPSetup(PyFile files,int myMonsterId[3], int myMonIA[3]
 
 		mon->SetpyFile(path);
 		g_mons[i] = mon;
-		delete path;
+
 	}
-	//load enemy team
-	team++;
-	for (int i = 3; i < 6; i++) {
-		Monster* mon = nullptr;
-		std::string* path;
 
-		mon = GameData::LoadMonster(enemyMonsterId[i - 3]);
-		path = new std::string("PythonAIs.");
-		//TODO : must load enemy ai data (index)
-		//*path += files[];
-		*path += files[myMonIA[i - 3]];
-
-		mon->Setpos(poss[i]);
-		mon->Setnum(i);
-		mon->Setteam(team);
-
-		mon->SetpyFile(path);
-		g_mons[i] = mon;
-		delete path;
-	}
 	g_buddyCount = 3;
 	g_enemyCount = 3;
 	g_monsCount = 6;
+	//int team = 0;
+	//int num = 0;
+	//CVector3 poss[6];
+	//poss[0] = { 250,0,500 };
+	//poss[1] = { 0,0,500 };
+	//poss[2] = { -250,0,500 };
+	//poss[3] = { 250,0,-500 };
+	//poss[4] = { 0,0,-500 };
+	//poss[5] = { -250,0,-500 };
+	////load my team
+	//for (int i = 0; i < 3; i++) {
+	//	Monster* mon = nullptr;
+	//	std::string* path;
+
+	//	mon = GameData::LoadMonster(myMonsterId[i]);
+	//	path = new std::string("PythonAIs.");
+	//	//*path += files[monsterAI[i]];
+	//	*path += files[myMonAI[i]];
+
+	//	mon->Setpos(poss[i]);
+	//	mon->Setnum(i);
+	//	mon->Setteam(team);
+
+	//	mon->SetpyFile(path);
+	//	g_mons[i] = mon;
+	//	delete path;
+	//}
+	////load enemy team
+	//team++;
+	//for (int i = 3; i < 6; i++) {
+	//	Monster* mon = nullptr;
+	//	std::string* path;
+
+	//	mon = GameData::LoadMonster(enemyMonsterId[i - 3]);
+	//	path = new std::string("PythonAIs.");
+	//	//TODO : must load enemy ai data (index)
+	//	//*path += files[];
+	//	*path += files[myMonAI[i - 3]];
+
+	//	mon->Setpos(poss[i]);
+	//	mon->Setnum(i);
+	//	mon->Setteam(team);
+
+	//	mon->SetpyFile(path);
+	//	g_mons[i] = mon;
+	//	delete path;
+	//}
+	//g_buddyCount = 3;
+	//g_enemyCount = 3;
+	//g_monsCount = 6;
 }
