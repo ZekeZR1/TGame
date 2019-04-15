@@ -81,6 +81,7 @@ void NetPVPMode::Update() {
 	LoadEnemyData();
 	if (m_dataLoaded && m_dataRaised) {
 		for (int i = 3; i < 6; i++) {
+			m_monai[i] = 0;
 			m_moid[i] = m_enemyId[i];
 		}
 		BattleStart();
