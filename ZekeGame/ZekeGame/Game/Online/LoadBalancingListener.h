@@ -126,8 +126,8 @@ private:
 		enMonData,
 	};
 
-	char m_toRaiseTeamData[3];
-	char m_enemyTeamData[3];
+	char m_toRaiseTeamData[3] = { 'f' };
+	char m_enemyTeamData[3] = { 'f'};
 	ExitGames::LoadBalancing::Client* mpLbc;
 	BaseView* mpView;
 	int mMap = 1;	//ƒ‹[ƒ€ì¬‚Ég‚¤Key
