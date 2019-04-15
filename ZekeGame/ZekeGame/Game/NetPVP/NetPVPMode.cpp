@@ -51,10 +51,10 @@ void NetPVPMode::init(std::vector<std::string> files, int monai[3], int moid[3])
 		m_moid[i] = moid[i];
 	}
 	//test
-	for (int i = 3; i < 6; i++) {
-		m_monai[i] = 0;
-		m_moid[i] = 2;
-	}
+	//for (int i = 3; i < 6; i++) {
+	//	m_monai[i] = 0;
+	//	m_moid[i] = 2;
+	//}
 }
 
 bool NetPVPMode::Start() {
@@ -101,10 +101,16 @@ void NetPVPMode::RaiseData() {
 	if (m_dataRaised)
 		return;
 	//MonsterData
+	char ids[3];
 	for (int i = 0; i < 3; i++) {
+		ids[i] = m_moid[i];
+	}
+	Engine::IEngine().GetNetworkLogic()->GetLBL()->SetTeamMonsterInfo(ids);
+	/*for (int i = 0; i < 3; i++) {
 		m_exdata->sendMonData(i, m_monai[i]);
 		Engine::IEngine().GetNetworkLogic()->GetLBL()->raiseMonData();
-	}
+		OutputDebugString("raise monster data\n");
+	}*/
 	//Monster Code
 
 	//if(raiseMonData){
@@ -114,14 +120,23 @@ void NetPVPMode::RaiseData() {
 void NetPVPMode::LoadEnemyData() {
 	if (m_dataLoaded) 
 		return;
-	int num = Engine::IEngine().GetNetworkLogic()->GetLBL()->GetMonNum();
-	int id = Engine::IEngine().GetNetworkLogic()->GetLBL()->GetMonID();
-	m_enemyId[num] = id;
-	if (m_enemyId[0] != -1 ||
-		m_enemyId[1] != -1 ||
-		m_enemyId[2] != -1) {
-		m_dataLoaded = true;
+	auto ids = Engine::IEngine().GetNetworkLogic()->GetLBL()->GetEnemyTeamIDs();
+	for (int i = 0; i < 3; i++) {
+		m_enemyAi[i] = ids[i];
 	}
+	m_dataLoaded = true;
+
+	/*int num = Engine::IEngine().GetNetworkLogic()->GetLBL()->GetMonNum();
+	int id = Engine::IEngine().GetNetworkLogic()->GetLBL()->GetMonID();
+	char str[256];
+	sprintf_s(str, "Monster NUM is %d !!!!!! MOOONnster ID is %d\n", num, id);
+	OutputDebugString(str);
+	m_enemyId[num] = id;
+	if (m_enemyId[0] != -1 &&
+		m_enemyId[1] != -1 &&
+		m_enemyId[2] != -1) {*/
+		//m_dataLoaded = true;
+	//}
 }
 
 void NetPVPMode::BattleStart() {

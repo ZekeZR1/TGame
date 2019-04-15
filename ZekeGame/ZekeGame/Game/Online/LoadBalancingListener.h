@@ -72,6 +72,14 @@ public:
 	{
 		return misHang;
 	}
+
+	//012 
+	void SetTeamMonsterInfo(char info[3]) {
+		strcpy(m_toRaiseTeamData, info);
+	}
+	char* GetEnemyTeamIDs() {
+		return m_enemyTeamData;
+	}
 private:
 	//From Common::BaseListener
 
@@ -117,6 +125,9 @@ private:
 		enText = 5,
 		enMonData,
 	};
+
+	char m_toRaiseTeamData[3];
+	char m_enemyTeamData[3];
 	ExitGames::LoadBalancing::Client* mpLbc;
 	BaseView* mpView;
 	int mMap = 1;	//ƒ‹[ƒ€ì¬‚Ég‚¤Key
