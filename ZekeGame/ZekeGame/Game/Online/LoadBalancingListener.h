@@ -25,12 +25,63 @@ public:
 	void service();
 	//何らかのイベントを送信する関数を定義
 	void raiseSomeEvent();
+	//モンスターのデータを送る。
+	void raiseMonData();
+	//
+	int GetOnlinePlayerCount() {
+		return mpLbc->getCountPlayersOnline();
+	}
+
+	/*
+	送るモンスターのデータをセットする
+	args:
+		num:何番目のモンスターか
+		monID:モンスターのID
+	*/
+	void SetMonData(int num, int monID)
+	{
+		m_monNUM = num;
+		m_monID = monID;
+	}
 
 	void SetText(const char* text)
 	{
 		delete[] m_text;
 		m_text = (char*)malloc(sizeof(char)*(strlen(text) + 1));
 		strcpy(m_text, text);
+	}
+
+	//送られてきたモンスターのナンバーをかえす。
+	int GetMonNum()
+	{
+		return m_hangMNUM;
+	}
+
+	//送られてきたモンスターのIDを返す。
+	int GetMonID()
+	{
+		return m_hangMID;
+	}
+
+
+	//繋がっていますか
+	bool isConect()
+	{
+		return misConect;
+	}
+
+	//データが送られてきているかどうか。
+	//あんたを探してたんだ。
+	bool isHang()
+	{
+		return misHang;
+	}
+
+	//012 
+	void SetTeamMonsterInfo(int info[3]);
+		
+	int* GetEnemyTeamIDs() {
+		return m_enemyTeamData;
 	}
 private:
 	//From Common::BaseListener
@@ -69,21 +120,34 @@ private:
 
 	void updateState(void);
 	void afterRoomJoined(int localPlayerNr);
-
-	
 private:
 	enum EnEvetCode
 	{
 		enText = 5,
+		enMonData,
 	};
+
+	int m_toRaiseTeamData[3] = { 0 };
+	int m_enemyTeamData[3] = { 0 };
 	ExitGames::LoadBalancing::Client* mpLbc;
 	BaseView* mpView;
 	int mMap = 1;	//ルーム作成時に使うKey
 	int m_val = 10; //送信する値などを適当に定義
+	int m_maxPlayer = 2;
+
+	int m_monNUM = 0;	//モンスターのナンバー
+	int m_monID = 0;			//モンスターのID
+
+	int m_hangMNUM = 0;	//送られてきたモンスターのナンバー
+	int m_hangMID = 0;	//送られてきたモンスターのID
 
 	char* m_text = nullptr; //送るテキストデータ。
+	char* m_hangPY = nullptr; //送られて来たテキストデータ。
 
 	int mLocalPlayerNr; //Photonから自分に割り振られたプレイヤーナンバー
 	LocalPlayer mLocalPlayer;
+
+	bool misConect = false;		//つながってる～？
+	bool misHang = false;		//何か送られてきてる？
 };
 

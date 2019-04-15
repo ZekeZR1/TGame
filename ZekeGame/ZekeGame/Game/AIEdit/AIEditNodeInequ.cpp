@@ -20,6 +20,8 @@ AIEditNodeInequ::~AIEditNodeInequ()
 	}
 	for (auto fonts : m_fonts)
 		DeleteGO(fonts);
+	for (auto fonts : m_font)
+		DeleteGO(fonts);
 }
 
 bool AIEditNodeInequ::Start()
@@ -62,6 +64,9 @@ bool AIEditNodeInequ::Start()
 	m_fonts[1]->Init(L"‚æ‚è¬", { m_fontpos }, 0.0, CVector4::White, 0.8, { 0.0,0.0 });
 	m_fonts[1]->DrawShadow({ 5,-5 });
 
+	m_font.push_back(NewGO<FontRender>(3));
+	m_font[0]->SetTextType(CFont::en_Japanese);
+	
 	return true;
 
 }
@@ -79,11 +84,45 @@ void AIEditNodeInequ::Num()
 	
 }
 
+void AIEditNodeInequ::FontsConfirmation()
+{
+	CVector2 m_fontpos1 = CVector2::Zero();
+	m_fontpos1.x += 181;
+	m_fontpos1.y += 360;
+	bool cont = true;
+
+	if (m_nodebuttons[button - 2]->GetSpriteRender()->isCollidingTarget()) {
+		m_font[0]->Init(L"ˆÈã", { m_fontpos1 }, 0.0, CVector4::White, 0.8, { 0.0,0.0 });
+		m_font[0]->DrawShadow({ 5,-5 });
+
+		contact1 = true;
+	}
+
+	else if (m_nodebuttons[button - 1]->GetSpriteRender()->isCollidingTarget()) {
+		m_font[0]->Init(L"ˆÈ‰º", { m_fontpos1 }, 0.0, CVector4::White, 0.8, { 0.0,0.0 });
+		m_font[0]->DrawShadow({ 5,-5 });
+
+		contact1 = true;
+	}
+
+	else {
+		cont = false;
+	}
+
+
+	if (contact1 == true) {
+		if (cont == false) {
+			m_font[0]->Init(L"", { m_fontpos1 }, 0.0, CVector4::White, 0.8, { 0.0,0.0 });
+			contact1 = false;
+		}
+	}
+}
+
 
 void AIEditNodeInequ::Update()
 {
 	
-	CVector3 cursorpos = m_gamecursor->GetCursor();
+	cursorpos = m_gamecursor->GetCursor();
 
 	for (int i = 0; i < button; i++) {
 		SpriteRender* sp = m_nodebuttons[i]->GetSpriteRender();
@@ -91,18 +130,23 @@ void AIEditNodeInequ::Update()
 
 	}
 
+	if (contact2 == false) {
+		FontsConfirmation();
+	}
 
 	if (Mouse::isTrigger(enLeftClick)) {	//¶ƒNƒŠƒbƒN
 		if (m_nodebuttons[button - 2]->GetSpriteRender()->isCollidingTarget()) {
 			m_inequ = enDainari;
 			m_aieditnodeprocess->Setkeepinequ(enDainari);
 			Num();
+			contact2 = true;
 		}
 
 		if (m_nodebuttons[button - 1]->GetSpriteRender()->isCollidingTarget()) {
 			m_inequ = enShowers;
 			m_aieditnodeprocess->Setkeepinequ(enShowers);
 			Num();
+			contact2 = true;
 		}
 
 	}

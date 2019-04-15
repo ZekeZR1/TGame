@@ -21,17 +21,17 @@ int WINAPI wWinMain(
 	//NewGO<Game>(0,"Game");
 	//NewGO<PvPModeSelect>(0, "pvp");
 
-
 	NewGO<Fade>(0, "fade");
 
 	NewGO<GameCamera3D>(0, "cam3d");
 	NewGO<GameCamera2D>(0, "cam2d");
-	NewGO<NetPVPMode>(0, "modesel");
+	NewGO<ModeSelect>(0, "modesel");
+	//NewGO<NetPVPMode>(0, "modesel");
 	g_physics.SetDebugDraw(true);
 	SkinModelRender* sm = NewGO<SkinModelRender>(0, "sm");
 	sm->Init(L"Assets/modelData/tesEnemy3.cmo");
 	sm->SetPosition(CVector3::Zero());
-	sm->SetScale({ 0.01f,0.01f,0.01f });
+	sm->SetScale({ 0.001f,0.001f,0.001f });
 	//NewGO<DungeonTransition>(0);
 	//NewGO<TestScene>(0);
 	//MainRoop

@@ -3,7 +3,7 @@
 #include "OutputListener.h"
 #include "LoadBalancingListener.h"
 #include "TestView.h"
-
+#include <fstream>
 #include <string>
 
 using namespace ExitGames::Common;
@@ -107,6 +107,12 @@ void LoadBalancingListener::serverErrorReturn(int errorCode)
 
 void LoadBalancingListener::joinRoomEventAction(int playerNr, const JVector<int>& playernrs, const Player& player)
 {
+	if (mLocalPlayerNr != playerNr)
+	{
+		//つながった！
+		misConect = true;
+	}
+
 	Console::get().writeLine(JString("player ") + playerNr + L" " + player.getName() + L" has joined the game");
 }
 
@@ -118,6 +124,8 @@ void LoadBalancingListener::leaveRoomEventAction(int playerNr, bool isInactive)
 	{
 		Console::get().writeLine(JString(L"player ") + playerNr + L" has abandoned the game");
 	}
+
+	misConect = false;//切れた。
 }
 
 //処理いろいろ
@@ -153,18 +161,35 @@ void LoadBalancingListener::raiseSomeEvent() {
 	bool sendReliable = false;
 	//opRaiseEventでイベント送信する。引数にオプションで色々設定できるが
 	char sss[] = "miteruka?";
-	mpLbc->opRaiseEvent(sendReliable, sss, enText);
+	mpLbc->opRaiseEvent(sendReliable, m_text, enText);
 
 	delete[] m_text;
 	m_text = new char('\0');
 }
+
+void LoadBalancingListener::SetTeamMonsterInfo(int info[3]) {
+	for (int i = 0; i < 3; i++)
+		m_toRaiseTeamData[i] = info[i];
+}
+void LoadBalancingListener::raiseMonData()
+{
+	//mpLbc->opRaiseEvent(false, m_toRaiseTeamData, enMonData);
+	Hashtable data;
+	nByte coords[] = { static_cast<nByte>(m_toRaiseTeamData[0]), static_cast<nByte>(m_toRaiseTeamData[1]),static_cast<nByte>(m_toRaiseTeamData[2])};
+	data.put((nByte)1, coords, 3);
+	mpLbc->opRaiseEvent(false, data, enMonData);// , RaiseEventOptions().setInterestGroup(mSendGroup ? mSendGroup : mUseGroups ? getGroupByPos() : 0));
+	//char str[256];
+	////sprintf_s(str, "num is %d / raise data num ... %d \n", m_monNUM,data.getValue(1)[0]);
+	//OutputDebugString(str);
+}
+
 
 //opRaiseEventでイベントが送信されるとこの関数が呼ばれる
 void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, const Object& eventContentObj)
 {
 	// logging the string representation of the eventContent can be really useful for debugging, but use with care: for big events this might get expensive
 	//EGLOG(ExitGames::Common::DebugLevel::ALL, L"an event of type %d from player Nr %d with the following content has just arrived: %ls", eventCode, playerNr, eventContent.toString(true).cstr());
-
+	misHang = true;
 	switch (eventCode)
 	{
 	case 1:
@@ -204,7 +229,90 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 		char* content = ExitGames::Common::ValueObject<char*>(eventContentObj).getDataCopy();
 		short contentElementCount = *ExitGames::Common::ValueObject<char*>(eventContentObj).getSizes();
 		OutputDebugStringW(ExitGames::Common::JString(L"\n") + eventContentObj.toString() + L"\n");
+		SetCurrentDirectory("PythonEnemyAIs");
+
+		std::ofstream outputfile("enemy1.py");
+		outputfile << eventContentObj.toString();
+		outputfile.close();
+
 		ExitGames::Common::MemoryManagement::deallocateArray(content);
+	}
+	break;
+	case enMonData:
+	{
+		//nByte* pContent = ExitGames::Common::ValueObject<nByte*>(eventContentObj).getDataCopy();
+		////int** ppContent = ExitGames::Common::ValueObject<int*>(eventContentObj).getDataAddress();
+		//short contentElementCount = *ExitGames::Common::ValueObject<int*>(eventContentObj).getSizes();
+		////int num = static_cast<int>(pContent[0]);
+		//auto num = pContent[0];
+		//auto monid = pContent[1];
+		//char str[256];
+		//sprintf_s(str, "num is %d\n", num);
+		//OutputDebugStringA(str);
+		////配列をペイロードとして保持するオブジェクトでgetDataCopy（）を呼び出すときは、
+		////deallocateArray（）を使用して配列のコピーを自分で割り当て解除する必要があります。
+		//ExitGames::Common::MemoryManagement::deallocateArray(pContent);
+		OutputDebugString("ISFJIODFJIOSDJFIODSJFIODSJFIDOSJFIOSFJIODJSFIOSDFJ\n");
+		char* content = ExitGames::Common::ValueObject<char*>(eventContentObj).getDataCopy();
+		short contentElementCount = *ExitGames::Common::ValueObject<char*>(eventContentObj).getSizes();
+		auto str = eventContentObj.toString();
+		for (int i = 0; i < 3; i++) {
+			//ID
+			m_enemyTeamData[i] = str[i];
+		}
+		//OutputDebugStringW(ExitGames::Common::JString(L"\n") + eventContentObj.toString() + L"\n");
+
+		/*int num, monid;
+		ExitGames::Common::Hashtable eventContent = ExitGames::Common::ValueObject<ExitGames::Common::Hashtable>(eventContentObj).getDataCopy();
+		Object const* obj = eventContent.getValue("1");
+		if (!obj)
+			obj = eventContent.getValue((nByte)1);
+		if (!obj)
+			obj = eventContent.getValue(1);
+		if (!obj)
+			obj = eventContent.getValue(1.0);
+		if (obj && obj->getDimensions() == 1 && obj->getSizes()[0] == 2)
+		{
+			if (obj->getType() == TypeCode::DOUBLE)
+			{
+				double* data = ((ValueObject<double*>*)obj)->getDataCopy();
+				num = (int)data[0];
+				monid = (int)data[1];
+			}
+			if (obj->getType() == TypeCode::INTEGER)
+			{
+				int* data = ((ValueObject<int*>*)obj)->getDataCopy();
+				num = (int)data[0];
+				monid = (int)data[1];
+			}
+			else if (obj->getType() == TypeCode::BYTE)
+			{
+				nByte* data = ((ValueObject<nByte*>*)obj)->getDataCopy();
+				num = (int)data[0];
+				monid = (int)data[1];
+			}
+			else if (obj->getType() == TypeCode::OBJECT)
+			{
+				Object* data = ((ValueObject<Object*>*)obj)->getDataCopy();
+				if (data[0].getType() == TypeCode::INTEGER)
+				{
+					num = ((ValueObject<int>*)(data + 0))->getDataCopy();
+					monid = ((ValueObject<int>*)(data + 1))->getDataCopy();
+				}
+				else
+				{
+					num = (int)((ValueObject<double>*)(data + 0))->getDataCopy();
+					monid = (int)((ValueObject<double>*)(data + 1))->getDataCopy();
+				}
+				MemoryManagement::deallocateArray(data);
+			}
+		}
+		char str[256];
+		sprintf_s(str, "get num is %d / get monid is %d\n", num, monid);
+		m_hangMNUM = num;
+		m_hangMID = monid;
+		OutputDebugString(str);
+	}*/
 	}
 	break;
 	default:
@@ -214,18 +322,6 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 	}
 	break;
 	}
-}
-
-void LoadBalancingListener::connectReturn(int errorCode, const JString& errorString, const JString& region, const JString& cluster)
-{
-	updateState();
-	if (errorCode == ErrorCode::OK)
-	{
-		Console::get().writeLine(L"connected to cluster " + cluster + L" of region " + region);
-		mpLbc->opJoinRandomRoom();
-	}
-	else
-		Console::get().writeLine(JString(L"Warn: connect failed ") + errorCode + L" " + errorString);
 }
 
 void LoadBalancingListener::disconnectReturn(void)
@@ -370,10 +466,25 @@ void LoadBalancingListener::createRoom()
 		JString(L"native-")
 #endif
 		+ (rand() % 100);
-	Hashtable props;
-	props.put(L"m", mMap);
-	mpLbc->opCreateRoom(name, RoomOptions().setCustomRoomProperties(props));
+	//Hashtable props;
+	//props.put(L"m", mMap);
+	//RoomOptions roomOptions(bool isVisible = true, bool isOpen = true, nByte maxPlayers = 2);
+	//mpLbc->opCreateRoom(name, RoomOptions().setCustomRoomProperties(props));
+
+	mpLbc->opCreateRoom(name, RoomOptions().setMaxPlayers(m_maxPlayer));
 	Console::get().writeLine(L"Creating room " + name);
+}
+
+void LoadBalancingListener::connectReturn(int errorCode, const JString& errorString, const JString& region, const JString& cluster)
+{
+	updateState();
+	if (errorCode == ErrorCode::OK)
+	{
+		Console::get().writeLine(L"connected to cluster " + cluster + L" of region " + region);
+		mpLbc->opJoinRandomRoom(Hashtable(), m_maxPlayer);
+	}
+	else
+		Console::get().writeLine(JString(L"Warn: connect failed ") + errorCode + L" " + errorString);
 }
 
 void LoadBalancingListener::service()

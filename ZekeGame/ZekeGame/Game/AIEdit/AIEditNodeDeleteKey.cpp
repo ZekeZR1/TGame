@@ -4,6 +4,7 @@
 #include "AIEditNodeOrder.h"
 #include "AIEditLine.h"
 #include "AIEditNodeProcess.h"
+#include "AIEditNodeTechnique.h"
 
 AIEditNodeDeleteKey::~AIEditNodeDeleteKey()
 {
@@ -19,6 +20,7 @@ bool AIEditNodeDeleteKey::Start()
 	//m_aieditnodeorder = FindGO<AIEditNodeOrder>("order");
 	m_aieditline = FindGO<AIEditLine>("Line");
 	m_aieditnodeprocess = FindGO<AIEditNodeProcess>("process");
+	m_aieditnodetechnique = FindGO<AIEditNodeTechnique>("techniqu");
 
 	//一番新しいorderの座標を調べる。
 	CVector3 v = CVector3::Zero();
@@ -56,6 +58,7 @@ void AIEditNodeDeleteKey::deleteclick()
 			//列すべてのものをDelete。
 			m_aieditnodeprocess->DeleteKey(m_orderpoint);
 			m_aieditnodeprocess->Click();
+			//m_aieditnodeprocess->SetTechniqueGenerate(false);
 		}
 	}
 }
@@ -63,6 +66,9 @@ void AIEditNodeDeleteKey::deleteclick()
 void AIEditNodeDeleteKey::Update() 
 {
 
-	deleteclick();
+	if (m_aieditnodeprocess->GetTechniqueGenerate() == true) {
+		deleteclick();
+		
+	}
 
 }

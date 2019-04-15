@@ -22,6 +22,7 @@ public:
 	void Inequ();
 	void Technique();
 	void Abnormal();
+	void FontsConfirmation();
 
 	void SetChoice1(bool a)
 	{
@@ -59,7 +60,13 @@ private:
 	int button = 4;						//É{É^ÉìÇÃêî
 	bool Choice1 = false;				//âΩÇ©ÇëIëÇ∑ÇÈÇ∆trueÇ…Ç»ÇÈ
 	bool Nodefont = false;
+	bool contact1 = false;
+	bool contact2 = false;
+	CVector3 cursorpos;
+
 	std::vector<FontRender*> m_fonts;
+	std::vector<FontRender*> m_font;
+
 	GameCursor * m_gamecursor;
 	AIEditNodeHp * m_aieditnodehp;
 	AIEditNodeInequ* m_aieditnodeinequ;
@@ -72,7 +79,6 @@ private:
 	AIEditNodeOrder* m_aieditnodeoreder;
 	CVector3 m_position = CVector3::Zero();
 	CVector3 m_pointposition = CVector3::Zero();
-	CFont m_font;
 
 	std::vector<AIEditNodeButton*> m_nodebuttons;
 };

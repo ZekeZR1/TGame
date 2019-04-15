@@ -19,6 +19,8 @@ AIEditNodeTechnique ::~AIEditNodeTechnique()
 	}
 	for (auto fonts : m_fonts)
 		DeleteGO(fonts);
+	for (auto fonts : m_font)
+		DeleteGO(fonts);
 }
 
 
@@ -79,10 +81,16 @@ bool AIEditNodeTechnique::Start()
 	m_fontpos.y -= 55.f;
 	m_fonts[5]->Init(L"とくしゅ１", { m_fontpos }, 0.0, CVector4::White, 0.55, { 0.0,0.0 });
 	m_fonts[5]->DrawShadow({ 5,-5 });
-	//m_fontpos.x += 3.f;
 	m_fontpos.y -= 55.f;
 	m_fonts[6]->Init(L"とくしゅ２", { m_fontpos }, 0.0, CVector4::White, 0.55, { 0.0,0.0 });
 	m_fonts[6]->DrawShadow({ 5,-5 });
+
+	
+	m_font.push_back(NewGO<FontRender>(3));
+	m_font[0]->SetTextType(CFont::en_Japanese);
+	
+	//deletekeyが表示できるようになる。
+	m_aieditnodeprocess->SetTechniqueGenerate(true);
 
 	return true;
 }
@@ -90,9 +98,8 @@ bool AIEditNodeTechnique::Start()
 void AIEditNodeTechnique::Order()
 {
 
-	//if (Mouse::isTrigger(enLeftClick)) {	//左クリック
 	if(Choice4==false){
-		//m_aieditnodeorder = NewGO<AIEditNodeOrder>(0, "Order");
+
 		m_aieditnodeorder = m_aieditnodeprocess->CreateOrder();
 		Choice4 = true;
 		m_aieditnodeorder->SetTec(true);
@@ -101,6 +108,79 @@ void AIEditNodeTechnique::Order()
 		//DeleteKeyをNewする。
 		m_aieditnodeorder->CreateDeleteKey();
 	}
+
+	contact2 = true;
+}
+
+void AIEditNodeTechnique::FontsConfirmation()
+{
+
+	CVector2 m_fontpos1 = CVector2::Zero();
+	m_fontpos1.x -= 180;
+	m_fontpos1.y += 360;
+	bool cont = true;
+
+	if (m_nodebuttons[button - 7]->GetSpriteRender()->isCollidingTarget()) {
+		m_font[0]->Init(L"　　　に　こうげき", { m_fontpos1 }, 0.0, CVector4::White, 0.8, { 0.0,0.0 });
+		m_font[0]->DrawShadow({ 5,-5 });
+
+		contact1 = true;
+	}
+
+	else if (m_nodebuttons[button - 6]->GetSpriteRender()->isCollidingTarget()) {
+		m_font[0]->Init(L"　　　から　にげる", { m_fontpos1 }, 0.0, CVector4::White, 0.8, { 0.0,0.0 });
+		m_font[0]->DrawShadow({ 5,-5 });
+
+		contact1 = true;
+	}
+
+	else if (m_nodebuttons[button - 5]->GetSpriteRender()->isCollidingTarget()) {
+		m_font[0]->Init(L"　　　を　ついせき", { m_fontpos1 }, 0.0, CVector4::White, 0.8, { 0.0,0.0 });
+		m_font[0]->DrawShadow({ 5,-5 });
+
+		contact1 = true;
+	}
+
+	else if (m_nodebuttons[button - 4]->GetSpriteRender()->isCollidingTarget()) {
+		m_font[0]->Init(L"ーーーまもる", { m_fontpos1 }, 0.0, CVector4::White, 0.8, { 0.0,0.0 });
+		m_font[0]->DrawShadow({ 5,-5 });
+
+		contact1 = true;
+	}
+
+	else if (m_nodebuttons[button - 3]->GetSpriteRender()->isCollidingTarget()) {
+		m_font[0]->Init(L"　　　を　かいふく", { m_fontpos1 }, 0.0, CVector4::White, 0.8, { 0.0,0.0 });
+		m_font[0]->DrawShadow({ 5,-5 });
+
+		contact1 = true;
+	}
+
+	else if (m_nodebuttons[button - 2]->GetSpriteRender()->isCollidingTarget()) {
+		m_font[0]->Init(L"　　　に　とくしゅ1", { m_fontpos1 }, 0.0, CVector4::White, 0.8, { 0.0,0.0 });
+		m_font[0]->DrawShadow({ 5,-5 });
+
+		contact1 = true;
+	}
+
+	else if (m_nodebuttons[button - 1]->GetSpriteRender()->isCollidingTarget()) {
+		m_font[0]->Init(L"　　　に　とくしゅ2", { m_fontpos1 }, 0.0, CVector4::White, 0.8, { 0.0,0.0 });
+		m_font[0]->DrawShadow({ 5,-5 });
+
+		contact1 = true;
+	}
+
+	else {
+		cont = false;
+	}
+
+
+	if (contact1 == true) {
+		if (cont == false) {
+			m_font[0]->Init(L"", { m_fontpos1 }, 0.0, CVector4::White, 0.8, { 0.0,0.0 });
+			contact1 = false;
+		}
+	}
+
 }
 
 void AIEditNodeTechnique::Update()
@@ -114,6 +194,9 @@ void AIEditNodeTechnique::Update()
 
 	}
 
+	if (contact2 == false) {
+		FontsConfirmation();
+	}
 
 	if (Mouse::isTrigger(enLeftClick)) {	//左クリック
 
