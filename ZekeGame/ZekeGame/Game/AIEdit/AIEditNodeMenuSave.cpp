@@ -12,7 +12,7 @@ AIEditNodeMenuSave::~AIEditNodeMenuSave()
 	}
 	DeleteGO(m_spriteRender2);
 	DeleteGO(m_spriteRender3);
-	for (auto button : m_buttons)
+	for (auto button : sp)
 		DeleteGO(button);
 	for (auto fonts : m_fonts)
 		DeleteGO(fonts);
@@ -111,60 +111,59 @@ void AIEditNodeMenuSave::Update()
 {
 
 	cursorpos = m_gamecursor->GetCursor();
+	if (!clickyes)
+	{
+		for (int i = 0; i < button; i++) {
 
-	for (int i = 0; i < button; i++) {
+			sp[i]->SetCollisionTarget(cursorpos);
+		}
 
-		sp[i]->SetCollisionTarget(cursorpos);
-	}
+		if (click == false) {
+			if (Mouse::isTrigger(enLeftClick)) {
+				if (sp[button - 2]->isCollidingTarget()) {		//　はい　を選択した場合。
 
-	if (click == false) {
-		if (Mouse::isTrigger(enLeftClick)) {
-			if (sp[button - 2]->isCollidingTarget()) {		//　はい　を選択した場合。
+					m_aieditnodeprocess->AISave();
+					
 
-				m_aieditnodeprocess->AISave();
-				m_aieditselectbuttons->Setmenuselect(false);
+					DeleteGO(m_spriteRender);
+					m_spriteRender = nullptr;
+					DeleteGO(m_fonts2);
+					m_fonts2 = nullptr;
+					for (int i = 0; i < 2; i++) {
+						DeleteGO(sp[i]);
+						sp[i] = nullptr;
+						DeleteGO(m_fonts[i]);
+						m_fonts[i] = nullptr;
+					}
 
-				DeleteGO(m_spriteRender);
-				m_spriteRender = nullptr;
-				DeleteGO(m_fonts2);
-				m_fonts2 = nullptr;
-				for (int i = 0; i < 2; i++) {
-					DeleteGO(sp[i]);
-					sp[i] = nullptr;
-					DeleteGO(m_fonts[i]);
-					m_fonts[i];
+					clickyes = true;
+
+					//Confirmation();
+
+					click = true;
 				}
 
-				clickyes = true;
-				
-				//Confirmation();
+				else if (sp[button - 1]->isCollidingTarget()) {		//　いいえ　を選択した場合。
+					m_aieditselectbuttons->Setmenuselect(false);
+					DeleteGO(this);
 
-				click = true;
+					click = true;
+				}
+
 			}
-
-			if (sp[button - 1]->isCollidingTarget()) {		//　いいえ　を選択した場合。
-				m_aieditselectbuttons->Setmenuselect(false);
-				DeleteGO(this);
-
-				click = true;
-			}
-
 		}
 	}
-
-	if (clickyes == true) {
+	else 
+	{
 		if (stop == false) {
 			Confirmation();
 			stop = true;
 		}
 		m_spriteRender3->SetCollisionTarget(cursorpos);
-	}
 
-	
-
-	if (clickyes == true) {
 		if (m_spriteRender3->isCollidingTarget()) {
 			if (Mouse::isTrigger(enLeftClick)) {
+				m_aieditselectbuttons->Setmenuselect(false);
 				DeleteGO(this);
 			}
 		}
