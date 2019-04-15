@@ -27,6 +27,10 @@ public:
 	void raiseSomeEvent();
 	//モンスターのデータを送る。
 	void raiseMonData();
+	//
+	int GetOnlinePlayerCount() {
+		return mpLbc->getCountPlayersOnline();
+	}
 
 	/*
 	送るモンスターのデータをセットする
@@ -117,8 +121,6 @@ private:
 
 	void updateState(void);
 	void afterRoomJoined(int localPlayerNr);
-
-	
 private:
 	enum EnEvetCode
 	{

@@ -74,17 +74,22 @@ void NetPVPMode::OnDestroy()
 void NetPVPMode::Update() {
 #if _DEBUG
 	if (g_pad[0].IsTrigger(enButtonA))
-		BattleStart();
+		RaiseData();
 #endif
-	m_isConect = m_exdata->isConect();
-	if (m_isConect) {
-		//OutputDebugString("Matching!!!!!! \n");
-	}
-	if (!m_isConect) {
-		//OutputDebugString("WAITING \n");
+	//m_isConect = m_exdata->isConect();
+	//if (m_isConect) {
+	//	//OutputDebugString("Matching!!!!!! \n");
+	//}
+	//if (!m_isConect) {
+	//	//OutputDebugString("WAITING \n");
+	//	return;
+	//}
+	if (Engine::IEngine().GetNetworkLogic()->GetLBL()->GetOnlinePlayerCount() != 2) {
+		char str[256];
+		sprintf_s(str, "active online user num is %d\n", Engine::IEngine().GetNetworkLogic()->GetLBL()->GetOnlinePlayerCount());
+		OutputDebugString(str);
 		return;
 	}
-
 	m_informationSp->Init(L"Assets/Sprite/ready.dds", 300.f, 50.f);
 	RaiseData();
 	LoadEnemyData();
