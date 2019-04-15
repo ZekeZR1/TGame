@@ -260,7 +260,6 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 			//ID
 			m_enemyTeamData[i] = str[i];
 		}
-
 		//OutputDebugStringW(ExitGames::Common::JString(L"\n") + eventContentObj.toString() + L"\n");
 
 		/*int num, monid;
