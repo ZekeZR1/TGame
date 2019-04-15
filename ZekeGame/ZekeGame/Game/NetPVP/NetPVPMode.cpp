@@ -50,6 +50,11 @@ void NetPVPMode::init(std::vector<std::string> files, int monai[3], int moid[3])
 		m_monai[i] = monai[i];
 		m_moid[i] = moid[i];
 	}
+	//test
+	for (int i = 3; i < 6; i++) {
+		m_monai[i] = 0;
+		m_moid[i] = 2;
+	}
 }
 
 bool NetPVPMode::Start() {
@@ -67,6 +72,10 @@ void NetPVPMode::OnDestroy()
 
 
 void NetPVPMode::Update() {
+#if _DEBUG
+	if (g_pad[0].IsTrigger(enButtonA))
+		BattleStart();
+#endif
 	m_isConect = m_exdata->isConect();
 	if (m_isConect) {
 		//OutputDebugString("Matching!!!!!! \n");
@@ -82,7 +91,7 @@ void NetPVPMode::Update() {
 	if (m_dataLoaded && m_dataRaised) {
 		for (int i = 3; i < 6; i++) {
 			m_monai[i] = 0;
-			m_moid[i] = m_enemyId[i];
+			m_moid[i] = m_enemyId[i - 3];
 		}
 		BattleStart();
 	}
@@ -117,6 +126,6 @@ void NetPVPMode::LoadEnemyData() {
 
 void NetPVPMode::BattleStart() {
 	auto game = NewGO<Game>(0, "Game");
-	StageSetup::NetworkPvPSetup(m_files,m_moid,m_monai,m_enemyId);
+	StageSetup::NetworkPvPSetup(m_files, m_monai, m_moid);
 	DeleteGO(this);
 }

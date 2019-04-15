@@ -30,8 +30,8 @@ private:
 	ExchangeData* m_exdata = nullptr;	//ネットでやり取りするときに使うやつ
 
 	std::vector<std::string> m_files;		//pythonファイルの名前
-	int m_monai[3] = { 0 };				//モンスターのAI
-	int m_moid[3] = { 0 };				//モンスターのID
+	int m_monai[6] = { 0 };				//モンスターのAI
+	int m_moid[6] = { 0 };				//モンスターのID
 	int m_enemyAi[3] = { -1 };
 	int m_enemyId[3] = { -1 };
 	bool m_isConect = false;			//繋がっていますか？
