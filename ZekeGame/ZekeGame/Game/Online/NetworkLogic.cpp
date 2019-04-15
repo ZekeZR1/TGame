@@ -24,6 +24,8 @@ NetworkLogic::NetworkLogic()
 
 NetworkLogic::~NetworkLogic()
 {
+	delete mpLbl;
+	delete mpLbc;
 }
 
 
