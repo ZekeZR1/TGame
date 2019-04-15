@@ -120,6 +120,8 @@ void NetPVPMode::RaiseData() {
 void NetPVPMode::LoadEnemyData() {
 	if (m_dataLoaded) 
 		return;
+	if (!Engine::IEngine().GetNetworkLogic()->GetLBL()->isHang())
+		return;
 	auto ids = Engine::IEngine().GetNetworkLogic()->GetLBL()->GetEnemyTeamIDs();
 	for (int i = 0; i < 3; i++) {
 		m_enemyAi[i] = ids[i];
