@@ -1428,6 +1428,12 @@
     <None Include="Assets\Sprite\monsho\dun_stage0.png">
       <Filter>Assets\dungeon</Filter>
     </None>
+    <None Include="Assets\modelData\dungeon\dropwall.fbx">
+      <Filter>Assets\model</Filter>
+    </None>
+    <None Include="Assets\modelData\dungeon\egg.FBX">
+      <Filter>Assets\model</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="act">
@@ -1724,6 +1730,8 @@
     <ImageContentTask Include="Assets\Sprite\GUI\Net\waiting.png">
       <Filter>Assets\NetBattle</Filter>
     </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\AIEdit\buttyon.png" />
+    <ImageContentTask Include="Assets\Sprite\AIEdit\deletepoint.png" />
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\testMons\tesEnemy3.fbx">
@@ -1750,13 +1758,7 @@
     <MeshContentTask Include="Assets\modelData\fairy\hnd.FBX">
       <Filter>Assets\model</Filter>
     </MeshContentTask>
-    <MeshContentTask Include="Assets\modelData\dungeon\dropwall.fbx">
-      <Filter>Assets\model</Filter>
-    </MeshContentTask>
     <MeshContentTask Include="Assets\modelData\dungeon\dungeonBack.FBX">
-      <Filter>Assets\model</Filter>
-    </MeshContentTask>
-    <MeshContentTask Include="Assets\modelData\dungeon\egg.FBX">
       <Filter>Assets\model</Filter>
     </MeshContentTask>
     <MeshContentTask Include="Assets\modelData\Test.FBX">
