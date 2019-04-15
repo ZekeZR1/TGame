@@ -3,7 +3,7 @@
 #include "OutputListener.h"
 #include "LoadBalancingListener.h"
 #include "TestView.h"
-
+#include <fstream>
 #include <string>
 
 using namespace ExitGames::Common;
@@ -227,6 +227,12 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 		char* content = ExitGames::Common::ValueObject<char*>(eventContentObj).getDataCopy();
 		short contentElementCount = *ExitGames::Common::ValueObject<char*>(eventContentObj).getSizes();
 		OutputDebugStringW(ExitGames::Common::JString(L"\n") + eventContentObj.toString() + L"\n");
+		SetCurrentDirectory("PythonEnemyAIs");
+
+		std::ofstream outputfile("enemy1.py");
+		outputfile << eventContentObj.toString();
+		outputfile.close();
+
 		ExitGames::Common::MemoryManagement::deallocateArray(content);
 	}
 	break;
