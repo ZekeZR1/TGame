@@ -72,45 +72,57 @@ void NetPVPMode::OnDestroy()
 
 
 void NetPVPMode::Update() {
-#if _DEBUG
-	if (g_pad[0].IsTrigger(enButtonA))
-		RaiseData();
-#endif
-	//m_isConect = m_exdata->isConect();
-	//if (m_isConect) {
-	//	//OutputDebugString("Matching!!!!!! \n");
-	//}
-	//if (!m_isConect) {
-	//	//OutputDebugString("WAITING \n");
-	//	return;
-	//}
-	if (Engine::IEngine().GetNetworkLogic()->GetLBL()->GetOnlinePlayerCount() != 2) {
-		char str[256];
-		sprintf_s(str, "active online user num is %d\n", Engine::IEngine().GetNetworkLogic()->GetLBL()->GetOnlinePlayerCount());
-		OutputDebugString(str);
-		return;
-	}
-	m_informationSp->Init(L"Assets/Sprite/ready.dds", 300.f, 50.f);
-	RaiseData();
-	LoadEnemyData();
-	if (m_dataLoaded && m_dataRaised) {
-		for (int i = 3; i < 6; i++) {
-			m_monai[i] = 0;
-			m_moid[i] = m_enemyId[i - 3];
-		}
-		BattleStart();
-	}
+	 char str[256];
+	 int onlinePlayerNum = Engine::IEngine().GetNetworkLogic()->GetLBL()->GetOnlinePlayerCount();
+	 sprintf_s(str, "active online user num is %d\n", onlinePlayerNum);
+	 //OutputDebugString(str);
+	 if (onlinePlayerNum == 2) {
+		 RaiseData();
+	 }
+//#if _DEBUG
+//	if (g_pad[0].IsTrigger(enButtonA))
+//		RaiseData();
+//#endif
+//	//m_isConect = m_exdata->isConect();
+//	//if (m_isConect) {
+//	//	//OutputDebugString("Matching!!!!!! \n");
+//	//}
+//	//if (!m_isConect) {
+//	//	//OutputDebugString("WAITING \n");
+//	//	return;
+//	//}
+//	if (Engine::IEngine().GetNetworkLogic()->GetLBL()->GetOnlinePlayerCount() != 2) {
+//		char str[256];
+//		sprintf_s(str, "active online user num is %d\n", Engine::IEngine().GetNetworkLogic()->GetLBL()->GetOnlinePlayerCount());
+//		OutputDebugString(str);
+//		return;
+//	}
+//	m_informationSp->Init(L"Assets/Sprite/ready.dds", 300.f, 50.f);
+//	RaiseData();
+//	LoadEnemyData();
+//	if (m_dataLoaded && m_dataRaised) {
+//		for (int i = 3; i < 6; i++) {
+//			m_monai[i] = 0;
+//			m_moid[i] = m_enemyId[i - 3];
+//		}
+//		BattleStart();
+//	}
 }
 
 void NetPVPMode::RaiseData() {
 	if (m_dataRaised)
 		return;
 	//MonsterData
-	char ids[3];
+	int ids[3];
 	for (int i = 0; i < 3; i++) {
 		ids[i] = m_moid[i];
+		char str[256];
+		sprintf_s(str, "raise id is %d\n", ids[i]);
+		OutputDebugString(str);
 	}
 	Engine::IEngine().GetNetworkLogic()->GetLBL()->SetTeamMonsterInfo(ids);
+	Engine::IEngine().GetNetworkLogic()->GetLBL()->raiseMonData();
+	//Engine::IEngine().GetNetworkLogic()->GetLBL()->SetTeamMonsterInfo(ids);
 	/*for (int i = 0; i < 3; i++) {
 		m_exdata->sendMonData(i, m_monai[i]);
 		Engine::IEngine().GetNetworkLogic()->GetLBL()->raiseMonData();

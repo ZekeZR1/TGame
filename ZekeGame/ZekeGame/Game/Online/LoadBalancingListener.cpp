@@ -167,17 +167,17 @@ void LoadBalancingListener::raiseSomeEvent() {
 	m_text = new char('\0');
 }
 
+void LoadBalancingListener::SetTeamMonsterInfo(int info[3]) {
+	for (int i = 0; i < 3; i++)
+		m_toRaiseTeamData[i] = info[i];
+}
 void LoadBalancingListener::raiseMonData()
 {
-	mpLbc->opRaiseEvent(false, m_toRaiseTeamData, enMonData);
-	//Hashtable data;
-	//nByte coords[] = { static_cast<nByte>(m_monNUM), static_cast<nByte>(m_monID) };
-	//data.put((nByte)1, coords, 2);
-	//mpLbc->opRaiseEvent(false, data, enMonData);// , RaiseEventOptions().setInterestGroup(mSendGroup ? mSendGroup : mUseGroups ? getGroupByPos() : 0));
-	//Hashtable data;
-	//nByte coords[] = { static_cast<nByte>(m_monNUM), static_cast<nByte>(m_monID) };
-	//data.put((nByte)1, coords, 3);
-	//mpLbc->opRaiseEvent(false, data, enMonData);
+	//mpLbc->opRaiseEvent(false, m_toRaiseTeamData, enMonData);
+	Hashtable data;
+	nByte coords[] = { static_cast<nByte>(m_toRaiseTeamData[0]), static_cast<nByte>(m_toRaiseTeamData[1]),static_cast<nByte>(m_toRaiseTeamData[2])};
+	data.put((nByte)1, coords, 3);
+	mpLbc->opRaiseEvent(false, data, enMonData);// , RaiseEventOptions().setInterestGroup(mSendGroup ? mSendGroup : mUseGroups ? getGroupByPos() : 0));
 	//char str[256];
 	////sprintf_s(str, "num is %d / raise data num ... %d \n", m_monNUM,data.getValue(1)[0]);
 	//OutputDebugString(str);

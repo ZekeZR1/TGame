@@ -78,10 +78,9 @@ public:
 	}
 
 	//012 
-	void SetTeamMonsterInfo(char info[3]) {
-		strcpy(m_toRaiseTeamData, info);
-	}
-	char* GetEnemyTeamIDs() {
+	void SetTeamMonsterInfo(int info[3]);
+		
+	int* GetEnemyTeamIDs() {
 		return m_enemyTeamData;
 	}
 private:
@@ -128,8 +127,8 @@ private:
 		enMonData,
 	};
 
-	char m_toRaiseTeamData[3] = { 'f' };
-	char m_enemyTeamData[3] = { 'f'};
+	int m_toRaiseTeamData[3] = { 0 };
+	int m_enemyTeamData[3] = { 0 };
 	ExitGames::LoadBalancing::Client* mpLbc;
 	BaseView* mpView;
 	int mMap = 1;	//ƒ‹[ƒ€ì¬‚Ég‚¤Key
