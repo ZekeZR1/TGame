@@ -169,10 +169,11 @@ void LoadBalancingListener::raiseSomeEvent() {
 
 void LoadBalancingListener::raiseMonData()
 {
-	Hashtable data;
-	nByte coords[] = { static_cast<nByte>(m_monNUM), static_cast<nByte>(m_monID) };
-	data.put((nByte)1, coords, 2);
-	mpLbc->opRaiseEvent(false, data, enMonData);// , RaiseEventOptions().setInterestGroup(mSendGroup ? mSendGroup : mUseGroups ? getGroupByPos() : 0));
+	mpLbc->opRaiseEvent(false, m_toRaiseTeamData, enMonData);
+	//Hashtable data;
+	//nByte coords[] = { static_cast<nByte>(m_monNUM), static_cast<nByte>(m_monID) };
+	//data.put((nByte)1, coords, 2);
+	//mpLbc->opRaiseEvent(false, data, enMonData);// , RaiseEventOptions().setInterestGroup(mSendGroup ? mSendGroup : mUseGroups ? getGroupByPos() : 0));
 	//Hashtable data;
 	//nByte coords[] = { static_cast<nByte>(m_monNUM), static_cast<nByte>(m_monID) };
 	//data.put((nByte)1, coords, 3);
@@ -181,6 +182,7 @@ void LoadBalancingListener::raiseMonData()
 	////sprintf_s(str, "num is %d / raise data num ... %d \n", m_monNUM,data.getValue(1)[0]);
 	//OutputDebugString(str);
 }
+
 
 //opRaiseEventでイベントが送信されるとこの関数が呼ばれる
 void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, const Object& eventContentObj)
@@ -250,7 +252,18 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 		////配列をペイロードとして保持するオブジェクトでgetDataCopy（）を呼び出すときは、
 		////deallocateArray（）を使用して配列のコピーを自分で割り当て解除する必要があります。
 		//ExitGames::Common::MemoryManagement::deallocateArray(pContent);
-		int num, monid;
+		OutputDebugString("ISFJIODFJIOSDJFIODSJFIODSJFIDOSJFIOSFJIODJSFIOSDFJ\n");
+		char* content = ExitGames::Common::ValueObject<char*>(eventContentObj).getDataCopy();
+		short contentElementCount = *ExitGames::Common::ValueObject<char*>(eventContentObj).getSizes();
+		auto str = eventContentObj.toString();
+		for (int i = 0; i < 3; i++) {
+			//ID
+			m_enemyTeamData[i] = str[i];
+		}
+
+		//OutputDebugStringW(ExitGames::Common::JString(L"\n") + eventContentObj.toString() + L"\n");
+
+		/*int num, monid;
 		ExitGames::Common::Hashtable eventContent = ExitGames::Common::ValueObject<ExitGames::Common::Hashtable>(eventContentObj).getDataCopy();
 		Object const* obj = eventContent.getValue("1");
 		if (!obj)
@@ -300,6 +313,7 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 		m_hangMNUM = num;
 		m_hangMID = monid;
 		OutputDebugString(str);
+	}*/
 	}
 	break;
 	default:
