@@ -9,6 +9,7 @@
 
 NetPVPMode::NetPVPMode()
 {
+	Engine::IEngine().CreateNetworkSystem();
 	//NewGO<NetAISelect>(0, "pvp");
 	char cd[255] = { '\0' };
 	GetCurrentDirectoryA(255, cd);
@@ -26,7 +27,6 @@ NetPVPMode::NetPVPMode()
 	fclose(file);
 	m_fade = FindGO<Fade>("fade");
 	m_fade->FadeIn();
-	Engine::IEngine().CreateNetworkSystem();
 	m_exdata = new ExchangeData();
 	m_exdata->sendData(text);
 }
@@ -150,5 +150,5 @@ void NetPVPMode::LoadEnemyData() {
 void NetPVPMode::BattleStart() {
 	auto game = NewGO<Game>(0, "Game");
 	StageSetup::NetworkPvPSetup(m_files, m_monai, m_moid);
-	DeleteGO(this);
+	//DeleteGO(this);
 }
