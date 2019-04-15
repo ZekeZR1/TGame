@@ -69,10 +69,10 @@ void NetPVPMode::OnDestroy()
 void NetPVPMode::Update() {
 	m_isConect = m_exdata->isConect();
 	if (m_isConect) {
-		OutputDebugString("Matching!!!!!! \n");
+		//OutputDebugString("Matching!!!!!! \n");
 	}
 	if (!m_isConect) {
-		OutputDebugString("WAITING \n");
+		//OutputDebugString("WAITING \n");
 		return;
 	}
 
@@ -80,6 +80,10 @@ void NetPVPMode::Update() {
 	RaiseData();
 	LoadEnemyData();
 	if (m_dataLoaded && m_dataRaised) {
+		for (int i = 3; i < 6; i++) {
+			m_monai[i] = 0;
+			m_moid[i] = m_enemyId[i];
+		}
 		BattleStart();
 	}
 }
