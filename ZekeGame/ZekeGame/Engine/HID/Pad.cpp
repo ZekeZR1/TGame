@@ -270,7 +270,7 @@ void Pad::Update()
 		m_rStickX = mx / 10;
 		m_rStickY = -my / 10;
 
-		if (!g_pad[0].IsPress(enStopCursorRoop)) {
+		/*if (!g_pad[0].IsPress(enStopCursorRoop)) {
 			if (pt.x > GetSystemMetrics(SM_CXSCREEN) - 5)
 			{
 				SetCursorPos(10, pt.y);
@@ -287,7 +287,7 @@ void Pad::Update()
 			{
 				SetCursorPos(pt.x, GetSystemMetrics(SM_CYSCREEN) - 10);
 			}
-		}
+		}*/
 		GetCursorPos(&pt);
 		oldx = pt.x;
 		oldy = pt.y;

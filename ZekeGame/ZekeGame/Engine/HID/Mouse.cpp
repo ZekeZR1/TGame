@@ -42,7 +42,7 @@ namespace Mouse {
 		//カーソル表示
 		ShowCursor(FALSE);
 //#if _DEBUG
-		ShowCursor(TRUE);
+		//ShowCursor(TRUE);
 //#endif
 		//Mouse
 		if (notch > 0) {
