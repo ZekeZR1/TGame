@@ -19,8 +19,11 @@ public:
 	//デストラクタ
 	void OnDestroy() override;
 private:
-
-
+	void RaiseData();
+	void LoadEnemyData();
+	bool m_dataRaised = false;
+	bool m_dataLoaded = false;
+	void BattleStart();
 	Fade* m_fade = nullptr;				//fade
 	MusicFade* m_mscfade = nullptr;		//musicfade
 	ModeSelect* m_modesel = nullptr;	//modeselect
@@ -29,6 +32,10 @@ private:
 	std::vector<std::string> m_files;		//pythonファイルの名前
 	int m_monai[3] = { 0 };				//モンスターのAI
 	int m_moid[3] = { 0 };				//モンスターのID
-
+	int m_enemyAi[3] = { -1 };
+	int m_enemyId[3] = { -1 };
 	bool m_isConect = false;			//繋がっていますか？
+	//UI
+	SpriteRender* m_informationSp;
+	CVector3 m_informationPos = { 0.f,300.f,0.f };
 };

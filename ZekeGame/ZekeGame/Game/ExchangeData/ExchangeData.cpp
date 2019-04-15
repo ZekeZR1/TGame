@@ -10,7 +10,6 @@ ExchangeData::ExchangeData()
 void ExchangeData::sendMonData(int num, int monID)
 {
 	m_LBL->SetMonData(num, monID);
-	
 }
 
 void ExchangeData::sendData(const char * file)

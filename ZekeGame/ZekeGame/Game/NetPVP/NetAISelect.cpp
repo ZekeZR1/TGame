@@ -13,6 +13,15 @@
 
 void NetAISelect::OnDestroy()
 {
+	DeleteGO(m_back);
+	DeleteGO(m_cursor);
+	DeleteGO(m_msRed);
+	DeleteGO(m_mlRed);
+	DeleteGO(m_GO);
+	DeleteGO(m_return);
+	DeleteGO(m_returnMoji);
+	for (auto i : m_pmms)
+		DeleteGO(i);
 }
 
 bool NetAISelect::Start()
@@ -71,13 +80,14 @@ void NetAISelect::Update()
 	{
 		if (m_fade->isFadeStop())
 		{
-			MonsterID moid[6];
-			for (int i = 0; i < 6; i++)
+			int moid[3];
+			for (int i = 0; i < 3; i++)
 			{
 				moid[i] = (MonsterID)m_pmms[i]->GetMonsterID();
 				monai[i] = m_pmms[i]->GetAI();
 			}
-			NetPVPMode* netpvp = NewGO<NetPVPMode>(0, "Game");
+			auto n = NewGO<NetPVPMode>(0, "Game");
+			n->init(m_files,monai, moid);
 			//game->GamePVPmodeInit(m_files, monai,moid);
 			//m_BGM->Stop();
 			DeleteGO(this);
