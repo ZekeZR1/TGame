@@ -19,8 +19,8 @@ bool GameCursor::Start()
 
 void GameCursor::Update()
 {
-	float x = g_pad[0].GetRStickXF()*10;
-	float y = g_pad[0].GetRStickYF()*10;
+	//float x = g_pad[0].GetRStickXF()*10;
+	//float y = g_pad[0].GetRStickYF()*10;
 
 	m_pos = Mouse::GetCursorPos();
 	m_cursor->SetPosition(m_pos);
