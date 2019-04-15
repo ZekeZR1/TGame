@@ -68,8 +68,14 @@ void NetPVPMode::OnDestroy()
 
 void NetPVPMode::Update() {
 	m_isConect = m_exdata->isConect();
-	if (!m_isConect)
+	if (m_isConect) {
+		OutputDebugString("Matching!!!!!! \n");
+	}
+	if (!m_isConect) {
+		OutputDebugString("WAITING \n");
 		return;
+	}
+
 	m_informationSp->Init(L"Assets/Sprite/ready.dds", 300.f, 50.f);
 	RaiseData();
 	LoadEnemyData();
@@ -107,10 +113,6 @@ void NetPVPMode::LoadEnemyData() {
 
 void NetPVPMode::BattleStart() {
 	auto game = NewGO<Game>(0, "Game");
-	int m_monai[3] = { 0 };				//モンスターのAI
-	int m_moid[3] = { 0 };				//モンスターのID
-	int m_enemyAi[3] = { -1 };
-	int m_enemyId[3] = { -1 };
 	StageSetup::NetworkPvPSetup(m_files,m_moid,m_monai,m_enemyId);
 	DeleteGO(this);
 }

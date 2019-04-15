@@ -227,9 +227,9 @@ void Sprite::Init(const wchar_t* texFilePath, float w, float h)
 		&m_texture
 	);
 	if (FAILED(result)) {
-		std::wstring  str = L"テクスチャのロードに失敗しました。 :  ";
+	/*	std::wstring  str = L"テクスチャのロードに失敗しました。 :  ";
 		str += texFilePath;
-		MessageBoxW(nullptr, str.c_str(), L"Error",  MB_OK );
+		MessageBoxW(nullptr, str.c_str(), L"Error",  MB_OK );*/
 	}
 	InitConstantBuffer();
 
