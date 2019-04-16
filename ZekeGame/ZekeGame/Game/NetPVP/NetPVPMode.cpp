@@ -77,10 +77,10 @@ void NetPVPMode::Update() {
 	 sprintf_s(str, "active online user num is %d\n", onlinePlayerNum);
 	 OutputDebugString(str);
 	 auto lbl = Engine::IEngine().GetNetworkLogic()->GetLBL();
-	 if (onlinePlayerNum == 2 || lbl->isHang()) {
-		 RaiseData();
-		 LoadEnemyData();
-	 }
+	 RaiseData();
+	 //if (onlinePlayerNum == 2 || lbl->isHang()) {
+	LoadEnemyData();
+	 //}
 	 if (m_dataLoaded) {
 		 for (int i = 3; i < 6; i++) {
 			 m_monai[i] = 0;
