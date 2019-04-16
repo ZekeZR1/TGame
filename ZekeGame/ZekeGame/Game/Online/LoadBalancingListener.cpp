@@ -251,7 +251,7 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 		////配列をペイロードとして保持するオブジェクトでgetDataCopy（）を呼び出すときは、
 		////deallocateArray（）を使用して配列のコピーを自分で割り当て解除する必要があります。
 		//ExitGames::Common::MemoryManagement::deallocateArray(pContent);
-		OutputDebugString("ISFJIODFJIOSDJFIODSJFIODSJFIDOSJFIOSFJIODJSFIOSDFJ\n");
+		//OutputDebugString("ISFJIODFJIOSDJFIODSJFIODSJFIDOSJFIOSFJIODJSFIOSDFJ\n");
 		//char* content = ExitGames::Common::ValueObject<char*>(eventContentObj).getDataCopy();
 		//short contentElementCount = *ExitGames::Common::ValueObject<char*>(eventContentObj).getSizes();
 		//auto str = eventContentObj.toString();
