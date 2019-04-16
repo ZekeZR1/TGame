@@ -78,6 +78,14 @@ void NetPVPMode::Update() {
 	 //OutputDebugString(str);
 	 if (onlinePlayerNum == 2) {
 		 RaiseData();
+		 LoadEnemyData();
+	 }
+	 if (m_dataLoaded) {
+		 for (int i = 3; i < 6; i++) {
+			 m_monai[i] = 0;
+			 m_moid[i] = m_enemyId[i - 3];
+		 }
+		 BattleStart();
 	 }
 //#if _DEBUG
 //	if (g_pad[0].IsTrigger(enButtonA))
@@ -110,8 +118,8 @@ void NetPVPMode::Update() {
 }
 
 void NetPVPMode::RaiseData() {
-	if (m_dataRaised)
-		return;
+	//if (m_dataRaised)
+		//return;
 	//MonsterData
 	int ids[3];
 	for (int i = 0; i < 3; i++) {
@@ -120,8 +128,10 @@ void NetPVPMode::RaiseData() {
 		sprintf_s(str, "raise id is %d\n", ids[i]);
 		OutputDebugString(str);
 	}
-	Engine::IEngine().GetNetworkLogic()->GetLBL()->SetTeamMonsterInfo(ids);
-	Engine::IEngine().GetNetworkLogic()->GetLBL()->raiseMonData();
+	auto lbl = Engine::IEngine().GetNetworkLogic()->GetLBL();
+	lbl->SetTeamMonsterInfo(ids);
+	lbl->raiseMonData();
+	//m_dataRaised = true;
 	//Engine::IEngine().GetNetworkLogic()->GetLBL()->SetTeamMonsterInfo(ids);
 	/*for (int i = 0; i < 3; i++) {
 		m_exdata->sendMonData(i, m_monai[i]);
@@ -131,7 +141,6 @@ void NetPVPMode::RaiseData() {
 	//Monster Code
 
 	//if(raiseMonData){
-	m_dataRaised = true;
 }
 
 void NetPVPMode::LoadEnemyData() {
@@ -140,10 +149,10 @@ void NetPVPMode::LoadEnemyData() {
 	//if (!Engine::IEngine().GetNetworkLogic()->GetLBL()->isHang())
 		//return;
 	auto ids = Engine::IEngine().GetNetworkLogic()->GetLBL()->GetEnemyTeamIDs();
-	if (ids[0] == 'f')
+	if (ids[0] == 0)
 		return;
 	for (int i = 0; i < 3; i++) {
-		m_enemyAi[i] = ids[i];
+		m_enemyId[i] = ids[i];
 	}
 	m_dataLoaded = true;
 	/*int num = Engine::IEngine().GetNetworkLogic()->GetLBL()->GetMonNum();
@@ -162,5 +171,5 @@ void NetPVPMode::LoadEnemyData() {
 void NetPVPMode::BattleStart() {
 	auto game = NewGO<Game>(0, "Game");
 	StageSetup::NetworkPvPSetup(m_files, m_monai, m_moid);
-	//DeleteGO(this);
+	DeleteGO(this);
 }
