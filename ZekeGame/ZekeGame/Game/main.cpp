@@ -38,4 +38,6 @@ int WINAPI wWinMain(
 	Engine::IEngine().GameRoop();
 	//Release
 	Engine::IEngine().Final();
+	//Test
+	Engine::IEngine().DestroyNetworkSystem();
 }
