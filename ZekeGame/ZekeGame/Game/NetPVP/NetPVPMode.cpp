@@ -67,7 +67,7 @@ bool NetPVPMode::Start() {
 void NetPVPMode::OnDestroy()
 {
 	DeleteGO(m_informationSp);
-	//Engine::IEngine().DestroyNetworkSystem();
+	Engine::IEngine().DestroyNetworkSystem();
 }
 
 
@@ -78,8 +78,8 @@ void NetPVPMode::Update() {
 	 OutputDebugString(str);
 	 auto lbl = Engine::IEngine().GetNetworkLogic()->GetLBL();
 	 RaiseData();
+	 LoadEnemyData();
 	 //if (onlinePlayerNum == 2 || lbl->isHang()) {
-	LoadEnemyData();
 	 //}
 	 if (m_dataLoaded) {
 		 for (int i = 3; i < 6; i++) {
