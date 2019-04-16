@@ -3,9 +3,12 @@
 #include "DungeonTransition.h"
 #include "../StageSetup/StageSelect.h"
 #include "../Fade/Fade.h"
+#include "../Fade/MusicFade.h"
 bool DungeonTransition::Start() {
 	m_fade = FindGO<Fade>("fade");
 	m_fade->FadeIn();
+
+	NewGO<Sound>(0, "BGM");
 
 	m_back = NewGO<SkinModelRender>(0);
 	m_back->Init(L"Assets/modelData/dungeonBack.cmo");
