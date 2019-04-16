@@ -253,16 +253,15 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 		////deallocateArray（）を使用して配列のコピーを自分で割り当て解除する必要があります。
 		//ExitGames::Common::MemoryManagement::deallocateArray(pContent);
 		OutputDebugString("ISFJIODFJIOSDJFIODSJFIODSJFIDOSJFIOSFJIODJSFIOSDFJ\n");
-		char* content = ExitGames::Common::ValueObject<char*>(eventContentObj).getDataCopy();
-		short contentElementCount = *ExitGames::Common::ValueObject<char*>(eventContentObj).getSizes();
-		auto str = eventContentObj.toString();
-		for (int i = 0; i < 3; i++) {
-			//ID
-			m_enemyTeamData[i] = str[i];
-		}
+		//char* content = ExitGames::Common::ValueObject<char*>(eventContentObj).getDataCopy();
+		//short contentElementCount = *ExitGames::Common::ValueObject<char*>(eventContentObj).getSizes();
+		//auto str = eventContentObj.toString();
+		//for (int i = 0; i < 3; i++) {
+		//	//ID
+		//	m_enemyTeamData[i] = str[i];
+		//}
 		//OutputDebugStringW(ExitGames::Common::JString(L"\n") + eventContentObj.toString() + L"\n");
 
-		/*int num, monid;
 		ExitGames::Common::Hashtable eventContent = ExitGames::Common::ValueObject<ExitGames::Common::Hashtable>(eventContentObj).getDataCopy();
 		Object const* obj = eventContent.getValue("1");
 		if (!obj)
@@ -271,48 +270,52 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 			obj = eventContent.getValue(1);
 		if (!obj)
 			obj = eventContent.getValue(1.0);
-		if (obj && obj->getDimensions() == 1 && obj->getSizes()[0] == 2)
+		if (obj && obj->getDimensions() == 1 && obj->getSizes()[0] == 3)
 		{
 			if (obj->getType() == TypeCode::DOUBLE)
 			{
 				double* data = ((ValueObject<double*>*)obj)->getDataCopy();
-				num = (int)data[0];
-				monid = (int)data[1];
+				m_enemyTeamData[0] = (int)data[0];
+				m_enemyTeamData[1] = (int)data[1];
+				m_enemyTeamData[2] = (int)data[2];
 			}
 			if (obj->getType() == TypeCode::INTEGER)
 			{
 				int* data = ((ValueObject<int*>*)obj)->getDataCopy();
-				num = (int)data[0];
-				monid = (int)data[1];
+				m_enemyTeamData[0] = (int)data[0];
+				m_enemyTeamData[1] = (int)data[1];
+				m_enemyTeamData[2] = (int)data[2];
 			}
 			else if (obj->getType() == TypeCode::BYTE)
 			{
 				nByte* data = ((ValueObject<nByte*>*)obj)->getDataCopy();
-				num = (int)data[0];
-				monid = (int)data[1];
+				m_enemyTeamData[0] = (int)data[0];
+				m_enemyTeamData[1] = (int)data[1];
+				m_enemyTeamData[2] = (int)data[2];
 			}
 			else if (obj->getType() == TypeCode::OBJECT)
 			{
 				Object* data = ((ValueObject<Object*>*)obj)->getDataCopy();
 				if (data[0].getType() == TypeCode::INTEGER)
 				{
-					num = ((ValueObject<int>*)(data + 0))->getDataCopy();
-					monid = ((ValueObject<int>*)(data + 1))->getDataCopy();
+					m_enemyTeamData[0] = ((ValueObject<int>*)(data + 0))->getDataCopy();
+					m_enemyTeamData[1] = ((ValueObject<int>*)(data + 1))->getDataCopy();
+					m_enemyTeamData[2] = ((ValueObject<int>*)(data + 2))->getDataCopy();
 				}
 				else
 				{
-					num = (int)((ValueObject<double>*)(data + 0))->getDataCopy();
-					monid = (int)((ValueObject<double>*)(data + 1))->getDataCopy();
+					m_enemyTeamData[0] = (int)((ValueObject<double>*)(data + 0))->getDataCopy();
+					m_enemyTeamData[1] = (int)((ValueObject<double>*)(data + 1))->getDataCopy();
+					m_enemyTeamData[2] = (int)((ValueObject<double>*)(data + 2))->getDataCopy();
 				}
 				MemoryManagement::deallocateArray(data);
 			}
 		}
-		char str[256];
-		sprintf_s(str, "get num is %d / get monid is %d\n", num, monid);
-		m_hangMNUM = num;
-		m_hangMID = monid;
-		OutputDebugString(str);
-	}*/
+		//char str[256];
+		//sprintf_s(str, "get num is %d / get monid is %d\n", num, monid);
+		//m_hangMNUM = num;
+		//m_hangMID = monid;
+		//OutputDebugString(str);
 	}
 	break;
 	default:
