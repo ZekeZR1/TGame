@@ -189,7 +189,6 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 {
 	// logging the string representation of the eventContent can be really useful for debugging, but use with care: for big events this might get expensive
 	//EGLOG(ExitGames::Common::DebugLevel::ALL, L"an event of type %d from player Nr %d with the following content has just arrived: %ls", eventCode, playerNr, eventContent.toString(true).cstr());
-	misHang = true;
 	switch (eventCode)
 	{
 	case 1:
@@ -261,7 +260,7 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 		//	m_enemyTeamData[i] = str[i];
 		//}
 		//OutputDebugStringW(ExitGames::Common::JString(L"\n") + eventContentObj.toString() + L"\n");
-
+		misHang = true;
 		ExitGames::Common::Hashtable eventContent = ExitGames::Common::ValueObject<ExitGames::Common::Hashtable>(eventContentObj).getDataCopy();
 		Object const* obj = eventContent.getValue("1");
 		if (!obj)
