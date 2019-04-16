@@ -27,6 +27,7 @@ public:
 	void raiseSomeEvent();
 	//モンスターのデータを送る。
 	void raiseMonData();
+	void raiseMonAIs();
 	//
 	int GetOnlinePlayerCount() {
 		return mpLbc->getCountPlayersOnline();
@@ -50,13 +51,14 @@ public:
 		m_text = (char*)malloc(sizeof(char)*(strlen(text) + 1));
 		strcpy(m_text, text);
 	}
-
 	//送られてきたモンスターのナンバーをかえす。
 	int GetMonNum()
 	{
 		return m_hangMNUM;
 	}
-
+	bool isGotEnemyPythonCodes() {
+		return m_isGotPythonCodes;
+	}
 	//送られてきたモンスターのIDを返す。
 	int GetMonID()
 	{
@@ -129,6 +131,7 @@ private:
 
 	int m_toRaiseTeamData[3] = { 0 };
 	int m_enemyTeamData[3] = { 0 };
+	std::string m_pythonCode;
 	ExitGames::LoadBalancing::Client* mpLbc;
 	BaseView* mpView;
 	int mMap = 1;	//ルーム作成時に使うKey
@@ -149,5 +152,6 @@ private:
 
 	bool misConect = false;		//つながってる～？
 	bool misHang = false;		//何か送られてきてる？
+	bool m_isGotPythonCodes = false;
 };
 
