@@ -75,7 +75,7 @@ void NetPVPMode::Update() {
 	 char str[256];
 	 int onlinePlayerNum = Engine::IEngine().GetNetworkLogic()->GetLBL()->GetOnlinePlayerCount();
 	 sprintf_s(str, "active online user num is %d\n", onlinePlayerNum);
-	 //OutputDebugString(str);
+	 OutputDebugString(str);
 	 if (onlinePlayerNum == 2) {
 		 RaiseData();
 		 LoadEnemyData();
@@ -153,6 +153,7 @@ void NetPVPMode::LoadEnemyData() {
 		return;
 	for (int i = 0; i < 3; i++) {
 		m_enemyId[i] = ids[i];
+		OutputDebugString("LOADING ENEMY TEAM MONSTER ID DATAS\n");
 	}
 	m_dataLoaded = true;
 	/*int num = Engine::IEngine().GetNetworkLogic()->GetLBL()->GetMonNum();
