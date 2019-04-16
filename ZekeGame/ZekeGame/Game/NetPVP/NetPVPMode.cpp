@@ -76,7 +76,8 @@ void NetPVPMode::Update() {
 	 int onlinePlayerNum = Engine::IEngine().GetNetworkLogic()->GetLBL()->GetOnlinePlayerCount();
 	 sprintf_s(str, "active online user num is %d\n", onlinePlayerNum);
 	 OutputDebugString(str);
-	 if (onlinePlayerNum == 2) {
+	 auto lbl = Engine::IEngine().GetNetworkLogic()->GetLBL();
+	 if (onlinePlayerNum == 2 || lbl->isHang()) {
 		 RaiseData();
 		 LoadEnemyData();
 	 }
@@ -126,7 +127,7 @@ void NetPVPMode::RaiseData() {
 		ids[i] = m_moid[i];
 		char str[256];
 		sprintf_s(str, "raise id is %d\n", ids[i]);
-		OutputDebugString(str);
+		//OutputDebugString(str);
 	}
 	auto lbl = Engine::IEngine().GetNetworkLogic()->GetLBL();
 	lbl->SetTeamMonsterInfo(ids);
