@@ -160,12 +160,12 @@ void LoadBalancingListener::raiseSomeEvent() {
 	//どこにでも到着する必要がある場合は、信頼できるものを送信します
 	bool sendReliable = false;
 	//opRaiseEventでイベント送信する。引数にオプションで色々設定できるが
-	char sss[] = "miteruka?";
 	mpLbc->opRaiseEvent(sendReliable, m_text, enText);
 
 	delete[] m_text;
 	m_text = new char('\0');
 }
+
 
 void LoadBalancingListener::SetTeamMonsterInfo(int info[3]) {
 	for (int i = 0; i < 3; i++)
@@ -183,6 +183,19 @@ void LoadBalancingListener::raiseMonData()
 	//OutputDebugString(str);
 }
 
+void LoadBalancingListener::raiseMonAIs() {
+	Hashtable ed;
+	nByte* codetext = (nByte*)malloc(sizeof(nByte)*(strlen(m_text) + 1));
+	for (int i = 0; i < strlen(m_text) + 1; i++)
+	{
+		codetext[i] = static_cast<nByte>(m_text[i]);
+	}
+	ed.put((nByte)enText, codetext, strlen(m_text) + 1);
+	bool sendReliable = false;
+	mpLbc->opRaiseEvent(sendReliable, m_text, enText);
+	delete[] m_text;
+	m_text = new char('\0');
+}
 
 //opRaiseEventでイベントが送信されるとこの関数が呼ばれる
 void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, const Object& eventContentObj)
@@ -219,21 +232,19 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 	case 4:
 	{
 		//position
-
 	}
 	break;
 	case enText:
 	{
+		m_isGotPythonCodes = true;
 		OutputDebugString("GOT A EVENT CODE  TYPE :: TEXT\n Message is ");
 		char* content = ExitGames::Common::ValueObject<char*>(eventContentObj).getDataCopy();
 		short contentElementCount = *ExitGames::Common::ValueObject<char*>(eventContentObj).getSizes();
 		OutputDebugStringW(ExitGames::Common::JString(L"\n") + eventContentObj.toString() + L"\n");
 		SetCurrentDirectory("PythonEnemyAIs");
-
-		std::ofstream outputfile("enemy1.py");
+		std::ofstream outputfile("1enemy.py");
 		outputfile << eventContentObj.toString();
 		outputfile.close();
-
 		ExitGames::Common::MemoryManagement::deallocateArray(content);
 	}
 	break;
@@ -251,7 +262,7 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 		////配列をペイロードとして保持するオブジェクトでgetDataCopy（）を呼び出すときは、
 		////deallocateArray（）を使用して配列のコピーを自分で割り当て解除する必要があります。
 		//ExitGames::Common::MemoryManagement::deallocateArray(pContent);
-		OutputDebugString("ISFJIODFJIOSDJFIODSJFIODSJFIDOSJFIOSFJIODJSFIOSDFJ\n");
+		//OutputDebugString("ISFJIODFJIOSDJFIODSJFIODSJFIDOSJFIOSFJIODJSFIOSDFJ\n");
 		//char* content = ExitGames::Common::ValueObject<char*>(eventContentObj).getDataCopy();
 		//short contentElementCount = *ExitGames::Common::ValueObject<char*>(eventContentObj).getSizes();
 		//auto str = eventContentObj.toString();

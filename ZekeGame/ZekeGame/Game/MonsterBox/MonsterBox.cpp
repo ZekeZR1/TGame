@@ -4,7 +4,7 @@
 #include <memory>
 #include <fstream>
 #include <cmath>
-
+//TODO : ZpŠî–{’è—‚ğg‚¤
 bool MonsterBox::isGot(MonsterID id) {
 	CheckMonsterData();
 	int flagnum[enNumMonster];
