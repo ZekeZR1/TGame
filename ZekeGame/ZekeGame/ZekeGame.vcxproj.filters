@@ -523,6 +523,9 @@
     <ClCompile Include="Game\NetPVP\NetAISelect.cpp">
       <Filter>Game\NetPVP</Filter>
     </ClCompile>
+    <ClCompile Include="Game\AIEdit\AIEditNodeMenuOpen.cpp">
+      <Filter>Game\AIEdite</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\PythonBridge\include\unicodeobject.h" />
@@ -1354,6 +1357,9 @@
     <ClInclude Include="Game\NetPVP\NetAISelect.h">
       <Filter>Game\NetPVP</Filter>
     </ClInclude>
+    <ClInclude Include="Game\AIEdit\AIEditNodeMenuOpen.h">
+      <Filter>Game\AIEdite</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="python36.lib" />
@@ -1542,6 +1548,9 @@
     </Media>
     <Media Include="Assets\sound\kick-low1.wav">
       <Filter>Assets</Filter>
+    </Media>
+    <Media Include="Assets\sound\BGM\PerituneMaterial_Strategy5_loop.wav">
+      <Filter>Assets\BGM</Filter>
     </Media>
   </ItemGroup>
   <ItemGroup>
