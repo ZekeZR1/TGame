@@ -370,7 +370,11 @@ void StageSetup::StageSet(int stage) {
 	}
 }
 
-void StageSetup::NetworkPvPSetup(std::vector<std::string> files, int monsterAI[6], int monids[6]) {
+void StageSetup::NetworkPvPSetup(std::vector<std::string> files,
+	std::vector<std::string> enemyFiles,
+	int monsterAI[6],
+	int monids[6]
+	) {
 	int team = 0;
 	int num = 0;
 	CVector3 poss[6];
@@ -390,9 +394,14 @@ void StageSetup::NetworkPvPSetup(std::vector<std::string> files, int monsterAI[6
 		std::string* path;
 
 		mon = GameData::LoadMonster(monids[i]);
-		path = new std::string("PythonAIs.");
-		*path += files[monsterAI[i]];
-
+		if (team == 0) {
+			path = new std::string("PythonAIs.");
+			*path += files[i];
+		}
+		else {
+			path = new std::string("NetworkEnemyAIs.");
+			*path += enemyFiles[i-3];
+		}
 		mon->Setpos(poss[i]);
 		mon->Setnum(i);
 		mon->Setteam(team);

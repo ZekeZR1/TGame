@@ -132,40 +132,40 @@ void LoadBalancingListener::leaveRoomEventAction(int playerNr, bool isInactive)
 //INFO : イベントを送信するグループもわけようと思えば分けれるよ
 //この関数を参考に色々イベントを送信する関数を定義するのよ
 void LoadBalancingListener::raiseSomeEvent() {
-	char message[256];
-	sprintf_s(message, "raiseEvent\n");
-	OutputDebugStringA(message);
-	//さまざまな種類のイベント（「移動」、「撮影」など）を区別するために
-	//別個のイベントコードを使用する
-	nByte eventCode = 2;
-	//Photonsのシリアル化によってサポートされている限り、
-	//好きな方法でペイロードデータを整理します
-	ExitGames::Common::Hashtable evData;
-	evData.put((nByte)1, m_val);
-	//配列とかはこうやって送る
+	//char message[256];
+	//sprintf_s(message, "raiseEvent\n");
+	//OutputDebugStringA(message);
+	////さまざまな種類のイベント（「移動」、「撮影」など）を区別するために
+	////別個のイベントコードを使用する
+	//nByte eventCode = 2;
+	////Photonsのシリアル化によってサポートされている限り、
+	////好きな方法でペイロードデータを整理します
+	//ExitGames::Common::Hashtable evData;
+	//evData.put((nByte)1, m_val);
+	////配列とかはこうやって送る
 
-	//Hashtable data;
-	//nByte coords[] = { static_cast<nByte>(mLocalPlayer.x), static_cast<nByte>(mLocalPlayer.y) };
-	//data.put((nByte)1, coords, 3);
+	////Hashtable data;
+	////nByte coords[] = { static_cast<nByte>(mLocalPlayer.x), static_cast<nByte>(mLocalPlayer.y) };
+	////data.put((nByte)1, coords, 3);
 
-	Hashtable ed;
-	nByte* codetext = (nByte*)malloc(sizeof(nByte)*(strlen(m_text) + 1));
-	for (int i = 0; i < strlen(m_text) + 1; i++)
-	{
-		codetext[i] = static_cast<nByte>(m_text[i]);
-	}
-	ed.put((nByte)enText, codetext, strlen(m_text) + 1);
+	//Hashtable ed;
+	//nByte* codetext = (nByte*)malloc(sizeof(nByte)*(strlen(m_text) + 1));
+	//for (int i = 0; i < strlen(m_text) + 1; i++)
+	//{
+	//	codetext[i] = static_cast<nByte>(m_text[i]);
+	//}
+	//ed.put((nByte)enText, codetext, strlen(m_text) + 1);
 
 
-	//どこにでも到着する必要がある場合は、信頼できるものを送信します
-	bool sendReliable = false;
-	//opRaiseEventでイベント送信する。引数にオプションで色々設定できるが
-	char sss[] = "miteruka?";
-	mpLbc->opRaiseEvent(sendReliable, m_text, enText);
+	////どこにでも到着する必要がある場合は、信頼できるものを送信します
+	//bool sendReliable = false;
+	////opRaiseEventでイベント送信する。引数にオプションで色々設定できるが
+	//mpLbc->opRaiseEvent(sendReliable, m_text, enText);
 
-	delete[] m_text;
-	m_text = new char('\0');
+	//delete[] m_text;
+	//m_text = new char('\0');
 }
+
 
 void LoadBalancingListener::SetTeamMonsterInfo(int info[3]) {
 	for (int i = 0; i < 3; i++)
@@ -183,6 +183,44 @@ void LoadBalancingListener::raiseMonData()
 	//OutputDebugString(str);
 }
 
+void LoadBalancingListener::raiseMonAIs() {
+	const nByte NumKey = 101;
+	const nByte CodeKey = 102;
+	for (int i = 0; i < 3; i++) {
+		Hashtable ev;
+		ev.put(NumKey, i);
+		JString code = m_text[i];
+		ev.put(CodeKey, code);
+		mpLbc->opRaiseEvent(false, ev, enText);
+	}
+	//OutputDebugStringW(code);
+	//mpLbc->opRaiseEvent(false, ev, enText);
+	//bool sendReliable = false;
+	//for (int i = 0; i < 3; i++) {
+	//	mpLbc->opRaiseEvent(sendReliable, m_text[i], enText);
+	//	delete[] m_text[i];
+	//	m_text[i] = new char('\0');
+	//}
+	/*Hashtable ed;
+	nByte* codetext[] = {
+		(nByte*)malloc(sizeof(nByte)*(strlen(m_text[0]) + 1)),
+		(nByte*)malloc(sizeof(nByte)*(strlen(m_text[1]) + 1)),
+		(nByte*)malloc(sizeof(nByte)*(strlen(m_text[2]) + 1))
+	};
+	for (int j = 0; j < 3; j++) {
+		for (int i = 0; i < strlen(m_text[j]) + 1; i++)
+		{
+			codetext[j][i] = static_cast<nByte>(m_text[j][i]);
+		}
+		ed.put((nByte)enText, codetext, strlen(m_text[j]) + 1);
+	}
+	bool sendReliable = false;
+	mpLbc->opRaiseEvent(sendReliable, ed, enText);
+	for (int i = 0; i < 3; i++) {
+		delete[] m_text[i];
+		m_text[i] = new char('\0');
+	}*/
+}
 
 //opRaiseEventでイベントが送信されるとこの関数が呼ばれる
 void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, const Object& eventContentObj)
@@ -219,22 +257,35 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 	case 4:
 	{
 		//position
-
 	}
 	break;
 	case enText:
 	{
-		OutputDebugString("GOT A EVENT CODE  TYPE :: TEXT\n Message is ");
-		char* content = ExitGames::Common::ValueObject<char*>(eventContentObj).getDataCopy();
-		short contentElementCount = *ExitGames::Common::ValueObject<char*>(eventContentObj).getSizes();
-		OutputDebugStringW(ExitGames::Common::JString(L"\n") + eventContentObj.toString() + L"\n");
-		SetCurrentDirectory("PythonEnemyAIs");
-
-		std::ofstream outputfile("enemy1.py");
-		outputfile << eventContentObj.toString();
-		outputfile.close();
-
-		ExitGames::Common::MemoryManagement::deallocateArray(content);
+		const nByte NumKey = 101;
+		const nByte CodeKey = 102;
+		ExitGames::Common::Hashtable eventDataContent = ExitGames::Common::ValueObject<ExitGames::Common::Hashtable>(eventContentObj).getDataCopy();
+		int number = -1;
+		if (eventDataContent.getValue(NumKey))
+			number = (ExitGames::Common::ValueObject<int>(eventDataContent.getValue(NumKey))).getDataCopy();
+		if (eventDataContent.getValue(CodeKey)) {
+			m_isAiLoaded[number] = true;
+			auto code = (ExitGames::Common::ValueObject<JString>(eventDataContent.getValue(CodeKey))).getDataCopy();
+			char str[256];
+			sprintf_s(str, "number is %d\n", number);
+			OutputDebugString(str);
+			OutputDebugStringW(code);
+			OutputDebugString("\n");
+			std::wstring pythonFileName = L"NetworkEnemyAIs/";
+			pythonFileName += std::to_wstring(number + 1);
+			pythonFileName += L"enemy.py";
+			const wchar_t* utf8fname = pythonFileName.c_str();
+			FILE *fp1;
+			if ((fp1 = _wfopen(utf8fname, L"w, ccs=UTF-8")) != NULL)
+			{
+				fputws(code, fp1);
+				fclose(fp1);
+			}
+		}
 	}
 	break;
 	case enMonData:
@@ -251,7 +302,7 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 		////配列をペイロードとして保持するオブジェクトでgetDataCopy（）を呼び出すときは、
 		////deallocateArray（）を使用して配列のコピーを自分で割り当て解除する必要があります。
 		//ExitGames::Common::MemoryManagement::deallocateArray(pContent);
-		OutputDebugString("ISFJIODFJIOSDJFIODSJFIODSJFIDOSJFIOSFJIODJSFIOSDFJ\n");
+		//OutputDebugString("ISFJIODFJIOSDJFIODSJFIODSJFIDOSJFIOSFJIODJSFIOSDFJ\n");
 		//char* content = ExitGames::Common::ValueObject<char*>(eventContentObj).getDataCopy();
 		//short contentElementCount = *ExitGames::Common::ValueObject<char*>(eventContentObj).getSizes();
 		//auto str = eventContentObj.toString();
@@ -501,3 +552,8 @@ void LoadBalancingListener::service()
 	}
 }
 
+bool LoadBalancingListener::isGotEnemyPythonCodes() {
+	if (m_isAiLoaded[0] && m_isAiLoaded[1] && m_isAiLoaded[2])
+		return true;
+	return false;
+}

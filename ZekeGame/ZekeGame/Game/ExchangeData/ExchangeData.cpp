@@ -14,7 +14,7 @@ void ExchangeData::sendMonData(int num, int monID)
 
 void ExchangeData::sendData(const char * file)
 {
-	m_LBL->SetText(file);
+	//m_LBL->SetText(file);
 	//delete[] file;
 }
 

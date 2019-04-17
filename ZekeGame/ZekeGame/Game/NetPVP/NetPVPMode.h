@@ -21,6 +21,7 @@ public:
 private:
 	void RaiseData();
 	void LoadEnemyData();
+	void RaiseAiTextData();
 	bool m_dataRaised = false;
 	bool m_dataLoaded = false;
 	void BattleStart();
@@ -35,7 +36,9 @@ private:
 	int m_enemyAi[3] = { 0 };
 	int m_enemyId[3] = { 0 };
 	bool m_isConect = false;			//åqÇ™Ç¡ÇƒÇ¢Ç‹Ç∑Ç©ÅH
+	bool m_myAIsLoaded = false;
 	//UI
 	SpriteRender* m_informationSp;
 	CVector3 m_informationPos = { 0.f,300.f,0.f };
+	LoadBalancingListener* m_lbl = nullptr;
 };

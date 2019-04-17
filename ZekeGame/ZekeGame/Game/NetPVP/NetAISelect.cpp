@@ -33,6 +33,7 @@ bool NetAISelect::Start()
 	m_back->Init(L"Assets/sprite/monsel_back.dds", 1280, 720);
 
 	m_files = PythonFileLoad::FilesLoad();
+
 	m_cursor = NewGO<GameCursor>(0, "cursor");
 
 	//　紅組用のチームを保存するやつ
