@@ -36,6 +36,7 @@ private:
 	int m_enemyAi[3] = { 0 };
 	int m_enemyId[3] = { 0 };
 	bool m_isConect = false;			//Œq‚ª‚Á‚Ä‚¢‚Ü‚·‚©H
+	bool m_myAIsLoaded = false;
 	//UI
 	SpriteRender* m_informationSp;
 	CVector3 m_informationPos = { 0.f,300.f,0.f };
