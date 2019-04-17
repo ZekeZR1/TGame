@@ -102,7 +102,7 @@ std::vector<std::string> PythonFileLoad::FilesLoadOnlineEnemy()
 	std::string key = cd + "\\NetworkEnemyAIs\\*.py*";
 	hfind = FindFirstFile(key.c_str(), &win32d);
 
-
+	OutputDebugString("LOAD NETWORK ENEMY AIS \n");
 	//è¡Ç∑
 	//FontRender* font = NewGO<FontRender>(0, "font");
 	//std::wstring ws = std::wstring(key.begin(), key.end());
