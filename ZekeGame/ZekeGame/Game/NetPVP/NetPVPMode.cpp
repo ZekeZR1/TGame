@@ -1,4 +1,5 @@
 #include "stdafx.h"
+#include <fstream>
 #include "NetPVPMode.h"
 #include "../Title/ModeSelect.h"
 #include "../Fade/Fade.h"
@@ -88,13 +89,18 @@ void NetPVPMode::Update() {
 	 }
 	 //Test
 	 if (g_pad[0].IsTrigger(enButtonA)) {
-		 for (int i = 3; i < 6; i++) {
-			 m_monai[i] = i - 3;
-			 m_moid[i] = m_enemyId[i - 3];
+		 ExitGames::Common::JString str = "EGOIST";
+		 std::wstring pythonFileName = L"NetworkEnemyAIs/";
+		 pythonFileName += L"1";
+		 pythonFileName += L"enemy.py";
+		 const wchar_t* utf8fname = pythonFileName.c_str();
+		 FILE *fp1;
+		 if ((fp1 = _wfopen(utf8fname, L"w, ccs=UTF-8")) != NULL)
+		 {
+			 fputws(str, fp1);
+			 fclose(fp1);
 		 }
-		 BattleStart();
 	 }
-
 }
 
 void NetPVPMode::RaiseData() {
