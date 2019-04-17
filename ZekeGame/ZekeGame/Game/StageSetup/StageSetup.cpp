@@ -394,13 +394,13 @@ void StageSetup::NetworkPvPSetup(std::vector<std::string> files,
 		std::string* path;
 
 		mon = GameData::LoadMonster(monids[i]);
-		if (team < 3) {
+		if (team == 0) {
 			path = new std::string("PythonAIs.");
 			*path += files[i];
 		}
 		else {
 			path = new std::string("NetworkEnemyAIs.");
-			*path += enemyFiles[i - 3];
+			*path += enemyFiles[i-3];
 		}
 		mon->Setpos(poss[i]);
 		mon->Setnum(i);
