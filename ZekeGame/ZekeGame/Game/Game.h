@@ -43,7 +43,9 @@ public:
 		m_dunNum = number;
 	}
 
-
+	void SetRandomPVPMode() {
+		m_playMode = enRandomPVP;
+	}
 private:
 	Pyinit* m_pi;
 	SkinModelRender* m_model;
