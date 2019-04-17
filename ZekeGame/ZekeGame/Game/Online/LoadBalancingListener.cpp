@@ -264,23 +264,23 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 		const nByte NumKey = 101;
 		const nByte CodeKey = 102;
 		ExitGames::Common::Hashtable eventDataContent = ExitGames::Common::ValueObject<ExitGames::Common::Hashtable>(eventContentObj).getDataCopy();
-		int number = 0;
+		int number = -1;
 		// nByte key and int value:
 		if (eventDataContent.getValue(NumKey))
 			number = (ExitGames::Common::ValueObject<int>(eventDataContent.getValue(NumKey))).getDataCopy();
 		if (eventDataContent.getValue(CodeKey)) {
 			m_isAiLoaded[number] = true;
-			auto code = (ExitGames::Common::ValueObject<JString*>(eventDataContent.getValue(CodeKey))).getDataCopy();
+			auto code = (ExitGames::Common::ValueObject<JString>(eventDataContent.getValue(CodeKey))).getDataCopy();
 			char str[256];
 			sprintf_s(str, "number is %d\n", number);
 			OutputDebugString(str);
-			OutputDebugStringW(*code);
+			OutputDebugStringW(code);
 			OutputDebugString("\n");
 			SetCurrentDirectory("NetworkEnemyAIs");
 			std::string pythonFileName = std::to_string(number);
 			pythonFileName += "enemy.py";
 			std::ofstream outputfile(pythonFileName);
-			outputfile << code->toString();
+			outputfile << code.toString();
 			outputfile.close();
 		}
 
