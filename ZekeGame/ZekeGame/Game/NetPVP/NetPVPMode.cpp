@@ -71,14 +71,10 @@ void NetPVPMode::OnDestroy()
 
 
 void NetPVPMode::Update() {
-	//Test
-	if (g_pad[0].IsTrigger(enButtonA)) {
-		m_lbl->raiseMonAIs();
-	}
 	//
-	 char str[256];
-	 int onlinePlayerNum = Engine::IEngine().GetNetworkLogic()->GetLBL()->GetOnlinePlayerCount();
-	 sprintf_s(str, "active online user num is %d\n", onlinePlayerNum);
+	 //char str[256];
+	 //int onlinePlayerNum = Engine::IEngine().GetNetworkLogic()->GetLBL()->GetOnlinePlayerCount();
+	 //sprintf_s(str, "active online user num is %d\n", onlinePlayerNum);
 	 //OutputDebugString(str);
 	 auto lbl = Engine::IEngine().GetNetworkLogic()->GetLBL();
 	 RaiseData();
@@ -92,6 +88,15 @@ void NetPVPMode::Update() {
 		 }
 		 BattleStart();
 	 }
+	 //Test
+	 if (g_pad[0].IsTrigger(enButtonA)) {
+		 for (int i = 3; i < 6; i++) {
+			 m_monai[i] = i - 3;
+			 m_moid[i] = m_enemyId[i - 3];
+		 }
+		 BattleStart();
+	 }
+
 }
 
 void NetPVPMode::RaiseData() {
