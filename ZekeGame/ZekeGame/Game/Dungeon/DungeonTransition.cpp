@@ -8,7 +8,9 @@ bool DungeonTransition::Start() {
 	m_fade = FindGO<Fade>("fade");
 	m_fade->FadeIn();
 
-	NewGO<Sound>(0, "BGM");
+	Sound* bgm = NewGO<Sound>(0, "BGM");
+	bgm->Init(L"Assets/sound/BGM/PerituneMaterial_OverWorld5_loop.wav",true);
+	bgm->Play();
 
 	m_back = NewGO<SkinModelRender>(0);
 	m_back->Init(L"Assets/modelData/dungeonBack.cmo");
