@@ -13,7 +13,7 @@ NetPVPMode::NetPVPMode()
 	Engine::IEngine().CreateNetworkSystem();
 	m_lbl = Engine::IEngine().GetNetworkLogic()->GetLBL();
 	//NewGO<NetAISelect>(0, "pvp");
-	char cd[255] = { '\0' };
+	/*char cd[255] = { '\0' };
 	GetCurrentDirectoryA(255, cd);
 	strcat(cd, "\\PythonAIs\\fuckinAI.py");
 	
@@ -27,26 +27,26 @@ NetPVPMode::NetPVPMode()
 	char text[1024] = {'\0'};
 	fread(text, size,1, file);
 	fclose(file);
+	m_exdata = new ExchangeData();
+	m_exdata->sendData(text);*/
 	m_fade = FindGO<Fade>("fade");
 	m_fade->FadeIn();
-	m_exdata = new ExchangeData();
-	m_exdata->sendData(text);
 }
 
 void NetPVPMode::init(std::vector<std::string> files, int monai[3], int moid[3])
 {
 	for (int i=0;i<3;i++)
 	{
-		bool OK = true;
-		for (auto s : m_files)
-		{
-			if (s == files[monai[i]])
-			{
-				OK = false;
-				break;
-			}
-		}
-		if (OK)
+		//bool OK = true;
+		//for (auto s : m_files)
+		//{
+		//	if (s == files[monai[i]])
+		//	{
+		//		OK = false;
+		//		break;
+		//	}
+		//}
+		//if (OK)
 			m_files.push_back(files[monai[i]]);
 
 		m_monai[i] = monai[i];
@@ -73,7 +73,7 @@ void NetPVPMode::OnDestroy()
 void NetPVPMode::Update() {
 	//Test
 	if (g_pad[0].IsTrigger(enButtonA)) {
-		RaiseAiTextData();
+		m_lbl->raiseMonAIs();
 	}
 	//
 	 char str[256];
@@ -120,7 +120,7 @@ void NetPVPMode::LoadEnemyData() {
 	//Load Enemy AIs
 	//m_lbl->GetEnemyAIsData();
 	if(m_lbl->isGotEnemyPythonCodes())
-	m_dataLoaded = true;
+		m_dataLoaded = true;
 }
 
 void NetPVPMode::BattleStart() {
@@ -131,35 +131,39 @@ void NetPVPMode::BattleStart() {
 }
 
 void NetPVPMode::RaiseAiTextData() {
-	char* AiCode[3];
+	if (!m_myAIsLoaded) {
+		//strcat(cd, "\\PythonAIs\\fuckinAI.py");
+		//strcat(cd, m_files[m_monai[0]]);
+		for (int i = 0; i < 3; i++) {
+			char cd[255] = { '\0' };
+			GetCurrentDirectoryA(255, cd);
+			std::string path = "\\PythonAIs\\";
+			path += m_files[i];
+			//std::string str = "abc";
+			char* cstr = new char[path.size() + 1];
+			std::char_traits<char>::copy(cstr, path.c_str(), path.size() + 1);
+			strcat(cd, cstr);
+			strcat(cd, ".py");
+			OutputDebugString("PYTHON CODE RAISED!! PATH IS \n");
+			OutputDebugString(cd);
+			OutputDebugString("\n");
+			delete[] cstr;
+			//strcat(cd, path);
 
-	char cd[255] = { '\0' };
-	GetCurrentDirectoryA(255, cd);
-	//strcat(cd, "\\PythonAIs\\fuckinAI.py");
-	//strcat(cd, m_files[m_monai[0]]);
-	std::string path = "\\PythonAIs\\";
-	path += m_files[0];
-	//std::string str = "abc";
-	char* cstr = new char[path.size() + 1]; 
-	std::char_traits<char>::copy(cstr, path.c_str(), path.size() + 1);
-	strcat(cd, cstr);
-	strcat(cd, ".py");
-	//OutputDebugString(cd);
-	//OutputDebugString("\n");
-	delete[] cstr; 
-	//strcat(cd, path);
-
-	FILE* file;
-	fpos_t pos;
-	file = fopen(cd, "r");
-	fseek(file, 0, SEEK_END);
-	fgetpos(file, &pos);
-	long size = pos;
-	fseek(file, 0, SEEK_SET);
-	char text[1024] = { '\0' };
-	fread(text, size, 1, file);
-	fclose(file);
-	//OutputDebugString(text);
-	m_lbl->SetText(text);
+			FILE* file;
+			fpos_t pos;
+			file = fopen(cd, "r");
+			fseek(file, 0, SEEK_END);
+			fgetpos(file, &pos);
+			long size = pos;
+			fseek(file, 0, SEEK_SET);
+			char text[1024] = { '\0' };
+			fread(text, size, 1, file);
+			fclose(file);
+			OutputDebugString(text);
+			m_lbl->SetText(text, i);
+			m_myAIsLoaded = true;
+		}
+	}
 	m_lbl->raiseMonAIs();
 }

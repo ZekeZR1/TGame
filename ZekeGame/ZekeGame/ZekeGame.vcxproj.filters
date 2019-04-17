@@ -1440,6 +1440,184 @@
     <None Include="Assets\modelData\dungeon\egg.FBX">
       <Filter>Assets\model</Filter>
     </None>
+    <None Include="Assets\Sprite\result\res_blueteam.png">
+      <Filter>Assets\result</Filter>
+    </None>
+    <None Include="Assets\Sprite\result\res_Lose.png">
+      <Filter>Assets\result</Filter>
+    </None>
+    <None Include="Assets\Sprite\result\res_redteam.png">
+      <Filter>Assets\result</Filter>
+    </None>
+    <None Include="Assets\Sprite\result\res_Win.png">
+      <Filter>Assets\result</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\MonActList\actBlock.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_back_R.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_even.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_sel.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\AIselect.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\B_alpha.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\MonActList\backBlue.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\MonActList\backRed.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="Assets\Sprite\result\blueteamp.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\cursor.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\Dungeon\d1.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\Dungeon\d2.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\Dungeon\d3.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\Dungeon\d4.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\Dungeon\d5.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\Dungeon\DadanDanBk.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\Dungeon\DungeonSp.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\Dungeon\DungeonSpS.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="Assets\Sprite\Fade\fade_black.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\GO.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="Assets\Sprite\result\lose.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="Assets\Sprite\marker\mark_1.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="Assets\Sprite\marker\mark_2.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="Assets\Sprite\marker\mark_3.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="Assets\Sprite\marker\mark_blue.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="Assets\Sprite\marker\mark_red.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\modesel_back.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\modesel_back_aiedit.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\modesel_back_dung.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\modesel_back_local.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\modesel_frame.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_back.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_fairy.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_frame.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_frameBlue.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_frameRed.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_frameYellow.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_none.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_uma.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\monsel_back.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\monsel_back.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\Monselect.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="Assets\Sprite\readyGO\r_go.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="Assets\Sprite\readyGO\Ready2.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="Assets\Sprite\result\redteamp.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\button\sb_cancel.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\button\sb_OK.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\button\simple_button.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\button\simple_button_blue.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="Assets\Sprite\result\win.png">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="Assets\Sprite\AIEdit\arrow.png" />
+    <None Include="Assets\Sprite\AIEdit\buttyon.png" />
+    <None Include="Assets\Sprite\AIEdit\click.png" />
+    <None Include="Assets\Sprite\AIEdit\deletepoint.png" />
+    <None Include="Assets\Sprite\AIEdit\haik.png" />
+    <None Include="Assets\Sprite\AIEdit\help.png" />
+    <None Include="Assets\Sprite\AIEdit\hozon.png" />
+    <None Include="Assets\Sprite\AIEdit\karipoint.png" />
+    <None Include="Assets\Sprite\AIEdit\masss.png" />
+    <None Include="Assets\Sprite\AIEdit\menu.png" />
+    <None Include="Assets\Sprite\AIEdit\menu2.png" />
+    <None Include="Assets\Sprite\AIEdit\menuselect.png" />
+    <None Include="Assets\Sprite\AIEdit\menuselectsieat.png" />
+    <None Include="Assets\Sprite\AIEdit\open.png" />
+    <None Include="Assets\Sprite\AIEdit\point.png" />
+    <None Include="Assets\Sprite\AIEdit\sieat.png" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="act">
@@ -1554,183 +1732,7 @@
     </Media>
   </ItemGroup>
   <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\result\res_Win.png">
-      <Filter>Assets\result</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\result\res_blueteam.png">
-      <Filter>Assets\result</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\result\res_Lose.png">
-      <Filter>Assets\result</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\result\res_redteam.png">
-      <Filter>Assets\result</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\MonActList\actBlock.png">
-      <Filter>Assets</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\MonActList\backBlue.png">
-      <Filter>Assets</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\MonActList\backRed.png">
-      <Filter>Assets</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\result\blueteamp.png">
-      <Filter>Assets</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\result\lose.png">
-      <Filter>Assets</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\marker\mark_1.png">
-      <Filter>Assets</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\marker\mark_2.png">
-      <Filter>Assets</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\marker\mark_3.png">
-      <Filter>Assets</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\marker\mark_blue.png">
-      <Filter>Assets</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\marker\mark_red.png">
-      <Filter>Assets</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_back.png">
-      <Filter>Assets</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_back_aiedit.png">
-      <Filter>Assets</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_back_dung.png">
-      <Filter>Assets</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_back_local.png">
-      <Filter>Assets</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_back.png">
-      <Filter>Assets</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_fairy.png">
-      <Filter>Assets</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_frame.png">
-      <Filter>Assets</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_frameBlue.png">
-      <Filter>Assets</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_frameRed.png">
-      <Filter>Assets</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_frameYellow.png">
-      <Filter>Assets</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_none.png">
-      <Filter>Assets</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_uma.png">
-      <Filter>Assets</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\monsel_back.png">
-      <Filter>Assets</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\Monselect.png">
-      <Filter>Assets</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\result\win.png">
-      <Filter>Assets</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\button\simple_button.png">
-      <Filter>Assets</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\button\simple_button_blue.png">
-      <Filter>Assets</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\Fade\fade_black.png">
-      <Filter>Assets</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\readyGO\r_go.png">
-      <Filter>Assets</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\readyGO\Ready2.png">
-      <Filter>Assets</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\result\redteamp.png">
-      <Filter>Assets</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\button\sb_cancel.png">
-      <Filter>Assets</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\button\sb_OK.png">
-      <Filter>Assets</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_frame.png">
-      <Filter>Assets</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\cursor.png">
-      <Filter>Assets</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\AIEdit\arrow.png" />
-    <ImageContentTask Include="Assets\Sprite\AIEdit\click.png" />
-    <ImageContentTask Include="Assets\Sprite\AIEdit\haik.png" />
-    <ImageContentTask Include="Assets\Sprite\AIEdit\help.png" />
-    <ImageContentTask Include="Assets\Sprite\AIEdit\hozon.png" />
-    <ImageContentTask Include="Assets\Sprite\AIEdit\karipoint.png" />
-    <ImageContentTask Include="Assets\Sprite\AIEdit\masss.png" />
-    <ImageContentTask Include="Assets\Sprite\AIEdit\menu.png" />
-    <ImageContentTask Include="Assets\Sprite\AIEdit\menu2.png" />
-    <ImageContentTask Include="Assets\Sprite\AIEdit\menuselect.png" />
-    <ImageContentTask Include="Assets\Sprite\AIEdit\menuselectsieat.png" />
-    <ImageContentTask Include="Assets\Sprite\AIEdit\open.png" />
-    <ImageContentTask Include="Assets\Sprite\AIEdit\point.png" />
-    <ImageContentTask Include="Assets\Sprite\AIEdit\sieat.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_back_R.png">
-      <Filter>Assets</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_even.png">
-      <Filter>Assets</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_sel.png">
-      <Filter>Assets</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\AIselect.png">
-      <Filter>Assets</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\B_alpha.png">
-      <Filter>Assets</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\d1.png">
-      <Filter>Assets</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\d2.png">
-      <Filter>Assets</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\d3.png">
-      <Filter>Assets</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\d4.png">
-      <Filter>Assets</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\d5.png">
-      <Filter>Assets</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\DadanDanBk.png">
-      <Filter>Assets</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\DungeonSp.png">
-      <Filter>Assets</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\DungeonSpS.png">
-      <Filter>Assets</Filter>
-    </ImageContentTask>
     <ImageContentTask Include="Assets\modelData\stage\handle010.jpg">
-      <Filter>Assets</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\GO.png">
-      <Filter>Assets</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\monsel_back.png">
       <Filter>Assets</Filter>
     </ImageContentTask>
     <ImageContentTask Include="Assets\Sprite\GUI\Net\ready.png">
@@ -1739,8 +1741,6 @@
     <ImageContentTask Include="Assets\Sprite\GUI\Net\waiting.png">
       <Filter>Assets\NetBattle</Filter>
     </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\AIEdit\buttyon.png" />
-    <ImageContentTask Include="Assets\Sprite\AIEdit\deletepoint.png" />
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\testMons\tesEnemy3.fbx">
