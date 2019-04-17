@@ -202,6 +202,7 @@ void Game::Update() {
 			break;
 		}
 		case enRandomPVP:
+
 			break;
 		case enDungeon:
 		{

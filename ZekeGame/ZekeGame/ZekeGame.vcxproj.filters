@@ -511,17 +511,29 @@
     </ClCompile>
     <ClCompile Include="Game\Dungeon\DropEgg.cpp" />
     <ClCompile Include="Game\ExchangeData\ExchangeData.cpp" />
-    <ClCompile Include="Game\Online\BaseView.cpp" />
-    <ClCompile Include="Game\Online\Console.cpp" />
-    <ClCompile Include="Game\Online\LoadBalancingListener.cpp" />
-    <ClCompile Include="Game\Online\NetworkLogic.cpp" />
-    <ClCompile Include="Game\Online\OutputListener.cpp" />
-    <ClCompile Include="Game\Online\TestView.cpp" />
     <ClCompile Include="Game\NetPVP\NetPVPMode.cpp">
       <Filter>Game\NetPVP</Filter>
     </ClCompile>
     <ClCompile Include="Game\NetPVP\NetAISelect.cpp">
       <Filter>Game\NetPVP</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Online\BaseView.cpp">
+      <Filter>Game\NetPVP\photon</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Online\LoadBalancingListener.cpp">
+      <Filter>Game\NetPVP\photon</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Online\TestView.cpp">
+      <Filter>Game\NetPVP\photon</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Online\OutputListener.cpp">
+      <Filter>Game\NetPVP\photon</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Online\NetworkLogic.cpp">
+      <Filter>Game\NetPVP\photon</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Online\Console.cpp">
+      <Filter>Game\NetPVP\photon</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1342,17 +1354,29 @@
     </ClInclude>
     <ClInclude Include="Game\Dungeon\DropEgg.h" />
     <ClInclude Include="Game\ExchangeData\ExchangeData.h" />
-    <ClInclude Include="Game\Online\BaseView.h" />
-    <ClInclude Include="Game\Online\Console.h" />
-    <ClInclude Include="Game\Online\LoadBalancingListener.h" />
-    <ClInclude Include="Game\Online\NetworkLogic.h" />
-    <ClInclude Include="Game\Online\OutputListener.h" />
-    <ClInclude Include="Game\Online\TestView.h" />
     <ClInclude Include="Game\NetPVP\NetPVPMode.h">
       <Filter>Game\NetPVP</Filter>
     </ClInclude>
     <ClInclude Include="Game\NetPVP\NetAISelect.h">
       <Filter>Game\NetPVP</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Online\BaseView.h">
+      <Filter>Game\NetPVP\photon</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Online\LoadBalancingListener.h">
+      <Filter>Game\NetPVP\photon</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Online\TestView.h">
+      <Filter>Game\NetPVP\photon</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Online\OutputListener.h">
+      <Filter>Game\NetPVP\photon</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Online\NetworkLogic.h">
+      <Filter>Game\NetPVP\photon</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Online\Console.h">
+      <Filter>Game\NetPVP\photon</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1709,6 +1733,9 @@
     </Filter>
     <Filter Include="Assets\NetBattle">
       <UniqueIdentifier>{9744c157-db48-4a01-86d0-947ebb59576d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\NetPVP\photon">
+      <UniqueIdentifier>{a664d7b4-bf10-4c78-bace-95837bcb0ae7}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
