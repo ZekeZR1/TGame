@@ -58,8 +58,6 @@ bool NetPVPMode::Start() {
 	m_informationSp = NewGO<SpriteRender>(0);
 	m_informationSp->Init(L"Assets/Sprite/waiting.dds",300.f,50.f);
 	m_informationSp->SetPosition(m_informationPos);
-	auto enemyFiles = PythonFileLoad::FilesLoadOnlineEnemy();
-
 	return true;
 }
 
