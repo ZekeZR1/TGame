@@ -38,6 +38,9 @@ void AIEditNodeMenuOpen::Awake()
 	m_close->SetPosition({ 357.5f ,-345,0 });
 	m_close->SetPivot({ 1,0 });
 	m_close->SetMulCol({ 0.5,0.5,0.5,1 });
+
+	m_cfont = NewGO<FontRender>(12, "fr");
+	//m_cfont->Init(L"‚Æ‚¶‚é", { 357.5f ,-345,0 })
 }
 
 bool AIEditNodeMenuOpen::Start()
