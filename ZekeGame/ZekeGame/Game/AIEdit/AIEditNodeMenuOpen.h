@@ -20,5 +20,9 @@ private:
 	std::vector<SpriteRender*> m_buttons;	//ボタン
 	std::vector<FontRender*> m_fonts;		//ボタンのフォント
 
+	SpriteRender* m_close = nullptr;		//閉じるボタン
+	FontRender* m_cfont = nullptr;			//閉じるのフォント
+
+	FontRender* m_head = nullptr;			//見出し
 
 };

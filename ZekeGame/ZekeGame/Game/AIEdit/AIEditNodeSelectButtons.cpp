@@ -3,6 +3,7 @@
 #include "AIEditNodeMenu.h"
 #include "AIEditNodeSelectButtons.h"
 #include "AIEditNodeMenuSave.h"
+#include "AIEditNodeMenuOpen.h"
 
 
 AIEditNodeSelectButtons::~AIEditNodeSelectButtons()
@@ -88,6 +89,7 @@ void AIEditNodeSelectButtons::Update()
 		if (m_spriterender5->isCollidingTarget()) {
 			if (Mouse::isTrigger(enLeftClick)) {
 				//‚±‚±‚Å‰½‚©‚ğNewB
+				m_aieditnodemenuopen = NewGO<AIEditNodeMenuOpen>(0, "menuopen");
 				menuselect = true;
 			}
 		}
