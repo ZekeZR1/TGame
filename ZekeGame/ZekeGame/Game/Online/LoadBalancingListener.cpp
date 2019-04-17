@@ -277,12 +277,19 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 			OutputDebugStringW(code);
 			OutputDebugString("\n");
 			//SetCurrentDirectory("NetworkEnemyAIs");
-			std::string pythonFileName = "NetworkEnemyAIs/";
-			pythonFileName += std::to_string(number + 1);
-			pythonFileName += "enemy.py";
-			std::ofstream outputfile(pythonFileName);
-			outputfile << code.toString();
-			outputfile.close();
+			std::wstring pythonFileName = L"NetworkEnemyAIs/";
+			pythonFileName += std::to_wstring(number + 1);
+			pythonFileName += L"enemy.py";
+			const wchar_t* utf8fname = pythonFileName.c_str();
+			FILE *fp1;
+			if ((fp1 = _wfopen(utf8fname, L"w, ccs=UTF-8")) != NULL)
+			{
+				fputws(code, fp1);
+				fclose(fp1);
+			}
+			//std::ofstream outputfile(pythonFileName);
+			//outputfile << code.toString();
+			//outputfile.close();
 		}
 
 		//m_isGotPythonCodes = true;
