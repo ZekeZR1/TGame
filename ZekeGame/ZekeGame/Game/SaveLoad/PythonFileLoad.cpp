@@ -99,7 +99,7 @@ std::vector<std::string> PythonFileLoad::FilesLoadOnlineEnemy()
 	GetCurrentDirectory(255, c);
 	cd = c;
 
-	std::string key = cd + "\\*.py*";
+	std::string key = cd + "\\NetworkEnemyAIs\\*.py*";
 	hfind = FindFirstFile(key.c_str(), &win32d);
 
 	OutputDebugString("LOAD NETWORK ENEMY AIS \n");

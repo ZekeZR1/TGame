@@ -276,8 +276,9 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 			OutputDebugString(str);
 			OutputDebugStringW(code);
 			OutputDebugString("\n");
-			SetCurrentDirectory("NetworkEnemyAIs");
-			std::string pythonFileName = std::to_string(number + 1);
+			//SetCurrentDirectory("NetworkEnemyAIs");
+			std::string pythonFileName = "NetworkEnemyAIs/";
+			pythonFileName += std::to_string(number + 1);
 			pythonFileName += "enemy.py";
 			std::ofstream outputfile(pythonFileName);
 			outputfile << code.toString();
