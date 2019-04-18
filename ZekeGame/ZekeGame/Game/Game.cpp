@@ -13,7 +13,7 @@
 #include "Monster/Monsters/TestMons.h"
 #include "Result/Win/Win.h"
 #include "Result/DungeonResult.h"
-
+#include "NetPVP/CRatingSystem.h"
 #include "ReadyGO/ReadyGO.h"
 
 #include "Fade/Fade.h"
@@ -207,7 +207,7 @@ void Game::Update() {
 		{
 			auto win = NewGO<Win>(0, "win");
 			win->init(team);
-			//TODO : Ÿ—¦‚Æ‚©ƒŒ[ƒg‚ğŒvZ‚·‚é
+			RatingSystem().SetWinner(team);
 			break;
 		}
 		case enDungeon:
