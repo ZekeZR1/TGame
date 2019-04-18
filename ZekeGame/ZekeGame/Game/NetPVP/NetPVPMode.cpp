@@ -7,12 +7,15 @@
 #include "../ExchangeData/ExchangeData.h"
 #include "NetAISelect.h"
 #include "../SaveLoad/PythonFileLoad.h"
+#include "../Online/NetworkLogic.h"
+#include "../Online/Console.h"
 #include "../Game.h"
 
 NetPVPMode::NetPVPMode()
 {
-	Engine::IEngine().CreateNetworkSystem();
-	m_lbl = Engine::IEngine().GetNetworkLogic()->GetLBL();
+	//Engine::IEngine().CreateNetworkSystem();
+	NetSystem().CreateNetworkSystem();
+	m_lbl = NetSystem().GetNetworkLogic().GetLBL();
 	m_fade = FindGO<Fade>("fade");
 	m_fade->FadeIn();
 }
@@ -37,12 +40,14 @@ bool NetPVPMode::Start() {
 void NetPVPMode::OnDestroy()
 {
 	DeleteGO(m_informationSp);
-	Engine::IEngine().DestroyNetworkSystem();
+	//Engine::IEngine().DestroyNetworkSystem();
+	NetSystem().DestroyNetworkSystem();
 }
 
 
 void NetPVPMode::Update() {
-	 auto lbl = Engine::IEngine().GetNetworkLogic()->GetLBL();
+	NetSystem().GetNetworkLogic().Update();
+
 	 RaiseData();
 	 LoadEnemyData();
 	 if (m_dataLoaded) {
@@ -63,9 +68,8 @@ void NetPVPMode::RaiseData() {
 	int ids[3];
 	for (int i = 0; i < 3; i++) 
 		ids[i] = m_moid[i];
-	auto lbl = Engine::IEngine().GetNetworkLogic()->GetLBL();
-	lbl->SetTeamMonsterInfo(ids);
-	lbl->raiseMonData();
+	m_lbl->SetTeamMonsterInfo(ids);
+	m_lbl->raiseMonData();
 	//Raise Monster AIs
 	RaiseAiTextData();
 }

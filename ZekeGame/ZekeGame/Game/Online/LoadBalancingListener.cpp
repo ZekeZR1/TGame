@@ -2,6 +2,8 @@
 #include "BaseView.h"
 #include "OutputListener.h"
 #include "LoadBalancingListener.h"
+#include "NetworkLogic.h"
+#include "Console.h"
 #include "TestView.h"
 #include <fstream>
 #include <string>

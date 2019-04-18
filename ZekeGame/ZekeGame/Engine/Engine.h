@@ -15,24 +15,14 @@ public:
 		}
 		return *instance;
 	}
-
-	NetworkLogic* GetNetworkLogic()
-	{
-		return m_network;
-	}
-
 private:
 	void Update();
 	void Release();
-
-	NetworkLogic* m_network = nullptr;
 public:
 	static inline Engine& IEngine()
 	{
 		return Engine::GetInstance();
 	}
-	void CreateNetworkSystem();
-	void DestroyNetworkSystem();
 };
 
 

@@ -1,5 +1,5 @@
 #pragma once
-
+class NetworkLogic;
 //データを送ったり受け取ったりするクラス
 class ExchangeData
 {

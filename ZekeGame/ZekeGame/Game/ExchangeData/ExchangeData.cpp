@@ -1,10 +1,10 @@
 #include "stdafx.h"
+#include "../Online/NetworkLogic.h"
 #include "ExchangeData.h"
 
 ExchangeData::ExchangeData()
 {
-	m_network = Engine::IEngine().GetNetworkLogic();
-	m_LBL = m_network->GetLBL();
+	m_LBL = NetSystem().GetNetworkLogic().GetLBL();
 }
 
 void ExchangeData::sendMonData(int num, int monID)
