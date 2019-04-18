@@ -1,8 +1,10 @@
 #include "stdafx.h"
-#include "TestView.h"
 #include "BaseView.h"
 #include "LoadBalancingListener.h"
 #include "Common-cpp/inc/Common.h"
+#include "NetworkLogic.h"
+#include "Console.h"
+#include "TestView.h"
 
 using namespace ExitGames::Common;
 

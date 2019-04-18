@@ -2,7 +2,7 @@
 
 class Fade;
 class MusicFade;
-
+class LoadBalancingListener;
 class ModeSelect;
 class ExchangeData;
 class NetPVPMode :public GameObject
