@@ -13,7 +13,7 @@
 #include "Monster/Monsters/TestMons.h"
 #include "Result/Win/Win.h"
 #include "Result/DungeonResult.h"
-
+#include "NetPVP/CRatingSystem.h"
 #include "ReadyGO/ReadyGO.h"
 
 #include "Fade/Fade.h"
@@ -49,8 +49,9 @@ bool Game::Start() {
 
 	m_menu = NewGO<GameMenu>(0, "gm");
 	m_menu->init(m_playMode,m_dunNum);
-	if(m_isOnlineGame)
-		Engine::IEngine().CreateNetworkSystem();
+	if (m_isOnlineGame) {
+		//Engine::IEngine().CreateNetworkSystem();
+	}
 	camera = new GameCamera;
 
 	m_smd = NewGO<SkinModelDummy>(0, "smd");
@@ -89,8 +90,9 @@ void Game::OnDestroy() {
 	DeleteGO(m_frS);
 	DeleteGO(m_floor);
 	DeleteGO(m_smd);
-	if(m_isOnlineGame)
-		Engine::IEngine().DestroyNetworkSystem();
+	if (m_isOnlineGame) {
+		//Engine::IEngine().DestroyNetworkSystem();
+	}
 	delete m_pi;
 }
 
@@ -202,8 +204,12 @@ void Game::Update() {
 			break;
 		}
 		case enRandomPVP:
-
+		{
+			auto win = NewGO<Win>(0, "win");
+			win->init(team);
+			RatingSystem().SetWinner(team);
 			break;
+		}
 		case enDungeon:
 		{
 			auto dr = NewGO<DungeonResult>(0, "dr");
