@@ -49,8 +49,9 @@ bool Game::Start() {
 
 	m_menu = NewGO<GameMenu>(0, "gm");
 	m_menu->init(m_playMode,m_dunNum);
-	if(m_isOnlineGame)
+	if (m_isOnlineGame) {
 		//Engine::IEngine().CreateNetworkSystem();
+	}
 	camera = new GameCamera;
 
 	m_smd = NewGO<SkinModelDummy>(0, "smd");
@@ -89,8 +90,9 @@ void Game::OnDestroy() {
 	DeleteGO(m_frS);
 	DeleteGO(m_floor);
 	DeleteGO(m_smd);
-	if(m_isOnlineGame)
+	if (m_isOnlineGame) {
 		//Engine::IEngine().DestroyNetworkSystem();
+	}
 	delete m_pi;
 }
 
