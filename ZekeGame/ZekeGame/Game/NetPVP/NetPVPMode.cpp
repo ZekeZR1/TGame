@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include <fstream>
+#include "CRatingSystem.h"
 #include "NetPVPMode.h"
 #include "../Title/ModeSelect.h"
 #include "../Fade/Fade.h"
