@@ -20,6 +20,7 @@ public:
 	void OnDestroy() override;
 private:
 	void RaiseData();
+	void RaiseRatingData();
 	void LoadEnemyData();
 	void RaiseAiTextData();
 	bool m_dataRaised = false;

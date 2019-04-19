@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include <fstream>
+#include "RatePopup.h"
 #include "CRatingSystem.h"
 
 /*	rating.txtÇÃíÜêg
@@ -51,4 +52,14 @@ void CRatingSystem::SetWinner(int team) {
 	LoadMyRate();
 	CalcRate(team);
 	fileOutput(m_total,m_nwin);
+}
+
+void CRatingSystem::PopupRate() {
+	NewGO<RatePopup>(0,"RatePopupKun");
+}
+
+void CRatingSystem::ClosePopup() {
+	auto rpk = FindGO<RatePopup>("RatePopupKun");
+	if (rpk != nullptr)
+		DeleteGO(rpk);
 }
