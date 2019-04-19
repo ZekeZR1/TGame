@@ -1,6 +1,7 @@
 #pragma once
 
-class GameCamera;
+class GameCursor;
+class AIEditNodeSelectButtons;
 //以前保存したAIエディットを開くためのGUI
 class AIEditNodeMenuOpen :public GameObject
 {
@@ -9,6 +10,16 @@ public:
 	void OnDestroy();
 	//コンストラクタ
 	void Awake() override;
+
+	//初期化
+	//arg:
+	//	nsb:戻ると起用のやつ
+	//	cursor:カーソル
+	void init(AIEditNodeSelectButtons* nsb,GameCursor* cursor)
+	{
+		m_nsb = nsb;
+		m_cursor = cursor;
+	}
 
 	//スタート
 	bool Start();
@@ -25,4 +36,7 @@ private:
 
 	FontRender* m_head = nullptr;			//見出し
 
+	AIEditNodeSelectButtons* m_nsb = nullptr;//メニュー軍
+
+	GameCursor* m_cursor = nullptr;			//かーそー
 };

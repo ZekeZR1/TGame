@@ -90,6 +90,7 @@ void AIEditNodeSelectButtons::Update()
 			if (Mouse::isTrigger(enLeftClick)) {
 				//Ç±Ç±Ç≈âΩÇ©ÇNewÅB
 				m_aieditnodemenuopen = NewGO<AIEditNodeMenuOpen>(0, "menuopen");
+				m_aieditnodemenuopen->init(this, m_gamecursor);
 				menuselect = true;
 			}
 		}

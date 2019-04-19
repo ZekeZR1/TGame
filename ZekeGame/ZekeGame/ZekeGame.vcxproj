@@ -252,6 +252,7 @@
     <ClCompile Include="Game\AIEdit\AIEditNodeTarget.cpp" />
     <ClCompile Include="Game\AIEdit\AIEditNodeTechnique.cpp" />
     <ClCompile Include="Game\AIEdit\AIEdtiNodeAbnormalState.cpp" />
+    <ClCompile Include="Game\AIEdit\VisualAIOpen.cpp" />
     <ClCompile Include="Game\Dungeon\DropEgg.cpp" />
     <ClCompile Include="Game\Dungeon\DungeonAISelect.cpp" />
     <ClCompile Include="Game\Dungeon\DungeonData.cpp" />
@@ -443,6 +444,7 @@
     <ClInclude Include="Game\AIEdit\AIEditNodeTarget.h" />
     <ClInclude Include="Game\AIEdit\AIEditNodeTechnique.h" />
     <ClInclude Include="Game\AIEdit\AIEdtiNodeAbnormalState.h" />
+    <ClInclude Include="Game\AIEdit\VisualAIOpen.h" />
     <ClInclude Include="Game\Dungeon\DropEgg.h" />
     <ClInclude Include="Game\Dungeon\DungeonAISelect.h" />
     <ClInclude Include="Game\Dungeon\DungeonData.h" />
