@@ -1,9 +1,10 @@
 #pragma once
+
 class CRatingSystem
 {
 public:
 	void SetWinner(int team);
-	void PopupRate();
+	void PopupRate(float);
 	void ClosePopup();
 	const int GetTotalBattleNum() {
 		return m_total;
@@ -27,10 +28,12 @@ private:
 	void LoadMyRate();
 	int m_total = 0;
 	int m_nwin = 0;
-	float m_enemyWinRate = 0.f;
+	float m_enemyWinRate;
 };
 
+
 static CRatingSystem& RatingSystem() {
-	static CRatingSystem rs;
-	return rs;
+	static CRatingSystem instance;
+	return instance;
 }
+
