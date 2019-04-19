@@ -41,14 +41,12 @@ bool NetPVPMode::Start() {
 void NetPVPMode::OnDestroy()
 {
 	DeleteGO(m_informationSp);
-	//Engine::IEngine().DestroyNetworkSystem();
 	NetSystem().DestroyNetworkSystem();
 }
 
 
 void NetPVPMode::Update() {
 	NetSystem().GetNetworkLogic().Update();
-
 	 RaiseData();
 	 LoadEnemyData();
 	 if (m_dataLoaded) {
@@ -73,6 +71,7 @@ void NetPVPMode::RaiseData() {
 	m_lbl->raiseMonData();
 	//Raise Monster AIs
 	RaiseAiTextData();
+	RaiseRatingData();
 }
 
 void NetPVPMode::LoadEnemyData() {
@@ -130,4 +129,8 @@ void NetPVPMode::RaiseAiTextData() {
 		}
 	}
 	m_lbl->raiseMonAIs();
+}
+
+void NetPVPMode::RaiseRatingData() {
+	m_lbl->raiseRating();
 }

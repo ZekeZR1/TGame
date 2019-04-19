@@ -3,6 +3,7 @@
 #include "OutputListener.h"
 #include "LoadBalancingListener.h"
 #include "NetworkLogic.h"
+#include "../NetPVP/CRatingSystem.h"
 #include "Console.h"
 #include "TestView.h"
 #include <fstream>
@@ -183,6 +184,11 @@ void LoadBalancingListener::raiseMonData()
 	//char str[256];
 	////sprintf_s(str, "num is %d / raise data num ... %d \n", m_monNUM,data.getValue(1)[0]);
 	//OutputDebugString(str);
+}
+
+
+void LoadBalancingListener::raiseRating() {
+	mpLbc->opRaiseEvent(false,RatingSystem().GetWinRate(),enRateData);
 }
 
 void LoadBalancingListener::raiseMonAIs() {
@@ -370,6 +376,12 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 		//OutputDebugString(str);
 	}
 	break;
+	case enRateData:
+	{
+		float content = ExitGames::Common::ValueObject<float>(eventContentObj).getDataCopy();
+		RatingSystem().SetEnemyRate(content);
+		break;
+	}
 	default:
 	{
 		//より洗練されたデータ型を送受信する方法のコード例については、
