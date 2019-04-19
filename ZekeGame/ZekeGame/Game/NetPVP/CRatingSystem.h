@@ -28,12 +28,14 @@ private:
 	void LoadMyRate();
 	int m_total = 0;
 	int m_nwin = 0;
-	float m_enemyWinRate;
+	float m_enemyWinRate = 0.f;
+public:
+	static CRatingSystem& GetInstance() {
+		static CRatingSystem instance;
+		return instance;
+	}
 };
 
-
 static CRatingSystem& RatingSystem() {
-	static CRatingSystem instance;
-	return instance;
+	return CRatingSystem::GetInstance();
 }
-
