@@ -526,6 +526,9 @@
     <ClCompile Include="Game\AIEdit\AIEditNodeMenuOpen.cpp">
       <Filter>Game\AIEdite</Filter>
     </ClCompile>
+    <ClCompile Include="Game\AIEdit\VisualAIOpen.cpp">
+      <Filter>Game\AIEdite</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\PythonBridge\include\unicodeobject.h" />
@@ -1358,6 +1361,9 @@
       <Filter>Game\NetPVP</Filter>
     </ClInclude>
     <ClInclude Include="Game\AIEdit\AIEditNodeMenuOpen.h">
+      <Filter>Game\AIEdite</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\AIEdit\VisualAIOpen.h">
       <Filter>Game\AIEdite</Filter>
     </ClInclude>
   </ItemGroup>

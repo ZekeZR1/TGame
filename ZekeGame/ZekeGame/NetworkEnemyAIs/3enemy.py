@@ -1,1 +1,10 @@
-000001629CA1A4F0
+﻿
+import CppBridge as cb
+
+def Brain(num,team):
+    cb.init(num,team)
+
+
+
+
+    cb.End()
