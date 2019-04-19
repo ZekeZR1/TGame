@@ -206,7 +206,7 @@ void Game::Update() {
 			auto win = NewGO<Win>(0, "win");
 			win->init(team);
 			RatingSystem().SetWinner(team);
-			RatingSystem().PopupRate();
+			RatingSystem().PopupRate(m_eneRate);
 			break;
 		}
 		case enDungeon:

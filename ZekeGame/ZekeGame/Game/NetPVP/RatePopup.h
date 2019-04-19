@@ -6,8 +6,12 @@ public:
 	bool Start() override;
 	void Update() override;
 	void OnDestroy() override;
+	void setEnemyRating(float rate) {
+		m_eneRating = rate;
+	}
 private:
 	void RateInit();
+	float m_eneRating = 0.f;
 	SpriteRender* m_backsp = nullptr;
 	SpriteRender* m_closesp = nullptr;
 	FontRender* m_info = nullptr;

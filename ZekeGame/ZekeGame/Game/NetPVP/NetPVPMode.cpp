@@ -92,7 +92,7 @@ void NetPVPMode::LoadEnemyData() {
 
 void NetPVPMode::BattleStart() {
 	auto game = NewGO<Game>(0, "Game");
-	game->SetRandomPVPMode();
+	game->SetRandomPVPMode(m_lbl->GetEnemyRate());
 	auto enemyFiles = PythonFileLoad::FilesLoadOnlineEnemy();
 	StageSetup::NetworkPvPSetup(m_files, enemyFiles, m_monai, m_moid);
 	DeleteGO(this);

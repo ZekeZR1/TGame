@@ -383,9 +383,10 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 	case enRateData:
 	{
 		float content = ExitGames::Common::ValueObject<float>(eventContentObj).getDataCopy();
-		RatingSystem().SetEnemyRate(content);
+		m_enemyRate = content;
 		char str[256];
 		sprintf_s(str, "ENEMEYYYYYYY  Rate  IS %f\n", content);
+
 		OutputDebugString(str);
 		break;
 	}
