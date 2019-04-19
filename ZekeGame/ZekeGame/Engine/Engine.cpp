@@ -37,29 +37,10 @@ void Engine::Update() {
 
 	Mouse::UpdateMouseInput();
 
-	if (m_network != nullptr) {
-		m_network->Update();
-	}
-
 	IGameObjectManager().Execute();
 #if _DEBUG
 	FPS->Draw();
 #endif
-}
-
-void Engine::CreateNetworkSystem() {
-	if (m_network == nullptr) {
-		m_network = new NetworkLogic;
-		m_network->Start();
-	}
-}
-
-void Engine::DestroyNetworkSystem() {
-	if (m_network != nullptr) {
-		m_network->Disconnect();
-		delete m_network;
-		m_network = nullptr;
-	}
 }
 
 void Engine::GameRoop() {

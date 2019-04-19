@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "OutputListener.h"
 #include "Console.h"
+#include "NetworkLogic.h"
 
 Console::Console()
 {

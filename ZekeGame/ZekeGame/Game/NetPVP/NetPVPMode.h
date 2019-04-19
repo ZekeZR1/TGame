@@ -2,7 +2,7 @@
 
 class Fade;
 class MusicFade;
-
+class LoadBalancingListener;
 class ModeSelect;
 class ExchangeData;
 class NetPVPMode :public GameObject
@@ -20,6 +20,7 @@ public:
 	void OnDestroy() override;
 private:
 	void RaiseData();
+	void RaiseRatingData();
 	void LoadEnemyData();
 	void RaiseAiTextData();
 	bool m_dataRaised = false;

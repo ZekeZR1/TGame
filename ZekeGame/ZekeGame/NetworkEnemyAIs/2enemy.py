@@ -1,15 +1,19 @@
 ﻿#coding: utf-8
 
-import CppBridge as cb
+import PythonAIs.CppBridge as game
 
-def Brain(num,team):
-    cb.init(num,team)
-
-    mon = cb.FindEnemyMonster(cb.FairyID)
-    if mon == None:
-        mon = cb.FindEnemyMonster(cb.UmataurID)
+def Brain(MeNum,MeTeam):
+    game.init(MeNum,MeTeam)
+    mon = game.GetEnemyNeerMonster()
+    me = game.GetMe()
+    if me.MP >= 20:
+        game.Tackle( mon )
+    else:
+        game.Chase(mon)
+        game.Attack(mon)
     
-    cb.Chase(mon)
-    cb.Attack(mon)
+    game.End()
+    #return cb.gameData.tesGetEneNum()
+    return 1
+    return cb.actions
 
-    cb.End()

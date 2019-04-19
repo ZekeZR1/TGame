@@ -26,11 +26,6 @@
 
 #include "Common-cpp/inc/Common.h"
 #include "LoadBalancing-cpp/inc/Client.h"
-//kusokusokusokuso
-//#include "Network/NetworkLogic.h"
-#include "../Game/Online/NetworkLogic.h"
-//#include "Network/Console.h"
-#include "../Game/Online/Console.h"
 
 #include "Engine/Engine.h"
 #include "Engine/gameObject/GameObject.h"
