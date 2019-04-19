@@ -449,7 +449,6 @@ void StageSetup::NetworkPvPSetup(std::vector<std::string> files,
 
 	//	mon = GameData::LoadMonster(enemyMonsterId[i - 3]);
 	//	path = new std::string("PythonAIs.");
-	//	//TODO : must load enemy ai data (index)
 	//	//*path += files[];
 	//	*path += files[myMonAI[i - 3]];
 

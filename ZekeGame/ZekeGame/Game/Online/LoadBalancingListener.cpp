@@ -2,6 +2,9 @@
 #include "BaseView.h"
 #include "OutputListener.h"
 #include "LoadBalancingListener.h"
+#include "NetworkLogic.h"
+#include "../NetPVP/CRatingSystem.h"
+#include "Console.h"
 #include "TestView.h"
 #include <fstream>
 #include <string>
@@ -183,6 +186,11 @@ void LoadBalancingListener::raiseMonData()
 	//OutputDebugString(str);
 }
 
+
+void LoadBalancingListener::raiseRating() {
+	mpLbc->opRaiseEvent(false,RatingSystem().GetWinRate(),enRateData);
+}
+
 void LoadBalancingListener::raiseMonAIs() {
 	const nByte NumKey = 101;
 	const nByte CodeKey = 102;
@@ -265,7 +273,6 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 		const nByte CodeKey = 102;
 		ExitGames::Common::Hashtable eventDataContent = ExitGames::Common::ValueObject<ExitGames::Common::Hashtable>(eventContentObj).getDataCopy();
 		int number = -1;
-		// nByte key and int value:
 		if (eventDataContent.getValue(NumKey))
 			number = (ExitGames::Common::ValueObject<int>(eventDataContent.getValue(NumKey))).getDataCopy();
 		if (eventDataContent.getValue(CodeKey)) {
@@ -276,7 +283,6 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 			OutputDebugString(str);
 			OutputDebugStringW(code);
 			OutputDebugString("\n");
-			//SetCurrentDirectory("NetworkEnemyAIs");
 			std::wstring pythonFileName = L"NetworkEnemyAIs/";
 			pythonFileName += std::to_wstring(number + 1);
 			pythonFileName += L"enemy.py";
@@ -287,21 +293,7 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 				fputws(code, fp1);
 				fclose(fp1);
 			}
-			//std::ofstream outputfile(pythonFileName);
-			//outputfile << code.toString();
-			//outputfile.close();
 		}
-
-		//m_isGotPythonCodes = true;
-		/*OutputDebugString("GOT A EVENT CODE  TYPE :: TEXT\n Message is ");
-		char* content = ExitGames::Common::ValueObject<char*>(eventContentObj).getDataCopy();
-		short contentElementCount = *ExitGames::Common::ValueObject<char*>(eventContentObj).getSizes();
-		OutputDebugStringW(ExitGames::Common::JString(L"\n") + eventContentObj.toString() + L"\n");
-		SetCurrentDirectory("PythonEnemyAIs");
-		std::ofstream outputfile("1enemy.py");
-		outputfile << eventContentObj.toString();
-		outputfile.close();
-		ExitGames::Common::MemoryManagement::deallocateArray(content);*/
 	}
 	break;
 	case enMonData:
@@ -384,6 +376,12 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 		//OutputDebugString(str);
 	}
 	break;
+	case enRateData:
+	{
+		float content = ExitGames::Common::ValueObject<float>(eventContentObj).getDataCopy();
+		RatingSystem().SetEnemyRate(content);
+		break;
+	}
 	default:
 	{
 		//より洗練されたデータ型を送受信する方法のコード例については、

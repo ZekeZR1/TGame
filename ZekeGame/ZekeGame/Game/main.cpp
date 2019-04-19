@@ -11,6 +11,8 @@
 #include "Dungeon/DungeonTransition.h"
 #include "NetPVP\NetPVPMode.h"
 
+#include "NetPVP/CRatingSystem.h"
+
 int WINAPI wWinMain(
 	HINSTANCE hInstance,
 	HINSTANCE hPrevInstance,
@@ -38,6 +40,4 @@ int WINAPI wWinMain(
 	Engine::IEngine().GameRoop();
 	//Release
 	Engine::IEngine().Final();
-	//Test
-	Engine::IEngine().DestroyNetworkSystem();
 }

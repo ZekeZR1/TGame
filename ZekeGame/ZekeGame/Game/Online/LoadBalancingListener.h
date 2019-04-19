@@ -28,6 +28,7 @@ public:
 	//モンスターのデータを送る。
 	void raiseMonData();
 	void raiseMonAIs();
+	void raiseRating();
 	//
 	int GetOnlinePlayerCount() {
 		return mpLbc->getCountPlayersOnline();
@@ -125,6 +126,7 @@ private:
 	{
 		enText = 5,
 		enMonData,
+		enRateData,
 	};
 
 	int m_toRaiseTeamData[3] = { 0 };
