@@ -80,7 +80,9 @@ public:
 
 	//012 
 	void SetTeamMonsterInfo(int info[3]);
-		
+	float GetEnemyRate() {
+		return m_enemyRate;
+	}
 	int* GetEnemyTeamIDs() {
 		return m_enemyTeamData;
 	}
@@ -153,5 +155,6 @@ private:
 	bool misConect = false;		//‚Â‚È‚ª‚Á‚Ä‚é`H
 	bool misHang = false;		//‰½‚©‘—‚ç‚ê‚Ä‚«‚Ä‚éH
 	bool m_isAiLoaded[3] = { false };
+	float m_enemyRate = 0.f;
 };
 
