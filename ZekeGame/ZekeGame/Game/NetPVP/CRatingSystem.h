@@ -27,7 +27,7 @@ private:
 	void LoadMyRate();
 	int m_total = 0;
 	int m_nwin = 0;
-	float m_enemyWinRate = 0;
+	float m_enemyWinRate = 0.f;
 };
 
 static CRatingSystem& RatingSystem() {
