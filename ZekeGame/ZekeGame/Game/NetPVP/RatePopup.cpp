@@ -55,7 +55,7 @@ void RatePopup::RateInit() {
 	//m_enemyRate->SetTextType(CFont::en_Japanese);
 	std::wstring estr = L"Enemy\n  ";
 	char ss[256];
-	float content = RatingSystem().GetEnemyRate();
+	float content = m_eneRating;
 	sprintf_s(ss, "ENEMEYYYYYYY  Rate  IS %f [ POPUP TIMING]\n", content);
 	OutputDebugString(ss);
 	estr += std::_Floating_to_wstring(L"%.2f", content);
