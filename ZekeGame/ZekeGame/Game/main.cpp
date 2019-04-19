@@ -27,8 +27,8 @@ int WINAPI wWinMain(
 
 	NewGO<GameCamera3D>(0, "cam3d");
 	NewGO<GameCamera2D>(0, "cam2d");
-	//NewGO<ModeSelect>(0, "modesel");
-	RatingSystem().PopupRate();
+	NewGO<ModeSelect>(0, "modesel");
+	//RatingSystem().PopupRate();
 	//NewGO<NetPVPMode>(0, "modesel");
 	g_physics.SetDebugDraw(true);
 	SkinModelRender* sm = NewGO<SkinModelRender>(0, "sm");
