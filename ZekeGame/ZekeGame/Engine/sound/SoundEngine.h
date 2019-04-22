@@ -5,12 +5,15 @@ public:
 	SoundEngine();
 	~SoundEngine();
 	void Update();
+	static SoundEngine& GetInstance() {
+		static SoundEngine soundEngine;
+		return soundEngine;
+	}
 //private:
 	std::unique_ptr<DirectX::AudioEngine> audEngine;
 };
 
 static SoundEngine& ISoundEngine() {
-	static SoundEngine soundEngine;
-	return soundEngine;
+	return SoundEngine::GetInstance();
 }
 
