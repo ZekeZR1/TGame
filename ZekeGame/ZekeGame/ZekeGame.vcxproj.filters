@@ -452,21 +452,6 @@
     <ClCompile Include="Game\AIEdit\AIEditNodeSelectFonts.cpp">
       <Filter>Game\AIEdite</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetSave.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Title\MonAIPreset\MonAIPreset.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetClose.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetLoad.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetOpen.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
     <ClCompile Include="Game\Input\KeyBoard.cpp">
       <Filter>Game</Filter>
     </ClCompile>
@@ -485,25 +470,7 @@
     <ClCompile Include="Game\MonsterBox\MonsterBox.cpp">
       <Filter>Game\Dungeon</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetOpenSuper.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetLoadOpen.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetSaveOpen.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
     <ClCompile Include="Game\Dungeon\MonsterDrop.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Title\MonAIPreset\MonAIPresets.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetIcons.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetIcon.cpp">
       <Filter>Game</Filter>
     </ClCompile>
     <ClCompile Include="Game\AIEdit\AIEditNodeMenuSave.cpp">
@@ -528,6 +495,41 @@
     </ClCompile>
     <ClCompile Include="Game\AIEdit\VisualAIOpen.cpp">
       <Filter>Game\AIEdite</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\NetPVP\CRatingSystem.cpp" />
+    <ClCompile Include="Game\NetPVP\RatePopup.cpp" />
+    <ClCompile Include="Game\Title\MonAIPreset\MonAIPreset.cpp">
+      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetClose.cpp">
+      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetIcon.cpp">
+      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetIcons.cpp">
+      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetLoad.cpp">
+      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetLoadOpen.cpp">
+      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetOpen.cpp">
+      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetOpenSuper.cpp">
+      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Title\MonAIPreset\MonAIPresets.cpp">
+      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetSave.cpp">
+      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetSaveOpen.cpp">
+      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1289,21 +1291,6 @@
     <ClInclude Include="Game\AIEdit\AIEditNodeSelectFonts.h">
       <Filter>Game\AIEdite</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetOpen.h">
-      <Filter>Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetSave.h">
-      <Filter>Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Title\MonAIPreset\MonAIPreset.h">
-      <Filter>Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetClose.h">
-      <Filter>Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetLoad.h">
-      <Filter>Game</Filter>
-    </ClInclude>
     <ClInclude Include="Game\Input\KeyBoard.h">
       <Filter>Game</Filter>
     </ClInclude>
@@ -1322,25 +1309,7 @@
     <ClInclude Include="Game\MonsterBox\MonsterBox.h">
       <Filter>Game\Dungeon</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetOpenSuper.h">
-      <Filter>Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetLoadOpen.h">
-      <Filter>Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetSaveOpen.h">
-      <Filter>Game</Filter>
-    </ClInclude>
     <ClInclude Include="Game\Dungeon\MonsterDrop.h">
-      <Filter>Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Title\MonAIPreset\MonAIPresets.h">
-      <Filter>Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetIcons.h">
-      <Filter>Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetIcon.h">
       <Filter>Game</Filter>
     </ClInclude>
     <ClInclude Include="Game\AIEdit\AIEditNodeMenuSave.h">
@@ -1365,6 +1334,41 @@
     </ClInclude>
     <ClInclude Include="Game\AIEdit\VisualAIOpen.h">
       <Filter>Game\AIEdite</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\NetPVP\CRatingSystem.h" />
+    <ClInclude Include="Game\NetPVP\RatePopup.h" />
+    <ClInclude Include="Game\Title\MonAIPreset\MonAIPreset.h">
+      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetClose.h">
+      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetIcon.h">
+      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetIcons.h">
+      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetLoad.h">
+      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetLoadOpen.h">
+      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetOpen.h">
+      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetOpenSuper.h">
+      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Title\MonAIPreset\MonAIPresets.h">
+      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetSave.h">
+      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetSaveOpen.h">
+      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1747,6 +1751,9 @@
     <ImageContentTask Include="Assets\Sprite\GUI\Net\waiting.png">
       <Filter>Assets\NetBattle</Filter>
     </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\Net\popupback.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\Net\close.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\button1.png" />
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\testMons\tesEnemy3.fbx">

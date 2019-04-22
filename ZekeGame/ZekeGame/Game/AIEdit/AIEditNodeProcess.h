@@ -26,7 +26,7 @@ public:
 	void DeleteKey(AIEditNodeOrder* a);
 	AIEditNodeOrder* CreateOrder();
 	
-	void AISave();
+	void AISave(int num,int col);
 
 	bool GetClickFlag()
 	{
