@@ -69,9 +69,6 @@ bool Game::Start() {
 	e->SetPosition(CVector3::Zero());
 	e->SetScale({ 500,500,500 });
 	e->Play(L"Assets/effect/l/laser.efk");
-
-	
-	
 	return true;
 }
 
@@ -93,6 +90,7 @@ void Game::OnDestroy() {
 	if (m_isOnlineGame) {
 		//Engine::IEngine().DestroyNetworkSystem();
 	}
+	RatingSystem().ClosePopup();
 	delete m_pi;
 }
 
@@ -208,6 +206,7 @@ void Game::Update() {
 			auto win = NewGO<Win>(0, "win");
 			win->init(team);
 			RatingSystem().SetWinner(team);
+			RatingSystem().PopupRate(m_eneRate);
 			break;
 		}
 		case enDungeon:

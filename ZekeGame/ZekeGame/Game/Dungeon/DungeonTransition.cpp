@@ -76,7 +76,7 @@ void DungeonTransition::Update() {
 	}
 	char str[256];
 	sprintf_s(str, "Pos %f\n", p.z);
-	OutputDebugString(str);
+	//OutputDebugString(str);
 	if (m_isfade && m_fade->isFadeStop()) {
 		auto select = NewGO<StageSelect>(0, "selectScene");
 		select->SetDungeonGameData(m_files, m_enemyFiles, m_monai, m_ids, m_dunNum);

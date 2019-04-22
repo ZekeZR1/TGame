@@ -28,6 +28,7 @@ public:
 	//モンスターのデータを送る。
 	void raiseMonData();
 	void raiseMonAIs();
+	void raiseRating();
 	//
 	int GetOnlinePlayerCount() {
 		return mpLbc->getCountPlayersOnline();
@@ -79,7 +80,9 @@ public:
 
 	//012 
 	void SetTeamMonsterInfo(int info[3]);
-		
+	float GetEnemyRate() {
+		return m_enemyRate;
+	}
 	int* GetEnemyTeamIDs() {
 		return m_enemyTeamData;
 	}
@@ -125,6 +128,7 @@ private:
 	{
 		enText = 5,
 		enMonData,
+		enRateData,
 	};
 
 	int m_toRaiseTeamData[3] = { 0 };
@@ -151,5 +155,6 @@ private:
 	bool misConect = false;		//つながってる～？
 	bool misHang = false;		//何か送られてきてる？
 	bool m_isAiLoaded[3] = { false };
+	float m_enemyRate = 0.f;
 };
 

@@ -20,12 +20,14 @@ public:
 	void OnDestroy() override;
 private:
 	void RaiseData();
+	void RaiseRatingData();
 	void LoadEnemyData();
 	void RaiseAiTextData();
 	bool m_dataRaised = false;
 	bool m_dataLoaded = false;
 	void BattleStart();
 	Fade* m_fade = nullptr;				//fade
+	bool m_isfade = false;
 	MusicFade* m_mscfade = nullptr;		//musicfade
 	ModeSelect* m_modesel = nullptr;	//modeselect
 	ExchangeData* m_exdata = nullptr;	//ネットでやり取りするときに使うやつ

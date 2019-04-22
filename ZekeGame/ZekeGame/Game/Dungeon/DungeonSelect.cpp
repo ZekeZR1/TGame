@@ -59,19 +59,24 @@ void DungeonSelect::Update() {
 void DungeonSelect::CheckDungeonClearState() {
 	{
 		using namespace std;
-		char outfile[] = "datafile.txt";
+		char outfile[] = "Assets/saveData/clearstate.dd";
 		ifstream fin(outfile, ios::in | ios::binary);
 		if (!fin) {
-			OutputDebugStringA("datafileのオープンに失敗しました");
+			OutputDebugStringA("clearstate.ddのオープンに失敗しました");
+			ofstream fout;
+			fout.open(outfile, ios::out | ios::binary | ios::trunc);
+			int n = 0;
+			fout.write((char*)&n, sizeof(int));
+			fout.close();
 			return;
 		}
-		int clearedDungeon;
+		int clearedDungeon = -1;
 		fin.read((char *)&clearedDungeon, sizeof(int));
 		fin.close();
 		if (clearedDungeon < 0 || clearedDungeon > 8) {
 			clearedDungeon = -1;
 			ofstream fout;
-			fout.open("datafile.txt", ios::out | ios::binary | ios::trunc);
+			fout.open(outfile, ios::out | ios::binary | ios::trunc);
 			fout.write((char*)&clearedDungeon, sizeof(int));
 			fout.close();
 			OutputDebugStringA("ダンジョンのクリアデータが謎い\n");

@@ -3,6 +3,7 @@
 #include "OutputListener.h"
 #include "LoadBalancingListener.h"
 #include "NetworkLogic.h"
+#include "../NetPVP/CRatingSystem.h"
 #include "Console.h"
 #include "TestView.h"
 #include <fstream>
@@ -183,6 +184,15 @@ void LoadBalancingListener::raiseMonData()
 	//char str[256];
 	////sprintf_s(str, "num is %d / raise data num ... %d \n", m_monNUM,data.getValue(1)[0]);
 	//OutputDebugString(str);
+}
+
+
+void LoadBalancingListener::raiseRating() {
+	auto rate = RatingSystem().GetWinRate();
+	char str[256];
+	sprintf_s(str, "raise my Rate %f",rate);
+	OutputDebugString(str);
+	mpLbc->opRaiseEvent(false,RatingSystem().GetWinRate(),enRateData);
 }
 
 void LoadBalancingListener::raiseMonAIs() {
@@ -370,6 +380,17 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 		//OutputDebugString(str);
 	}
 	break;
+	case enRateData:
+	{
+		float content = ExitGames::Common::ValueObject<float>(eventContentObj).getDataCopy();
+		m_enemyRate = content;
+		RatingSystem().SetEnemyRate(content);
+		char str[256];
+		sprintf_s(str, "ENEMEYYYYYYY  Rate  IS %f\n", content);
+
+		OutputDebugString(str);
+		break;
+	}
 	default:
 	{
 		//より洗練されたデータ型を送受信する方法のコード例については、
@@ -555,7 +576,7 @@ void LoadBalancingListener::service()
 }
 
 bool LoadBalancingListener::isGotEnemyPythonCodes() {
-	if (m_isAiLoaded[0] && m_isAiLoaded[1] && m_isAiLoaded[2])
+	if (m_isAiLoaded[0] and m_isAiLoaded[1] and m_isAiLoaded[2])
 		return true;
 	return false;
 }

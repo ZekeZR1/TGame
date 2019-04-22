@@ -41,14 +41,12 @@ bool NetPVPMode::Start() {
 void NetPVPMode::OnDestroy()
 {
 	DeleteGO(m_informationSp);
-	//Engine::IEngine().DestroyNetworkSystem();
 	NetSystem().DestroyNetworkSystem();
 }
 
 
 void NetPVPMode::Update() {
 	NetSystem().GetNetworkLogic().Update();
-
 	 RaiseData();
 	 LoadEnemyData();
 	 if (m_dataLoaded) {
@@ -56,11 +54,14 @@ void NetPVPMode::Update() {
 			 m_monai[i] = i - 3;
 			 m_moid[i] = m_enemyId[i - 3];
 		 }
-		 BattleStart();
+		 m_isfade = true;
+		 m_fade->FadeOut();
 	 }
+	 BattleStart();
 	 //Test
 	 if (g_pad[0].IsTrigger(enButtonA)) {
-		 BattleStart();
+		 m_isfade = true;
+		 m_fade->FadeOut();
 	 }
 }
 
@@ -73,6 +74,7 @@ void NetPVPMode::RaiseData() {
 	m_lbl->raiseMonData();
 	//Raise Monster AIs
 	RaiseAiTextData();
+	RaiseRatingData();
 }
 
 void NetPVPMode::LoadEnemyData() {
@@ -92,11 +94,13 @@ void NetPVPMode::LoadEnemyData() {
 }
 
 void NetPVPMode::BattleStart() {
-	auto game = NewGO<Game>(0, "Game");
-	game->SetRandomPVPMode();
-	auto enemyFiles = PythonFileLoad::FilesLoadOnlineEnemy();
-	StageSetup::NetworkPvPSetup(m_files, enemyFiles, m_monai, m_moid);
-	DeleteGO(this);
+	if (m_fade->isFadeStop() && m_isfade) {
+		auto game = NewGO<Game>(0, "Game");
+		game->SetRandomPVPMode(m_lbl->GetEnemyRate());
+		auto enemyFiles = PythonFileLoad::FilesLoadOnlineEnemy();
+		StageSetup::NetworkPvPSetup(m_files, enemyFiles, m_monai, m_moid);
+		DeleteGO(this);
+	}
 }
 
 void NetPVPMode::RaiseAiTextData() {
@@ -130,4 +134,8 @@ void NetPVPMode::RaiseAiTextData() {
 		}
 	}
 	m_lbl->raiseMonAIs();
+}
+
+void NetPVPMode::RaiseRatingData() {
+	m_lbl->raiseRating();
 }
