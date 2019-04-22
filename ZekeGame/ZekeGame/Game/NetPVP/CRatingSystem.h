@@ -12,10 +12,8 @@ public:
 	const int GetTotalWinNum() {
 		return m_nwin;
 	}
-	const float GetWinRate() {
-		LoadMyRate();
-		return 100.0  * float(m_nwin) / float(m_total);
-	}
+	const float GetWinRate();
+		
 	const float GetEnemyRate() {
 		return m_enemyWinRate;
 	}
