@@ -154,11 +154,11 @@ void StageSetup::SetEnemyAI(int dun, int* monAI, MonsterID* monId) {
 	switch (dun) {
 	case 0:
 		monAI[3] = 0;
-		monId[3] = enTest;
+		monId[3] = enFairy;
 		monAI[4] = 0;
-		monId[4] = enTest;
+		monId[4] = enFairy;
 		monAI[5] = 0;
-		monId[5] = enTest;
+		monId[5] = enFairy;
 		break;
 	case 1:
 		monAI[3] = 1;
