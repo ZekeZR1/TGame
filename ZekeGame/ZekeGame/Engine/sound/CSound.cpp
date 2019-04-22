@@ -17,7 +17,7 @@ void Sound::Update() {
 	if (m_roofFlag)
 		effect->Play(true);
 	if (!isPlaying()) {
-		OutputDebugStringA("Delete Sound effect");
+		//OutputDebugStringA("Delete Sound effect");
 		DeleteGO(this);
 	}
 }
