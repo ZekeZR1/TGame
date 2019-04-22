@@ -54,7 +54,7 @@ void AIEditNodeMenuSave::Awake()
 	/*m_spriteRender = NewGO<SpriteRender>(17, "menuconf");
 	m_spriteRender->Init(L"Assets/sprite/menu.dds", 520, 200, true);
 	m_spriteRender->SetPosition(confpos);
-	m_positionselect = confpos;
+	m_positionselect = confpos; 
 	m_positionselect.x -= 375;
 	m_positionselect.y -= 35;
 
@@ -371,6 +371,7 @@ void AIEditNodeMenuSave::PaletteProc()
 					m_selCol = i;
 					Confirmation();
 					m_isColSel = true;
+					m_aieditnodeprocess->AISave(m_SelectBlock,m_selCol);
 				}
 			}
 		}
