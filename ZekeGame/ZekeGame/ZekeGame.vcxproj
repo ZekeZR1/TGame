@@ -758,13 +758,13 @@
     <Media Include="Assets\sound\punch-middle2.wav" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\modelData\dungeon\dropwall.fbx">
+    <MeshContentTask Include="Assets\modelData\dungeon\dropwall.fbx">
       <FileType>Document</FileType>
-    </None>
+    </MeshContentTask>
     <MeshContentTask Include="Assets\modelData\dungeon\dungeonBack.FBX" />
-    <None Include="Assets\modelData\dungeon\egg.FBX">
+    <MeshContentTask Include="Assets\modelData\dungeon\egg.FBX">
       <FileType>Document</FileType>
-    </None>
+    </MeshContentTask>
     <MeshContentTask Include="Assets\modelData\fairy\hnd.FBX" />
     <MeshContentTask Include="Assets\modelData\stage\dun.fbx" />
     <MeshContentTask Include="Assets\modelData\stage\dun_yuka.fbx" />
@@ -791,6 +791,9 @@
   </ItemGroup>
   <ItemGroup>
     <ImageContentTask Include="Assets\Sprite\GUI\button1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Sprite\GUI\Dungeon\dungeonSelectWallpaper.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

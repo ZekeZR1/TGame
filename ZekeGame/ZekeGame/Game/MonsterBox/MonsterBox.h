@@ -6,6 +6,10 @@ class MonsterBox
 public:
 	bool isGot(MonsterID id);
 	void GetMonster(MonsterID id);
+	static MonsterBox& GetInstance() {
+		static MonsterBox instance;
+		return instance;
+	}
 private:
 	void CheckMonsterData();
 	void WriteFile(int);
@@ -13,6 +17,5 @@ private:
 };
 
 static MonsterBox& IMonsterBox() {
-	static MonsterBox monsterBox;
-	return monsterBox;
+	return MonsterBox::GetInstance();
 }

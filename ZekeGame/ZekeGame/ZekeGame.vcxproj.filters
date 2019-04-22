@@ -1452,24 +1452,6 @@
     <None Include="C:\Users\kokoa\Pictures\Effekseer142cWin\shot.efk">
       <Filter>Assets</Filter>
     </None>
-    <None Include="Assets\Sprite\GUI\Dungeon\rightButton.png">
-      <Filter>Assets\dungeon</Filter>
-    </None>
-    <None Include="Assets\Sprite\GUI\Dungeon\nextDungeon.png">
-      <Filter>Assets\dungeon</Filter>
-    </None>
-    <None Include="Assets\Sprite\GUI\Dungeon\leftButton.png">
-      <Filter>Assets\dungeon</Filter>
-    </None>
-    <None Include="Assets\Sprite\monsho\dun_stage0.png">
-      <Filter>Assets\dungeon</Filter>
-    </None>
-    <None Include="Assets\modelData\dungeon\dropwall.fbx">
-      <Filter>Assets\model</Filter>
-    </None>
-    <None Include="Assets\modelData\dungeon\egg.FBX">
-      <Filter>Assets\model</Filter>
-    </None>
     <None Include="Assets\Sprite\result\res_blueteam.png">
       <Filter>Assets\result</Filter>
     </None>
@@ -1648,6 +1630,21 @@
     <None Include="Assets\Sprite\AIEdit\open.png" />
     <None Include="Assets\Sprite\AIEdit\point.png" />
     <None Include="Assets\Sprite\AIEdit\sieat.png" />
+    <None Include="Assets\Sprite\GUI\Dungeon\rightButton.png">
+      <Filter>Assets\dungeon</Filter>
+    </None>
+    <None Include="Assets\Sprite\monsho\dun_stage0.png">
+      <Filter>Assets\dungeon</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\Dungeon\dungeonSelectWallpaper.png">
+      <Filter>Assets\dungeon</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\Dungeon\leftButton.png">
+      <Filter>Assets\dungeon</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\Dungeon\nextDungeon.png">
+      <Filter>Assets\dungeon</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="act">
@@ -1749,6 +1746,9 @@
     <Filter Include="Game\NetPVP\photon">
       <UniqueIdentifier>{a664d7b4-bf10-4c78-bace-95837bcb0ae7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Assets\dungeon\fbx">
+      <UniqueIdentifier>{905e2a87-0690-41f2-bde1-e991ab045ef4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Media Include="Assets\sound\punch-middle2.wav">
@@ -1810,6 +1810,12 @@
       <Filter>Assets\model</Filter>
     </MeshContentTask>
     <MeshContentTask Include="Assets\modelData\Test.FBX">
+      <Filter>Assets\model</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\dungeon\dropwall.fbx">
+      <Filter>Assets\model</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\dungeon\egg.FBX">
       <Filter>Assets\model</Filter>
     </MeshContentTask>
   </ItemGroup>

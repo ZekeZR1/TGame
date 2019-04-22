@@ -13,6 +13,8 @@
 #include "../Dungeon/DungeonGame.h"
 #include "../Dungeon/MonsterDrop.h"
 
+char m_outfile[256] = "Assets/saveData/clearstate.dd";
+
 bool DungeonResult::Start() {
 	MonsterSet();
 	CameraSet();
@@ -39,10 +41,9 @@ void DungeonResult::Update() {
 void DungeonResult::SaveDungeonClearState(){
 	{
 		using namespace std;
-		char outfile[] = "datafile.txt";
-		ifstream fin(outfile, ios::in | ios::binary);
+		ifstream fin("Assets/saveData/clearstate.dd", ios::in | ios::binary);
 		if (!fin) {
-			OutputDebugStringA("datafileのオープンに失敗しました");
+			OutputDebugStringA("clearstate.ddのオープンに失敗しました");
 			return;
 		}
 		int cleared = -1;
@@ -63,7 +64,7 @@ void DungeonResult::SaveDungeonClearState(){
 		//
 		if (cleared < m_dunNum) {
 			cleared += 1;
-			fout.open("datafile.txt", ios::out | ios::binary | ios::trunc);
+			fout.open("Assets/saveData/clearstate.dd", ios::out | ios::binary | ios::trunc);
 			fout.write((char*)&cleared, sizeof(int));
 		}
 		fout.close();
