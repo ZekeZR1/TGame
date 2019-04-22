@@ -4,10 +4,16 @@
 #include <memory>
 #include <fstream>
 #include <cmath>
-//TODO : 算術基本定理を使う
+
+
 bool MonsterBox::isGot(MonsterID id) {
-	CheckMonsterData();
-	int flagnum[enNumMonster];
+	LoadMyBox();
+	if (m_monsters[id])
+		return true;
+	else
+		return false;
+	//if(m_monsters % id == 0)
+	/*int flagnum[enNumMonster];
 	int mons = m_monsters;
 	for (int i = 0; i < enNumMonster; i++) {
 		flagnum[i] = mons % 10;
@@ -15,11 +21,20 @@ bool MonsterBox::isGot(MonsterID id) {
 	}
 	if (flagnum[id] != 0)
 		return true;
-	return false;
+	return false;*/
 }
 
 void MonsterBox::GetMonster(MonsterID id) {
-	int x =  std::pow(10, static_cast<int>(id));
+	using namespace std;
+	LoadMyBox();
+	m_monsters[id] = 1;
+	ofstream fout;
+	fout.open("Assets/saveData/monsterbox.mbx", ios::out or ios::binary);
+	for (int i = 0; i < enNumMonster; i++) {
+		fout.write((char*)&m_monsters[i], sizeof(int));
+	}
+	fout.close();
+	/*int x =  std::pow(10, static_cast<int>(id));
 	int flagnum[enNumMonster];
 	int mons = m_monsters;
 	for (int i = 0; i < enNumMonster; i++) {
@@ -28,28 +43,36 @@ void MonsterBox::GetMonster(MonsterID id) {
 	}
 	if (flagnum[id] == 0)
 		m_monsters += x;
-	WriteFile(m_monsters);
+	WriteFile(m_monsters);*/
 }
 
-void MonsterBox::CheckMonsterData() {
+
+void MonsterBox::initFile() {
 	using namespace std;
-	char outfile[] = "monsterbox.txt";
-	ifstream fin(outfile, ios::in | ios::binary);
+	ofstream fout;
+	fout.open("Assets/saveData/monsterbox.mbx", ios::out | ios::binary | ios::trunc);
+	int n = 0;
+	for (int i = 0; i < enNumMonster; i++) {
+		fout.write((char*)&n, sizeof(int));
+		//fout << 0;
+	}
+	fout.close();
+}
+
+
+void MonsterBox::LoadMyBox() {
+	using namespace std;
+	ifstream fin("Assets/saveData/monsterbox.mbx", ios::in | ios::binary);
 	if (!fin) {
-		OutputDebugStringA("monsterbox.txtのオープンに失敗しました\n");
-		WriteFile(0);
+		OutputDebugStringA("monsterbox.mbxのオープンに失敗しました\n");
+		for (int i = 0; i < enNumMonster; i++) {
+			m_monsters[i] = 0;
+		}
+		initFile();
 		return;
 	}
-	fin.read((char *)&m_monsters, sizeof(int));
+	for (int i = 0; i < enNumMonster; i++) {
+		fin.read((char *)&m_monsters[i], sizeof(int));
+	}
 	fin.close();
-}
-
-void MonsterBox::WriteFile(int n) {
-	using namespace std;
-	 m_monsters = n;
-	ofstream fout;
-	OutputDebugStringA("writing monsterbox file\n");
-	fout.open("monsterbox.txt", ios::out | ios::binary | ios::trunc);
-	fout.write((char*)&m_monsters, sizeof(int));
-	fout.close();
 }
