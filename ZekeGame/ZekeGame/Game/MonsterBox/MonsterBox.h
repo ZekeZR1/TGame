@@ -10,10 +10,11 @@ public:
 		static MonsterBox instance;
 		return instance;
 	}
+
 private:
-	void CheckMonsterData();
-	void WriteFile(int);
-	UINT m_monsters = 0;
+	void initFile();
+	void LoadMyBox();
+	int m_monsters[500] = { 0 };
 };
 
 static MonsterBox& IMonsterBox() {
