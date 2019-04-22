@@ -7,7 +7,7 @@
 #include "../TestScene.h"
 
 #include "Fade/Fade.h"
-
+#include "MonsterBox/MonsterBox.h"
 #include "Dungeon/DungeonTransition.h"
 #include "NetPVP\NetPVPMode.h"
 
