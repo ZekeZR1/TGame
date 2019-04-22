@@ -27,6 +27,7 @@ private:
 	bool m_dataLoaded = false;
 	void BattleStart();
 	Fade* m_fade = nullptr;				//fade
+	bool m_isfade = false;
 	MusicFade* m_mscfade = nullptr;		//musicfade
 	ModeSelect* m_modesel = nullptr;	//modeselect
 	ExchangeData* m_exdata = nullptr;	//ネットでやり取りするときに使うやつ

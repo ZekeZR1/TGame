@@ -384,6 +384,7 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 	{
 		float content = ExitGames::Common::ValueObject<float>(eventContentObj).getDataCopy();
 		m_enemyRate = content;
+		RatingSystem().SetEnemyRate(content);
 		char str[256];
 		sprintf_s(str, "ENEMEYYYYYYY  Rate  IS %f\n", content);
 
@@ -575,7 +576,7 @@ void LoadBalancingListener::service()
 }
 
 bool LoadBalancingListener::isGotEnemyPythonCodes() {
-	if (m_isAiLoaded[0] && m_isAiLoaded[1] && m_isAiLoaded[2])
+	if (m_isAiLoaded[0] and m_isAiLoaded[1] and m_isAiLoaded[2])
 		return true;
 	return false;
 }

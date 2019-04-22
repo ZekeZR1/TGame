@@ -3,42 +3,35 @@
 #include "RatePopup.h"
 #include "CRatingSystem.h"
 
-/*	rating.txtの中身
+/*	rating.rtの中身
 	1:合計試合数
 	2:勝利数
 */
 void CRatingSystem::fileOutput(int total,int nwin) {
 	using namespace std;
-	fstream fs;
-	fs.open("rating.txt", ios::out);
-	if (!fs.is_open()) {
-		OutputDebugString("cant open rating.txt");
+	ofstream ost;
+	ost.open("Assets/career/rating.rt",ios::out, ios::binary);
+	if (!ost) {
+		OutputDebugString("cant open rating.rt");
 		return;
 	}
-	fs << total << ' ' << nwin; 
-	fs.close();
-	/*ofstream fout;
-	fout.open("rating.txt", ios::out | ios::binary | ios::trunc);
-	fout.write((char*)&rate, sizeof(int));
-	OutputDebugString("update my rating");
-	fout.close();*/
+	ost.write((char*)&total, sizeof(int));
+	ost.write((char*)&nwin, sizeof(int));
+	ost.close();
 }
 
 void CRatingSystem::LoadMyRate() {
 	{
 		using namespace std;
-		fstream fs;
-		fs.open("rating.txt", ios::in);
-		if (!fs.is_open()) {
-			OutputDebugStringA("rating.txtのオープンに失敗しました");
+		ifstream ist("Assets/career/rating.rt", ios::in, ios::binary);
+		if (!ist) {
+			OutputDebugString("cant open rating.rt");
 			fileOutput(0, 0);
 			return;
 		}
-		fs >> m_total >> m_nwin;
-		fs.close(); 
-		char msg[256];
-		sprintf_s(msg, "total is  %d nwin is %d\n", m_total, m_nwin);
-		OutputDebugStringA(msg);
+		ist.read((char*)&m_total, sizeof(int));
+		ist.read((char*)&m_nwin, sizeof(int));
+		ist.close();
 	}
 }
 
@@ -63,4 +56,9 @@ void CRatingSystem::ClosePopup() {
 	auto rpk = FindGO<RatePopup>("RatePopupKun");
 	if (rpk != nullptr)
 		DeleteGO(rpk);
+}
+
+const float CRatingSystem::GetWinRate() {
+	LoadMyRate();
+	return 100.0  * float(m_nwin) / float(m_total);
 }

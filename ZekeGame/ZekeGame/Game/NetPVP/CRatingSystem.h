@@ -12,10 +12,8 @@ public:
 	const int GetTotalWinNum() {
 		return m_nwin;
 	}
-	const float GetWinRate() {
-		LoadMyRate();
-		return 100.0  * float(m_nwin) / float(m_total);
-	}
+	const float GetWinRate();
+		
 	const float GetEnemyRate() {
 		return m_enemyWinRate;
 	}
@@ -28,12 +26,14 @@ private:
 	void LoadMyRate();
 	int m_total = 0;
 	int m_nwin = 0;
-	float m_enemyWinRate;
+	float m_enemyWinRate = 0.f;
+public:
+	static CRatingSystem& GetInstance() {
+		static CRatingSystem instance;
+		return instance;
+	}
 };
 
-
 static CRatingSystem& RatingSystem() {
-	static CRatingSystem instance;
-	return instance;
+	return CRatingSystem::GetInstance();
 }
-
