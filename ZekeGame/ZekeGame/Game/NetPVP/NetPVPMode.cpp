@@ -55,7 +55,8 @@ void NetPVPMode::Update() {
 			 m_moid[i] = m_enemyId[i - 3];
 		 }
 		 m_isfade = true;
-		 m_fade->FadeOut();
+		 if(!m_isfade)
+			m_fade->FadeOut();
 	 }
 	 BattleStart();
 	 //Test
