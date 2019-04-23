@@ -10,9 +10,13 @@
 #include "../Title/PMMonster.h"
 #include "../Title/MonAIPreset/MonAIPresetSaveOpen.h"
 #include "../Title/MonAIPreset/MonAIPresetLoadOpen.h"
+#include "../Title/ModeSelect.h"
+#include "CRatingSystem.h"
+#include "RatePopup.h"
 
 void NetAISelect::OnDestroy()
 {
+	DeleteGO(m_info);
 	DeleteGO(m_back);
 	DeleteGO(m_cursor);
 	DeleteGO(m_msRed);
@@ -20,6 +24,7 @@ void NetAISelect::OnDestroy()
 	DeleteGO(m_GO);
 	DeleteGO(m_return);
 	DeleteGO(m_returnMoji);
+	DeleteGO(m_status);
 	for (auto i : m_pmms)
 		DeleteGO(i);
 }
@@ -27,7 +32,6 @@ void NetAISelect::OnDestroy()
 bool NetAISelect::Start()
 {
 	m_fade = FindGO<Fade>("fade");
-	m_fade->FadeIn();
 
 	m_back = NewGO<SpriteRender>(0, "sp");
 	m_back->Init(L"Assets/sprite/monsel_back.dds", 1280, 720);
@@ -72,6 +76,16 @@ bool NetAISelect::Start()
 	m_returnMoji->Init(L"Assets/sprite/moji_return.dds", m_returnS.x, m_returnS.y, true);
 	m_return->SetPosition(repo);
 	m_returnMoji->SetPosition(repo);
+
+	//info
+	m_status = NewGO<RatingInfo>(0);
+	//m_status->SetPosition(m_infoPos);
+	m_status->SetPosition(m_infoPos);
+	m_status->SetScale(0.5f);
+	//m_info = NewGO<SpriteRender>(0);
+	//m_info->Init(L"Assets/Sprite/popupback.dds", 150.f, 300.f);
+	//m_info->SetPosition(m_infoPos);
+	m_fade->FadeIn();
 	return true;
 }
 
@@ -163,6 +177,8 @@ void NetAISelect::Update()
 			}
 			if (Mouse::isTrigger(enLeftClick))
 			{
+				m_isBackFade = true;
+				m_fade->FadeOut();
 				//NewGO<ModeSelect>(0, "modesel");
 				//DeleteGO(this);
 			}
@@ -174,4 +190,8 @@ void NetAISelect::Update()
 		}
 	}
 	isopen = ispmm;
+	if (m_fade->isFadeStop() and m_isBackFade) {
+		NewGO<ModeSelect>(0);
+		DeleteGO(this);
+	}
 }

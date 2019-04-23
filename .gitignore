@@ -82,4 +82,4 @@ obj/
 /ZekeGame/ZekeGame/Assets/font/myfileJaBig.spritefont
 *.rt
 *.dd
-*.opendb
+/ZekeGame/.vs/ZekeGame/v16

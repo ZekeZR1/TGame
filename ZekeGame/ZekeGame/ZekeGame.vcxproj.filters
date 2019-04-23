@@ -478,11 +478,6 @@
     </ClCompile>
     <ClCompile Include="Game\Dungeon\DropEgg.cpp" />
     <ClCompile Include="Game\ExchangeData\ExchangeData.cpp" />
-    <ClCompile Include="Game\Online\BaseView.cpp" />
-    <ClCompile Include="Game\Online\Console.cpp" />
-    <ClCompile Include="Game\Online\LoadBalancingListener.cpp" />
-    <ClCompile Include="Game\Online\NetworkLogic.cpp" />
-    <ClCompile Include="Game\Online\OutputListener.cpp" />
     <ClCompile Include="Game\Online\TestView.cpp" />
     <ClCompile Include="Game\NetPVP\NetPVPMode.cpp">
       <Filter>Game\NetPVP</Filter>
@@ -496,8 +491,6 @@
     <ClCompile Include="Game\AIEdit\VisualAIOpen.cpp">
       <Filter>Game\AIEdite</Filter>
     </ClCompile>
-    <ClCompile Include="Game\NetPVP\CRatingSystem.cpp" />
-    <ClCompile Include="Game\NetPVP\RatePopup.cpp" />
     <ClCompile Include="Game\Title\MonAIPreset\MonAIPreset.cpp">
       <Filter>Game\AIMonSelect\AIMonPreset</Filter>
     </ClCompile>
@@ -530,6 +523,27 @@
     </ClCompile>
     <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetSaveOpen.cpp">
       <Filter>Game\AIMonSelect\AIMonPreset</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\NetPVP\CRatingSystem.cpp">
+      <Filter>Game\NetPVP</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Online\Console.cpp">
+      <Filter>Game\NetPVP</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Online\BaseView.cpp">
+      <Filter>Game\NetPVP</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Online\LoadBalancingListener.cpp">
+      <Filter>Game\NetPVP</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Online\NetworkLogic.cpp">
+      <Filter>Game\NetPVP</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Online\OutputListener.cpp">
+      <Filter>Game\NetPVP</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\NetPVP\RatePopup.cpp">
+      <Filter>Game\NetPVP</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1317,11 +1331,6 @@
     </ClInclude>
     <ClInclude Include="Game\Dungeon\DropEgg.h" />
     <ClInclude Include="Game\ExchangeData\ExchangeData.h" />
-    <ClInclude Include="Game\Online\BaseView.h" />
-    <ClInclude Include="Game\Online\Console.h" />
-    <ClInclude Include="Game\Online\LoadBalancingListener.h" />
-    <ClInclude Include="Game\Online\NetworkLogic.h" />
-    <ClInclude Include="Game\Online\OutputListener.h" />
     <ClInclude Include="Game\Online\TestView.h" />
     <ClInclude Include="Game\NetPVP\NetPVPMode.h">
       <Filter>Game\NetPVP</Filter>
@@ -1335,8 +1344,6 @@
     <ClInclude Include="Game\AIEdit\VisualAIOpen.h">
       <Filter>Game\AIEdite</Filter>
     </ClInclude>
-    <ClInclude Include="Game\NetPVP\CRatingSystem.h" />
-    <ClInclude Include="Game\NetPVP\RatePopup.h" />
     <ClInclude Include="Game\Title\MonAIPreset\MonAIPreset.h">
       <Filter>Game\AIMonSelect\AIMonPreset</Filter>
     </ClInclude>
@@ -1369,6 +1376,27 @@
     </ClInclude>
     <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetSaveOpen.h">
       <Filter>Game\AIMonSelect\AIMonPreset</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\NetPVP\CRatingSystem.h">
+      <Filter>Game\NetPVP</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Online\Console.h">
+      <Filter>Game\NetPVP</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Online\BaseView.h">
+      <Filter>Game\NetPVP</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Online\LoadBalancingListener.h">
+      <Filter>Game\NetPVP</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Online\NetworkLogic.h">
+      <Filter>Game\NetPVP</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Online\OutputListener.h">
+      <Filter>Game\NetPVP</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\NetPVP\RatePopup.h">
+      <Filter>Game\NetPVP</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1781,5 +1809,7 @@
     <MeshContentTask Include="Assets\modelData\Test.FBX">
       <Filter>Assets\model</Filter>
     </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\dungeon\dropwall.fbx" />
+    <MeshContentTask Include="Assets\modelData\dungeon\egg.FBX" />
   </ItemGroup>
 </Project>

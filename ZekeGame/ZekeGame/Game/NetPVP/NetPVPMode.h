@@ -26,8 +26,10 @@ private:
 	bool m_dataRaised = false;
 	bool m_dataLoaded = false;
 	void BattleStart();
+	void BackToMenu();
 	Fade* m_fade = nullptr;				//fade
 	bool m_isfade = false;
+	bool m_isBackFade = false;
 	MusicFade* m_mscfade = nullptr;		//musicfade
 	ModeSelect* m_modesel = nullptr;	//modeselect
 	ExchangeData* m_exdata = nullptr;	//ネットでやり取りするときに使うやつ

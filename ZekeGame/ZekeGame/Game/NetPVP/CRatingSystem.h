@@ -7,9 +7,11 @@ public:
 	void PopupRate(float);
 	void ClosePopup();
 	const int GetTotalBattleNum() {
+		LoadMyRate();
 		return m_total;
 	}
 	const int GetTotalWinNum() {
+		LoadMyRate();
 		return m_nwin;
 	}
 	const float GetWinRate();
@@ -20,6 +22,7 @@ public:
 	void SetEnemyRate(float rate){
 		m_enemyWinRate = rate;
 	}
+	void ShowMyWinRate(CVector3 pos);
 private:
 	void CalcRate(int team);
 	void fileOutput(int total,int nwin);
