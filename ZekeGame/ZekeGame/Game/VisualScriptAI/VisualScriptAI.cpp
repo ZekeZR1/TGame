@@ -4,8 +4,56 @@
 #include "../Monster/MonsterActionManeger.h"
 #include "../GameData.h"
 
-VisualScriptAI::VisualScriptAI()
+VisualScriptAI::VisualScriptAI(Monster* me, std::string* path)
 {
+	m_me = me;
+
+	FILE* f = fopen(path->c_str(), "rb");
+
+	char head[6];
+	fread(head, 6, 1, f);
+	int col;
+	fread(&col, 1, 1, f);
+
+	for (int L = 0; L < 8; L++)
+	{
+		VisualScriptLine vsl;
+		for (int D = 0; D < 3; D++)
+		{
+			VisualScriptOrder vso;
+			for (int P = 0; P < 6; P++)
+			{
+				int R;
+				fread(&R, 2, 1, f);
+				switch (P)
+				{
+				case 0:
+					vso.target = (Target)R;
+					break;
+				case 1:
+					vso.what = (What)R;
+					break;
+				case 2:
+					vso.bl = (BL)R;
+					break;
+				case 3:
+					vso.num = (Num)R;
+					break;
+				case 4:
+					vso.state = (State)R;
+					break;
+				case 5:
+					vso.action = (Action)R;
+					break;
+				}
+				
+			}
+			vsl.push_back(vso);
+		}
+		m_vsLines.push_back(vsl);
+	}
+
+	fclose(f);
 }
 
 VisualScriptAI::~VisualScriptAI()
