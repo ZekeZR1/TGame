@@ -10,7 +10,7 @@
 #include "MonsterBox/MonsterBox.h"
 #include "Dungeon/DungeonTransition.h"
 #include "NetPVP\NetPVPMode.h"
-
+#include "NetPVP/RatePopup.h"
 #include "NetPVP/CRatingSystem.h"
 
 int WINAPI wWinMain(
@@ -28,6 +28,12 @@ int WINAPI wWinMain(
 	NewGO<GameCamera3D>(0, "cam3d");
 	NewGO<GameCamera2D>(0, "cam2d");
 	NewGO<ModeSelect>(0, "modesel");
+	//
+	//auto m_status = NewGO<RatingInfo>(0);
+	//m_status->SetPosition(m_infoPos);
+	//m_status->SetPosition({ -500.f,220.f ,0.f});
+	//m_status->SetScale(0.5f);
+	//
 	//RatingSystem().PopupRate(100.f);
 	//NewGO<NetPVPMode>(0, "modesel");
 	g_physics.SetDebugDraw(true);

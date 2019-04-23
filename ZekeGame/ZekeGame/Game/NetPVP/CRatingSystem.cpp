@@ -64,3 +64,7 @@ const float CRatingSystem::GetWinRate() {
 		return 0.f;
 	return 100.0  * float(m_nwin) / float(m_total);
 }
+
+void CRatingSystem::ShowMyWinRate(CVector3 pos) {
+	auto p = NewGO<RatingInfo>(0);
+}
