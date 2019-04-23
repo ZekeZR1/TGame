@@ -101,7 +101,8 @@ void MonAIPresetLoad::Update()
 					setlocale(LC_ALL, "japanese");
 					size_t size = 0;
 					mbstowcs_s(&size, ws, 20, chn[i].str,_TRUNCATE);
-					pmm->SetPython(ws, ind[i]);
+					//todo: 俺 AIModeをフォーマットに追加
+					pmm->SetPython(ws, ind[i],0);
 					
 					pmm->ChengeImage((MonsterID)chn[i].monID);
 				}

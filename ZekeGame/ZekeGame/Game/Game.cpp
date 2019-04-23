@@ -21,8 +21,7 @@
 
 void Game::GamePVPmodeInit(std::vector<std::string> files, int monsterAI[6],MonsterID MonsterID[6])
 {
-	ss = new StageSetup();
-	ss->PVPSetup(files, monsterAI,MonsterID);
+	//StageSetup::PVPSetup(files, monsterAI,MonsterID);
 	m_playMode = enLocalPVP;
 }
 

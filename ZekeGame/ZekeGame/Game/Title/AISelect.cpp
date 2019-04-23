@@ -8,6 +8,8 @@
 #include "../GameCursor.h"
 #include "IconAI.h"
 
+#include "../AIEdit/VisualAIOpen.h"
+
 AISelect::~AISelect()
 {
 	DeleteGO(m_back);
@@ -49,6 +51,18 @@ bool AISelect::Start()
 	m_minScroll = 316.5f;
 	m_minScroll = 230.5f;
 	m_maxScroll = pos.y * -1;
+
+
+	//切り替えボタンの表示
+	m_changeAI = NewGO<SpriteRender>(28, "sp");
+	m_changeAI->Init(L"Assets/sprite/fade_black.dds", 60, 30, true);
+	m_changeAI->SetPosition({ -420,315,0 });
+	m_changeAI->SetPivot({ 0,1 });
+
+	m_CAfont = NewGO<FontRender>(29, "fr");
+	m_CAfont->Init(L"visAI", { -420,320 },0,CVector4::White,0.5f);
+	m_CAfont->DrawShadow();
+	
 	return true;
 }
 
@@ -60,11 +74,36 @@ void AISelect::init(PMMonster * pmm,AIMSelect* aims)
 
 void AISelect::Update()
 {
+
+	////AIの切り替えボタンの処理
+	m_changeAI->SetCollisionTarget(m_cursor->GetCursor());
+	if (m_changeAI->isCollidingTarget())
+	{
+		if (Mouse::isTrigger(enLeftClick))
+		{
+			DeleteAI();
+			switch (m_AImode)
+			{
+			case enPy:
+				CreateViAI();
+				m_AImode = enVi;
+				break;
+			case enVi:
+				CreatePyAI();
+				m_AImode = enPy;
+				break;
+			}
+
+		}
+	}
+	////
+
+
 	for (int i = 0;i < m_icons.size();i++)
 	{
 		if (m_icons[i]->isClick())
 		{
-			m_AIMS->SetAI(i);
+			m_AIMS->SetAI(i,m_AImode);
 			/*std::string st = m_ppms->GetFiles()[i];
 			std::wstring ws = std::wstring(st.begin(), st.end());
 			m_pmm->SetPython(ws.c_str(),i);*/
@@ -117,4 +156,62 @@ void AISelect::PostRender()
 	}*/
 
 	//font.End();
+}
+
+void AISelect::CreatePyAI()
+{
+	int count = m_ppms->GetFiles().size();
+
+	CVector3 pos = { -454,316.5f,0 };
+	pos = { -454,230.5f,0 };
+	for (int i = 0; i < count; i++)
+	{
+		IconAI* ia = NewGO<IconAI>(0, "ia");
+		std::string st = m_ppms->GetFiles()[i];
+		ia->init(st, i, m_cursor);
+		ia->Setpos(pos);
+		m_icons.push_back(ia);
+
+		pos.y -= 82;
+	}
+	m_minScroll = 316.5f;
+	m_minScroll = 230.5f;
+	m_maxScroll = pos.y * -1;
+}
+
+
+
+void AISelect::CreateViAI()
+{
+	std::vector<VisualAIState> vas = VisualAIOpen::openVAs();
+	int count = vas.size();
+
+	CVector3 pos = { -454,316.5f,0 };
+	pos = { -454,230.5f,0 };
+	for (int i = 0; i < count; i++)
+	{
+		IconAI* ia = NewGO<IconAI>(0, "ia");
+		char c[25];
+		sprintf(c, "%d", vas[i].num);
+		std::string st = c;
+		ia->init(st, i, m_cursor,true,vas[i].col);
+		ia->Setpos(pos);
+		m_icons.push_back(ia);
+
+		pos.y -= 82;
+	}
+	m_minScroll = 316.5f;
+	m_minScroll = 230.5f;
+	m_maxScroll = pos.y * -1;
+}
+
+void AISelect::DeleteAI()
+{
+	for (auto icon : m_icons)
+	{
+		DeleteGO(icon);
+
+	}
+	m_icons.clear();
+	m_icons.shrink_to_fit();
 }

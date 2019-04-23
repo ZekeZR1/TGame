@@ -152,9 +152,10 @@ void PMMonster::ChengeImage(int monid)
 	//m_path = path;
 }
 
-void PMMonster::SetPython(const wchar_t * py,int num)
+void PMMonster::SetPython(const wchar_t * py,int num, int AImode)
 {
 	m_selAI = num;
+	m_AImode = AImode;
 
 	for (int i = 0; i < 12; i++)
 	{
@@ -169,7 +170,8 @@ void PMMonster::SetPython(const wchar_t * py,int num)
 			m_python[i] = L'\0';
 		}
 	}
-	g_AIset[m_num] = m_selAI;
+	g_AIset[m_num].AInum = m_selAI;
+	g_AIset[m_num].AImode = AImode;
 
 	CVector3 spos = m_mon->GetPosition();
 	CVector2 pos;
