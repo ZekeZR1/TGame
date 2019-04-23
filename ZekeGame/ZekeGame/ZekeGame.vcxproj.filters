@@ -452,21 +452,6 @@
     <ClCompile Include="Game\AIEdit\AIEditNodeSelectFonts.cpp">
       <Filter>Game\AIEdite</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetSave.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Title\MonAIPreset\MonAIPreset.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetClose.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetLoad.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetOpen.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
     <ClCompile Include="Game\Input\KeyBoard.cpp">
       <Filter>Game</Filter>
     </ClCompile>
@@ -485,25 +470,7 @@
     <ClCompile Include="Game\MonsterBox\MonsterBox.cpp">
       <Filter>Game\Dungeon</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetOpenSuper.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetLoadOpen.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetSaveOpen.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
     <ClCompile Include="Game\Dungeon\MonsterDrop.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Title\MonAIPreset\MonAIPresets.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetIcons.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetIcon.cpp">
       <Filter>Game</Filter>
     </ClCompile>
     <ClCompile Include="Game\AIEdit\AIEditNodeMenuSave.cpp">
@@ -511,35 +478,58 @@
     </ClCompile>
     <ClCompile Include="Game\Dungeon\DropEgg.cpp" />
     <ClCompile Include="Game\ExchangeData\ExchangeData.cpp" />
+    <ClCompile Include="Game\Online\BaseView.cpp" />
+    <ClCompile Include="Game\Online\Console.cpp" />
+    <ClCompile Include="Game\Online\LoadBalancingListener.cpp" />
+    <ClCompile Include="Game\Online\NetworkLogic.cpp" />
+    <ClCompile Include="Game\Online\OutputListener.cpp" />
+    <ClCompile Include="Game\Online\TestView.cpp" />
     <ClCompile Include="Game\NetPVP\NetPVPMode.cpp">
       <Filter>Game\NetPVP</Filter>
     </ClCompile>
     <ClCompile Include="Game\NetPVP\NetAISelect.cpp">
       <Filter>Game\NetPVP</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Online\BaseView.cpp">
-      <Filter>Game\NetPVP\photon</Filter>
+    <ClCompile Include="Game\AIEdit\AIEditNodeMenuOpen.cpp">
+      <Filter>Game\AIEdite</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Online\LoadBalancingListener.cpp">
-      <Filter>Game\NetPVP\photon</Filter>
+    <ClCompile Include="Game\AIEdit\VisualAIOpen.cpp">
+      <Filter>Game\AIEdite</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Online\TestView.cpp">
-      <Filter>Game\NetPVP\photon</Filter>
+    <ClCompile Include="Game\NetPVP\CRatingSystem.cpp" />
+    <ClCompile Include="Game\NetPVP\RatePopup.cpp" />
+    <ClCompile Include="Game\Title\MonAIPreset\MonAIPreset.cpp">
+      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Online\OutputListener.cpp">
-      <Filter>Game\NetPVP\photon</Filter>
+    <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetClose.cpp">
+      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Online\NetworkLogic.cpp">
-      <Filter>Game\NetPVP\photon</Filter>
+    <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetIcon.cpp">
+      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Online\Console.cpp">
-      <Filter>Game\NetPVP\photon</Filter>
+    <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetIcons.cpp">
+      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
     </ClCompile>
-    <ClCompile Include="Game\NetPVP\CRatingSystem.cpp">
-      <Filter>Game\NetPVP</Filter>
+    <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetLoad.cpp">
+      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
     </ClCompile>
-    <ClCompile Include="Game\NetPVP\RatePopup.cpp">
-      <Filter>Game\NetPVP</Filter>
+    <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetLoadOpen.cpp">
+      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetOpen.cpp">
+      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetOpenSuper.cpp">
+      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Title\MonAIPreset\MonAIPresets.cpp">
+      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetSave.cpp">
+      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetSaveOpen.cpp">
+      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1301,21 +1291,6 @@
     <ClInclude Include="Game\AIEdit\AIEditNodeSelectFonts.h">
       <Filter>Game\AIEdite</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetOpen.h">
-      <Filter>Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetSave.h">
-      <Filter>Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Title\MonAIPreset\MonAIPreset.h">
-      <Filter>Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetClose.h">
-      <Filter>Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetLoad.h">
-      <Filter>Game</Filter>
-    </ClInclude>
     <ClInclude Include="Game\Input\KeyBoard.h">
       <Filter>Game</Filter>
     </ClInclude>
@@ -1334,25 +1309,7 @@
     <ClInclude Include="Game\MonsterBox\MonsterBox.h">
       <Filter>Game\Dungeon</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetOpenSuper.h">
-      <Filter>Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetLoadOpen.h">
-      <Filter>Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetSaveOpen.h">
-      <Filter>Game</Filter>
-    </ClInclude>
     <ClInclude Include="Game\Dungeon\MonsterDrop.h">
-      <Filter>Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Title\MonAIPreset\MonAIPresets.h">
-      <Filter>Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetIcons.h">
-      <Filter>Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetIcon.h">
       <Filter>Game</Filter>
     </ClInclude>
     <ClInclude Include="Game\AIEdit\AIEditNodeMenuSave.h">
@@ -1360,35 +1317,58 @@
     </ClInclude>
     <ClInclude Include="Game\Dungeon\DropEgg.h" />
     <ClInclude Include="Game\ExchangeData\ExchangeData.h" />
+    <ClInclude Include="Game\Online\BaseView.h" />
+    <ClInclude Include="Game\Online\Console.h" />
+    <ClInclude Include="Game\Online\LoadBalancingListener.h" />
+    <ClInclude Include="Game\Online\NetworkLogic.h" />
+    <ClInclude Include="Game\Online\OutputListener.h" />
+    <ClInclude Include="Game\Online\TestView.h" />
     <ClInclude Include="Game\NetPVP\NetPVPMode.h">
       <Filter>Game\NetPVP</Filter>
     </ClInclude>
     <ClInclude Include="Game\NetPVP\NetAISelect.h">
       <Filter>Game\NetPVP</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Online\BaseView.h">
-      <Filter>Game\NetPVP\photon</Filter>
+    <ClInclude Include="Game\AIEdit\AIEditNodeMenuOpen.h">
+      <Filter>Game\AIEdite</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Online\LoadBalancingListener.h">
-      <Filter>Game\NetPVP\photon</Filter>
+    <ClInclude Include="Game\AIEdit\VisualAIOpen.h">
+      <Filter>Game\AIEdite</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Online\TestView.h">
-      <Filter>Game\NetPVP\photon</Filter>
+    <ClInclude Include="Game\NetPVP\CRatingSystem.h" />
+    <ClInclude Include="Game\NetPVP\RatePopup.h" />
+    <ClInclude Include="Game\Title\MonAIPreset\MonAIPreset.h">
+      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Online\OutputListener.h">
-      <Filter>Game\NetPVP\photon</Filter>
+    <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetClose.h">
+      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Online\NetworkLogic.h">
-      <Filter>Game\NetPVP\photon</Filter>
+    <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetIcon.h">
+      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Online\Console.h">
-      <Filter>Game\NetPVP\photon</Filter>
+    <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetIcons.h">
+      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
     </ClInclude>
-    <ClInclude Include="Game\NetPVP\CRatingSystem.h">
-      <Filter>Game\NetPVP</Filter>
+    <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetLoad.h">
+      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
     </ClInclude>
-    <ClInclude Include="Game\NetPVP\RatePopup.h">
-      <Filter>Game\NetPVP</Filter>
+    <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetLoadOpen.h">
+      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetOpen.h">
+      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetOpenSuper.h">
+      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Title\MonAIPreset\MonAIPresets.h">
+      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetSave.h">
+      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetSaveOpen.h">
+      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1451,6 +1431,24 @@
     </None>
     <None Include="C:\Users\kokoa\Pictures\Effekseer142cWin\shot.efk">
       <Filter>Assets</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\Dungeon\rightButton.png">
+      <Filter>Assets\dungeon</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\Dungeon\nextDungeon.png">
+      <Filter>Assets\dungeon</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\Dungeon\leftButton.png">
+      <Filter>Assets\dungeon</Filter>
+    </None>
+    <None Include="Assets\Sprite\monsho\dun_stage0.png">
+      <Filter>Assets\dungeon</Filter>
+    </None>
+    <None Include="Assets\modelData\dungeon\dropwall.fbx">
+      <Filter>Assets\model</Filter>
+    </None>
+    <None Include="Assets\modelData\dungeon\egg.FBX">
+      <Filter>Assets\model</Filter>
     </None>
     <None Include="Assets\Sprite\result\res_blueteam.png">
       <Filter>Assets\result</Filter>
@@ -1630,21 +1628,6 @@
     <None Include="Assets\Sprite\AIEdit\open.png" />
     <None Include="Assets\Sprite\AIEdit\point.png" />
     <None Include="Assets\Sprite\AIEdit\sieat.png" />
-    <None Include="Assets\Sprite\GUI\Dungeon\rightButton.png">
-      <Filter>Assets\dungeon</Filter>
-    </None>
-    <None Include="Assets\Sprite\monsho\dun_stage0.png">
-      <Filter>Assets\dungeon</Filter>
-    </None>
-    <None Include="Assets\Sprite\GUI\Dungeon\dungeonSelectWallpaper.png">
-      <Filter>Assets\dungeon</Filter>
-    </None>
-    <None Include="Assets\Sprite\GUI\Dungeon\leftButton.png">
-      <Filter>Assets\dungeon</Filter>
-    </None>
-    <None Include="Assets\Sprite\GUI\Dungeon\nextDungeon.png">
-      <Filter>Assets\dungeon</Filter>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="act">
@@ -1743,12 +1726,6 @@
     <Filter Include="Assets\NetBattle">
       <UniqueIdentifier>{9744c157-db48-4a01-86d0-947ebb59576d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\NetPVP\photon">
-      <UniqueIdentifier>{a664d7b4-bf10-4c78-bace-95837bcb0ae7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Assets\dungeon\fbx">
-      <UniqueIdentifier>{905e2a87-0690-41f2-bde1-e991ab045ef4}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Media Include="Assets\sound\punch-middle2.wav">
@@ -1759,6 +1736,9 @@
     </Media>
     <Media Include="Assets\sound\kick-low1.wav">
       <Filter>Assets</Filter>
+    </Media>
+    <Media Include="Assets\sound\BGM\PerituneMaterial_Strategy5_loop.wav">
+      <Filter>Assets\BGM</Filter>
     </Media>
   </ItemGroup>
   <ItemGroup>
@@ -1771,15 +1751,9 @@
     <ImageContentTask Include="Assets\Sprite\GUI\Net\waiting.png">
       <Filter>Assets\NetBattle</Filter>
     </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\Net\popupback.png">
-      <Filter>Assets\NetBattle</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\Net\close.png">
-      <Filter>Assets\NetBattle</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\button1.png">
-      <Filter>Assets\NetBattle</Filter>
-    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\Net\popupback.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\Net\close.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\button1.png" />
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\testMons\tesEnemy3.fbx">
@@ -1810,12 +1784,6 @@
       <Filter>Assets\model</Filter>
     </MeshContentTask>
     <MeshContentTask Include="Assets\modelData\Test.FBX">
-      <Filter>Assets\model</Filter>
-    </MeshContentTask>
-    <MeshContentTask Include="Assets\modelData\dungeon\dropwall.fbx">
-      <Filter>Assets\model</Filter>
-    </MeshContentTask>
-    <MeshContentTask Include="Assets\modelData\dungeon\egg.FBX">
       <Filter>Assets\model</Filter>
     </MeshContentTask>
   </ItemGroup>
