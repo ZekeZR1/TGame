@@ -45,6 +45,7 @@ void RatePopup::RateInit() {
 	//m_myRate->SetTextType(CFont::en_Japanese);
 	std::wstring str = L"You\n  ";
 	str += std::_Floating_to_wstring(L"%.2f", RatingSystem().GetWinRate());
+	//str += std::_Floating_to_wstring(L"%.2f", m_eneRating);
 	str += L"%";
 	const wchar_t* wstr = str.c_str();
 	m_myRate->Init(wstr);
