@@ -16,6 +16,8 @@
 #include "AIEditNodeSelectButtons.h"
 #include "AIEditNodeDeleteKey.h"
 
+#include "VisualAIOpen.h"
+
 //camera
 #include "../../GameCamera.h"
 
@@ -202,9 +204,18 @@ AIEditNodeOrder * AIEditNodeProcess::CreateOrder()
 
 
 //フォルダに作成したAIを保存するための処理。
-void AIEditNodeProcess::AISave()
+void AIEditNodeProcess::AISave(int num,int col)
 {
-	FILE* f = fopen("Assets/VisualAI/AISave.va","w");
+	char path[255];
+	sprintf(path, "Assets/VisualAI/%03d.va", num);
+	FILE* f = fopen(path,"w");
+
+	char head[] = "VISAI";
+	fwrite(head, 5, 1,f);
+	int i = 0;
+	fwrite(&i, 1, 1, f);
+
+	fwrite(&col, 1, 1, f);
 	
 	for (int i0 = 0;i0 < 8; i0++)
 	{

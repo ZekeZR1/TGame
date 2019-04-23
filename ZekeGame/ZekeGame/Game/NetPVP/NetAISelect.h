@@ -3,6 +3,7 @@
 #include "../Title/SuperMonsterSelect.h"
 
 class GameCursor;
+class RatingInfo;
 class MonAIPresetOpenSuper;
 class Fade;
 class NetAISelect :public SuperMonsterSelect
@@ -38,6 +39,11 @@ private:
 
 	SpriteRender* m_return = nullptr;
 	SpriteRender* m_returnMoji = nullptr;
+
+	//rating information
+	SpriteRender* m_info = nullptr;
+	CVector3 m_infoPos = { -500.f,220.f ,0.f };
+
 	bool isReturnOver = false;
 	CVector2 m_returnS = { 604,256 };
 
@@ -50,4 +56,6 @@ private:
 
 	Fade* m_fade = nullptr;			//フェード
 	bool m_isfade = false;
+	bool m_isBackFade = false;
+	RatingInfo* m_status = nullptr;
 };

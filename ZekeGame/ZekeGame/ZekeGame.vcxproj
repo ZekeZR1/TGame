@@ -22,32 +22,32 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{DD699856-A074-41E8-925F-5B771B6EC69E}</ProjectGuid>
     <RootNamespace>ZekeGame</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
@@ -242,6 +242,7 @@
     <ClCompile Include="Game\AIEdit\AIEditNodeMass.cpp" />
     <ClCompile Include="Game\AIEdit\AIEditNodeMenu.cpp" />
     <ClCompile Include="Game\AIEdit\AIEditNodeMenuConfirmation.cpp" />
+    <ClCompile Include="Game\AIEdit\AIEditNodeMenuOpen.cpp" />
     <ClCompile Include="Game\AIEdit\AIEditNodeMenuSave.cpp" />
     <ClCompile Include="Game\AIEdit\AIEditNodeNum.cpp" />
     <ClCompile Include="Game\AIEdit\AIEditNodeOrder.cpp" />
@@ -251,6 +252,7 @@
     <ClCompile Include="Game\AIEdit\AIEditNodeTarget.cpp" />
     <ClCompile Include="Game\AIEdit\AIEditNodeTechnique.cpp" />
     <ClCompile Include="Game\AIEdit\AIEdtiNodeAbnormalState.cpp" />
+    <ClCompile Include="Game\AIEdit\VisualAIOpen.cpp" />
     <ClCompile Include="Game\Dungeon\DropEgg.cpp" />
     <ClCompile Include="Game\Dungeon\DungeonAISelect.cpp" />
     <ClCompile Include="Game\Dungeon\DungeonData.cpp" />
@@ -434,6 +436,7 @@
     <ClInclude Include="Game\AIEdit\AIEditNodeMass.h" />
     <ClInclude Include="Game\AIEdit\AIEditNodeMenu.h" />
     <ClInclude Include="Game\AIEdit\AIEditNodeMenuConfirmation.h" />
+    <ClInclude Include="Game\AIEdit\AIEditNodeMenuOpen.h" />
     <ClInclude Include="Game\AIEdit\AIEditNodeMenuSave.h" />
     <ClInclude Include="Game\AIEdit\AIEditNodeNum.h" />
     <ClInclude Include="Game\AIEdit\AIEditNodeOrder.h" />
@@ -443,6 +446,7 @@
     <ClInclude Include="Game\AIEdit\AIEditNodeTarget.h" />
     <ClInclude Include="Game\AIEdit\AIEditNodeTechnique.h" />
     <ClInclude Include="Game\AIEdit\AIEdtiNodeAbnormalState.h" />
+    <ClInclude Include="Game\AIEdit\VisualAIOpen.h" />
     <ClInclude Include="Game\Dungeon\DropEgg.h" />
     <ClInclude Include="Game\Dungeon\DungeonAISelect.h" />
     <ClInclude Include="Game\Dungeon\DungeonData.h" />
@@ -753,6 +757,7 @@
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
+    <Media Include="Assets\sound\BGM\PerituneMaterial_Strategy5_loop.wav" />
     <Media Include="Assets\sound\kick-low1.wav" />
     <Media Include="Assets\sound\punch-high2.wav" />
     <Media Include="Assets\sound\punch-middle2.wav" />

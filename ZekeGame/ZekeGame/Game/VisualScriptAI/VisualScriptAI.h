@@ -12,19 +12,19 @@ enum What
 	wNone,
 	hp = 200,
 	mp,
-	state = 300,
-	action = 400,
+	state,
+	action,
 };
 enum BL
 {
 	bNone,
-	big = 210,
+	big = 300,
 	little
 };
 enum Num
 {
 	nNone,
-	n1 = 220,
+	n1 = 400,
 	n10,
 	n30,
 	n50,
@@ -36,14 +36,14 @@ enum Num
 enum State
 {
 	sNone,
-	doku = 310,
+	doku = 600,
 	bili,
 };
 
 enum Action
 {
 	aNone,
-	attack = 410,
+	attack = 500,
 	leave,
 	chase,
 	defence,
@@ -67,7 +67,7 @@ class Monster;
 class VisualScriptAI
 {
 public:
-	VisualScriptAI();
+	VisualScriptAI(Monster* me, std::string* path);
 	~VisualScriptAI();
 	void Run();
 	bool whatHP(Target target, BL bl, Num num, Monster* &mon,Target old);

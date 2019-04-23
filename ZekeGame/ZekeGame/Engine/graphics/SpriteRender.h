@@ -45,6 +45,7 @@ public:
 	void SetPivot(const CVector2& pivot)
 	{
 		m_pivot = pivot;
+		m_collider.Init(m_h, m_w, m_pos, m_pivot);
 	}
 
 	//毎フレーム呼び出してターゲット座標を更新する 

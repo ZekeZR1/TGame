@@ -55,13 +55,19 @@ void NetPVPMode::Update() {
 			 m_moid[i] = m_enemyId[i - 3];
 		 }
 		 m_isfade = true;
-		 m_fade->FadeOut();
+		 if(!m_isfade)
+			m_fade->FadeOut();
 	 }
-	 BattleStart();
+	 if (m_fade->isFadeStop() && m_isfade) {
+		 BattleStart();
+	 }
 	 //Test
 	 if (g_pad[0].IsTrigger(enButtonA)) {
-		 m_isfade = true;
+		 m_isBackFade = true;
 		 m_fade->FadeOut();
+	 }
+	 if (m_isBackFade && m_fade->isFadeStop()) {
+		 BackToMenu();
 	 }
 }
 
@@ -94,13 +100,11 @@ void NetPVPMode::LoadEnemyData() {
 }
 
 void NetPVPMode::BattleStart() {
-	if (m_fade->isFadeStop() && m_isfade) {
-		auto game = NewGO<Game>(0, "Game");
-		game->SetRandomPVPMode(m_lbl->GetEnemyRate());
-		auto enemyFiles = PythonFileLoad::FilesLoadOnlineEnemy();
-		StageSetup::NetworkPvPSetup(m_files, enemyFiles, m_monai, m_moid);
-		DeleteGO(this);
-	}
+	auto game = NewGO<Game>(0, "Game");
+	game->SetRandomPVPMode(m_lbl->GetEnemyRate());
+	auto enemyFiles = PythonFileLoad::FilesLoadOnlineEnemy();
+	StageSetup::NetworkPvPSetup(m_files, enemyFiles, m_monai, m_moid);
+	DeleteGO(this);
 }
 
 void NetPVPMode::RaiseAiTextData() {
@@ -138,4 +142,9 @@ void NetPVPMode::RaiseAiTextData() {
 
 void NetPVPMode::RaiseRatingData() {
 	m_lbl->raiseRating();
+}
+
+void NetPVPMode::BackToMenu() {
+	NewGO<NetAISelect>(0);
+	DeleteGO(this);
 }
