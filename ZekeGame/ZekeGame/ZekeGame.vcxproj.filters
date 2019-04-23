@@ -1444,12 +1444,6 @@
     <None Include="Assets\Sprite\monsho\dun_stage0.png">
       <Filter>Assets\dungeon</Filter>
     </None>
-    <None Include="Assets\modelData\dungeon\dropwall.fbx">
-      <Filter>Assets\model</Filter>
-    </None>
-    <None Include="Assets\modelData\dungeon\egg.FBX">
-      <Filter>Assets\model</Filter>
-    </None>
     <None Include="Assets\Sprite\result\res_blueteam.png">
       <Filter>Assets\result</Filter>
     </None>
@@ -1628,6 +1622,7 @@
     <None Include="Assets\Sprite\AIEdit\open.png" />
     <None Include="Assets\Sprite\AIEdit\point.png" />
     <None Include="Assets\Sprite\AIEdit\sieat.png" />
+    <None Include="Assets\Sprite\GUI\Dungeon\dungeonSelectWallpaper.png" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="act">
