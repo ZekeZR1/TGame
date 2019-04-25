@@ -58,8 +58,8 @@ bool NetAISelect::Start()
 		pmm->init(i, pos);
 		pmm->Setteam(i >= 3);
 		pos += {260, 0, 0};
-		std::wstring ws = std::wstring(m_files[g_AIset[i].AInum].begin(), m_files[g_AIset[i].AInum].end());
-		pmm->SetPython(ws.c_str(), g_AIset[i].AInum, g_AIset[i].AImode);
+		std::wstring ws = std::wstring(m_files[g_AIset[i]].begin(), m_files[g_AIset[i]].end());
+		pmm->SetPython(ws.c_str(), g_AIset[i]);
 		m_pmms.push_back(pmm);
 	}
 
