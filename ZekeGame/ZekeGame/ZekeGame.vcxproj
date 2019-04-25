@@ -763,13 +763,7 @@
     <Media Include="Assets\sound\punch-middle2.wav" />
   </ItemGroup>
   <ItemGroup>
-    <MeshContentTask Include="Assets\modelData\dungeon\dropwall.fbx">
-      <FileType>Document</FileType>
-    </MeshContentTask>
     <MeshContentTask Include="Assets\modelData\dungeon\dungeonBack.FBX" />
-    <MeshContentTask Include="Assets\modelData\dungeon\egg.FBX">
-      <FileType>Document</FileType>
-    </MeshContentTask>
     <MeshContentTask Include="Assets\modelData\fairy\hnd.FBX" />
     <MeshContentTask Include="Assets\modelData\stage\dun.fbx" />
     <MeshContentTask Include="Assets\modelData\stage\dun_yuka.fbx" />

@@ -17,7 +17,7 @@ public:
 
 	void Open();
 	void ChengeImage(int monid);
-	void SetPython(const wchar_t* py,int num);
+	void SetPython(const wchar_t* py,int num,int AImode);
 
 	void yesSelect();
 	void notSelect();
@@ -43,6 +43,10 @@ public:
 	int GetAI()
 	{
 		return m_selAI;
+	}
+	int GetAImode()
+	{
+		return m_AImode;
 	}
 
 	int Getnum()
@@ -85,6 +89,8 @@ private:
 	int m_team = 0;
 	MonsterID m_monid = enTest;
 	int m_selAI = 0;
+	int m_AImode = 0;						//python‚È‚Ì‚©VisualScript‚È‚Ì‚©
+
 	GameCursor* m_cursor = nullptr;
 	MonsterSelect* m_ms = nullptr;
 	AISelect* m_ais = nullptr;

@@ -20,9 +20,10 @@ public:
 		m_monnum = mon;
 	}
 
-	void SetAI(int ai)
+	void SetAI(int ai,int AImode)
 	{
 		m_ainum = ai;
+		m_AImode = AImode;
 	}
 	void Setmon(int mon)
 	{
@@ -53,4 +54,6 @@ private:
 	bool m_isselO = false;
 
 	SpriteRender* m_Black;
+
+	int m_AImode = 0;
 };
