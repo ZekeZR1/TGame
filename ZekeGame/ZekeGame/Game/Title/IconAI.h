@@ -6,7 +6,7 @@ class IconAI :public GameObject
 public:
 	~IconAI();
 	bool Start();
-	void init(std::string py,int num,GameCursor* cursor);
+	void init(std::string py, int num, GameCursor* cursor, bool isVisualAI = false, CVector4 col = {0,0,0,0});
 	void Update();
 	void PostRender();
 

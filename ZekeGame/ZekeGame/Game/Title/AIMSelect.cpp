@@ -83,7 +83,7 @@ void AIMSelect::Update()
 		{
 			std::string st = m_ppms->GetFiles()[m_ainum];
 			std::wstring ws = std::wstring(st.begin(), st.end());
-			m_pmm->SetPython(ws.c_str(), m_ainum);
+			m_pmm->SetPython(ws.c_str(), m_ainum,m_AImode);
 
 			m_pmm->ChengeImage(m_monnum);
 

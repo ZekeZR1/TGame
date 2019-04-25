@@ -60,7 +60,7 @@ void StageSetup::SuddenDeath(const char* files[6], MonsterID monids[6], int team
 	}
 }
 
-void StageSetup::PVPSetup(std::vector<std::string> files, int monsterAI[6],MonsterID monids[6])
+void StageSetup::PVPSetup(std::vector<std::string> files, int monsterAI[6],MonsterID monids[6], int AImode[6])
 {
 	int team = 0;
 	int num = 0;
@@ -81,14 +81,26 @@ void StageSetup::PVPSetup(std::vector<std::string> files, int monsterAI[6],Monst
 		std::string* path;
 
 		mon = GameData::LoadMonster(monids[i]);
-		path = new std::string("PythonAIs.");
-		*path += files[monsterAI[i]];
+		
 
 		mon->Setpos(poss[i]);
 		mon->Setnum(i);
 		mon->Setteam(team);
 		
-		mon->SetpyFile(path);
+		//python‚ÆVisualScript‚ÌŽd•ª‚¯
+		if (AImode[i] == 0)
+		{
+			path = new std::string("PythonAIs.");
+			*path += files[monsterAI[i]];
+			mon->SetpyFile(path);
+		}
+		else
+		{
+			path = new std::string("Assets/VisualAI/");
+			*path += files[monsterAI[i]];
+			mon->SetVisualScriptAI(path);
+		}
+
 		g_mons[i] = mon;
 
 	}
@@ -99,7 +111,7 @@ void StageSetup::PVPSetup(std::vector<std::string> files, int monsterAI[6],Monst
 }
 
 
-void StageSetup::DungeonSetup(PyFile files, PyFile eneFiles, int monsterAI[6], MonsterID monids[6], int dunNumber) {
+void StageSetup::DungeonSetup(PyFile files, PyFile eneFiles, int monsterAI[6], MonsterID monids[6], int dunNumber, int AImode[6]) {
 	int team = 0;
 	int num = 0;
 
@@ -133,14 +145,24 @@ void StageSetup::DungeonSetup(PyFile files, PyFile eneFiles, int monsterAI[6], M
 		mon->Setteam(team);
 		if (team == 0) {
 			//team
-			std::string* path = new std::string("PythonAIs.");
-			*path += files[monsterAI[i]];
-			mon->SetpyFile(path);
+			//python‚ÆVisualScript‚ÌŽd•ª‚¯
+			if (AImode[i] == 0)
+			{
+				std::string* path = new std::string("PythonAIs.");
+				*path += files[monsterAI[i]];
+				mon->SetpyFile(path);
+			}
+			else
+			{
+				std::string* path = new std::string("Assets/VisualAI/");
+				*path += files[monsterAI[i]];
+				mon->SetVisualScriptAI(path);
+			}
 		}
 		else{
 			//enemy
 			std::string* path = new std::string("PythonEnemyAIs.");
-			*path += eneFiles[monsterAI[i]];
+			*path += files[monsterAI[i]];
 			mon->SetpyFile(path);
 		}
 		g_mons[i] = mon;

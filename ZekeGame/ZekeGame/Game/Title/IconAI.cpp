@@ -18,17 +18,20 @@ bool IconAI::Start()
 	return true;
 }
 
-void IconAI::init(std::string py,int num,GameCursor* cursor)
+void IconAI::init(std::string py,int num,GameCursor* cursor, bool isVisualAI, CVector4 col)
 {
 	m_cursor = cursor;
 	std::wstring ws = std::wstring(py.begin(), py.end());
 	m_py = ws;
 	m_num = num;
 	m_frame = NewGO<SpriteRender>(6, "sp");
-	if (((m_num + 1) % 2) == 0)
+	if(!isVisualAI)
 		m_frame->Init(L"Assets/sprite/ai_even.dds", 360, 77);
 	else
-		m_frame->Init(L"Assets/sprite/ai_even.dds", 360, 77);
+	{
+		m_frame->Init(L"Assets/sprite/fade_black.dds", 360, 77);
+		m_frame->SetMulCol(col);
+	}
 	m_dummy = NewGO<SpriteRender>(0, "sp");
 	m_dummy->Init(nullptr, 372, 77, true);
 

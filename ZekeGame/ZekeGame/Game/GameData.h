@@ -26,6 +26,12 @@ enum ActionID
 	enActNone = 999
 };
 
+struct AIsetData
+{
+	int AInum =0;
+	int AImode = 0;
+};
+
 //static std::vector<Monster*> g_mons;
 extern int g_buddyCount;
 extern int g_enemyCount;
@@ -34,7 +40,7 @@ extern int g_meNum;
 extern int g_meTeam;
 
 extern int g_monset[6];
-extern int g_AIset[6];
+extern AIsetData g_AIset[6];
 static void deletemons(Monster* mon)
 {
 	for (Monster* gmon : g_mons)
