@@ -172,6 +172,7 @@ void StageSetup::DungeonSetup(PyFile files, PyFile eneFiles, int monsterAI[6], M
 	g_monsCount = 6;
 }
 
+//dungeon enemy ai and id
 void StageSetup::SetEnemyAI(int dun, int* monAI, MonsterID* monId) {
 	switch (dun) {
 	case 0:
@@ -395,7 +396,8 @@ void StageSetup::StageSet(int stage) {
 void StageSetup::NetworkPvPSetup(std::vector<std::string> files,
 	std::vector<std::string> enemyFiles,
 	int monsterAI[6],
-	int monids[6]
+	int monids[6],
+	int aimode[6]
 	) {
 	int team = 0;
 	int num = 0;
@@ -417,8 +419,15 @@ void StageSetup::NetworkPvPSetup(std::vector<std::string> files,
 
 		mon = GameData::LoadMonster(monids[i]);
 		if (team == 0) {
-			path = new std::string("PythonAIs.");
-			*path += files[i];
+			if (aimode[i] == 0) {
+				path = new std::string("PythonAIs.");
+				*path += files[i];
+			}
+			else {
+				path = new std::string("Assets/VisualAI/");
+				*path += files[monsterAI[i]];
+				mon->SetVisualScriptAI(path);
+			}
 		}
 		else {
 			path = new std::string("NetworkEnemyAIs.");

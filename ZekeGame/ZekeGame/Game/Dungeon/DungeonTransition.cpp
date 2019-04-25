@@ -84,7 +84,7 @@ void DungeonTransition::Update() {
 	//OutputDebugString(str);
 	if (m_isfade && m_fade->isFadeStop()) {
 		auto select = NewGO<StageSelect>(0, "selectScene");
-		select->SetDungeonGameData(m_files, m_enemyFiles, m_monai, m_ids, m_dunNum);
+		select->SetDungeonGameData(m_files, m_enemyFiles, m_monai, m_ids, m_dunNum,m_aimode);
 		DeleteGO(this);
 	}
 }
@@ -151,12 +151,13 @@ void DungeonTCamera::Update() {
 }
 
 
-void DungeonTransition::SetGameData(PyFile& files, PyFile& eneFile, int monsterAI[6], MonsterID monids[6], int DunNumber) {
+void DungeonTransition::SetGameData(PyFile& files, PyFile& eneFile, int monsterAI[6], MonsterID monids[6], int DunNumber, int aimode[6]) {
 	m_files = files;
 	m_enemyFiles = eneFile;
 	for (int i = 0; i < 6; i++) {
 		m_monai[i] = monsterAI[i];
 		m_ids[i] = monids[i];
+		m_aimode[i] = aimode[i];
 	}
 	m_dunNum = DunNumber;
 }

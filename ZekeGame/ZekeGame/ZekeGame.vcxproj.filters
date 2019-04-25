@@ -1809,7 +1809,5 @@
     <MeshContentTask Include="Assets\modelData\Test.FBX">
       <Filter>Assets\model</Filter>
     </MeshContentTask>
-    <MeshContentTask Include="Assets\modelData\dungeon\dropwall.fbx" />
-    <MeshContentTask Include="Assets\modelData\dungeon\egg.FBX" />
   </ItemGroup>
 </Project>

@@ -12,12 +12,13 @@ public:
 	bool Start() override;
 	void Update() override;
 	void OnDestroy() override;
-	void SetDungeonGameData(PyFile& files, PyFile& eneFile, int monsterAI[6], MonsterID monids[6], int DunNumber) {
+	void SetDungeonGameData(PyFile& files, PyFile& eneFile, int monsterAI[6], MonsterID monids[6], int DunNumber,int aimode[6]) {
 		m_files = files;
 		m_enemyFiles = eneFile;
 		for (int i = 0; i < 6; i++) {
 			m_monai[i] = monsterAI[i];
 			m_ids[i] = monids[i];
+			m_aimode[i] = aimode[i];
 		}
 		m_dunNum = DunNumber;
 		m_mode = enDungeon;
@@ -27,6 +28,7 @@ private:
 	std::vector<std::string> m_enemyFiles;
 	MonsterID m_ids[6];
 	int m_monai[6];
+	int m_aimode[6];
 	int m_dunNum = -1;
 private:
 	enum SelectMode {
