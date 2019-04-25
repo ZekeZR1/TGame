@@ -72,7 +72,8 @@ obj/
 *.pidb
 
 *.log
-
+*.VC.db
+*.VC.VC.opendb
 *.scc
 /ZekeGame/ZekeGame/Engine/PhotonEngine/LoadBalancing-cpp/vc15_debug_windows_md_x64/LoadBala.EA5D8C8B.tlog
 /ZekeGame/ZekeGame/Assets/modelData
