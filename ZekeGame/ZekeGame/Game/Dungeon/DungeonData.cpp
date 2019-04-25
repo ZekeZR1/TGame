@@ -2,6 +2,7 @@
 #include "../GameData.h"
 #include "DungeonData.h"
 
+//TODO set ai mode if must to do 
 void DungeonData::SetGameData(PyFile files, PyFile eneFile, int monsterAI[6], MonsterID monids[6], int DunNumber) {
 	m_files = files;
 	m_enemyFiles = eneFile;

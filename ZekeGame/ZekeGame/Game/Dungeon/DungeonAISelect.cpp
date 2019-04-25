@@ -112,7 +112,12 @@ void DungeonAISelect::Update() {
 	}
 	if (m_isfade && m_fade->isFadeStop()) {
 		auto dun = NewGO<DungeonGame>(0, "DungeonGame");
-		dun->SetGameData(m_files, m_enemyFiles, monai, moid, m_dunNum);
+		int i = 0;
+		for (auto p : m_pmms) {
+			aimode[i] = p->GetAImode();
+			i++;
+		}
+		dun->SetGameData(m_files, m_enemyFiles, monai, moid, m_dunNum,aimode);
 		OutputDebugStringA("AI Selected!! Start Transation!\n");
 		dun->StartTransition();
 		DeleteGO(this);

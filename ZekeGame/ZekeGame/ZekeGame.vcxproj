@@ -775,21 +775,21 @@
     <MeshContentTask Include="Assets\modelData\uma\uma.fbx" />
   </ItemGroup>
   <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\GUI\Net\ready.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\Net\waiting.png" />
+    <None Include="Assets\Sprite\GUI\Net\ready.png" />
+    <None Include="Assets\Sprite\GUI\Net\waiting.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Sprite\AIEdit\buttyon.png" />
     <None Include="Assets\Sprite\AIEdit\deletepoint.png" />
   </ItemGroup>
   <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\GUI\Net\popupback.png" />
+    <None Include="Assets\Sprite\GUI\Net\popupback.png" />
   </ItemGroup>
   <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\GUI\Net\close.png" />
+    <None Include="Assets\Sprite\GUI\Net\close.png" />
   </ItemGroup>
   <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\GUI\button1.png" />
+    <None Include="Assets\Sprite\GUI\button1.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Sprite\GUI\Dungeon\dungeonSelectWallpaper.png" />
