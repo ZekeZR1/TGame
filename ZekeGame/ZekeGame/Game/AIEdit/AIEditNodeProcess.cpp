@@ -16,6 +16,8 @@
 #include "AIEditNodeSelectButtons.h"
 #include "AIEditNodeDeleteKey.h"
 
+#include "VisualAIOpen.h"
+
 //camera
 #include "../../GameCamera.h"
 
@@ -34,6 +36,7 @@ bool AIEditNodeProcess::Start()
 	if (num <= 7) {
 		Click();
 	}
+
 	//m_aieditnodemenu = NewGO<AIEditNodeMenu>(0, "menu");
 	m_aieditnodeselectbuttons = NewGO<AIEditNodeSelectButtons>(0, "selectbuttons");
 
@@ -61,39 +64,64 @@ bool AIEditNodeProcess::Start()
 	return true;
 }
 
+void AIEditNodeProcess::Setkeeptechnique(int n)
+{
+
+	flagkeep[keep1][keep2][5] = n;
+
+	for (int i = 0; i <= 7; i++) {
+		m_orderkeep[i][0];
+		if (m_orderkeep[i][0] == nullptr) {
+			
+			keep1 = i;
+			keep2 = 0;
+
+		}
+	}
+}
 
 
 void AIEditNodeProcess::Click()
 {
+
 	//clickが出ていたらDeleteする。
 	QueryGOs<AIEditNodeClick>("click",[&](auto* go)->bool
 	{
 		DeleteGO(go);
-		num -= 1;             //Clickの条件を調整する。
 		return true;
 	});
 
-	//8個までしか出ないようにする。
-	if (num <= 7) {
-		/*m_aieditnodeclick = NewGO<AIEditNodeClick>(0, "click");*/
+	
+	for (int i = 0; i <= 7; i++) {
 
-		for (int i = 0; i <= 7; i++) {
+		m_orderkeep[i][0];
 
-			m_orderkeep[i][0];
+		//orderが書かれていない行にclickをnewする。
+		if (m_orderkeep[i][0] == nullptr) {
 
-			if (m_orderkeep[i][0] == nullptr) {
+			m_aieditnodeclick = NewGO<AIEditNodeClick>(0, "click");
+			float y = ClickePosY - 85 * i;
+			m_aieditnodeclick->SetPosition({ -430,y,0 });
 
-				m_aieditnodeclick = NewGO<AIEditNodeClick>(0, "click");
-				float y = ClickePosY - 85 * i;
-				m_aieditnodeclick->SetPosition({ -430,y,0 });
-				break;
+			//Clickを表示した行の状態をリセット(null)にする。
+			for (int j = 0; j <= 2; j++) {
+
+				for (int k = 0; k <= 5; k++) {
+
+					flagkeep[i][j][k] = 0;           //0は何も選択していない状態。(nulptr)
+
+					keep1 = i;						 //状態を保存する行を設定する。
+					keep2 = 0;						 //列を１列目に設定する。
+				}
+
 			}
+
+			break;
 		}
-
-		num += 1;
-
 	}
+
 }
+
 
 void AIEditNodeProcess::Target()
 {
@@ -113,6 +141,7 @@ void AIEditNodeProcess::Technique()
 
 void AIEditNodeProcess::DeleteKey(AIEditNodeOrder* a)
 {
+
 	bool isBreak = false;
 	for (int i = 0; i < 8; i++) {
 		for (int j = 0; j < 3; j++) {
@@ -131,6 +160,7 @@ void AIEditNodeProcess::DeleteKey(AIEditNodeOrder* a)
 				break;
 			}
 		}
+
 		if (isBreak == true)
 			break;
 
@@ -153,7 +183,7 @@ AIEditNodeOrder * AIEditNodeProcess::CreateOrder()
 				break;
 			}
 
-			else if (j<2 && m_orderkeep[i][j]->GettechniqueOrder() == true) {
+			else if (j < 2 && m_orderkeep[i][j]->GettechniqueOrder() == true) {
 				if (m_orderkeep[i + 1][0] == nullptr)
 				{
 					m_orderkeep[i + 1][0] = m_aieditnodeorder;
@@ -166,14 +196,26 @@ AIEditNodeOrder * AIEditNodeProcess::CreateOrder()
 		if (flaflag == true) {
 			break;
 		}
+
 	}
 
 	return m_aieditnodeorder;
 }
 
-void AIEditNodeProcess::AISave()
+
+//フォルダに作成したAIを保存するための処理。
+void AIEditNodeProcess::AISave(int num,int col)
 {
-	FILE* f = fopen("Assets/VisualAI/AISave.va","w");
+	char path[255];
+	sprintf(path, "Assets/VisualAI/%03d.va", num);
+	FILE* f = fopen(path,"w");
+
+	char head[] = "VISAI";
+	fwrite(head, 5, 1,f);
+	int i = 0;
+	fwrite(&i, 1, 1, f);
+
+	fwrite(&col, 1, 1, f);
 	
 	for (int i0 = 0;i0 < 8; i0++)
 	{

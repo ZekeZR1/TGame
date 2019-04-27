@@ -1,6 +1,8 @@
 #pragma once
 #include "../../Engine/character/CharacterController.h"
 
+#include "../VisualScriptAI/VisualScriptAI.h"
+
 class MonsterAction;
 class MonsterEffect;
 class MonsterActionList;
@@ -103,6 +105,15 @@ public:
 	std::string* GetpyFile()
 	{
 		return m_pyFile;
+	}
+
+	//使うvisualScriptのファイルを設定する
+	//st: ファイルの名前
+	void SetVisualScriptAI(std::string* st)
+	{
+		m_pyFile = st;
+		m_visualAI = new VisualScriptAI(this, st);
+		m_isUseVSAI = true;
 	}
 
 	//HPを返す
@@ -423,4 +434,7 @@ protected:
 	float m_MPRecvTime = 0.0f;
 
 	bool m_end = false;
+
+	bool m_isUseVSAI = false;					//visualAIを使うかどうか
+	VisualScriptAI* m_visualAI = nullptr;		//visualAIのいんすたんす
 };

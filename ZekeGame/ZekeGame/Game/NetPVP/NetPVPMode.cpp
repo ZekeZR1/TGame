@@ -1,56 +1,152 @@
 #include "stdafx.h"
+#include <fstream>
+#include "CRatingSystem.h"
 #include "NetPVPMode.h"
-
 #include "../Title/ModeSelect.h"
-
 #include "../Fade/Fade.h"
 #include "../Fade/MusicFade.h"
 #include "../ExchangeData/ExchangeData.h"
+#include "NetAISelect.h"
+#include "../SaveLoad/PythonFileLoad.h"
+#include "../Online/NetworkLogic.h"
+#include "../Online/Console.h"
+#include "../Game.h"
 
 NetPVPMode::NetPVPMode()
 {
-	char cd[255] = { '\0' };
-	GetCurrentDirectoryA(255, cd);
-	strcat(cd, "\\PythonAIs\\fuckinAI.py");
-	
-	FILE* file;
-	fpos_t pos;
-	file = fopen(cd, "r");
-	fseek(file, 0, SEEK_END);
-	fgetpos(file, &pos);
-	long size = pos;
-	fseek(file, 0, SEEK_SET);
-	char text[1024] = {'\0'};
-	fread(text, size,1, file);
-	fclose(file);
-
-
-
+	//Engine::IEngine().CreateNetworkSystem();
+	NetSystem().CreateNetworkSystem();
+	m_lbl = NetSystem().GetNetworkLogic().GetLBL();
 	m_fade = FindGO<Fade>("fade");
 	m_fade->FadeIn();
-	Engine::IEngine().CreateNetworkSystem();
-	m_exdata = new ExchangeData();
-	m_exdata->sendData(text);
+}
+
+void NetPVPMode::init(std::vector<std::string> files, int monai[3], int moid[3],int aimode[3])
+{
+	for (int i=0;i<3;i++)
+	{
+		m_files.push_back(files[monai[i]]);
+		m_monai[i] = monai[i];
+		m_moid[i] = moid[i];
+		m_aimode[i] = aimode[i];
+	}
 }
 
 bool NetPVPMode::Start() {
+	m_informationSp = NewGO<SpriteRender>(0);
+	m_informationSp->Init(L"Assets/Sprite/waiting.dds",300.f,50.f);
+	m_informationSp->SetPosition(m_informationPos);
 	return true;
 }
 
 void NetPVPMode::OnDestroy()
 {
-	Engine::IEngine().DestroyNetworkSystem();
+	DeleteGO(m_informationSp);
+	NetSystem().DestroyNetworkSystem();
 }
 
 
 void NetPVPMode::Update() {
-	if (g_pad[0].IsTrigger(enButtonA)) {
-		Engine::IEngine().GetNetworkLogic()->GetLBL()->raiseSomeEvent();
-	}
-	else if (g_pad[0].IsTrigger(enButtonB))
-	{
-		m_exdata->sendMonData(1, 3);
-		Engine::IEngine().GetNetworkLogic()->GetLBL()->raiseMonData();
-	}
+	NetSystem().GetNetworkLogic().Update();
+	 RaiseData();
+	 LoadEnemyData();
+	 if (m_dataLoaded) {
+		 for (int i = 3; i < 6; i++) {
+			 m_monai[i] = i - 3;
+			 m_moid[i] = m_enemyId[i - 3];
+		 }
+		 m_isfade = true;
+		 if(!m_isfade)
+			m_fade->FadeOut();
+	 }
+	 if (m_fade->isFadeStop() && m_isfade) {
+		 BattleStart();
+	 }
+	 //Test
+	 if (g_pad[0].IsTrigger(enButtonA)) {
+		 m_isfade = true;
+		 if (!m_isfade)
+			 m_fade->FadeOut();
+	 }
+	 if (m_isBackFade && m_fade->isFadeStop()) {
+		 BackToMenu();
+	 }
+}
 
+void NetPVPMode::RaiseData() {
+	//Raise Monster ids
+	int ids[3];
+	for (int i = 0; i < 3; i++) 
+		ids[i] = m_moid[i];
+	m_lbl->SetTeamMonsterInfo(ids);
+	m_lbl->raiseMonData();
+	//Raise Monster AIs
+	RaiseAiTextData();
+	RaiseRatingData();
+}
+
+void NetPVPMode::LoadEnemyData() {
+	if (m_dataLoaded) 
+		return;
+	//Load Enemy Ids
+	auto ids = m_lbl->GetEnemyTeamIDs();
+	if (ids[0] == 0)
+		return;
+	for (int i = 0; i < 3; i++) {
+		m_enemyId[i] = ids[i];
+		OutputDebugString("LOADING ENEMY TEAM MONSTER ID DATAS\n");
+	}
+	//Load Enemy AIs
+	if(m_lbl->isGotEnemyPythonCodes())
+		m_dataLoaded = true;
+}
+
+void NetPVPMode::BattleStart() {
+	auto game = NewGO<Game>(0, "Game");
+	game->SetRandomPVPMode(m_lbl->GetEnemyRate());
+	auto enemyFiles = PythonFileLoad::FilesLoadOnlineEnemy();
+	StageSetup::NetworkPvPSetup(m_files, enemyFiles, m_monai, m_moid,m_aimode);
+	DeleteGO(this);
+}
+
+void NetPVPMode::RaiseAiTextData() {
+	if (!m_myAIsLoaded) {
+		for (int i = 0; i < 3; i++) {
+			char cd[255] = { '\0' };
+			GetCurrentDirectoryA(255, cd);
+			std::string path = "\\PythonAIs\\";
+			path += m_files[i];
+			char* cstr = new char[path.size() + 1];
+			std::char_traits<char>::copy(cstr, path.c_str(), path.size() + 1);
+			strcat(cd, cstr);
+			strcat(cd, ".py");
+			OutputDebugString("PYTHON CODE RAISED!! PATH IS \n");
+			OutputDebugString(cd);
+			OutputDebugString("\n");
+			delete[] cstr;
+			FILE* file;
+			fpos_t pos;
+			file = fopen(cd, "r");
+			fseek(file, 0, SEEK_END);
+			fgetpos(file, &pos);
+			long size = pos;
+			fseek(file, 0, SEEK_SET);
+			char text[1024] = { '\0' };
+			fread(text, size, 1, file);
+			fclose(file);
+			OutputDebugString(text);
+			m_lbl->SetText(text, i);
+			m_myAIsLoaded = true;
+		}
+	}
+	m_lbl->raiseMonAIs();
+}
+
+void NetPVPMode::RaiseRatingData() {
+	m_lbl->raiseRating();
+}
+
+void NetPVPMode::BackToMenu() {
+	NewGO<NetAISelect>(0);
+	DeleteGO(this);
 }

@@ -27,6 +27,12 @@ public:
 	void raiseSomeEvent();
 	//モンスターのデータを送る。
 	void raiseMonData();
+	void raiseMonAIs();
+	void raiseRating();
+	//
+	int GetOnlinePlayerCount() {
+		return mpLbc->getCountPlayersOnline();
+	}
 
 	/*
 	送るモンスターのデータをセットする
@@ -40,17 +46,45 @@ public:
 		m_monID = monID;
 	}
 
-	void SetText(const char* text)
+	void SetText(const char* text,int id)
 	{
-		delete[] m_text;
-		m_text = (char*)malloc(sizeof(char)*(strlen(text) + 1));
-		strcpy(m_text, text);
+		delete[] m_text[id];
+		m_text[id] = (char*)malloc(sizeof(char)*(strlen(text) + 1));
+		strcpy(m_text[id], text);
 	}
+	//送られてきたモンスターのナンバーをかえす。
+	int GetMonNum()
+	{
+		return m_hangMNUM;
+	}
+	bool isGotEnemyPythonCodes();
+	//送られてきたモンスターのIDを返す。
+	int GetMonID()
+	{
+		return m_hangMID;
+	}
+
 
 	//繋がっていますか
 	bool isConect()
 	{
 		return misConect;
+	}
+
+	//データが送られてきているかどうか。
+	//あんたを探してたんだ。
+	bool isHang()
+	{
+		return misHang;
+	}
+
+	//012 
+	void SetTeamMonsterInfo(int info[3]);
+	float GetEnemyRate() {
+		return m_enemyRate;
+	}
+	int* GetEnemyTeamIDs() {
+		return m_enemyTeamData;
 	}
 private:
 	//From Common::BaseListener
@@ -89,14 +123,17 @@ private:
 
 	void updateState(void);
 	void afterRoomJoined(int localPlayerNr);
-
-	
 private:
 	enum EnEvetCode
 	{
 		enText = 5,
 		enMonData,
+		enRateData,
 	};
+
+	int m_toRaiseTeamData[3] = { 0 };
+	int m_enemyTeamData[3] = { 0 };
+	std::string m_pythonCode;
 	ExitGames::LoadBalancing::Client* mpLbc;
 	BaseView* mpView;
 	int mMap = 1;	//ルーム作成時に使うKey
@@ -106,11 +143,18 @@ private:
 	int m_monNUM = 0;	//モンスターのナンバー
 	int m_monID = 0;			//モンスターのID
 
-	char* m_text = nullptr; //送るテキストデータ。
+	int m_hangMNUM = 0;	//送られてきたモンスターのナンバー
+	int m_hangMID = 0;	//送られてきたモンスターのID
+
+	char* m_text[3] = { nullptr }; //送るテキストデータ。
+	char* m_hangPY = nullptr; //送られて来たテキストデータ。
 
 	int mLocalPlayerNr; //Photonから自分に割り振られたプレイヤーナンバー
 	LocalPlayer mLocalPlayer;
 
 	bool misConect = false;		//つながってる～？
+	bool misHang = false;		//何か送られてきてる？
+	bool m_isAiLoaded[3] = { false };
+	float m_enemyRate = 0.f;
 };
 

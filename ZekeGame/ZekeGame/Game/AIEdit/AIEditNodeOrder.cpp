@@ -19,7 +19,9 @@ AIEditNodeOrder::~AIEditNodeOrder()
 	DeleteGO(m_spriteRender);
 	for (auto fonts : m_fonts)
 		DeleteGO(fonts);
-	DeleteGO(m_aieditnodedeletekey);
+	if (m_aieditnodedeletekey != nullptr) {
+		DeleteGO(m_aieditnodedeletekey);
+	}
 	DeleteGO(m_aieditline);
 }
 
@@ -31,7 +33,6 @@ bool AIEditNodeOrder::Start()
 	m_aieditnodeinequ = FindGO<AIEditNodeInequ>("Inequality");
 	m_aieditnodenum = FindGO<AIEditNodeNum>("Num");
 	m_aieditnodetarget = FindGO<AIEditNodeTarget>("target");
-	m_aieditline = FindGO<AIEditLine>("Line");
 	m_aieditnodeabnormalstate = FindGO<AIEditNodeAbnormalState>("Abnormal");
 	m_aieditnodetechnique = FindGO<AIEditNodeTechnique>("Technique");
 	m_aieditnodeprocess = FindGO<AIEditNodeProcess>("process");
@@ -63,12 +64,6 @@ bool AIEditNodeOrder::Start()
 		m_aieditline = NewGO<AIEditLine>(0, "Line");
 		m_aieditline->SetPos(m_pos);
 	}
-
-
-	//技を選択したらDeleteボタンを表示する。
-	//if (Technique == true) {
-	//	m_aieditnodedeletekey = NewGO<AIEditNodeDeleteKey>(2, "deletekey");
-	//}
 
 	Fonts();
 	DeleteGOs();
@@ -288,14 +283,6 @@ void AIEditNodeOrder::DeleteGOs()
 	}
 }
 
-//void AIEditNodeOrder::DeletekeyClick()
-//{
-//	if (m_aieditnodedeletekey != nullptr) {
-//		DeleteGO(m_aieditnodedeletekey);
-//		m_aieditnodedeletekey = nullptr;
-//	}
-//	
-//}
 
 void AIEditNodeOrder::Update()
 {

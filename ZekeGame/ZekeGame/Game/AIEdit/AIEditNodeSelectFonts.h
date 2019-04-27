@@ -13,6 +13,7 @@ public:
 
 	bool Start();
 	void Update();
+	void FontsDisplay();
 
 private:
 

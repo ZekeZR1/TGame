@@ -1,6 +1,8 @@
 #pragma once
 class GameCursor;
 class AIEditNodeMenu;
+class AIEditNodeMenuSave;
+class AIEditNodeMenuOpen;
 class AIEditNodeSelectButtons : public GameObject
 {
 
@@ -32,7 +34,10 @@ private:
 	SpriteRender* m_spriterender5;
 
 	AIEditNodeMenu* m_aieditnodemenu;
+	AIEditNodeMenuSave* m_aieditnodemenusave;
+	AIEditNodeMenuOpen* m_aieditnodemenuopen;
 	GameCursor* m_gamecursor;
+
 
 };
 

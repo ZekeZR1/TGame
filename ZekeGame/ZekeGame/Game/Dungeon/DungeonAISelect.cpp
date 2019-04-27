@@ -45,8 +45,8 @@ bool DungeonAISelect::Start() {
 		m_pmms.push_back(NewGO<PMMonster>(0, "pmm"));
 		m_pmms[i]->init(i, pos);
 		pos.x += 240.f;
-		std::wstring ws = std::wstring(m_files[g_AIset[i]].begin(), m_files[g_AIset[i]].end());
-		m_pmms[i]->SetPython(ws.c_str(), g_AIset[i]);
+		std::wstring ws = std::wstring(m_files[g_AIset[i].AInum].begin(), m_files[g_AIset[i].AInum].end());
+		m_pmms[i]->SetPython(ws.c_str(), g_AIset[i].AInum, g_AIset[i].AImode);
 	}
 	m_GO = NewGO<SpriteRender>(0, "sp");
 	m_GO->Init(L"Assets/sprite/GO.dds", 193, 93, true);
@@ -112,7 +112,12 @@ void DungeonAISelect::Update() {
 	}
 	if (m_isfade && m_fade->isFadeStop()) {
 		auto dun = NewGO<DungeonGame>(0, "DungeonGame");
-		dun->SetGameData(m_files, m_enemyFiles, monai, moid, m_dunNum);
+		int i = 0;
+		for (auto p : m_pmms) {
+			aimode[i] = p->GetAImode();
+			i++;
+		}
+		dun->SetGameData(m_files, m_enemyFiles, monai, moid, m_dunNum,aimode);
 		OutputDebugStringA("AI Selected!! Start Transation!\n");
 		dun->StartTransition();
 		DeleteGO(this);

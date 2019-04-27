@@ -107,8 +107,8 @@ bool PvPModeSelect::Start()
 		pmm->init(i,pos);
 		pmm->Setteam(i >= 3);
 		pos += {260, 0, 0};
-		std::wstring ws = std::wstring(m_files[g_AIset[i]].begin(), m_files[g_AIset[i]].end());
-		pmm->SetPython(ws.c_str(), g_AIset[i]);
+		std::wstring ws = std::wstring(m_files[g_AIset[i].AInum].begin(), m_files[g_AIset[i].AInum].end());
+		pmm->SetPython(ws.c_str(), g_AIset[i].AInum, g_AIset[i].AImode);
 		m_pmms.push_back(pmm);
 	}
 	//m_pmm = NewGO<PMMonster>(0, "pmm");
@@ -143,14 +143,16 @@ void PvPModeSelect::Update()
 		if (m_fade->isFadeStop())
 		{
 			MonsterID moid[6];
+			int AImodes[6];
 			for (int i = 0; i < 6; i++)
 			{
 				moid[i] = (MonsterID)m_pmms[i]->GetMonsterID();
 				monai[i] = m_pmms[i]->GetAI();
+				AImodes[i] = m_pmms[i]->GetAImode();
 			}
 			Game* game = NewGO<Game>(0, "Game");
 			////game->GamePVPmodeInit(m_files, monai,moid);
-			StageSetup::PVPSetup(m_files, monai, moid);
+			StageSetup::PVPSetup(m_files, monai, moid,AImodes);
 			//m_BGM->Stop();
 			DeleteGO(this);
 		}

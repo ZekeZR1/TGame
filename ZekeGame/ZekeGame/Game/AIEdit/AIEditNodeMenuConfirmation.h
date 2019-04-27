@@ -19,7 +19,6 @@ private:
 	std::vector<SpriteRender*> sp;
 	std::vector<SpriteRender*> m_buttons;
 	std::vector<FontRender*> m_fonts;
-	//std::vector<FontRender*> m_fonts2;
 	FontRender* m_fonts2;
 
 	GameCursor* m_gamecursor;

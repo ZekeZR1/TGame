@@ -60,7 +60,7 @@ void StageSetup::SuddenDeath(const char* files[6], MonsterID monids[6], int team
 	}
 }
 
-void StageSetup::PVPSetup(std::vector<std::string> files, int monsterAI[6],MonsterID monids[6])
+void StageSetup::PVPSetup(std::vector<std::string> files, int monsterAI[6],MonsterID monids[6], int AImode[6])
 {
 	int team = 0;
 	int num = 0;
@@ -81,14 +81,26 @@ void StageSetup::PVPSetup(std::vector<std::string> files, int monsterAI[6],Monst
 		std::string* path;
 
 		mon = GameData::LoadMonster(monids[i]);
-		path = new std::string("PythonAIs.");
-		*path += files[monsterAI[i]];
+		
 
 		mon->Setpos(poss[i]);
 		mon->Setnum(i);
 		mon->Setteam(team);
 		
-		mon->SetpyFile(path);
+		//python‚ÆVisualScript‚ÌŽd•ª‚¯
+		if (AImode[i] == 0)
+		{
+			path = new std::string("PythonAIs.");
+			*path += files[monsterAI[i]];
+			mon->SetpyFile(path);
+		}
+		else
+		{
+			path = new std::string("Assets/VisualAI/");
+			*path += files[monsterAI[i]];
+			mon->SetVisualScriptAI(path);
+		}
+
 		g_mons[i] = mon;
 
 	}
@@ -99,7 +111,7 @@ void StageSetup::PVPSetup(std::vector<std::string> files, int monsterAI[6],Monst
 }
 
 
-void StageSetup::DungeonSetup(PyFile files, PyFile eneFiles, int monsterAI[6], MonsterID monids[6], int dunNumber) {
+void StageSetup::DungeonSetup(PyFile files, PyFile eneFiles, int monsterAI[6], MonsterID monids[6], int dunNumber, int AImode[6]) {
 	int team = 0;
 	int num = 0;
 
@@ -133,14 +145,24 @@ void StageSetup::DungeonSetup(PyFile files, PyFile eneFiles, int monsterAI[6], M
 		mon->Setteam(team);
 		if (team == 0) {
 			//team
-			std::string* path = new std::string("PythonAIs.");
-			*path += files[monsterAI[i]];
-			mon->SetpyFile(path);
+			//python‚ÆVisualScript‚ÌŽd•ª‚¯
+			if (AImode[i] == 0)
+			{
+				std::string* path = new std::string("PythonAIs.");
+				*path += files[monsterAI[i]];
+				mon->SetpyFile(path);
+			}
+			else
+			{
+				std::string* path = new std::string("Assets/VisualAI/");
+				*path += files[monsterAI[i]];
+				mon->SetVisualScriptAI(path);
+			}
 		}
 		else{
 			//enemy
 			std::string* path = new std::string("PythonEnemyAIs.");
-			*path += eneFiles[monsterAI[i]];
+			*path += files[monsterAI[i]];
 			mon->SetpyFile(path);
 		}
 		g_mons[i] = mon;
@@ -150,15 +172,16 @@ void StageSetup::DungeonSetup(PyFile files, PyFile eneFiles, int monsterAI[6], M
 	g_monsCount = 6;
 }
 
+//dungeon enemy ai and id
 void StageSetup::SetEnemyAI(int dun, int* monAI, MonsterID* monId) {
 	switch (dun) {
 	case 0:
 		monAI[3] = 0;
-		monId[3] = enTest;
+		monId[3] = enFairy;
 		monAI[4] = 0;
-		monId[4] = enTest;
+		monId[4] = enFairy;
 		monAI[5] = 0;
-		monId[5] = enTest;
+		monId[5] = enFairy;
 		break;
 	case 1:
 		monAI[3] = 1;
@@ -358,9 +381,9 @@ void StageSetup::StageSet(int stage) {
 	switch (stage) {
 	case 0:
 	{
-		SkinModelRender* stageModel = NewGO<SkinModelRender>(0, "stageModel");
+		/*SkinModelRender* stageModel = NewGO<SkinModelRender>(0, "stageModel");
 		stageModel->Init(L"Assets/modelData/Test.cmo");
-		stageModel->SetPosition(CVector3::Zero());
+		stageModel->SetPosition(CVector3::Zero());*/
 	}
 		break;
 	case 1:
@@ -368,4 +391,107 @@ void StageSetup::StageSet(int stage) {
 	case 2:
 		break;
 	}
+}
+
+void StageSetup::NetworkPvPSetup(std::vector<std::string> files,
+	std::vector<std::string> enemyFiles,
+	int monsterAI[6],
+	int monids[6],
+	int aimode[6]
+	) {
+	int team = 0;
+	int num = 0;
+	CVector3 poss[6];
+	poss[0] = { 250,0,500 };
+	poss[1] = { 0,0,500 };
+	poss[2] = { -250,0,500 };
+	poss[3] = { 250,0,-500 };
+	poss[4] = { 0,0,-500 };
+	poss[5] = { -250,0,-500 };
+
+	for (int i = 0; i < 6; i++)
+	{
+		if (i == 3)
+			team++;
+
+		Monster* mon = nullptr;
+		std::string* path;
+
+		mon = GameData::LoadMonster(monids[i]);
+		if (team == 0) {
+			if (aimode[i] == 0) {
+				path = new std::string("PythonAIs.");
+				*path += files[i];
+			}
+			else {
+				path = new std::string("Assets/VisualAI/");
+				*path += files[monsterAI[i]];
+				mon->SetVisualScriptAI(path);
+			}
+		}
+		else {
+			path = new std::string("NetworkEnemyAIs.");
+			*path += enemyFiles[i-3];
+		}
+		mon->Setpos(poss[i]);
+		mon->Setnum(i);
+		mon->Setteam(team);
+
+		mon->SetpyFile(path);
+		g_mons[i] = mon;
+
+	}
+
+	g_buddyCount = 3;
+	g_enemyCount = 3;
+	g_monsCount = 6;
+	//int team = 0;
+	//int num = 0;
+	//CVector3 poss[6];
+	//poss[0] = { 250,0,500 };
+	//poss[1] = { 0,0,500 };
+	//poss[2] = { -250,0,500 };
+	//poss[3] = { 250,0,-500 };
+	//poss[4] = { 0,0,-500 };
+	//poss[5] = { -250,0,-500 };
+	////load my team
+	//for (int i = 0; i < 3; i++) {
+	//	Monster* mon = nullptr;
+	//	std::string* path;
+
+	//	mon = GameData::LoadMonster(myMonsterId[i]);
+	//	path = new std::string("PythonAIs.");
+	//	//*path += files[monsterAI[i]];
+	//	*path += files[myMonAI[i]];
+
+	//	mon->Setpos(poss[i]);
+	//	mon->Setnum(i);
+	//	mon->Setteam(team);
+
+	//	mon->SetpyFile(path);
+	//	g_mons[i] = mon;
+	//	delete path;
+	//}
+	////load enemy team
+	//team++;
+	//for (int i = 3; i < 6; i++) {
+	//	Monster* mon = nullptr;
+	//	std::string* path;
+
+	//	mon = GameData::LoadMonster(enemyMonsterId[i - 3]);
+	//	path = new std::string("PythonAIs.");
+	//	//*path += files[];
+	//	*path += files[myMonAI[i - 3]];
+
+	//	mon->Setpos(poss[i]);
+	//	mon->Setnum(i);
+	//	mon->Setteam(team);
+
+	//	mon->SetpyFile(path);
+	//	g_mons[i] = mon;
+	//	delete path;
+	//}
+	//g_buddyCount = 3;
+	//g_enemyCount = 3;
+	//g_monsCount = 6;
 }

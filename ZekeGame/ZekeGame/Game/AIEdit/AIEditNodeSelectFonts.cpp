@@ -25,22 +25,15 @@ bool AIEditNodeSelectFonts::Start()
 	return true;
 }
 
-
-void AIEditNodeSelectFonts::Update()
+void AIEditNodeSelectFonts::FontsDisplay()
 {
-	m_aieditnodeabnormalstate = FindGO<AIEditNodeAbnormalState>("Abnormal");
-	m_aieditnodetechnique = FindGO<AIEditNodeTechnique>("Technique");
-	m_aieditnode = FindGO<AIEditNode>("firstwin");
-	m_aieditnodeinequ = FindGO<AIEditNodeInequ>("Inequality");
-	m_aieditnodenum = FindGO<AIEditNodeNum>("Num");
-	m_aieditnodetarget = FindGO<AIEditNodeTarget>("target");
-	auto bacon = m_pos;
 
 	if (m_aieditnodetarget != nullptr) {
 		if (m_aieditnodetarget->Getfonttarget() == true && target == true) {
 			CVector2 m_fontpos1 = CVector2::Zero();
 			m_fontpos1.x = m_pos.x - 180;
 			m_fontpos1.y = m_pos.y + 360;
+
 			if (m_aieditnodetarget->GetTarget() == 100) {
 				m_fonts[0]->Init(L"‚¶‚Ô‚ñ", { m_fontpos1 }, 0.0, CVector4::White, scale, { 0.0,0.0 });
 				m_fonts[0]->DrawShadow({ 5,-5 });
@@ -191,4 +184,19 @@ void AIEditNodeSelectFonts::Update()
 			abnormal = false;
 		}
 	}
+
+
+}
+
+void AIEditNodeSelectFonts::Update()
+{
+	m_aieditnodeabnormalstate = FindGO<AIEditNodeAbnormalState>("Abnormal");
+	m_aieditnodetechnique = FindGO<AIEditNodeTechnique>("Technique");
+	m_aieditnode = FindGO<AIEditNode>("firstwin");
+	m_aieditnodeinequ = FindGO<AIEditNodeInequ>("Inequality");
+	m_aieditnodenum = FindGO<AIEditNodeNum>("Num");
+	m_aieditnodetarget = FindGO<AIEditNodeTarget>("target");
+
+	FontsDisplay();
+	
 }

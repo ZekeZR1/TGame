@@ -51,8 +51,8 @@ public:
 private:
 	int button = 3;          //メニューの選択ボタンの数。
 	bool menu = false;
-	//bool menuselect = false;
 	bool menuconf = false;
+
 	std::vector<FontRender*> m_fonts;
 	std::vector<SpriteRender*> sp;
 	CVector3 m_position = CVector3::Zero();
@@ -60,7 +60,7 @@ private:
 
 	GameCursor* m_gamecursor;
 
-	SpriteRender* m_spriteRender;
+	SpriteRender* m_spriteRender = nullptr;
 	std::vector<SpriteRender*> m_buttons;
 	std::vector<SpriteRender*> m_spriteRender2;
 

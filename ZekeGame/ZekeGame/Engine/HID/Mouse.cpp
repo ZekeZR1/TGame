@@ -11,16 +11,39 @@ namespace Mouse {
 	void UpdateMouseInput() {
 		POINT pt;
 		GetCursorPos(&pt);
-		cursorpos.x = float(pt.x);
-		cursorpos.y = float(pt.y);
-		cursorpos.x -= 1280.f / 2.f;
-		cursorpos.y -= 720.f / 2.f;
-		cursorpos.y *= -1.f;
+
+
+		POINT fl;
+		fl.x = 0;
+		fl.y = 0;
+		ClientToScreen(g_hwnd, &fl);
+		
+
+		RECT crect;
+		GetClientRect(g_hwnd, &crect);
+		
+		float zrx = fl.x + crect.right/2.f;
+		float zry = fl.y + crect.bottom /2.f;
+
+		//cursorpos.x = float(pt.x);
+		//cursorpos.y = float(pt.y);
+		////cursorpos.x -= 1280.f / 2.f;
+		////cursorpos.y -= 720.f / 2.f;
+		//cursorpos.x -= x / 2.f;
+		//cursorpos.y -= y / 2.f;
+		//cursorpos.y *= -1.f;
+
+		cursorpos.x = (float)pt.x - zrx;
+		cursorpos.x *= 1280.f / crect.right;
+
+		cursorpos.y = zry - (float)pt.y;
+		cursorpos.y *= 720.f / crect.bottom;
+
 		//カーソル表示
 		ShowCursor(FALSE);
-//#if _DEBUG
+#if _DEBUG
 		ShowCursor(TRUE);
-//#endif
+#endif
 		//Mouse
 		if (notch > 0) {
 			trigger[enNotchUp] = 1 ^ press[enNotchUp];

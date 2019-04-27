@@ -43,7 +43,10 @@ public:
 		m_dunNum = number;
 	}
 
-
+	void SetRandomPVPMode(float rate) {
+		m_playMode = enRandomPVP;
+		m_eneRate = rate;
+	}
 private:
 	Pyinit* m_pi;
 	SkinModelRender* m_model;
@@ -53,6 +56,7 @@ private:
 	GameCamera* camera = nullptr;
 	StageSetup* ss;
 	int m_dunNum = -1;
+	float m_eneRate = 0;
 	GameMenu* m_menu = nullptr;
 
 	Mode m_playMode = enLocalPVP;

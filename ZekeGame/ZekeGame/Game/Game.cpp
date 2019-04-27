@@ -13,7 +13,7 @@
 #include "Monster/Monsters/TestMons.h"
 #include "Result/Win/Win.h"
 #include "Result/DungeonResult.h"
-
+#include "NetPVP/CRatingSystem.h"
 #include "ReadyGO/ReadyGO.h"
 
 #include "Fade/Fade.h"
@@ -21,8 +21,7 @@
 
 void Game::GamePVPmodeInit(std::vector<std::string> files, int monsterAI[6],MonsterID MonsterID[6])
 {
-	ss = new StageSetup();
-	ss->PVPSetup(files, monsterAI,MonsterID);
+	//StageSetup::PVPSetup(files, monsterAI,MonsterID);
 	m_playMode = enLocalPVP;
 }
 
@@ -49,8 +48,9 @@ bool Game::Start() {
 
 	m_menu = NewGO<GameMenu>(0, "gm");
 	m_menu->init(m_playMode,m_dunNum);
-	if(m_isOnlineGame)
-		Engine::IEngine().CreateNetworkSystem();
+	if (m_isOnlineGame) {
+		//Engine::IEngine().CreateNetworkSystem();
+	}
 	camera = new GameCamera;
 
 	m_smd = NewGO<SkinModelDummy>(0, "smd");
@@ -68,9 +68,6 @@ bool Game::Start() {
 	e->SetPosition(CVector3::Zero());
 	e->SetScale({ 500,500,500 });
 	e->Play(L"Assets/effect/l/laser.efk");
-
-	
-	
 	return true;
 }
 
@@ -89,8 +86,10 @@ void Game::OnDestroy() {
 	DeleteGO(m_frS);
 	DeleteGO(m_floor);
 	DeleteGO(m_smd);
-	if(m_isOnlineGame)
-		Engine::IEngine().DestroyNetworkSystem();
+	if (m_isOnlineGame) {
+		//Engine::IEngine().DestroyNetworkSystem();
+	}
+	RatingSystem().ClosePopup();
 	delete m_pi;
 }
 
@@ -202,7 +201,13 @@ void Game::Update() {
 			break;
 		}
 		case enRandomPVP:
+		{
+			auto win = NewGO<Win>(0, "win");
+			win->init(team);
+			RatingSystem().SetWinner(team);
+			RatingSystem().PopupRate(m_eneRate);
 			break;
+		}
 		case enDungeon:
 		{
 			auto dr = NewGO<DungeonResult>(0, "dr");

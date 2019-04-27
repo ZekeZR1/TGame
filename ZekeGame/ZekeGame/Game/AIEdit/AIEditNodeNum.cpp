@@ -20,6 +20,8 @@ AIEditNodeNum::~AIEditNodeNum()
 	}
 	for (auto fonts : m_fonts)
 		DeleteGO(fonts);
+	for (auto fonts : m_font)
+		DeleteGO(fonts);
 }
 
 
@@ -81,6 +83,11 @@ bool AIEditNodeNum::Start()
 	m_fonts[6]->Init(L" 100", { m_fontpos }, 0.0, CVector4::White, scale, { 0.0,0.0 });
 	m_fonts[6]->DrawShadow({ 5,-5 });
 
+
+	m_font.push_back(NewGO<FontRender>(3));
+	m_font[0]->SetTextType(CFont::en_Japanese);
+	
+
 	return true;
 }
 
@@ -92,7 +99,81 @@ void AIEditNodeNum::Order()
 		Choice3 = true;
 		Numfont = true;
 	}
+
+	contact2 = true;
 	
+}
+
+void AIEditNodeNum::FontsConfirmation()
+{
+
+	CVector2 m_fontpos1 = CVector2::Zero();
+	m_fontpos1.x += 63;
+	m_fontpos1.y += 360;
+	bool cont = true;
+
+	if (m_nodebuttons[button - 7]->GetSpriteRender()->isCollidingTarget()) {
+		m_font[0]->Init(L"1“", { m_fontpos1 }, 0.0, CVector4::White, 0.8, { 0.0,0.0 });
+		m_font[0]->DrawShadow({ 5,-5 });
+
+		contact1 = true;
+	}
+
+	else if (m_nodebuttons[button - 6]->GetSpriteRender()->isCollidingTarget()) {
+		m_font[0]->Init(L"10“", { m_fontpos1 }, 0.0, CVector4::White, 0.8, { 0.0,0.0 });
+		m_font[0]->DrawShadow({ 5,-5 });
+
+		contact1 = true;
+	}
+
+	else if (m_nodebuttons[button - 5]->GetSpriteRender()->isCollidingTarget()) {
+		m_font[0]->Init(L"30“", { m_fontpos1 }, 0.0, CVector4::White, 0.8, { 0.0,0.0 });
+		m_font[0]->DrawShadow({ 5,-5 });
+
+		contact1 = true;
+	}
+
+	else if (m_nodebuttons[button - 4]->GetSpriteRender()->isCollidingTarget()) {
+		m_font[0]->Init(L"50“", { m_fontpos1 }, 0.0, CVector4::White, 0.8, { 0.0,0.0 });
+		m_font[0]->DrawShadow({ 5,-5 });
+
+		contact1 = true;
+
+	}
+
+	else if (m_nodebuttons[button - 3]->GetSpriteRender()->isCollidingTarget()) {
+		m_font[0]->Init(L"70“", { m_fontpos1 }, 0.0, CVector4::White, 0.8, { 0.0,0.0 });
+		m_font[0]->DrawShadow({ 5,-5 });
+
+		contact1 = true;
+	}
+	
+	else if (m_nodebuttons[button - 2]->GetSpriteRender()->isCollidingTarget()) {
+		m_font[0]->Init(L"90“", { m_fontpos1 }, 0.0, CVector4::White, 0.8, { 0.0,0.0 });
+		m_font[0]->DrawShadow({ 5,-5 });
+
+		contact1 = true;
+	}
+	
+	
+	else if (m_nodebuttons[button - 1]->GetSpriteRender()->isCollidingTarget()) {
+		m_font[0]->Init(L"100“", { m_fontpos1 }, 0.0, CVector4::White, 0.8, { 0.0,0.0 });
+		m_font[0]->DrawShadow({ 5,-5 });
+
+		contact1 = true;
+	}
+
+	else {
+		cont = false;
+	}
+
+
+	if (contact1 == true) {
+		if (cont == false) {
+			m_font[0]->Init(L"", { m_fontpos1 }, 0.0, CVector4::White, 0.8, { 0.0,0.0 });
+			contact1 = false;
+		}
+	}
 }
 
 void AIEditNodeNum::Update()
@@ -103,6 +184,11 @@ void AIEditNodeNum::Update()
 	for (int i = 0; i < button; i++) {
 		SpriteRender* sp = m_nodebuttons[i]->GetSpriteRender();
 		sp->SetCollisionTarget(cursorpos);
+
+	}
+
+	if (contact2 == false) {
+		FontsConfirmation();
 
 	}
 

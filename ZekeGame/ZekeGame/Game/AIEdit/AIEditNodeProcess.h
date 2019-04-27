@@ -26,8 +26,7 @@ public:
 	void DeleteKey(AIEditNodeOrder* a);
 	AIEditNodeOrder* CreateOrder();
 	
-
-	void AISave();
+	void AISave(int num,int col);
 
 	bool GetClickFlag()
 	{
@@ -44,40 +43,53 @@ public:
 		return TechniqueCount;
 	}
 
+	bool GetTechniqueGenerate()
+	{
+		return TechniqueGenerate;
+	}
+
+	void SetTechniqueGenerate(bool a)
+	{
+		TechniqueGenerate = a;
+	}
+
 	//ここから下で各クラスのenumを保存していく。
+
+	//ターゲットを保持。
 	void Setkeeptarget(int n)
 	{
 		flagkeep[keep1][keep2][0] = n;
 	}
 
+	//nodeを保持。
 	void Setkeeonode(int n)
 	{
 		flagkeep[keep1][keep2][1] = n;
 	}
 
+	//＜＞を保持。
 	void Setkeepinequ(int n)
 	{
 		flagkeep[keep1][keep2][2] = n;
 	}
 
+	//数値(％)を保持。
 	void Setkeepnum(int n)
 	{
 		flagkeep[keep1][keep2][3] = n; 
 		keep2 += 1;
 	}
 
+	//状態異常を保持。
 	void Setkeepabnormal(int n)
 	{
 		flagkeep[keep1][keep2][4] = n;
 		keep2 += 1;
 	}
 
-	void Setkeeptechnique(int n)
-	{
-		flagkeep[keep1][keep2][5] = n;
-		keep1 += 1;
-		keep2 = 0;
-	}
+	//技を保持。
+	void Setkeeptechnique(int n);
+
 
 private:
 
@@ -97,10 +109,10 @@ private:
 	
 	int num = 0;
 	int TechniqueCount = 0;
-	float ClickePosY = 275;     //AIEditNodeClickをNewするときのY座標。
+	float ClickePosY = 275;				//AIEditNodeClickをNewするときのY座標。
 	bool Clickflag = 0;
-	bool OrderChoice = false;   //AIEditNodeOrderが表示されていないとき。
-
+	bool OrderChoice = false;			//AIEditNodeOrderが表示されていないとき。
+	bool TechniqueGenerate = false;		//techniqueが表示されるとtrueになる。deletekeyで使う。
 
 	AIEditNode * m_aieditnode;
 	AIEditNodeInequ * m_aieditnodeinequ;

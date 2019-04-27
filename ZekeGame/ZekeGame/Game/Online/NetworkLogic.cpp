@@ -3,7 +3,7 @@
 #include "LoadBalancingListener.h"
 #include "LoadBalancing-cpp/inc/Client.h"
 #include "TestView.h"
-
+#include "Console.h"
 static const ExitGames::Common::JString appID = L"548e2b85-0a39-45bb-a62b-d0e96ad8eb96";
 static const ExitGames::Common::JString appVersion = L"1.0";
 
@@ -24,8 +24,9 @@ NetworkLogic::NetworkLogic()
 
 NetworkLogic::~NetworkLogic()
 {
+	delete mpLbl;
+	delete mpLbc;
 }
-
 
 
 void NetworkLogic::Disconnect() {

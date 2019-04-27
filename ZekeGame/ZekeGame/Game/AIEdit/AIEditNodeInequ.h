@@ -17,6 +17,7 @@ public:
 	bool Start() override final;
 	void Update() override final;
 	void Num();
+	void FontsConfirmation();
 
 	void GetChoice2(bool a)
 	{
@@ -48,8 +49,12 @@ private:
 	int button = 2;							//ボタンの数。
 	bool Choice2 = false;					//何かが選択されたらtrueになる。
 	bool Inequfont = false;
+	bool contact1 = false;
+	bool contact2 = false;
+	CVector3 cursorpos = CVector3::Zero();
 
 	std::vector<FontRender*> m_fonts;
+	std::vector<FontRender*> m_font;
 	SpriteRender * m_spriteRender;
 	SpriteRender* sr;
 	GameCursor * m_gamecursor;
