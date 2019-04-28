@@ -88,7 +88,28 @@ void VisualScriptAI::Run()
 				}
 				else
 				{
-					whatAction(tarmon, vsOrder.action);
+					//tarmon の中にちゃんと入っていても、テクニックのターゲットとtarmonが一致しなかった場合があるのでその処理
+					switch(vsOrder.target)
+					{
+					case me:
+						if(tarmon == m_me)
+							whatAction(tarmon, vsOrder.action);
+						else
+							whatAction(vsOrder.target, vsOrder.action);
+						break;
+					case buddy:
+						if (tarmon->Getteam() == m_me->Getteam())
+							whatAction(tarmon, vsOrder.action);
+						else
+							whatAction(vsOrder.target, vsOrder.action);
+						break;
+					case enemy:
+						if (tarmon->Getteam() != m_me->Getteam())
+							whatAction(tarmon, vsOrder.action);
+						else
+							whatAction(vsOrder.target, vsOrder.action);
+						break;
+					}
 				}
 				break;
 			}
@@ -394,6 +415,8 @@ void VisualScriptAI::whatAction(Target target, Action action)
 			}
 		}
 	}
+	if (tarmon == nullptr)
+		return;
 	ActionID* ua = m_me->GetUseAction();
 	switch (action)
 	{
