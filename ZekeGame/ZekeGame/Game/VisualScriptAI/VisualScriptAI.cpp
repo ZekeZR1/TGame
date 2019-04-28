@@ -12,7 +12,7 @@ VisualScriptAI::VisualScriptAI(Monster* me, std::string* path)
 
 	char head[6];
 	fread(head, 6, 1, f);
-	int col;
+	int col = 0;
 	fread(&col, 1, 1, f);
 
 	for (int L = 0; L < 8; L++)
@@ -23,7 +23,7 @@ VisualScriptAI::VisualScriptAI(Monster* me, std::string* path)
 			VisualScriptOrder vso;
 			for (int P = 0; P < 6; P++)
 			{
-				int R;
+				int R = 0;
 				fread(&R, 2, 1, f);
 				switch (P)
 				{
