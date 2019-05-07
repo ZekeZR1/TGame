@@ -63,11 +63,13 @@ void NetPVPMode::Update() {
 		 BattleStart();
 	 }
 	 //Test
+#if _DEBUG
 	 if (g_pad[0].IsTrigger(enButtonA)) {
 		 m_isfade = true;
 		 if (!m_isfade)
 			 m_fade->FadeOut();
 	 }
+#endif
 	 if (m_isBackFade && m_fade->isFadeStop()) {
 		 BackToMenu();
 	 }
@@ -80,7 +82,11 @@ void NetPVPMode::RaiseData() {
 		ids[i] = m_moid[i];
 	m_lbl->SetTeamMonsterInfo(ids);
 	m_lbl->raiseMonData();
+	for (int i = 0; i < 3; i++) {
+		m_lbl->SetAiMode(m_aimode[i],i);
+	}
 	//Raise Monster AIs
+	RaiseAiVaData();
 	RaiseAiTextData();
 	RaiseRatingData();
 }
@@ -96,7 +102,7 @@ void NetPVPMode::LoadEnemyData() {
 		m_enemyId[i] = ids[i];
 		OutputDebugString("LOADING ENEMY TEAM MONSTER ID DATAS\n");
 	}
-	//Load Enemy AIs
+	//Load Enemy AIs (including va)
 	if(m_lbl->isGotEnemyPythonCodes())
 		m_dataLoaded = true;
 }
@@ -110,8 +116,10 @@ void NetPVPMode::BattleStart() {
 }
 
 void NetPVPMode::RaiseAiTextData() {
-	if (!m_myAIsLoaded) {
+	if (!m_myPyAIsLoaded) {
 		for (int i = 0; i < 3; i++) {
+			if (m_aimode[i] != 0) continue;
+
 			char cd[255] = { '\0' };
 			GetCurrentDirectoryA(255, cd);
 			std::string path = "\\PythonAIs\\";
@@ -136,10 +144,49 @@ void NetPVPMode::RaiseAiTextData() {
 			fclose(file);
 			OutputDebugString(text);
 			m_lbl->SetText(text, i);
-			m_myAIsLoaded = true;
+			m_myPyAIsLoaded = true;
 		}
 	}
 	m_lbl->raiseMonAIs();
+}
+
+
+void NetPVPMode::RaiseAiVaData() {
+	using namespace std;
+	if (!m_myVaAIsLoaded){
+		for (int i = 0; i < 3; i++) {
+			if (m_aimode[i] == 0) continue;
+			char cd[255] = { '\0' };
+			GetCurrentDirectoryA(255, cd);
+			std::string path = "\\Assets\\VisualAI\\";
+			//TODO : ちゃんとしたファイルパスを指定する
+			//path += m_files[i];
+			path += m_files[m_monai[i]];
+			char* cstr = new char[path.size() + 1];
+			std::char_traits<char>::copy(cstr, path.c_str(), path.size() + 1);
+			strcat(cd, cstr);
+			strcat(cd, ".va");
+			delete[] cstr;
+			FILE * file;
+			fpos_t pos;
+			file = fopen(cd, "r");
+			fseek(file, 0, SEEK_END);
+			fgetpos(file, &pos);
+			long size = pos;
+			fseek(file, 0, SEEK_SET);
+			char text[1024] = { '\0' };
+			fread(text, size, 1, file);
+			fclose(file);
+			OutputDebugString(text);
+			m_lbl->SetVisualAiData(text, i);
+			m_myPyAIsLoaded = true;
+			//m_lbl->SetAiMode(m_aimode[i], i);
+			OutputDebugString("Visual AI Data RAISED!!\n");
+			OutputDebugString(cd);
+			OutputDebugString("\n");
+		}
+	}
+	m_lbl->raiseVisualAIsData();
 }
 
 void NetPVPMode::RaiseRatingData() {

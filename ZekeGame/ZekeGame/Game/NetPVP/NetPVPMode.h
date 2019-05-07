@@ -23,6 +23,7 @@ private:
 	void RaiseRatingData();
 	void LoadEnemyData();
 	void RaiseAiTextData();
+	void RaiseAiVaData();
 	bool m_dataRaised = false;
 	bool m_dataLoaded = false;
 	void BattleStart();
@@ -36,12 +37,14 @@ private:
 
 	std::vector<std::string> m_files;		//pythonファイルの名前
 	int m_monai[6] = { 0 };				//モンスターのAI
+	std::vector<std::string> m_VisualAiFiles;
 	int m_aimode[6] = { 0 };
 	int m_moid[6] = { 0 };				//モンスターのID
 	int m_enemyAi[3] = { 0 };
 	int m_enemyId[3] = { 0 };
 	bool m_isConect = false;			//繋がっていますか？
-	bool m_myAIsLoaded = false;
+	bool m_myPyAIsLoaded = false;
+	bool m_myVaAIsLoaded = false;
 	//UI
 	SpriteRender* m_informationSp;
 	CVector3 m_informationPos = { 0.f,300.f,0.f };
