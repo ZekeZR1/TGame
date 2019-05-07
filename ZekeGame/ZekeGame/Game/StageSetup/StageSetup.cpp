@@ -97,7 +97,9 @@ void StageSetup::PVPSetup(std::vector<std::string> files, int monsterAI[6],Monst
 		else
 		{
 			path = new std::string("Assets/VisualAI/");
-			*path += files[monsterAI[i]];
+			char wc[64];
+			sprintf_s(wc, "%03d.va", monsterAI[i]);
+			*path += wc;
 			mon->SetVisualScriptAI(path);
 		}
 
