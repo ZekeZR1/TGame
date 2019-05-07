@@ -19,6 +19,7 @@ private:
 	std::vector<std::string> m_files;
 	std::vector<std::string> m_enemyFiles;
 	int monai[6] = { 0 };
+	int aimode[6];
 	int curpos = 0;
 	bool sel = false;
 	GameCursor* m_cursor;

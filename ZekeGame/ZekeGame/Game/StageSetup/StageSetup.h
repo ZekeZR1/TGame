@@ -19,10 +19,11 @@ public:
 	static void SuddenDeath(const char* files[6], MonsterID monids[6], int teams[6]);
 	static void PVPSetup(std::vector<std::string> files,int monsterAI[6],MonsterID monids[6],int AImode[6]);
 	static void DungeonSetup(PyFile files,PyFile eneFile, int monsterAI[6], MonsterID monids[6],int DunNumber, int AImode[6]);
-	static void NetworkPvPSetup(std::vector<std::string> files, std::vector<std::string> enemyFiles, int monsterAI[6], int monids[6]);
+	static void NetworkPvPSetup(std::vector<std::string> files, std::vector<std::string> enemyFiles, int monsterAI[6], int monids[6],int aimode[6]);
 	static void OshiFes();
 	static void OshiFes2();
 	static void StageSet(int stageNumber);
 private:
+	//dungeon enemy ai and id
 	static void SetEnemyAI(int, int* monAI, MonsterID* monId);
 };

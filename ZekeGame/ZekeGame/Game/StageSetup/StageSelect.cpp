@@ -26,7 +26,8 @@ bool StageSelect::Start() {
 	if (m_mode == enDungeon) {
 		auto game = NewGO<Game>(0, "Game");
 		game->DungeonMode(m_dunNum);
-		StageSetup::DungeonSetup(m_files, m_enemyFiles, m_monai, m_ids, m_dunNum);
+		int ai[6];
+		StageSetup::DungeonSetup(m_files, m_enemyFiles, m_monai, m_ids, m_dunNum, m_aimode);
 		StageSetup::StageSet(m_dunNum % 3);
 		OutputDebugStringA("StageSelect\n");
 		auto dgame = FindGO<DungeonGame>("DungeonGame");

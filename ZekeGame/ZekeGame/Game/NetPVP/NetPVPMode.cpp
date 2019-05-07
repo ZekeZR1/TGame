@@ -21,13 +21,14 @@ NetPVPMode::NetPVPMode()
 	m_fade->FadeIn();
 }
 
-void NetPVPMode::init(std::vector<std::string> files, int monai[3], int moid[3])
+void NetPVPMode::init(std::vector<std::string> files, int monai[3], int moid[3],int aimode[3])
 {
 	for (int i=0;i<3;i++)
 	{
 		m_files.push_back(files[monai[i]]);
 		m_monai[i] = monai[i];
 		m_moid[i] = moid[i];
+		m_aimode[i] = aimode[i];
 	}
 }
 
@@ -63,8 +64,9 @@ void NetPVPMode::Update() {
 	 }
 	 //Test
 	 if (g_pad[0].IsTrigger(enButtonA)) {
-		 m_isBackFade = true;
-		 m_fade->FadeOut();
+		 m_isfade = true;
+		 if (!m_isfade)
+			 m_fade->FadeOut();
 	 }
 	 if (m_isBackFade && m_fade->isFadeStop()) {
 		 BackToMenu();
@@ -103,7 +105,7 @@ void NetPVPMode::BattleStart() {
 	auto game = NewGO<Game>(0, "Game");
 	game->SetRandomPVPMode(m_lbl->GetEnemyRate());
 	auto enemyFiles = PythonFileLoad::FilesLoadOnlineEnemy();
-	StageSetup::NetworkPvPSetup(m_files, enemyFiles, m_monai, m_moid);
+	StageSetup::NetworkPvPSetup(m_files, enemyFiles, m_monai, m_moid,m_aimode);
 	DeleteGO(this);
 }
 

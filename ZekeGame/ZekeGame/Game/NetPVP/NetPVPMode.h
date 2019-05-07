@@ -12,7 +12,7 @@ public:
 	NetPVPMode();
 
 	//初期化。
-	void init(std::vector<std::string > files, int monai[3], int moid[3]);
+	void init(std::vector<std::string > files, int monai[3], int moid[3],int aimode[3]);
 
 	bool Start() override;
 	void Update() override;
@@ -36,6 +36,7 @@ private:
 
 	std::vector<std::string> m_files;		//pythonファイルの名前
 	int m_monai[6] = { 0 };				//モンスターのAI
+	int m_aimode[6] = { 0 };
 	int m_moid[6] = { 0 };				//モンスターのID
 	int m_enemyAi[3] = { 0 };
 	int m_enemyId[3] = { 0 };

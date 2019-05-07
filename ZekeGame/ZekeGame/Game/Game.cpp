@@ -173,12 +173,25 @@ void Game::Update() {
 	
 	if (m_menu->isOpen())
 		return;
-	
+
+	bool isEne = true;
+	for (int i = 0;i < 6;i++)
+	{
+		if (g_mons[i] == nullptr || (i == 0 && g_mons[i]->Getteam() == 1))
+		{
+			break;
+		}
+		if (0 != g_mons[i]->Getteam())
+		{
+			isEne = false;
+			break;
+		}
+	}
 
 	camera->SetTarget(CVector3::Zero());
 	camera->SetPosition({ 0.0f, 350.0f, 1000.0f });
 	camera->Update();
-	if (g_buddyCount == 0 || g_enemyCount == 0)
+	if (isEne || g_buddyCount == 0 || g_enemyCount == 0)
 	{
 		m_END = true;
 		int team = g_mons[0]->Getteam();

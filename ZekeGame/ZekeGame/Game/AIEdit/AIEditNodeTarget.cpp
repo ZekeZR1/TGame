@@ -88,8 +88,10 @@ void AIEditNodeTarget::Num()
 		fonttarget = true;
 	}
 
+	//3‚Â–Ú‚Ìƒm[ƒh‚Íâ‘Î‚É‹Z‚È‚Ì‚Å‚»‚Ì‚½‚ß‚Ìˆ—
 	if (m_aieditnodeprocess->GettechniqeCount() > 1) {
 		m_aieditnodeprocess->Technique();
+		m_aieditnodeprocess->Setkeeonode(AIEditNode::enTechnique);
 		Choice0 = true;
 		fonttarget = true;
 	}

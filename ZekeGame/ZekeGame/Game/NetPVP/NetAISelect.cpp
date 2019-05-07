@@ -58,8 +58,10 @@ bool NetAISelect::Start()
 		pmm->init(i, pos);
 		pmm->Setteam(i >= 3);
 		pos += {260, 0, 0};
-		std::wstring ws = std::wstring(m_files[g_AIset[i]].begin(), m_files[g_AIset[i]].end());
-		pmm->SetPython(ws.c_str(), g_AIset[i]);
+		//std::wstring ws = std::wstring(m_files[g_AIset[i]].begin(), m_files[g_AIset[i]].end());
+		std::wstring ws = std::wstring(m_files[g_AIset[i].AInum].begin(), m_files[g_AIset[i].AInum].end());
+		//pmm->SetPython(ws.c_str(), g_AIset[i], pmm->GetAImode());
+		pmm->SetPython(ws.c_str(), g_AIset[i].AInum, pmm->GetAImode());
 		m_pmms.push_back(pmm);
 	}
 
@@ -96,13 +98,15 @@ void NetAISelect::Update()
 		if (m_fade->isFadeStop())
 		{
 			int moid[3];
+			int aimode[3];
 			for (int i = 0; i < 3; i++)
 			{
 				moid[i] = (MonsterID)m_pmms[i]->GetMonsterID();
 				monai[i] = m_pmms[i]->GetAI();
+				aimode[i] = m_pmms[i]->GetAImode();
 			}
 			auto n = NewGO<NetPVPMode>(0, "Game");
-			n->init(m_files,monai, moid);
+			n->init(m_files,monai, moid, aimode);
 			//game->GamePVPmodeInit(m_files, monai,moid);
 			//m_BGM->Stop();
 			DeleteGO(this);
