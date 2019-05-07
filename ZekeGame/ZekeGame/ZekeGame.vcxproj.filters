@@ -491,34 +491,19 @@
     <ClCompile Include="Game\AIEdit\VisualAIOpen.cpp">
       <Filter>Game\AIEdite</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Title\MonAIPreset\MonAIPreset.cpp">
-      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetClose.cpp">
-      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
-    </ClCompile>
     <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetIcon.cpp">
       <Filter>Game\AIMonSelect\AIMonPreset</Filter>
     </ClCompile>
     <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetIcons.cpp">
       <Filter>Game\AIMonSelect\AIMonPreset</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetLoad.cpp">
-      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
-    </ClCompile>
     <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetLoadOpen.cpp">
-      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetOpen.cpp">
       <Filter>Game\AIMonSelect\AIMonPreset</Filter>
     </ClCompile>
     <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetOpenSuper.cpp">
       <Filter>Game\AIMonSelect\AIMonPreset</Filter>
     </ClCompile>
     <ClCompile Include="Game\Title\MonAIPreset\MonAIPresets.cpp">
-      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetSave.cpp">
       <Filter>Game\AIMonSelect\AIMonPreset</Filter>
     </ClCompile>
     <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetSaveOpen.cpp">
@@ -1344,34 +1329,19 @@
     <ClInclude Include="Game\AIEdit\VisualAIOpen.h">
       <Filter>Game\AIEdite</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Title\MonAIPreset\MonAIPreset.h">
-      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetClose.h">
-      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
-    </ClInclude>
     <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetIcon.h">
       <Filter>Game\AIMonSelect\AIMonPreset</Filter>
     </ClInclude>
     <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetIcons.h">
       <Filter>Game\AIMonSelect\AIMonPreset</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetLoad.h">
-      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
-    </ClInclude>
     <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetLoadOpen.h">
-      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetOpen.h">
       <Filter>Game\AIMonSelect\AIMonPreset</Filter>
     </ClInclude>
     <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetOpenSuper.h">
       <Filter>Game\AIMonSelect\AIMonPreset</Filter>
     </ClInclude>
     <ClInclude Include="Game\Title\MonAIPreset\MonAIPresets.h">
-      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetSave.h">
       <Filter>Game\AIMonSelect\AIMonPreset</Filter>
     </ClInclude>
     <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetSaveOpen.h">
@@ -1651,6 +1621,41 @@
     <None Include="Assets\Sprite\AIEdit\point.png" />
     <None Include="Assets\Sprite\AIEdit\sieat.png" />
     <None Include="Assets\Sprite\GUI\Dungeon\dungeonSelectWallpaper.png" />
+    <None Include="Assets\Sprite\GUI\Net\ready.png" />
+    <None Include="Assets\Sprite\GUI\Net\waiting.png" />
+    <None Include="Assets\Sprite\GUI\Net\popupback.png" />
+    <None Include="Assets\Sprite\GUI\Net\close.png" />
+    <None Include="Assets\Sprite\GUI\button1.png" />
+    <None Include="Game\Title\MonAIPreset\MonAIPreset.h">
+      <Filter>Game\AIMonSelect\AIMonPreset\NObuild</Filter>
+    </None>
+    <None Include="Game\Title\MonAIPreset\MonAIPreset.cpp">
+      <Filter>Game\AIMonSelect\AIMonPreset\NObuild</Filter>
+    </None>
+    <None Include="Game\Title\MonAIPreset\MonAIPresetClose.cpp">
+      <Filter>Game\AIMonSelect\AIMonPreset\NObuild</Filter>
+    </None>
+    <None Include="Game\Title\MonAIPreset\MonAIPresetClose.h">
+      <Filter>Game\AIMonSelect\AIMonPreset\NObuild</Filter>
+    </None>
+    <None Include="Game\Title\MonAIPreset\MonAIPresetLoad.cpp">
+      <Filter>Game\AIMonSelect\AIMonPreset\NObuild</Filter>
+    </None>
+    <None Include="Game\Title\MonAIPreset\MonAIPresetLoad.h">
+      <Filter>Game\AIMonSelect\AIMonPreset\NObuild</Filter>
+    </None>
+    <None Include="Game\Title\MonAIPreset\MonAIPresetOpen.cpp">
+      <Filter>Game\AIMonSelect\AIMonPreset\NObuild</Filter>
+    </None>
+    <None Include="Game\Title\MonAIPreset\MonAIPresetOpen.h">
+      <Filter>Game\AIMonSelect\AIMonPreset\NObuild</Filter>
+    </None>
+    <None Include="Game\Title\MonAIPreset\MonAIPresetSave.h">
+      <Filter>Game\AIMonSelect\AIMonPreset\NObuild</Filter>
+    </None>
+    <None Include="Game\Title\MonAIPreset\MonAIPresetSave.cpp">
+      <Filter>Game\AIMonSelect\AIMonPreset\NObuild</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="act">
@@ -1749,6 +1754,9 @@
     <Filter Include="Assets\NetBattle">
       <UniqueIdentifier>{9744c157-db48-4a01-86d0-947ebb59576d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\AIMonSelect\AIMonPreset\NObuild">
+      <UniqueIdentifier>{6a9b7ea5-fac4-4ee0-bd82-41334b49fa63}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Media Include="Assets\sound\punch-middle2.wav">
@@ -1768,15 +1776,6 @@
     <ImageContentTask Include="Assets\modelData\stage\handle010.jpg">
       <Filter>Assets</Filter>
     </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\Net\ready.png">
-      <Filter>Assets\NetBattle</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\Net\waiting.png">
-      <Filter>Assets\NetBattle</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\Net\popupback.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\Net\close.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\button1.png" />
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\testMons\tesEnemy3.fbx">
