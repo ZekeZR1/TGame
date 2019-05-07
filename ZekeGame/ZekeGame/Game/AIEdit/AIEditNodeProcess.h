@@ -24,6 +24,7 @@ public:
 	void Target();
 	void Technique();
 	void DeleteKey(AIEditNodeOrder* a);
+	void DeleteAll();
 	AIEditNodeOrder* CreateOrder();
 	
 	void AISave(int num,int col);

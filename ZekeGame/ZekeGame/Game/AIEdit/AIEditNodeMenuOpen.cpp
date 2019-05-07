@@ -2,6 +2,7 @@
 #include "AIEditNodeMenuOpen.h"
 
 #include "AIEditNodeSelectButtons.h"
+#include "AIEditNodeProcess.h"
 #include "../GameCursor.h"
 
 #include "VisualAIOpen.h"
@@ -126,6 +127,9 @@ void AIEditNodeMenuOpen::Update()
 			sp->SetScale({ 1.04,1.04,1.04 });
 			if (isLeftClick)
 			{
+				AIEditNodeProcess* proc = FindGO<AIEditNodeProcess>("process");
+				proc->DeleteAll();
+
 				char path[255];
 				sprintf(path, "Assets/VisualAI/%03d.va", i);
 				OpenAI(path);
@@ -163,6 +167,10 @@ void AIEditNodeMenuOpen::Update()
 					if (isfinal)
 						break;
 				}
+				
+				proc->Click();
+				m_nsb->Setmenuselect(false);
+				DeleteGO(this);
 			}
 
 		}

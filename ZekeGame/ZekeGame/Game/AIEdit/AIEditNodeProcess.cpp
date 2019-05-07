@@ -167,6 +167,18 @@ void AIEditNodeProcess::DeleteKey(AIEditNodeOrder* a)
 	}
 }
 
+void AIEditNodeProcess::DeleteAll()
+{
+	for (int y = 0; y < 8; y++)
+	{
+		for (int x = 0; x < 3; x++)
+		{
+			DeleteGO(m_orderkeep[y][x]);
+			m_orderkeep[y][x] = nullptr;
+		}
+	}
+}
+
 //order‚Ìó‘Ô‚ð•ÛŽ‚·‚éB
 AIEditNodeOrder * AIEditNodeProcess::CreateOrder()
 {

@@ -345,6 +345,7 @@ void AIEditNodeOrder::makeOrder(int l,int o,sOrder* order, bool isEnd)
 	{
 		CreateDeleteKey();
 	}
+	m_aieditnodeprocess->SetTechniqueGenerate(true);
 	makeFonts(order);
 
 	m_aieditnodeprocess->setOrderkeep(l, o, this);
