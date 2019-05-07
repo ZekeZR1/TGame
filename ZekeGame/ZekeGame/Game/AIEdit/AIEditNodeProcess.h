@@ -90,6 +90,11 @@ public:
 	//‹Z‚ğ•ÛB
 	void Setkeeptechnique(int n);
 
+	void setOrderkeep(int l,int o,AIEditNodeOrder* order)
+	{
+		m_orderkeep[l][o] = order;
+	}
+
 
 private:
 

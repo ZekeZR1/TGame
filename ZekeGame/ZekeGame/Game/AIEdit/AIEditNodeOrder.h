@@ -12,6 +12,70 @@ class AIEditNodeTechnique;
 class AIEditNodeAbnormalState;
 class AIEditNodeSelectFonts;
 class AIEditNodeDeleteKey;
+
+enum eTarget {
+
+	enme = 100,
+	enbaddy,
+	enenemy,
+	enTAnull = 0,
+};
+enum eNode {
+
+	enHp = 200,
+	enMp,
+	enAb,
+	enTechnique,
+	enNonull = 0,
+};
+enum eInequ {
+
+	enDainari = 300,
+	enShowers,
+	enINnull = 0,
+};
+enum eNum {
+
+	en1 = 400,
+	en10,
+	en30,
+	en50,
+	en70,
+	en90,
+	en100,
+	enNUnull = 0
+
+};
+
+enum eTechnique {
+
+	enAttak = 500,
+	enLeav,
+	enCase,
+	enProtect,
+	enHeel,
+	enSpecial1,
+	enSpecial2,
+	enTEnull = 0,
+};
+enum eAbnormal {
+
+	endoku = 600,
+	enyakedo,
+	enhyouketu,
+	ensutan,
+	enABnull = 0,
+};
+struct sOrder
+{
+	eTarget tar = enTAnull;
+	eNode nod = enNonull;
+	eInequ ine = enINnull;
+	eNum num = enNUnull;
+	eTechnique tec = enTEnull;
+	eAbnormal abn = enABnull;
+};
+
 class AIEditNodeOrder :public GameObject
 {
 
@@ -23,6 +87,9 @@ public:
 	void Update() override final;
 	void DeleteGOs();
 	void Fonts();
+
+	void makeOrder(int l,int o,sOrder* order,bool isEnd=false);
+	void makeFonts(sOrder* order);
 	
 	AIEditNodeDeleteKey* CreateDeleteKey();
 
@@ -90,4 +157,6 @@ private:
 	AIEditNodeSelectFonts* m_aieditonodeselectfonts;
 	AIEditNodeDeleteKey* m_aieditnodedeletekey;
 
+
+	bool m_isMakeOrder = false;				//makeOrderÇµÇΩèÍçáÇÕStartìôÇñ≥éãÇ∑ÇÈÇΩÇﬂÇÃÉtÉâÉO
 };
