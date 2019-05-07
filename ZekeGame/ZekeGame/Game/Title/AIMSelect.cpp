@@ -81,9 +81,21 @@ void AIMSelect::Update()
 			m_odum->Init(L"Assets/sprite/simple_button_blue.dds", 151, 64);
 		if (Mouse::isTrigger(enLeftClick))
 		{
-			std::string st = m_ppms->GetFiles()[m_ainum];
-			std::wstring ws = std::wstring(st.begin(), st.end());
-			m_pmm->SetPython(ws.c_str(), m_ainum,m_AImode);
+			std::string st;
+			if (m_AImode == 0)//AI Mode‚ªpython‚ÌŽž
+			{
+				st = m_ppms->GetFiles()[m_ainum];
+				std::wstring ws = std::wstring(st.begin(), st.end());
+				m_pmm->SetPython(ws.c_str(), m_ainum, m_AImode);
+			}
+			else
+			{
+				wchar_t wai[64];
+				swprintf_s(wai, L"%d", m_ainum);
+				std::wstring ws = wai;
+				m_pmm->SetPython(ws.c_str(), m_ainum, m_AImode);
+			}
+			
 
 			m_pmm->ChengeImage(m_monnum);
 
