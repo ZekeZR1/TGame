@@ -18,6 +18,8 @@ AISelect::~AISelect()
 		DeleteGO(ia);
 	}
 	DeleteGO(m_AIsel);
+	DeleteGO(m_changeAI);
+	DeleteGO(m_CAfont);
 }
 
 bool AISelect::Start()

@@ -25,13 +25,14 @@ void RatePopup::OnDestroy() {
 }
 
 void RatePopup::Update() {
-	auto tar = m_cursor->GetCursor();
+	//TODO 
+	/*auto tar = m_cursor->GetCursor();
 	m_closesp->SetCollisionTarget(tar);
 	if (m_closesp->isCollidingTarget()) {
 		if (Mouse::isTrigger(enLeftClick)) {
 			DeleteGO(this);
 		}
-	}
+	}*/
 }
 
 void RatePopup::RateInit() {

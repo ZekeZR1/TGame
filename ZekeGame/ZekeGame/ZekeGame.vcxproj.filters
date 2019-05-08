@@ -1430,18 +1430,37 @@
     <None Include="C:\Users\kokoa\Pictures\Effekseer142cWin\shot.efk">
       <Filter>Assets</Filter>
     </None>
-    <None Include="Assets\Sprite\GUI\Dungeon\rightButton.png">
-      <Filter>Assets\dungeon</Filter>
+    <None Include="Game\Title\MonAIPreset\MonAIPreset.h">
+      <Filter>Game\AIMonSelect\AIMonPreset\NObuild</Filter>
     </None>
-    <None Include="Assets\Sprite\GUI\Dungeon\nextDungeon.png">
-      <Filter>Assets\dungeon</Filter>
+    <None Include="Game\Title\MonAIPreset\MonAIPreset.cpp">
+      <Filter>Game\AIMonSelect\AIMonPreset\NObuild</Filter>
     </None>
-    <None Include="Assets\Sprite\GUI\Dungeon\leftButton.png">
-      <Filter>Assets\dungeon</Filter>
+    <None Include="Game\Title\MonAIPreset\MonAIPresetClose.cpp">
+      <Filter>Game\AIMonSelect\AIMonPreset\NObuild</Filter>
     </None>
-    <None Include="Assets\Sprite\monsho\dun_stage0.png">
-      <Filter>Assets\dungeon</Filter>
+    <None Include="Game\Title\MonAIPreset\MonAIPresetClose.h">
+      <Filter>Game\AIMonSelect\AIMonPreset\NObuild</Filter>
     </None>
+    <None Include="Game\Title\MonAIPreset\MonAIPresetLoad.cpp">
+      <Filter>Game\AIMonSelect\AIMonPreset\NObuild</Filter>
+    </None>
+    <None Include="Game\Title\MonAIPreset\MonAIPresetLoad.h">
+      <Filter>Game\AIMonSelect\AIMonPreset\NObuild</Filter>
+    </None>
+    <None Include="Game\Title\MonAIPreset\MonAIPresetOpen.cpp">
+      <Filter>Game\AIMonSelect\AIMonPreset\NObuild</Filter>
+    </None>
+    <None Include="Game\Title\MonAIPreset\MonAIPresetOpen.h">
+      <Filter>Game\AIMonSelect\AIMonPreset\NObuild</Filter>
+    </None>
+    <None Include="Game\Title\MonAIPreset\MonAIPresetSave.h">
+      <Filter>Game\AIMonSelect\AIMonPreset\NObuild</Filter>
+    </None>
+    <None Include="Game\Title\MonAIPreset\MonAIPresetSave.cpp">
+      <Filter>Game\AIMonSelect\AIMonPreset\NObuild</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\Net\waiting.png" />
     <None Include="Assets\Sprite\result\res_blueteam.png">
       <Filter>Assets\result</Filter>
     </None>
@@ -1605,9 +1624,12 @@
       <Filter>Assets</Filter>
     </None>
     <None Include="Assets\Sprite\AIEdit\arrow.png" />
+    <None Include="Assets\Sprite\GUI\button1.png" />
     <None Include="Assets\Sprite\AIEdit\buttyon.png" />
     <None Include="Assets\Sprite\AIEdit\click.png" />
+    <None Include="Assets\Sprite\GUI\Net\close.png" />
     <None Include="Assets\Sprite\AIEdit\deletepoint.png" />
+    <None Include="Assets\Sprite\GUI\Dungeon\dungeonSelectWallpaper.png" />
     <None Include="Assets\Sprite\AIEdit\haik.png" />
     <None Include="Assets\Sprite\AIEdit\help.png" />
     <None Include="Assets\Sprite\AIEdit\hozon.png" />
@@ -1619,42 +1641,20 @@
     <None Include="Assets\Sprite\AIEdit\menuselectsieat.png" />
     <None Include="Assets\Sprite\AIEdit\open.png" />
     <None Include="Assets\Sprite\AIEdit\point.png" />
-    <None Include="Assets\Sprite\AIEdit\sieat.png" />
-    <None Include="Assets\Sprite\GUI\Dungeon\dungeonSelectWallpaper.png" />
-    <None Include="Assets\Sprite\GUI\Net\ready.png" />
-    <None Include="Assets\Sprite\GUI\Net\waiting.png" />
     <None Include="Assets\Sprite\GUI\Net\popupback.png" />
-    <None Include="Assets\Sprite\GUI\Net\close.png" />
-    <None Include="Assets\Sprite\GUI\button1.png" />
-    <None Include="Game\Title\MonAIPreset\MonAIPreset.h">
-      <Filter>Game\AIMonSelect\AIMonPreset\NObuild</Filter>
+    <None Include="Assets\Sprite\GUI\Net\ready.png" />
+    <None Include="Assets\Sprite\AIEdit\sieat.png" />
+    <None Include="Assets\Sprite\GUI\Dungeon\rightButton.png">
+      <Filter>Assets\dungeon</Filter>
     </None>
-    <None Include="Game\Title\MonAIPreset\MonAIPreset.cpp">
-      <Filter>Game\AIMonSelect\AIMonPreset\NObuild</Filter>
+    <None Include="Assets\Sprite\monsho\dun_stage0.png">
+      <Filter>Assets\dungeon</Filter>
     </None>
-    <None Include="Game\Title\MonAIPreset\MonAIPresetClose.cpp">
-      <Filter>Game\AIMonSelect\AIMonPreset\NObuild</Filter>
+    <None Include="Assets\Sprite\GUI\Dungeon\leftButton.png">
+      <Filter>Assets\dungeon</Filter>
     </None>
-    <None Include="Game\Title\MonAIPreset\MonAIPresetClose.h">
-      <Filter>Game\AIMonSelect\AIMonPreset\NObuild</Filter>
-    </None>
-    <None Include="Game\Title\MonAIPreset\MonAIPresetLoad.cpp">
-      <Filter>Game\AIMonSelect\AIMonPreset\NObuild</Filter>
-    </None>
-    <None Include="Game\Title\MonAIPreset\MonAIPresetLoad.h">
-      <Filter>Game\AIMonSelect\AIMonPreset\NObuild</Filter>
-    </None>
-    <None Include="Game\Title\MonAIPreset\MonAIPresetOpen.cpp">
-      <Filter>Game\AIMonSelect\AIMonPreset\NObuild</Filter>
-    </None>
-    <None Include="Game\Title\MonAIPreset\MonAIPresetOpen.h">
-      <Filter>Game\AIMonSelect\AIMonPreset\NObuild</Filter>
-    </None>
-    <None Include="Game\Title\MonAIPreset\MonAIPresetSave.h">
-      <Filter>Game\AIMonSelect\AIMonPreset\NObuild</Filter>
-    </None>
-    <None Include="Game\Title\MonAIPreset\MonAIPresetSave.cpp">
-      <Filter>Game\AIMonSelect\AIMonPreset\NObuild</Filter>
+    <None Include="Assets\Sprite\GUI\Dungeon\nextDungeon.png">
+      <Filter>Assets\dungeon</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
