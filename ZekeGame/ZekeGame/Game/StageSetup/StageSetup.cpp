@@ -418,22 +418,38 @@ void StageSetup::NetworkPvPSetup(std::vector<std::string> files,
 
 		Monster* mon = nullptr;
 		std::string* path;
-
+		auto vaFiles = VisualAiFileLoad::FilesLoad();
 		mon = GameData::LoadMonster(monids[i]);
 		if (team == 0) {
+			//My team data
 			if (aimode[i] == 0) {
 				path = new std::string("PythonAIs.");
 				*path += files[i];
 			}
 			else {
 				path = new std::string("Assets/VisualAI/");
-				*path += files[monsterAI[i]];
+				*path += vaFiles[monsterAI[i]];
+				*path += ".va";
+				//sprintf_s(wc, "%03d.va", monsterAI[i]);
 				mon->SetVisualScriptAI(path);
+				//*path += files[monsterAI[i]];
+				//mon->SetVisualScriptAI(path);
 			}
 		}
 		else {
-			path = new std::string("NetworkEnemyAIs.");
-			*path += enemyFiles[i-3];
+			//Enemy team data
+			if (aimode[i] == 0) {
+				path = new std::string("NetworkEnemyAIs.");
+				*path += enemyFiles[i - 3];
+			}
+			else {
+				path = new std::string("NetworkEnemyAIs/");
+				//*path += files[monsterAI[i]];
+				auto n = std::to_string(i - 2);
+				*path += n;
+				*path += "enemy.va";
+				mon->SetVisualScriptAI(path);
+			}
 		}
 		mon->Setpos(poss[i]);
 		mon->Setnum(i);
@@ -441,7 +457,7 @@ void StageSetup::NetworkPvPSetup(std::vector<std::string> files,
 
 		mon->SetpyFile(path);
 		g_mons[i] = mon;
-
+		//delete path;
 	}
 
 	g_buddyCount = 3;

@@ -28,6 +28,7 @@ public:
 	//モンスターのデータを送る。
 	void raiseMonData();
 	void raiseMonAIs();
+	void raiseVisualAIsData();
 	void raiseRating();
 	//
 	int GetOnlinePlayerCount() {
@@ -51,6 +52,16 @@ public:
 		delete[] m_text[id];
 		m_text[id] = (char*)malloc(sizeof(char)*(strlen(text) + 1));
 		strcpy(m_text[id], text);
+	}
+
+	void SetVisualAiData(const char* data, int id) {
+		delete[] m_visualAisData[id];
+		m_visualAisData[id] = (char*)malloc(sizeof(char) * (strlen(data) + 1));
+		strcpy(m_visualAisData[id], data);
+	}
+
+	void SetAiMode(int aimode, int id) {
+		m_aimode[id] = aimode;
 	}
 	//送られてきたモンスターのナンバーをかえす。
 	int GetMonNum()
@@ -129,6 +140,7 @@ private:
 		enText = 5,
 		enMonData,
 		enRateData,
+		enVisualAiData,
 	};
 
 	int m_toRaiseTeamData[3] = { 0 };
@@ -146,9 +158,11 @@ private:
 	int m_hangMNUM = 0;	//送られてきたモンスターのナンバー
 	int m_hangMID = 0;	//送られてきたモンスターのID
 
-	char* m_text[3] = { nullptr }; //送るテキストデータ。
+	char* m_text[3] = { nullptr, nullptr, nullptr }; //送るテキストデータ。
+	char* m_visualAisData[3] = { nullptr, nullptr, nullptr };
 	char* m_hangPY = nullptr; //送られて来たテキストデータ。
-
+	int m_aimode[3] = { 0,0,0 }; //送るAIモード
+	int m_enemyAimode[3] = { 0,0,0 }; //送られてきたenemy Ai Mode(VA)
 	int mLocalPlayerNr; //Photonから自分に割り振られたプレイヤーナンバー
 	LocalPlayer mLocalPlayer;
 

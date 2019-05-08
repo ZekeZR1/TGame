@@ -195,10 +195,25 @@ void LoadBalancingListener::raiseRating() {
 	mpLbc->opRaiseEvent(false,RatingSystem().GetWinRate(),enRateData);
 }
 
+void LoadBalancingListener::raiseVisualAIsData() {
+	const nByte NumKey = 101;
+	const nByte VisualAiKey = 102;
+	for (int i = 0; i < 3; i++) {
+		if (m_aimode[i] == 0) continue;
+		Hashtable ev;
+		ev.put(NumKey, i);
+		//int aimode = m_aimode[i];
+		JString code = m_visualAisData[i];
+		ev.put(VisualAiKey, code);
+		mpLbc->opRaiseEvent(false, ev, enVisualAiData);
+	}
+}
+
 void LoadBalancingListener::raiseMonAIs() {
 	const nByte NumKey = 101;
 	const nByte CodeKey = 102;
 	for (int i = 0; i < 3; i++) {
+		if (m_text[i] == nullptr) continue;
 		Hashtable ev;
 		ev.put(NumKey, i);
 		JString code = m_text[i];
@@ -280,6 +295,8 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 		if (eventDataContent.getValue(NumKey))
 			number = (ExitGames::Common::ValueObject<int>(eventDataContent.getValue(NumKey))).getDataCopy();
 		if (eventDataContent.getValue(CodeKey)) {
+			if (number == -1)
+				abort();
 			m_isAiLoaded[number] = true;
 			auto code = (ExitGames::Common::ValueObject<JString>(eventDataContent.getValue(CodeKey))).getDataCopy();
 			char str[256];
@@ -292,6 +309,36 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 			pythonFileName += L"enemy.py";
 			const wchar_t* utf8fname = pythonFileName.c_str();
 			FILE *fp1;
+			if ((fp1 = _wfopen(utf8fname, L"w, ccs=UTF-8")) != NULL)
+			{
+				fputws(code, fp1);
+				fclose(fp1);
+			}
+		}
+	}
+	break;
+	case enVisualAiData :
+	{
+		const nByte NumKey = 101;
+		const nByte CodeKey = 102;
+		ExitGames::Common::Hashtable eventDataContent = ExitGames::Common::ValueObject<ExitGames::Common::Hashtable>(eventContentObj).getDataCopy();
+		int number = -1;
+		if (eventDataContent.getValue(NumKey))
+			number = (ExitGames::Common::ValueObject<int>(eventDataContent.getValue(NumKey))).getDataCopy();
+		if (eventDataContent.getValue(CodeKey)) {
+			if (number == -1) abort();
+			m_isAiLoaded[number] = true;
+			auto code = (ExitGames::Common::ValueObject<JString>(eventDataContent.getValue(CodeKey))).getDataCopy();
+			char str[256];
+			sprintf_s(str, "number is %d\n", number);
+			OutputDebugString(str);
+			OutputDebugStringW(code);
+			OutputDebugString("\n");
+			std::wstring VaFileName = L"NetworkEnemyAIs/";
+			VaFileName += std::to_wstring(number + 1);
+			VaFileName += L"enemy.va";
+			const wchar_t* utf8fname = VaFileName.c_str();
+			FILE * fp1;
 			if ((fp1 = _wfopen(utf8fname, L"w, ccs=UTF-8")) != NULL)
 			{
 				fputws(code, fp1);
@@ -576,7 +623,5 @@ void LoadBalancingListener::service()
 }
 
 bool LoadBalancingListener::isGotEnemyPythonCodes() {
-	if (m_isAiLoaded[0] and m_isAiLoaded[1] and m_isAiLoaded[2])
-		return true;
-	return false;
+	return m_isAiLoaded[0] and m_isAiLoaded[1] and m_isAiLoaded[2];
 }

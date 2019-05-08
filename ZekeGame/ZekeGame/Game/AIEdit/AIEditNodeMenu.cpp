@@ -47,11 +47,11 @@ bool AIEditNodeMenu::Start()
 void AIEditNodeMenu::BackMenu()
 {
 
-	QueryGOs<AIEditLine>("Line", [&](AIEditLine* go)->bool
+	/*QueryGOs<AIEditLine>("Line", [&](AIEditLine* go)->bool
 	{
 		DeleteGO(go);
 		return true;
-	});
+	});*/
 
 	QueryGOs<AIEditMode>("AIEM", [&](AIEditMode* go)->bool
 	{

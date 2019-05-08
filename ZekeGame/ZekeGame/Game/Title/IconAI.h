@@ -17,6 +17,12 @@ public:
 	{
 		return m_isClick;
 	}
+
+	//
+	int getVisualAIname()
+	{
+		return _wtoi(m_fr->getText());
+	}
 private:
 	GameCursor* m_cursor;
 

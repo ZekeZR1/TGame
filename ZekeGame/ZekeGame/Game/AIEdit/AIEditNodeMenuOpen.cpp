@@ -2,6 +2,7 @@
 #include "AIEditNodeMenuOpen.h"
 
 #include "AIEditNodeSelectButtons.h"
+#include "AIEditNodeProcess.h"
 #include "../GameCursor.h"
 
 #include "VisualAIOpen.h"
@@ -41,10 +42,14 @@ void AIEditNodeMenuOpen::Awake()
 		FontRender* fr = NewGO<FontRender>(11, "fr");
 		if (vasc != 999 and i == vass[vasc].num)
 		{
+			//データが存在する
+
 			sp->Init(L"Assets/sprite/fade_black.dds", 175, 175, true);
 			sp->SetMulCol(vass[vasc].col);
-			sp->SetPivot({ 0.f,0.5f });
-			sp->SetPosition(pos);
+			//sp->SetPivot({ 0.f,0.5f });
+			CVector3 spos = pos;
+			spos.x += 175 / 2;
+			sp->SetPosition(spos);
 
 			wchar_t tx[3] = { '\0' };
 			swprintf_s(tx, L"%d", vass[vasc].num);
@@ -57,10 +62,14 @@ void AIEditNodeMenuOpen::Awake()
 		}
 		else
 		{
+			//データが存在しない
+
 			sp->Init(L"Assets/sprite/fade_black.dds", 175, 175);
 			sp->SetMulCol({ 0.6f,0.6f ,0.6f ,1 });
-			sp->SetPivot({ 0.f,0.5f });
-			sp->SetPosition(pos);
+			//sp->SetPivot({ 0.5f,0.5f });
+			CVector3 spos = pos;
+			spos.x += 175 / 2;
+			sp->SetPosition(spos);
 
 			fr->Init(L"なし", (pos + CVector3(0, 43.75f, 0)).ToTwo(), 0, { 0.8f,0.8f,0.8f,1 }, 0.4f);
 			fr->SetTextType(CFont::en_JapaneseBIG);
@@ -98,12 +107,138 @@ void AIEditNodeMenuOpen::Update()
 {
 	CVector3 cpos = m_cursor->GetCursor();
 	m_close->SetCollisionTarget(cpos);
-	if (Mouse::isTrigger(enLeftClick))
+	bool isLeftClick = Mouse::isTrigger(enLeftClick);
+	if (m_close->isCollidingTarget())
 	{
-		if (m_close->isCollidingTarget())
+		if (isLeftClick)
 		{
+
 			m_nsb->Setmenuselect(false);
 			DeleteGO(this);
 		}
 	}
+
+	for (int i = 0;i<12;i++)
+	{
+		auto sp = m_buttons[i];
+		sp->SetCollisionTarget(cpos);
+		if (sp->isCollidingTarget())
+		{
+			sp->SetScale({ 1.04,1.04,1.04 });
+			if (isLeftClick)
+			{
+				AIEditNodeProcess* proc = FindGO<AIEditNodeProcess>("process");
+				proc->DeleteAll();
+
+				char path[255];
+				sprintf(path, "Assets/VisualAI/%03d.va", i);
+				OpenAI(path);
+				bool isfinal = false;
+				for (int l = 0; l < 8; l++)
+				{
+					for (int o = 0; o < 3; o++)
+					{
+						AIEditNodeOrder* order = nullptr;
+						bool isend = false;
+
+						switch (o)
+						{
+						case 0:
+							isfinal = m_orders[l].one == nullptr;
+							if (isfinal)
+								break;
+							isend = m_orders[l].two == nullptr;
+							order = NewGO<AIEditNodeOrder>(0, "order");
+							order->makeOrder(l, 0, m_orders[l].one,isend);
+							break;
+						case 1:
+							isend = m_orders[l].three == nullptr;
+							order = NewGO<AIEditNodeOrder>(0, "order");
+							order->makeOrder(l, 1, m_orders[l].two,isend);
+							break;
+						case 2:
+							order = NewGO<AIEditNodeOrder>(0, "order");
+							order->makeOrder(l, 2, m_orders[l].three,true);
+							break;
+						}
+						if (isend or isfinal)
+							break;
+					}
+					if (isfinal)
+						break;
+				}
+				
+				proc->Click();
+				m_nsb->Setmenuselect(false);
+				DeleteGO(this);
+			}
+
+		}
+		else
+		{
+			sp->SetScale(CVector3::One());
+		}
+	}
+}
+
+void AIEditNodeMenuOpen::OpenAI(const char* path)
+{
+	FILE* f = fopen(path, "rb");
+
+	char head[6];
+	fread(head, 6, 1, f);
+	int col = 0;
+	fread(&col, 1, 1, f);
+
+	for (int L = 0; L < 8; L++)
+	{
+		for (int D = 0; D < 3; D++)
+		{
+			sOrder* vso = new sOrder;
+			for (int P = 0; P < 6; P++)
+			{
+				int R = 0;
+				fread(&R, 2, 1, f);
+				switch (P)
+				{
+				case 0:
+					vso->tar = (eTarget)R;
+					break;
+				case 1:
+					vso->nod = (eNode)R;
+					break;
+				case 2:
+					vso->ine = (eInequ)R;
+					break;
+				case 3:
+					vso->num = (eNum)R;
+					break;
+				case 4:
+					vso->abn = (eAbnormal)R;
+					break;
+				case 5:
+					vso->tec = (eTechnique)R;
+					break;
+				}
+			}
+
+			if (vso->tar != 0)
+			{
+				switch (D)
+				{
+				case 0:
+					m_orders[L].one = vso;
+					break;
+				case 1:
+					m_orders[L].two = vso;
+					break;
+				case 2:
+					m_orders[L].three = vso;
+					break;
+				}
+			}
+		}
+	}
+
+	fclose(f);
 }

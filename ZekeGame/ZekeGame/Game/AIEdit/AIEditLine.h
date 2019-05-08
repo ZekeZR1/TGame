@@ -15,6 +15,8 @@ public:
 	bool Start() override final;
 	void Update() override final;
 
+	void makeLine();
+
 	CVector3 GetPos()
 	{
 
@@ -39,4 +41,5 @@ private:
 	AIEditNodeProcess* m_aieditnodeprocess;
 	AIEditNodeSelectFonts* m_aieditnodeselectfonts;
 
+	bool m_ismakeLine = false;
 };

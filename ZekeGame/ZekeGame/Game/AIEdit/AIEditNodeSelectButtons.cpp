@@ -43,7 +43,7 @@ bool AIEditNodeSelectButtons::Start()
 	m_spriterender5 = NewGO<SpriteRender>(2, "menu");
 	m_spriterender5->Init(L"Assets/sprite/open.dds", 80, 40, true);
 	m_position5.x += 415;
-	m_position4.y += 340;
+	m_position5.y += 340;
 	m_spriterender5->SetPosition(m_position5);
 
 	return true;
