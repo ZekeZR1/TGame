@@ -24,6 +24,8 @@ public:
 	void Target();
 	void Technique();
 	void DeleteKey(AIEditNodeOrder* a);
+
+	//flagkeepとorderkeepを消す
 	void DeleteAll();
 	AIEditNodeOrder* CreateOrder();
 	
@@ -96,6 +98,39 @@ public:
 		m_orderkeep[l][o] = order;
 	}
 
+	/*
+	flagkeep にセットする
+	arg:
+		y:Y軸
+		x:X軸
+		k:種類
+			0 = target
+			1 = node
+			2 = inequ
+			3 = num
+			4 = abnormal
+			5 = technique
+		v:値
+	*/
+	void setFlagkeep(int y, int x, int k, int v)
+	{
+		flagkeep[y][x][k] = v;
+	}
+
+	//flagkeepの値を全部０にする
+	void allDeleteFlagkeep()
+	{
+		for (int y = 0; y < 8; y++)
+		{
+			for (int x = 0; x < 3; x++)
+			{
+				for (int k = 0; k < 6; k++)
+				{
+					flagkeep[y][x][k] = 0;
+				}
+			}
+		}
+	}
 
 private:
 

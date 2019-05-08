@@ -175,6 +175,11 @@ void AIEditNodeProcess::DeleteAll()
 		{
 			DeleteGO(m_orderkeep[y][x]);
 			m_orderkeep[y][x] = nullptr;
+
+			for (int k = 0; k < 6; k++)
+			{
+				flagkeep[y][x][k] = 0;
+			}
 		}
 	}
 }

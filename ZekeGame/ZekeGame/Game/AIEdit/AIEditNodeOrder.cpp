@@ -311,6 +311,38 @@ void AIEditNodeOrder::makeOrder(int l,int o,sOrder* order, bool isEnd)
 	m_aieditnodeclick = FindGO<AIEditNodeClick>("click");
 	m_aieditnodeprocess = FindGO<AIEditNodeProcess>("process");
 
+	m_aieditnodeprocess->setFlagkeep(l, o, 4, order->abn);
+	m_aieditnodeprocess->setFlagkeep(l, o, 5, order->tec);
+	m_aieditnodeprocess->setFlagkeep(l, o, 3, order->num);
+	m_aieditnodeprocess->setFlagkeep(l, o, 2, order->ine);
+	m_aieditnodeprocess->setFlagkeep(l, o, 1, order->nod);
+	m_aieditnodeprocess->setFlagkeep(l, o, 0, order->tar);
+	/*int vo = int(order);
+	if (vo >= 600)
+	{
+		m_aieditnodeprocess->setFlagkeep(l, o, 4, vo);
+	}
+	else if (vo >= 500)
+	{
+		m_aieditnodeprocess->setFlagkeep(l, o, 5, vo);
+	}
+	else if (vo >= 400)
+	{
+		m_aieditnodeprocess->setFlagkeep(l, o, 3, vo);
+	}
+	else if (vo >= 300)
+	{
+		m_aieditnodeprocess->setFlagkeep(l, o, 2, vo);
+	}
+	else if (vo >= 200)
+	{
+		m_aieditnodeprocess->setFlagkeep(l, o, 1, vo);
+	}
+	else if (vo >= 100)
+	{
+		m_aieditnodeprocess->setFlagkeep(l, o, 0, vo);
+	}*/
+
 	CVector3 v = CVector3::Zero();
 	QueryGOs<AIEditLine>("Line", [&](auto go)->bool
 	{

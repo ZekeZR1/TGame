@@ -103,7 +103,12 @@ void AISelect::Update()
 	{
 		if (m_icons[i]->isClick())
 		{
+			if (m_AImode == enVi)
+			{
+				i = m_icons[i]->getVisualAIname();
+			}
 			m_AIMS->SetAI(i,m_AImode);
+			break;
 			/*std::string st = m_ppms->GetFiles()[i];
 			std::wstring ws = std::wstring(st.begin(), st.end());
 			m_pmm->SetPython(ws.c_str(),i);*/
