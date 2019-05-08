@@ -29,7 +29,7 @@ bool AIEditNodeDeleteKey::Start()
 		v = go->GetPos();
 		return true;
 	});
-	m_position = v;
+	m_position = m_orderpoint->GetPos();
 	
 	m_spriteRender = NewGO<SpriteRender>(3, "delete");
 	m_spriteRender->Init(L"Assets/sprite/deletepoint.dds", 25, 25, true);

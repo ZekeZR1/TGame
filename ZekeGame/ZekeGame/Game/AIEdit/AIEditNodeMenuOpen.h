@@ -1,5 +1,21 @@
 #pragma once
 
+
+#include "AIEditNodeOrder.h"
+
+struct sOrderLine
+{
+	~sOrderLine()
+	{
+		if (one != nullptr) delete one;
+		if (two != nullptr) delete two;
+		if (three != nullptr) delete three;
+	}
+	sOrder* one = nullptr;
+	sOrder* two = nullptr;
+	sOrder* three = nullptr;
+};
+
 class GameCursor;
 class AIEditNodeSelectButtons;
 //以前保存したAIエディットを開くためのGUI
@@ -26,6 +42,8 @@ public:
 	//アップデート
 	void Update();
 
+	void OpenAI(const char* path);
+
 private:
 	SpriteRender* m_back = nullptr;			//後ろのやつ
 	std::vector<SpriteRender*> m_buttons;	//ボタン
@@ -39,4 +57,6 @@ private:
 	AIEditNodeSelectButtons* m_nsb = nullptr;//メニュー軍
 
 	GameCursor* m_cursor = nullptr;			//かーそー
+
+	sOrderLine m_orders[8];					//orderたち
 };
