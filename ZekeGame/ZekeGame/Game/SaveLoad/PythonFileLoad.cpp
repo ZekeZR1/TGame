@@ -127,3 +127,35 @@ std::vector<std::string> PythonFileLoad::FilesLoadOnlineEnemy()
 	FindClose(hfind);
 	return filenames;
 }
+
+
+std::vector<std::string> VisualAiFileLoad::FilesLoad() {
+	using namespace std;
+	HANDLE hfind;
+	WIN32_FIND_DATA win32d;
+	vector<string> filenames;
+
+	char c[255];
+	std::string cd;
+	GetCurrentDirectory(255, c);
+	cd = c;
+
+	std::string key = cd + "\\Assets\\VisualAI\\*.va*";
+	hfind = FindFirstFile(key.c_str(), &win32d);
+
+	OutputDebugString("LOAD VISUAL AIS \n");
+	do
+	{
+		if (win32d.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY)
+		{
+		}
+		else
+		{
+			std::string p = win32d.cFileName;
+			p.resize(p.rfind('.'));
+			filenames.push_back(p);
+		}
+	} while (FindNextFile(hfind, &win32d));
+	FindClose(hfind);
+	return filenames;
+}
