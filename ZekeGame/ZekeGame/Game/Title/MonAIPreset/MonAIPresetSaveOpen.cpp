@@ -15,6 +15,7 @@ void MonAIPresetSaveOpen::Execute(int num)
 {
 	m_isAllNone = false;
 
+	int aimode[3];
 	int ai[3];
 	int mon[3];
 
@@ -23,14 +24,16 @@ void MonAIPresetSaveOpen::Execute(int num)
 	{
 		if (go->Getteam() == m_team)
 		{
+			aimode[count] = go->GetAImode();
 			ai[count] = go->GetAI();
 			mon[count] = go->GetMonsterID();
 			count++;
 		}
 		return true;
 	});
+	FILE* file = FindPreset();
 
-	FILE* file = fopen("Assets/MonAIPreset/preset.amp", "rb+");
+	/*FILE* file = fopen("Assets/MonAIPreset/preset.amp", "rb+");
 	if (file == NULL)
 	{
 		file = fopen("Assets/MonAIPreset/preset.amp", "wb");
@@ -48,7 +51,7 @@ void MonAIPresetSaveOpen::Execute(int num)
 		}
 		fclose(file);
 		file = fopen("Assets/MonAIPreset/preset.amp", "rb+");
-	}
+	}*/
 	//fwrite("AMPS", 4, 1, file);
 	Person chn[6][3];
 	fseek(file, 4, SEEK_CUR);
@@ -57,6 +60,7 @@ void MonAIPresetSaveOpen::Execute(int num)
 	{
 		for (int c = 0; c < 3; c++)
 		{
+			fread(&chn[r][c].aimode, 1, 1, file);
 			fread(&chn[r][c].monID, 1, 1, file);
 			fread(&chn[r][c].stlen, 4, 1, file);
 			fread(&chn[r][c].str, chn[r][c].stlen, 1, file);
@@ -73,6 +77,7 @@ void MonAIPresetSaveOpen::Execute(int num)
 	fseek(file, seek, SEEK_SET);
 	for (int i = 0; i < 3; i++)
 	{
+		fwrite(&aimode[i], 1, 1, file);
 		fwrite(&mon[i], 1, 1, file);
 		std::string py = m_sms->GetFiles()[ai[i]];
 		int len = py.length() + 1;
@@ -84,11 +89,13 @@ void MonAIPresetSaveOpen::Execute(int num)
 	{
 		for (int c = 0; c < 3; c++)
 		{
+			m_presets[r].person[c].aimode = chn[r][c].aimode;
 			m_presets[r].person[c].monID = chn[r][c].monID;
 			m_presets[r].person[c].stlen = chn[r][c].stlen;
 			strcpy(m_presets[r].person[c].str, chn[r][c].str);
 			m_presets[r].person[c].stind = ai[c];
 
+			fwrite(&chn[r][c].aimode, 1, 1, file);
 			fwrite(&chn[r][c].monID, 1, 1, file);
 			fwrite(&chn[r][c].stlen, 4, 1, file);
 			fwrite(&chn[r][c].str, chn[r][c].stlen, 1, file);

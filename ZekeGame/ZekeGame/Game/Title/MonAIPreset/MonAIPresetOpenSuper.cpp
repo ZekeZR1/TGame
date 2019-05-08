@@ -169,11 +169,7 @@ void MonAIPresetOpenSuper::Open()
 	m_back = NewGO<SpriteRender>(2, "sp");
 	m_back->Init(L"Assets/sprite/B_alpha.dds", 1280, 720);
 
-	FILE* file = fopen("Assets/MonAIPreset/preset.amp", "r");
-	if (file == NULL)
-	{
-		initPreset();
-	}
+	FILE* file = FindPreset();
 	char head[5] = { 0 };
 	fread(head, 4, 1, file);
 	if (strcmp(head, "AMPS") != 0)
@@ -185,6 +181,7 @@ void MonAIPresetOpenSuper::Open()
 		for (int j = 0; j < 3; j++)
 		{
 			char ch[255];
+			fread(&chn.person[j].aimode, 1, 1, file);
 			fread(&chn.person[j].monID, 1, 1, file);
 			fread(&chn.person[j].stlen, 4, 1, file);
 			fread(ch, chn.person[j].stlen, 1, file);
@@ -240,33 +237,34 @@ void MonAIPresetOpenSuper::Close()
 	m_isOpen = false;
 }
 
-void MonAIPresetOpenSuper::FindPreset()
+FILE* MonAIPresetOpenSuper::FindPreset()
 {
 	FILE* file = fopen("Assets/MonAIPreset/preset.amp", "r");
 	if (file != NULL)
 	{
-		fclose(file);
-		return;
+		return file;
 	}
-	initPreset();
+	return initPreset();
 }
 
-void MonAIPresetOpenSuper::initPreset()
+FILE* MonAIPresetOpenSuper::initPreset()
 {
 	FILE* file = fopen("Assets/MonAIPreset/preset.amp", "wb");
 	
-	fwrite("AMPS", 4, 1, file);
+	fwrite("AMPS", 4, 1, file);//ヘッダー
 	for (int i = 0; i < 6; i++)
 	{
 		for (int c = 0; c < 3; c++)
 		{
 			int z = 0;
 			int o = 1;
-			fwrite(&z, 1, 1, file);
-			fwrite(&o, 4, 1, file);
-			fwrite(&z, 1, 1, file);
+			fwrite(&z, 1, 1, file);//AIの種類 0はpython 1はVisualAI
+			fwrite(&z, 1, 1, file);//モンスターの種類
+			fwrite(&o, 4, 1, file);//ファイルの文字数
+			fwrite(&z, 1, 1, file);//ファイル名
 		}
 	}
 
-	fclose(file);
+	//fclose(file);
+	return file;
 }
