@@ -160,7 +160,7 @@ void NetPVPMode::RaiseAiVaData() {
 			char cd[255] = { '\0' };
 			GetCurrentDirectoryA(255, cd);
 			std::string path = "\\Assets\\VisualAI\\";
-			path += vaFiles[m_aimode[i]];
+			path += vaFiles[m_monai[i]];
 			path += ".va";
 
 			//TODO : ちゃんとしたファイルパスを指定する
@@ -187,7 +187,6 @@ void NetPVPMode::RaiseAiVaData() {
 			char text[1024] = { '\0' };
 			fread(text, size, 1, file);
 			fclose(file);
-			OutputDebugString(text);
 			m_lbl->SetVisualAiData(text, i);
 			m_myPyAIsLoaded = true;
 			//m_lbl->SetAiMode(m_aimode[i], i);
