@@ -49,6 +49,8 @@ PvPModeSelect::~PvPModeSelect()
 	DeleteGO(m_mlRed);
 	DeleteGO(m_msBlue);
 	DeleteGO(m_mlBlue);
+
+	DeleteGO(m_returnButton);
 }
 
 bool PvPModeSelect::Start()
@@ -136,8 +138,7 @@ bool PvPModeSelect::Start()
 	//m_returnMoji->SetPosition(repo);
 
 	m_returnButton = NewGO<ReturnButton>(0, "rb");
-	m_returnButton->setName("modesel");
-	m_returnButton->SetScene(this);
+	m_returnButton->init(this, "modesel", m_cursor);
 	return true;
 }
 

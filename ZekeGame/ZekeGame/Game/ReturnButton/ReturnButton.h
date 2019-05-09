@@ -9,6 +9,13 @@ public:
 	//コンストラクタ
 	ReturnButton();
 
+	void init(GameObject* scene, const char* name, GameCursor* cursor)
+	{
+		m_scene = scene;
+		m_name = name;
+		m_cursor = cursor;
+	}
+
 	//戻りたいシーン
 	void SetScene(GameObject* scene);
 
@@ -30,7 +37,6 @@ public:
 			if (m_fade->isFadeStop())
 			{
 				NewGO<T>(0, m_name);
-				DeleteGO(this);
 				DeleteGO(m_scene);
 			}
 		}

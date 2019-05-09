@@ -43,6 +43,7 @@ void DungeonSelect::OnDestroy() {
 		DeleteGO(m_nextSp);
 	}
 	//DeleteGO(m_backSp);
+	DeleteGO(m_returnButton);
 	
 	DeleteGO(m_backTx);
 	DeleteGO(m_leftSp);
@@ -142,8 +143,7 @@ void DungeonSelect::InitSideButtons() {
 
 void DungeonSelect::InitBackButton() {
 	m_returnButton = NewGO<ReturnButton>(0, "rb");
-	m_returnButton->setName("modesel");
-	m_returnButton->SetScene(this);
+	m_returnButton->init(this, "modesel", m_cur);
 
 	/*m_backSp = NewGO<SpriteRender>(1);
 	m_backSp->Init(L"Assets/Sprite/button1.dds", 180.f, 60.f, true);
