@@ -40,6 +40,8 @@ bool GameMenu::Start()
 
 void GameMenu::Update()
 {
+	if (!m_isdo)
+		return;
 	if (m_isOpen)
 	{
 		for (int i = 0;i < m_buttons.size();i++)
@@ -87,6 +89,7 @@ void GameMenu::Update()
 			m_buttons.clear();
 			m_buttons.shrink_to_fit();
 			DeleteGO(m_cursor);
+			m_cursor = nullptr;
 
 			m_isOpen = false;
 		}

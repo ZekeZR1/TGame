@@ -106,8 +106,11 @@ void Game::Update() {
 		if (!m_isEndReady)
 		{
 			m_isEndReady = m_readyGO->IsEnd();
-			if(m_isEndReady)
+			if (m_isEndReady)
+			{
 				DeleteGO(m_readyGO);
+				m_menu->DO();
+			}
 		}
 	}
 	if (m_END)

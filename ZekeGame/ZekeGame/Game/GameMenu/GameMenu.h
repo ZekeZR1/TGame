@@ -21,6 +21,15 @@ public:
 	{
 		return m_isOpen;
 	}
+
+	void DO()
+	{
+		m_isdo = true;
+	}
+	void NOTDO()
+	{
+		m_isdo = false;
+	}
 private:
 	Mode m_playMode = (Mode)0;
 	int m_dunnum = 0;
@@ -32,4 +41,6 @@ private:
 	GameCursor* m_cursor = nullptr;
 	SpriteRender* m_back = nullptr;
 	SpriteRender* m_menu = nullptr;
+
+	bool m_isdo = false;					//äJÇØÇÈÇ©ÅH
 };
