@@ -155,8 +155,8 @@ void NetPVPMode::RaiseAiTextData() {
 
 void NetPVPMode::RaiseAiVaData() {
 	using namespace std;
-	auto vaFiles = VisualAiFileLoad::FilesLoad();
 	if (!m_myVaAIsLoaded){
+		auto vaFiles = VisualAiFileLoad::FilesLoad();
 		for (int i = 0; i < 3; i++) {
 			if (m_aimode[i] == 0) continue;
 			char cd[255] = { '\0' };

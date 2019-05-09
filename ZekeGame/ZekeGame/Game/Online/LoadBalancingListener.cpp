@@ -191,24 +191,20 @@ void LoadBalancingListener::raiseRating() {
 	auto rate = RatingSystem().GetWinRate();
 	char str[256];
 	sprintf_s(str, "raise my Rate %f",rate);
-	OutputDebugString(str);
 	mpLbc->opRaiseEvent(false,RatingSystem().GetWinRate(),enRateData);
 }
 
+
 void LoadBalancingListener::raiseVisualAIsData() {
-	for (int id = 0; id < 3; id++) {
+	nByte idkey = 104;
+	nByte datakey = 109;
+	/*for (int id = 0; id < 3; id++) {
 		if (m_aimode[id] == 0) continue;
 		Hashtable data;
-		nByte idkey = 104;
-		nByte datakey = 109;
-		int coords[1024];
-		for (int i = 0; i < 1024; i++) {
-			coords[i] = m_visualAisData[id][i];
-		}
 		data.put(idkey, id);
-		data.put(datakey, coords, 1024);
+		data.put(datakey, m_visualAisData[id], 1024);
 		mpLbc->opRaiseEvent(false, data, enVisualAiData);
-	}
+	}*/
 }
 
 void LoadBalancingListener::raiseMonAIs() {

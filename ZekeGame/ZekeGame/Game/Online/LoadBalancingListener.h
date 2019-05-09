@@ -4,6 +4,7 @@
 
 #define PLAYER_UPDATE_INTERVAL_MS 500
 
+
 struct LocalPlayer
 {
 	LocalPlayer();
@@ -61,6 +62,8 @@ public:
 		for (int i = 0; i < 1024; i++) {
 			m_visualAisData[id][i] = data[i];
 		}
+		//datas[id].put((nByte)104, id);
+		//datas[id].put((nByte)109, data,1024);
 	}
 	int* GetEnemyAiModes() {
 		return m_enemyAimode;
@@ -170,10 +173,11 @@ private:
 	int m_enemyAimode[3] = { 0,0,0 }; //送られてきたenemy Ai Mode(VA)
 	int mLocalPlayerNr; //Photonから自分に割り振られたプレイヤーナンバー
 	LocalPlayer mLocalPlayer;
-
+	
 	bool misConect = false;		//つながってる～？
 	bool misHang = false;		//何か送られてきてる？
 	bool m_isAiLoaded[3] = { false };
 	float m_enemyRate = 0.f;
+	//Hashtable datas[3];
 };
 

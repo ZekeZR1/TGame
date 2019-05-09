@@ -13,4 +13,5 @@ public:
 	void Update();
 	void Nyan();
 private:
+	//Hashtable hamu[3];
 };
