@@ -162,35 +162,23 @@ void NetPVPMode::RaiseAiVaData() {
 			std::string path = "\\Assets\\VisualAI\\";
 			path += vaFiles[m_monai[i]];
 			path += ".va";
-
-			//TODO : ちゃんとしたファイルパスを指定する
-			//path += m_files[i];
-			//path += m_files[m_monai[i]];
-			//path += i+1;
-			//TODO : うえのやつは違うパスやったわ・・・
-			//auto n = to_string(i+1);
-			//path += n;
-			//path += "enemy.va";
 			char* cstr = new char[path.size() + 1];
 			std::char_traits<char>::copy(cstr, path.c_str(), path.size() + 1);
 			strcat(cd, cstr);
-			//strcat(cd, ".va");
 			delete[] cstr;
-			FILE * file;
-			fpos_t pos;
-			file = fopen(cd, "r");
-			if (file == nullptr) abort();
-			fseek(file, 0, SEEK_END);
-			fgetpos(file, &pos);
-			long size = pos;
-			fseek(file, 0, SEEK_SET);
-			char text[1024] = { '\0' };
-			fread(text, size, 1, file);
-			fclose(file);
-			m_lbl->SetVisualAiData(text, i);
-			m_myPyAIsLoaded = true;
-			//m_lbl->SetAiMode(m_aimode[i], i);
-			OutputDebugString("Visual AI Data RAISED!!\n");
+			ifstream ifs(cd, ios::in | ios::binary);
+			if (!ifs) abort();
+			int datas[1024] = { 0 };
+			for (int k = 0; k < 1024; k++) {
+				int x;
+				ifs.read((char*)& x, sizeof(int));
+				datas[k] = x;
+			}
+			ifs.close();
+			m_lbl->SetVisualAiData(datas, i);
+			m_myVaAIsLoaded = true;
+			m_lbl->SetAiMode(m_aimode[i], i);
+			OutputDebugString("Visual AI Data loaded!! setting lbl...\n");
 			OutputDebugString(cd);
 			OutputDebugString("\n");
 		}

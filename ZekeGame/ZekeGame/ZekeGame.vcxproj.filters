@@ -1656,6 +1656,39 @@
     <None Include="Game\Title\MonAIPreset\MonAIPresetSave.cpp">
       <Filter>Game\AIMonSelect\AIMonPreset\NObuild</Filter>
     </None>
+    <None Include="Assets\modelData\dungeon\dropwall.fbx">
+      <Filter>Assets\model</Filter>
+    </None>
+    <None Include="Assets\modelData\uma\uma.fbx">
+      <Filter>Assets\model</Filter>
+    </None>
+    <None Include="Assets\modelData\stage\dun.fbx">
+      <Filter>Assets\model</Filter>
+    </None>
+    <None Include="Assets\modelData\stage\dun_yuka.fbx">
+      <Filter>Assets\model</Filter>
+    </None>
+    <None Include="Assets\modelData\dungeon\dungeonBack.FBX">
+      <Filter>Assets\model</Filter>
+    </None>
+    <None Include="Assets\modelData\dungeon\egg.FBX">
+      <Filter>Assets\model</Filter>
+    </None>
+    <None Include="Assets\modelData\fairy\hnd.FBX">
+      <Filter>Assets\model</Filter>
+    </None>
+    <None Include="Assets\modelData\stage\limit.FBX">
+      <Filter>Assets\model</Filter>
+    </None>
+    <None Include="Assets\modelData\stage\limit2.fbx">
+      <Filter>Assets\model</Filter>
+    </None>
+    <None Include="Assets\modelData\stage\map.FBX">
+      <Filter>Assets\model</Filter>
+    </None>
+    <None Include="Assets\modelData\Test.FBX">
+      <Filter>Assets\model</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="act">
@@ -1780,33 +1813,6 @@
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\testMons\tesEnemy3.fbx">
       <Filter>Assets</Filter>
-    </MeshContentTask>
-    <MeshContentTask Include="Assets\modelData\uma\uma.fbx">
-      <Filter>Assets\model</Filter>
-    </MeshContentTask>
-    <MeshContentTask Include="Assets\modelData\stage\dun.fbx">
-      <Filter>Assets\model</Filter>
-    </MeshContentTask>
-    <MeshContentTask Include="Assets\modelData\stage\dun_yuka.fbx">
-      <Filter>Assets\model</Filter>
-    </MeshContentTask>
-    <MeshContentTask Include="Assets\modelData\stage\limit.FBX">
-      <Filter>Assets\model</Filter>
-    </MeshContentTask>
-    <MeshContentTask Include="Assets\modelData\stage\limit2.fbx">
-      <Filter>Assets\model</Filter>
-    </MeshContentTask>
-    <MeshContentTask Include="Assets\modelData\stage\map.FBX">
-      <Filter>Assets\model</Filter>
-    </MeshContentTask>
-    <MeshContentTask Include="Assets\modelData\fairy\hnd.FBX">
-      <Filter>Assets\model</Filter>
-    </MeshContentTask>
-    <MeshContentTask Include="Assets\modelData\dungeon\dungeonBack.FBX">
-      <Filter>Assets\model</Filter>
-    </MeshContentTask>
-    <MeshContentTask Include="Assets\modelData\Test.FBX">
-      <Filter>Assets\model</Filter>
     </MeshContentTask>
   </ItemGroup>
 </Project>

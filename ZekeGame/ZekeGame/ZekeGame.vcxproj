@@ -763,16 +763,40 @@
     <Media Include="Assets\sound\punch-middle2.wav" />
   </ItemGroup>
   <ItemGroup>
-    <MeshContentTask Include="Assets\modelData\dungeon\dungeonBack.FBX" />
-    <MeshContentTask Include="Assets\modelData\fairy\hnd.FBX" />
-    <MeshContentTask Include="Assets\modelData\stage\dun.fbx" />
-    <MeshContentTask Include="Assets\modelData\stage\dun_yuka.fbx" />
-    <MeshContentTask Include="Assets\modelData\stage\limit.FBX" />
-    <MeshContentTask Include="Assets\modelData\stage\limit2.fbx" />
-    <MeshContentTask Include="Assets\modelData\stage\map.FBX" />
-    <MeshContentTask Include="Assets\modelData\Test.FBX" />
+    <None Include="Assets\modelData\dungeon\dropwall.fbx">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="Assets\modelData\dungeon\dungeonBack.FBX">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="Assets\modelData\dungeon\egg.FBX">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="Assets\modelData\fairy\hnd.FBX">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="Assets\modelData\stage\dun.fbx">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="Assets\modelData\stage\dun_yuka.fbx">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="Assets\modelData\stage\limit.FBX">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="Assets\modelData\stage\limit2.fbx">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="Assets\modelData\stage\map.FBX">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="Assets\modelData\Test.FBX">
+      <FileType>Document</FileType>
+    </None>
     <MeshContentTask Include="Assets\modelData\testMons\tesEnemy3.fbx" />
-    <MeshContentTask Include="Assets\modelData\uma\uma.fbx" />
+    <None Include="Assets\modelData\uma\uma.fbx">
+      <FileType>Document</FileType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Sprite\GUI\Net\ready.png" />
