@@ -69,21 +69,32 @@ void MonAIPresetSaveOpen::Execute(int num)
 			fread(&i, 4, 1, file);
 			fseek(file, i, SEEK_CUR);*/
 			if (r < num)
-				seek += 1 + 4 + chn[r][c].stlen;
+				seek += 1+1 + 4 + chn[r][c].stlen;
 		}
 	}
 	fclose(file);
-	file = fopen("Assets/MonAIPreset/preset.amp", "wb+");
+
+	file = fopen("Assets/MonAIPreset/preset.amp", "rb+");
 	fseek(file, seek, SEEK_SET);
 	for (int i = 0; i < 3; i++)
 	{
 		fwrite(&aimode[i], 1, 1, file);
 		fwrite(&mon[i], 1, 1, file);
-		std::string py = m_sms->GetFiles()[ai[i]];
-		int len = py.length() + 1;
-		fwrite(&len, 4, 1, file);
-		fwrite(py.c_str(), len, 1, file);
-
+		if (aimode[i] == 0)//pythonŽž
+		{
+			std::string py = m_sms->GetFiles()[ai[i]];
+			int len = py.length() + 1;
+			fwrite(&len, 4, 1, file);
+			fwrite(py.c_str(), len, 1, file);
+		}
+		else//visualAIŽž
+		{
+			char num[32] = { '\0' };
+			sprintf(num, "%d", ai[i]);
+			int len = strlen(num)+1;
+			fwrite(&len, 4, 1, file);
+			fwrite(num, len, 1, file);
+		}
 	}
 	for (int r = num + 1; r < 6; r++)
 	{
@@ -99,8 +110,6 @@ void MonAIPresetSaveOpen::Execute(int num)
 			fwrite(&chn[r][c].monID, 1, 1, file);
 			fwrite(&chn[r][c].stlen, 4, 1, file);
 			fwrite(&chn[r][c].str, chn[r][c].stlen, 1, file);
-
-			
 		}
 	}
 

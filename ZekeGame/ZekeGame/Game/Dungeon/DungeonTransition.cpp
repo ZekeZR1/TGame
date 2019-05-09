@@ -19,6 +19,7 @@ bool DungeonTransition::Start() {
 	//m_back->SetRotation(m_rot);
 	m_back->SetScale({ 3.f,3.f,3.f });
 	m_back->SetPosition(m_backPos);
+	m_back->SetShadowCasterFlag(false);
 
 	CVector3 pos = CVector3::Zero();
 	pos.y -= 100.f;

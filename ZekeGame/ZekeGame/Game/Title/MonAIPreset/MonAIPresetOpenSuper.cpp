@@ -44,16 +44,13 @@ void MonAIPresetOpenSuper::init(SMS * sms, GameCursor * cursor, const wchar_t* t
 	m_font->Init(tx, pos.ToTwo(), 0, CVector4::White, 0.7f, { 0,0 });
 	m_font->DrawShadow();
 
-	FILE* file = fopen("Assets/MonAIPreset/preset.amp", "r");
-	if (file == NULL)
-	{
-		initPreset();
-		file = fopen("Assets/MonAIPreset/preset.amp", "r");
-	}
+	FILE* file = FindPreset();
 	char head[5] = { 0 };
 	fread(head, 4, 1, file);
 	if (strcmp(head, "AMPS") != 0)
-		return;
+	{
+		file = FindPreset();
+	}
 
 	int count = 0;
 	for (int i = 0; i < 6; i++)
@@ -62,6 +59,7 @@ void MonAIPresetOpenSuper::init(SMS * sms, GameCursor * cursor, const wchar_t* t
 		for (int j = 0; j < 3; j++)
 		{
 			char ch[255];
+			fread(&chn.person[j].aimode, 1, 1, file);
 			fread(&chn.person[j].monID, 1, 1, file);
 			fread(&chn.person[j].stlen, 4, 1, file);
 			fread(ch, chn.person[j].stlen, 1, file);
