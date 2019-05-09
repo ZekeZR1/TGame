@@ -196,16 +196,18 @@ void LoadBalancingListener::raiseRating() {
 }
 
 void LoadBalancingListener::raiseVisualAIsData() {
-	const nByte NumKey = 101;
-	const nByte VisualAiKey = 102;
-	for (int i = 0; i < 3; i++) {
-		if (m_aimode[i] == 0) continue;
-		Hashtable ev;
-		ev.put(NumKey, i);
-		//int aimode = m_aimode[i];
-		JString code = m_visualAisData[i];
-		ev.put(VisualAiKey, code);
-		mpLbc->opRaiseEvent(false, ev, enVisualAiData);
+	for (int id = 0; id < 3; id++) {
+		if (m_aimode[id] == 0) continue;
+		Hashtable data;
+		nByte idkey = 104;
+		nByte datakey = 109;
+		nByte coords[1024];
+		for (int i = 0; i < 1024; i++) {
+			coords[i] = static_cast<nByte>(m_visualAisData[id][i]);
+		}
+		data.put(idkey, id);
+		data.put(datakey, coords, 1024);
+		mpLbc->opRaiseEvent(false, data, enVisualAiData);
 	}
 }
 
@@ -319,32 +321,55 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 	break;
 	case enVisualAiData :
 	{
-		const nByte NumKey = 101;
-		const nByte CodeKey = 102;
-		ExitGames::Common::Hashtable eventDataContent = ExitGames::Common::ValueObject<ExitGames::Common::Hashtable>(eventContentObj).getDataCopy();
-		int number = -1;
-		if (eventDataContent.getValue(NumKey))
-			number = (ExitGames::Common::ValueObject<int>(eventDataContent.getValue(NumKey))).getDataCopy();
-		if (eventDataContent.getValue(CodeKey)) {
-			if (number == -1) abort();
-			m_isAiLoaded[number] = true;
-			auto code = (ExitGames::Common::ValueObject<JString>(eventDataContent.getValue(CodeKey))).getDataCopy();
-			char str[256];
-			sprintf_s(str, "number is %d\n", number);
-			OutputDebugString(str);
-			OutputDebugStringW(code);
-			OutputDebugString("\n");
+		nByte idkey = 104;
+		nByte datakey = 109;
+		ExitGames::Common::Hashtable eventContent = ExitGames::Common::ValueObject<ExitGames::Common::Hashtable>(eventContentObj).getDataCopy();
+		int vaData[1024] = { 0 };
+		int id = -1;
+		if (eventContent.getValue(idkey)) {
+			id = (ExitGames::Common::ValueObject<int>(eventContent.getValue(idkey))).getDataCopy();
+		}
+		if (eventContent.getValue(datakey)) {
+			Object const* obj = eventContent.getValue(datakey);
+			int* data = ((ValueObject<int*>*)obj)->getDataCopy();
+			for (int i = 0; i < 1024; i++) {
+				vaData[i] = static_cast<int>(data[i]);
+			}
 			std::wstring VaFileName = L"NetworkEnemyAIs/";
-			VaFileName += std::to_wstring(number + 1);
+			VaFileName += std::to_wstring(id + 1);
 			VaFileName += L"enemy.va";
 			const wchar_t* utf8fname = VaFileName.c_str();
-			FILE * fp1;
-			if ((fp1 = _wfopen(utf8fname, L"w, ccs=UTF-8")) != NULL)
-			{
-				fputws(code, fp1);
-				fclose(fp1);
+			std::ofstream ost("NetworkEnemyAIs/1enemy.va", std::ios::out | std::ios::binary);
+			for (int i = 0; i < 1024; i++) {
+				ost.write((char*)& vaData[i], sizeof(int));
 			}
 		}
+		//const nByte NumKey = 101;
+		//const nByte CodeKey = 102;
+		//ExitGames::Common::Hashtable eventDataContent = ExitGames::Common::ValueObject<ExitGames::Common::Hashtable>(eventContentObj).getDataCopy();
+		//int number = -1;
+		//if (eventDataContent.getValue(NumKey))
+		//	number = (ExitGames::Common::ValueObject<int>(eventDataContent.getValue(NumKey))).getDataCopy();
+		//if (eventDataContent.getValue(CodeKey)) {
+		//	if (number == -1) abort();
+		//	m_isAiLoaded[number] = true;
+		//	auto code = (ExitGames::Common::ValueObject<JString>(eventDataContent.getValue(CodeKey))).getDataCopy();
+		//	char str[256];
+		//	sprintf_s(str, "number is %d got VIsual AI DATA \n", number);
+		//	OutputDebugString(str);
+		//	OutputDebugStringW(code);
+		//	OutputDebugString("\n");
+		//	std::wstring VaFileName = L"NetworkEnemyAIs/";
+		//	VaFileName += std::to_wstring(number + 1);
+		//	VaFileName += L"enemy.va";
+		//	const wchar_t* utf8fname = VaFileName.c_str();
+		//	FILE * fp1;
+		//	if ((fp1 = _wfopen(utf8fname, L"w, ccs=UTF-8")) != NULL)
+		//	{
+		//		fputws(code, fp1);
+		//		fclose(fp1);
+		//	}
+		//}
 	}
 	break;
 	case enMonData:

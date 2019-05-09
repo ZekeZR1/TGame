@@ -54,10 +54,11 @@ public:
 		strcpy(m_text[id], text);
 	}
 
-	void SetVisualAiData(const char* data, int id) {
-		delete[] m_visualAisData[id];
-		m_visualAisData[id] = (char*)malloc(sizeof(char) * (strlen(data) + 1));
-		strcpy(m_visualAisData[id], data);
+	void SetVisualAiData(int* data, int id) {
+		//delete[] m_visualAisData[id];
+		//m_visualAisData[id] = (char*)malloc(sizeof(char) * (sizeof(data) + 1));
+		//strcpy(m_visualAisData[id], data);
+		m_visualAisData[id] = data;
 	}
 
 	void SetAiMode(int aimode, int id) {
@@ -159,7 +160,7 @@ private:
 	int m_hangMID = 0;	//送られてきたモンスターのID
 
 	char* m_text[3] = { nullptr, nullptr, nullptr }; //送るテキストデータ。
-	char* m_visualAisData[3] = { nullptr, nullptr, nullptr };
+	int* m_visualAisData[3] = { nullptr, nullptr, nullptr };
 	char* m_hangPY = nullptr; //送られて来たテキストデータ。
 	int m_aimode[3] = { 0,0,0 }; //送るAIモード
 	int m_enemyAimode[3] = { 0,0,0 }; //送られてきたenemy Ai Mode(VA)

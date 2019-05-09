@@ -37,7 +37,7 @@ private:
 
 	std::vector<std::string> m_files;		//pythonファイルの名前
 	int m_monai[6] = { 0 };				//モンスターのAI
-	std::vector<std::string> m_VisualAiFiles;
+	int m_visualAiDatas[3][1024];
 	int m_aimode[6] = { 0 };
 	int m_moid[6] = { 0 };				//モンスターのID
 	int m_enemyAi[3] = { 0 };
