@@ -335,6 +335,7 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 			for (int i = 0; i < 1024; i++) {
 				vaData[i] = static_cast<int>(data[i]);
 			}
+			m_enemyAimode[id] = 1;
 			std::wstring VaFileName = L"NetworkEnemyAIs/";
 			VaFileName += std::to_wstring(id + 1);
 			VaFileName += L"enemy.va";

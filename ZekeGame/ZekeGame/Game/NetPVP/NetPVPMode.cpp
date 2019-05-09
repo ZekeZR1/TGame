@@ -51,9 +51,11 @@ void NetPVPMode::Update() {
 	 RaiseData();
 	 LoadEnemyData();
 	 if (m_dataLoaded) {
+		 auto eneaimode = m_lbl->GetEnemyAiModes();
 		 for (int i = 3; i < 6; i++) {
 			 m_monai[i] = i - 3;
 			 m_moid[i] = m_enemyId[i - 3];
+			 m_aimode[i] = eneaimode[i - 3];
 		 }
 		 m_isfade = true;
 		 if(!m_isfade)
@@ -175,9 +177,9 @@ void NetPVPMode::RaiseAiVaData() {
 				datas[k] = x;
 			}
 			ifs.close();
+			m_lbl->SetAiMode(m_aimode[i], i);
 			m_lbl->SetVisualAiData(datas, i);
 			m_myVaAIsLoaded = true;
-			m_lbl->SetAiMode(m_aimode[i], i);
 			OutputDebugString("Visual AI Data loaded!! setting lbl...\n");
 			OutputDebugString(cd);
 			OutputDebugString("\n");
