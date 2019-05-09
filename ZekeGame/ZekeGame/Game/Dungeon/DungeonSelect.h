@@ -3,6 +3,8 @@
 class GameCursor;
 class Fade;
 
+class ReturnButton;
+
 class DungeonSelect : public GameObject
 {
 public:
@@ -46,5 +48,7 @@ private:
 	bool m_isChanged = false;
 	int m_selectedNum = 1;
 	int dunNum = 0;
+
+	ReturnButton* m_returnButton = nullptr;					//–ß‚éƒ{ƒ^ƒ“
 };
 

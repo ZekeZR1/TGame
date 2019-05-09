@@ -16,6 +16,8 @@
 #include "DungeonAISelect.h"
 #include "DungeonTransition.h"
 
+#include "../ReturnButton/ReturnButton.h"
+
 DungeonAISelect::DungeonAISelect()
 {
 }
@@ -31,7 +33,8 @@ DungeonAISelect::~DungeonAISelect()
 		DeleteGO(go);
 	}
 	DeleteGO(m_GO);
-	DeleteGO(m_backSp);
+	//DeleteGO(m_backSp);
+	DeleteGO(m_returnButton);
 }
 
 bool DungeonAISelect::Start() {
@@ -59,10 +62,14 @@ bool DungeonAISelect::Start() {
 	wchar_t dungeon[256];
 	swprintf_s(dungeon, L"ƒ_ƒ“ƒWƒ‡ƒ“%d\n", m_dunNum + 1);
 	m_font->Init(dungeon, { -140.f, 320.f }, 0.f, CVector4::White, 1.f, { 0.f,0.f });
-	m_backSp = NewGO<SpriteRender>(0);
+
+	/*m_backSp = NewGO<SpriteRender>(0);
 	m_backSp->Init(L"Assets/Sprite/returnButton.dds", 200.f, 50.f, true);
 	CVector3 p = { -430.f,-300.f,0.f };
-	m_backSp->SetPosition(p);
+	m_backSp->SetPosition(p);*/
+
+	m_returnButton = NewGO<ReturnButton>(0, "rb");
+	m_returnButton->init(this, "pvp", m_cursor);
 	return true;
 }
 
@@ -80,12 +87,16 @@ void DungeonAISelect::Update() {
 		return;
 	for (auto pmm : m_pmms)
 	{
+		pmm->UpdateEX();
+	}
+	/*for (auto pmm : m_pmms)
+	{
 		if (pmm->isClick())
 		{
 			pmm->Open();
 		}
-	}
-	for (auto pmm : m_pmms)
+	}*/
+	/*for (auto pmm : m_pmms)
 	{
 		ismonsel = pmm->isMonSel();
 		if (ismonsel || pmm->isSelect())
@@ -93,7 +104,7 @@ void DungeonAISelect::Update() {
 			break;
 		}
 		count++;
-	}
+	}*/
 	if (ismonsel)
 		return;
 	m_GO->SetCollisionTarget(m_cursor->GetCursor());
@@ -122,12 +133,15 @@ void DungeonAISelect::Update() {
 		dun->StartTransition();
 		DeleteGO(this);
 	}
-	m_backSp->SetCollisionTarget(m_cursor->GetCursor());
-//	if (g_pad[0].IsTrigger(enButtonA)) {
-	if(m_backSp->isCollidingTarget() && Mouse::isTrigger(enLeftClick)){
-		m_fade->FadeOut();
-		isfade = true;
-	}
+
+	m_returnButton->UpdateEx<DungeonSelect>();
+
+//	m_backSp->SetCollisionTarget(m_cursor->GetCursor());
+////	if (g_pad[0].IsTrigger(enButtonA)) {
+//	if(m_backSp->isCollidingTarget() && Mouse::isTrigger(enLeftClick)){
+//		m_fade->FadeOut();
+//		isfade = true;
+//	}
 	if (isfade && m_fade->isFadeStop()) {
 		NewGO<DungeonSelect>(0, "DungeonSelect");
 		auto dgame = FindGO<DungeonGame>("DungeonGame");
