@@ -20,9 +20,6 @@ __pycache__/
 *.user
 *.sln.docstates
 
-*.cmo
-
-*.dds
 
 bin/
 Debug/

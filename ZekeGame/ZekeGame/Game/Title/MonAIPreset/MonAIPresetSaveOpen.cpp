@@ -72,8 +72,8 @@ void MonAIPresetSaveOpen::Execute(int num)
 				seek += 1 + 4 + chn[r][c].stlen;
 		}
 	}
-	//fclose(file);
-	//file = fopen("Assets/MonAIPreset/preset.amp", "wb+");
+	fclose(file);
+	file = fopen("Assets/MonAIPreset/preset.amp", "wb+");
 	fseek(file, seek, SEEK_SET);
 	for (int i = 0; i < 3; i++)
 	{
@@ -103,6 +103,7 @@ void MonAIPresetSaveOpen::Execute(int num)
 			
 		}
 	}
+
 	fclose(file);
 
 	Close();

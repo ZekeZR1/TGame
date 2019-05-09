@@ -164,16 +164,19 @@ void MonAIPresetOpenSuper::Open()
 {
 	if (m_type == enLoader && m_isAllNone)
 		return;
-	FindPreset();
 
-	m_back = NewGO<SpriteRender>(2, "sp");
-	m_back->Init(L"Assets/sprite/B_alpha.dds", 1280, 720);
+	
 
 	FILE* file = FindPreset();
 	char head[5] = { 0 };
 	fread(head, 4, 1, file);
 	if (strcmp(head, "AMPS") != 0)
+	{
+		fclose(file);
 		return;
+	}
+	m_back = NewGO<SpriteRender>(2, "sp");
+	m_back->Init(L"Assets/sprite/B_alpha.dds", 1280, 720);
 
 	for (int i = 0; i < 6; i++)
 	{
@@ -265,6 +268,7 @@ FILE* MonAIPresetOpenSuper::initPreset()
 		}
 	}
 
-	//fclose(file);
+	fclose(file);
+	file = fopen("Assets/MonAIPreset/preset.amp", "r");
 	return file;
 }
