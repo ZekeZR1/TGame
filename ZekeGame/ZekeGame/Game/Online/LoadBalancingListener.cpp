@@ -201,9 +201,9 @@ void LoadBalancingListener::raiseVisualAIsData() {
 		Hashtable data;
 		nByte idkey = 104;
 		nByte datakey = 109;
-		nByte coords[1024];
+		int coords[1024];
 		for (int i = 0; i < 1024; i++) {
-			coords[i] = static_cast<nByte>(m_visualAisData[id][i]);
+			coords[i] = m_visualAisData[id][i];
 		}
 		data.put(idkey, id);
 		data.put(datakey, coords, 1024);
