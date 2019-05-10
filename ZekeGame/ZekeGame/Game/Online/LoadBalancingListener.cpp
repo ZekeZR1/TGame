@@ -343,6 +343,7 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 			id = (ExitGames::Common::ValueObject<int>(eventContent.getValue(idkey))).getDataCopy();
 			if (id == -1) abort();
 			m_isAiLoaded[id] = true;
+			m_enemyAimode[id] = 1;
 			char str[256];
 			sprintf_s(str, "%d is Visual AI Data", id);
 			OutputDebugString(str);
