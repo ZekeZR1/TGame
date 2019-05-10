@@ -3,6 +3,7 @@
 class PMMonster;
 class Fade;
 class ReturnButton;
+class MonAIPresetOpenSuper;
 class DungeonAISelect : public SuperMonsterSelect
 {
 public:
@@ -40,5 +41,8 @@ private:
 	MonsterID moid[m_numMonster];
 
 	ReturnButton* m_returnButton = nullptr;		//戻るボタン
+
+	MonAIPresetOpenSuper* m_msp = nullptr;		//presetのセーブ用
+	MonAIPresetOpenSuper* m_mlp = nullptr;		//presetのロード用(紅組用の)
 };
 
