@@ -50,6 +50,10 @@ void NetPVPMode::Update() {
 	NetSystem().GetNetworkLogic().Update();
 	 RaiseData();
 	 LoadEnemyData();
+	 if (m_lbl->isGotEnemyPythonCodes()) {
+		 m_lbl->raiseMyLoadingState();
+		 OutputDebugString("\n“G‚Ìî•ñ‚ð“Ç‚Ýž‚ÝI‚í‚Á‚½‚Ì‚Å‘ŠŽè‚É‹³‚¦‚Ä‚ ‚°‚é‚æ\n");
+	 }
 	 if (m_lbl->CanStartGame()) {
 		 auto eneaimode = m_lbl->GetEnemyAiModes();
 		 for (int i = 3; i < 6; i++) {
@@ -58,6 +62,7 @@ void NetPVPMode::Update() {
 			 m_aimode[i] = eneaimode[i - 3];
 		 }
 		 m_isfade = true;
+		 m_lbl->raiseMyLoadingState();
 		 if(!m_isfade)
 			m_fade->FadeOut();
 	 }
@@ -105,8 +110,6 @@ void NetPVPMode::LoadEnemyData() {
 	}
 	//Load Enemy AIs (including va)
 	if (m_lbl->isGotEnemyPythonCodes()) {
-		m_lbl->raiseMyLoadingState();
-		OutputDebugString("\nenemy data load is complete succesfly\n");
 		m_dataLoaded = true;
 	}
 }

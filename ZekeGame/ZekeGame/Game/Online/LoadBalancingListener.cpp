@@ -502,7 +502,7 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 		if (content) {
 			m_isEnemyLoadedMyData = true;
 			OutputDebugString("\n--------------------------------------------------------------\n");
-			OutputDebugString("\nEnemy is loaded my ais data\n");
+			OutputDebugString("\n相手が自分の情報を受け取り終わったよn");
 			OutputDebugString("\n--------------------------------------------------------------\n");
 		}
 	}
