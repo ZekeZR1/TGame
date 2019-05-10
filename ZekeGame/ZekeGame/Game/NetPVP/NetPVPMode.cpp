@@ -155,8 +155,9 @@ void NetPVPMode::RaiseAiTextData() {
 
 void NetPVPMode::RaiseAiVaData() {
 	using namespace std;
-	auto vaFiles = VisualAiFileLoad::FilesLoad();
+	using namespace ExitGames::Common;
 	if (!m_myVaAIsLoaded){
+		auto vaFiles = VisualAiFileLoad::FilesLoad();
 		for (int i = 0; i < 3; i++) {
 			if (m_aimode[i] == 0) continue;
 			char cd[255] = { '\0' };
@@ -168,7 +169,7 @@ void NetPVPMode::RaiseAiVaData() {
 			std::char_traits<char>::copy(cstr, path.c_str(), path.size() + 1);
 			strcat(cd, cstr);
 			delete[] cstr;
-			ifstream ifs(cd, ios::in | ios::binary);
+			/*ifstream ifs(cd, ios::in | ios::binary);
 			if (!ifs) abort();
 			int datas[1024] = { 0 };
 			for (int k = 0; k < 1024; k++) {
@@ -176,16 +177,30 @@ void NetPVPMode::RaiseAiVaData() {
 				ifs.read((char*)& x, sizeof(int));
 				datas[k] = x;
 			}
-			ifs.close();
+			ifs.close();*/
+			FILE* fp;
+			fp = fopen(cd, "rb");
+			string data;
+			for (int i = 0; i < 1024; i++) {
+				int buf = 0;
+				fread(&buf, 1, 1, fp);
+				char ss[256];
+				sprintf_s(ss, "%02x", buf);
+				data += ss;
+			}
+			fclose(fp);
+			JString str;
+			str = data.c_str();
 			m_lbl->SetAiMode(m_aimode[i], i);
-			m_lbl->SetVisualAiData(datas, i);
+			m_lbl->SetVisualAiData(str, i);
 			m_myVaAIsLoaded = true;
 			OutputDebugString("Visual AI Data loaded!! setting lbl...\n");
 			OutputDebugString(cd);
 			OutputDebugString("\n");
 		}
 	}
-	m_lbl->raiseVisualAIsData();
+	if(m_lbl->isConect())
+		m_lbl->raiseVisualAIsData();
 }
 
 void NetPVPMode::RaiseRatingData() {

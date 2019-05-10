@@ -4,6 +4,9 @@
 
 #define PLAYER_UPDATE_INTERVAL_MS 500
 
+using namespace ExitGames::Common;
+using namespace ExitGames::LoadBalancing;
+
 struct LocalPlayer
 {
 	LocalPlayer();
@@ -54,13 +57,20 @@ public:
 		strcpy(m_text[id], text);
 	}
 
-	void SetVisualAiData(int* data, int id) {
-		//delete[] m_visualAisData[id];
-		//m_visualAisData[id] = (char*)malloc(sizeof(char) * (sizeof(data) + 1));
-		//strcpy(m_visualAisData[id], data);
-		for (int i = 0; i < 1024; i++) {
-			m_visualAisData[id][i] = data[i];
-		}
+	void SetVisualAiData(JString data, int id) {
+		nByte idkey = 104;
+		nByte datakey = 109;
+		m_visualAisData[id] = data;
+		m_datas[id].put(idkey, id);
+		m_datas[id].put(datakey, data);
+	/*	delete[] m_visualAisData[id];
+		m_visualAisData[id] = (char*)malloc(sizeof(char) * (sizeof(data) + 1));
+		strcpy(m_visualAisData[id], data);*/
+		//for (int i = 0; i < 1024; i++) {
+		//	m_visualAisData[id][i] = data[i];
+		//}
+		//datas[id].put((nByte)104, id);
+		//datas[id].put((nByte)109, data,1024);
 	}
 	int* GetEnemyAiModes() {
 		return m_enemyAimode;
@@ -164,16 +174,17 @@ private:
 	int m_hangMID = 0;	//送られてきたモンスターのID
 
 	char* m_text[3] = { nullptr, nullptr, nullptr }; //送るテキストデータ。
-	int m_visualAisData[3][1024];
+	JString m_visualAisData[3];
 	char* m_hangPY = nullptr; //送られて来たテキストデータ。
 	int m_aimode[3] = { 0,0,0 }; //送るAIモード
 	int m_enemyAimode[3] = { 0,0,0 }; //送られてきたenemy Ai Mode(VA)
 	int mLocalPlayerNr; //Photonから自分に割り振られたプレイヤーナンバー
 	LocalPlayer mLocalPlayer;
-
+	
 	bool misConect = false;		//つながってる～？
 	bool misHang = false;		//何か送られてきてる？
 	bool m_isAiLoaded[3] = { false };
 	float m_enemyRate = 0.f;
+	Hashtable m_datas[3];
 };
 
