@@ -95,10 +95,7 @@ void DungeonAISelect::Update() {
 	}
 	if (ispmm)
 		return;
-	for (auto pmm : m_pmms)
-	{
-		pmm->UpdateEX();
-	}
+	
 	/*for (auto pmm : m_pmms)
 	{
 		if (pmm->isClick())
@@ -124,9 +121,17 @@ void DungeonAISelect::Update() {
 
 		if (m_msp->IsClick())
 		{
-
+			m_msp->Open();
 		}
-		
+		else if (m_mlp->IsClick())
+		{
+			m_mlp->Open();
+		}
+
+		for (auto pmm : m_pmms)
+		{
+			pmm->UpdateEX();
+		}
 			
 
 		m_GO->SetCollisionTarget(m_cursor->GetCursor());
