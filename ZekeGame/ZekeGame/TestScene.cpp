@@ -45,29 +45,39 @@ void TestScene::Nyan() {
 	std::char_traits<char>::copy(cstr, path.c_str(), path.size() + 1);
 	strcat(cd, cstr);
 	delete[] cstr;
-	FILE* fp;
-	fp = fopen(cd, "rb");
+	//FILE* fp;
+	//fp = fopen(cd, "rb");
+	//string data;
+	//for (int i = 0; i < 1024; i++) {
+	//	int buf = 0;
+	//	fread(&buf, 1, 1, fp);
+	//	char ss[256];
+	//	sprintf_s(ss, "%02x", buf);
+	//	data += ss;
+	//}
+	//fclose(fp);
+	ifstream ifs;
 	string data;
+	ifs.open(cd, ios::in | ios::binary);
 	for (int i = 0; i < 1024; i++) {
-		int buf = 0;
-		fread(&buf, 1, 1, fp);
+		int x;
+		ifs >> x;
 		char ss[256];
-		sprintf_s(ss, "%02x", buf);
+		sprintf_s(ss, "%02x", x);
 		data += ss;
 	}
-	fclose(fp);
 	OutputDebugString("neko");
-
+	FILE* fp;
 	fp = fopen("NetworkEnemyAIs/1enemy.va", "wb");
-	for (int i = 0; i < 1024; i+=2) {
+	for (int i = 0; i < 1024; i += 2) {
 		string s = "0x";
 		s += data[i];
-		s += data[i+1];
+		s += data[i + 1];
 		int x = atof(s.c_str());
 		char str[256];
 		sprintf_s(str, "%d\n", x);
 		OutputDebugString(str);
-		fwrite(&x,1,1,fp);
+		fwrite(&x, 1, 1, fp);
 	}
 	fclose(fp);
 	OutputDebugString("inu");

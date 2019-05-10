@@ -104,6 +104,10 @@ public:
 		return misHang;
 	}
 
+	bool CanStartGame() {
+		return m_isEnemyLoadedMyData and isGotEnemyPythonCodes();
+	}
+	void raiseMyLoadingState();
 	//012 
 	void SetTeamMonsterInfo(int info[3]);
 	float GetEnemyRate() {
@@ -156,6 +160,7 @@ private:
 		enMonData,
 		enRateData,
 		enVisualAiData,
+		enLoadState,
 	};
 
 	int m_toRaiseTeamData[3] = { 0 };
@@ -183,6 +188,7 @@ private:
 	
 	bool misConect = false;		//‚Â‚È‚ª‚Á‚Ä‚é`H
 	bool misHang = false;		//‰½‚©‘—‚ç‚ê‚Ä‚«‚Ä‚éH
+	bool m_isEnemyLoadedMyData = false;
 	bool m_isAiLoaded[3] = { false };
 	float m_enemyRate = 0.f;
 	Hashtable m_datas[3];
