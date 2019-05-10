@@ -143,7 +143,6 @@ std::vector<std::string> VisualAiFileLoad::FilesLoad() {
 	std::string key = cd + "\\Assets\\VisualAI\\*.va*";
 	hfind = FindFirstFile(key.c_str(), &win32d);
 
-	OutputDebugString("LOAD VISUAL AIS \n");
 	do
 	{
 		if (win32d.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY)
