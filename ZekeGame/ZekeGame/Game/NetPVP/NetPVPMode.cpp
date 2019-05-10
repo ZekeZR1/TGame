@@ -50,7 +50,7 @@ void NetPVPMode::Update() {
 	NetSystem().GetNetworkLogic().Update();
 	 RaiseData();
 	 LoadEnemyData();
-	 if (m_dataLoaded) {
+	 if (m_lbl->CanStartGame()) {
 		 auto eneaimode = m_lbl->GetEnemyAiModes();
 		 for (int i = 3; i < 6; i++) {
 			 m_monai[i] = i - 3;
@@ -103,10 +103,10 @@ void NetPVPMode::LoadEnemyData() {
 	for (int i = 0; i < 3; i++) {
 		m_enemyId[i] = ids[i];
 	}
-	OutputDebugString("LOADING ENEMY TEAM MONSTER ID DATAS\n");
 	//Load Enemy AIs (including va)
 	if (m_lbl->isGotEnemyPythonCodes()) {
 		m_lbl->raiseMyLoadingState();
+		OutputDebugString("\nenemy data load is complete succesfly\n");
 		m_dataLoaded = true;
 	}
 }

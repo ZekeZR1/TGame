@@ -500,7 +500,9 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 		int content = ExitGames::Common::ValueObject<int>(eventContentObj).getDataCopy();
 		if (content) {
 			m_isEnemyLoadedMyData = true;
-			OutputDebugString("Enemy is loaded my ais data\n");
+			OutputDebugString("\n--------------------------------------------------------------\n");
+			OutputDebugString("\nEnemy is loaded my ais data\n");
+			OutputDebugString("\n--------------------------------------------------------------\n");
 		}
 	}
 		break;
