@@ -111,8 +111,17 @@ bool PvPModeSelect::Start()
 		pmm->init(i,pos);
 		pmm->Setteam(i >= 3);
 		pos += {260, 0, 0};
-		std::wstring ws = std::wstring(m_files[g_AIset[i].AInum].begin(), m_files[g_AIset[i].AInum].end());
-		pmm->SetPython(ws.c_str(), g_AIset[i].AInum, g_AIset[i].AImode);
+		if (g_AIset[i].AImode == 0) //AImode python
+		{
+			std::wstring ws = std::wstring(m_files[g_AIset[i].AInum].begin(), m_files[g_AIset[i].AInum].end());
+			pmm->SetPython(ws.c_str(), g_AIset[i].AInum, g_AIset[i].AImode);
+		}
+		else //AImode visualAI
+		{
+			wchar_t ws[3];
+			swprintf_s(ws, L"%d", g_AIset[i].AInum);
+			pmm->SetPython(ws, g_AIset[i].AInum, g_AIset[i].AImode);
+		}
 		m_pmms.push_back(pmm);
 	}
 	//m_pmm = NewGO<PMMonster>(0, "pmm");

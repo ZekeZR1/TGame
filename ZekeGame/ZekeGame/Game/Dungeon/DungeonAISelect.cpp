@@ -28,6 +28,11 @@ DungeonAISelect::DungeonAISelect()
 
 DungeonAISelect::~DungeonAISelect()
 {
+	
+}
+
+void DungeonAISelect::OnDestroy()
+{
 	DeleteGO(m_dunSp);
 	DeleteGO(m_font);
 	DeleteGO(m_cursor);
@@ -38,6 +43,8 @@ DungeonAISelect::~DungeonAISelect()
 	DeleteGO(m_GO);
 	//DeleteGO(m_backSp);
 	DeleteGO(m_returnButton);
+	DeleteGO(m_msp);
+	DeleteGO(m_mlp);
 }
 
 bool DungeonAISelect::Start() {
@@ -51,8 +58,17 @@ bool DungeonAISelect::Start() {
 		m_pmms.push_back(NewGO<PMMonster>(0, "pmm"));
 		m_pmms[i]->init(i, pos);
 		pos.x += 240.f;
-		std::wstring ws = std::wstring(m_files[g_AIset[i].AInum].begin(), m_files[g_AIset[i].AInum].end());
-		m_pmms[i]->SetPython(ws.c_str(), g_AIset[i].AInum, g_AIset[i].AImode);
+		if (g_AIset[i].AImode == 0) //AImode Python
+		{
+			std::wstring ws = std::wstring(m_files[g_AIset[i].AInum].begin(), m_files[g_AIset[i].AInum].end());
+			m_pmms[i]->SetPython(ws.c_str(), g_AIset[i].AInum, g_AIset[i].AImode);
+		}
+		else //AImode VisualAI
+		{
+			wchar_t ws[3]; 
+			swprintf_s(ws, L"%d", g_AIset[i].AInum);
+			m_pmms[i]->SetPython(ws, g_AIset[i].AInum, g_AIset[i].AImode);
+		}
 	}
 	m_GO = NewGO<SpriteRender>(0, "sp");
 	m_GO->Init(L"Assets/sprite/GO.dds", 193, 93, true);

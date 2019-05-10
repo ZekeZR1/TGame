@@ -9,9 +9,14 @@ class DungeonAISelect : public SuperMonsterSelect
 public:
 	DungeonAISelect();
 	~DungeonAISelect();
+	void OnDestroy() override;
 	bool Start() override;
 	void Update() override;
 	std::vector<std::string> GetFiles() override;
+	std::vector<PMMonster*> GetPMMonster()
+	{
+		return m_pmms;
+	}
 	void SetDungeonNumber(int n) {
 		m_dunNum = n;
 	}
