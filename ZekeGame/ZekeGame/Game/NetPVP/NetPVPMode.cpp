@@ -52,9 +52,11 @@ void NetPVPMode::Update() {
 	 LoadEnemyData();
 	 if (m_lbl->isGotEnemyPythonCodes()) {
 		 m_lbl->raiseMyLoadingState();
-		 OutputDebugString("\n“G‚Ìî•ñ‚ð“Ç‚Ýž‚ÝI‚í‚Á‚½‚Ì‚Å‘ŠŽè‚É‹³‚¦‚Ä‚ ‚°‚é‚æ\n");
+		 OutputDebugString("\n");
+		 OutputDebugString("I loaded enemy data. raise my load state to enemy\n");
 	 }
 	 if (m_lbl->CanStartGame()) {
+		 OutputDebugString("\n I loaded Enemy data , enemy is loaded  too. can start battle\n");
 		 auto eneaimode = m_lbl->GetEnemyAiModes();
 		 for (int i = 3; i < 6; i++) {
 			 m_monai[i] = i - 3;
@@ -204,8 +206,11 @@ void NetPVPMode::RaiseAiVaData() {
 			OutputDebugString("\n");
 		}
 	}
-	if(m_lbl->isConect())
+	if (m_lbl->isConect()) {
+		if (isRaisedVA) return;
 		m_lbl->raiseVisualAIsData();
+		isRaisedVA = true;
+	}
 }
 
 void NetPVPMode::RaiseRatingData() {

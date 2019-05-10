@@ -315,9 +315,9 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 			{
 				char str[256];
 				sprintf_s(str, "number is %d\n", number);
-				OutputDebugString(str);
+				//OutputDebugString(str);
 			}
-			OutputDebugStringW(code);
+			//OutputDebugStringW(code);
 			OutputDebugString("\n");
 			std::wstring pythonFileName = L"NetworkEnemyAIs/";
 			pythonFileName += std::to_wstring(number + 1);
@@ -493,7 +493,7 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 		RatingSystem().SetEnemyRate(content);
 		char str[256];
 		sprintf_s(str, "ENEMEYYYYYYY  Rate  IS %f\n", content);
-		OutputDebugString(str);
+		//OutputDebugString(str);
 		break;
 	}
 	case enLoadState:
@@ -501,9 +501,8 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 		int content = ExitGames::Common::ValueObject<int>(eventContentObj).getDataCopy();
 		if (content) {
 			m_isEnemyLoadedMyData = true;
-			OutputDebugString("\n--------------------------------------------------------------\n");
-			OutputDebugString("\n相手が自分の情報を受け取り終わったよn");
-			OutputDebugString("\n--------------------------------------------------------------\n");
+			OutputDebugString("\n");
+			OutputDebugString("enemy is loaded my monster ai datas\n");
 		}
 	}
 		break;
@@ -690,6 +689,14 @@ void LoadBalancingListener::service()
 			int cnt = mpLbc->getCountPlayersOnline();
 			if (cnt == 2) misConect = true;
 			else misConect = false;
+#if _DEBUG
+			if (misConect) {
+				OutputDebugString("enemy is here\n");
+			}
+			else {
+				OutputDebugString("enemy not found\n");
+			}
+#endif
 		}
 	}
 }

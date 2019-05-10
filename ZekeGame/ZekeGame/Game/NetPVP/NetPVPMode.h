@@ -45,6 +45,7 @@ private:
 	bool m_isConect = false;			//Œq‚ª‚Á‚Ä‚¢‚Ü‚·‚©H
 	bool m_myPyAIsLoaded = false;
 	bool m_myVaAIsLoaded = false;
+	bool isRaisedVA = false;
 	std::vector<std::string> m_vaFiles;
 	//UI
 	SpriteRender* m_informationSp;
