@@ -9,8 +9,7 @@
 #include <fstream>
 #include <string>
 
-using namespace ExitGames::Common;
-using namespace ExitGames::LoadBalancing;
+
 
 const JString PeerStatesStr[] = {
 	L"Uninitialized",
@@ -198,6 +197,13 @@ void LoadBalancingListener::raiseRating() {
 void LoadBalancingListener::raiseVisualAIsData() {
 	nByte idkey = 104;
 	nByte datakey = 109;
+	for (int i = 0; i < 3; i++) {
+		if (m_aimode[i] == 0) continue;
+		//Hashtable data;
+		//data.put(idkey, i);
+		//data.put(datakey, m_visualAisData[i]);
+		mpLbc->opRaiseEvent(false, m_datas[i], enVisualAiData);
+	}
 	/*for (int id = 0; id < 3; id++) {
 		if (m_aimode[id] == 0) continue;
 		Hashtable data;
@@ -324,9 +330,25 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 		int id = -1;
 		if (eventContent.getValue(idkey)) {
 			id = (ExitGames::Common::ValueObject<int>(eventContent.getValue(idkey))).getDataCopy();
+			if (id == -1) abort();
+			m_isAiLoaded[id] = true;
 		}
 		if (eventContent.getValue(datakey)) {
-			Object const* obj = eventContent.getValue(datakey);
+			auto data = (ExitGames::Common::ValueObject<JString>(eventContent.getValue(datakey))).getDataCopy();
+			FILE* fp;
+			std::string path = "NetworkEnemyAIs/";
+			path += std::to_string(id+1);
+			path += "enemy.va";
+			fp = fopen(path.c_str(), "wb");
+			for (int i = 0; i < 1024; i += 2) {
+				std::string s = "0x";
+				s += data[i];
+				s += data[i + 1];
+				int x = atof(s.c_str());
+				fwrite(&x, 1, 1, fp);
+			}
+			fclose(fp);
+		/*	Object const* obj = eventContent.getValue(datakey);
 			int* data = ((ValueObject<int*>*)obj)->getDataCopy();
 			for (int i = 0; i < 1024; i++) {
 				vaData[i] = static_cast<int>(data[i]);
@@ -339,7 +361,7 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 			std::ofstream ost("NetworkEnemyAIs/1enemy.va", std::ios::out | std::ios::binary);
 			for (int i = 0; i < 1024; i++) {
 				ost.write((char*)& vaData[i], sizeof(int));
-			}
+			}*/
 		}
 		//const nByte NumKey = 101;
 		//const nByte CodeKey = 102;
@@ -640,6 +662,9 @@ void LoadBalancingListener::service()
 		mLocalPlayer.lastUpdateTime = t;
 		if (mpLbc->getState() == PeerStates::Joined) {
 			//毎フレーム呼ばれる
+			int cnt = mpLbc->getCountPlayersOnline();
+			if (cnt == 2) misConect = true;
+			else misConect = false;
 		}
 	}
 }

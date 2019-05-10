@@ -12,9 +12,6 @@
 #include"Engine/character/CharacterController.h"
 #include "Game/MonsterBox/MonsterBox.h"
 
-using namespace ExitGames::Common;
-using namespace ExitGames::LoadBalancing;
-
 TestScene::TestScene()
 {
 }
