@@ -9,6 +9,7 @@ class GameCursor;
 class MonAIPresets;
 struct Person
 {
+	int aimode = 0;
 	int monID = 0;
 	int stlen = 0;
 	char str[255];
@@ -72,9 +73,9 @@ public:
 	virtual void Execute(int num) {};
 
 	//presetデータが歩かないか。なかった場合はそのままinitPresetにＧＯ！
-	void FindPreset();
+	FILE* FindPreset();
 	//presetデータがない時用のpreset初期化
-	void initPreset();
+	FILE* initPreset();
 
 protected:
 	SpriteRender* m_back = nullptr;		//後ろに表示する半透明のやつ。

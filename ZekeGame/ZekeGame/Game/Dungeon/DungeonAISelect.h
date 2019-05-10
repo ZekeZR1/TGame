@@ -2,6 +2,7 @@
 #include "../Title/SuperMonsterSelect.h"
 class PMMonster;
 class Fade;
+class ReturnButton;
 class DungeonAISelect : public SuperMonsterSelect
 {
 public:
@@ -37,5 +38,7 @@ private:
 	bool m_isfade = false;
 	bool isfade = false;
 	MonsterID moid[m_numMonster];
+
+	ReturnButton* m_returnButton = nullptr;		//–ß‚éƒ{ƒ^ƒ“
 };
 

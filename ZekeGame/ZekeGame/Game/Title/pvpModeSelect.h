@@ -5,6 +5,8 @@ class GameCursor;
 class SuperMonsterSelect;
 class Fade;
 
+class ReturnButton;
+
 class MonAIPresetOpen;
 class MonAIPresetOpenSuper;
 class PvPModeSelect :public SuperMonsterSelect
@@ -44,6 +46,8 @@ private:
 	SpriteRender* m_returnMoji = nullptr;
 	bool isReturnOver = false;
 	CVector2 m_returnS = { 604,256 };
+
+	ReturnButton* m_returnButton = nullptr;
 
 	Sound* m_BGM = nullptr;
 	float m_vol = 1;

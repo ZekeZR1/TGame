@@ -9,6 +9,8 @@
 #include "DungeonSelect.h"
 #include "../Fade/Fade.h"
 
+#include "../ReturnButton/ReturnButton.h"
+
 bool DungeonSelect::Start() {
 	m_cur = NewGO<GameCursor>(3, "cur");
 	InitSideButtons();
@@ -40,7 +42,9 @@ void DungeonSelect::OnDestroy() {
 	if (m_nextSp != nullptr) {
 		DeleteGO(m_nextSp);
 	}
-	DeleteGO(m_backSp);
+	//DeleteGO(m_backSp);
+	DeleteGO(m_returnButton);
+	
 	DeleteGO(m_backTx);
 	DeleteGO(m_leftSp);
 	DeleteGO(m_rightSp);
@@ -138,7 +142,10 @@ void DungeonSelect::InitSideButtons() {
 }
 
 void DungeonSelect::InitBackButton() {
-	m_backSp = NewGO<SpriteRender>(1);
+	m_returnButton = NewGO<ReturnButton>(0, "rb");
+	m_returnButton->init(this, "modesel", m_cur);
+
+	/*m_backSp = NewGO<SpriteRender>(1);
 	m_backSp->Init(L"Assets/Sprite/button1.dds", 180.f, 60.f, true);
 	CVector3 sPos = { -500.f, -270.f, 0.f };
 	m_backSp->SetPosition(sPos);
@@ -149,7 +156,7 @@ void DungeonSelect::InitBackButton() {
 	tPos.x += -45;
 	tPos.y = sPos.y;
 	tPos.y += 16.f;
-	m_backTx->Init(L"–ß‚é", tPos, 0.f, CVector4::White, 1.f, { 0.f,0.f });
+	m_backTx->Init(L"–ß‚é", tPos, 0.f, CVector4::White, 1.f, { 0.f,0.f });*/
 }
 
 void DungeonSelect::PositionUpdate() {
@@ -247,7 +254,7 @@ void DungeonSelect::DungeonSelectClick() {
 }
 
 void DungeonSelect::StartDungeon() {
-	if (m_isPositionUpdating || m_backSp->isCollidingTarget())
+	if (m_isPositionUpdating || /*m_backSp->isCollidingTarget()*/m_returnButton->isFade())
 		return;
 	for (auto i : m_sps) {
 		i->SetCollisionTarget(m_cur->GetCursor());
@@ -271,7 +278,9 @@ void DungeonSelect::StartDungeon() {
 }
 
 void DungeonSelect::BackToMenu() {
-	m_backSp->SetCollisionTarget(m_cur->GetCursor());
+	m_returnButton->UpdateEx<ModeSelect>();
+
+	/*m_backSp->SetCollisionTarget(m_cur->GetCursor());
 	if (Mouse::isTrigger(enLeftClick) && m_backSp->isCollidingTarget()) {
 		m_fade->FadeOut();
 		m_backfade = true;
@@ -279,6 +288,6 @@ void DungeonSelect::BackToMenu() {
 	if (m_fade->isFadeStop() && m_backfade) {
 		NewGO<ModeSelect>(0);
 		DeleteGO(this);
-	}
+	}*/
 }
 

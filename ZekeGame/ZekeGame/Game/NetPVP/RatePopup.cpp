@@ -61,7 +61,6 @@ void RatePopup::RateInit() {
 	//float content = m_eneRating;
 	float content = RatingSystem().GetEnemyRate();
 	sprintf_s(ss, "ENEMEYYYYYYY  Rate  IS %f [ POPUP TIMING]\n", content);
-	OutputDebugString(ss);
 	estr += std::_Floating_to_wstring(L"%.2f", content);
 	estr += L"%";
 	const wchar_t* ewstr = estr.c_str();

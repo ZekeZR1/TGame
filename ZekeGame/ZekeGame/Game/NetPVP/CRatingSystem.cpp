@@ -25,7 +25,7 @@ void CRatingSystem::LoadMyRate() {
 		using namespace std;
 		ifstream ist("Assets/career/rating.rt", ios::in, ios::binary);
 		if (!ist) {
-			OutputDebugString("cant open rating.rt");
+			OutputDebugString("cant open rating.rt\n");
 			fileOutput(0, 0);
 			return;
 		}

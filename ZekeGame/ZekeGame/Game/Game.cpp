@@ -213,13 +213,13 @@ void Game::Update() {
 		case enLocalPVP:
 		{
 			auto win = NewGO<Win>(0, "win");
-			win->init(team);
+			win->init(team, enLocalPVP);
 			break;
 		}
 		case enRandomPVP:
 		{
 			auto win = NewGO<Win>(0, "win");
-			win->init(team);
+			win->init(team, enRandomPVP);
 			RatingSystem().SetWinner(team);
 			RatingSystem().PopupRate(m_eneRate);
 			break;

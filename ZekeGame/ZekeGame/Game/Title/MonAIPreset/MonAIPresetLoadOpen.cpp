@@ -97,8 +97,14 @@ void MonAIPresetLoadOpen::Execute(int num)
 			//mbstowcs_s(&size, ws, 20, chn[i].str, _TRUNCATE);
 			mbstowcs_s(&size, ws, 20, m_presets[num].person[i].str, _TRUNCATE);
 			//todo:　俺　フォーマットにAIModeの追加
-			pmm->SetPython(ws, m_presets[num].person[i].stind,0);
-
+			if (m_presets[num].person[i].aimode == 0)
+			{
+				pmm->SetPython(ws, m_presets[num].person[i].stind, 0);
+			}
+			else
+			{
+				pmm->SetPython(ws, atoi(m_presets[num].person[i].str), 1);
+			}
 			pmm->ChengeImage((MonsterID)m_presets[num].person[i].monID);
 			i++;
 		}
