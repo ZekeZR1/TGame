@@ -102,11 +102,13 @@ void NetPVPMode::LoadEnemyData() {
 		return;
 	for (int i = 0; i < 3; i++) {
 		m_enemyId[i] = ids[i];
-		OutputDebugString("LOADING ENEMY TEAM MONSTER ID DATAS\n");
 	}
+	OutputDebugString("LOADING ENEMY TEAM MONSTER ID DATAS\n");
 	//Load Enemy AIs (including va)
-	if(m_lbl->isGotEnemyPythonCodes())
+	if (m_lbl->isGotEnemyPythonCodes()) {
+		m_lbl->raiseMyLoadingState();
 		m_dataLoaded = true;
+	}
 }
 
 void NetPVPMode::BattleStart() {

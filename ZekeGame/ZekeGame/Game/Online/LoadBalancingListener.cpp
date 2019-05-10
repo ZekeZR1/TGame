@@ -213,6 +213,10 @@ void LoadBalancingListener::raiseVisualAIsData() {
 	}*/
 }
 
+void LoadBalancingListener::raiseMyLoadingState() {
+	mpLbc->opRaiseEvent(false, 1, enLoadState);
+}
+
 void LoadBalancingListener::raiseMonAIs() {
 	const nByte NumKey = 101;
 	const nByte CodeKey = 102;
@@ -302,10 +306,17 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 			if (number == -1)
 				abort();
 			m_isAiLoaded[number] = true;
-			auto code = (ExitGames::Common::ValueObject<JString>(eventDataContent.getValue(CodeKey))).getDataCopy();
+#if _DEBUG
 			char str[256];
-			sprintf_s(str, "number is %d\n", number);
+			sprintf_s(str, "%d is Python code", number);
 			OutputDebugString(str);
+#endif
+			auto code = (ExitGames::Common::ValueObject<JString>(eventDataContent.getValue(CodeKey))).getDataCopy();
+			{
+				char str[256];
+				sprintf_s(str, "number is %d\n", number);
+				OutputDebugString(str);
+			}
 			OutputDebugStringW(code);
 			OutputDebugString("\n");
 			std::wstring pythonFileName = L"NetworkEnemyAIs/";
@@ -332,6 +343,9 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 			id = (ExitGames::Common::ValueObject<int>(eventContent.getValue(idkey))).getDataCopy();
 			if (id == -1) abort();
 			m_isAiLoaded[id] = true;
+			char str[256];
+			sprintf_s(str, "%d is Visual AI Data", id);
+			OutputDebugString(str);
 		}
 		if (eventContent.getValue(datakey)) {
 			auto data = (ExitGames::Common::ValueObject<JString>(eventContent.getValue(datakey))).getDataCopy();
@@ -478,10 +492,18 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 		RatingSystem().SetEnemyRate(content);
 		char str[256];
 		sprintf_s(str, "ENEMEYYYYYYY  Rate  IS %f\n", content);
-
 		OutputDebugString(str);
 		break;
 	}
+	case enLoadState:
+	{
+		int content = ExitGames::Common::ValueObject<int>(eventContentObj).getDataCopy();
+		if (content) {
+			m_isEnemyLoadedMyData = true;
+			OutputDebugString("Enemy is loaded my ais data\n");
+		}
+	}
+		break;
 	default:
 	{
 		//より洗練されたデータ型を送受信する方法のコード例については、
