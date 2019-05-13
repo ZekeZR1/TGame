@@ -1877,4 +1877,12 @@
       <Filter>Assets\Sprite\MonSelect</Filter>
     </ImageContentTask>
   </ItemGroup>
+  <ItemGroup>
+    <MeshContentTask Include="Assets\modelData\dungeon\dropwall.fbx">
+      <Filter>Assets\model</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\dungeon\egg.FBX">
+      <Filter>Assets\model</Filter>
+    </MeshContentTask>
+  </ItemGroup>
 </Project>

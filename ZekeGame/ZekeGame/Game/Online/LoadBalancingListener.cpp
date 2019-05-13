@@ -350,7 +350,22 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 		}
 		if (eventContent.getValue(datakey)) {
 			auto data = (ExitGames::Common::ValueObject<JString>(eventContent.getValue(datakey))).getDataCopy();
-			FILE* fp;
+			std::ofstream ofs;
+			std::string path = "NetworkEnemyAIs/";
+			path += std::to_string(id + 1);
+			path += "enemy.va";
+			ofs.open(path, std::ios::out | std::ios::binary);
+			if (!ofs) {
+				OutputDebugString("enemy.va open failed\n");
+			}
+			for (int i = 0; i < data.capacity(); i += 2) {
+				std::string nyan = "0x";
+				nyan += data[i];
+				nyan += data[i + 1];
+				byte x = atof(nyan.c_str());
+				ofs.write((char*)& x, 1);
+			}
+			/*FILE* fp;
 			std::string path = "NetworkEnemyAIs/";
 			path += std::to_string(id+1);
 			path += "enemy.va";
@@ -362,7 +377,7 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 				int x = atof(s.c_str());
 				fwrite(&x, 1, 1, fp);
 			}
-			fclose(fp);
+			fclose(fp);*/
 		/*	Object const* obj = eventContent.getValue(datakey);
 			int* data = ((ValueObject<int*>*)obj)->getDataCopy();
 			for (int i = 0; i < 1024; i++) {
