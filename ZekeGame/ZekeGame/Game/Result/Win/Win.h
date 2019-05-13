@@ -36,6 +36,8 @@ private:
 	SpriteRender* m_srwin = nullptr;
 	SpriteRender* m_srteam = nullptr;
 
+	FontRender* m_nextfont = nullptr;
+
 	Sound* m_BGM = nullptr;
 	Game::Mode m_mode;
 };
