@@ -130,6 +130,10 @@ void Win::Update()
 			m_cmove = false;
 		}
 	}
+	else
+	{
+
+	}
 }
 
 void Win::MonsterSet()
