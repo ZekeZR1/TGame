@@ -185,7 +185,7 @@ void NetPVPMode::RaiseAiVaData() {
 				datas[k] = x;
 			}
 			ifs.close();*/
-			FILE* fp;
+			/*FILE* fp;
 			fp = fopen(cd, "rb");
 			string data;
 			for (int i = 0; i < 1024; i++) {
@@ -195,11 +195,24 @@ void NetPVPMode::RaiseAiVaData() {
 				sprintf_s(ss, "%02x", buf);
 				data += ss;
 			}
-			fclose(fp);
-			JString str;
-			str = data.c_str();
+			fclose(fp);*/
+			ifstream ifs;
+			JString data;
+			ifs.open(cd, ios::in | ios::binary);
+			if (!ifs)
+				OutputDebugString("va open failed\n");
+			ifs.seekg(0, fstream::end);
+			UINT endpos = ifs.tellg();
+			ifs.seekg(0, fstream::beg);
+			while (ifs.tellg() != endpos) {
+				byte x;
+				ifs.read((char*)& x, 1);
+				char ss[256];
+				sprintf_s(ss, "%02x", x);
+				data += ss;
+			}
 			m_lbl->SetAiMode(m_aimode[i], i);
-			m_lbl->SetVisualAiData(str, i);
+			m_lbl->SetVisualAiData(data, i);
 			m_myVaAIsLoaded = true;
 			OutputDebugString("Visual AI Data loaded!! setting lbl...\n");
 			OutputDebugString(cd);

@@ -45,69 +45,40 @@ void TestScene::Nyan() {
 	std::char_traits<char>::copy(cstr, path.c_str(), path.size() + 1);
 	strcat(cd, cstr);
 	delete[] cstr;
-	//FILE* fp;
-	//fp = fopen(cd, "rb");
-	//string data;
-	//for (int i = 0; i < 1024; i++) {
-	//	int buf = 0;
-	//	fread(&buf, 1, 1, fp);
-	//	char ss[256];
-	//	sprintf_s(ss, "%02x", buf);
-	//	data += ss;
-	//}
-	//fclose(fp);
 	ifstream ifs;
-	string data;
+	JString data;
 	ifs.open(cd, ios::in | ios::binary);
-	for (int i = 0; i < 1024; i++) {
-		int x;
-		ifs >> x;
+	if(!ifs)
+		OutputDebugString("1enemy.va open failed\n");
+	ifs.seekg(0,fstream::end);
+	UINT endpos = ifs.tellg();
+	ifs.seekg(0, fstream::beg);
+	while (ifs.tellg() != endpos) {
+		byte x;
+		ifs.read((char*)& x, 1);
 		char ss[256];
 		sprintf_s(ss, "%02x", x);
 		data += ss;
 	}
-	OutputDebugString("neko");
-	FILE* fp;
-	fp = fopen("NetworkEnemyAIs/1enemy.va", "wb");
-	for (int i = 0; i < 1024; i += 2) {
-		string s = "0x";
-		s += data[i];
-		s += data[i + 1];
-		int x = atof(s.c_str());
-		char str[256];
-		sprintf_s(str, "%d\n", x);
-		OutputDebugString(str);
-		fwrite(&x, 1, 1, fp);
+	/*for (int i = 0; i < 1024; i++) {
+		byte x;
+		ifs.read((char*)&x, 1);
+		char ss[256];
+		sprintf_s(ss, "%02x", x);
+		data += ss;
+		if (ifs.eof())
+			break;
+	}*/
+	ofstream ofs;
+	ofs.open("NetworkEnemyAIs/1enemy.va", ios::out | ios::binary);
+	if (!ofs) {
+		OutputDebugString("1enemy.va open failed\n");
 	}
-	fclose(fp);
-	OutputDebugString("inu");
-	//char datas[1024];
-	//ifstream ifs(cd, ios::in | ios::binary);
-	//ifstream ifs(cd, ios::in | ios::binary);
-	//if (!ifs) return;
-	//int ch;
-	//int index = 0;
-	//int indata;
-	//string s;
-	//for (int i = 0; i < 1024; i++) {
-	//	int x;
-
-	//	char o[256] = { '\0' };
-	//	printf_s(o, "%x", x);
-	//	//datas[i] =x;
-	//	s += o;
-	//}
-	//OutputDebugString(s);
-	//ifs.read((char*)& indata, 1024);
-	//ifs.close();
-	//write
-	//std::wstring VaFileName = L"NetworkEnemyAIs/";
-	////VaFileName += std::to_wstring(number + 1);
-	//VaFileName += L"1enemy.va";
-	//const wchar_t* utf8fname = VaFileName.c_str();
-	//ofstream ost("NetworkEnemyAIs/1enemy.va", ios::out | ios::binary);
-	//for (int i = 0; i < 1024; i++) {
-	//	ost.write((char*)&datas[i],sizeof(int));
-	//}
-	//ost.close();
+	for (int i = 0; i < data.capacity(); i+=2) {
+		string nyan = "0x";
+		nyan += data[i];
+		nyan += data[i + 1];
+		byte x = atof(nyan.c_str());
+		ofs.write((char*)& x, 1);
+	}
 }

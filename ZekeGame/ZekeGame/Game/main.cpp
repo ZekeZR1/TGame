@@ -6,6 +6,7 @@
 #include "Fade/Fade.h"
 
 #include "../TestScene.h"
+#include "../Game/Dungeon/MonsterDrop.h"
 
 int WINAPI wWinMain(
 	HINSTANCE hInstance,
@@ -19,7 +20,7 @@ int WINAPI wWinMain(
 	NewGO<GameCamera3D>(0, "cam3d");
 	NewGO<GameCamera2D>(0, "cam2d");
 	NewGO<ModeSelect>(0, "modesel");
-//	NewGO<TestScene>(0);
+	//NewGO<MonsterDrop>(0);
 	g_physics.SetDebugDraw(true);
 	SkinModelRender* sm = NewGO<SkinModelRender>(0, "sm");
 	sm->Init(L"Assets/modelData/tesEnemy3.cmo");
