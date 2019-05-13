@@ -1,4 +1,5 @@
 #pragma once
+#include "../../Game.h"
 
 class ResultCamera;
 class Win:public GameObject
@@ -8,7 +9,7 @@ public:
 	Win();
 	~Win();
 	void OnDestroy() override;
-	void init(int team);
+	void init(int team, Game::Mode mode);
 	bool Start();
 	void Update();
 
@@ -36,4 +37,5 @@ private:
 	SpriteRender* m_srteam = nullptr;
 
 	Sound* m_BGM = nullptr;
+	Game::Mode m_mode;
 };

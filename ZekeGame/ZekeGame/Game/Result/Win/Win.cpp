@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "Win.h"
 #include "../ResultCamera.h"
-
+#include "../../NetPVP/NetAISelect.h"
 #include "../../Game.h"
 #include "../../Title/pvpModeSelect.h"
 #include "../../Monster/Monster.h"
@@ -28,7 +28,12 @@ Win::Win()
 
 Win::~Win()
 {
-	NewGO<PvPModeSelect>(0, "pvp");
+	if (m_mode == Game::enRandomPVP) {
+		NewGO<NetAISelect>(0, "pvp");
+	}
+	else if (m_mode == Game::enLocalPVP) {
+		NewGO<PvPModeSelect>(0, "pvp");
+	}
 	DeleteGO(m_sr);
 	DeleteGO(m_cam);
 	DeleteGO(m_srteam);
@@ -42,10 +47,10 @@ void Win::OnDestroy()
 	m_BGM->Stop();
 }
 
-void Win::init(int team)
+void Win::init(int team, Game::Mode mode)
 {
 	m_cam = NewGO<ResultCamera>(0, "rescam");
-
+	m_mode = mode;
 	m_firstpos = { -350,10,500 };
 	m_firsttar = { 0,30,0 };
 
