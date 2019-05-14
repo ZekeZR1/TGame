@@ -1884,5 +1884,8 @@
     <MeshContentTask Include="Assets\modelData\dungeon\egg.FBX">
       <Filter>Assets\model</Filter>
     </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\dungeon\testback.FBX">
+      <Filter>Assets\model</Filter>
+    </MeshContentTask>
   </ItemGroup>
 </Project>

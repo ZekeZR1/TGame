@@ -15,6 +15,7 @@ void DungeonGame::OnDestroy() {
 }
 
 void DungeonGame::Update() {
+
 }
 
 void DungeonGame::SetGameData(PyFile& files, PyFile& eneFile, int monsterAI[6], MonsterID monids[6], int DunNumber, int aimode[6]) {

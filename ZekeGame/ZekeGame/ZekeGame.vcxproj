@@ -809,6 +809,7 @@
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\dungeon\dropwall.fbx" />
     <MeshContentTask Include="Assets\modelData\dungeon\egg.FBX" />
+    <MeshContentTask Include="Assets\modelData\dungeon\testback.FBX" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

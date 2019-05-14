@@ -27,6 +27,9 @@ bool DropEgg::Start() {
 	std::random_device rnd;
 	m_monsterId = static_cast<MonsterID>(rnd() % enNumMonster);
 	IMonsterBox().GetMonster(m_monsterId);
+	auto se = NewGO<Sound>(0);
+	se->Init(L"Assets/sound/dungeon/puyon1.wav", false);
+	se->Play();
 	return true;
 }
 
@@ -71,6 +74,9 @@ void DropEgg::Update() {
 		m_efk->SetPosition({ 0.f,-50.f,200.f });
 		m_efk->Play(L"Assets/effect/dropefk.efk", 2.5f);
 		m_isPlayedEffect = true;
+		auto se = NewGO<Sound>(0);
+		se->Init(L"Assets/sound/dungeon/light.wav", false);
+		se->Play();
 	}
 	//new monster
 	if (m_timer >= monsterTiming && !m_isDisplayMonster) {
@@ -82,6 +88,16 @@ void DropEgg::Update() {
 void DropEgg::NewMonster() {
 	m_monster = NewGO<SkinModelRender>(0);
 	m_monster->SetScale(m_modelScale);
+	auto se = NewGO<Sound>(0);
+	//se->Init(L"Assets/sound/dungeon/ban1.wav", false);
+	se->Init(L"Assets/sound/dungeon/newmon.wav", false);
+	se->Play();
+	{
+		auto se = NewGO<Sound>(0);
+	//se->Init(L"Assets/sound/dungeon/ban1.wav", false);
+	se->Init(L"Assets/sound/dungeon/newmon1.wav", false);
+	se->Play();
+	}
 	switch (m_monsterId) {
 	case enTest:
 		//ToDungeonSelect();

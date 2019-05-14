@@ -9,11 +9,12 @@ bool DungeonTransition::Start() {
 	m_fade->FadeIn();
 
 	Sound* bgm = NewGO<Sound>(0, "BGM");
-	bgm->Init(L"Assets/sound/BGM/PerituneMaterial_OverWorld5_loop.wav",true);
+	bgm->Init(L"Assets/sound/dungeon/dunt.wav",true);
 	bgm->Play();
 
 	m_back = NewGO<SkinModelRender>(0);
-	m_back->Init(L"Assets/modelData/dungeonBack.cmo");
+	//m_back->Init(L"Assets/modelData/dungeonBack.cmo");
+	m_back->Init(L"Assets/modelData/testback.cmo");
 	CQuaternion m_rot = CQuaternion::Identity();
 	m_rot.SetRotationDeg(CVector3::AxisY(), 180.f);
 	//m_back->SetRotation(m_rot);
