@@ -1544,6 +1544,12 @@
     <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\monsel_back.png">
       <Filter>Assets\Sprite\AIselect</Filter>
     </None>
+    <None Include="Assets\Sprite\AIEdit\clickButton.png">
+      <Filter>Assets\Sprite\AIEdit</Filter>
+    </None>
+    <None Include="Assets\Sprite\AIEdit\click.png">
+      <Filter>Assets\Sprite\AIEdit</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="act">
@@ -1694,9 +1700,6 @@
     <Image Include="Assets\Sprite\AIEdit\buttyon.png">
       <Filter>Assets\Sprite\AIEdit</Filter>
     </Image>
-    <Image Include="Assets\Sprite\AIEdit\click.png">
-      <Filter>Assets\Sprite\AIEdit</Filter>
-    </Image>
     <Image Include="Assets\Sprite\AIEdit\deletepoint.png">
       <Filter>Assets\Sprite\AIEdit</Filter>
     </Image>
@@ -1710,9 +1713,6 @@
       <Filter>Assets\Sprite\AIEdit</Filter>
     </Image>
     <Image Include="Assets\Sprite\AIEdit\karipoint.png">
-      <Filter>Assets\Sprite\AIEdit</Filter>
-    </Image>
-    <Image Include="Assets\Sprite\AIEdit\masss.png">
       <Filter>Assets\Sprite\AIEdit</Filter>
     </Image>
     <Image Include="Assets\Sprite\AIEdit\massss.png">
@@ -1737,9 +1737,6 @@
       <Filter>Assets\Sprite\AIEdit</Filter>
     </Image>
     <Image Include="Assets\Sprite\AIEdit\sieat.png">
-      <Filter>Assets\Sprite\AIEdit</Filter>
-    </Image>
-    <Image Include="Assets\Sprite\AIEdit\arrow.png">
       <Filter>Assets\Sprite\AIEdit</Filter>
     </Image>
     <Image Include="Assets\Sprite\GUI\button\sb_cancel.png">
@@ -1875,6 +1872,12 @@
   <ItemGroup>
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\Monselect.png">
       <Filter>Assets\Sprite\MonSelect</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\AIEdit\masss.png">
+      <Filter>Assets\Sprite\AIEdit</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\AIEdit\arrow.png">
+      <Filter>Assets\Sprite\AIEdit</Filter>
     </ImageContentTask>
   </ItemGroup>
   <ItemGroup>

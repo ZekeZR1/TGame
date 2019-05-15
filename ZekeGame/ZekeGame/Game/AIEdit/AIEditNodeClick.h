@@ -53,4 +53,11 @@ private:
 	AIEditNode* m_aieditnode;
 	AIEditNodeTarget* m_aieditnodetarget;
 	AIEditNodeProcess* m_aieditnodeprocess;
+
+	SpriteRender* m_button = nullptr;			//botan
+	FontRender* m_font = nullptr;				//click MOJI
+	float m_fontS = 1.f;						//font Scale
+	bool m_isFsc = true;							//font no scale
+
+	bool m_isOver = false;						//mouseover?
 };

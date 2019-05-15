@@ -687,15 +687,16 @@
     <Media Include="Assets\sound\punch-middle2.wav" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="Assets\Sprite\AIEdit\arrow.png" />
+    <ImageContentTask Include="Assets\Sprite\AIEdit\arrow.png" />
     <Image Include="Assets\Sprite\AIEdit\buttyon.png" />
-    <Image Include="Assets\Sprite\AIEdit\click.png" />
+    <None Include="Assets\Sprite\AIEdit\click.png" />
+    <None Include="Assets\Sprite\AIEdit\clickButton.png" />
     <Image Include="Assets\Sprite\AIEdit\deletepoint.png" />
     <Image Include="Assets\Sprite\AIEdit\haik.png" />
     <Image Include="Assets\Sprite\AIEdit\help.png" />
     <Image Include="Assets\Sprite\AIEdit\hozon.png" />
     <Image Include="Assets\Sprite\AIEdit\karipoint.png" />
-    <Image Include="Assets\Sprite\AIEdit\masss.png" />
+    <ImageContentTask Include="Assets\Sprite\AIEdit\masss.png" />
     <Image Include="Assets\Sprite\AIEdit\massss.png" />
     <Image Include="Assets\Sprite\AIEdit\menu.png" />
     <Image Include="Assets\Sprite\AIEdit\menu2.png" />
