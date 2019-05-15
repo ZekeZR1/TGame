@@ -717,6 +717,7 @@
     <Image Include="Assets\Sprite\GUI\Dungeon\d3.png" />
     <Image Include="Assets\Sprite\GUI\Dungeon\d4.png" />
     <Image Include="Assets\Sprite\GUI\Dungeon\d5.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\dungeonAiSelectWallpaper.png" />
     <Image Include="Assets\Sprite\GUI\Dungeon\dungeonSelectWallpaper.png" />
     <Image Include="Assets\Sprite\GUI\Dungeon\DungeonSp.png" />
     <Image Include="Assets\Sprite\GUI\Dungeon\DungeonSpS.png" />
@@ -794,9 +795,9 @@
     <None Include="Assets\modelData\testMons\tesEnemy2.fbx">
       <FileType>Document</FileType>
     </None>
-    <None Include="Assets\modelData\testMons\tesEnemy3.fbx">
+    <MeshContentTask Include="Assets\modelData\testMons\tesEnemy3.fbx">
       <FileType>Document</FileType>
-    </None>
+    </MeshContentTask>
     <None Include="Assets\modelData\uma\uma.bone.fbx">
       <FileType>Document</FileType>
     </None>
