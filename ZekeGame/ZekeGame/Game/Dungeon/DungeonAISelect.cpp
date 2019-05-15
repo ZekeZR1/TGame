@@ -17,6 +17,9 @@
 #include "DungeonTransition.h"
 
 #include "../ReturnButton/ReturnButton.h"
+#include "../Title/MonAIPreset/MonAIPresetOpenSuper.h"
+#include "../Title/MonAIPreset/MonAIPresetSaveOpen.h"
+#include "../Title/MonAIPreset/MonAIPresetLoadOpen.h"
 
 DungeonAISelect::DungeonAISelect()
 {
@@ -24,6 +27,11 @@ DungeonAISelect::DungeonAISelect()
 
 
 DungeonAISelect::~DungeonAISelect()
+{
+	
+}
+
+void DungeonAISelect::OnDestroy()
 {
 	DeleteGO(m_dunSp);
 	DeleteGO(m_font);
@@ -35,9 +43,19 @@ DungeonAISelect::~DungeonAISelect()
 	DeleteGO(m_GO);
 	//DeleteGO(m_backSp);
 	DeleteGO(m_returnButton);
+	DeleteGO(m_msp);
+	DeleteGO(m_mlp);
 }
 
 bool DungeonAISelect::Start() {
+	auto m_BGM = FindGO<Sound>("BGM");
+	if (m_BGM == nullptr)
+	{
+		m_BGM = NewGO<Sound>(0, "BGM");
+		m_BGM->Init(L"Assets/sound/BGM/PerituneMaterial_Strategy5_loop.wav", true);
+		m_BGM->Play();
+	}
+
 	m_fade = FindGO<Fade>("fade");
 	m_fade->FadeIn();
 	m_files = PythonFileLoad::FilesLoad();
@@ -48,8 +66,17 @@ bool DungeonAISelect::Start() {
 		m_pmms.push_back(NewGO<PMMonster>(0, "pmm"));
 		m_pmms[i]->init(i, pos);
 		pos.x += 240.f;
-		std::wstring ws = std::wstring(m_files[g_AIset[i].AInum].begin(), m_files[g_AIset[i].AInum].end());
-		m_pmms[i]->SetPython(ws.c_str(), g_AIset[i].AInum, g_AIset[i].AImode);
+		if (g_AIset[i].AImode == 0) //AImode Python
+		{
+			std::wstring ws = std::wstring(m_files[g_AIset[i].AInum].begin(), m_files[g_AIset[i].AInum].end());
+			m_pmms[i]->SetPython(ws.c_str(), g_AIset[i].AInum, g_AIset[i].AImode);
+		}
+		else //AImode VisualAI
+		{
+			wchar_t ws[3]; 
+			swprintf_s(ws, L"%d", g_AIset[i].AInum);
+			m_pmms[i]->SetPython(ws, g_AIset[i].AInum, g_AIset[i].AImode);
+		}
 	}
 	m_GO = NewGO<SpriteRender>(0, "sp");
 	m_GO->Init(L"Assets/sprite/GO.dds", 193, 93, true);
@@ -70,6 +97,13 @@ bool DungeonAISelect::Start() {
 
 	m_returnButton = NewGO<ReturnButton>(0, "rb");
 	m_returnButton->init(this, "pvp", m_cursor);
+
+	//　紅組用のチームを保存するやつ
+	m_msp = NewGO<MonAIPresetSaveOpen>(0, "mapso");
+	m_msp->init(this, m_cursor, L"チームを保存", { 410,130,0 }, 0);
+	//　紅組用のチームを開くやつ
+	m_mlp = NewGO<MonAIPresetLoadOpen>(0, "maplo");
+	m_mlp->init(this, m_cursor, L"チームを開く", { 410,60,0 }, 0);
 	return true;
 }
 
@@ -85,10 +119,7 @@ void DungeonAISelect::Update() {
 	}
 	if (ispmm)
 		return;
-	for (auto pmm : m_pmms)
-	{
-		pmm->UpdateEX();
-	}
+	
 	/*for (auto pmm : m_pmms)
 	{
 		if (pmm->isClick())
@@ -107,47 +138,69 @@ void DungeonAISelect::Update() {
 	}*/
 	if (ismonsel)
 		return;
-	m_GO->SetCollisionTarget(m_cursor->GetCursor());
-	if (m_GO->isCollidingTarget())
+	if (!(m_msp->IsOpen() || m_mlp->IsOpen()))
 	{
-		if (Mouse::isTrigger(enLeftClick))
+		m_msp->UpdateEx();
+		m_mlp->UpdateEx();
+
+		if (m_msp->IsClick())
 		{
-			for (int i = 0; i < m_numPmm; i++)
+			m_msp->Open();
+		}
+		else if (m_mlp->IsClick())
+		{
+			m_mlp->Open();
+		}
+
+		for (auto pmm : m_pmms)
+		{
+			pmm->UpdateEX();
+		}
+			
+
+		m_GO->SetCollisionTarget(m_cursor->GetCursor());
+		if (m_GO->isCollidingTarget())
+		{
+			if (Mouse::isTrigger(enLeftClick))
 			{
-				moid[i] = static_cast<MonsterID>(m_pmms[i]->GetMonsterID());
-				monai[i] = m_pmms[i]->GetAI();
+				for (int i = 0; i < m_numPmm; i++)
+				{
+					moid[i] = static_cast<MonsterID>(m_pmms[i]->GetMonsterID());
+					monai[i] = m_pmms[i]->GetAI();
+				}
+				m_fade->FadeOut();
+				m_isfade = true;
 			}
-			m_fade->FadeOut();
-			m_isfade = true;
 		}
-	}
-	if (m_isfade && m_fade->isFadeStop()) {
-		auto dun = NewGO<DungeonGame>(0, "DungeonGame");
-		int i = 0;
-		for (auto p : m_pmms) {
-			aimode[i] = p->GetAImode();
-			i++;
+		if (m_isfade && m_fade->isFadeStop()) {
+			auto dun = NewGO<DungeonGame>(0, "DungeonGame");
+			int i = 0;
+			for (auto p : m_pmms) {
+				aimode[i] = p->GetAImode();
+				i++;
+			}
+			dun->SetGameData(m_files, m_enemyFiles, monai, moid, m_dunNum, aimode);
+			OutputDebugStringA("AI Selected!! Start Transation!\n");
+			dun->StartTransition();
+			DeleteGO(this);
 		}
-		dun->SetGameData(m_files, m_enemyFiles, monai, moid, m_dunNum,aimode);
-		OutputDebugStringA("AI Selected!! Start Transation!\n");
-		dun->StartTransition();
-		DeleteGO(this);
+
+		m_returnButton->UpdateEx<DungeonSelect>();
+
+		//	m_backSp->SetCollisionTarget(m_cursor->GetCursor());
+		////	if (g_pad[0].IsTrigger(enButtonA)) {
+		//	if(m_backSp->isCollidingTarget() && Mouse::isTrigger(enLeftClick)){
+		//		m_fade->FadeOut();
+		//		isfade = true;
+		//	}
 	}
-
-	m_returnButton->UpdateEx<DungeonSelect>();
-
-//	m_backSp->SetCollisionTarget(m_cursor->GetCursor());
-////	if (g_pad[0].IsTrigger(enButtonA)) {
-//	if(m_backSp->isCollidingTarget() && Mouse::isTrigger(enLeftClick)){
-//		m_fade->FadeOut();
-//		isfade = true;
-//	}
 	if (isfade && m_fade->isFadeStop()) {
 		NewGO<DungeonSelect>(0, "DungeonSelect");
 		auto dgame = FindGO<DungeonGame>("DungeonGame");
 		DeleteGO(this);
 		DeleteGO(dgame);
 	}
+	
 }
 
 void DungeonAISelect::LoadFiles() {

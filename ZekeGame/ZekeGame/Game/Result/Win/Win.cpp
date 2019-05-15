@@ -39,6 +39,8 @@ Win::~Win()
 	DeleteGO(m_srteam);
 	DeleteGO(m_srwin);
 	DeleteGO(FindGO<Game>("Game"));
+
+	DeleteGO(m_nextfont);
 	
 }
 
@@ -94,10 +96,7 @@ bool Win::Start()
 
 void Win::Update()
 {
-	if (g_pad[0].IsTrigger(enButtonA))
-	{
-		DeleteGO(this);
-	}
+	
 
 	if (m_cmove)
 	{
@@ -132,7 +131,19 @@ void Win::Update()
 			m_BGM->Init(L"Assets/sound/BGM/PerituneMaterial_OverWorld5_loop.wav", true);
 			m_BGM->Play();
 
+			m_nextfont = NewGO<FontRender>(5, "fr");
+			m_nextfont->SetTextType(CFont::en_Japanese);
+			m_nextfont->Init(L"ƒNƒŠƒbƒN‚µ‚Ä‚­‚¾‚³‚¢", { -600,-300 }, 0, { 1,1,1,1 }, 1, { 0,0 });
+			m_nextfont->DrawShadow();
+
 			m_cmove = false;
+		}
+	}
+	else
+	{
+		if (Mouse::isTrigger(enLeftClick))
+		{
+			DeleteGO(this);
 		}
 	}
 }

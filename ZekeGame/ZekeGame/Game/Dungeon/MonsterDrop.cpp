@@ -49,7 +49,7 @@ bool MonsterDrop::Start() {
 	InitModels();
 
 	m_BGM = NewGO<Sound>(0, "BGM");
-	m_BGM->Init(L"Assets/sound/dungeon/dropbgm.wav", true);
+	m_BGM->Init(L"Assets/sound/dungeon/mond.wav", true);
 	m_BGM->Play();
 
 	m_fade = FindGO<Fade>("fade");

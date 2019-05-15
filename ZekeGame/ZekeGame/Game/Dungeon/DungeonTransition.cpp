@@ -9,7 +9,7 @@ bool DungeonTransition::Start() {
 	m_fade->FadeIn();
 
 	Sound* bgm = NewGO<Sound>(0, "BGM");
-	bgm->Init(L"Assets/sound/dungeon/dunt.wav",true);
+	bgm->Init(L"Assets/sound/dungeon/duntr.wav",true);
 	bgm->Play();
 
 	m_back = NewGO<SkinModelRender>(0);
