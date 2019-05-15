@@ -1487,9 +1487,6 @@
     <None Include="Assets\modelData\testMons\tesEnemy2.fbx">
       <Filter>Assets\model</Filter>
     </None>
-    <None Include="Assets\modelData\testMons\tesEnemy3.fbx">
-      <Filter>Assets\model</Filter>
-    </None>
     <None Include="Assets\modelData\uma\uma.bone.fbx">
       <Filter>Assets\model</Filter>
     </None>
@@ -1543,6 +1540,12 @@
     </None>
     <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\monsel_back.png">
       <Filter>Assets\Sprite\AIselect</Filter>
+    </None>
+    <None Include="Assets\Sprite\AIEdit\clickButton.png">
+      <Filter>Assets\Sprite\AIEdit</Filter>
+    </None>
+    <None Include="Assets\Sprite\AIEdit\click.png">
+      <Filter>Assets\Sprite\AIEdit</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -1694,9 +1697,6 @@
     <Image Include="Assets\Sprite\AIEdit\buttyon.png">
       <Filter>Assets\Sprite\AIEdit</Filter>
     </Image>
-    <Image Include="Assets\Sprite\AIEdit\click.png">
-      <Filter>Assets\Sprite\AIEdit</Filter>
-    </Image>
     <Image Include="Assets\Sprite\AIEdit\deletepoint.png">
       <Filter>Assets\Sprite\AIEdit</Filter>
     </Image>
@@ -1710,9 +1710,6 @@
       <Filter>Assets\Sprite\AIEdit</Filter>
     </Image>
     <Image Include="Assets\Sprite\AIEdit\karipoint.png">
-      <Filter>Assets\Sprite\AIEdit</Filter>
-    </Image>
-    <Image Include="Assets\Sprite\AIEdit\masss.png">
       <Filter>Assets\Sprite\AIEdit</Filter>
     </Image>
     <Image Include="Assets\Sprite\AIEdit\massss.png">
@@ -1737,9 +1734,6 @@
       <Filter>Assets\Sprite\AIEdit</Filter>
     </Image>
     <Image Include="Assets\Sprite\AIEdit\sieat.png">
-      <Filter>Assets\Sprite\AIEdit</Filter>
-    </Image>
-    <Image Include="Assets\Sprite\AIEdit\arrow.png">
       <Filter>Assets\Sprite\AIEdit</Filter>
     </Image>
     <Image Include="Assets\Sprite\GUI\button\sb_cancel.png">
@@ -1876,5 +1870,28 @@
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\Monselect.png">
       <Filter>Assets\Sprite\MonSelect</Filter>
     </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\AIEdit\masss.png">
+      <Filter>Assets\Sprite\AIEdit</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\AIEdit\arrow.png">
+      <Filter>Assets\Sprite\AIEdit</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\dungeonAiSelectWallpaper.png">
+      <Filter>Assets\Sprite\dungeon</Filter>
+    </ImageContentTask>
+  </ItemGroup>
+  <ItemGroup>
+    <MeshContentTask Include="Assets\modelData\dungeon\dropwall.fbx">
+      <Filter>Assets\model</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\dungeon\egg.FBX">
+      <Filter>Assets\model</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\dungeon\testback.FBX">
+      <Filter>Assets\model</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\testMons\tesEnemy3.fbx">
+      <Filter>Assets\model</Filter>
+    </MeshContentTask>
   </ItemGroup>
 </Project>

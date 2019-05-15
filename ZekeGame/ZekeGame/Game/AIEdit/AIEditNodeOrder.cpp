@@ -57,7 +57,8 @@ bool AIEditNodeOrder::Start()
 	}
 
 	m_spriteRender = NewGO<SpriteRender>(2, "mass");
-	m_spriteRender->Init(L"Assets/sprite/masss.dds", 300, 115);  //last
+	m_spriteRender->Init(L"Assets/sprite/masss.dds", 280, 80);  //last
+	//m_spriteRender->Init(L"Assets/sprite/fade_black.dds", 280, 80);  //last
 	m_spriteRender->SetPosition(m_pos);
 	m_aieditnodeprocess->SetClickFlag(true);
 
@@ -362,7 +363,8 @@ void AIEditNodeOrder::makeOrder(int l,int o,sOrder* order, bool isEnd)
 	m_pos = vp;
 
 	m_spriteRender = NewGO<SpriteRender>(2, "mass");
-	m_spriteRender->Init(L"Assets/sprite/masss.dds", 300, 115);  //last
+	m_spriteRender->Init(L"Assets/sprite/masss.dds", 280, 80);  //last
+	//m_spriteRender->Init(L"Assets/sprite/fade_black.dds", 280, 80);  //last
 	m_spriteRender->SetPosition(m_pos);
 	//m_aieditnodeprocess->SetClickFlag(true);
 

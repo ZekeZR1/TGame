@@ -34,6 +34,11 @@ public:
 		m_textType = type;
 	}
 
+	void SetScale(float s)
+	{
+		m_scale = s;
+	}
+
 	//表示されているテキストを変えす
 	const wchar_t* getText()
 	{

@@ -32,9 +32,9 @@ DirectX::Model* SkinModelDataManager::Load(const wchar_t* filePath, const Skelet
 		//CMOファイルのロード。
 		auto model = DirectX::Model::CreateFromCMO(	
 			g_graphicsEngine->GetD3DDevice(),			
-			filePath,								
-			effectFactory,						
-			false,										
+			filePath,
+			effectFactory,
+			false,							
 			false,
 			onFindBone
 		);
