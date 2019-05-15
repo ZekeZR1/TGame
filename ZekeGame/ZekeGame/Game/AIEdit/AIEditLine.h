@@ -41,5 +41,8 @@ private:
 	AIEditNodeProcess* m_aieditnodeprocess;
 	AIEditNodeSelectFonts* m_aieditnodeselectfonts;
 
+
+	FontRender* m_font = nullptr;
+
 	bool m_ismakeLine = false;
 };

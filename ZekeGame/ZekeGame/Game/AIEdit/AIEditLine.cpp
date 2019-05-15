@@ -12,6 +12,7 @@
 AIEditLine::~AIEditLine()
 {
 	DeleteGO(m_spriteRender);
+	DeleteGO(m_font);
 }
 
 bool AIEditLine::Start()
@@ -23,7 +24,8 @@ bool AIEditLine::Start()
 	m_aieditnodeorder = FindGO<AIEditNodeOrder>("Order");
 	m_aieditnodeprocess = FindGO<AIEditNodeProcess>("process");
 	m_spriteRender = NewGO<SpriteRender>(1, "line");
-	m_spriteRender->Init(L"Assets/sprite/arrow.dds", 1, 250);  //last
+	m_spriteRender->Init(L"Assets/sprite/arrow.dds", 1, 40);  //last
+	//m_spriteRender->Init(L"Assets/sprite/fade_black.dds", 1, 40);  //last
 	m_pos.x += 120;
 	m_spriteRender->SetPosition(m_pos);
 	m_spriteRender->SetPivot({ 0.0f, 0.5f });
@@ -48,6 +50,14 @@ void AIEditLine::Update()
 	
 		if (Choice1 == false) {
 			
+			m_font = NewGO<FontRender>(1, "fr");
+			m_font->SetTextType(CFont::en_Japanese);
+			CVector2 v = m_pos.ToTwo();
+			v.x += 30;
+			v.y += 8;
+			m_font->Init(L"‚Ì ‚Æ ‚«", v, 0, { 0.f,0.f,0.f,1 }, 0.3f);
+			//m_font->DrawShadow();
+
 			m_aieditnodeprocess->Target();
 			Choice1 = true;
 
@@ -59,10 +69,20 @@ void AIEditLine::Update()
 void AIEditLine::makeLine()
 {
 	m_spriteRender = NewGO<SpriteRender>(1, "line");
-	m_spriteRender->Init(L"Assets/sprite/arrow.dds", 1, 250);  //last
+	m_spriteRender->Init(L"Assets/sprite/arrow.dds", 1, 40);  //last
+	//m_spriteRender->Init(L"Assets/sprite/fade_black.dds", 1, 250);  //last
+
 	m_pos.x += 120;
 	m_spriteRender->SetPosition(m_pos);
 	m_spriteRender->SetPivot({ 0.0f, 0.5f });
 	m_ismakeLine = true;
 	m_spriteRender->SetScale({ 182,1,1 });
+
+	m_font = NewGO<FontRender>(1, "fr");
+	m_font->SetTextType(CFont::en_Japanese);
+	CVector2 v = m_pos.ToTwo();
+	v.x += 30;
+	v.y += 8;
+	m_font->Init(L"‚Ì ‚Æ ‚«", v, 0, { 0.f,0.f,0.f,1 }, 0.3f);
+	//m_font->DrawShadow({ 5,-5 }, 1.3f, 0, {1,1,1,1});
 }
