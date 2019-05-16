@@ -1493,9 +1493,6 @@
     <None Include="Assets\modelData\testMons\tesEnemy2.fbx">
       <Filter>Assets\model</Filter>
     </None>
-    <None Include="Assets\modelData\testMons\tesEnemy3.fbx">
-      <Filter>Assets\model</Filter>
-    </None>
     <None Include="Assets\modelData\uma\uma.bone.fbx">
       <Filter>Assets\model</Filter>
     </None>
@@ -1888,6 +1885,7 @@
     <ImageContentTask Include="Assets\Sprite\AIEdit\HOM.png">
       <Filter>Assets\Sprite\AIEdit</Filter>
     </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\dungeonAiSelectWallpaper.png" />
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\dungeon\dropwall.fbx">
@@ -1897,6 +1895,11 @@
       <Filter>Assets\model</Filter>
     </MeshContentTask>
     <MeshContentTask Include="Assets\modelData\armor\armor.FBX">
+      <Filter>Assets\model</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\testMons\tesEnemy3.fbx" />
+    <MeshContentTask Include="Assets\modelData\dungeon\testback.FBX" />
+    <MeshContentTask Include="Assets\modelData\door\door.fbx">
       <Filter>Assets\model</Filter>
     </MeshContentTask>
   </ItemGroup>

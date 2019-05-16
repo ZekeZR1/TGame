@@ -798,6 +798,7 @@
     <None Include="Assets\modelData\testMons\tesEnemy2.fbx">
       <FileType>Document</FileType>
     </None>
+    <MeshContentTask Include="Assets\modelData\door\door.fbx" />
     <MeshContentTask Include="Assets\modelData\testMons\tesEnemy3.fbx">
       <FileType>Document</FileType>
     </MeshContentTask>
