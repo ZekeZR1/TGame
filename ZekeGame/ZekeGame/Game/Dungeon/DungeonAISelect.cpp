@@ -41,13 +41,24 @@ void DungeonAISelect::OnDestroy()
 		DeleteGO(go);
 	}
 	DeleteGO(m_GO);
-	//DeleteGO(m_backSp);
+	DeleteGO(m_backSp);
 	DeleteGO(m_returnButton);
 	DeleteGO(m_msp);
 	DeleteGO(m_mlp);
 }
 
 bool DungeonAISelect::Start() {
+	auto m_BGM = FindGO<Sound>("BGM");
+	if (m_BGM == nullptr)
+	{
+		m_BGM = NewGO<Sound>(0, "BGM");
+		m_BGM->Init(L"Assets/sound/BGM/PerituneMaterial_Strategy5_loop.wav", true);
+		m_BGM->Play();
+	}
+	//m_backSp->Init(L"Assets/Sprite/dungeonAiSelectWallpaper.dds", 1280.f, 720.f, false);
+	m_backSp = NewGO<SpriteRender>(0, "sp");
+	m_backSp->Init(L"Assets/sprite/monsel_back.dds", 1280, 720);
+
 	m_fade = FindGO<Fade>("fade");
 	m_fade->FadeIn();
 	m_files = PythonFileLoad::FilesLoad();
@@ -70,24 +81,20 @@ bool DungeonAISelect::Start() {
 			m_pmms[i]->SetPython(ws, g_AIset[i].AInum, g_AIset[i].AImode);
 		}
 	}
-	m_GO = NewGO<SpriteRender>(0, "sp");
+	m_GO = NewGO<SpriteRender>(1, "sp");
 	m_GO->Init(L"Assets/sprite/GO.dds", 193, 93, true);
 	m_GO->SetPosition({ 400,-160,0 });
-	m_dunSp = NewGO<SpriteRender>(0, "dunSp");
+	m_dunSp = NewGO<SpriteRender>(1, "dunSp");
 	m_dunSp->Init(L"Assets/Sprite/DadandanBk.dds", 350.f, 70.f);
 	m_dunSp->SetPosition({ 0.f,300.f,0.f });
-	m_font = NewGO<FontRender>(0, "font");
+	m_font = NewGO<FontRender>(1, "font");
 	m_font->SetTextType(CFont::en_Japanese);
 	wchar_t dungeon[256];
 	swprintf_s(dungeon, L"ダンジョン%d\n", m_dunNum + 1);
 	m_font->Init(dungeon, { -140.f, 320.f }, 0.f, CVector4::White, 1.f, { 0.f,0.f });
 
-	/*m_backSp = NewGO<SpriteRender>(0);
-	m_backSp->Init(L"Assets/Sprite/returnButton.dds", 200.f, 50.f, true);
-	CVector3 p = { -430.f,-300.f,0.f };
-	m_backSp->SetPosition(p);*/
 
-	m_returnButton = NewGO<ReturnButton>(0, "rb");
+	m_returnButton = NewGO<ReturnButton>(1, "rb");
 	m_returnButton->init(this, "pvp", m_cursor);
 
 	//　紅組用のチームを保存するやつ

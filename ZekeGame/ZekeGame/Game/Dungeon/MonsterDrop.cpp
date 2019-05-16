@@ -47,6 +47,11 @@ bool MonsterDrop::Start() {
 
 	InitUI();
 	InitModels();
+
+	m_BGM = NewGO<Sound>(0, "BGM");
+	m_BGM->Init(L"Assets/sound/dungeon/mond.wav", true);
+	m_BGM->Play();
+
 	m_fade = FindGO<Fade>("fade");
 	m_fade->FadeIn();
 	return true;
@@ -59,6 +64,7 @@ void MonsterDrop::OnDestroy() {
 	DeleteGO(m_egg);
 	DeleteGO(m_back);
 	DeleteGO(m_cursor);
+	DeleteGO(m_BGM);
 	DeleteGO(m_notifyFont);
 }
 

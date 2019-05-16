@@ -38,5 +38,7 @@ private:
 
 	//other
 	GameCursor* m_cursor = nullptr;
+	Sound* m_BGM = nullptr;
+
 };
 
