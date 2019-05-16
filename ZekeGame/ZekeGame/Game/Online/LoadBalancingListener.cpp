@@ -213,8 +213,9 @@ void LoadBalancingListener::raiseVisualAIsData() {
 	}*/
 }
 
-void LoadBalancingListener::raiseMyLoadingState() {
+bool LoadBalancingListener::raiseMyLoadingState() {
 	mpLbc->opRaiseEvent(false, 1, enLoadState);
+	return true;
 }
 
 void LoadBalancingListener::raiseMonAIs() {
