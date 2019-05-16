@@ -22,10 +22,21 @@ int WINAPI wWinMain(
 	NewGO<ModeSelect>(0, "modesel");
 	//NewGO<MonsterDrop>(0);
 	g_physics.SetDebugDraw(true);
+
+	/*AnimationClip anim[3];
+	anim[0].Load(L"Assets/modelData/gob/gob_walk.tka");
+	anim[0].SetLoopFlag(true);
+	SkinModelRender* sr = NewGO<SkinModelRender>(0, "sr");
+	sr->Init(L"Assets/modelData/gob_bone.cmo", anim, 1);
+	sr->SetScale({ 10,10,10 });*/
+
+
 	SkinModelRender* sm = NewGO<SkinModelRender>(0, "sm");
 	sm->Init(L"Assets/modelData/tesEnemy3.cmo");
 	sm->SetPosition(CVector3::Zero());
 	sm->SetScale({ 0.001f,0.001f,0.001f });
+
+
 	//MainRoop
 	Engine::IEngine().GameRoop();
 	//Release

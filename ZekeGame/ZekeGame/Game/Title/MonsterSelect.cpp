@@ -18,6 +18,7 @@ MonsterSelect::~MonsterSelect()
 		DeleteGO(ic);
 	}
 	DeleteGO(m_monsel);
+	DeleteGO(m_title);
 }
 
 bool MonsterSelect::Start()
@@ -26,6 +27,11 @@ bool MonsterSelect::Start()
 	m_monsel->Init(L"Assets/sprite/Monselect.dds", 570, 84);
 	m_monsel->SetPivot({ 0,1 });
 	m_monsel->SetPosition({ -246,360,0 });
+
+	m_title = NewGO<FontRender>(28, "fr");
+	m_title->SetTextType(CFont::en_Japanese);
+	m_title->Init(L"モンスターセレクト", { -246,340 }, 0, { 1,1,1,1 }, 1.25f);
+	m_title->DrawShadow();
 
 	m_cursor = FindGO<GameCursor>("cursor");
 
