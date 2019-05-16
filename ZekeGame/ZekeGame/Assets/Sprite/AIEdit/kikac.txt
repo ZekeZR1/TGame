@@ -1,7 +1,7 @@
 help 40 40
-hozon 80 40
-menuselect 80 40
-open 80 40
+#hozon 80 40
+#menuselect 80 40
+#open 80 40
 
 menu2 
 175 280
