@@ -288,6 +288,7 @@
     <ClCompile Include="Game\Monster\MonsterActionManeger.cpp" />
     <ClCompile Include="Game\Monster\MonsterEffect.cpp" />
     <ClCompile Include="Game\Monster\MonsterMarker.cpp" />
+    <ClCompile Include="Game\Monster\Monsters\Armor.cpp" />
     <ClCompile Include="Game\Monster\Monsters\Fairy.cpp" />
     <ClCompile Include="Game\Monster\Monsters\TestMons.cpp" />
     <ClCompile Include="Game\Monster\Monsters\Uma.cpp" />
@@ -482,6 +483,7 @@
     <ClInclude Include="Game\Monster\MonsterActionManeger.h" />
     <ClInclude Include="Game\Monster\MonsterEffect.h" />
     <ClInclude Include="Game\Monster\MonsterMarker.h" />
+    <ClInclude Include="Game\Monster\Monsters\Armor.h" />
     <ClInclude Include="Game\Monster\Monsters\Fairy.h" />
     <ClInclude Include="Game\Monster\Monsters\TestMons.h" />
     <ClInclude Include="Game\Monster\Monsters\Uma.h" />
@@ -694,6 +696,7 @@
     <Image Include="Assets\Sprite\AIEdit\deletepoint.png" />
     <Image Include="Assets\Sprite\AIEdit\haik.png" />
     <Image Include="Assets\Sprite\AIEdit\help.png" />
+    <ImageContentTask Include="Assets\Sprite\AIEdit\HOM.png" />
     <Image Include="Assets\Sprite\AIEdit\hozon.png" />
     <Image Include="Assets\Sprite\AIEdit\karipoint.png" />
     <ImageContentTask Include="Assets\Sprite\AIEdit\masss.png" />
@@ -808,6 +811,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <MeshContentTask Include="Assets\modelData\armor\armor.FBX" />
     <MeshContentTask Include="Assets\modelData\dungeon\dropwall.fbx" />
     <MeshContentTask Include="Assets\modelData\dungeon\egg.FBX" />
   </ItemGroup>

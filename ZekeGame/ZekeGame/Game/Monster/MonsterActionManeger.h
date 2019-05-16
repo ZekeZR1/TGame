@@ -11,7 +11,7 @@ public:
 	//target:	対象のモンスター
 	static MonsterAction* LoadAction(int id,int target);
 
-	//TODO: 新しい技を追加するときはここにも追加しよう
+	
 	/*enum en_action
 	{
 		en_Chase,

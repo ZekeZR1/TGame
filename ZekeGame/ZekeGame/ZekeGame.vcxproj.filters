@@ -533,6 +533,9 @@
     <ClCompile Include="Game\ReturnButton\ReturnButton.cpp">
       <Filter>Game\ReturnButton</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Monster\Monsters\Armor.cpp">
+      <Filter>Game\Monster</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\PythonBridge\include\unicodeobject.h" />
@@ -1374,6 +1377,9 @@
     <ClInclude Include="Game\ReturnButton\ReturnButton.h">
       <Filter>Game\ReturnButton</Filter>
     </ClInclude>
+    <ClInclude Include="Game\Monster\Monsters\Armor.h">
+      <Filter>Game\Monster</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="python36.lib" />
@@ -1879,12 +1885,18 @@
     <ImageContentTask Include="Assets\Sprite\AIEdit\arrow.png">
       <Filter>Assets\Sprite\AIEdit</Filter>
     </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\AIEdit\HOM.png">
+      <Filter>Assets\Sprite\AIEdit</Filter>
+    </ImageContentTask>
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\dungeon\dropwall.fbx">
       <Filter>Assets\model</Filter>
     </MeshContentTask>
     <MeshContentTask Include="Assets\modelData\dungeon\egg.FBX">
+      <Filter>Assets\model</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\armor\armor.FBX">
       <Filter>Assets\model</Filter>
     </MeshContentTask>
   </ItemGroup>
