@@ -803,9 +803,9 @@
     <None Include="Assets\modelData\door\door.fbx">
       <FileType>Document</FileType>
     </None>
-    <None Include="Assets\modelData\testMons\tesEnemy3.fbx">
+    <MeshContentTask Include="Assets\modelData\testMons\tesEnemy3.fbx">
       <FileType>Document</FileType>
-    </None>
+    </MeshContentTask>
     <None Include="Assets\modelData\uma\uma.bone.fbx">
       <FileType>Document</FileType>
     </None>

@@ -1760,7 +1760,6 @@
     <None Include="Assets\modelData\testMons\tesEnemy2.fbx">
       <Filter>Assets\model</Filter>
     </None>
-    <None Include="Assets\modelData\testMons\tesEnemy3.fbx" />
     <None Include="Assets\modelData\dungeon\testback.FBX">
       <Filter>Assets\model</Filter>
     </None>
@@ -1911,5 +1910,6 @@
     <MeshContentTask Include="Assets\modelData\gob\gob_bone.fbx">
       <Filter>Assets\model</Filter>
     </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\testMons\tesEnemy3.fbx" />
   </ItemGroup>
 </Project>
