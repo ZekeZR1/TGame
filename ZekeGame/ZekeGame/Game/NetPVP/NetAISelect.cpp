@@ -14,6 +14,8 @@
 #include "CRatingSystem.h"
 #include "RatePopup.h"
 
+#include "../ReturnButton/ReturnButton.h"
+
 void NetAISelect::OnDestroy()
 {
 	DeleteGO(m_info);
@@ -27,6 +29,8 @@ void NetAISelect::OnDestroy()
 	DeleteGO(m_status);
 	for (auto i : m_pmms)
 		DeleteGO(i);
+
+	DeleteGO(m_returnButton);
 }
 
 bool NetAISelect::Start()
@@ -69,7 +73,7 @@ bool NetAISelect::Start()
 	m_GO->Init(L"Assets/sprite/GO.dds", 193, 93, true);
 	m_GO->SetPosition({ 520,240,0 });
 
-	CVector3 repo = { -520,-260,0 };
+	/*CVector3 repo = { -520,-260,0 };
 	m_returnS.x /= 3;
 	m_returnS.y /= 3;
 	m_return = NewGO<SpriteRender>(0, "sp");
@@ -77,7 +81,7 @@ bool NetAISelect::Start()
 	m_returnMoji = NewGO<SpriteRender>(0, "sp");
 	m_returnMoji->Init(L"Assets/sprite/moji_return.dds", m_returnS.x, m_returnS.y, true);
 	m_return->SetPosition(repo);
-	m_returnMoji->SetPosition(repo);
+	m_returnMoji->SetPosition(repo);*/
 
 	//info
 	m_status = NewGO<RatingInfo>(0);
@@ -88,6 +92,10 @@ bool NetAISelect::Start()
 	//m_info->Init(L"Assets/Sprite/popupback.dds", 150.f, 300.f);
 	//m_info->SetPosition(m_infoPos);
 	m_fade->FadeIn();
+
+	m_returnButton = NewGO<ReturnButton>(0, "rb");
+	m_returnButton->init(this, "modesel", m_cursor);
+	
 	return true;
 }
 
@@ -126,6 +134,7 @@ void NetAISelect::Update()
 	//何か開いていた場合は他のものはクリックしても反応しない。
 	if (!(m_msRed->IsOpen() || m_mlRed->IsOpen() || ispmm || isopen))
 	{
+		m_returnButton->UpdateEx<ModeSelect>();
 		m_msRed->UpdateEx();
 		m_mlRed->UpdateEx();
 		//プリセットのセーブ
@@ -171,27 +180,27 @@ void NetAISelect::Update()
 			}
 		}
 
-		m_returnMoji->SetCollisionTarget(curs);
-		if (m_returnMoji->isCollidingTarget())
-		{
-			if (!isReturnOver)
-			{
-				m_return->Init(L"Assets/sprite/simple_button_blue.dds", m_returnS.x, m_returnS.y);
-				isReturnOver = true;
-			}
-			if (Mouse::isTrigger(enLeftClick))
-			{
-				m_isBackFade = true;
-				m_fade->FadeOut();
-				//NewGO<ModeSelect>(0, "modesel");
-				//DeleteGO(this);
-			}
-		}
-		else if (isReturnOver)
-		{
-			m_return->Init(L"Assets/sprite/simple_button.dds", m_returnS.x, m_returnS.y);
-			isReturnOver = false;
-		}
+		//m_returnMoji->SetCollisionTarget(curs);
+		//if (m_returnMoji->isCollidingTarget())
+		//{
+		//	if (!isReturnOver)
+		//	{
+		//		m_return->Init(L"Assets/sprite/simple_button_blue.dds", m_returnS.x, m_returnS.y);
+		//		isReturnOver = true;
+		//	}
+		//	if (Mouse::isTrigger(enLeftClick))
+		//	{
+		//		m_isBackFade = true;
+		//		m_fade->FadeOut();
+		//		//NewGO<ModeSelect>(0, "modesel");
+		//		//DeleteGO(this);
+		//	}
+		//}
+		//else if (isReturnOver)
+		//{
+		//	m_return->Init(L"Assets/sprite/simple_button.dds", m_returnS.x, m_returnS.y);
+		//	isReturnOver = false;
+		//}
 	}
 	isopen = ispmm;
 	if (m_fade->isFadeStop() and m_isBackFade) {

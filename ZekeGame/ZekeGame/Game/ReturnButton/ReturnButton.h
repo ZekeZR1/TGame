@@ -9,6 +9,13 @@ public:
 	//コンストラクタ
 	ReturnButton();
 
+	/*
+	初期化
+	arg:
+		scene:現在のシーン
+		name:モどルシーンの名前
+		cursor:Кソー
+	*/
 	void init(GameObject* scene, const char* name, GameCursor* cursor)
 	{
 		m_scene = scene;

@@ -6,6 +6,7 @@ class GameCursor;
 class RatingInfo;
 class MonAIPresetOpenSuper;
 class Fade;
+class ReturnButton;
 class NetAISelect :public SuperMonsterSelect
 {
 public:
@@ -58,4 +59,6 @@ private:
 	bool m_isfade = false;
 	bool m_isBackFade = false;
 	RatingInfo* m_status = nullptr;
+
+	ReturnButton* m_returnButton = nullptr;			//–ß‚éƒ{ƒ^ƒ“
 };
