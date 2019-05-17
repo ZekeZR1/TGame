@@ -29,9 +29,9 @@
           <PVA>
             <Rotation>
               <X>
-                <Center>90</Center>
-                <Max>92</Max>
-                <Min>88</Min>
+                <Center>-90</Center>
+                <Max>-88</Max>
+                <Min>-92</Min>
               </X>
               <Z>
                 <Max>2</Max>
@@ -197,9 +197,9 @@
                 <Min>-0.1</Min>
               </Y>
               <Z>
-                <Center>0.5</Center>
-                <Max>0.6</Max>
-                <Min>0.4</Min>
+                <Center>-1.5</Center>
+                <Max>-1.4</Max>
+                <Min>-1.6</Min>
               </Z>
             </Velocity>
           </PVA>
@@ -293,7 +293,6 @@
             </ColorAll_Easing>
           </Sprite>
         </DrawingValues>
-        <IsRendered>False</IsRendered>
         <Name>レーザー粒子</Name>
         <Children />
       </Node>
@@ -367,7 +366,7 @@
           </Easing>
         </ScalingValues>
         <RendererCommonValues>
-          <ColorTexture>Texture/Particle02.png</ColorTexture>
+          <ColorTexture>../texture/Particle01.png</ColorTexture>
           <AlphaBlend>2</AlphaBlend>
         </RendererCommonValues>
         <DrawingValues>
@@ -435,7 +434,7 @@
           </Easing>
         </ScalingValues>
         <RendererCommonValues>
-          <ColorTexture>Texture/Particle02.png</ColorTexture>
+          <ColorTexture>../texture/Particle01.png</ColorTexture>
           <AlphaBlend>2</AlphaBlend>
         </RendererCommonValues>
         <DrawingValues>
@@ -575,7 +574,7 @@
           </Sphere>
         </GenerationLocationValues>
         <RendererCommonValues>
-          <ColorTexture>Texture/Particle02.png</ColorTexture>
+          <ColorTexture>../texture/burst02_red.png</ColorTexture>
           <AlphaBlend>2</AlphaBlend>
         </RendererCommonValues>
         <DrawingValues>
@@ -602,7 +601,6 @@
             </ColorAll_Easing>
           </Sprite>
         </DrawingValues>
-        <IsRendered>False</IsRendered>
         <Name>周囲パーティクル</Name>
         <Children />
       </Node>
