@@ -39,7 +39,7 @@ Armor::Armor()
 	ua[enDefense] = enDefense;
 	ua[4] = enActNone;
 	ua[5] = enActNone;
-	SetUseAction(ua);
+	SetUseAction(ua,6);
 
 	m_ID = enArmor;
 }

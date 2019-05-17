@@ -481,12 +481,16 @@ actions = []
 
 def addAction(target,action):
     """モジュール外から使わないでね!"""
-    if len(actions) >= 3 or target == None:
+    #if len(actions) >= 3 or target == None:
+    if target == None:
         return
-    for ac in MonsterUseAction[gameData.me.ID]:
-        if ac == action:
-            actions.append([int(action),target.num])
-            break
+    if False:
+        for ac in MonsterUseAction[gameData.me.ID]:
+            if ac == action:
+                actions.append([int(action),target.num])
+                break
+    else:
+        actions.append([int(action),target.num])
 
 def Chase(target):
     addAction(target,ACTION.Chase)
