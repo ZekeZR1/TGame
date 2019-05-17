@@ -395,15 +395,6 @@
     <ClCompile Include="Game\Monster\MonsterMarker.cpp">
       <Filter>Game\Monster</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Monster\Monsters\Uma.cpp">
-      <Filter>Game\Monster</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Monster\Monsters\Fairy.cpp">
-      <Filter>Game\Monster</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Monster\Monsters\TestMons.cpp">
-      <Filter>Game\Monster</Filter>
-    </ClCompile>
     <ClCompile Include="Game\AIEdit\AIEditNodeTarget.cpp">
       <Filter>Game\AIEdite</Filter>
     </ClCompile>
@@ -533,11 +524,23 @@
     <ClCompile Include="Game\ReturnButton\ReturnButton.cpp">
       <Filter>Game\ReturnButton</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Monster\Monsters\Armor.cpp">
-      <Filter>Game\Monster</Filter>
-    </ClCompile>
     <ClCompile Include="Game\Monster\Action\Act_superBeam.cpp">
       <Filter>act</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\Monsters\Armor.cpp">
+      <Filter>Game\Monster\Monsters</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\Monsters\Goblin.cpp">
+      <Filter>Game\Monster\Monsters</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\Monsters\Fairy.cpp">
+      <Filter>Game\Monster\Monsters</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\Monsters\Uma.cpp">
+      <Filter>Game\Monster\Monsters</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\Monsters\TestMons.cpp">
+      <Filter>Game\Monster\Monsters</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1242,15 +1245,6 @@
     <ClInclude Include="Game\Monster\MonsterMarker.h">
       <Filter>Game\Monster</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Monster\Monsters\Uma.h">
-      <Filter>Game\Monster</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Monster\Monsters\Fairy.h">
-      <Filter>Game\Monster</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Monster\Monsters\TestMons.h">
-      <Filter>Game\Monster</Filter>
-    </ClInclude>
     <ClInclude Include="Game\AIEdit\AIEditNodeTarget.h">
       <Filter>Game\AIEdite</Filter>
     </ClInclude>
@@ -1380,11 +1374,23 @@
     <ClInclude Include="Game\ReturnButton\ReturnButton.h">
       <Filter>Game\ReturnButton</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Monster\Monsters\Armor.h">
-      <Filter>Game\Monster</Filter>
-    </ClInclude>
     <ClInclude Include="Game\Monster\Action\Act_superBeam.h">
       <Filter>act</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\Monsters\Armor.h">
+      <Filter>Game\Monster\Monsters</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\Monsters\Goblin.h">
+      <Filter>Game\Monster\Monsters</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\Monsters\Fairy.h">
+      <Filter>Game\Monster\Monsters</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\Monsters\Uma.h">
+      <Filter>Game\Monster\Monsters</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\Monsters\TestMons.h">
+      <Filter>Game\Monster\Monsters</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1897,6 +1903,9 @@
     <Filter Include="Assets\Sprite\MonSelect">
       <UniqueIdentifier>{980c3a0a-ea09-46ea-8843-ecabbd66a6cd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\Monster\Monsters">
+      <UniqueIdentifier>{a18166ca-55fe-46b1-b481-916ee2a7dd82}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Media Include="Assets\sound\punch-middle2.wav">
@@ -1917,5 +1926,8 @@
       <Filter>Assets\model</Filter>
     </MeshContentTask>
     <MeshContentTask Include="Assets\modelData\testMons\tesEnemy3.fbx" />
+    <MeshContentTask Include="Assets\modelData\gob\gob.FBX">
+      <Filter>Assets\model</Filter>
+    </MeshContentTask>
   </ItemGroup>
 </Project>
