@@ -11,6 +11,7 @@ public:
 	void Update() override;
 	void Render() override;
 	//„„†„Š„„…„Š
+	//©“®‚ÅDelete‚³‚ê‚Ü‚·
 	void Play(const wchar_t* filepath, float speed = 1.f);
 	void Stop();
 
