@@ -539,6 +539,9 @@
     <ClCompile Include="Game\Monster\Action\Act_superBeam.cpp">
       <Filter>act</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Monster\Action\Act_ObstMove.cpp">
+      <Filter>act</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\PythonBridge\include\unicodeobject.h" />
@@ -1384,6 +1387,9 @@
       <Filter>Game\Monster</Filter>
     </ClInclude>
     <ClInclude Include="Game\Monster\Action\Act_superBeam.h">
+      <Filter>act</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\Action\Act_ObstMove.h">
       <Filter>act</Filter>
     </ClInclude>
   </ItemGroup>
