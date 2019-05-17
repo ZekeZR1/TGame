@@ -23,7 +23,7 @@ enum ActionID
 	enTackle,
 	enGuardian,
 	enRecovery,
-
+	enSuperBeam,
 	enActNone = 999
 };
 
