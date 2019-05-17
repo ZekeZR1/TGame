@@ -21,7 +21,7 @@ TestMons::TestMons()
 	init
 	(
 		10,		//HP
-		10,		//MP
+		INT_MAX,		//MP
 		10,		//–hŒä—Í
 		10,		//“Áê–hŒä—Í
 		10,		//UŒ‚—Í
@@ -32,13 +32,14 @@ TestMons::TestMons()
 		m_smr,	//‚rkin ‚lodel ‚qender
 		0		//ƒAƒjƒ[ƒVƒ‡ƒ“‚Ì”
 	);
-	ActionID ua[99] = {enActNone};
+	ActionID* ua = new ActionID[99];
 	ua[enAtack] = enAtack;
 	ua[enChase] = enChase;
 	ua[enLeave] = enLeave;
 	ua[enDefense] = enDefense;
 	ua[4] = enTackle;
 	ua[5] = enActNone;
+	ua[6] = enSuperBeam;
 	SetUseAction(ua,99);
 	//m_PB = FindGO<PythonBridge>("PB");
 

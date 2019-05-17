@@ -26,18 +26,35 @@ bool Act_superBeam::Action(Monster* me) {
 		m_efk = NewGO<CEffect>(0);
 		m_efk->SetPosition(me->Getpos());
 		m_efk->SetRotation(me->GetRotation());
+		m_efk->SetScale(m_efs);
 		m_efk->Play(L"Assets/effect/beam/Laserbeam.efk");
 
 		Sound* sound = NewGO<Sound>(0, "snd");
 		sound->Init(L"Assets/sound/bom.wav");
 		sound->Play();
 
-		m_target->DamageEx(me->GetExAttack());
+		m_laserTheta = cta;
 
 		m_first = false;
 	}
 	else if (!m_efk->IsPlay()) {
 		return true;
+	}
+
+	if (m_efk->IsPlay()) {
+		for (auto mon : g_mons)
+		{
+			if (mon == NULL)
+				break;
+
+			CVector3 vec = mon->Getpos() - me->Getpos();
+			float currentTheta = atan2(vec.x,vec.z);
+			float dif = max(currentTheta, m_laserTheta) - min(currentTheta, m_laserTheta);
+			if (dif < m_nearTheta and mon != me)
+			{
+				mon->DamageEx(me->GetExAttack());
+			}
+		}
 	}
 	return false;
 }

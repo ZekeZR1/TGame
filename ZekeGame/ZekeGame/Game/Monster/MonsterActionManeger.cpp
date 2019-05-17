@@ -55,6 +55,7 @@ MonsterAction * MonsterActionManeger::LoadAction(int id,int target)
 		ac->Settarget(target);
 		return ac;
 	case enSuperBeam:
+
 		ac = NewGO<Act_superBeam>(0, "action");
 		ac->Settarget(target);
 		return ac;
