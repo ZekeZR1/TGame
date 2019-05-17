@@ -20,6 +20,8 @@ AISelect::~AISelect()
 	DeleteGO(m_AIsel);
 	DeleteGO(m_changeAI);
 	DeleteGO(m_CAfont);
+
+	DeleteGO(m_title);
 }
 
 bool AISelect::Start()
@@ -28,6 +30,12 @@ bool AISelect::Start()
 	m_AIsel->Init(L"Assets/sprite/AIselect.dds", 371, 84);
 	m_AIsel->SetPivot({ 0,1 });
 	m_AIsel->SetPosition({ -640,360,0 });
+
+	m_title = NewGO<FontRender>(27, "fr");
+	//m_title->SetTextType(CFont::en_JapaneseBIG);
+	m_title->Init(L"PythonAI", { -640,360 }, 0, { 1,1,1,1 }, 1.f);
+	m_title->DrawShadow();
+	
 
 	m_cursor = FindGO<GameCursor>("cursor");
 
@@ -57,13 +65,15 @@ bool AISelect::Start()
 
 	//êÿÇËë÷Ç¶É{É^ÉìÇÃï\é¶
 	m_changeAI = NewGO<SpriteRender>(28, "sp");
-	m_changeAI->Init(L"Assets/sprite/fade_black.dds", 60, 30, true);
-	m_changeAI->SetPosition({ -420,315,0 });
+	m_changeAI->Init(L"Assets/sprite/PVchenger_P.dds", 80, 38.5f, true);
+	m_changeAI->SetPosition({ -350,345,0 });
 	m_changeAI->SetPivot({ 0,1 });
 
-	m_CAfont = NewGO<FontRender>(29, "fr");
+	/*m_CAfont = NewGO<FontRender>(29, "fr");
 	m_CAfont->Init(L"visAI", { -420,320 },0,CVector4::White,0.5f);
-	m_CAfont->DrawShadow();
+	m_CAfont->DrawShadow();*/
+
+	
 	
 	return true;
 }
@@ -89,10 +99,14 @@ void AISelect::Update()
 			case enPy:
 				CreateViAI();
 				m_AImode = enVi;
+				m_changeAI->Init(L"Assets/sprite/PVchenger_V.dds", 80, 38.5f, true);
+				m_title->Init(L"VisualAI", { -640,360 }, 0, { 1,1,1,1 }, 1.0f);
 				break;
 			case enVi:
 				CreatePyAI();
 				m_AImode = enPy;
+				m_changeAI->Init(L"Assets/sprite/PVchenger_P.dds", 80, 38.5f, true);
+				m_title->Init(L"PythonAI", { -640,360 }, 0, { 1,1,1,1 }, 1.f);
 				break;
 			}
 

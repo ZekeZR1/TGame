@@ -38,6 +38,8 @@ private:
 
 	SpriteRender* m_AIsel = nullptr;
 
+	FontRender* m_title = nullptr;			//è„Ç…ï\é¶Ç∑ÇÈï∂éö
+
 
 	enum AIMode
 	{

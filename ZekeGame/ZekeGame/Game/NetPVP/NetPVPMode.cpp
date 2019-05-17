@@ -42,7 +42,7 @@ bool NetPVPMode::Start() {
 void NetPVPMode::OnDestroy()
 {
 	DeleteGO(m_informationSp);
-	NetSystem().DestroyNetworkSystem();
+	//NetSystem().DestroyNetworkSystem();
 }
 
 

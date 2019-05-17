@@ -28,4 +28,6 @@ private:
 	int m_monstercount = 3;
 
 	SpriteRender* m_monsel = nullptr;
+
+	FontRender* m_title = nullptr;			//ã‚É•\¦‚·‚é‚â‚Â
 };

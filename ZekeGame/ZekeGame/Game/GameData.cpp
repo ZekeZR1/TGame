@@ -72,7 +72,7 @@ const wchar_t * GameData::GetMonsterIconPath(int monID)
 		return L"Assets/sprite/mon_fairy.dds";
 		break;
 	case enArmor:
-		return L"Assets/sprite/mon_fairy.dds";
+		return L"Assets/sprite/mon_armor.dds";
 		break;
 	}
 	return nullptr;

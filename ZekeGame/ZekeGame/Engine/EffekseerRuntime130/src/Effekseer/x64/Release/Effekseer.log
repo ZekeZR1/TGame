@@ -7,39 +7,39 @@ cl : コマンド ライン warning D9002: 不明なオプション '/arch:SSE2'
 cl : コマンド ライン warning D9002: 不明なオプション '/arch:SSE2' を無視します。
   Culling3D.Matrix44.cpp
 cl : コマンド ライン warning D9002: 不明なオプション '/arch:SSE2' を無視します。
+C:\Users\GC1821\source\repos\meTGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Culling\Culling3D.h(152): warning C4244: 'return': 'double' から 'float' への変換です。データが失われる可能性があります。 (ソース ファイルをコンパイルしています Effekseer\Culling\Culling3D.Grid.cpp)
   Culling3D.ObjectInternal.cpp
-C:\Users\Taiki.W\git\TGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Culling\Culling3D.h(152): warning C4244: 'return': 'double' から 'float' への変換です。データが失われる可能性があります。 (ソース ファイルをコンパイルしています Effekseer\Culling\Culling3D.Layer.cpp)
-C:\Users\Taiki.W\git\TGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Culling\Culling3D.h(152): warning C4244: 'return': 'double' から 'float' への変換です。データが失われる可能性があります。 (ソース ファイルをコンパイルしています Effekseer\Culling\Culling3D.Grid.cpp)
-C:\Users\Taiki.W\git\TGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Culling\Culling3D.h(152): warning C4244: 'return': 'double' から 'float' への変換です。データが失われる可能性があります。 (ソース ファイルをコンパイルしています Effekseer\Culling\Culling3D.Matrix44.cpp)
+C:\Users\GC1821\source\repos\meTGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Culling\Culling3D.h(152): warning C4244: 'return': 'double' から 'float' への変換です。データが失われる可能性があります。 (ソース ファイルをコンパイルしています Effekseer\Culling\Culling3D.Matrix44.cpp)
+C:\Users\GC1821\source\repos\meTGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Culling\Culling3D.h(152): warning C4244: 'return': 'double' から 'float' への変換です。データが失われる可能性があります。 (ソース ファイルをコンパイルしています Effekseer\Culling\Culling3D.Layer.cpp)
   Culling3D.ReferenceObject.cpp
-C:\Users\Taiki.W\git\TGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Culling\Culling3D.h(152): warning C4244: 'return': 'double' から 'float' への変換です。データが失われる可能性があります。 (ソース ファイルをコンパイルしています Effekseer\Culling\Culling3D.ObjectInternal.cpp)
-C:\Users\Taiki.W\git\TGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Culling\Culling3D.ObjectInternal.h(41): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。 (ソース ファイルをコンパイルしています Effekseer\Culling\Culling3D.ObjectInternal.cpp)
-C:\Users\Taiki.W\git\TGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Culling\Culling3D.h(152): warning C4244: 'return': 'double' から 'float' への変換です。データが失われる可能性があります。 (ソース ファイルをコンパイルしています Effekseer\Culling\Culling3D.ReferenceObject.cpp)
-C:\Users\Taiki.W\git\TGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Culling\Culling3D.ObjectInternal.h(41): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。 (ソース ファイルをコンパイルしています Effekseer\Culling\Culling3D.Layer.cpp)
+C:\Users\GC1821\source\repos\meTGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Culling\Culling3D.h(152): warning C4244: 'return': 'double' から 'float' への変換です。データが失われる可能性があります。 (ソース ファイルをコンパイルしています Effekseer\Culling\Culling3D.ObjectInternal.cpp)
+C:\Users\GC1821\source\repos\meTGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Culling\Culling3D.ObjectInternal.h(41): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。 (ソース ファイルをコンパイルしています Effekseer\Culling\Culling3D.ObjectInternal.cpp)
+C:\Users\GC1821\source\repos\meTGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Culling\Culling3D.h(152): warning C4244: 'return': 'double' から 'float' への変換です。データが失われる可能性があります。 (ソース ファイルをコンパイルしています Effekseer\Culling\Culling3D.ReferenceObject.cpp)
+C:\Users\GC1821\source\repos\meTGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Culling\Culling3D.ObjectInternal.h(41): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。 (ソース ファイルをコンパイルしています Effekseer\Culling\Culling3D.Grid.cpp)
+C:\Users\GC1821\source\repos\meTGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Culling\Culling3D.Grid.cpp(20): warning C4267: '=': 'size_t' から 'int32_t' に変換しました。データが失われているかもしれません。
   Culling3D.Vector3DF.cpp
   Culling3D.WorldInternal.cpp
-C:\Users\Taiki.W\git\TGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Culling\Culling3D.h(152): warning C4244: 'return': 'double' から 'float' への変換です。データが失われる可能性があります。 (ソース ファイルをコンパイルしています Effekseer\Culling\Culling3D.Vector3DF.cpp)
-C:\Users\Taiki.W\git\TGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Culling\Culling3D.Vector3DF.cpp(120): warning C4244: 'return': 'double' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\GC1821\source\repos\meTGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Culling\Culling3D.ObjectInternal.h(41): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。 (ソース ファイルをコンパイルしています Effekseer\Culling\Culling3D.Layer.cpp)
+C:\Users\GC1821\source\repos\meTGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Culling\Culling3D.WorldInternal.h(56): warning C4267: 'return': 'size_t' から 'int32_t' に変換しました。データが失われているかもしれません。 (ソース ファイルをコンパイルしています Effekseer\Culling\Culling3D.ObjectInternal.cpp)
+C:\Users\GC1821\source\repos\meTGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Culling\Culling3D.h(152): warning C4244: 'return': 'double' から 'float' への変換です。データが失われる可能性があります。 (ソース ファイルをコンパイルしています Effekseer\Culling\Culling3D.Vector3DF.cpp)
+C:\Users\GC1821\source\repos\meTGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Culling\Culling3D.Vector3DF.cpp(120): warning C4244: 'return': 'double' から 'float' への変換です。データが失われる可能性があります。
   Effekseer.Client.cpp
-C:\Users\Taiki.W\git\TGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Culling\Culling3D.h(152): warning C4244: 'return': 'double' から 'float' への変換です。データが失われる可能性があります。 (ソース ファイルをコンパイルしています Effekseer\Culling\Culling3D.WorldInternal.cpp)
-C:\Users\Taiki.W\git\TGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Culling\Culling3D.ObjectInternal.h(41): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。 (ソース ファイルをコンパイルしています Effekseer\Culling\Culling3D.Grid.cpp)
-C:\Users\Taiki.W\git\TGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Culling\Culling3D.Grid.cpp(20): warning C4267: '=': 'size_t' から 'int32_t' に変換しました。データが失われているかもしれません。
+C:\Users\GC1821\source\repos\meTGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Culling\Culling3D.h(152): warning C4244: 'return': 'double' から 'float' への変換です。データが失われる可能性があります。 (ソース ファイルをコンパイルしています Effekseer\Culling\Culling3D.WorldInternal.cpp)
   Effekseer.Color.cpp
-C:\Users\Taiki.W\git\TGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Culling\Culling3D.WorldInternal.h(56): warning C4267: 'return': 'size_t' から 'int32_t' に変換しました。データが失われているかもしれません。 (ソース ファイルをコンパイルしています Effekseer\Culling\Culling3D.ObjectInternal.cpp)
   Effekseer.CriticalSection.cpp
-C:\Users\Taiki.W\git\TGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Culling\Culling3D.WorldInternal.h(56): warning C4267: 'return': 'size_t' から 'int32_t' に変換しました。データが失われているかもしれません。 (ソース ファイルをコンパイルしています Effekseer\Culling\Culling3D.WorldInternal.cpp)
-C:\Users\Taiki.W\git\TGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Culling\Culling3D.ObjectInternal.h(41): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。 (ソース ファイルをコンパイルしています Effekseer\Culling\Culling3D.WorldInternal.cpp)
+C:\Users\GC1821\source\repos\meTGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Culling\Culling3D.WorldInternal.h(56): warning C4267: 'return': 'size_t' から 'int32_t' に変換しました。データが失われているかもしれません。 (ソース ファイルをコンパイルしています Effekseer\Culling\Culling3D.WorldInternal.cpp)
+C:\Users\GC1821\source\repos\meTGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Culling\Culling3D.ObjectInternal.h(41): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。 (ソース ファイルをコンパイルしています Effekseer\Culling\Culling3D.WorldInternal.cpp)
   Effekseer.DefaultEffectLoader.cpp
-C:\Users\Taiki.W\git\TGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Effekseer.Client.cpp(186): warning C4267: '初期化中': 'size_t' から 'int32_t' に変換しました。データが失われているかもしれません。
-C:\Users\Taiki.W\git\TGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Effekseer.Client.cpp(229): warning C4267: '引数': 'size_t' から 'int32_t' に変換しました。データが失われているかもしれません。
+C:\Users\GC1821\source\repos\meTGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Effekseer.Client.cpp(186): warning C4267: '初期化中': 'size_t' から 'int32_t' に変換しました。データが失われているかもしれません。
+C:\Users\GC1821\source\repos\meTGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Effekseer.Client.cpp(229): warning C4267: '引数': 'size_t' から 'int32_t' に変換しました。データが失われているかもしれません。
   Effekseer.DefaultFile.cpp
   Effekseer.Effect.cpp
   Effekseer.EffectNode.cpp
-C:\Users\Taiki.W\git\TGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Effekseer.DefaultEffectLoader.cpp(47): warning C4267: '=': 'size_t' から 'int32_t' に変換しました。データが失われているかもしれません。
+C:\Users\GC1821\source\repos\meTGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Effekseer.DefaultEffectLoader.cpp(47): warning C4267: '=': 'size_t' から 'int32_t' に変換しました。データが失われているかもしれません。
   Effekseer.EffectNodeModel.cpp
+C:\Users\GC1821\source\repos\meTGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Culling\Culling3D.h(152): warning C4244: 'return': 'double' から 'float' への変換です。データが失われる可能性があります。 (ソース ファイルをコンパイルしています Effekseer\Effekseer.Effect.cpp)
+C:\Users\GC1821\source\repos\meTGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Effekseer.ManagerImplemented.h(568): warning C4267: 'return': 'size_t' から 'int32_t' に変換しました。データが失われているかもしれません。 (ソース ファイルをコンパイルしています Effekseer\Effekseer.Effect.cpp)
   Effekseer.EffectNodeRibbon.cpp
-C:\Users\Taiki.W\git\TGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Culling\Culling3D.h(152): warning C4244: 'return': 'double' から 'float' への変換です。データが失われる可能性があります。 (ソース ファイルをコンパイルしています Effekseer\Effekseer.Effect.cpp)
-C:\Users\Taiki.W\git\TGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Effekseer.ManagerImplemented.h(568): warning C4267: 'return': 'size_t' から 'int32_t' に変換しました。データが失われているかもしれません。 (ソース ファイルをコンパイルしています Effekseer\Effekseer.Effect.cpp)
   Effekseer.EffectNodeRing.cpp
   Effekseer.EffectNodeRoot.cpp
   Effekseer.EffectNodeSprite.cpp
@@ -47,47 +47,47 @@ C:\Users\Taiki.W\git\TGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effe
   Effekseer.FCurves.cpp
   Effekseer.Instance.cpp
   Effekseer.InstanceContainer.cpp
-C:\Users\Taiki.W\git\TGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Effekseer.EffectNodeTrack.cpp(141): warning C4244: '初期化中': 'const float' から 'int32_t' への変換です。データが失われる可能性があります。
-C:\Users\Taiki.W\git\TGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Effekseer.EffectNodeTrack.cpp(142): warning C4244: '初期化中': 'const float' から 'int32_t' への変換です。データが失われる可能性があります。
-C:\Users\Taiki.W\git\TGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Effekseer.EffectNodeTrack.cpp(204): warning C4244: '初期化中': 'float' から 'int32_t' への変換です。データが失われる可能性があります。
-C:\Users\Taiki.W\git\TGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Effekseer.EffectNodeTrack.cpp(205): warning C4244: '初期化中': 'float' から 'int32_t' への変換です。データが失われる可能性があります。
-C:\Users\Taiki.W\git\TGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Effekseer.EffectNodeTrack.cpp(233): warning C4244: '初期化中': 'float' から 'int32_t' への変換です。データが失われる可能性があります。
-C:\Users\Taiki.W\git\TGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Effekseer.EffectNodeTrack.cpp(234): warning C4244: '初期化中': 'float' から 'int32_t' への変換です。データが失われる可能性があります。
+C:\Users\GC1821\source\repos\meTGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Effekseer.EffectNodeTrack.cpp(141): warning C4244: '初期化中': 'const float' から 'int32_t' への変換です。データが失われる可能性があります。
+C:\Users\GC1821\source\repos\meTGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Effekseer.EffectNodeTrack.cpp(142): warning C4244: '初期化中': 'const float' から 'int32_t' への変換です。データが失われる可能性があります。
+C:\Users\GC1821\source\repos\meTGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Effekseer.EffectNodeTrack.cpp(204): warning C4244: '初期化中': 'float' から 'int32_t' への変換です。データが失われる可能性があります。
+C:\Users\GC1821\source\repos\meTGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Effekseer.EffectNodeTrack.cpp(205): warning C4244: '初期化中': 'float' から 'int32_t' への変換です。データが失われる可能性があります。
+C:\Users\GC1821\source\repos\meTGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Effekseer.EffectNodeTrack.cpp(233): warning C4244: '初期化中': 'float' から 'int32_t' への変換です。データが失われる可能性があります。
+C:\Users\GC1821\source\repos\meTGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Effekseer.EffectNodeTrack.cpp(234): warning C4244: '初期化中': 'float' から 'int32_t' への変換です。データが失われる可能性があります。
   Effekseer.InstanceGlobal.cpp
-C:\Users\Taiki.W\git\TGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Culling\Culling3D.h(152): warning C4244: 'return': 'double' から 'float' への変換です。データが失われる可能性があります。 (ソース ファイルをコンパイルしています Effekseer\Effekseer.Instance.cpp)
-C:\Users\Taiki.W\git\TGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Effekseer.ManagerImplemented.h(568): warning C4267: 'return': 'size_t' から 'int32_t' に変換しました。データが失われているかもしれません。 (ソース ファイルをコンパイルしています Effekseer\Effekseer.Instance.cpp)
-C:\Users\Taiki.W\git\TGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Effekseer.Instance.cpp(211): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
-C:\Users\Taiki.W\git\TGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Effekseer.Instance.cpp(232): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
-C:\Users\Taiki.W\git\TGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Effekseer.Instance.cpp(1373): warning C4244: '引数': 'float' から 'int32_t' への変換です。データが失われる可能性があります。
-C:\Users\Taiki.W\git\TGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Effekseer.Instance.cpp(1374): warning C4244: '引数': 'float' から 'int32_t' への変換です。データが失われる可能性があります。
-C:\Users\Taiki.W\git\TGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Effekseer.Instance.cpp(1375): warning C4244: '引数': 'float' から 'int32_t' への変換です。データが失われる可能性があります。
-C:\Users\Taiki.W\git\TGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Effekseer.Instance.cpp(1376): warning C4244: '引数': 'float' から 'int32_t' への変換です。データが失われる可能性があります。
   Effekseer.InstanceGroup.cpp
+C:\Users\GC1821\source\repos\meTGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Culling\Culling3D.h(152): warning C4244: 'return': 'double' から 'float' への変換です。データが失われる可能性があります。 (ソース ファイルをコンパイルしています Effekseer\Effekseer.Instance.cpp)
+C:\Users\GC1821\source\repos\meTGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Effekseer.ManagerImplemented.h(568): warning C4267: 'return': 'size_t' から 'int32_t' に変換しました。データが失われているかもしれません。 (ソース ファイルをコンパイルしています Effekseer\Effekseer.Instance.cpp)
+C:\Users\GC1821\source\repos\meTGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Effekseer.Instance.cpp(211): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\GC1821\source\repos\meTGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Effekseer.Instance.cpp(232): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\GC1821\source\repos\meTGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Effekseer.Instance.cpp(1373): warning C4244: '引数': 'float' から 'int32_t' への変換です。データが失われる可能性があります。
+C:\Users\GC1821\source\repos\meTGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Effekseer.Instance.cpp(1374): warning C4244: '引数': 'float' から 'int32_t' への変換です。データが失われる可能性があります。
+C:\Users\GC1821\source\repos\meTGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Effekseer.Instance.cpp(1375): warning C4244: '引数': 'float' から 'int32_t' への変換です。データが失われる可能性があります。
+C:\Users\GC1821\source\repos\meTGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Effekseer.Instance.cpp(1376): warning C4244: '引数': 'float' から 'int32_t' への変換です。データが失われる可能性があります。
   Effekseer.Setting.cpp
-C:\Users\Taiki.W\git\TGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Effekseer.InstanceContainer.cpp(27): warning C4267: '引数': 'size_t' から 'unsigned int' に変換しました。データが失われているかもしれません。
+C:\Users\GC1821\source\repos\meTGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Effekseer.InstanceContainer.cpp(27): warning C4267: '引数': 'size_t' から 'unsigned int' に変換しました。データが失われているかもしれません。
   Effekseer.Manager.cpp
+C:\Users\GC1821\source\repos\meTGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Culling\Culling3D.h(152): warning C4244: 'return': 'double' から 'float' への変換です。データが失われる可能性があります。 (ソース ファイルをコンパイルしています Effekseer\Effekseer.InstanceGroup.cpp)
+C:\Users\GC1821\source\repos\meTGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Effekseer.ManagerImplemented.h(568): warning C4267: 'return': 'size_t' から 'int32_t' に変換しました。データが失われているかもしれません。 (ソース ファイルをコンパイルしています Effekseer\Effekseer.InstanceGroup.cpp)
   Effekseer.Matrix43.cpp
-C:\Users\Taiki.W\git\TGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Culling\Culling3D.h(152): warning C4244: 'return': 'double' から 'float' への変換です。データが失われる可能性があります。 (ソース ファイルをコンパイルしています Effekseer\Effekseer.InstanceGroup.cpp)
-C:\Users\Taiki.W\git\TGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Effekseer.ManagerImplemented.h(568): warning C4267: 'return': 'size_t' から 'int32_t' に変換しました。データが失われているかもしれません。 (ソース ファイルをコンパイルしています Effekseer\Effekseer.InstanceGroup.cpp)
   Effekseer.Matrix44.cpp
   Effekseer.RectF.cpp
-C:\Users\Taiki.W\git\TGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Culling\Culling3D.h(152): warning C4244: 'return': 'double' から 'float' への変換です。データが失われる可能性があります。 (ソース ファイルをコンパイルしています Effekseer\Effekseer.Manager.cpp)
-C:\Users\Taiki.W\git\TGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Effekseer.ManagerImplemented.h(568): warning C4267: 'return': 'size_t' から 'int32_t' に変換しました。データが失われているかもしれません。 (ソース ファイルをコンパイルしています Effekseer\Effekseer.Manager.cpp)
-C:\Users\Taiki.W\git\TGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Effekseer.Manager.cpp(1249): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
-C:\Users\Taiki.W\git\TGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Effekseer.Manager.cpp(1257): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\GC1821\source\repos\meTGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Culling\Culling3D.h(152): warning C4244: 'return': 'double' から 'float' への変換です。データが失われる可能性があります。 (ソース ファイルをコンパイルしています Effekseer\Effekseer.Manager.cpp)
+C:\Users\GC1821\source\repos\meTGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Effekseer.ManagerImplemented.h(568): warning C4267: 'return': 'size_t' から 'int32_t' に変換しました。データが失われているかもしれません。 (ソース ファイルをコンパイルしています Effekseer\Effekseer.Manager.cpp)
+C:\Users\GC1821\source\repos\meTGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Effekseer.Manager.cpp(1249): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\GC1821\source\repos\meTGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Effekseer.Manager.cpp(1257): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
   Effekseer.Server.cpp
-C:\Users\Taiki.W\git\TGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Effekseer.Matrix43.cpp(247): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
-C:\Users\Taiki.W\git\TGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Effekseer.Matrix43.cpp(274): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
-C:\Users\Taiki.W\git\TGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Effekseer.Matrix43.cpp(290): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\GC1821\source\repos\meTGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Effekseer.Matrix43.cpp(247): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\GC1821\source\repos\meTGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Effekseer.Matrix43.cpp(274): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\GC1821\source\repos\meTGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Effekseer.Matrix43.cpp(290): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
   Effekseer.Socket.cpp
   Effekseer.Thread.cpp
   Effekseer.Vector2D.cpp
   Effekseer.Vector3D.cpp
-C:\Users\Taiki.W\git\TGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Effekseer.Server.cpp(276): warning C4267: '初期化中': 'size_t' から 'int32_t' に変換しました。データが失われているかもしれません。
-C:\Users\Taiki.W\git\TGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Effekseer.Server.cpp(316): warning C4267: '引数': 'size_t' から 'int32_t' に変換しました。データが失われているかもしれません。
-C:\Users\Taiki.W\git\TGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Effekseer.Server.cpp(320): warning C4267: '引数': 'size_t' から 'int32_t' に変換しました。データが失われているかもしれません。
-C:\Users\Taiki.W\git\TGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Effekseer.Server.cpp(387): warning C4267: '初期化中': 'size_t' から 'int32_t' に変換しました。データが失われているかもしれません。
-C:\Users\Taiki.W\git\TGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Effekseer.Server.cpp(403): warning C4267: '引数': 'size_t' から 'int32_t' に変換しました。データが失われているかもしれません。
-C:\Users\Taiki.W\git\TGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Effekseer.Server.cpp(407): warning C4267: '引数': 'size_t' から 'int32_t' に変換しました。データが失われているかもしれません。
-C:\Users\Taiki.W\git\TGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Effekseer.Vector3D.cpp(161): warning C4244: 'return': 'double' から 'float' への変換です。データが失われる可能性があります。
-  Effekseer.vcxproj -> C:\Users\Taiki.W\git\TGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\..\..\..\..\exlib\Release\Effekseer.Release.lib
+C:\Users\GC1821\source\repos\meTGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Effekseer.Server.cpp(276): warning C4267: '初期化中': 'size_t' から 'int32_t' に変換しました。データが失われているかもしれません。
+C:\Users\GC1821\source\repos\meTGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Effekseer.Server.cpp(316): warning C4267: '引数': 'size_t' から 'int32_t' に変換しました。データが失われているかもしれません。
+C:\Users\GC1821\source\repos\meTGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Effekseer.Server.cpp(320): warning C4267: '引数': 'size_t' から 'int32_t' に変換しました。データが失われているかもしれません。
+C:\Users\GC1821\source\repos\meTGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Effekseer.Server.cpp(387): warning C4267: '初期化中': 'size_t' から 'int32_t' に変換しました。データが失われているかもしれません。
+C:\Users\GC1821\source\repos\meTGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Effekseer.Server.cpp(403): warning C4267: '引数': 'size_t' から 'int32_t' に変換しました。データが失われているかもしれません。
+C:\Users\GC1821\source\repos\meTGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Effekseer.Server.cpp(407): warning C4267: '引数': 'size_t' から 'int32_t' に変換しました。データが失われているかもしれません。
+C:\Users\GC1821\source\repos\meTGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\Effekseer\Effekseer.Vector3D.cpp(161): warning C4244: 'return': 'double' から 'float' への変換です。データが失われる可能性があります。
+  Effekseer.vcxproj -> C:\Users\GC1821\source\repos\meTGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\Effekseer\..\..\..\..\exlib\Release\Effekseer.Release.lib
