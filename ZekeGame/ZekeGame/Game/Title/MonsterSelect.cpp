@@ -99,7 +99,9 @@ void MonsterSelect::Update()
 	{
 		if (m_icons[i]->isClick())
 		{
+			//todo:monsel debug
 			m_aims->Setmon(i+1);
+			m_aims->Setmon(i);
 			//m_pmm->ChengeImage(m_paths[i].c_str(),i);
 		}
 	}
