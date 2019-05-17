@@ -60,9 +60,10 @@ void Monster::init(float HP, float MP,float Defense,float ExDefense, float Attac
 	m_AnimNum = animnum;
 }
 
-void Monster::SetUseAction(ActionID ua[6])
+void Monster::SetUseAction(ActionID* ua,int size)
 {
 	m_UseAction = ua;
+	m_useActionSize = size;
 }
 
 void Monster::SuddenDeath()
@@ -308,8 +309,14 @@ void Monster::SetRotation(CQuaternion rot)
 
 void Monster::AddAction(MonsterAction * ma)
 {
-	if(ma != nullptr)
-		m_actions.push_back(ma);
+	if (ma != nullptr && m_actions.size() < 3)
+	{
+		for (int i = 0; i < m_useActionSize; i++)
+		{
+			if(m_UseAction[i] == ma->GetactionID())
+				m_actions.push_back(ma);
+		}
+	}
 }
 
 
