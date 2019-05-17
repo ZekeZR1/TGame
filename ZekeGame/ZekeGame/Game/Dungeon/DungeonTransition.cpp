@@ -43,7 +43,17 @@ bool DungeonTransition::Start() {
 			m_monsters[i]->Init(L"Assets/modelData/hnd.cmo", m_animClip[i], 1);
 			m_monsters[i]->PlayAnimation(0);
 			break;
+		case enArmor:
+		{
+			m_animClip[i][0].Load(L"Assets/modelData/armor/armor_walk.tka");
+			m_animClip[i][0].SetLoopFlag(true);
+			m_monsters[i]->Init(L"Assets/modelData/armor.cmo", m_animClip[i], 1);
+			m_monsters[i]->PlayAnimation(0);
+			m_monsters[i]->SetScale(CVector3::One() * 0.25);
+		}
+			break;
 		default:
+			assert(false);
 			OutputDebugStringA("Trasan Anime < ‚È‚ñ‚ÅHHH\n");
 			break;
 
