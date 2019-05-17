@@ -313,8 +313,11 @@ void Monster::AddAction(MonsterAction * ma)
 	{
 		for (int i = 0; i < m_useActionSize; i++)
 		{
-			if(m_UseAction[i] == ma->GetactionID())
+			if (m_UseAction[i] == ma->GetactionID())
+			{
 				m_actions.push_back(ma);
+				break;
+			}
 		}
 	}
 }
