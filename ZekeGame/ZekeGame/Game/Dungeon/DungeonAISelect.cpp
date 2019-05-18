@@ -55,6 +55,9 @@ bool DungeonAISelect::Start() {
 		m_BGM->Init(L"Assets/sound/BGM/PerituneMaterial_Strategy5_loop.wav", true);
 		m_BGM->Play();
 	}
+	//m_backSp->Init(L"Assets/Sprite/dungeonAiSelectWallpaper.dds", 1280.f, 720.f, false);
+	m_backSp = NewGO<SpriteRender>(0, "sp");
+	m_backSp->Init(L"Assets/sprite/monsel_back.dds", 1280, 720);
 
 	m_fade = FindGO<Fade>("fade");
 	m_fade->FadeIn();
@@ -90,9 +93,6 @@ bool DungeonAISelect::Start() {
 	swprintf_s(dungeon, L"ƒ_ƒ“ƒWƒ‡ƒ“%d\n", m_dunNum + 1);
 	m_font->Init(dungeon, { -140.f, 320.f }, 0.f, CVector4::White, 1.f, { 0.f,0.f });
 
-	//m_backSp->Init(L"Assets/Sprite/dungeonAiSelectWallpaper.dds", 1280.f, 720.f, false);
-	m_backSp = NewGO<SpriteRender>(0, "sp");
-	m_backSp->Init(L"Assets/sprite/monsel_back.dds", 1280, 720);
 
 	m_returnButton = NewGO<ReturnButton>(1, "rb");
 	m_returnButton->init(this, "pvp", m_cursor);

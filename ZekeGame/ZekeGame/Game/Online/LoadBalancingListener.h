@@ -107,7 +107,7 @@ public:
 	bool CanStartGame() {
 		return m_isEnemyLoadedMyData and isGotEnemyPythonCodes();
 	}
-	void raiseMyLoadingState();
+	bool raiseMyLoadingState();
 	//012 
 	void SetTeamMonsterInfo(int info[3]);
 	float GetEnemyRate() {

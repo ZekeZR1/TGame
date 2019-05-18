@@ -280,7 +280,9 @@
     <ClCompile Include="Game\Monster\Action\Act_Fire.cpp" />
     <ClCompile Include="Game\Monster\Action\Act_Guardian.cpp" />
     <ClCompile Include="Game\Monster\Action\Act_Leave.cpp" />
+    <ClCompile Include="Game\Monster\Action\Act_ObstMove.cpp" />
     <ClCompile Include="Game\Monster\Action\Act_Recovery.cpp" />
+    <ClCompile Include="Game\Monster\Action\Act_superBeam.cpp" />
     <ClCompile Include="Game\Monster\Action\Act_Tackle.cpp" />
     <ClCompile Include="Game\Monster\Monster.cpp" />
     <ClCompile Include="Game\Monster\MonsterAction.cpp" />
@@ -288,7 +290,9 @@
     <ClCompile Include="Game\Monster\MonsterActionManeger.cpp" />
     <ClCompile Include="Game\Monster\MonsterEffect.cpp" />
     <ClCompile Include="Game\Monster\MonsterMarker.cpp" />
+    <ClCompile Include="Game\Monster\Monsters\Armor.cpp" />
     <ClCompile Include="Game\Monster\Monsters\Fairy.cpp" />
+    <ClCompile Include="Game\Monster\Monsters\Goblin.cpp" />
     <ClCompile Include="Game\Monster\Monsters\TestMons.cpp" />
     <ClCompile Include="Game\Monster\Monsters\Uma.cpp" />
     <ClCompile Include="Game\NetPVP\CRatingSystem.cpp" />
@@ -474,7 +478,9 @@
     <ClInclude Include="Game\Monster\Action\Act_Fire.h" />
     <ClInclude Include="Game\Monster\Action\Act_Guardian.h" />
     <ClInclude Include="Game\Monster\Action\Act_Leave.h" />
+    <ClInclude Include="Game\Monster\Action\Act_ObstMove.h" />
     <ClInclude Include="Game\Monster\Action\Act_Recovery.h" />
+    <ClInclude Include="Game\Monster\Action\Act_superBeam.h" />
     <ClInclude Include="Game\Monster\Action\Act_Tackle.h" />
     <ClInclude Include="Game\Monster\Monster.h" />
     <ClInclude Include="Game\Monster\MonsterAction.h" />
@@ -482,7 +488,9 @@
     <ClInclude Include="Game\Monster\MonsterActionManeger.h" />
     <ClInclude Include="Game\Monster\MonsterEffect.h" />
     <ClInclude Include="Game\Monster\MonsterMarker.h" />
+    <ClInclude Include="Game\Monster\Monsters\Armor.h" />
     <ClInclude Include="Game\Monster\Monsters\Fairy.h" />
+    <ClInclude Include="Game\Monster\Monsters\Goblin.h" />
     <ClInclude Include="Game\Monster\Monsters\TestMons.h" />
     <ClInclude Include="Game\Monster\Monsters\Uma.h" />
     <ClInclude Include="Game\NetPVP\CRatingSystem.h" />
@@ -687,57 +695,59 @@
     <Media Include="Assets\sound\punch-middle2.wav" />
   </ItemGroup>
   <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\AIEdit\arrow.png" />
-    <Image Include="Assets\Sprite\AIEdit\buttyon.png" />
+    <None Include="Assets\Sprite\AIEdit\arrow.png" />
+    <None Include="Assets\Sprite\AIEdit\buttyon.png" />
     <None Include="Assets\Sprite\AIEdit\click.png" />
     <None Include="Assets\Sprite\AIEdit\clickButton.png" />
-    <Image Include="Assets\Sprite\AIEdit\deletepoint.png" />
-    <Image Include="Assets\Sprite\AIEdit\haik.png" />
-    <Image Include="Assets\Sprite\AIEdit\help.png" />
-    <Image Include="Assets\Sprite\AIEdit\hozon.png" />
-    <Image Include="Assets\Sprite\AIEdit\karipoint.png" />
-    <ImageContentTask Include="Assets\Sprite\AIEdit\masss.png" />
-    <Image Include="Assets\Sprite\AIEdit\massss.png" />
-    <Image Include="Assets\Sprite\AIEdit\menu.png" />
-    <Image Include="Assets\Sprite\AIEdit\menu2.png" />
-    <Image Include="Assets\Sprite\AIEdit\menuselect.png" />
-    <Image Include="Assets\Sprite\AIEdit\menuselectsieat.png" />
-    <Image Include="Assets\Sprite\AIEdit\open.png" />
-    <Image Include="Assets\Sprite\AIEdit\point.png" />
-    <Image Include="Assets\Sprite\AIEdit\sieat.png" />
-    <Image Include="Assets\Sprite\Fade\fade_black.png" />
-    <Image Include="Assets\Sprite\GUI\button1.png" />
-    <Image Include="Assets\Sprite\GUI\button\sb_cancel.png" />
-    <Image Include="Assets\Sprite\GUI\button\sb_OK.png" />
-    <Image Include="Assets\Sprite\GUI\button\simple_button.png" />
-    <Image Include="Assets\Sprite\GUI\button\simple_button_blue.png" />
-    <Image Include="Assets\Sprite\GUI\cursor.png" />
-    <Image Include="Assets\Sprite\GUI\Dungeon\d1.png" />
-    <Image Include="Assets\Sprite\GUI\Dungeon\d2.png" />
-    <Image Include="Assets\Sprite\GUI\Dungeon\d3.png" />
-    <Image Include="Assets\Sprite\GUI\Dungeon\d4.png" />
-    <Image Include="Assets\Sprite\GUI\Dungeon\d5.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\dungeonAiSelectWallpaper.png" />
-    <Image Include="Assets\Sprite\GUI\Dungeon\dungeonSelectWallpaper.png" />
-    <Image Include="Assets\Sprite\GUI\Dungeon\DungeonSp.png" />
-    <Image Include="Assets\Sprite\GUI\Dungeon\DungeonSpS.png" />
-    <Image Include="Assets\Sprite\GUI\Dungeon\leftButton.png" />
-    <Image Include="Assets\Sprite\GUI\Dungeon\nextDungeon.png" />
-    <Image Include="Assets\Sprite\GUI\Dungeon\notifyLine.png" />
-    <Image Include="Assets\Sprite\GUI\Dungeon\rightButton.png" />
-    <Image Include="Assets\Sprite\GUI\GO.png" />
+    <None Include="Assets\Sprite\AIEdit\deletepoint.png" />
+    <None Include="Assets\Sprite\AIEdit\haik.png" />
+    <None Include="Assets\Sprite\AIEdit\help.png" />
+    <None Include="Assets\Sprite\AIEdit\HOM.png" />
+    <None Include="Assets\Sprite\AIEdit\hozon.png" />
+    <None Include="Assets\Sprite\AIEdit\karipoint.png" />
+    <None Include="Assets\Sprite\AIEdit\masss.png" />
+    <None Include="Assets\Sprite\AIEdit\menu.png" />
+    <None Include="Assets\Sprite\AIEdit\menu2.png" />
+    <None Include="Assets\Sprite\AIEdit\menuselect.png" />
+    <None Include="Assets\Sprite\AIEdit\menuselectsieat.png" />
+    <None Include="Assets\Sprite\AIEdit\open.png" />
+    <None Include="Assets\Sprite\AIEdit\point.png" />
+    <None Include="Assets\Sprite\AIEdit\sieat.png" />
+    <None Include="Assets\Sprite\Fade\fade_black.png" />
+    <None Include="Assets\Sprite\GUI\button1.png" />
+    <None Include="Assets\Sprite\GUI\button\sb_cancel.png" />
+    <None Include="Assets\Sprite\GUI\button\sb_OK.png" />
+    <None Include="Assets\Sprite\GUI\button\simple_button.png" />
+    <None Include="Assets\Sprite\GUI\button\simple_button_blue.png" />
+    <None Include="Assets\Sprite\GUI\cursor.png" />
+    <None Include="Assets\Sprite\GUI\Dungeon\d1.png" />
+    <None Include="Assets\Sprite\GUI\Dungeon\d2.png" />
+    <None Include="Assets\Sprite\GUI\Dungeon\d3.png" />
+    <None Include="Assets\Sprite\GUI\Dungeon\d4.png" />
+    <None Include="Assets\Sprite\GUI\Dungeon\d5.png" />
+    <None Include="Assets\Sprite\GUI\Dungeon\dungeonAiSelectWallpaper.png" />
+    <None Include="Assets\Sprite\GUI\Dungeon\dungeonSelectWallpaper.png" />
+    <None Include="Assets\Sprite\GUI\Dungeon\DungeonSp.png" />
+    <None Include="Assets\Sprite\GUI\Dungeon\DungeonSpS.png" />
+    <None Include="Assets\Sprite\GUI\Dungeon\leftButton.png" />
+    <None Include="Assets\Sprite\GUI\Dungeon\nextDungeon.png" />
+    <None Include="Assets\Sprite\GUI\Dungeon\notifyLine.png" />
+    <None Include="Assets\Sprite\GUI\Dungeon\rightButton.png" />
+    <None Include="Assets\Sprite\GUI\GO.png" />
     <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\AIselect.png" />
     <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_back_R.png" />
     <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_even.png" />
     <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_sel.png" />
     <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\B_alpha.png" />
     <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\monsel_back.png" />
-    <Image Include="Assets\Sprite\GUI\modeSelect\modesel_back.png" />
-    <Image Include="Assets\Sprite\GUI\modeSelect\modesel_back_aiedit.png" />
-    <Image Include="Assets\Sprite\GUI\modeSelect\modesel_back_dung.png" />
-    <Image Include="Assets\Sprite\GUI\modeSelect\modesel_back_local.png" />
-    <Image Include="Assets\Sprite\GUI\modeSelect\modesel_frame.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\Monselect.png" />
+    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\PVchenger_P.png" />
+    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\PVchenger_V.png" />
+    <None Include="Assets\Sprite\GUI\modeSelect\modesel_back.png" />
+    <None Include="Assets\Sprite\GUI\modeSelect\modesel_back_aiedit.png" />
+    <None Include="Assets\Sprite\GUI\modeSelect\modesel_back_dung.png" />
+    <None Include="Assets\Sprite\GUI\modeSelect\modesel_back_local.png" />
+    <None Include="Assets\Sprite\GUI\modeSelect\modesel_frame.png" />
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\Monselect.png" />
     <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\monsel_back.png" />
     <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_back.png" />
     <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_fairy.png" />
@@ -747,28 +757,29 @@
     <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_frameYellow.png" />
     <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_none.png" />
     <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_uma.png" />
-    <Image Include="Assets\Sprite\GUI\MonActList\actBlock.png" />
-    <Image Include="Assets\Sprite\GUI\MonActList\backBlue.png" />
-    <Image Include="Assets\Sprite\GUI\MonActList\backRed.png" />
-    <Image Include="Assets\Sprite\GUI\Net\close.png" />
-    <Image Include="Assets\Sprite\GUI\Net\popupback.png" />
-    <Image Include="Assets\Sprite\GUI\Net\ready.png" />
-    <Image Include="Assets\Sprite\GUI\Net\waiting.png" />
-    <Image Include="Assets\Sprite\GUI\returnButton\returnArrow.png" />
-    <Image Include="Assets\Sprite\GUI\returnButton\returnArrowLong.png" />
-    <Image Include="Assets\Sprite\GUI\returnButton\returnButton.png" />
-    <Image Include="Assets\Sprite\marker\mark_1.png" />
-    <Image Include="Assets\Sprite\marker\mark_2.png" />
-    <Image Include="Assets\Sprite\marker\mark_3.png" />
-    <Image Include="Assets\Sprite\marker\mark_blue.png" />
-    <Image Include="Assets\Sprite\marker\mark_red.png" />
-    <Image Include="Assets\Sprite\monsho\dun_stage0.png" />
-    <Image Include="Assets\Sprite\readyGO\Ready2.png" />
-    <Image Include="Assets\Sprite\readyGO\r_go.png" />
-    <Image Include="Assets\Sprite\result\res_blueteam.png" />
-    <Image Include="Assets\Sprite\result\res_Lose.png" />
-    <Image Include="Assets\Sprite\result\res_redteam.png" />
-    <Image Include="Assets\Sprite\result\res_Win.png" />
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_armor.png" />
+    <None Include="Assets\Sprite\GUI\MonActList\actBlock.png" />
+    <None Include="Assets\Sprite\GUI\MonActList\backBlue.png" />
+    <None Include="Assets\Sprite\GUI\MonActList\backRed.png" />
+    <None Include="Assets\Sprite\GUI\Net\close.png" />
+    <None Include="Assets\Sprite\GUI\Net\popupback.png" />
+    <None Include="Assets\Sprite\GUI\Net\ready.png" />
+    <None Include="Assets\Sprite\GUI\Net\waiting.png" />
+    <None Include="Assets\Sprite\GUI\returnButton\returnArrow.png" />
+    <None Include="Assets\Sprite\GUI\returnButton\returnArrowLong.png" />
+    <None Include="Assets\Sprite\GUI\returnButton\returnButton.png" />
+    <None Include="Assets\Sprite\marker\mark_1.png" />
+    <None Include="Assets\Sprite\marker\mark_2.png" />
+    <None Include="Assets\Sprite\marker\mark_3.png" />
+    <None Include="Assets\Sprite\marker\mark_blue.png" />
+    <None Include="Assets\Sprite\marker\mark_red.png" />
+    <None Include="Assets\Sprite\monsho\dun_stage0.png" />
+    <None Include="Assets\Sprite\readyGO\Ready2.png" />
+    <None Include="Assets\Sprite\readyGO\r_go.png" />
+    <None Include="Assets\Sprite\result\res_blueteam.png" />
+    <None Include="Assets\Sprite\result\res_Lose.png" />
+    <None Include="Assets\Sprite\result\res_redteam.png" />
+    <None Include="Assets\Sprite\result\res_Win.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\modelData\dungeon\dungeonBack.FBX">
@@ -795,6 +806,10 @@
     <None Include="Assets\modelData\testMons\tesEnemy2.fbx">
       <FileType>Document</FileType>
     </None>
+    <None Include="Assets\modelData\door\door.fbx">
+      <FileType>Document</FileType>
+    </None>
+    <MeshContentTask Include="Assets\modelData\gob\gob.FBX" />
     <MeshContentTask Include="Assets\modelData\testMons\tesEnemy3.fbx">
       <FileType>Document</FileType>
     </MeshContentTask>
@@ -809,9 +824,23 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <MeshContentTask Include="Assets\modelData\dungeon\dropwall.fbx" />
-    <MeshContentTask Include="Assets\modelData\dungeon\egg.FBX" />
-    <MeshContentTask Include="Assets\modelData\dungeon\testback.FBX" />
+    <None Include="Assets\modelData\armor\armor.FBX">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="Assets\modelData\dungeon\dropwall.fbx">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="Assets\modelData\dungeon\egg.FBX">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="Assets\modelData\dungeon\testback.FBX">
+      <FileType>Document</FileType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <MeshContentTask Include="Assets\modelData\gob\gob_bone.fbx">
+      <FileType>Document</FileType>
+    </MeshContentTask>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -38,7 +38,13 @@ private:
 	AIEditNodeMenuOpen* m_aieditnodemenuopen;
 	GameCursor* m_gamecursor;
 
+	FontRender* m_fmenu = nullptr;				//menu no font
+	FontRender* m_fopen = nullptr;				//open no font
+	FontRender* m_fsave = nullptr;				//save no font
 
+	bool m_bmenu = false;						//mouseover no 
+	bool m_bopen = false;						//mouseover no 
+	bool m_bsave = false;						//mouseover no 
 };
 
 

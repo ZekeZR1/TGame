@@ -115,12 +115,13 @@ void DungeonResult::InitUI() {
 	m_buttonText->Init(L"OK", { textpos.x,textpos.y }, 0.f, CVector4::White, 1.f, { 0.5f,0.5f });
 
 	if (m_team == WIN) {
-		m_resultSp->Init(L"Assets/Sprite/win.dds", 500.f, 200.f, true);
+		m_resultSp->Init(L"Assets/Sprite/res_win.dds", 500.f, 200.f, true);
 	}
 	else {
-		m_resultSp->Init(L"Assets/Sprite/lose.dds", 500.f, 200.f, true);
+		m_resultSp->Init(L"Assets/Sprite/res_lose.dds", 500.f, 200.f, true);
 	}
-	m_resultSp->SetPosition({ -410,160,0 });
+	//m_resultSp->SetPosition({ -410,160,0 });
+	m_resultSp->SetPosition({ -410,60,0 });
 
 	m_cursor = NewGO<GameCursor>(0);
 }

@@ -50,7 +50,7 @@ Fairy::Fairy()
 	ua[enDefense] = enDefense;
 	ua[4] = enFire;
 	ua[5] = enActNone;
-	SetUseAction(ua);
+	SetUseAction(ua,6);
 
 	m_ID = enFairy;
 }

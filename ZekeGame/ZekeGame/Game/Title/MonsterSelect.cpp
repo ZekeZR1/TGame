@@ -18,6 +18,7 @@ MonsterSelect::~MonsterSelect()
 		DeleteGO(ic);
 	}
 	DeleteGO(m_monsel);
+	DeleteGO(m_title);
 }
 
 bool MonsterSelect::Start()
@@ -26,6 +27,11 @@ bool MonsterSelect::Start()
 	m_monsel->Init(L"Assets/sprite/Monselect.dds", 570, 84);
 	m_monsel->SetPivot({ 0,1 });
 	m_monsel->SetPosition({ -246,360,0 });
+
+	m_title = NewGO<FontRender>(28, "fr");
+	m_title->SetTextType(CFont::en_Japanese);
+	m_title->Init(L"モンスターセレクト", { -246,340 }, 0, { 1,1,1,1 }, 1.25f);
+	m_title->DrawShadow();
 
 	m_cursor = FindGO<GameCursor>("cursor");
 
@@ -38,7 +44,9 @@ bool MonsterSelect::Start()
 
 	pos += { 78,-78,0 };
 	pos.y = 205.0f;
-	for (int i = 1; i < m_monstercount; i++)
+	m_monstercount = enNumMonster;
+	//for (int i = 1; i < m_monstercount; i++)
+	for (int i = 0; i < m_monstercount; i++)
 	{
 		IconMon* im = NewGO<IconMon>(0, "im");
 		//std::wstring path;
@@ -61,7 +69,7 @@ bool MonsterSelect::Start()
 			break;
 		}*/
 		im->Setpos(pos);
-		if (((i) % 5) == 0)
+		if ((i+1 % 5) == 0)
 		{
 			pos.x = 30;
 			pos.y -= 133;
@@ -91,7 +99,9 @@ void MonsterSelect::Update()
 	{
 		if (m_icons[i]->isClick())
 		{
+			//todo:monsel debug
 			m_aims->Setmon(i+1);
+			m_aims->Setmon(i);
 			//m_pmm->ChengeImage(m_paths[i].c_str(),i);
 		}
 	}

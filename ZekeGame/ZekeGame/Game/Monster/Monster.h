@@ -20,7 +20,7 @@ public:
 	bool Start() override final;
 	void Update() override final;
 
-	void SetUseAction(ActionID ua[6]);
+	void SetUseAction(ActionID* ua,int size);
 	ActionID* GetUseAction()
 	{
 		return m_UseAction;
@@ -417,6 +417,7 @@ protected:
 	PythonBridge* m_PB;
 
 	ActionID* m_UseAction;
+	int m_useActionSize = 0;
 	std::vector<MonsterAction*> m_actions;		//使うアクション
 	en_State m_state = en_NowLoading;
 	bool isLoading = false;

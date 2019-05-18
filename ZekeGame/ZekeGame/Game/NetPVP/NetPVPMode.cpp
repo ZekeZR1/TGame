@@ -42,7 +42,7 @@ bool NetPVPMode::Start() {
 void NetPVPMode::OnDestroy()
 {
 	DeleteGO(m_informationSp);
-	NetSystem().DestroyNetworkSystem();
+	//NetSystem().DestroyNetworkSystem();
 }
 
 
@@ -50,12 +50,14 @@ void NetPVPMode::Update() {
 	NetSystem().GetNetworkLogic().Update();
 	 RaiseData();
 	 LoadEnemyData();
+
 	 if (m_lbl->isGotEnemyPythonCodes()) {
 		 m_lbl->raiseMyLoadingState();
 		 OutputDebugString("\n");
 		 OutputDebugString("I loaded enemy data. raise my load state to enemy\n");
 	 }
 	 if (m_lbl->CanStartGame()) {
+		 m_lbl->raiseMyLoadingState();
 		 OutputDebugString("\n I loaded Enemy data , enemy is loaded  too. can start battle\n");
 		 auto eneaimode = m_lbl->GetEnemyAiModes();
 		 for (int i = 3; i < 6; i++) {
@@ -63,10 +65,12 @@ void NetPVPMode::Update() {
 			 m_moid[i] = m_enemyId[i - 3];
 			 m_aimode[i] = eneaimode[i - 3];
 		 }
+		 startTimer++;
+	 }
+	 if (startTimer == 60) {
 		 m_isfade = true;
-		 m_lbl->raiseMyLoadingState();
-		 if(!m_isfade)
-			m_fade->FadeOut();
+		 if (!m_isfade)
+			 m_fade->FadeOut();
 	 }
 	 if (m_fade->isFadeStop() && m_isfade) {
 		 BattleStart();

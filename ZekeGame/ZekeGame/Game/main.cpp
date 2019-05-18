@@ -19,13 +19,24 @@ int WINAPI wWinMain(
 	NewGO<Fade>(0, "fade");
 	NewGO<GameCamera3D>(0, "cam3d");
 	NewGO<GameCamera2D>(0, "cam2d");
-	NewGO<ModeSelect>(0, "modesel");
+	//NewGO<ModeSelect>(0, "modesel");
 	//NewGO<MonsterDrop>(0);
 	g_physics.SetDebugDraw(true);
+
+	AnimationClip anim[3];
+	anim[0].Load(L"Assets/modelData/gob/gob_walk.tka");
+	anim[0].SetLoopFlag(true);
+	SkinModelRender* sr = NewGO<SkinModelRender>(0, "sr");
+	sr->Init(L"Assets/modelData/gob.cmo", anim, 1);
+	sr->SetScale(CVector3{ 10,10,10 });
+
+
 	SkinModelRender* sm = NewGO<SkinModelRender>(0, "sm");
 	sm->Init(L"Assets/modelData/tesEnemy3.cmo");
 	sm->SetPosition(CVector3::Zero());
 	sm->SetScale({ 0.001f,0.001f,0.001f });
+
+
 	//MainRoop
 	Engine::IEngine().GameRoop();
 	//Release

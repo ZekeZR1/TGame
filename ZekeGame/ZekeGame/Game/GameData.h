@@ -9,6 +9,7 @@ enum MonsterID
 	enTest,
 	enUmataur,
 	enFairy,
+	enArmor,
 	enNumMonster,
 };
 
@@ -22,7 +23,7 @@ enum ActionID
 	enTackle,
 	enGuardian,
 	enRecovery,
-
+	enSuperBeam,
 	enActNone = 999
 };
 

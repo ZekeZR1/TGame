@@ -133,6 +133,8 @@ void StageSetup::DungeonSetup(PyFile files, PyFile eneFiles, int monsterAI[6], M
 			team = 256;
 
 		Monster* mon = GameData::LoadMonster(monids[i]);
+		auto vaFiles = VisualAiFileLoad::FilesLoad();
+
 		/*switch (monids[i])
 		{
 		case enTest:
@@ -157,7 +159,8 @@ void StageSetup::DungeonSetup(PyFile files, PyFile eneFiles, int monsterAI[6], M
 			else
 			{
 				std::string* path = new std::string("Assets/VisualAI/");
-				*path += files[monsterAI[i]];
+				*path += vaFiles[monsterAI[i]];
+				*path += ".va";
 				mon->SetVisualScriptAI(path);
 			}
 		}

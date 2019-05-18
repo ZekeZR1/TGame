@@ -21,25 +21,26 @@ TestMons::TestMons()
 	init
 	(
 		10,		//HP
-		10,		//MP
+		INT_MAX,		//MP
 		10,		//防御力
 		10,		//特殊防御力
 		10,		//攻撃力
 		10,		//特殊攻撃力
-		10,		//スピード	
+		10,		//スピード
 		20,		//コリジョンの半径
 		70,		//高さ
 		m_smr,	//Ｓkin Ｍodel Ｒender
 		0		//アニメーションの数
 	);
-	ActionID* ua = new ActionID[6];
+	ActionID* ua = new ActionID[99];
 	ua[enAtack] = enAtack;
 	ua[enChase] = enChase;
 	ua[enLeave] = enLeave;
 	ua[enDefense] = enDefense;
 	ua[4] = enTackle;
 	ua[5] = enActNone;
-	SetUseAction(ua);
+	ua[6] = enSuperBeam;
+	SetUseAction(ua,99);
 	//m_PB = FindGO<PythonBridge>("PB");
 
 	m_ID = 0;

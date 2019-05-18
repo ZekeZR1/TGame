@@ -3,6 +3,7 @@
 #include "Monster/Monsters/TestMons.h"
 #include "Monster/Monsters/Uma.h"
 #include "Monster/Monsters/Fairy.h"
+#include "Monster/Monsters/Armor.h"
 
 Monster* g_mons[64];
 int g_buddyCount = 0;
@@ -50,6 +51,9 @@ Monster * GameData::LoadMonster(int monID)
 	case enFairy:
 		mon = NewGO<Fairy>(0, "monster");
 		break;
+	case enArmor:
+		mon = NewGO<Armor>(0, "monster");
+		break;
 	}
 	return mon;
 }
@@ -66,6 +70,9 @@ const wchar_t * GameData::GetMonsterIconPath(int monID)
 		break;
 	case enFairy:
 		return L"Assets/sprite/mon_fairy.dds";
+		break;
+	case enArmor:
+		return L"Assets/sprite/mon_armor.dds";
 		break;
 	}
 	return nullptr;
