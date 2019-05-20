@@ -297,6 +297,7 @@
     <ClCompile Include="Game\Monster\MonsterMarker.cpp" />
     <ClCompile Include="Game\Monster\Monsters\Armor.cpp" />
     <ClCompile Include="Game\Monster\Monsters\Fairy.cpp" />
+    <ClCompile Include="Game\Monster\Monsters\Goblin.cpp" />
     <ClCompile Include="Game\Monster\Monsters\TestMons.cpp" />
     <ClCompile Include="Game\Monster\Monsters\Uma.cpp" />
     <ClCompile Include="Game\NetPVP\CRatingSystem.cpp" />
@@ -499,6 +500,7 @@
     <ClInclude Include="Game\Monster\MonsterMarker.h" />
     <ClInclude Include="Game\Monster\Monsters\Armor.h" />
     <ClInclude Include="Game\Monster\Monsters\Fairy.h" />
+    <ClInclude Include="Game\Monster\Monsters\Goblin.h" />
     <ClInclude Include="Game\Monster\Monsters\TestMons.h" />
     <ClInclude Include="Game\Monster\Monsters\Uma.h" />
     <ClInclude Include="Game\NetPVP\CRatingSystem.h" />
@@ -817,6 +819,7 @@
     <None Include="Assets\modelData\door\door.fbx">
       <FileType>Document</FileType>
     </None>
+    <MeshContentTask Include="Assets\modelData\gob\gob.FBX" />
     <MeshContentTask Include="Assets\modelData\testMons\tesEnemy3.fbx">
       <FileType>Document</FileType>
     </MeshContentTask>
