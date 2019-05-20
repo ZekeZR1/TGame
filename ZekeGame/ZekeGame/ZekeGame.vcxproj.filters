@@ -539,8 +539,23 @@
     <ClCompile Include="Game\Monster\Action\Act_superBeam.cpp">
       <Filter>act</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Monster\Action\Act_ObstMove.cpp">
+    <ClCompile Include="Game\Monster\Action\Act_Cleanse.cpp">
       <Filter>act</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\Action\Act_buffAtcPow.cpp">
+      <Filter>act\buff</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\Action\Act_buffDefPow.cpp">
+      <Filter>act\buff</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\Action\Act_debuffAtcPow.cpp">
+      <Filter>act\debuff</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\Action\Act_debuffDefPow.cpp">
+      <Filter>act\debuff</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\Action\Act_ObstMove.cpp">
+      <Filter>act\debuff</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1389,8 +1404,23 @@
     <ClInclude Include="Game\Monster\Action\Act_superBeam.h">
       <Filter>act</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Monster\Action\Act_ObstMove.h">
+    <ClInclude Include="Game\Monster\Action\Act_Cleanse.h">
       <Filter>act</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\Action\Act_buffAtcPow.h">
+      <Filter>act\buff</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\Action\Act_buffDefPow.h">
+      <Filter>act\buff</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\Action\Act_debuffDefPow.h">
+      <Filter>act\debuff</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\Action\Act_debuffAtcPow.h">
+      <Filter>act\debuff</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\Action\Act_ObstMove.h">
+      <Filter>act\debuff</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1902,6 +1932,12 @@
     </Filter>
     <Filter Include="Assets\Sprite\MonSelect">
       <UniqueIdentifier>{980c3a0a-ea09-46ea-8843-ecabbd66a6cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="act\buff">
+      <UniqueIdentifier>{479eeb42-6d03-4573-840b-dbdbff08b05e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="act\debuff">
+      <UniqueIdentifier>{e67c7ddd-6282-4d37-aee9-827fcb7fae34}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

@@ -81,9 +81,9 @@
                 <Min>0</Min>
               </X>
               <Y>
-                <Center>160</Center>
-                <Max>160</Max>
-                <Min>160</Min>
+                <Center>9999</Center>
+                <Max>9999</Max>
+                <Min>9999</Min>
               </Y>
               <Z>
                 <Center>0</Center>
