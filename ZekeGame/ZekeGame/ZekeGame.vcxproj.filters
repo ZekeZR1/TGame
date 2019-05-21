@@ -1833,6 +1833,12 @@
     <None Include="Assets\modelData\book\book.FBX">
       <Filter>Assets\model</Filter>
     </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_book.png">
+      <Filter>Assets\Sprite\MonSelect</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_gob.png">
+      <Filter>Assets\Sprite\MonSelect</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="act">
@@ -1972,13 +1978,5 @@
     <Media Include="Assets\sound\BGM\PerituneMaterial_Strategy5_loop.wav">
       <Filter>Assets\BGM</Filter>
     </Media>
-  </ItemGroup>
-  <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_gob.png">
-      <Filter>Assets\Sprite\MonSelect</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_book.png">
-      <Filter>Assets\Sprite\MonSelect</Filter>
-    </ImageContentTask>
   </ItemGroup>
 </Project>

@@ -855,10 +855,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_gob.png" />
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_gob.png" />
   </ItemGroup>
   <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_book.png" />
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_book.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
