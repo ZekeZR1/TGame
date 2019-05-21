@@ -558,6 +558,10 @@
       <Filter>act\debuff</Filter>
     </ClCompile>
     <ClCompile Include="Game\Monster\Action\Act_ObstMove.cpp" />
+    <ClCompile Include="Game\Monster\Monsters\Goblin.cpp" />
+    <ClCompile Include="Game\Monster\Monsters\Book.cpp">
+      <Filter>Game\Monster</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\PythonBridge\include\unicodeobject.h" />
@@ -1424,6 +1428,10 @@
       <Filter>act\debuff</Filter>
     </ClInclude>
     <ClInclude Include="Game\Monster\Action\Act_ObstMove.h" />
+    <ClInclude Include="Game\Monster\Monsters\Goblin.h" />
+    <ClInclude Include="Game\Monster\Monsters\Book.h">
+      <Filter>Game\Monster</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="python36.lib" />
@@ -1816,6 +1824,15 @@
     <None Include="Assets\modelData\uma\uma.nobone.fbx">
       <Filter>Assets\model</Filter>
     </None>
+    <None Include="Assets\modelData\testMons\tesEnemy3.fbx">
+      <Filter>Assets\model</Filter>
+    </None>
+    <None Include="Assets\modelData\gob\gob.FBX">
+      <Filter>Assets\model</Filter>
+    </None>
+    <None Include="Assets\modelData\book\book.FBX">
+      <Filter>Assets\model</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="act">
@@ -1957,9 +1974,11 @@
     </Media>
   </ItemGroup>
   <ItemGroup>
-    <MeshContentTask Include="Assets\modelData\gob\gob_bone.fbx">
-      <Filter>Assets\model</Filter>
-    </MeshContentTask>
-    <MeshContentTask Include="Assets\modelData\testMons\tesEnemy3.fbx" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_gob.png">
+      <Filter>Assets\Sprite\MonSelect</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_book.png">
+      <Filter>Assets\Sprite\MonSelect</Filter>
+    </ImageContentTask>
   </ItemGroup>
 </Project>

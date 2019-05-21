@@ -11,6 +11,7 @@ enum MonsterID
 	enFairy,
 	enArmor,
 	enGoblin,
+	enBook,
 	enNumMonster,
 };
 

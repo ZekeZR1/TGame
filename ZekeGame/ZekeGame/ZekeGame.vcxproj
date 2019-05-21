@@ -296,6 +296,7 @@
     <ClCompile Include="Game\Monster\MonsterEffect.cpp" />
     <ClCompile Include="Game\Monster\MonsterMarker.cpp" />
     <ClCompile Include="Game\Monster\Monsters\Armor.cpp" />
+    <ClCompile Include="Game\Monster\Monsters\Book.cpp" />
     <ClCompile Include="Game\Monster\Monsters\Fairy.cpp" />
     <ClCompile Include="Game\Monster\Monsters\Goblin.cpp" />
     <ClCompile Include="Game\Monster\Monsters\TestMons.cpp" />
@@ -499,6 +500,7 @@
     <ClInclude Include="Game\Monster\MonsterEffect.h" />
     <ClInclude Include="Game\Monster\MonsterMarker.h" />
     <ClInclude Include="Game\Monster\Monsters\Armor.h" />
+    <ClInclude Include="Game\Monster\Monsters\Book.h" />
     <ClInclude Include="Game\Monster\Monsters\Fairy.h" />
     <ClInclude Include="Game\Monster\Monsters\Goblin.h" />
     <ClInclude Include="Game\Monster\Monsters\TestMons.h" />
@@ -819,10 +821,15 @@
     <None Include="Assets\modelData\door\door.fbx">
       <FileType>Document</FileType>
     </None>
-    <MeshContentTask Include="Assets\modelData\gob\gob.FBX" />
-    <MeshContentTask Include="Assets\modelData\testMons\tesEnemy3.fbx">
+    <None Include="Assets\modelData\book\book.FBX">
       <FileType>Document</FileType>
-    </MeshContentTask>
+    </None>
+    <None Include="Assets\modelData\gob\gob.FBX">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="Assets\modelData\testMons\tesEnemy3.fbx">
+      <FileType>Document</FileType>
+    </None>
     <None Include="Assets\modelData\uma\uma.bone.fbx">
       <FileType>Document</FileType>
     </None>
@@ -848,9 +855,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <MeshContentTask Include="Assets\modelData\gob\gob_bone.fbx">
-      <FileType>Document</FileType>
-    </MeshContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_gob.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_book.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
