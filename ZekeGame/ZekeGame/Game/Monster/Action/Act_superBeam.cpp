@@ -17,6 +17,8 @@ bool Act_superBeam::Action(Monster* me) {
 			return true;
 		me->SetMP(mp - m_cost);
 
+		me->anim_extra1();
+
 		CVector3 v = m_target->Getpos() - me->Getpos();
 		float cta = atan2f(v.x, v.z);
 		CQuaternion rot;
@@ -29,6 +31,7 @@ bool Act_superBeam::Action(Monster* me) {
 		m_efk->SetScale(m_efs);
 		m_efk->Play(L"Assets/effect/beam/Laserbeam.efk");
 
+		//TODO : ‰¹‚ð•Ï‚¦‚é
 		Sound* sound = NewGO<Sound>(0, "snd");
 		sound->Init(L"Assets/sound/bom.wav");
 		sound->Play();
@@ -50,7 +53,7 @@ bool Act_superBeam::Action(Monster* me) {
 			CVector3 vec = mon->Getpos() - me->Getpos();
 			float currentTheta = atan2(vec.x,vec.z);
 			float dif = max(currentTheta, m_laserTheta) - min(currentTheta, m_laserTheta);
-			if (dif < m_nearTheta and mon != me)
+			if (dif < m_near and mon != me)
 			{
 				mon->DamageEx(me->GetExAttack());
 			}

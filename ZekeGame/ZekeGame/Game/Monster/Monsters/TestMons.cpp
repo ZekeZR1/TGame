@@ -40,6 +40,8 @@ TestMons::TestMons()
 	ua[4] = enTackle;
 	ua[5] = enActNone;
 	ua[6] = enSuperBeam;
+	ua[7] = enObstMove;
+	ua[8] = enCleanse;
 	SetUseAction(ua,99);
 	//m_PB = FindGO<PythonBridge>("PB");
 
