@@ -14,6 +14,6 @@ private:
 	CEffect* m_efk = nullptr;
 	CVector3 m_efs = { 5,5,5 };
 	float m_laserTheta = 0.f;
-	float m_nearTheta = 5.f;
+	float m_near = 0.2f;
 };
 

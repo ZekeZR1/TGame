@@ -263,6 +263,26 @@ public:
 		m_movespeed = v;
 	}
 
+	void SetSpeed(float speed) {
+		m_speed = speed;
+	}
+
+	void SetDefensePower(float pow) {
+		m_Defense = pow;
+	}
+
+	void SetExDefensePower(float pow) {
+		m_ExDefense = pow;
+	}
+
+	void SetAttackPower(float pow) {
+		 m_Attack = pow;
+	}
+
+	void SetExAttackPower(float pow) {
+		m_ExAttack = pow;
+	}
+
 	//
 	CVector3 GetFrontvec()
 	{

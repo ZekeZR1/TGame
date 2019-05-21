@@ -12,6 +12,8 @@
 #include "Action/Act_Guardian.h"
 #include "Action/Act_Recovery.h"
 #include "Action/Act_superBeam.h"
+#include "Action/Act_ObstMove.h"
+#include "Action/Act_Cleanse.h"
 
 MonsterAction * MonsterActionManeger::LoadAction(int id,int target)
 {
@@ -55,8 +57,15 @@ MonsterAction * MonsterActionManeger::LoadAction(int id,int target)
 		ac->Settarget(target);
 		return ac;
 	case enSuperBeam:
-
 		ac = NewGO<Act_superBeam>(0, "action");
+		ac->Settarget(target);
+		return ac;
+	case enObstMove:
+		ac = NewGO<Act_ObstMove>(0, "action");
+		ac->Settarget(target);
+		return ac;
+	case enCleanse:
+		ac = NewGO<Act_Cleanse>(0, "action");
 		ac->Settarget(target);
 		return ac;
 	}

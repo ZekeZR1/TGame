@@ -24,6 +24,8 @@ enum ActionID
 	enGuardian,
 	enRecovery,
 	enSuperBeam,
+	enObstMove,
+	enCleanse,
 	enActNone = 999
 };
 
