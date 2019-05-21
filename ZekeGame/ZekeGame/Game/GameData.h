@@ -26,6 +26,10 @@ enum ActionID
 	enSuperBeam,
 	enObstMove,
 	enCleanse,
+	enBuffAtc,
+	enDebuffAtc,
+	enBuffDef,
+	enDebuffDef,
 	enActNone = 999
 };
 
