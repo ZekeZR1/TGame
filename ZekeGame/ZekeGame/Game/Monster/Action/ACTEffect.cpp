@@ -11,7 +11,7 @@ ACTEffectGrant::~ACTEffectGrant()
 	}
 }
 
-void ACTEffectGrant::init(CEffect * effect, Monster * target, int state, float dam, float time)
+void ACTEffectGrant::init(CEffect * effect, Monster * target, int state, float dam, float time,float endTime)
 {
 	m_effect = effect;
 	m_target = target;
@@ -19,6 +19,7 @@ void ACTEffectGrant::init(CEffect * effect, Monster * target, int state, float d
 	m_state = (State)state;
 	m_dam = dam;
 	m_damTime = time;
+	m_endTime = endTime;
 }
 
 void ACTEffectGrant::Update()
@@ -40,6 +41,9 @@ void ACTEffectGrant::Update()
 		m_time = 0;
 	}
 	
+	if (m_time >= m_endTime) {
+
+	}
 	
 	m_effect->SetPosition(m_target->Getpos());
 

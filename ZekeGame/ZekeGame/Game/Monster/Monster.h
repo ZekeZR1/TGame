@@ -69,6 +69,7 @@ public:
 		abPoison,	//“Å
 		abStan,		//ƒXƒ^ƒ“
 		abBurn,		//‚â‚¯‚Ç
+		abCC,		//s“®–WŠQ
 	};
 
 	//ó‘ÔˆÙí‚Ìİ’è
