@@ -30,4 +30,8 @@ private:
 	SpriteRender* m_monsel = nullptr;
 
 	FontRender* m_title = nullptr;			//上に表示するやつ
+
+	float m_maxScroll = 0.f;				//スクロールの上限
+	float m_minScroll = 0.f;				//スクロールの下限
+	float m_scroll = 0.f;					//げんざいのスクロールに位置
 };

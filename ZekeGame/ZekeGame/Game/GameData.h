@@ -10,6 +10,7 @@ enum MonsterID
 	enUmataur,
 	enFairy,
 	enArmor,
+	enGoblin,
 	enNumMonster,
 };
 

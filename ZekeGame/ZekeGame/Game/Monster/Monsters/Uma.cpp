@@ -43,5 +43,5 @@ Uma::Uma()
 	SetUseAction(ua,6);
 	//tginit(10, 10, 10, 20, 70, sr, 0);
 
-	m_ID = 1;
+	m_ID = enUmataur;
 }

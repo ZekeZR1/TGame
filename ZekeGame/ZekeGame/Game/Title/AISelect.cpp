@@ -86,7 +86,6 @@ void AISelect::init(PMMonster * pmm,AIMSelect* aims)
 
 void AISelect::Update()
 {
-
 	////AI‚ÌØ‚è‘Ö‚¦ƒ{ƒ^ƒ“‚Ìˆ—
 	m_changeAI->SetCollisionTarget(m_cursor->GetCursor());
 	if (m_changeAI->isCollidingTarget())

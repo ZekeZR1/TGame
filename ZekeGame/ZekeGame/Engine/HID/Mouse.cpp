@@ -7,6 +7,7 @@ namespace Mouse {
 	bool prePress[enNumMouseEve] = { false };
 	bool press[enNumMouseEve] = { false };
 	CVector3 cursorpos = CVector3::Zero();
+	int Notch = 0;
 
 	void UpdateMouseInput() {
 		POINT pt;
@@ -38,7 +39,7 @@ namespace Mouse {
 
 		cursorpos.y = zry - (float)pt.y;
 		cursorpos.y *= 720.f / crect.bottom;
-
+		
 		//カーソル表示
 		ShowCursor(FALSE);
 #if _DEBUG
@@ -89,15 +90,18 @@ namespace Mouse {
 			press[enMiddleClick] = 0;
 		}
 
-		if (!(isTrigger(enNotchUp) || isTrigger(enNotchDown))) {
+		/*CallWindowProcA(MsgProc, g_hwnd, WM_NULL, 0, 0);
+		if (!(press[enNotchUp] || press[enNotchDown])) {
 			notch = 0;
-		}
+		}*/
+		Notch = notch;
+		notch = 0;
 	}
 	CVector3 GetCursorPos() {
 		return cursorpos;
 	}
 	int GetMouseNotch() {
-		int nn = notch;
+		int nn = Notch;
 		return nn;
 	}
 
