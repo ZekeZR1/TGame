@@ -14,6 +14,10 @@
 #include "Action/Act_superBeam.h"
 #include "Action/Act_ObstMove.h"
 #include "Action/Act_Cleanse.h"
+#include "Action/Act_buffAtcPow.h"
+#include "Action/Act_buffDefPow.h"
+#include "Action/Act_debuffAtcPow.h"
+#include "Action/Act_debuffDefPow.h"
 
 MonsterAction * MonsterActionManeger::LoadAction(int id,int target)
 {
@@ -66,6 +70,22 @@ MonsterAction * MonsterActionManeger::LoadAction(int id,int target)
 		return ac;
 	case enCleanse:
 		ac = NewGO<Act_Cleanse>(0, "action");
+		ac->Settarget(target);
+		return ac;
+	case enBuffAtc:
+		ac = NewGO<Act_buffAtcPow>(0, "action");
+		ac->Settarget(target);
+		return ac;
+	case enDebuffAtc:
+		ac = NewGO<Act_debuffAtcPow>(0, "action");
+		ac->Settarget(target);
+		return ac;
+	case enBuffDef:
+		ac = NewGO<Act_buffDefPow>(0, "action");
+		ac->Settarget(target);
+		return ac;
+	case enDebuffDef:
+		ac = NewGO<Act_debuffDefPow>(0, "action");
 		ac->Settarget(target);
 		return ac;
 	}
