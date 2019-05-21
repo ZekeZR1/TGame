@@ -855,10 +855,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_gob.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_gob.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_book.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_book.png" />
   </ItemGroup>
   <ItemGroup>
     <ImageContentTask Include="Assets\Sprite\GUI\check.png" />
