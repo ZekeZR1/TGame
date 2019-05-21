@@ -20,7 +20,7 @@ public:
 		dam:食らわすダメージ
 		time:ダメージのスパン。0未満の場合は毎フレーム
 	*/
-	void init(CEffect* effect, Monster* target, int state = enNull, float dam = 0,float time = -1);
+	void init(CEffect* effect, Monster* target, int state = enNull, float dam = 0,float time = -1,float endTime = 0);
 
 	/*
 	Update
@@ -40,12 +40,11 @@ public:
 	{
 		enNull,		//何もしない
 		enDamage,	//ダメージ
-
+		enCC,	//移動妨害
+		enbuffAtc,
 	};
 
 private:
-
-	
 	State m_state = enNull;
 
 	int m_abnormal = 0;
@@ -53,8 +52,9 @@ private:
 	float m_damTime = 0;
 	float m_dam = 0;
 
+	float m_efTime = 0;
 	float m_time = 0;
-
+	float m_endTime = 0;
 	CEffect* m_effect = nullptr;
 	Monster* m_target = nullptr;
 };
