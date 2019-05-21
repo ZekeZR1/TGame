@@ -23,12 +23,13 @@ int WINAPI wWinMain(
 	//NewGO<MonsterDrop>(0);
 	g_physics.SetDebugDraw(true);
 
-	/*AnimationClip anim[3];
-	anim[0].Load(L"Assets/modelData/gob/gob_walk.tka");
-	anim[0].SetLoopFlag(true);
-	SkinModelRender* sr = NewGO<SkinModelRender>(0, "sr");
-	sr->Init(L"Assets/modelData/gob.cmo", anim, 1);
-	sr->SetScale(CVector3{ 10,10,10 });*/
+	//AnimationClip anim[3];
+	//anim[0].Load(L"Assets/modelData/book/book_idle.tka");
+	//anim[0].SetLoopFlag(true);
+	//SkinModelRender* sr = NewGO<SkinModelRender>(0, "sr");
+	//sr->Init(L"Assets/modelData/book.cmo", anim, 1);
+	////sr->SetScale(CVector3{ 10,10,10 });
+	//sr->SetScale(CVector3::One()/5);
 
 
 	SkinModelRender* sm = NewGO<SkinModelRender>(0, "sm");
