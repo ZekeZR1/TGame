@@ -10,6 +10,7 @@ bool g_isPressShift = false;
 LRESULT CALLBACK MsgProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 {
 	static int nWheelFraction = 0;	// 回転量の端数
+
 	
 	switch (msg)
 	{
@@ -23,16 +24,18 @@ LRESULT CALLBACK MsgProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 
 	case WM_MOUSEWHEEL:
 	{
+		
 		DWORD fwKeys = GET_KEYSTATE_WPARAM(wParam);	// 同時に押されているキー情報
 		int zDelta = GET_WHEEL_DELTA_WPARAM(wParam);	// 回転量
 
 		// 前回の端数を追加
-		zDelta += nWheelFraction;
+		//zDelta += nWheelFraction;
 		// ノッチ数を求める
 		int nNotch = zDelta / WHEEL_DELTA;
 		notch = nNotch;
 		// 端数を保存する
 		nWheelFraction = zDelta % WHEEL_DELTA;
+		
 		break;
 	}
 	case WM_LBUTTONDOWN:
@@ -104,6 +107,8 @@ LRESULT CALLBACK MsgProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 	default:
 		break;
 	}
+	
+	
 	return DefWindowProc(hWnd, msg, wParam, lParam);
 	//return 0;
 }

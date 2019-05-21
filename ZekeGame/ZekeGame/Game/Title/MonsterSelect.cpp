@@ -36,7 +36,7 @@ bool MonsterSelect::Start()
 	m_cursor = FindGO<GameCursor>("cursor");
 
 	m_back = NewGO<SpriteRender>(2, "sp");
-	m_back->Init(L"Assets/sprite/mon_back.dds", m_backsize.x * 4, m_backsize.y * 5);
+	m_back->Init(L"Assets/sprite/mon_back.dds", m_backsize.x * 4, m_backsize.y * 5,true);
 	m_back->SetPivot({ 0,1 });
 	CVector3 pos = { -257,360,0 };
 	//CVector3 pos = { -257,230.5f,0 };
@@ -46,7 +46,7 @@ bool MonsterSelect::Start()
 	pos.y = 205.0f;
 	m_monstercount = enNumMonster;
 	//for (int i = 1; i < m_monstercount; i++)
-	for (int i = 0; i < m_monstercount; i++)
+	for (int i = 0; i < 100; i++)
 	{
 		IconMon* im = NewGO<IconMon>(0, "im");
 		//std::wstring path;
@@ -69,15 +69,17 @@ bool MonsterSelect::Start()
 			break;
 		}*/
 		im->Setpos(pos);
-		if ((i+1 % 5) == 0)
+		//if (((i+1) % 5) == 0)
+		if (((i+1) % 4) == 0)
 		{
-			pos.x = 30;
+			pos.x = -179;
 			pos.y -= 133;
 		}
 		else pos += {133,0, 0};
 		m_icons.push_back(im);
 		//m_paths.push_back(path);
 	}
+	m_maxScroll = pos.y*-1;
 
 	//NewGO<AISelect>(0, "ais");
 	return true;
@@ -104,5 +106,36 @@ void MonsterSelect::Update()
 			m_aims->Setmon(i);
 			//m_pmm->ChengeImage(m_paths[i].c_str(),i);
 		}
+	}
+
+
+	m_back->SetCollisionTarget(m_cursor->GetCursor());
+	if (m_back->isCollidingTarget())
+	{
+		static int i = 0;
+		int notch = Mouse::GetMouseNotch() * -1;
+		if (notch != 0)
+		{
+
+			if (i >= 2)
+				int a = 0;
+			if (!(m_scroll <= m_minScroll && notch < 0) && !(m_scroll >= m_maxScroll && notch > 0))
+			{
+				float vNotch = notch * 50;
+				m_scroll += vNotch;
+				
+				
+				for (auto icon : m_icons)
+				{
+					CVector3 pos = icon->Getpos();
+					pos.y += vNotch;
+					icon->Setpos(pos);
+				}
+			}
+			i++;
+
+		}
+		else
+			i = 0;
 	}
 }

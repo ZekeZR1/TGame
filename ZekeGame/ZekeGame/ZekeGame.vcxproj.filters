@@ -336,16 +336,16 @@
       <Filter>Engine</Filter>
     </ClCompile>
     <ClCompile Include="Game\Dungeon\DungeonAISelect.cpp">
-      <Filter>Game\Dungeon</Filter>
+      <Filter>Game\AIMonSelect\Dungeon</Filter>
     </ClCompile>
     <ClCompile Include="Game\Result\DungeonResult.cpp">
-      <Filter>Game\Dungeon</Filter>
+      <Filter>Game\AIMonSelect\Dungeon</Filter>
     </ClCompile>
     <ClCompile Include="Game\Dungeon\DungeonSelect.cpp">
-      <Filter>Game\Dungeon</Filter>
+      <Filter>Game\AIMonSelect\Dungeon</Filter>
     </ClCompile>
     <ClCompile Include="Game\Dungeon\DungeonTransition.cpp">
-      <Filter>Game\Dungeon</Filter>
+      <Filter>Game\AIMonSelect\Dungeon</Filter>
     </ClCompile>
     <ClCompile Include="Game\Title\AIMSelect.cpp">
       <Filter>Game\AIMonSelect</Filter>
@@ -423,10 +423,10 @@
       <Filter>Game\fade</Filter>
     </ClCompile>
     <ClCompile Include="Game\Dungeon\DungeonData.cpp">
-      <Filter>Game\Dungeon</Filter>
+      <Filter>Game\AIMonSelect\Dungeon</Filter>
     </ClCompile>
     <ClCompile Include="Game\Dungeon\DungeonGame.cpp">
-      <Filter>Game\Dungeon</Filter>
+      <Filter>Game\AIMonSelect\Dungeon</Filter>
     </ClCompile>
     <ClCompile Include="Engine\physics\PhysicsDebugDraw.cpp">
       <Filter>Engine</Filter>
@@ -459,7 +459,7 @@
       <Filter>Game\AIEdite</Filter>
     </ClCompile>
     <ClCompile Include="Game\MonsterBox\MonsterBox.cpp">
-      <Filter>Game\Dungeon</Filter>
+      <Filter>Game\AIMonSelect\Dungeon</Filter>
     </ClCompile>
     <ClCompile Include="Game\Dungeon\MonsterDrop.cpp">
       <Filter>Game</Filter>
@@ -542,6 +542,7 @@
     <ClCompile Include="Game\Monster\Monsters\TestMons.cpp">
       <Filter>Game\Monster\Monsters</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Monster\Action\Act_ObstMove.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\PythonBridge\include\unicodeobject.h" />
@@ -1186,16 +1187,16 @@
       <Filter>Engine</Filter>
     </ClInclude>
     <ClInclude Include="Game\Dungeon\DungeonAISelect.h">
-      <Filter>Game\Dungeon</Filter>
+      <Filter>Game\AIMonSelect\Dungeon</Filter>
     </ClInclude>
     <ClInclude Include="Game\Result\DungeonResult.h">
-      <Filter>Game\Dungeon</Filter>
+      <Filter>Game\AIMonSelect\Dungeon</Filter>
     </ClInclude>
     <ClInclude Include="Game\Dungeon\DungeonSelect.h">
-      <Filter>Game\Dungeon</Filter>
+      <Filter>Game\AIMonSelect\Dungeon</Filter>
     </ClInclude>
     <ClInclude Include="Game\Dungeon\DungeonTransition.h">
-      <Filter>Game\Dungeon</Filter>
+      <Filter>Game\AIMonSelect\Dungeon</Filter>
     </ClInclude>
     <ClInclude Include="Game\Title\AIMSelect.h">
       <Filter>Game\AIMonSelect</Filter>
@@ -1273,10 +1274,10 @@
       <Filter>Game\fade</Filter>
     </ClInclude>
     <ClInclude Include="Game\Dungeon\DungeonGame.h">
-      <Filter>Game\Dungeon</Filter>
+      <Filter>Game\AIMonSelect\Dungeon</Filter>
     </ClInclude>
     <ClInclude Include="Game\Dungeon\DungeonData.h">
-      <Filter>Game\Dungeon</Filter>
+      <Filter>Game\AIMonSelect\Dungeon</Filter>
     </ClInclude>
     <ClInclude Include="Engine\physics\PhysicsDebugDraw.h">
       <Filter>Engine</Filter>
@@ -1309,7 +1310,7 @@
       <Filter>Game\AIEdite</Filter>
     </ClInclude>
     <ClInclude Include="Game\MonsterBox\MonsterBox.h">
-      <Filter>Game\Dungeon</Filter>
+      <Filter>Game\AIMonSelect\Dungeon</Filter>
     </ClInclude>
     <ClInclude Include="Game\Dungeon\MonsterDrop.h">
       <Filter>Game</Filter>
@@ -1392,6 +1393,7 @@
     <ClInclude Include="Game\Monster\Monsters\TestMons.h">
       <Filter>Game\Monster\Monsters</Filter>
     </ClInclude>
+    <ClInclude Include="Game\Monster\Action\Act_ObstMove.h" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="python36.lib" />
@@ -1807,9 +1809,6 @@
     <Filter Include="Python">
       <UniqueIdentifier>{92bcbdc3-e9b9-42b9-95b9-ab207fdc6cec}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\Dungeon">
-      <UniqueIdentifier>{ecc301f3-6fd1-409b-9ab5-30e1464f2b87}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Game\AIMonSelect">
       <UniqueIdentifier>{3a3f97a9-bec5-46aa-9662-80a9b112ab5e}</UniqueIdentifier>
     </Filter>
@@ -1905,6 +1904,9 @@
     </Filter>
     <Filter Include="Game\Monster\Monsters">
       <UniqueIdentifier>{a18166ca-55fe-46b1-b481-916ee2a7dd82}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\AIMonSelect\Dungeon">
+      <UniqueIdentifier>{ecc301f3-6fd1-409b-9ab5-30e1464f2b87}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
