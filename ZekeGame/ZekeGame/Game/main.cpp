@@ -21,7 +21,7 @@ int WINAPI wWinMain(
 	NewGO<GameCamera2D>(0, "cam2d");
 	NewGO<ModeSelect>(0, "modesel");
 	//NewGO<MonsterDrop>(0);
-	g_physics.SetDebugDraw(true);
+	g_physics.SetDebugDraw(false);
 
 	/*AnimationClip anim[3];
 	anim[0].Load(L"Assets/modelData/gob/gob_walk.tka");
