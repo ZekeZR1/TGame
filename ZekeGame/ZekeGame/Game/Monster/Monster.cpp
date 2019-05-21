@@ -11,6 +11,8 @@
 #include "MonsterActionList.h"
 #include "MonsterMarker.h"
 
+#include "Action/ACTEffect.h"
+
 Monster::~Monster()
 {
 	DeleteGO(m_smr);
@@ -135,7 +137,7 @@ void Monster::Update()
 		bool isAbnormal = true;
 		for (auto as : m_abnormalStates)
 		{
-			if (as == abStan)
+			if (as->GetAbnormalState() == abStan)
 			{
 				isAbnormal = false;
 				break;

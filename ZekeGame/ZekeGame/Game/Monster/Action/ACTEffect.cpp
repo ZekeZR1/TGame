@@ -7,7 +7,7 @@ ACTEffectGrant::~ACTEffectGrant()
 {
 	if (m_abnormal != Monster::abNull)
 	{
-		m_target->ClearAbnormalState(m_abnormal);
+		m_target->ClearAbnormalState(this);
 	}
 }
 
@@ -49,6 +49,7 @@ void ACTEffectGrant::Update()
 void ACTEffectGrant::SetAbnormalState(int abn)
 {
 	m_abnormal = abn;
-	m_target->SetAbnormalState(abn);
+	if(m_abnormal != 0)
+		m_target->SetAbnormalState(this);
 
 }
