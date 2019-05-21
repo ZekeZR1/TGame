@@ -19,6 +19,7 @@ MonsterSelect::~MonsterSelect()
 	}
 	DeleteGO(m_monsel);
 	DeleteGO(m_title);
+	DeleteGO(m_check);
 }
 
 bool MonsterSelect::Start()
@@ -82,6 +83,10 @@ bool MonsterSelect::Start()
 	m_maxScroll = pos.y*-1;
 
 	//NewGO<AISelect>(0, "ais");
+
+	m_check = NewGO<SpriteRender>(6, "sr");
+	m_check->Init(L"Assets/sprite/check.dds", 128, 128);
+	m_check->SetPosition({ 3000,0,0 });
 	return true;
 }
 
@@ -104,6 +109,8 @@ void MonsterSelect::Update()
 			//todo:monsel debug
 			m_aims->Setmon(i+1);
 			m_aims->Setmon(i);
+
+			m_check->SetPosition(m_icons[i]->Getpos());
 			//m_pmm->ChengeImage(m_paths[i].c_str(),i);
 		}
 	}
@@ -131,6 +138,9 @@ void MonsterSelect::Update()
 					pos.y += vNotch;
 					icon->Setpos(pos);
 				}
+				CVector3 cp = m_check->GetPosition();
+				cp.y += vNotch;
+				m_check->SetPosition(cp);
 			}
 			i++;
 

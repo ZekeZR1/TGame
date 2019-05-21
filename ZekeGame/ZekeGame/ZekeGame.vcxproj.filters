@@ -1979,4 +1979,9 @@
       <Filter>Assets\BGM</Filter>
     </Media>
   </ItemGroup>
+  <ItemGroup>
+    <ImageContentTask Include="Assets\Sprite\GUI\check.png">
+      <Filter>Assets\Sprite</Filter>
+    </ImageContentTask>
+  </ItemGroup>
 </Project>

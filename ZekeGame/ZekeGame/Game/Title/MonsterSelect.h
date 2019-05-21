@@ -34,4 +34,6 @@ private:
 	float m_maxScroll = 0.f;				//スクロールの上限
 	float m_minScroll = 0.f;				//スクロールの下限
 	float m_scroll = 0.f;					//げんざいのスクロールに位置
+
+	SpriteRender* m_check = nullptr;		//check
 };
