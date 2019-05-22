@@ -114,6 +114,9 @@ void LoadBalancingListener::joinRoomEventAction(int playerNr, const JVector<int>
 		//つながった！
 		misConect = true;
 	}
+	else {
+		m_isJoining = true;
+	}
 
 	Console::get().writeLine(JString("player ") + playerNr + L" " + player.getName() + L" has joined the game");
 }
@@ -719,4 +722,14 @@ void LoadBalancingListener::service()
 
 bool LoadBalancingListener::isGotEnemyPythonCodes() {
 	return m_isAiLoaded[0] and m_isAiLoaded[1] and m_isAiLoaded[2];
+}
+
+
+void LoadBalancingListener::DataReset() {
+	m_isJoining = false;
+	m_isEnemyLoadedMyData = false;
+	m_enemyRate = 0.f;
+	for (int i = 0; i < 3; i++) {
+		m_isAiLoaded[i] = false;
+	}
 }

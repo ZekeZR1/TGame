@@ -116,6 +116,8 @@ public:
 	int* GetEnemyTeamIDs() {
 		return m_enemyTeamData;
 	}
+	bool isJoining() { return m_isJoining; }
+	void DataReset();
 private:
 	//From Common::BaseListener
 
@@ -191,6 +193,7 @@ private:
 	bool m_isEnemyLoadedMyData = false;
 	bool m_isAiLoaded[3] = { false };
 	float m_enemyRate = 0.f;
+	bool m_isJoining = false;
 	Hashtable m_datas[3];
 };
 

@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include <fstream>
+#include <random>
 #include "CRatingSystem.h"
 #include "NetPVPMode.h"
 #include "../Title/ModeSelect.h"
@@ -14,9 +15,7 @@
 
 NetPVPMode::NetPVPMode()
 {
-	//Engine::IEngine().CreateNetworkSystem();
 	NetSystem().CreateNetworkSystem();
-	m_lbl = NetSystem().GetNetworkLogic().GetLBL();
 	m_fade = FindGO<Fade>("fade");
 	m_fade->FadeIn();
 }
@@ -42,11 +41,24 @@ bool NetPVPMode::Start() {
 void NetPVPMode::OnDestroy()
 {
 	DeleteGO(m_informationSp);
-	//NetSystem().DestroyNetworkSystem();
+	NetSystem().DestroyNetworkSystem();
 }
 
 
 void NetPVPMode::Update() {
+	static const float timeout = 100.f;
+	m_lbl = NetSystem().GetNetworkLogic().GetLBL();
+#if _DEBUG
+	if (g_pad[0].IsTrigger(enButtonA)) {
+		m_lbl->disconnect();
+
+	}
+	if (g_pad[0].IsTrigger(enButtonB)) {
+		m_lbl->connect(JString(L"NV") + GETTIMEMS());
+		m_informationSp->Init(L"Assets/Sprite/waiting.dds", 300.f, 50.f);
+	}
+#endif
+	if (m_lbl == nullptr) return;
 	NetSystem().GetNetworkLogic().Update();
 	 RaiseData();
 	 LoadEnemyData();
@@ -75,17 +87,37 @@ void NetPVPMode::Update() {
 	 if (m_fade->isFadeStop() && m_isfade) {
 		 BattleStart();
 	 }
-	 //Test
-#if _DEBUG
-	 if (g_pad[0].IsTrigger(enButtonA)) {
-		 m_isfade = true;
-		 if (!m_isfade)
-			 m_fade->FadeOut();
-	 }
-#endif
 	 if (m_isBackFade && m_fade->isFadeStop()) {
 		 BackToMenu();
 	 }
+	 if (!m_lbl->CanStartGame() and m_timer > timeout) {
+		 TimeOut();
+	 }
+	 if (m_lbl->isJoining()) {
+		 m_timer += IGameTime().GetFrameDeltaTime() * 10;
+	 }
+	 if(m_recTime == m_rcuTime)
+		Reconnect();
+	 if (m_isTimeout) m_rcuTime++;
+}
+
+void NetPVPMode::TimeOut() {
+	m_lbl->disconnect();
+	//m_informationSp->Init(L"Assets/Sprite/timeout.dds", 600.f, 200.f);
+	m_lbl->DataReset();
+	m_timer = 0.f;
+	std::random_device rnd;
+	int add = rnd() % 100;
+	m_recTime = 120 + add;
+	m_isTimeout = true;
+}
+
+void NetPVPMode::Reconnect() {
+	OutputDebugString("timeout...reconnecting...\n");
+	m_lbl->connect(JString(L"NV") + GETTIMEMS());
+	//m_informationSp->Init(L"Assets/Sprite/waiting.dds", 300.f, 50.f); 
+	m_isTimeout = false;
+	m_rcuTime = 0;
 }
 
 void NetPVPMode::RaiseData() {
