@@ -24,6 +24,8 @@ private:
 	void LoadEnemyData();
 	void RaiseAiTextData();
 	void RaiseAiVaData();
+	void TimeOut();
+	void Reconnect();
 	bool m_dataRaised = false;
 	bool m_dataLoaded = false;
 	void BattleStart();
@@ -48,6 +50,10 @@ private:
 	bool m_myVaAIsLoaded = false;
 	bool isRaisedVA = false;
 	std::vector<std::string> m_vaFiles;
+	float m_timer = 0.f;
+	bool m_isTimeout = false;
+	int m_recTime = 120;
+	int m_rcuTime = 0;
 	//UI
 	SpriteRender* m_informationSp;
 	CVector3 m_informationPos = { 0.f,300.f,0.f };
