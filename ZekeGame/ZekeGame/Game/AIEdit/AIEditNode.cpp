@@ -65,10 +65,10 @@ bool AIEditNode::Start()
 	CVector2 m_fontpos = CVector2::Zero();
 	m_fontpos.x = bacon.x - 55.0;
 	m_fontpos.y = bacon.y + 108.0;
-	m_fonts[0]->Init(L" HP", { m_fontpos }, 0.0, CVector4::White, 0.8, { 0.0,0.0 });
+	m_fonts[0]->Init(L" HP", { m_fontpos.x,m_fontpos.y-5 }, 0.0, CVector4::White, 0.8, { 0.0,0.0 });
 	m_fonts[0]->DrawShadow({ 5,-5 });
 	m_fontpos.y -= 57.f;
-	m_fonts[1]->Init(L" MP", { m_fontpos }, 0.0, CVector4::White, 0.8, { 0.0,0.0 });
+	m_fonts[1]->Init(L" MP", { m_fontpos.x,m_fontpos.y-3 }, 0.0, CVector4::White, 0.8, { 0.0,0.0 });
 	m_fonts[1]->DrawShadow({ 5,-5 });
 	m_fontpos.x -= 10.f;
 	m_fontpos.y -= 63.f;

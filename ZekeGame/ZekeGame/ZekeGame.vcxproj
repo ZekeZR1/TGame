@@ -860,6 +860,9 @@
   <ItemGroup>
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_book.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ImageContentTask Include="Assets\Sprite\GUI\check.png" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="$(VCTargetsPath)\BuildCustomizations\ImageContentTask.targets" />

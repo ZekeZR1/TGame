@@ -554,13 +554,13 @@
     <ClCompile Include="Game\Monster\Action\Act_debuffDefPow.cpp">
       <Filter>act\debuff</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Monster\Action\Act_ObstMove.cpp">
+      <Filter>act\debuff</Filter>
+    </ClCompile>
     <ClCompile Include="Game\Monster\Action\Act_ObstMove.cpp" />
     <ClCompile Include="Game\Monster\Monsters\Goblin.cpp" />
     <ClCompile Include="Game\Monster\Monsters\Book.cpp">
       <Filter>Game\Monster</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Monster\Action\Act_ObstMove.cpp">
-      <Filter>act\debuff</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1424,13 +1424,13 @@
     <ClInclude Include="Game\Monster\Action\Act_debuffAtcPow.h">
       <Filter>act\debuff</Filter>
     </ClInclude>
+    <ClInclude Include="Game\Monster\Action\Act_ObstMove.h">
+      <Filter>act\debuff</Filter>
+    </ClInclude>
     <ClInclude Include="Game\Monster\Action\Act_ObstMove.h" />
     <ClInclude Include="Game\Monster\Monsters\Goblin.h" />
     <ClInclude Include="Game\Monster\Monsters\Book.h">
       <Filter>Game\Monster</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Monster\Action\Act_ObstMove.h">
-      <Filter>act\debuff</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1833,6 +1833,12 @@
     <None Include="Assets\modelData\book\book.FBX">
       <Filter>Assets\model</Filter>
     </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_book.png">
+      <Filter>Assets\Sprite\MonSelect</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_gob.png">
+      <Filter>Assets\Sprite\MonSelect</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="act">
@@ -1974,11 +1980,8 @@
     </Media>
   </ItemGroup>
   <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_gob.png">
-      <Filter>Assets\Sprite\MonSelect</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_book.png">
-      <Filter>Assets\Sprite\MonSelect</Filter>
+    <ImageContentTask Include="Assets\Sprite\GUI\check.png">
+      <Filter>Assets\Sprite</Filter>
     </ImageContentTask>
   </ItemGroup>
 </Project>

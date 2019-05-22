@@ -36,7 +36,7 @@ bool AIEditNodeClick::Start()
 	m_font->SetTextType(CFont::en_Japanese);
 	CVector2 v2 = v.ToTwo();
 	v2.x += 40;
-	v2.y += 10;
+	v2.y += 17;
 	m_font->Init(L"ƒNƒŠƒbƒN", v2, 0, { 1.0f,0.7f,0.3f,1 }, 0.7f);
 	m_font->DrawShadow();
 

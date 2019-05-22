@@ -184,11 +184,13 @@ void AIEditNodeMenu::Menuwin()
 			CVector2 m_fontpos = CVector2::Zero();
 			m_fontpos.x += m_positionselect.x -= 100;
 			m_fontpos.y += m_positionselect.y += 300;
-			m_fonts[0]->Init(L"セレクトメニューへ戻る", { m_fontpos }, 0.0, CVector4::Red, 1.0, { 0.0,0.0 });
+			CVector2 fp = m_fontpos;
+			fp.y -= 20;
+			m_fonts[0]->Init(L"タイトルへ", { fp }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
 			m_fontpos.y += m_positionselect.y -= 320;
-			m_fonts[1]->Init(L"特殊技一覧", { m_fontpos }, 0.0, CVector4::Red, 1.0, { 0.0,0.0 });
+			m_fonts[1]->Init(L"特殊技一覧", { m_fontpos }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
 			m_fontpos.y += m_positionselect.y += 20;
-			m_fonts[2]->Init(L"戻る", { m_fontpos }, 0.0, CVector4::Red, 1.0, { 0.0,0.0 });
+			m_fonts[2]->Init(L"戻る", { m_fontpos }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
 			menu = true;
 
 		}
