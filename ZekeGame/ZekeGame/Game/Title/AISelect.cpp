@@ -22,6 +22,7 @@ AISelect::~AISelect()
 	DeleteGO(m_CAfont);
 
 	DeleteGO(m_title);
+	DeleteGO(m_check);
 }
 
 bool AISelect::Start()
@@ -73,7 +74,9 @@ bool AISelect::Start()
 	m_CAfont->Init(L"visAI", { -420,320 },0,CVector4::White,0.5f);
 	m_CAfont->DrawShadow();*/
 
-	
+	m_check = NewGO<SpriteRender>(29, "sp");
+	m_check->Init(L"Assets/sprite/check.dds", 80, 80);
+	m_check->SetPosition({ 3000,0,0 });
 	
 	return true;
 }
@@ -86,7 +89,6 @@ void AISelect::init(PMMonster * pmm,AIMSelect* aims)
 
 void AISelect::Update()
 {
-
 	////AI‚ÌØ‚è‘Ö‚¦ƒ{ƒ^ƒ“‚Ìˆ—
 	m_changeAI->SetCollisionTarget(m_cursor->GetCursor());
 	if (m_changeAI->isCollidingTarget())
@@ -94,6 +96,7 @@ void AISelect::Update()
 		if (Mouse::isTrigger(enLeftClick))
 		{
 			DeleteAI();
+			m_check->SetPosition({ 3000,0,0 });
 			switch (m_AImode)
 			{
 			case enPy:
@@ -124,6 +127,10 @@ void AISelect::Update()
 				i = m_icons[i]->getVisualAIname();
 			}
 			m_AIMS->SetAI(i,m_AImode);
+
+			CVector3 cp = m_icons[i]->Getpos();
+			cp.x += 130;
+			m_check->SetPosition(cp);
 			break;
 			/*std::string st = m_ppms->GetFiles()[i];
 			std::wstring ws = std::wstring(st.begin(), st.end());
@@ -143,14 +150,19 @@ void AISelect::Update()
 				int a = 0;
 			if (!(m_scroll <= m_minScroll && notch < 0) && !(m_scroll >= m_maxScroll && notch > 0))
 			{
-				m_scroll += notch * 50;
-				CVector3 pos = m_icons[0]->Getpos();
-				pos.y = m_scroll;
+				int ntc = notch * 50;
+				m_scroll += ntc;
 				for (auto icon : m_icons)
 				{
+					CVector3 pos = icon->Getpos();
+				
+					
+					pos.y += ntc;
 					icon->Setpos(pos);
-					pos.y -= 82.0f;
 				}
+				CVector3 cp = m_check->GetPosition();
+				cp.y += ntc;
+				m_check->SetPosition(cp);
 			}
 			i++;
 

@@ -7,11 +7,11 @@ ACTEffectGrant::~ACTEffectGrant()
 {
 	if (m_abnormal != Monster::abNull)
 	{
-		m_target->ClearAbnormalState(m_abnormal);
+		m_target->ClearAbnormalState(this);
 	}
 }
 
-void ACTEffectGrant::init(CEffect * effect, Monster * target, int state, float dam, float time)
+void ACTEffectGrant::init(CEffect * effect, Monster * target, int state, float dam, float time,float endTime)
 {
 	m_effect = effect;
 	m_target = target;
@@ -19,6 +19,7 @@ void ACTEffectGrant::init(CEffect * effect, Monster * target, int state, float d
 	m_state = (State)state;
 	m_dam = dam;
 	m_damTime = time;
+	m_endTime = endTime;
 }
 
 void ACTEffectGrant::Update()
@@ -40,6 +41,9 @@ void ACTEffectGrant::Update()
 		m_time = 0;
 	}
 	
+	if (m_time >= m_endTime) {
+
+	}
 	
 	m_effect->SetPosition(m_target->Getpos());
 
@@ -49,6 +53,7 @@ void ACTEffectGrant::Update()
 void ACTEffectGrant::SetAbnormalState(int abn)
 {
 	m_abnormal = abn;
-	m_target->SetAbnormalState(abn);
+	if(m_abnormal != 0)
+		m_target->SetAbnormalState(this);
 
 }

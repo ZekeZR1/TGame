@@ -4,6 +4,8 @@
 #include "Monster/Monsters/Uma.h"
 #include "Monster/Monsters/Fairy.h"
 #include "Monster/Monsters/Armor.h"
+#include "Monster/Monsters/Goblin.h"
+#include "Monster/Monsters/Book.h"
 
 Monster* g_mons[64];
 int g_buddyCount = 0;
@@ -54,6 +56,13 @@ Monster * GameData::LoadMonster(int monID)
 	case enArmor:
 		mon = NewGO<Armor>(0, "monster");
 		break;
+	case enGoblin:
+		mon = NewGO<Goblin>(0, "monster");
+		break;
+	case enBook:
+		mon = NewGO<Book>(0, "monster");
+		break;
+		
 	}
 	return mon;
 }
@@ -73,6 +82,12 @@ const wchar_t * GameData::GetMonsterIconPath(int monID)
 		break;
 	case enArmor:
 		return L"Assets/sprite/mon_armor.dds";
+		break;
+	case enGoblin:
+		return L"Assets/sprite/mon_gob.dds";
+		break;
+	case enBook:
+		return L"Assets/sprite/mon_book.dds";
 		break;
 	}
 	return nullptr;

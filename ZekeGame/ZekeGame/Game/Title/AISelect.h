@@ -50,4 +50,6 @@ private:
 
 	SpriteRender* m_changeAI = nullptr;		//visualAIとpythonAIとの切り替え用のsprite
 	FontRender* m_CAfont = nullptr;			//visualAIとpythonAIとの切り替え用のフォント
+
+	SpriteRender* m_check = nullptr;		//check
 };

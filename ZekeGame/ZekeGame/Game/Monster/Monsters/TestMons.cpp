@@ -42,6 +42,10 @@ TestMons::TestMons()
 	ua[6] = enSuperBeam;
 	ua[7] = enObstMove;
 	ua[8] = enCleanse;
+	ua[9] = enBuffAtc;
+	ua[10] = enDebuffAtc;
+	ua[11] = enBuffDef;
+	ua[12] = enDebuffDef;
 	SetUseAction(ua,99);
 	//m_PB = FindGO<PythonBridge>("PB");
 

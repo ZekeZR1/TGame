@@ -8,6 +8,7 @@ class MonsterEffect;
 class MonsterActionList;
 class MonsterMarker;
 class PythonBridge;
+class ACTEffectGrant;
 enum ActionID;
 class Monster:public GameObject
 {
@@ -68,27 +69,43 @@ public:
 		abPoison,	//“Å
 		abStan,		//ƒXƒ^ƒ“
 		abBurn,		//‚â‚¯‚Ç
+		abCC,		//s“®–WŠQ
 	};
 
 	//ó‘ÔˆÙí‚Ìİ’è
 	//abn: enum
-	void SetAbnormalState(int abn)
+	//void SetAbnormalState(int abn)
+	//{
+	//	//m_abnormalState = (AbnormalState)abn;
+	//	m_abnormalStates.push_back((AbnormalState)abn);
+	//}
+	void SetAbnormalState(ACTEffectGrant* abn)
 	{
-		//m_abnormalState = (AbnormalState)abn;
-		m_abnormalStates.push_back((AbnormalState)abn);
+		m_abnormalStates.push_back(abn);
 	}
 
-	void ClearAbnormalState(int abn)
+	/*void ClearAbnormalState(int abn)
 	{
 		std::vector<AbnormalState>::iterator ite;
 		ite = std::find(m_abnormalStates.begin(), m_abnormalStates.end(), (AbnormalState)abn);
+		m_abnormalStates.erase(ite);
+
+	}*/
+	void ClearAbnormalState(ACTEffectGrant* abn)
+	{
+		std::vector<ACTEffectGrant*>::iterator ite;
+		ite = std::find(m_abnormalStates.begin(), m_abnormalStates.end(), abn);
 		m_abnormalStates.erase(ite);
 
 	}
 	
 	//ó‘ÔˆÙí‚Ìæ“¾
 	//return ó‘ÔˆÙí
-	std::vector<AbnormalState> GetAbnormalState()
+	/*std::vector<AbnormalState> GetAbnormalState()
+	{
+		return m_abnormalStates;
+	}*/
+	std::vector<ACTEffectGrant*> GetAbnormalState()
 	{
 		return m_abnormalStates;
 	}
@@ -432,7 +449,8 @@ protected:
 	float m_rotangle = 0;
 
 	AbnormalState m_abnormalState = abNull;
-	std::vector<AbnormalState> m_abnormalStates;
+	//std::vector<AbnormalState> m_abnormalStates;
+	std::vector<ACTEffectGrant*> m_abnormalStates;
 
 	PythonBridge* m_PB;
 

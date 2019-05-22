@@ -336,16 +336,16 @@
       <Filter>Engine</Filter>
     </ClCompile>
     <ClCompile Include="Game\Dungeon\DungeonAISelect.cpp">
-      <Filter>Game\Dungeon</Filter>
+      <Filter>Game\AIMonSelect\Dungeon</Filter>
     </ClCompile>
     <ClCompile Include="Game\Result\DungeonResult.cpp">
-      <Filter>Game\Dungeon</Filter>
+      <Filter>Game\AIMonSelect\Dungeon</Filter>
     </ClCompile>
     <ClCompile Include="Game\Dungeon\DungeonSelect.cpp">
-      <Filter>Game\Dungeon</Filter>
+      <Filter>Game\AIMonSelect\Dungeon</Filter>
     </ClCompile>
     <ClCompile Include="Game\Dungeon\DungeonTransition.cpp">
-      <Filter>Game\Dungeon</Filter>
+      <Filter>Game\AIMonSelect\Dungeon</Filter>
     </ClCompile>
     <ClCompile Include="Game\Title\AIMSelect.cpp">
       <Filter>Game\AIMonSelect</Filter>
@@ -432,10 +432,10 @@
       <Filter>Game\fade</Filter>
     </ClCompile>
     <ClCompile Include="Game\Dungeon\DungeonData.cpp">
-      <Filter>Game\Dungeon</Filter>
+      <Filter>Game\AIMonSelect\Dungeon</Filter>
     </ClCompile>
     <ClCompile Include="Game\Dungeon\DungeonGame.cpp">
-      <Filter>Game\Dungeon</Filter>
+      <Filter>Game\AIMonSelect\Dungeon</Filter>
     </ClCompile>
     <ClCompile Include="Engine\physics\PhysicsDebugDraw.cpp">
       <Filter>Engine</Filter>
@@ -468,7 +468,7 @@
       <Filter>Game\AIEdite</Filter>
     </ClCompile>
     <ClCompile Include="Game\MonsterBox\MonsterBox.cpp">
-      <Filter>Game\Dungeon</Filter>
+      <Filter>Game\AIMonSelect\Dungeon</Filter>
     </ClCompile>
     <ClCompile Include="Game\Dungeon\MonsterDrop.cpp">
       <Filter>Game</Filter>
@@ -556,6 +556,11 @@
     </ClCompile>
     <ClCompile Include="Game\Monster\Action\Act_ObstMove.cpp">
       <Filter>act\debuff</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\Action\Act_ObstMove.cpp" />
+    <ClCompile Include="Game\Monster\Monsters\Goblin.cpp" />
+    <ClCompile Include="Game\Monster\Monsters\Book.cpp">
+      <Filter>Game\Monster</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1201,16 +1206,16 @@
       <Filter>Engine</Filter>
     </ClInclude>
     <ClInclude Include="Game\Dungeon\DungeonAISelect.h">
-      <Filter>Game\Dungeon</Filter>
+      <Filter>Game\AIMonSelect\Dungeon</Filter>
     </ClInclude>
     <ClInclude Include="Game\Result\DungeonResult.h">
-      <Filter>Game\Dungeon</Filter>
+      <Filter>Game\AIMonSelect\Dungeon</Filter>
     </ClInclude>
     <ClInclude Include="Game\Dungeon\DungeonSelect.h">
-      <Filter>Game\Dungeon</Filter>
+      <Filter>Game\AIMonSelect\Dungeon</Filter>
     </ClInclude>
     <ClInclude Include="Game\Dungeon\DungeonTransition.h">
-      <Filter>Game\Dungeon</Filter>
+      <Filter>Game\AIMonSelect\Dungeon</Filter>
     </ClInclude>
     <ClInclude Include="Game\Title\AIMSelect.h">
       <Filter>Game\AIMonSelect</Filter>
@@ -1297,10 +1302,10 @@
       <Filter>Game\fade</Filter>
     </ClInclude>
     <ClInclude Include="Game\Dungeon\DungeonGame.h">
-      <Filter>Game\Dungeon</Filter>
+      <Filter>Game\AIMonSelect\Dungeon</Filter>
     </ClInclude>
     <ClInclude Include="Game\Dungeon\DungeonData.h">
-      <Filter>Game\Dungeon</Filter>
+      <Filter>Game\AIMonSelect\Dungeon</Filter>
     </ClInclude>
     <ClInclude Include="Engine\physics\PhysicsDebugDraw.h">
       <Filter>Engine</Filter>
@@ -1333,7 +1338,7 @@
       <Filter>Game\AIEdite</Filter>
     </ClInclude>
     <ClInclude Include="Game\MonsterBox\MonsterBox.h">
-      <Filter>Game\Dungeon</Filter>
+      <Filter>Game\AIMonSelect\Dungeon</Filter>
     </ClInclude>
     <ClInclude Include="Game\Dungeon\MonsterDrop.h">
       <Filter>Game</Filter>
@@ -1421,6 +1426,11 @@
     </ClInclude>
     <ClInclude Include="Game\Monster\Action\Act_ObstMove.h">
       <Filter>act\debuff</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\Action\Act_ObstMove.h" />
+    <ClInclude Include="Game\Monster\Monsters\Goblin.h" />
+    <ClInclude Include="Game\Monster\Monsters\Book.h">
+      <Filter>Game\Monster</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1814,6 +1824,21 @@
     <None Include="Assets\modelData\uma\uma.nobone.fbx">
       <Filter>Assets\model</Filter>
     </None>
+    <None Include="Assets\modelData\testMons\tesEnemy3.fbx">
+      <Filter>Assets\model</Filter>
+    </None>
+    <None Include="Assets\modelData\gob\gob.FBX">
+      <Filter>Assets\model</Filter>
+    </None>
+    <None Include="Assets\modelData\book\book.FBX">
+      <Filter>Assets\model</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_book.png">
+      <Filter>Assets\Sprite\MonSelect</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_gob.png">
+      <Filter>Assets\Sprite\MonSelect</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="act">
@@ -1836,9 +1861,6 @@
     </Filter>
     <Filter Include="Python">
       <UniqueIdentifier>{92bcbdc3-e9b9-42b9-95b9-ab207fdc6cec}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\Dungeon">
-      <UniqueIdentifier>{ecc301f3-6fd1-409b-9ab5-30e1464f2b87}</UniqueIdentifier>
     </Filter>
     <Filter Include="Game\AIMonSelect">
       <UniqueIdentifier>{3a3f97a9-bec5-46aa-9662-80a9b112ab5e}</UniqueIdentifier>
@@ -1939,6 +1961,9 @@
     <Filter Include="act\debuff">
       <UniqueIdentifier>{e67c7ddd-6282-4d37-aee9-827fcb7fae34}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\AIMonSelect\Dungeon">
+      <UniqueIdentifier>{ecc301f3-6fd1-409b-9ab5-30e1464f2b87}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Media Include="Assets\sound\punch-middle2.wav">
@@ -1955,9 +1980,8 @@
     </Media>
   </ItemGroup>
   <ItemGroup>
-    <MeshContentTask Include="Assets\modelData\gob\gob_bone.fbx">
-      <Filter>Assets\model</Filter>
-    </MeshContentTask>
-    <MeshContentTask Include="Assets\modelData\testMons\tesEnemy3.fbx" />
+    <ImageContentTask Include="Assets\Sprite\GUI\check.png">
+      <Filter>Assets\Sprite</Filter>
+    </ImageContentTask>
   </ItemGroup>
 </Project>

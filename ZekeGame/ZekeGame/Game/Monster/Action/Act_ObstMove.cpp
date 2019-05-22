@@ -10,7 +10,6 @@ Act_ObstMove::Act_ObstMove()
 }
 
 Act_ObstMove::~Act_ObstMove() {
-	m_target->SetSpeed(m_enemySpeed);
 }
 
 bool Act_ObstMove::Action(Monster* me) {
@@ -21,20 +20,20 @@ bool Act_ObstMove::Action(Monster* me) {
 		me->anim_extra1();
 		me->SetMP(mp - m_cost);
 
-		//TODO : Monster‚Ìó‘ÔˆÙí‚ÉˆÚ“®‘¬“x’á‰º‚ð’Ç‰Á‚·‚é
 		m_enemySpeed = m_target->GetSpeed();
 		m_target->SetSpeed(m_enemySpeed * 0.5);
 
 		m_efk = NewGO<CEffect>(0, "ef");
-		m_efk->SetScale({ 4,4,4 });
+		m_efk->SetScale({ 8,8,8 });
 		m_efk->SetPosition(m_target->Getpos());
-		m_efk->Play(L"Assets/effect/heal.efk");
+		m_efk->Play(L"Assets/effect/debuff.efk");
 
 		ACTEffectGrant* actEG = NewGO<ACTEffectGrant>(0, "actEG");
-		actEG->init(m_efk, m_target);
+		actEG->init(m_efk, m_target, ACTEffectGrant::State::enCC, 0, 0, 120);
+		m_target->SetAbnormalState(actEG);
 
 		Sound* snd = NewGO<Sound>(0, "snd");
-		snd->Init(L"Assets/sound/se_maoudamashii_magical11.wav");
+		snd->Init(L"Assets/sound/debuff.wav");
 		snd->SetVolume(1.2f);
 		snd->Play();
 
@@ -47,10 +46,10 @@ bool Act_ObstMove::Action(Monster* me) {
 		m_first = false;
 	}
 	else {
-		m_timer++;
-		if (!me->isAnimPlay()and m_timer >= 120)
+		//m_timer++;
+		if (!me->isAnimPlay())//and m_timer >= 120)
 		{
-			m_target->SetSpeed(m_enemySpeed);
+			//m_target->SetSpeed(m_enemySpeed);
 			return true;
 		}
 	}

@@ -1,7 +1,7 @@
 #pragma once
 
 #include "../Fade/Fade.h"
-class GameCursor;
+#include "..//GameCursor.h"
 //–ß‚éƒ{ƒ^ƒ“
 class ReturnButton :public GameObject
 {
