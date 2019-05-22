@@ -746,14 +746,30 @@
     <None Include="Assets\Sprite\GUI\Dungeon\notifyLine.png" />
     <None Include="Assets\Sprite\GUI\Dungeon\rightButton.png" />
     <None Include="Assets\Sprite\GUI\GO.png" />
-    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\AIselect.png" />
-    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_back_R.png" />
-    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_even.png" />
-    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_sel.png" />
-    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\B_alpha.png" />
-    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\monsel_back.png" />
-    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\PVchenger_P.png" />
-    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\PVchenger_V.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\AIselect.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_back_R.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_even.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_sel.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\B_alpha.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\monsel_back.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\PVchenger_P.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\PVchenger_V.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ImageContentTask>
     <None Include="Assets\Sprite\GUI\modeSelect\modesel_back.png" />
     <None Include="Assets\Sprite\GUI\modeSelect\modesel_back_aiedit.png" />
     <None Include="Assets\Sprite\GUI\modeSelect\modesel_back_dung.png" />
@@ -855,13 +871,32 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_gob.png" />
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_gob.png" />
   </ItemGroup>
   <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_book.png" />
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_book.png" />
   </ItemGroup>
   <ItemGroup>
     <ImageContentTask Include="Assets\Sprite\GUI\check.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageContentTask Include="Assets\Sprite\GUI\AImark\aimk_attack.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\AImark\aimk_defense.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\AImark\aimk_heal.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\AImark\aimk_magic.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ImageContentTask>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_evenV.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ImageContentTask>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

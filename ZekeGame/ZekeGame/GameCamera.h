@@ -28,5 +28,8 @@ private:
 	SpringCamera m_Scamera;
 
 	int m_inm = -1;
+
+	bool m_first = true;
+	float m_base = 0.f;
 };
 

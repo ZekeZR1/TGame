@@ -6,6 +6,7 @@ struct VisualAIState
 	std::string file;
 	int num = 0;
 	CVector4 col = CVector4::White;
+	int mark = 0;
 };
 
 
@@ -31,6 +32,21 @@ public:
 	static CVector4 Whi()
 	{
 		return mWhi;
+	}
+
+	static const wchar_t* getMark(int m)
+	{
+		switch (m)
+		{
+		case 0:
+			return L"Assets/sprite/aimk_attack.dds";
+		case 1:
+			return L"Assets/sprite/aimk_defense.dds";
+		case 2:
+			return L"Assets/sprite/aimk_heal.dds";
+		case 3:
+			return L"Assets/sprite/aimk_magic.dds";
+		}
 	}
 
 private:

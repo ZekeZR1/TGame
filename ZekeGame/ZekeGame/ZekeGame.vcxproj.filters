@@ -1575,30 +1575,6 @@
     <None Include="Assets\Sprite\AIEdit\sieat.png">
       <Filter>Assets\Sprite\AIEdit</Filter>
     </None>
-    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_back_R.png">
-      <Filter>Assets\Sprite\AIselect</Filter>
-    </None>
-    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_even.png">
-      <Filter>Assets\Sprite\AIselect</Filter>
-    </None>
-    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_sel.png">
-      <Filter>Assets\Sprite\AIselect</Filter>
-    </None>
-    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\AIselect.png">
-      <Filter>Assets\Sprite\AIselect</Filter>
-    </None>
-    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\B_alpha.png">
-      <Filter>Assets\Sprite\AIselect</Filter>
-    </None>
-    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\monsel_back.png">
-      <Filter>Assets\Sprite\AIselect</Filter>
-    </None>
-    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\PVchenger_P.png">
-      <Filter>Assets\Sprite\AIselect</Filter>
-    </None>
-    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\PVchenger_V.png">
-      <Filter>Assets\Sprite\AIselect</Filter>
-    </None>
     <None Include="Assets\Sprite\GUI\Dungeon\d1.png">
       <Filter>Assets\Sprite\dungeon</Filter>
     </None>
@@ -1964,6 +1940,9 @@
     <Filter Include="Game\AIMonSelect\Dungeon">
       <UniqueIdentifier>{ecc301f3-6fd1-409b-9ab5-30e1464f2b87}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Assets\Sprite\AImark">
+      <UniqueIdentifier>{0e080f1a-2d6a-4846-94a8-ecec42545a18}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Media Include="Assets\sound\punch-middle2.wav">
@@ -1982,6 +1961,45 @@
   <ItemGroup>
     <ImageContentTask Include="Assets\Sprite\GUI\check.png">
       <Filter>Assets\Sprite</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_evenV.png">
+      <Filter>Assets\Sprite\AIselect</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\AImark\aimk_attack.png">
+      <Filter>Assets\Sprite\AImark</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\AImark\aimk_defense.png">
+      <Filter>Assets\Sprite\AImark</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\AImark\aimk_heal.png">
+      <Filter>Assets\Sprite\AImark</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\AImark\aimk_magic.png">
+      <Filter>Assets\Sprite\AImark</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\PVchenger_V.png">
+      <Filter>Assets\Sprite\AIselect</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_back_R.png">
+      <Filter>Assets\Sprite\AIselect</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_even.png">
+      <Filter>Assets\Sprite\AIselect</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_sel.png">
+      <Filter>Assets\Sprite\AIselect</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\AIselect.png">
+      <Filter>Assets\Sprite\AIselect</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\B_alpha.png">
+      <Filter>Assets\Sprite\AIselect</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\monsel_back.png">
+      <Filter>Assets\Sprite\AIselect</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\PVchenger_P.png">
+      <Filter>Assets\Sprite\AIselect</Filter>
     </ImageContentTask>
   </ItemGroup>
 </Project>

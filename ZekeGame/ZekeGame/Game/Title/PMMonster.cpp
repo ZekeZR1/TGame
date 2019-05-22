@@ -157,14 +157,15 @@ void PMMonster::SetPython(const wchar_t * py,int num, int AImode)
 	m_selAI = num;
 	m_AImode = AImode;
 
-	for (int i = 0; i < 12; i++)
+	int maxFont = 8;
+	for (int i = 0; i < maxFont; i++)
 	{
 		m_python[i] = py[i];
 		if (py[i] == L'\0')
 		{
 			break;
 		}
-		else if (i == 11)
+		else if (i == maxFont-1)
 		{
 			m_python[i - 1] = L'~';
 			m_python[i] = L'\0';
@@ -176,8 +177,7 @@ void PMMonster::SetPython(const wchar_t * py,int num, int AImode)
 	CVector3 spos = m_mon->GetPosition();
 	CVector2 pos;
 	pos.x = spos.x - 90;
-	pos.y = spos.y - 68;
-	pos.y = spos.y - 130;
+	pos.y = spos.y - 100;
 
 	m_fr->Init(m_python, pos, 0, CVector4::White, 1, { 0.5f,0.5f });
 	m_frShadow->Init(m_python, { pos.x + 5,pos.y - 5 }, 0, { 0,0,0,1 }, 1, { 0.5f,0.5f });

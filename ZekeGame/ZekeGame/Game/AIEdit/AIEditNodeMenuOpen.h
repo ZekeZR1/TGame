@@ -59,4 +59,6 @@ private:
 	GameCursor* m_cursor = nullptr;			//Ç©Å[ÇªÅ[
 
 	sOrderLine m_orders[8];					//orderÇΩÇø
+
+	std::vector<SpriteRender*> m_marks;		//mark
 };

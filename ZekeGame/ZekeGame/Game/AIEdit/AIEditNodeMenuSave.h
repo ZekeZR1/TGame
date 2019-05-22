@@ -79,6 +79,7 @@ private:
 
 	SpriteRender* m_backC = nullptr;		//パレットの背景
 	std::vector<SpriteRender*> m_palette;	//パレットの色
+	std::vector<SpriteRender*> m_palmarks;	//パレットのマーク
 	FontRender* m_headC = nullptr;			//パレットの見出し
 	enum enColor
 	{
@@ -90,4 +91,5 @@ private:
 	int m_selCol = enRed;					//パレットで選択した色
 	bool m_isColSel = false;				//パレットで色を選択したのか？
 
+	std::vector<SpriteRender*> m_marks;		//mark
 };
