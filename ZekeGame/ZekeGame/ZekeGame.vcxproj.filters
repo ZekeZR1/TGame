@@ -2001,5 +2001,8 @@
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\PVchenger_P.png">
       <Filter>Assets\Sprite\AIselect</Filter>
     </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_back_net.png">
+      <Filter>Assets\Sprite\modesel</Filter>
+    </ImageContentTask>
   </ItemGroup>
 </Project>

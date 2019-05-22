@@ -289,6 +289,7 @@ void ModeSelect::Update()
 					m_back->Init(L"Assets/sprite/modesel_back_local.dds", 1280, 720);
 					break;
 				case enRandompvp:
+					m_back->Init(L"Assets/sprite/modesel_back_net.dds", 1280, 720);
 					break;
 				case enAIedit:
 					m_back->Init(L"Assets/sprite/modesel_back_AIedit.dds", 1280, 720);
