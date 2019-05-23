@@ -210,10 +210,11 @@ void GameCamera::focus()
 
 	CVector3 pos = g_mons[m_inm]->Getpos();
 	
+	float monh = g_mons[m_inm]->Getheight();
 	CVector3 cpo = pos + vec * -250;
-	cpo.y += 150;
+	cpo.y += monh;
 
-	CVector3 cta = pos + vec * 250;
+	CVector3 cta = pos + vec * (250/(150/monh));
 
 	m_Scamera.SetPosition(cpo);
 	m_Scamera.SetTarget(cta);

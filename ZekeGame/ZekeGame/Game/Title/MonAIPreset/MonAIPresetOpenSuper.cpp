@@ -32,6 +32,7 @@ void MonAIPresetOpenSuper::init(SMS * sms, GameCursor * cursor, const wchar_t* t
 	m_button->Init(L"Assets/sprite/fade_black.dds", 200, 60);
 	m_button->SetPivot({ 0.f,0.5f });
 	m_button->SetPosition(pos);
+	m_button->SetMulCol({ 0.7f,0.7f, 0.7f, 1 });
 
 	m_dummy = NewGO<SpriteRender>(0, "sp");
 	m_dummy->Init(L"", 200, 60, true);
@@ -40,7 +41,7 @@ void MonAIPresetOpenSuper::init(SMS * sms, GameCursor * cursor, const wchar_t* t
 
 	m_font = NewGO<FontRender>(2, "fr");
 	m_font->SetTextType(CFont::en_Japanese);
-	pos.y += 10;
+	pos.y += 16;
 	m_font->Init(tx, pos.ToTwo(), 0, CVector4::White, 0.7f, { 0,0 });
 	m_font->DrawShadow();
 
@@ -127,10 +128,10 @@ void MonAIPresetOpenSuper::Update()
 void MonAIPresetOpenSuper::UpdateEx()
 {
 	m_isClick = false;
-	if (m_type == enLoader && m_isAllNone)
+	/*if (m_type == enLoader && m_isAllNone)
 		m_button->SetMulCol({ 0.2f,0.2f, 0.2f, 1.f });
 	else
-		m_button->SetMulCol({ 1.f,1.f, 1.f, 1.f });
+		m_button->SetMulCol({ 1.f,1.f, 1.f, 1.f });*/
 
 	m_dummy->SetCollisionTarget(m_cursor->GetCursor());
 	if (m_dummy->isCollidingTarget())
