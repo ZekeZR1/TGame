@@ -20,10 +20,10 @@ bool Act_debuffAtcPow::Action(Monster* me) {
 		float mp = me->GetMP();
 		if (mp < m_cost) return true;
 
-		m_pow = m_target->GetAttack();
-		m_target->SetDefense(m_pow * 0.5);
-		m_ExPow = m_target->GetExDefense();
-		m_target->SetExDefensePower(m_ExPow * 0.5);
+		//m_pow = m_target->GetAttack();
+		//m_target->SetDefense(m_pow * 0.5);
+		//m_ExPow = m_target->GetExDefense();
+		//m_target->SetExDefensePower(m_ExPow * 0.5);
 
 		auto m_efk = NewGO<CEffect>(0, "ef");
 		m_efk->SetScale({ 8,8,8 });
@@ -31,7 +31,8 @@ bool Act_debuffAtcPow::Action(Monster* me) {
 		m_efk->Play(L"Assets/effect/debuff.efk");
 
 		ACTEffectGrant* actEG = NewGO<ACTEffectGrant>(0, "actEG");
-		actEG->init(m_efk, m_target);
+		actEG->init(m_efk, m_target, ACTEffectGrant::State::enDebuffAtcPow, 0, 0, 50);
+		m_target->SetAbnormalState(actEG);
 
 		Sound* snd = NewGO<Sound>(0, "snd");
 		snd->Init(L"Assets/sound/debuff.wav");
@@ -47,10 +48,10 @@ bool Act_debuffAtcPow::Action(Monster* me) {
 	}
 	else {
 		m_timer++;
-		if (!me->isAnimPlay() and m_timer >= 120)
+		if (!me->isAnimPlay() and m_timer >= m_cooltime)
 		{
-			m_target->SetDefensePower(m_pow);
-			m_target->SetExDefensePower(m_ExPow);
+			//m_target->SetDefensePower(m_pow);
+			//m_target->SetExDefensePower(m_ExPow);
 			return true;
 		}
 	}

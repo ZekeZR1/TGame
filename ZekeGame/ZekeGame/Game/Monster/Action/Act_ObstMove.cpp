@@ -20,8 +20,8 @@ bool Act_ObstMove::Action(Monster* me) {
 		me->anim_extra1();
 		me->SetMP(mp - m_cost);
 
-		m_enemySpeed = m_target->GetSpeed();
-		m_target->SetSpeed(m_enemySpeed * 0.5);
+		//m_enemySpeed = m_target->GetSpeed();
+		//m_target->SetSpeed(m_enemySpeed * 0.5);
 
 		m_efk = NewGO<CEffect>(0, "ef");
 		m_efk->SetScale({ 8,8,8 });
@@ -29,7 +29,7 @@ bool Act_ObstMove::Action(Monster* me) {
 		m_efk->Play(L"Assets/effect/debuff.efk");
 
 		ACTEffectGrant* actEG = NewGO<ACTEffectGrant>(0, "actEG");
-		actEG->init(m_efk, m_target, ACTEffectGrant::State::enCC, 0, 0, 120);
+		actEG->init(m_efk, m_target, ACTEffectGrant::State::enCC, 0, 0, 50);
 		m_target->SetAbnormalState(actEG);
 
 		Sound* snd = NewGO<Sound>(0, "snd");
@@ -46,8 +46,8 @@ bool Act_ObstMove::Action(Monster* me) {
 		m_first = false;
 	}
 	else {
-		//m_timer++;
-		if (!me->isAnimPlay())//and m_timer >= 120)
+		m_timer++;
+		if (!me->isAnimPlay() and m_timer >= m_cooltime)
 		{
 			//m_target->SetSpeed(m_enemySpeed);
 			return true;

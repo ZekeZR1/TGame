@@ -10,6 +10,7 @@ class MonsterMarker;
 class PythonBridge;
 class ACTEffectGrant;
 enum ActionID;
+
 class Monster:public GameObject
 {
 public:
@@ -96,7 +97,6 @@ public:
 		std::vector<ACTEffectGrant*>::iterator ite;
 		ite = std::find(m_abnormalStates.begin(), m_abnormalStates.end(), abn);
 		m_abnormalStates.erase(ite);
-
 	}
 	
 	//ó‘ÔˆÙí‚Ìæ“¾

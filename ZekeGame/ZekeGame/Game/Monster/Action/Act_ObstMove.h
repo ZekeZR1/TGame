@@ -14,5 +14,6 @@ private:
 	float m_enemySpeed = 0.f;
 	CEffect* m_efk = nullptr;
 	int m_timer = 0;
+	int m_cooltime = 200;
 };
 

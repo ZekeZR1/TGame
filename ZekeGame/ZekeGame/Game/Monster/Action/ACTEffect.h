@@ -41,10 +41,20 @@ public:
 		enNull,		//âΩÇ‡ÇµÇ»Ç¢
 		enDamage,	//É_ÉÅÅ[ÉW
 		enCC,	//à⁄ìÆñWäQ
+		enBuffAtcPow,
+		enBuffDefPow,
+		enDebuffAtcPow,
+		enDebuffDefPow,
 		enbuffAtc,
 	};
 
+	State GetState() {
+		return m_state;
+	}
+
 private:
+	void AddAct();
+	void Clear();
 	State m_state = enNull;
 
 	int m_abnormal = 0;
@@ -54,7 +64,10 @@ private:
 
 	float m_efTime = 0;
 	float m_time = 0;
-	float m_endTime = 0;
+	double m_endTime = 0;
+	double m_tarSpeed = 0;
+	double m_pow = 0;
+	double m_ExPow = 0;
 	CEffect* m_effect = nullptr;
 	Monster* m_target = nullptr;
 };
