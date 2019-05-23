@@ -96,6 +96,9 @@ void NetPVPMode::Update() {
 	 if (m_lbl->isJoining() and !m_lbl->isConect()) {
 		 m_timer += IGameTime().GetFrameDeltaTime() * 10;
 	 }
+	 if (m_lbl->isConect()) {
+		 m_timer = 0.f;
+	 }
 	 if(m_recTime == m_rcuTime)
 		Reconnect();
 	 if (m_isTimeout) m_rcuTime++;

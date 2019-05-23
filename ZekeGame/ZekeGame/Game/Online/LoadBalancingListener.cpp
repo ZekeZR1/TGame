@@ -129,7 +129,8 @@ void LoadBalancingListener::leaveRoomEventAction(int playerNr, bool isInactive)
 	{
 		Console::get().writeLine(JString(L"player ") + playerNr + L" has abandoned the game");
 	}
-
+	if (mLocalPlayerNr == playerNr)
+		m_isJoining = false;
 	misConect = false;//切れた。
 }
 
