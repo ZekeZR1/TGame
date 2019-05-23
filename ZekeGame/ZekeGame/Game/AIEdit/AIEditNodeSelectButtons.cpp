@@ -48,12 +48,13 @@ bool AIEditNodeSelectButtons::Start()
 
 
 	///help
-	m_spriterender3 = NewGO<SpriteRender>(2, "menu");
+	/*m_spriterender3 = NewGO<SpriteRender>(2, "menu");
 	m_spriterender3->Init(L"Assets/sprite/help.dds", 40, 40, true);
 	m_position3.x += 330;
 	m_position3.y += 340;
-	m_spriterender3->SetPosition(m_position3);
-
+	m_spriterender3->SetPosition(m_position3);*/
+	m_position3.x += 330;
+	m_position3.y += 340;
 
 	///hozon no yatu
 	m_spriterender4 = NewGO<SpriteRender>(2, "menu");
@@ -118,13 +119,13 @@ void AIEditNodeSelectButtons::Update()
 		}
 
 		//?をクリックしたときにhelpを表示する。
-		m_spriterender3->SetCollisionTarget(cursorpos);
-		if (m_spriterender3->isCollidingTarget()) {
-			if (isClick) {
-				//ここで何かをNew。
-				menuselect = true;
-			}
-		}
+		//m_spriterender3->SetCollisionTarget(cursorpos);
+		//if (m_spriterender3->isCollidingTarget()) {
+		//	if (isClick) {
+		//		//ここで何かをNew。
+		//		menuselect = true;
+		//	}
+		//}
 
 		//保存するためのwindowを表示する。
 		m_spriterender4->SetCollisionTarget(cursorpos);

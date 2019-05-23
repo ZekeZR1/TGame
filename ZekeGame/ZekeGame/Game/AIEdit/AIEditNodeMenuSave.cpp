@@ -251,6 +251,7 @@ void AIEditNodeMenuSave::AISelected()
 	m_fontpos2.y += 120;
 	m_fonts2->Init(L"保存しますか", { m_fontpos2 }, 0.0, CVector4::Red, 0.8, { 0.0,0.0 });
 
+	m_fontpos.y += 20;
 	m_fontpos.x -= 300.f;
 	m_fonts[0]->Init(L"はい", { m_fontpos }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
 	m_fontpos.x += 225;
@@ -353,9 +354,9 @@ void AIEditNodeMenuSave::PaletteInit()
 
 	m_headC = NewGO<FontRender>(21, "fr");
 	m_headC->SetTextType(CFont::en_Japanese);
-	pos = { -200,120,0 };
+	pos = { -280,120,0 };
 	pos += posp;
-	m_headC->Init(L"色を選択してください", { pos.x,pos.y }, 0, CVector4::White, 1);
+	m_headC->Init(L"カテゴリを選択してください", { pos.x,pos.y }, 0, CVector4::White, 1);
 	m_headC->DrawShadow();
 
 }

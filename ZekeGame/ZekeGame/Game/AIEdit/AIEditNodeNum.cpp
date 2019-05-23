@@ -35,7 +35,9 @@ bool AIEditNodeNum::Start()
 	m_spriteRender->Init(L"Assets/sprite/menu2.dds", 175, 470);
 	m_spriteRender->SetPivot({ 0.5f, 0.67f });
 	CVector3 cursorpos = m_gamecursor->GetCursor();
-	cursorpos.x += 135.0f;
+	//cursorpos.x += 135.0f;
+	cursorpos.x += 87.5f;
+
 	//cursorpos.y += -140.0f;
 	m_position = cursorpos;
 	m_spriteRender->SetPosition(m_position);	//AIEditNodeのボタンの座標座標
