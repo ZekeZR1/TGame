@@ -301,6 +301,7 @@
     <ClCompile Include="Game\Monster\Monsters\Goblin.cpp" />
     <ClCompile Include="Game\Monster\Monsters\TestMons.cpp" />
     <ClCompile Include="Game\Monster\Monsters\Uma.cpp" />
+    <ClCompile Include="Game\NetPVP\backParticle.cpp" />
     <ClCompile Include="Game\NetPVP\CRatingSystem.cpp" />
     <ClCompile Include="Game\NetPVP\NetAISelect.cpp" />
     <ClCompile Include="Game\NetPVP\NetPVPMode.cpp" />
@@ -505,6 +506,7 @@
     <ClInclude Include="Game\Monster\Monsters\Goblin.h" />
     <ClInclude Include="Game\Monster\Monsters\TestMons.h" />
     <ClInclude Include="Game\Monster\Monsters\Uma.h" />
+    <ClInclude Include="Game\NetPVP\backParticle.h" />
     <ClInclude Include="Game\NetPVP\CRatingSystem.h" />
     <ClInclude Include="Game\NetPVP\NetAISelect.h" />
     <ClInclude Include="Game\NetPVP\NetPVPMode.h" />
@@ -900,6 +902,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Sprite\GUI\modeSelect\modesel_back_net.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageContentTask Include="Assets\Sprite\Network\particle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageContentTask Include="Assets\Sprite\Network\p4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageContentTask Include="Assets\Sprite\Network\wallpaper2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageContentTask Include="Assets\Sprite\Network\wallpaper3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageContentTask Include="Assets\Sprite\Network\syber1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageContentTask Include="Assets\Sprite\Network\hakkou1.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
