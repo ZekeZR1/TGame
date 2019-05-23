@@ -558,8 +558,10 @@
       <Filter>act\debuff</Filter>
     </ClCompile>
     <ClCompile Include="Game\Monster\Action\Act_ObstMove.cpp" />
-    <ClCompile Include="Game\Monster\Monsters\Goblin.cpp" />
     <ClCompile Include="Game\Monster\Monsters\Book.cpp">
+      <Filter>Game\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\Monsters\Goblin.cpp">
       <Filter>Game\Monster</Filter>
     </ClCompile>
   </ItemGroup>
@@ -1428,8 +1430,10 @@
       <Filter>act\debuff</Filter>
     </ClInclude>
     <ClInclude Include="Game\Monster\Action\Act_ObstMove.h" />
-    <ClInclude Include="Game\Monster\Monsters\Goblin.h" />
     <ClInclude Include="Game\Monster\Monsters\Book.h">
+      <Filter>Game\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\Monsters\Goblin.h">
       <Filter>Game\Monster</Filter>
     </ClInclude>
   </ItemGroup>
@@ -1815,6 +1819,48 @@
     <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_gob.png">
       <Filter>Assets\Sprite\MonSelect</Filter>
     </None>
+    <None Include="Assets\Sprite\GUI\AImark\aimk_attack.png">
+      <Filter>Assets\Sprite\AImark</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\AImark\aimk_defense.png">
+      <Filter>Assets\Sprite\AImark</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\AImark\aimk_heal.png">
+      <Filter>Assets\Sprite\AImark</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\AImark\aimk_magic.png">
+      <Filter>Assets\Sprite\AImark</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_back_R.png">
+      <Filter>Assets\Sprite\AIselect</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_even.png">
+      <Filter>Assets\Sprite\AIselect</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_evenV.png">
+      <Filter>Assets\Sprite\AIselect</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_sel.png">
+      <Filter>Assets\Sprite\AIselect</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\AIselect.png">
+      <Filter>Assets\Sprite\AIselect</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\B_alpha.png">
+      <Filter>Assets\Sprite\AIselect</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\monsel_back.png">
+      <Filter>Assets\Sprite\AIselect</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\modesel_back_net.png">
+      <Filter>Assets\Sprite\modesel</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\PVchenger_V.png">
+      <Filter>Assets\Sprite\AIselect</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\PVchenger_P.png">
+      <Filter>Assets\Sprite\AIselect</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="act">
@@ -1961,48 +2007,6 @@
   <ItemGroup>
     <ImageContentTask Include="Assets\Sprite\GUI\check.png">
       <Filter>Assets\Sprite</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_evenV.png">
-      <Filter>Assets\Sprite\AIselect</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\AImark\aimk_attack.png">
-      <Filter>Assets\Sprite\AImark</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\AImark\aimk_defense.png">
-      <Filter>Assets\Sprite\AImark</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\AImark\aimk_heal.png">
-      <Filter>Assets\Sprite\AImark</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\AImark\aimk_magic.png">
-      <Filter>Assets\Sprite\AImark</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\PVchenger_V.png">
-      <Filter>Assets\Sprite\AIselect</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_back_R.png">
-      <Filter>Assets\Sprite\AIselect</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_even.png">
-      <Filter>Assets\Sprite\AIselect</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_sel.png">
-      <Filter>Assets\Sprite\AIselect</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\AIselect.png">
-      <Filter>Assets\Sprite\AIselect</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\B_alpha.png">
-      <Filter>Assets\Sprite\AIselect</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\monsel_back.png">
-      <Filter>Assets\Sprite\AIselect</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\PVchenger_P.png">
-      <Filter>Assets\Sprite\AIselect</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_back_net.png">
-      <Filter>Assets\Sprite\modesel</Filter>
     </ImageContentTask>
   </ItemGroup>
 </Project>

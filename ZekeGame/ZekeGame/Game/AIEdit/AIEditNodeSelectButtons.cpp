@@ -5,6 +5,7 @@
 #include "AIEditNodeMenuSave.h"
 #include "AIEditNodeMenuOpen.h"
 
+#include "AIEditNodeProcess.h"
 
 AIEditNodeSelectButtons::~AIEditNodeSelectButtons()
 {
@@ -23,7 +24,7 @@ AIEditNodeSelectButtons::~AIEditNodeSelectButtons()
 
 bool AIEditNodeSelectButtons::Start()
 {
-
+	m_proc = FindGO<AIEditNodeProcess>("process");
 	m_gamecursor = FindGO<GameCursor>("cursor");
 	CVector2 v;
 
@@ -126,6 +127,9 @@ void AIEditNodeSelectButtons::Update()
 		//		menuselect = true;
 		//	}
 		//}
+
+		if (m_proc->isClickClicked())
+			return;
 
 		//•Û‘¶‚·‚é‚½‚ß‚Ìwindow‚ð•\Ž¦‚·‚éB
 		m_spriterender4->SetCollisionTarget(cursorpos);

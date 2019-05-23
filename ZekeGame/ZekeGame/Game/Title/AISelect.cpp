@@ -68,7 +68,7 @@ bool AISelect::Start()
 	//Ø‚è‘Ö‚¦ƒ{ƒ^ƒ“‚Ì•\¦
 	m_changeAI = NewGO<SpriteRender>(28, "sp");
 	m_changeAI->Init(L"Assets/sprite/PVchenger_P.dds", 80, 38.5f, true);
-	m_changeAI->SetPosition({ -350,345,0 });
+	m_changeAI->SetPosition({ -350,330,0 });
 	m_changeAI->SetPivot({ 0,1 });
 
 	/*m_CAfont = NewGO<FontRender>(29, "fr");
