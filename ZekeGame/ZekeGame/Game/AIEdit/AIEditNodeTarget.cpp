@@ -40,7 +40,8 @@ bool AIEditNodeTarget::Start()
 	//cursorpos.x += 135.0f;
 	//cursorpos.y += -140.0f;
 	//m_position = cursorpos;
-	m_position.x -= 100;
+	//m_position.x -= 100;
+	m_position.x -= 300;
 	m_position.y = 150;
 	m_spriteRender->SetPosition(m_position);	//AIEditNodeのボタンの座標座標
 

@@ -6,7 +6,7 @@ class IconAI :public GameObject
 public:
 	~IconAI();
 	bool Start();
-	void init(std::string py, int num, GameCursor* cursor, bool isVisualAI = false, CVector4 col = {0,0,0,0});
+	void init(std::string py, int num, GameCursor* cursor, bool isVisualAI = false,int mark = 0);
 	void Update();
 	void PostRender();
 
@@ -39,4 +39,7 @@ private:
 	CFont m_font;
 	FontRender* m_fr = nullptr;
 	FontRender* m_frShadow = nullptr;
+
+	bool m_isVisualAI = false;
+	SpriteRender* m_mark = nullptr;		//visualAI 用 のマーク
 };

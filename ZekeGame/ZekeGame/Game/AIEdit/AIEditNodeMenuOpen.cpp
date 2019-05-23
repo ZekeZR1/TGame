@@ -17,6 +17,9 @@ void AIEditNodeMenuOpen::OnDestroy()
 	DeleteGO(m_head);
 	DeleteGO(m_close);
 	DeleteGO(m_cfont);
+
+	for (auto sp : m_marks)
+		DeleteGO(sp);
 }
 
 void AIEditNodeMenuOpen::Awake()
@@ -44,16 +47,23 @@ void AIEditNodeMenuOpen::Awake()
 		{
 			//ÉfÅ[É^Ç™ë∂ç›Ç∑ÇÈ
 
+			SpriteRender* mark = NewGO<SpriteRender>(11, "sp");
+			mark->Init(VisualAIOpen::getMark(vass[vasc].mark), 90, 90);
+			CVector3 mpos = pos;
+			mpos.x += 130;
+			mpos.y -= 30;
+			mark->SetPosition(mpos);
+			m_marks.push_back(mark);
+
 			sp->Init(L"Assets/sprite/fade_black.dds", 175, 175, true);
-			sp->SetMulCol(vass[vasc].col);
-			//sp->SetPivot({ 0.f,0.5f });
-			CVector3 spos = pos;
-			spos.x += 175 / 2;
-			sp->SetPosition(spos);
+			//sp->SetMulCol(vass[vasc].col);
+			sp->SetMulCol({ 0.7f,0.7f ,0.7f,1 });
+			sp->SetPivot({ 0.f,0.5f });
+			sp->SetPosition(pos);
 
 			wchar_t tx[3] = { '\0' };
 			swprintf_s(tx, L"%d", vass[vasc].num);
-			fr->Init(tx, (pos + CVector3(0, 87.5f, 0)).ToTwo(), 0, { 1,1,1,1 }, 0.8f);
+			fr->Init(tx, (pos + CVector3(-20, 85.0f, 0)).ToTwo(), 0, { 1,1,1,1 }, 0.8f);
 			fr->SetTextType(CFont::en_JapaneseBIG);
 			fr->DrawShadow();
 			m_fonts.push_back(fr);

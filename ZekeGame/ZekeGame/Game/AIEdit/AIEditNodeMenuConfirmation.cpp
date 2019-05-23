@@ -51,6 +51,7 @@ bool AIEditNodeMenuConfirmation::Start()
 	m_fontpos2.y += 120;
 	m_fonts2->Init(L"ŒxF•ÏX“à—e‚ª”jŠü‚³‚ê‚Ü‚·", { m_fontpos2 }, 0.0, CVector4::Red, 0.8, { 0.0,0.0 });
 
+	m_fontpos.y += 20;
 	m_fontpos.x -= 300.f;
 	m_fonts[0]->Init(L"‚Í‚¢", { m_fontpos }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
 	m_fontpos.x += 225;
