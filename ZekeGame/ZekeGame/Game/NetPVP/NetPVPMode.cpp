@@ -11,6 +11,7 @@
 #include "../SaveLoad/PythonFileLoad.h"
 #include "../Online/NetworkLogic.h"
 #include "../Online/Console.h"
+#include "backParticle.h"
 #include "../Game.h"
 
 NetPVPMode::NetPVPMode()
@@ -32,16 +33,19 @@ void NetPVPMode::init(std::vector<std::string> files, int monai[3], int moid[3],
 }
 
 bool NetPVPMode::Start() {
-	m_informationSp = NewGO<SpriteRender>(0);
-	m_informationSp->Init(L"Assets/Sprite/waiting.dds",300.f,50.f);
-	m_informationSp->SetPosition(m_informationPos);
+	InitUI();
 	return true;
 }
 
 void NetPVPMode::OnDestroy()
 {
 	DeleteGO(m_informationSp);
+	DeleteGO(m_font);
+	DeleteGO(m_wallpaper);
 	NetSystem().DestroyNetworkSystem();
+	for (auto p : m_particles) {
+		DeleteGO(p);
+	}
 }
 
 
@@ -50,12 +54,12 @@ void NetPVPMode::Update() {
 	m_lbl = NetSystem().GetNetworkLogic().GetLBL();
 #if _DEBUG
 	if (g_pad[0].IsTrigger(enButtonA)) {
-		m_lbl->disconnect();
+		//m_lbl->disconnect();
 
 	}
 	if (g_pad[0].IsTrigger(enButtonB)) {
-		m_lbl->connect(JString(L"NV") + GETTIMEMS());
-		m_informationSp->Init(L"Assets/Sprite/waiting.dds", 300.f, 50.f);
+		//m_lbl->connect(JString(L"NV") + GETTIMEMS());
+		//m_informationSp->Init(L"Assets/Sprite/waiting.dds", 300.f, 50.f);
 	}
 #endif
 	if (m_lbl == nullptr) return;
@@ -102,6 +106,8 @@ void NetPVPMode::Update() {
 	 if(m_recTime == m_rcuTime)
 		Reconnect();
 	 if (m_isTimeout) m_rcuTime++;
+
+	 UiUpdate();
 }
 
 void NetPVPMode::TimeOut() {
@@ -272,4 +278,45 @@ void NetPVPMode::RaiseRatingData() {
 void NetPVPMode::BackToMenu() {
 	NewGO<NetAISelect>(0);
 	DeleteGO(this);
+}
+
+
+void NetPVPMode::InitUI() {
+	m_wallpaper = NewGO<SpriteRender>(0);
+	m_wallpaper->Init(L"Assets/Sprite/wallpaper3.dds", 1280.f, 720.f);
+	//particle
+	for (int i = 0; i < m_numParticle; i++) {
+		auto s = NewGO<backParticle>(0);
+		m_particles.push_back(s);
+	}
+	//notification font
+	m_font = NewGO<FontRender>(1);
+	m_font->SetTextType(CFont::en_Japanese);
+	m_font->Init(L"‘Îí‘ŠŽè‚ðŒŸõ’†", { -170.f,320.f }, 0.f, CVector4::White, 1.f, { 1,1 });
+	m_font->DrawShadow();
+	//other
+	m_informationSp = NewGO<SpriteRender>(0);
+	m_informationSp->Init(L"Assets/Sprite/hakkou1.dds", 600.f, 100.f);
+	m_informationSp->SetPosition(m_informationPos);
+}
+
+void NetPVPMode::UiUpdate() {
+	if (m_lbl->isConect()) {
+		m_font->Init(L"‘Îí‘ŠŽè‚ªŒ©‚Â‚©‚è‚Ü‚µ‚½", { -270.f,320.f }, 0.f, CVector4::White, 1.f, { 1,1 });
+	}
+#if _DEBUG
+	if (g_pad[0].IsPress(enButtonA)) {
+		m_font->Init(L"‘Îí‘ŠŽè‚ªŒ©‚Â‚©‚è‚Ü‚µ‚½", { -270.f,320.f }, 0.f, CVector4::White, 1.f, { 1,1 });
+	}
+	else {
+		m_font->Init(L"‘Îí‘ŠŽè‚ðŒŸõ’†", { -170.f,320.f }, 0.f, CVector4::White, 1.f, { 1,1 });
+	}
+#endif
+	//for (auto p : m_particles) {
+	//	auto pos = p->GetPosition();
+	//	std::random_device rnd;
+	//	int add = rnd() % 20;
+	//	pos.y += IGameTime().GetFrameDeltaTime() * (10.f + add);
+	//	p->SetPosition(pos);
+	//}
 }

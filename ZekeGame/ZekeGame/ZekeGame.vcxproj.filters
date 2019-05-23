@@ -562,6 +562,9 @@
     <ClCompile Include="Game\Monster\Action\Act_ObstMove.cpp">
       <Filter>act\debuff</Filter>
     </ClCompile>
+    <ClCompile Include="Game\NetPVP\backParticle.cpp">
+      <Filter>Game\NetPVP</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\PythonBridge\include\unicodeobject.h" />
@@ -1432,6 +1435,9 @@
     <ClInclude Include="Game\Monster\Action\Act_ObstMove.h">
       <Filter>act\debuff</Filter>
     </ClInclude>
+    <ClInclude Include="Game\NetPVP\backParticle.h">
+      <Filter>Game\NetPVP</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="python36.lib" />
@@ -2003,6 +2009,24 @@
     </ImageContentTask>
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_back_net.png">
       <Filter>Assets\Sprite\modesel</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\Network\particle.png">
+      <Filter>Game\NetPVP</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\Network\p4.png">
+      <Filter>Game\NetPVP</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\Network\wallpaper2.jpg">
+      <Filter>Game\NetPVP</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\Network\wallpaper3.jpg">
+      <Filter>Game\NetPVP</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\Network\syber1.png">
+      <Filter>Game\NetPVP</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\Network\hakkou1.png">
+      <Filter>Game\NetPVP</Filter>
     </ImageContentTask>
   </ItemGroup>
 </Project>
