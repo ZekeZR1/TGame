@@ -46,7 +46,7 @@ void NetPVPMode::OnDestroy()
 
 
 void NetPVPMode::Update() {
-	static const float timeout = 100.f;
+	static const float timeout = 300.f;
 	m_lbl = NetSystem().GetNetworkLogic().GetLBL();
 #if _DEBUG
 	if (g_pad[0].IsTrigger(enButtonA)) {
@@ -93,7 +93,7 @@ void NetPVPMode::Update() {
 	 if (!m_lbl->CanStartGame() and m_timer > timeout) {
 		 TimeOut();
 	 }
-	 if (m_lbl->isJoining()) {
+	 if (m_lbl->isJoining() and !m_lbl->isConect()) {
 		 m_timer += IGameTime().GetFrameDeltaTime() * 10;
 	 }
 	 if(m_recTime == m_rcuTime)
