@@ -151,12 +151,16 @@ void AIEditNodeMenuOpen::Update()
 						AIEditNodeOrder* order = nullptr;
 						bool isend = false;
 
+						if (m_orders[l].one == nullptr)
+						{
+							break;
+						}
 						switch (o)
 						{
 						case 0:
-							isfinal = m_orders[l].one == nullptr;
+							/*isfinal = m_orders[l].one == nullptr;
 							if (isfinal)
-								break;
+								break;*/
 							isend = m_orders[l].two == nullptr;
 							order = NewGO<AIEditNodeOrder>(0, "order");
 							order->makeOrder(l, 0, m_orders[l].one,isend);

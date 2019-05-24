@@ -155,7 +155,13 @@ void AIEditNodeProcess::DeleteKey(AIEditNodeOrder* a)
 				m_orderkeep[i][2] = nullptr;
 				////deletekey‚ğDelete‚·‚éB
 				//DeleteGO(m_aieditnodedeletekey);
-				isBreak = true;
+				for (int o = 0; o < 3; o++)
+				{
+					for (int k = 0; k < 6; k++)
+					{
+						flagkeep[i][o][k] = 0;
+					}
+				}
 
 				break;
 			}

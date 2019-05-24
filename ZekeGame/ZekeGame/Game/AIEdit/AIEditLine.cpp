@@ -11,6 +11,11 @@
 #include "../../GameCamera.h"
 AIEditLine::~AIEditLine()
 {
+	
+}
+
+void AIEditLine::OnDestroy()
+{
 	DeleteGO(m_spriteRender);
 	DeleteGO(m_font);
 }

@@ -82,6 +82,7 @@ class AIEditNodeOrder :public GameObject
 public:
 
 	~AIEditNodeOrder();
+	void OnDestroy();
 	
 	bool Start() override final;
 	void Update() override final;

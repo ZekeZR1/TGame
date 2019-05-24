@@ -16,6 +16,11 @@
 #include "AIEditNodeDeleteKey.h"
 AIEditNodeOrder::~AIEditNodeOrder()
 {
+	
+}
+
+void AIEditNodeOrder::OnDestroy()
+{
 	DeleteGO(m_spriteRender);
 	for (auto fonts : m_fonts)
 		DeleteGO(fonts);
