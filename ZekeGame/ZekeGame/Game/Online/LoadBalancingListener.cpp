@@ -113,6 +113,7 @@ void LoadBalancingListener::joinRoomEventAction(int playerNr, const JVector<int>
 	{
 		//つながった！
 		misConect = true;
+		m_enemyAbandoned = false;
 	}
 	else {
 		m_isJoining = true;
@@ -129,8 +130,12 @@ void LoadBalancingListener::leaveRoomEventAction(int playerNr, bool isInactive)
 	{
 		Console::get().writeLine(JString(L"player ") + playerNr + L" has abandoned the game");
 	}
-	if (mLocalPlayerNr == playerNr)
+	if (mLocalPlayerNr == playerNr) {
 		m_isJoining = false;
+	}
+	else {
+		m_enemyAbandoned = true;
+	}
 	misConect = false;//切れた。
 }
 
@@ -729,6 +734,7 @@ bool LoadBalancingListener::isGotEnemyPythonCodes() {
 void LoadBalancingListener::DataReset() {
 	m_isJoining = false;
 	m_isEnemyLoadedMyData = false;
+	m_enemyAbandoned = false;
 	m_enemyRate = 0.f;
 	for (int i = 0; i < 3; i++) {
 		m_isAiLoaded[i] = false;

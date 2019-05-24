@@ -118,6 +118,10 @@ public:
 	}
 	bool isJoining() { return m_isJoining; }
 	void DataReset();
+
+	bool isEnemyAbandoned(){
+		return 	m_enemyAbandoned;
+	}
 private:
 	//From Common::BaseListener
 
@@ -189,6 +193,7 @@ private:
 	LocalPlayer mLocalPlayer;
 	
 	bool misConect = false;		//‚Â‚È‚ª‚Á‚Ä‚é`H
+	bool m_enemyAbandoned = false;
 	bool misHang = false;		//‰½‚©‘—‚ç‚ê‚Ä‚«‚Ä‚éH
 	bool m_isEnemyLoadedMyData = false;
 	bool m_isAiLoaded[3] = { false };

@@ -110,7 +110,10 @@ void NetPVPMode::Update() {
 	 if(m_recTime == m_rcuTime)
 		Reconnect();
 	 if (m_isTimeout) m_rcuTime++;
-
+	 if (m_lbl->isEnemyAbandoned()) {
+		 m_lbl->DataReset();
+		 m_timer = 0.f;
+	 }
 }
 
 void NetPVPMode::TimeOut() {
