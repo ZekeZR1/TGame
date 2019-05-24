@@ -879,7 +879,7 @@
     <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_book.png" />
   </ItemGroup>
   <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\GUI\check.png" />
+    <None Include="Assets\Sprite\GUI\check.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Sprite\GUI\AImark\aimk_attack.png">
@@ -904,10 +904,10 @@
     <None Include="Assets\Sprite\GUI\modeSelect\modesel_back_net.png" />
   </ItemGroup>
   <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\Network\particle.png" />
+    <None Include="Assets\Sprite\Network\particle.png" />
   </ItemGroup>
   <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\Network\p4.png" />
+    <None Include="Assets\Sprite\Network\p4.png" />
   </ItemGroup>
   <ItemGroup>
     <ImageContentTask Include="Assets\Sprite\Network\wallpaper2.jpg" />
@@ -916,10 +916,10 @@
     <ImageContentTask Include="Assets\Sprite\Network\wallpaper3.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\Network\syber1.png" />
+    <None Include="Assets\Sprite\Network\syber1.png" />
   </ItemGroup>
   <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\Network\hakkou1.png" />
+    <None Include="Assets\Sprite\Network\hakkou1.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

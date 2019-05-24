@@ -6,6 +6,8 @@ class LoadBalancingListener;
 class ModeSelect;
 class ExchangeData;
 class backParticle;
+class GameCursor;
+class ReturnButton;
 
 class NetPVPMode :public GameObject
 {
@@ -64,7 +66,10 @@ private:
 	SpriteRender* m_informationSp = nullptr;
 	CVector3 m_informationPos = { 0.f,300.f,0.f };
 	SpriteRender* m_wallpaper = nullptr;
+	CVector3 m_bbPos = { -500,-300,0 };
 	FontRender* m_font = nullptr;
+	ReturnButton* m_returnButton = nullptr;			//–ß‚éƒ{ƒ^ƒ“
 	//other
+	GameCursor* m_cur = nullptr;
 	LoadBalancingListener* m_lbl = nullptr;
 };
