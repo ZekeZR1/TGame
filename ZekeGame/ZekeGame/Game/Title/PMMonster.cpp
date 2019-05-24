@@ -8,6 +8,11 @@
 
 PMMonster::~PMMonster()
 {
+	
+}
+
+void PMMonster::OnDestroy()
+{
 	DeleteGO(m_frame);
 	DeleteGO(m_mon);
 	DeleteGO(m_fr);

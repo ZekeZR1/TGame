@@ -7,6 +7,11 @@
 
 MonsterActionList::~MonsterActionList()
 {
+	
+}
+
+void MonsterActionList::OnDestroy()
+{
 	DeleteGO(m_back);
 	DeleteGO(m_icon);
 	for (auto a : m_actBlocks)

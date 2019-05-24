@@ -1870,6 +1870,8 @@
     <None Include="Assets\Sprite\Network\hakkou1.png" />
     <None Include="Assets\Sprite\Network\p4.png" />
     <None Include="Assets\Sprite\Network\particle.png" />
+    <None Include="Assets\Sprite\Network\wallpaper2.jpg" />
+    <None Include="Assets\Sprite\Network\wallpaper3.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="act">
@@ -2012,9 +2014,5 @@
     <Media Include="Assets\sound\BGM\PerituneMaterial_Strategy5_loop.wav">
       <Filter>Assets\BGM</Filter>
     </Media>
-  </ItemGroup>
-  <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\Network\wallpaper2.jpg" />
-    <ImageContentTask Include="Assets\Sprite\Network\wallpaper3.jpg" />
   </ItemGroup>
 </Project>

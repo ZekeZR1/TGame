@@ -6,6 +6,7 @@ class MonsterActionList :public GameObject
 {
 public:
 	~MonsterActionList();
+	void OnDestroy() override;
 	void init(Monster* mon);
 	bool Start() override;
 	void Update() override;

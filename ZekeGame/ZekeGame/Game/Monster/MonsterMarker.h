@@ -5,6 +5,7 @@ class MonsterMarker :public GameObject
 {
 public:
 	~MonsterMarker();
+	void OnDestroy();
 	bool Start() override;
 	void init(Monster* mon);
 	void Update() override;
