@@ -100,19 +100,19 @@ void GameMenu::Update()
 		{
 			m_cursor = NewGO<GameCursor>(0, "cursor");
 			CVector3 pos = { 0,200,0 };
-			for (int i = 0; i < /*3*/2; i++)
+			for (int i = 0; i < 3; i++)
 			{
-				SpriteRender* moji = NewGO<SpriteRender>(29, "sp");
+				FontRender* moji = NewGO<FontRender>(29, "sp");
 				switch (i)
 				{
 				case 0:
-					moji->Init(L"Assets/sprite/mn_mainmn.dds", 400.0f, 89.6f);
+					moji->Init(L"タイトルへ", pos.ToTwo());
 					break;
 				case 1:
-					moji->Init(L"Assets/sprite/mn_monsel.dds", 400.0f, 89.6f);
+					moji->Init(L"キャラ選択へ", pos.ToTwo());
 					break;
 				case 2:
-					moji->Init(L"Assets/sprite/mn_fuck.dds", 400.0f, 89.6f);
+					moji->Init(L"とじる", pos.ToTwo());
 					break;
 				}
 				MenuButton* button = NewGO<MenuButton>(0, "mb");

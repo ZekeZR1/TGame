@@ -148,10 +148,10 @@ void MonsterActionList::init(Monster * mon)
 
 	m_monNumBack = NewGO<SpriteRender>(2, "sp");
 	int team = mon->Getteam();
-	if (team == 1)
-		m_monNumBack->Init(L"Assets/sprite/mark_blue.dds", 50* 0.59375f, 50);
-	else
+	if (team == 0)
 		m_monNumBack->Init(L"Assets/sprite/mark_red.dds", 50* 0.59375f, 50);
+	else
+		m_monNumBack->Init(L"Assets/sprite/mark_blue.dds", 50* 0.59375f, 50);
 
 	m_monNumBack->SetPosition({ m_vh.x+6,m_vh.y-5,0 });
 	m_monNumBack->SetPivot({ 0,0 });

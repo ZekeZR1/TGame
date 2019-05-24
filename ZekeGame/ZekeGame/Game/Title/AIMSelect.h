@@ -29,6 +29,10 @@ public:
 	{
 		m_monnum = mon;
 	}
+	void SetAImode(int AImode)
+	{
+		m_AImode = AImode;
+	}
 private:
 	GameCursor* m_cursor = nullptr;
 

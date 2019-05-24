@@ -6,7 +6,7 @@ class MenuButton :public GameObject
 public:
 	~MenuButton();
 	bool Start() override;
-	void init(GameCursor* cursor,CVector3 pos,SpriteRender* moji=nullptr)
+	void init(GameCursor* cursor,CVector3 pos,FontRender* moji=nullptr)
 	{
 		m_cursor = cursor;
 		m_pos = pos;
@@ -23,7 +23,7 @@ private:
 	SpriteRender* m_button = nullptr;
 	SpriteRender* m_dummy = nullptr;
 
-	SpriteRender* m_moji = nullptr;
+	FontRender* m_moji = nullptr;
 
 	CVector3 m_pos = CVector3::Zero();
 

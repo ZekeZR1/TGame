@@ -104,6 +104,7 @@ void PMMonster::UpdateEX()
 			m_isClick = true;
 			AIMSelect* aims = NewGO<AIMSelect>(0, "aims");
 			aims->init(this, m_selAI, m_monid);
+			aims->SetAImode(m_AImode);
 			m_ismonsel = true;
 			m_isOpen = true;
 		}
