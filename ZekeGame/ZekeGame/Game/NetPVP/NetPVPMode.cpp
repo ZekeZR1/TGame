@@ -124,6 +124,7 @@ void NetPVPMode::TimeOut() {
 	int add = rnd() % 100;
 	m_recTime = 120 + add;
 	m_isTimeout = true;
+	m_font->Init(L"‘Îí‘Šè‚ğŒŸõ’†", { -170.f,320.f }, 0.f, CVector4::White, 1.f, { 1,1 });
 }
 
 void NetPVPMode::Reconnect() {
@@ -300,12 +301,12 @@ void NetPVPMode::InitUI() {
 		m_particles.push_back(s);
 	}
 	//notification font
-	m_font = NewGO<FontRender>(1);
+	m_font = NewGO<FontRender>(2);
 	m_font->SetTextType(CFont::en_Japanese);
 	m_font->Init(L"‘Îí‘Šè‚ğŒŸõ’†", { -170.f,320.f }, 0.f, CVector4::White, 1.f, { 1,1 });
 	m_font->DrawShadow();
 	//other
-	m_informationSp = NewGO<SpriteRender>(0);
+	m_informationSp = NewGO<SpriteRender>(1);
 	m_informationSp->Init(L"Assets/Sprite/hakkou1.dds", 600.f, 100.f);
 	m_informationSp->SetPosition(m_informationPos);
 }

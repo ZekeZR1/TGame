@@ -58,7 +58,7 @@ private:
 	int m_dunNum = -1;
 	float m_eneRate = 0;
 	GameMenu* m_menu = nullptr;
-
+	FontRender* m_dunInfoF = nullptr;
 	Mode m_playMode = enLocalPVP;
 
 	bool m_END = false;
