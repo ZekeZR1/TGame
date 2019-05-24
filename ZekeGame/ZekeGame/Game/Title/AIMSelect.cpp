@@ -18,6 +18,9 @@ AIMSelect::~AIMSelect()
 	DeleteGO(m_ok);
 	DeleteGO(m_odum);
 	DeleteGO(m_Black);
+
+	DeleteGO(m_fOK);
+	DeleteGO(m_fcan);
 }
 
 bool AIMSelect::Start()
@@ -30,21 +33,42 @@ bool AIMSelect::Start()
 	m_MS = NewGO<MonsterSelect>(0, "ms");
 	m_MS->init(m_pmm, this);
 
+
+	//こっからOKボタン
 	m_ok = NewGO<SpriteRender>(10, "sp");
-	m_ok->Init(L"Assets/sprite/sb_OK.dds", 151, 64,true);
+	//m_ok->Init(L"Assets/sprite/sb_OK.dds", 151, 64,true);
+	m_ok->Init(L"", 151, 64,true);
+
 	m_odum = NewGO<SpriteRender>(9, "sp");
 	m_odum->Init(L"Assets/sprite/simple_button.dds", 151, 64);
 	CVector3 pos = { 411,-320,0 };
 	m_ok->SetPosition(pos);
 	m_odum->SetPosition(pos);
 
+	m_fOK = NewGO<FontRender>(9, "fr");
+	CVector2 po2 = pos.ToTwo();
+	po2.y += 37;
+	po2.x -= 53;
+	m_fOK->Init(L"OK", po2, 0, { 0.05f,0.05f,0.05f,1 }, 1);
+
+
+	//こっからキャンセルボタン
 	m_can = NewGO<SpriteRender>(10, "sp");
-	m_can->Init(L"Assets/sprite/sb_cancel.dds", 151, 64,true);
+	//m_can->Init(L"Assets/sprite/sb_cancel.dds", 151, 64,true);
+	m_can->Init(L"", 151, 64,true);
+
 	m_cdum = NewGO<SpriteRender>(9, "sp");
 	m_cdum->Init(L"Assets/sprite/simple_button.dds", 151, 64);
 	pos = { 563,-320,0 };
 	m_can->SetPosition(pos);
 	m_cdum->SetPosition(pos);
+
+	m_fcan = NewGO<FontRender>(9, "fr");
+	po2 = pos.ToTwo();
+	po2.y += 27;
+	po2.x -= 72;
+	m_fcan->Init(L"cancel", po2, 0, { 0.05f,0.05f,0.05f,1 }, 0.7f);
+
 
 	m_Black = NewGO<SpriteRender>(2, "sp");
 	m_Black->Init(L"Assets/sprite/B_alpha.dds", 1280, 720);

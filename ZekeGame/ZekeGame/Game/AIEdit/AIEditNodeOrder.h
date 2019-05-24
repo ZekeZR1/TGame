@@ -110,7 +110,7 @@ public:
 		return m_pos;
 	}
 
-	bool GettechniqueOrder()
+	bool isTechniqueOrder()
 	{
 
 		return techniqueOrder;

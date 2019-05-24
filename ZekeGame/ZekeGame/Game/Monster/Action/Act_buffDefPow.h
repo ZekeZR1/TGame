@@ -13,5 +13,6 @@ private:
 	int m_timer = 0;
 	float m_ExPow = 0;
 	float m_pow = 0;
+	int m_cooltime = 120;
 };
 

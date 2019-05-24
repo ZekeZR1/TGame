@@ -88,6 +88,13 @@ bool Monster::Start()
 
 	m_marker = NewGO<MonsterMarker>(0, "mark");
 	m_marker->init(this);
+
+	if (m_team == 0)
+	{
+		CQuaternion q = CQuaternion::Identity();
+		q.SetRotationDeg(CVector3::Up(), 180);
+		m_smr->SetRotation(q);
+	}
 	return true;
 }
 

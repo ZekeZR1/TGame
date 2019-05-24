@@ -186,11 +186,12 @@ void AIEditNodeMenu::Menuwin()
 			m_fontpos.y += m_positionselect.y += 300;
 			CVector2 fp = m_fontpos;
 			fp.y -= 20;
+			fp.x -= 15;
 			m_fonts[0]->Init(L"ƒ^ƒCƒgƒ‹‚Ö", { fp }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
 			m_fontpos.y += m_positionselect.y -= 320;
-			m_fonts[1]->Init(L"“ÁŽê‹Zˆê——", { m_fontpos }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
+			m_fonts[1]->Init(L"“ÁŽê‹Zˆê——", { m_fontpos.x-15,m_fontpos.y }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
 			m_fontpos.y += m_positionselect.y += 20;
-			m_fonts[2]->Init(L"–ß‚é", { m_fontpos }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
+			m_fonts[2]->Init(L"–ß‚é", { m_fontpos.x+50,m_fontpos.y }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
 			menu = true;
 
 		}

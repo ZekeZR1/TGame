@@ -56,4 +56,7 @@ private:
 	SpriteRender* m_Black;
 
 	int m_AImode = 0;
+
+	FontRender* m_fOK = nullptr;			//OK button
+	FontRender* m_fcan = nullptr;			//cancel button
 };

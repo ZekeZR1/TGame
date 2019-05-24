@@ -68,6 +68,7 @@ void AIEditNodeProcess::Setkeeptechnique(int n)
 {
 
 	flagkeep[keep1][keep2][5] = n;
+	m_isClickClicked = false;
 
 	for (int i = 0; i <= 7; i++) {
 		m_orderkeep[i][0];
@@ -75,7 +76,7 @@ void AIEditNodeProcess::Setkeeptechnique(int n)
 			
 			keep1 = i;
 			keep2 = 0;
-
+			break;
 		}
 	}
 }
@@ -115,7 +116,6 @@ void AIEditNodeProcess::Click()
 				}
 
 			}
-
 			break;
 		}
 	}
@@ -193,19 +193,30 @@ AIEditNodeOrder * AIEditNodeProcess::CreateOrder()
 	
 	for (int i = 0; i < 8; i++) {
 		for (int j = 0; j < 3; j++) {
-		
-			if (m_orderkeep[i][j] == nullptr) {
-				m_orderkeep[i][j] = m_aieditnodeorder;
-				flaflag = true;
-				break;
-			}
-
-			else if (j < 2 && m_orderkeep[i][j]->GettechniqueOrder() == true) {
-				if (m_orderkeep[i + 1][0] == nullptr)
+			if (m_orderkeep[i][j] != nullptr) 
+			{
+				if (j < 2 && !m_orderkeep[i][j]->isTechniqueOrder())
 				{
-					m_orderkeep[i + 1][0] = m_aieditnodeorder;
-					flaflag = true;
+					if (m_orderkeep[i][j + 1] == nullptr)
+					{
+						m_orderkeep[i][j + 1] = m_aieditnodeorder;
+						flaflag = true;
+						break;
+					}
 				}
+				else if (m_orderkeep[i][j]->isTechniqueOrder() == true) {
+					if (m_orderkeep[i + 1][0] == nullptr)
+					{
+						m_orderkeep[i + 1][0] = m_aieditnodeorder;
+						flaflag = true;
+						break;
+					}
+				}
+			}
+			else if (j == 0)
+			{
+				m_orderkeep[i][0] = m_aieditnodeorder;
+				flaflag = true;
 				break;
 			}
 		}

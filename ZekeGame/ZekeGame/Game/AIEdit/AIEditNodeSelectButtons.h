@@ -3,6 +3,7 @@ class GameCursor;
 class AIEditNodeMenu;
 class AIEditNodeMenuSave;
 class AIEditNodeMenuOpen;
+class AIEditNodeProcess;
 class AIEditNodeSelectButtons : public GameObject
 {
 
@@ -45,6 +46,8 @@ private:
 	bool m_bmenu = false;						//mouseover no 
 	bool m_bopen = false;						//mouseover no 
 	bool m_bsave = false;						//mouseover no 
+
+	AIEditNodeProcess* m_proc = nullptr;
 };
 
 

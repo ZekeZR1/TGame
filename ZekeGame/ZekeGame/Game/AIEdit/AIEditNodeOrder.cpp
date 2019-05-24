@@ -516,6 +516,7 @@ void AIEditNodeOrder::makeFonts(sOrder* order)
 			m_fonts[4]->Init(L"　　　に\n　　とくしゅ２", { m_fontpos5 }, 0.0, CVector4::White, scale, { 0.0,0.0 });
 			m_fonts[4]->DrawShadow({ 5,-5 });
 		}
+		techniqueOrder = true;
 	}
 
 

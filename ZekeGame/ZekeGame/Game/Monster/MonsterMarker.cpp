@@ -58,7 +58,7 @@ void MonsterMarker::init(Monster * mon)
 		m_offsetY = 130;
 		break;
 	}
-
+	m_offsetY = mon->Getheight();
 
 	CVector3 pos = mon->Getpos();
 	pos.y += m_offsetY;

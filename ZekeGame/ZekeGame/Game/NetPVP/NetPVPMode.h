@@ -5,6 +5,10 @@ class MusicFade;
 class LoadBalancingListener;
 class ModeSelect;
 class ExchangeData;
+class backParticle;
+class GameCursor;
+class ReturnButton;
+
 class NetPVPMode :public GameObject
 {
 public:
@@ -19,6 +23,8 @@ public:
 	//デストラクタ
 	void OnDestroy() override;
 private:
+	void InitUI();
+	void	UiUpdate();
 	void RaiseData();
 	void RaiseRatingData();
 	void LoadEnemyData();
@@ -55,7 +61,15 @@ private:
 	int m_recTime = 120;
 	int m_rcuTime = 0;
 	//UI
-	SpriteRender* m_informationSp;
+	int m_numParticle = 20;
+	std::vector<backParticle*> m_particles;
+	SpriteRender* m_informationSp = nullptr;
 	CVector3 m_informationPos = { 0.f,300.f,0.f };
+	SpriteRender* m_wallpaper = nullptr;
+	CVector3 m_bbPos = { -500,-300,0 };
+	FontRender* m_font = nullptr;
+	ReturnButton* m_returnButton = nullptr;			//戻るボタン
+	//other
+	GameCursor* m_cur = nullptr;
 	LoadBalancingListener* m_lbl = nullptr;
 };

@@ -31,7 +31,7 @@ bool MonsterSelect::Start()
 
 	m_title = NewGO<FontRender>(28, "fr");
 	m_title->SetTextType(CFont::en_Japanese);
-	m_title->Init(L"モンスターセレクト", { -246,340 }, 0, { 1,1,1,1 }, 1.25f);
+	m_title->Init(L"モンスターセレクト", { -246,348 }, 0, { 1,1,1,1 }, 1.25f);
 	m_title->DrawShadow();
 
 	m_cursor = FindGO<GameCursor>("cursor");
@@ -71,12 +71,12 @@ bool MonsterSelect::Start()
 		}*/
 		im->Setpos(pos);
 		//if (((i+1) % 5) == 0)
-		if (((i+1) % 4) == 0)
+		if (((i + 1) % 4) == 0)
 		{
 			pos.x = -179;
 			pos.y -= 133;
 		}
-		else pos += {133,0, 0};
+		else pos += {137, 0, 0};//pos += {133,0, 0};
 		m_icons.push_back(im);
 		//m_paths.push_back(path);
 	}

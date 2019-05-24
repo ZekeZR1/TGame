@@ -132,6 +132,18 @@ public:
 		}
 	}
 
+	//クリックをクリックした
+	void ClickClicking()
+	{
+		m_isClickClicked = true;
+	}
+
+	//クリックをクリックしたかどうか
+	bool isClickClicked()
+	{
+		return m_isClickClicked;
+	}
+
 private:
 
 	int flagkeep[8][3][6];   //各クラスで何を選択したかを保持しておくためのもの。
@@ -168,4 +180,5 @@ private:
 	AIEditNodeSelectButtons* m_aieditnodeselectbuttons;
 	AIEditNodeDeleteKey* m_aieditnodedeletekey;
 
+	bool m_isClickClicked = false;		//クリックがクリックされたか
 };

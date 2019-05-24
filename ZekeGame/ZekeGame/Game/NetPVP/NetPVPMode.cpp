@@ -7,11 +7,14 @@
 #include "../Fade/Fade.h"
 #include "../Fade/MusicFade.h"
 #include "../ExchangeData/ExchangeData.h"
+#include "..//GameCursor.h"
 #include "NetAISelect.h"
 #include "../SaveLoad/PythonFileLoad.h"
 #include "../Online/NetworkLogic.h"
 #include "../Online/Console.h"
+#include "backParticle.h"
 #include "../Game.h"
+#include "../ReturnButton/ReturnButton.h"
 
 NetPVPMode::NetPVPMode()
 {
@@ -32,37 +35,41 @@ void NetPVPMode::init(std::vector<std::string> files, int monai[3], int moid[3],
 }
 
 bool NetPVPMode::Start() {
-	m_informationSp = NewGO<SpriteRender>(0);
-	m_informationSp->Init(L"Assets/Sprite/waiting.dds",300.f,50.f);
-	m_informationSp->SetPosition(m_informationPos);
+	InitUI();
 	return true;
 }
 
 void NetPVPMode::OnDestroy()
 {
 	DeleteGO(m_informationSp);
+	DeleteGO(m_font);
+	DeleteGO(m_cur);
+	DeleteGO(m_wallpaper);
+	DeleteGO(m_returnButton);
 	NetSystem().DestroyNetworkSystem();
+	for (auto p : m_particles) {
+		DeleteGO(p);
+	}
 }
 
 
 void NetPVPMode::Update() {
-	static const float timeout = 100.f;
+	static const float timeout = 300.f;
 	m_lbl = NetSystem().GetNetworkLogic().GetLBL();
 #if _DEBUG
 	if (g_pad[0].IsTrigger(enButtonA)) {
-		m_lbl->disconnect();
-
 	}
 	if (g_pad[0].IsTrigger(enButtonB)) {
-		m_lbl->connect(JString(L"NV") + GETTIMEMS());
-		m_informationSp->Init(L"Assets/Sprite/waiting.dds", 300.f, 50.f);
 	}
 #endif
 	if (m_lbl == nullptr) return;
 	NetSystem().GetNetworkLogic().Update();
 	 RaiseData();
 	 LoadEnemyData();
-
+	 UiUpdate();
+	 if (m_lbl->isConect()) {
+		 m_font->Init(L"‘Îí‘ŠŽè‚ªŒ©‚Â‚©‚è‚Ü‚µ‚½", { -270.f,320.f }, 0.f, CVector4::White, 1.f, { 1,1 });
+	 }
 	 if (m_lbl->isGotEnemyPythonCodes()) {
 		 m_lbl->raiseMyLoadingState();
 		 OutputDebugString("\n");
@@ -79,31 +86,35 @@ void NetPVPMode::Update() {
 		 }
 		 startTimer++;
 	 }
+
 	 if (startTimer == 60) {
-		 m_isfade = true;
 		 if (!m_isfade)
+			 m_isfade = true;
 			 m_fade->FadeOut();
 	 }
 	 if (m_fade->isFadeStop() && m_isfade) {
 		 BattleStart();
 	 }
-	 if (m_isBackFade && m_fade->isFadeStop()) {
-		 BackToMenu();
-	 }
+	 //if (m_isBackFade && m_fade->isFadeStop()) {
+		 //BackToMenu();
+	 //}
 	 if (!m_lbl->CanStartGame() and m_timer > timeout) {
 		 TimeOut();
 	 }
-	 if (m_lbl->isJoining()) {
+	 if (m_lbl->isJoining() and !m_lbl->isConect()) {
 		 m_timer += IGameTime().GetFrameDeltaTime() * 10;
+	 }
+	 if (m_lbl->isConect()) {
+		 m_timer = 0.f;
 	 }
 	 if(m_recTime == m_rcuTime)
 		Reconnect();
 	 if (m_isTimeout) m_rcuTime++;
+
 }
 
 void NetPVPMode::TimeOut() {
 	m_lbl->disconnect();
-	//m_informationSp->Init(L"Assets/Sprite/timeout.dds", 600.f, 200.f);
 	m_lbl->DataReset();
 	m_timer = 0.f;
 	std::random_device rnd;
@@ -115,7 +126,6 @@ void NetPVPMode::TimeOut() {
 void NetPVPMode::Reconnect() {
 	OutputDebugString("timeout...reconnecting...\n");
 	m_lbl->connect(JString(L"NV") + GETTIMEMS());
-	//m_informationSp->Init(L"Assets/Sprite/waiting.dds", 300.f, 50.f); 
 	m_isTimeout = false;
 	m_rcuTime = 0;
 }
@@ -267,6 +277,42 @@ void NetPVPMode::RaiseRatingData() {
 }
 
 void NetPVPMode::BackToMenu() {
-	NewGO<NetAISelect>(0);
-	DeleteGO(this);
+	//NewGO<NetAISelect>(0);
+	//DeleteGO(this);
+}
+
+
+void NetPVPMode::InitUI() {
+	m_wallpaper = NewGO<SpriteRender>(0);
+	m_wallpaper->Init(L"Assets/Sprite/wallpaper3.dds", 1280.f, 720.f);
+
+	m_cur = NewGO<GameCursor>(0);
+
+	m_returnButton = NewGO<ReturnButton>(0, "rb");
+	m_returnButton->init(this, "modesel", m_cur);
+	
+	//particle
+	for (int i = 0; i < m_numParticle; i++) {
+		auto s = NewGO<backParticle>(0);
+		m_particles.push_back(s);
+	}
+	//notification font
+	m_font = NewGO<FontRender>(1);
+	m_font->SetTextType(CFont::en_Japanese);
+	m_font->Init(L"‘Îí‘ŠŽè‚ðŒŸõ’†", { -170.f,320.f }, 0.f, CVector4::White, 1.f, { 1,1 });
+	m_font->DrawShadow();
+	//other
+	m_informationSp = NewGO<SpriteRender>(0);
+	m_informationSp->Init(L"Assets/Sprite/hakkou1.dds", 600.f, 100.f);
+	m_informationSp->SetPosition(m_informationPos);
+}
+
+void NetPVPMode::UiUpdate() {
+	if (m_lbl->isConect()) {
+		m_font->Init(L"‘Îí‘ŠŽè‚ªŒ©‚Â‚©‚è‚Ü‚µ‚½", { -270.f,320.f }, 0.f, CVector4::White, 1.f, { 1,1 });
+	}
+	else {
+		m_font->Init(L"‘Îí‘ŠŽè‚ðŒŸõ’†", { -170.f,320.f }, 0.f, CVector4::White, 1.f, { 1,1 });
+	}
+	m_returnButton->UpdateEx<NetAISelect>();
 }

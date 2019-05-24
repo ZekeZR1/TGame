@@ -68,6 +68,7 @@ void AIEditNodeClick::Update()
 				Choice0 = true;
 		
 				m_aieditnodeprocess->SetTechniqueGenerate(false);
+				m_aieditnodeprocess->ClickClicking();
 			}
 			if (!m_isOver)
 			{

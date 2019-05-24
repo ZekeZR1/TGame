@@ -62,12 +62,13 @@ bool AISelect::Start()
 	m_minScroll = 316.5f;
 	m_minScroll = 230.5f;
 	m_maxScroll = pos.y * -1;
+	m_scroll = m_minScroll;
 
 
 	//Ø‚è‘Ö‚¦ƒ{ƒ^ƒ“‚Ì•\¦
 	m_changeAI = NewGO<SpriteRender>(28, "sp");
 	m_changeAI->Init(L"Assets/sprite/PVchenger_P.dds", 80, 38.5f, true);
-	m_changeAI->SetPosition({ -350,345,0 });
+	m_changeAI->SetPosition({ -350,330,0 });
 	m_changeAI->SetPivot({ 0,1 });
 
 	/*m_CAfont = NewGO<FontRender>(29, "fr");
@@ -97,6 +98,7 @@ void AISelect::Update()
 		{
 			DeleteAI();
 			m_check->SetPosition({ 3000,0,0 });
+			m_scroll = m_minScroll;
 			switch (m_AImode)
 			{
 			case enPy:
@@ -227,7 +229,7 @@ void AISelect::CreateViAI()
 		char c[25];
 		sprintf(c, "%d", vas[i].num);
 		std::string st = c;
-		ia->init(st, i, m_cursor,true,vas[i].col);
+		ia->init(st, i, m_cursor,true,vas[i].mark);
 		ia->Setpos(pos);
 		m_icons.push_back(ia);
 

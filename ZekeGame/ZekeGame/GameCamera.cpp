@@ -82,7 +82,47 @@ void GameCamera::normal()
 	}
 	sum /= count;
 	m_Scamera.SetTarget(sum);
-	sum += {1000, 700, 1000};
+
+
+	float l = 0;
+	CVector3 topv = { 0,0,0 };
+	for (auto mon : g_mons)
+	{
+		if (mon == nullptr)
+			break;
+		CVector3 mpo = mon->Getpos();
+		float m = (sum - mpo).Length();
+		if (m > l)
+		{
+			topv = mpo;
+			l = m;
+		}
+
+	}
+	float l2 = 0;
+	for (auto mon : g_mons)
+	{
+		if (mon == nullptr)
+			break;
+		CVector3 mpo = mon->Getpos();
+		float m = (topv - mpo).Length();
+		if (m > l2)
+		{
+			l2 = m;
+		}
+	}
+	float LEN = l + l2;
+	if (m_first)
+	{
+		m_base = LEN;
+		m_first = false;
+	}
+	CVector3 up = CVector3{ 1000, 700, 1000 };
+	CVector3 tar = up *(LEN / m_base);
+	if (up.Length() > tar.Length())
+		tar = up;
+
+	sum += tar;
 	//sum += {0, 3000, 0};
 	//camera3d->SetUp({ 1.0, 0, 0 });
 	m_Scamera.SetPosition(sum);
@@ -170,13 +210,14 @@ void GameCamera::focus()
 
 	CVector3 pos = g_mons[m_inm]->Getpos();
 	
+	float monh = g_mons[m_inm]->Getheight();
 	CVector3 cpo = pos + vec * -250;
-	cpo.y += 150;
+	cpo.y += monh;
 
-	CVector3 cta = pos + vec * 250;
+	CVector3 cta = pos + vec * (250/(150/monh));
 
-	m_Scamera.SetPosition(m_pos);
-	m_Scamera.SetTarget(m_target);
+	m_Scamera.SetPosition(cpo);
+	m_Scamera.SetTarget(cta);
 	//camera3d->SetTarget(cta);
 	//camera3d->SetPosition(cpo);
 

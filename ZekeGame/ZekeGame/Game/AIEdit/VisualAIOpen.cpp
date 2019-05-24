@@ -98,6 +98,7 @@ std::vector<VisualAIState> VisualAIOpen::openVAs()
 
 			vas.num = num;
 			vas.col = col;
+			vas.mark = i;
 			vas.file = p;
 
 			vass.push_back(vas);
