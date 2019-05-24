@@ -86,9 +86,10 @@ void NetPVPMode::Update() {
 		 }
 		 startTimer++;
 	 }
+
 	 if (startTimer == 60) {
-		 m_isfade = true;
 		 if (!m_isfade)
+			 m_isfade = true;
 			 m_fade->FadeOut();
 	 }
 	 if (m_fade->isFadeStop() && m_isfade) {
