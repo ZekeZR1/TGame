@@ -79,5 +79,8 @@ private:
 	bool m_Ffirst = true;
 
 	Sound* m_BGM = nullptr;
+
+	int m_winTeam = 0;				//勝ったチーム
+	bool m_isGameSet = false;		//gameendのフェードアウトが終わった
 };
 

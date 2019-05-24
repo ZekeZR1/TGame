@@ -7,6 +7,8 @@
 #include "../../Monster/Monster.h"
 #include "../../GameData.h"
 
+#include "../../Fade/Fade.h"
+
 Win::Win(int team)
 {
 	m_cam = NewGO<ResultCamera>(0, "rescam");
@@ -75,22 +77,18 @@ void Win::init(int team, Game::Mode mode)
 		break;
 	}
 
-	m_addpos = (m_lastpos - m_firstpos) / 8.0f;
-	m_addtar = (m_lasttar - m_firsttar) / 8.0f;
+	m_addpos = (m_lastpos - m_firstpos) / 10.0f;
+	m_addtar = (m_lasttar - m_firsttar) / 10.0f;
 
 	m_team = team;
 	MonsterSet();
 	CameraSet();
-
-	//m_sr = NewGO<SpriteRender>(0, "sr");
-	//m_sr->Init(L"Assets/Sprite/clear.dds", 1280, 720);
-
-	
 }
 
 bool Win::Start()
 {
-
+	m_fade = FindGO<Fade>("fade");
+	m_fade->FadeIn();
 	return true;
 }
 

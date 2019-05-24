@@ -1863,15 +1863,27 @@
     <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\PVchenger_P.png">
       <Filter>Assets\Sprite\AIselect</Filter>
     </None>
-    <None Include="Assets\Sprite\Network\syber1.png" />
     <None Include="Assets\Sprite\GUI\check.png">
       <Filter>Assets\Sprite</Filter>
     </None>
-    <None Include="Assets\Sprite\Network\hakkou1.png" />
-    <None Include="Assets\Sprite\Network\p4.png" />
-    <None Include="Assets\Sprite\Network\particle.png" />
-    <None Include="Assets\Sprite\Network\wallpaper2.jpg" />
-    <None Include="Assets\Sprite\Network\wallpaper3.jpg" />
+    <None Include="Assets\Sprite\Network\wallpaper2.jpg">
+      <Filter>Assets\Sprite\netpvp</Filter>
+    </None>
+    <None Include="Assets\Sprite\Network\wallpaper3.jpg">
+      <Filter>Assets\Sprite\netpvp</Filter>
+    </None>
+    <None Include="Assets\Sprite\Network\syber1.png">
+      <Filter>Assets\Sprite\netpvp</Filter>
+    </None>
+    <None Include="Assets\Sprite\Network\p4.png">
+      <Filter>Assets\Sprite\netpvp</Filter>
+    </None>
+    <None Include="Assets\Sprite\Network\particle.png">
+      <Filter>Assets\Sprite\netpvp</Filter>
+    </None>
+    <None Include="Assets\Sprite\Network\hakkou1.png">
+      <Filter>Assets\Sprite\netpvp</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="act">
