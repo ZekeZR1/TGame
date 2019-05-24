@@ -86,6 +86,7 @@ void DropEgg::Update() {
 }
 
 void DropEgg::NewMonster() {
+	//TODO モンスタークラスつかう
 	m_monster = NewGO<SkinModelRender>(0);
 	m_monster->SetScale(m_modelScale);
 	auto se = NewGO<Sound>(0);

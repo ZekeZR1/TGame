@@ -124,6 +124,7 @@ void NetPVPMode::TimeOut() {
 	int add = rnd() % 100;
 	m_recTime = 120 + add;
 	m_isTimeout = true;
+	m_font->Init(L"‘Îí‘Šè‚ğŒŸõ’†", { -170.f,320.f }, 0.f, CVector4::White, 1.f, { 1,1 });
 }
 
 void NetPVPMode::Reconnect() {

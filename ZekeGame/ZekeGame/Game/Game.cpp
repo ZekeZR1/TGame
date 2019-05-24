@@ -68,6 +68,17 @@ bool Game::Start() {
 	e->SetPosition(CVector3::Zero());
 	e->SetScale({ 500,500,500 });
 	e->Play(L"Assets/effect/l/laser.efk");
+
+	if (m_playMode == enDungeon) {
+		int round = IDungeonData().GetNumRound(m_dunNum);
+		auto dg = FindGO<DungeonGame>("DungeonGame");
+		int current = dg->GetCurrentRound();
+		wchar_t str[256];
+		swprintf_s(str, L"Dungeon %d : Round %d/%d",m_dunNum + 1,current + 1, round + 1);
+		m_dunInfoF = NewGO<FontRender>(0);
+		m_dunInfoF->Init(str, { -360,370 });
+		m_dunInfoF->DrawShadow();
+	}
 	return true;
 }
 
@@ -86,6 +97,7 @@ void Game::OnDestroy() {
 	DeleteGO(m_frS);
 	DeleteGO(m_floor);
 	DeleteGO(m_smd);
+	DeleteGO(m_dunInfoF);
 	if (m_isOnlineGame) {
 		//Engine::IEngine().DestroyNetworkSystem();
 	}

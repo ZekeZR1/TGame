@@ -29,8 +29,8 @@ void DungeonResult::OnDestroy() {
 	DeleteGO(m_buttonText);
 	DeleteGO(m_cursor);
 	DeleteGO(m_cam);
-	auto bgm = FindGO<Sound>("BGM");
-	bgm->Stop();
+	//auto bgm = FindGO<Sound>("BGM");
+	//bgm->Stop();
 }
 
 void DungeonResult::Update() {
