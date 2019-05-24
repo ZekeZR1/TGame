@@ -66,7 +66,10 @@ void NetPVPMode::Update() {
 	NetSystem().GetNetworkLogic().Update();
 	 RaiseData();
 	 LoadEnemyData();
-
+	 UiUpdate();
+	 if (m_lbl->isConect()) {
+		 m_font->Init(L"‘Îí‘ŠŽè‚ªŒ©‚Â‚©‚è‚Ü‚µ‚½", { -270.f,320.f }, 0.f, CVector4::White, 1.f, { 1,1 });
+	 }
 	 if (m_lbl->isGotEnemyPythonCodes()) {
 		 m_lbl->raiseMyLoadingState();
 		 OutputDebugString("\n");
@@ -107,7 +110,6 @@ void NetPVPMode::Update() {
 		Reconnect();
 	 if (m_isTimeout) m_rcuTime++;
 
-	 UiUpdate();
 }
 
 void NetPVPMode::TimeOut() {
@@ -304,14 +306,14 @@ void NetPVPMode::UiUpdate() {
 	if (m_lbl->isConect()) {
 		m_font->Init(L"‘Îí‘ŠŽè‚ªŒ©‚Â‚©‚è‚Ü‚µ‚½", { -270.f,320.f }, 0.f, CVector4::White, 1.f, { 1,1 });
 	}
-#if _DEBUG
-	if (g_pad[0].IsPress(enButtonA)) {
-		m_font->Init(L"‘Îí‘ŠŽè‚ªŒ©‚Â‚©‚è‚Ü‚µ‚½", { -270.f,320.f }, 0.f, CVector4::White, 1.f, { 1,1 });
-	}
-	else {
-		m_font->Init(L"‘Îí‘ŠŽè‚ðŒŸõ’†", { -170.f,320.f }, 0.f, CVector4::White, 1.f, { 1,1 });
-	}
-#endif
+//#if _DEBUG
+//	if (g_pad[0].IsPress(enButtonA)) {
+//		m_font->Init(L"‘Îí‘ŠŽè‚ªŒ©‚Â‚©‚è‚Ü‚µ‚½", { -270.f,320.f }, 0.f, CVector4::White, 1.f, { 1,1 });
+//	}
+//	else {
+//		m_font->Init(L"‘Îí‘ŠŽè‚ðŒŸõ’†", { -170.f,320.f }, 0.f, CVector4::White, 1.f, { 1,1 });
+//	}
+//#endif
 	//for (auto p : m_particles) {
 	//	auto pos = p->GetPosition();
 	//	std::random_device rnd;
