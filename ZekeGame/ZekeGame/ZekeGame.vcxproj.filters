@@ -564,6 +564,7 @@
     <ClCompile Include="Game\Monster\Monsters\Goblin.cpp">
       <Filter>Game\Monster</Filter>
     </ClCompile>
+    <ClCompile Include="Game\NetPVP\backParticle.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\PythonBridge\include\unicodeobject.h" />
@@ -1436,6 +1437,7 @@
     <ClInclude Include="Game\Monster\Monsters\Goblin.h">
       <Filter>Game\Monster</Filter>
     </ClInclude>
+    <ClInclude Include="Game\NetPVP\backParticle.h" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="python36.lib" />
@@ -1861,6 +1863,13 @@
     <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\PVchenger_P.png">
       <Filter>Assets\Sprite\AIselect</Filter>
     </None>
+    <None Include="Assets\Sprite\Network\syber1.png" />
+    <None Include="Assets\Sprite\GUI\check.png">
+      <Filter>Assets\Sprite</Filter>
+    </None>
+    <None Include="Assets\Sprite\Network\hakkou1.png" />
+    <None Include="Assets\Sprite\Network\p4.png" />
+    <None Include="Assets\Sprite\Network\particle.png" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="act">
@@ -2005,8 +2014,7 @@
     </Media>
   </ItemGroup>
   <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\GUI\check.png">
-      <Filter>Assets\Sprite</Filter>
-    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\Network\wallpaper2.jpg" />
+    <ImageContentTask Include="Assets\Sprite\Network\wallpaper3.jpg" />
   </ItemGroup>
 </Project>
