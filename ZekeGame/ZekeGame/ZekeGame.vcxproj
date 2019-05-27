@@ -335,6 +335,7 @@
     <ClCompile Include="Game\Title\IconAI.cpp" />
     <ClCompile Include="Game\Title\IconMon.cpp" />
     <ClCompile Include="Game\Title\ModeSelect.cpp" />
+    <None Include="Assets\effect\PONG.efk" />
     <None Include="Game\Title\MonAIPreset\MonAIPreset.cpp" />
     <None Include="Game\Title\MonAIPreset\MonAIPresetClose.cpp" />
     <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetIcon.cpp" />

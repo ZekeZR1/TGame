@@ -1884,6 +1884,9 @@
     <None Include="Assets\Sprite\Network\hakkou1.png">
       <Filter>Assets\Sprite\netpvp</Filter>
     </None>
+    <None Include="Assets\effect\PONG.efk">
+      <Filter>Assets</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="act">

@@ -104,6 +104,13 @@ void Monster::Update()
 		return;
 	if (m_HP <= 0)
 	{
+		CEffect* eff = NewGO<CEffect>(0, "ef");
+		CVector3 efp = m_pos;
+		efp.y += m_height/2;
+		eff->SetPosition(efp);
+		eff->SetScale({ 3,3,3 });
+		eff->Play(L"Assets/effect/PONG.efk",2);
+
 		Sound* se = NewGO<Sound>(0, "se");
 		se->Init(L"Assets/sound/ani_fa_mon07.wav");
 		se->Play();
