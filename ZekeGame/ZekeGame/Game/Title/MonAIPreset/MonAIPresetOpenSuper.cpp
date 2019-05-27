@@ -112,15 +112,19 @@ void MonAIPresetOpenSuper::Update()
 {
 	if (m_isOpen)
 	{
+		m_close->SetCollisionTarget(m_cursor->GetCursor());
 		int num = m_maps->GetClickNum();
 		if (num < 6)
 		{
 			Execute(num);
 			//Close();
 		}
-		else if (Mouse::isTrigger(enLeftClick))
+		else if (m_close->isCollidingTarget())
 		{
-			//Close();
+			if (Mouse::isTrigger(enLeftClick))
+			{
+				Close();
+			}
 		}
 	}
 }
@@ -163,8 +167,6 @@ void MonAIPresetOpenSuper::Open()
 {
 	if (m_type == enLoader && m_isAllNone)
 		return;
-
-	
 
 	FILE* file = FindPreset();
 	char head[5] = { 0 };
@@ -226,6 +228,19 @@ void MonAIPresetOpenSuper::Open()
 	m_maps = NewGO<MonAIPresets>(0, "maps");
 	m_maps->init(this,m_cursor);
 
+	CVector3 p3 = { 540,-260 ,0};
+	m_close = NewGO<SpriteRender>(3,"sp");
+	m_close->Init(L"Assets/sprite/fade_black.dds", 140, 64, true);
+	m_close->SetPosition(p3);
+
+	m_fclose = NewGO<FontRender>(3, "fr");
+	m_fclose->SetTextType(CFont::en_Japanese);
+	CVector2 p2 = p3.ToTwo();
+	p2.x -= 75;
+	p2.y += 23;
+	m_fclose->Init(L"‚Æ‚¶‚é", p2, 0, {1,1,1,1});
+	m_fclose->DrawShadow();
+
 	m_isOpen = true;
 }
 
@@ -234,8 +249,11 @@ void MonAIPresetOpenSuper::Close()
 	DeleteGO(m_back);
 
 	DeleteGO(m_maps);
-	m_first = true;
 
+	DeleteGO(m_close);
+	DeleteGO(m_fclose);
+
+	m_first = true;
 	m_isOpen = false;
 }
 

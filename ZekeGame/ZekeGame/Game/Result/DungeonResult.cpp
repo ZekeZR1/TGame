@@ -19,6 +19,7 @@ bool DungeonResult::Start() {
 	MonsterSet();
 	CameraSet();
 	m_fade = FindGO<Fade>("fade");
+	m_fade->FadeIn();
 	return true;
 }
 
@@ -29,8 +30,8 @@ void DungeonResult::OnDestroy() {
 	DeleteGO(m_buttonText);
 	DeleteGO(m_cursor);
 	DeleteGO(m_cam);
-	auto bgm = FindGO<Sound>("BGM");
-	bgm->Stop();
+	//auto bgm = FindGO<Sound>("BGM");
+	//bgm->Stop();
 }
 
 void DungeonResult::Update() {
@@ -251,7 +252,8 @@ void DungeonResult::CameraUpdate() {
 
 void DungeonResult::ToMonsterDrop() {
 	IDungeonData().SetRound(0);
-	NewGO<MonsterDrop>(0);
+	auto md = NewGO<MonsterDrop>(0);
+	md->setDungeonNum(m_dunNum);
 	auto dGame = FindGO<DungeonGame>("DungeonGame");
 	dGame->Relese();
 	DeleteGO(this);

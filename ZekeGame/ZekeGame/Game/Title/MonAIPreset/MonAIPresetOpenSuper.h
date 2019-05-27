@@ -108,5 +108,8 @@ protected:
 	bool m_isOpen = false;				//オペンフラグ
 
 	bool m_first = true;				//初めてなの。
+
+	SpriteRender* m_close = nullptr;	//とじるボタン
+	FontRender* m_fclose = nullptr;		//とじるフォンと
 };
 

@@ -6,6 +6,7 @@
 #include "../Monster/Monsters/Uma.h"
 #include "../Monster/Monsters/Fairy.h"
 #include "../SaveLoad/PythonFileLoad.h"
+#include "..//Dungeon/DungeonData.h"
 #include <string>
 #include <array>
 
@@ -116,7 +117,6 @@ void StageSetup::PVPSetup(std::vector<std::string> files, int monsterAI[6],Monst
 void StageSetup::DungeonSetup(PyFile files, PyFile eneFiles, int monsterAI[6], MonsterID monids[6], int dunNumber, int AImode[6]) {
 	int team = 0;
 	int num = 0;
-
 	CVector3 poss[6];
 	poss[0] = { 250,0,500 };
 	poss[1] = { 0,0,500 };
@@ -130,7 +130,7 @@ void StageSetup::DungeonSetup(PyFile files, PyFile eneFiles, int monsterAI[6], M
 	for (int i = 0; i < 6; i++)
 	{
 		if (i == 3)
-			team = 256;
+			team++;
 
 		Monster* mon = GameData::LoadMonster(monids[i]);
 		auto vaFiles = VisualAiFileLoad::FilesLoad();
@@ -167,7 +167,7 @@ void StageSetup::DungeonSetup(PyFile files, PyFile eneFiles, int monsterAI[6], M
 		else{
 			//enemy
 			std::string* path = new std::string("PythonEnemyAIs.");
-			*path += files[monsterAI[i]];
+			*path += eneFiles[monsterAI[i]];
 			mon->SetpyFile(path);
 		}
 		g_mons[i] = mon;
@@ -179,22 +179,34 @@ void StageSetup::DungeonSetup(PyFile files, PyFile eneFiles, int monsterAI[6], M
 
 //dungeon enemy ai and id
 void StageSetup::SetEnemyAI(int dun, int* monAI, MonsterID* monId) {
+	//TODO : Zeke : É_ÉìÉWÉáÉìÇÃìGAIÇÃí≤êÆ
+	int round = IDungeonData().GetRound();
 	switch (dun) {
 	case 0:
 		monAI[3] = 0;
 		monId[3] = enFairy;
 		monAI[4] = 0;
-		monId[4] = enFairy;
+		monId[4] = enTest;
 		monAI[5] = 0;
 		monId[5] = enFairy;
 		break;
 	case 1:
-		monAI[3] = 1;
-		monId[3] = enUmataur;
-		monAI[4] = 1;
-		monId[4] = enUmataur;
-		monAI[5] = 1;
-		monId[5] = enUmataur;
+		if (round == 0) {
+			monAI[3] = 0;
+			monId[3] = enFairy;
+			monAI[4] = 0;
+			monId[4] = enFairy;
+			monAI[5] = 0;
+			monId[5] = enFairy;
+		}
+		if (round == 1) {
+			monAI[3] = 1;
+			monId[3] = enArmor;
+			monAI[4] = 1;
+			monId[4] = enBook;
+			monAI[5] = 1;
+			monId[5] = enArmor;
+		}
 		break;
 	case 2:
 		monAI[3] = 1;

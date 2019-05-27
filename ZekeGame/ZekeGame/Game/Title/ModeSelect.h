@@ -19,11 +19,12 @@ struct button
 		//DeleteGO(moji);
 		DeleteGO(font);
 	}
-	SpriteRender* frame;
-	SpriteRender* moji;
-	FontRender* font;
+	SpriteRender* frame = nullptr;
+	SpriteRender* moji = nullptr;
+	FontRender* font = nullptr;
 	bool isCursor = false;
 };
+
 class ModeSelect :public GameObject
 {
 public:

@@ -22,6 +22,9 @@ public:
 	void Update() override;
 	void OnDestroy() override;
 	void PostRender() override;
+	int GetCurrentRound() {
+		return m_round;
+	}
 	void SetGameData(PyFile& files, PyFile& eneFile, int monsterAI[6], MonsterID monids[6], int DunNumber, int aimode[6]);
 	void NextRound() {
 		m_round++;

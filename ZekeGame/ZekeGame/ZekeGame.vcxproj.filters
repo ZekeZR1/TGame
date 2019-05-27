@@ -336,16 +336,16 @@
       <Filter>Engine</Filter>
     </ClCompile>
     <ClCompile Include="Game\Dungeon\DungeonAISelect.cpp">
-      <Filter>Game\AIMonSelect\Dungeon</Filter>
+      <Filter>Game\Dungeon</Filter>
     </ClCompile>
     <ClCompile Include="Game\Result\DungeonResult.cpp">
-      <Filter>Game\AIMonSelect\Dungeon</Filter>
+      <Filter>Game\Dungeon</Filter>
     </ClCompile>
     <ClCompile Include="Game\Dungeon\DungeonSelect.cpp">
-      <Filter>Game\AIMonSelect\Dungeon</Filter>
+      <Filter>Game\Dungeon</Filter>
     </ClCompile>
     <ClCompile Include="Game\Dungeon\DungeonTransition.cpp">
-      <Filter>Game\AIMonSelect\Dungeon</Filter>
+      <Filter>Game\Dungeon</Filter>
     </ClCompile>
     <ClCompile Include="Game\Title\AIMSelect.cpp">
       <Filter>Game\AIMonSelect</Filter>
@@ -432,10 +432,10 @@
       <Filter>Game\fade</Filter>
     </ClCompile>
     <ClCompile Include="Game\Dungeon\DungeonData.cpp">
-      <Filter>Game\AIMonSelect\Dungeon</Filter>
+      <Filter>Game\Dungeon</Filter>
     </ClCompile>
     <ClCompile Include="Game\Dungeon\DungeonGame.cpp">
-      <Filter>Game\AIMonSelect\Dungeon</Filter>
+      <Filter>Game\Dungeon</Filter>
     </ClCompile>
     <ClCompile Include="Engine\physics\PhysicsDebugDraw.cpp">
       <Filter>Engine</Filter>
@@ -468,7 +468,7 @@
       <Filter>Game\AIEdite</Filter>
     </ClCompile>
     <ClCompile Include="Game\MonsterBox\MonsterBox.cpp">
-      <Filter>Game\AIMonSelect\Dungeon</Filter>
+      <Filter>Game\Dungeon</Filter>
     </ClCompile>
     <ClCompile Include="Game\Dungeon\MonsterDrop.cpp">
       <Filter>Game</Filter>
@@ -1209,16 +1209,16 @@
       <Filter>Engine</Filter>
     </ClInclude>
     <ClInclude Include="Game\Dungeon\DungeonAISelect.h">
-      <Filter>Game\AIMonSelect\Dungeon</Filter>
+      <Filter>Game\Dungeon</Filter>
     </ClInclude>
     <ClInclude Include="Game\Result\DungeonResult.h">
-      <Filter>Game\AIMonSelect\Dungeon</Filter>
+      <Filter>Game\Dungeon</Filter>
     </ClInclude>
     <ClInclude Include="Game\Dungeon\DungeonSelect.h">
-      <Filter>Game\AIMonSelect\Dungeon</Filter>
+      <Filter>Game\Dungeon</Filter>
     </ClInclude>
     <ClInclude Include="Game\Dungeon\DungeonTransition.h">
-      <Filter>Game\AIMonSelect\Dungeon</Filter>
+      <Filter>Game\Dungeon</Filter>
     </ClInclude>
     <ClInclude Include="Game\Title\AIMSelect.h">
       <Filter>Game\AIMonSelect</Filter>
@@ -1305,10 +1305,10 @@
       <Filter>Game\fade</Filter>
     </ClInclude>
     <ClInclude Include="Game\Dungeon\DungeonGame.h">
-      <Filter>Game\AIMonSelect\Dungeon</Filter>
+      <Filter>Game\Dungeon</Filter>
     </ClInclude>
     <ClInclude Include="Game\Dungeon\DungeonData.h">
-      <Filter>Game\AIMonSelect\Dungeon</Filter>
+      <Filter>Game\Dungeon</Filter>
     </ClInclude>
     <ClInclude Include="Engine\physics\PhysicsDebugDraw.h">
       <Filter>Engine</Filter>
@@ -1341,7 +1341,7 @@
       <Filter>Game\AIEdite</Filter>
     </ClInclude>
     <ClInclude Include="Game\MonsterBox\MonsterBox.h">
-      <Filter>Game\AIMonSelect\Dungeon</Filter>
+      <Filter>Game\Dungeon</Filter>
     </ClInclude>
     <ClInclude Include="Game\Dungeon\MonsterDrop.h">
       <Filter>Game</Filter>
@@ -1863,13 +1863,27 @@
     <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\PVchenger_P.png">
       <Filter>Assets\Sprite\AIselect</Filter>
     </None>
-    <None Include="Assets\Sprite\Network\syber1.png" />
     <None Include="Assets\Sprite\GUI\check.png">
       <Filter>Assets\Sprite</Filter>
     </None>
-    <None Include="Assets\Sprite\Network\hakkou1.png" />
-    <None Include="Assets\Sprite\Network\p4.png" />
-    <None Include="Assets\Sprite\Network\particle.png" />
+    <None Include="Assets\Sprite\Network\wallpaper2.jpg">
+      <Filter>Assets\Sprite\netpvp</Filter>
+    </None>
+    <None Include="Assets\Sprite\Network\wallpaper3.jpg">
+      <Filter>Assets\Sprite\netpvp</Filter>
+    </None>
+    <None Include="Assets\Sprite\Network\syber1.png">
+      <Filter>Assets\Sprite\netpvp</Filter>
+    </None>
+    <None Include="Assets\Sprite\Network\p4.png">
+      <Filter>Assets\Sprite\netpvp</Filter>
+    </None>
+    <None Include="Assets\Sprite\Network\particle.png">
+      <Filter>Assets\Sprite\netpvp</Filter>
+    </None>
+    <None Include="Assets\Sprite\Network\hakkou1.png">
+      <Filter>Assets\Sprite\netpvp</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="act">
@@ -1992,11 +2006,11 @@
     <Filter Include="act\debuff">
       <UniqueIdentifier>{e67c7ddd-6282-4d37-aee9-827fcb7fae34}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\AIMonSelect\Dungeon">
-      <UniqueIdentifier>{ecc301f3-6fd1-409b-9ab5-30e1464f2b87}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Assets\Sprite\AImark">
       <UniqueIdentifier>{0e080f1a-2d6a-4846-94a8-ecec42545a18}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Dungeon">
+      <UniqueIdentifier>{ecc301f3-6fd1-409b-9ab5-30e1464f2b87}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -2012,9 +2026,5 @@
     <Media Include="Assets\sound\BGM\PerituneMaterial_Strategy5_loop.wav">
       <Filter>Assets\BGM</Filter>
     </Media>
-  </ItemGroup>
-  <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\Network\wallpaper2.jpg" />
-    <ImageContentTask Include="Assets\Sprite\Network\wallpaper3.jpg" />
   </ItemGroup>
 </Project>

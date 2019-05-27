@@ -17,7 +17,7 @@
 #include "ReadyGO/ReadyGO.h"
 
 #include "Fade/Fade.h"
-
+#include "Fade/MusicFade.h"
 
 void Game::GamePVPmodeInit(std::vector<std::string> files, int monsterAI[6],MonsterID MonsterID[6])
 {
@@ -68,11 +68,22 @@ bool Game::Start() {
 	e->SetPosition(CVector3::Zero());
 	e->SetScale({ 500,500,500 });
 	e->Play(L"Assets/effect/l/laser.efk");
+
+	if (m_playMode == enDungeon) {
+		int round = IDungeonData().GetNumRound(m_dunNum);
+		auto dg = FindGO<DungeonGame>("DungeonGame");
+		int current = dg->GetCurrentRound();
+		wchar_t str[256];
+		swprintf_s(str, L"Dungeon %d : Round %d/%d",m_dunNum + 1,current + 1, round + 1);
+		m_dunInfoF = NewGO<FontRender>(0);
+		m_dunInfoF->Init(str, { -360,370 });
+		m_dunInfoF->DrawShadow();
+	}
 	return true;
 }
 
 void Game::OnDestroy() {
-	m_BGM->Stop();
+	//m_BGM->Stop();
 	for (auto mon : g_mons)
 	{
 		if (mon == NULL)
@@ -86,11 +97,15 @@ void Game::OnDestroy() {
 	DeleteGO(m_frS);
 	DeleteGO(m_floor);
 	DeleteGO(m_smd);
+	DeleteGO(m_dunInfoF);
 	if (m_isOnlineGame) {
 		//Engine::IEngine().DestroyNetworkSystem();
 	}
 	RatingSystem().ClosePopup();
 	delete m_pi;
+
+	if(camera!=nullptr)
+		delete camera;
 }
 
 void Game::Update() {
@@ -114,7 +129,37 @@ void Game::Update() {
 		}
 	}
 	if (m_END)
+	{
+		if (m_fade->isFadeStop() && !m_isGameSet)
+		{
+			switch (m_playMode)
+			{
+			case enLocalPVP:
+			{
+				auto win = NewGO<Win>(0, "win");
+				win->init(m_winTeam, enLocalPVP);
+				break;
+			}
+			case enRandomPVP:
+			{
+				auto win = NewGO<Win>(0, "win");
+				win->init(m_winTeam, enRandomPVP);
+				RatingSystem().SetWinner(m_winTeam);
+				RatingSystem().PopupRate(m_eneRate);
+				break;
+			}
+			case enDungeon:
+			{
+				auto dr = NewGO<DungeonResult>(0, "dr");
+				dr->init(m_winTeam, m_dunNum);
+				break;
+			}
+			}
+			m_isGameSet = true;
+			m_fade->SetSpeed(5);
+		}
 		return;
+	}
 	if (m_suddenDeath)
 	{
 		for (auto mon : g_mons)
@@ -197,40 +242,24 @@ void Game::Update() {
 	if (isEne || g_buddyCount == 0 || g_enemyCount == 0)
 	{
 		m_END = true;
-		int team = g_mons[0]->Getteam();
+
+		delete camera;
+		camera = nullptr;
+		m_fade->SetSpeed(0.5f);
+		m_fade->FadeOut();
+		MusicFade* mf = NewGO<MusicFade>(0, "mf");
+		mf->init(m_BGM,0.15f);
+
+		m_winTeam = g_mons[0]->Getteam();
 		DeleteGO(m_menu);
 		m_menu = nullptr;
 
-		DeleteGO(m_BGM);
-		m_BGM = nullptr;
 		QueryGOs<Monster>("monster", [&](auto obj)->bool
 		{
 			obj->ReleaseMAL();
 			return true;
 		});
-		switch (m_playMode)
-		{
-		case enLocalPVP:
-		{
-			auto win = NewGO<Win>(0, "win");
-			win->init(team, enLocalPVP);
-			break;
-		}
-		case enRandomPVP:
-		{
-			auto win = NewGO<Win>(0, "win");
-			win->init(team, enRandomPVP);
-			RatingSystem().SetWinner(team);
-			RatingSystem().PopupRate(m_eneRate);
-			break;
-		}
-		case enDungeon:
-		{
-			auto dr = NewGO<DungeonResult>(0, "dr");
-			dr->init(team, m_dunNum);
-			break;
-		}
-		}
+		
 	}
 	
 }

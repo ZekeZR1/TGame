@@ -2,6 +2,7 @@
 #include "../../Game.h"
 
 class ResultCamera;
+class Fade;
 class Win:public GameObject
 {
 public:
@@ -40,4 +41,6 @@ private:
 
 	Sound* m_BGM = nullptr;
 	Game::Mode m_mode;
+
+	Fade* m_fade = nullptr;					//fade 
 };

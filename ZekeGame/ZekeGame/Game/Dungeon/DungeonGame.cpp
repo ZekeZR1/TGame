@@ -33,7 +33,6 @@ void DungeonGame::StartTransition() {
 	auto tra = NewGO<DungeonTransition>(0);
 	tra->SetGameData(m_files, m_enemyFiles, m_monai, m_ids, m_dunNum,m_aimode);
 	OutputDebugStringA("Created DungeonTransition Class\n");
-
 	MusicFade* mf = NewGO<MusicFade>(0, "mf");
 	mf->init(FindGO<Sound>("BGM"), 1, -2);
 }
@@ -52,11 +51,12 @@ void DungeonGame::Relese() {
 void DungeonGame::PostRender() {
 	if (!m_isInGame)
 		return;
-	m_font.Begin();
-	wchar_t str[256];
-	int round = IDungeonData().GetNumRound(m_dunNum);
-	swprintf_s(str, L"Dungeon %d : Round %d/%d",m_dunNum + 1,m_round + 1, round + 1);
-	//m_font.Draw(str, {160.f , 344.f },CVector4::White,0.f,1.f);
-	m_font.Draw(str, {-400.f , 344.f },CVector4::White,0.f,1.f);
-	m_font.End();
+	//m_font.Begin();
+	//m_font.SetTextType(CFont::en_Japanese);
+	//wchar_t str[256];
+	//int round = IDungeonData().GetNumRound(m_dunNum);
+	//swprintf_s(str, L"Dungeon %d : Round %d/%d",m_dunNum + 1,m_round + 1, round + 1);
+	////m_font.Draw(str, {160.f , 344.f },CVector4::White,0.f,1.f);
+	//m_font.Draw(str, {-400.f , 344.f },CVector4::White,0.f,1.f);
+	//m_font.End();
 }
