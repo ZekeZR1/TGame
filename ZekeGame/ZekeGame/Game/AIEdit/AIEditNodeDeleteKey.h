@@ -11,6 +11,7 @@ class AIEditNodeDeleteKey : public GameObject
 public:
 
 	~AIEditNodeDeleteKey();
+	void OnDestroy();
 
 	bool Start();
 	void Update();

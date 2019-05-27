@@ -34,6 +34,11 @@
 
 PvPModeSelect::~PvPModeSelect()
 {
+	
+}
+
+void PvPModeSelect::OnDestroy()
+{
 	DeleteGO(m_cursor);
 	for (auto go : m_pmms)
 	{

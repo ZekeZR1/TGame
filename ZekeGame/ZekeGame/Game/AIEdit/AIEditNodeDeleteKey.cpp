@@ -8,9 +8,11 @@
 
 AIEditNodeDeleteKey::~AIEditNodeDeleteKey()
 {
+}
+
+void AIEditNodeDeleteKey::OnDestroy()
+{
 	DeleteGO(m_spriteRender);
-
-
 }
 
 

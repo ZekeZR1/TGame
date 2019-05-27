@@ -19,8 +19,12 @@ bool MenuButton::Start()
 
 	m_button->SetPosition(m_pos);
 	m_dummy->SetPosition(m_pos);
-	if (m_moji != nullptr)
-		m_moji->SetPosition(m_pos);
+
+	CVector2 po2 = m_pos.ToTwo();
+	//po2.x -= 60;
+	//po2.y += 40;
+	//if (m_moji != nullptr)
+		//m_moji->SetPosition(po2);
 	return true;
 }
 

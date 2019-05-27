@@ -11,6 +11,7 @@ class AIEditLine : public GameObject
 public:
 
 	~AIEditLine();
+	void OnDestroy();
 
 	bool Start() override final;
 	void Update() override final;

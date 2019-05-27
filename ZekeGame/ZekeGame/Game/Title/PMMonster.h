@@ -7,6 +7,7 @@ class PMMonster :public GameObject
 {
 public:
 	~PMMonster();
+	void OnDestroy();
 	PMMonster();
 	bool Start() override;
 	void init(int num, CVector3 pos);

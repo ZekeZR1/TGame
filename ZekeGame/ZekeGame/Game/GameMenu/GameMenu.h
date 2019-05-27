@@ -3,6 +3,9 @@
 enum Mode;
 class GameCursor;
 class MenuButton;
+
+class Game;
+class Fade;
 class GameMenu :public GameObject
 {
 public:
@@ -43,4 +46,9 @@ private:
 	SpriteRender* m_menu = nullptr;
 
 	bool m_isdo = false;					//開けるか？
+
+	Game* m_game = nullptr;					//ゲームのpointa
+	Fade* m_fade = nullptr;					//fade
+	bool m_isFade = false;					//ファデしてますか？
+	int m_bnum = 0;							//どのボタンをクリックしたか
 };

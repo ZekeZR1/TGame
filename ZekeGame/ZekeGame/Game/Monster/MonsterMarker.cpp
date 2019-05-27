@@ -7,6 +7,10 @@
 
 MonsterMarker::~MonsterMarker()
 {
+}
+
+void MonsterMarker::OnDestroy()
+{
 	DeleteGO(m_marker);
 	DeleteGO(m_number);
 }

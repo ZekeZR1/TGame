@@ -13,6 +13,7 @@ class PvPModeSelect :public SuperMonsterSelect
 {
 public:
 	~PvPModeSelect();
+	void OnDestroy();
 	bool Start() override;
 	void Update() override;
 	void PostRender() override;
