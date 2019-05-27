@@ -28,6 +28,7 @@ bool DungeonTransition::Start() {
 	for (int i = 0; i < m_numMonster; i++) {
 		m_monsters.push_back(NewGO<SkinModelRender>(1));
 		switch (m_ids[i]) {
+		//TODO : Zeke : add monsters transition scene
 		case enTest:
 			m_monsters[i]->Init(L"Assets/modelData/tesEnemy3.cmo");//, m_animation, 1);
 			break;
@@ -52,6 +53,26 @@ bool DungeonTransition::Start() {
 			m_monsters[i]->SetScale(CVector3::One() * 0.25);
 		}
 			break;
+		case enBook:
+		{
+			m_animClip[i][0].Load(L"Assets/modelData/book/book_idle.tka");
+			m_animClip[i][0].SetLoopFlag(true);
+			m_monsters[i]->Init(L"Assets/modelData/book.cmo", m_animClip[i], 1);
+			m_monsters[i]->PlayAnimation(0);
+			m_monsters[i]->SetScale(CVector3::One() * 0.8);
+			auto p = m_monsters[i]->GetPosition();
+			m_monsters[i]->SetPosition(p);
+		}
+		break;
+		case enGoblin:
+		{
+			m_animClip[i][0].Load(L"Assets/modelData/gob/gob_walk.tka");
+			m_animClip[i][0].SetLoopFlag(true);
+			m_monsters[i]->Init(L"Assets/modelData/gob.cmo", m_animClip[i], 1);
+			m_monsters[i]->PlayAnimation(0);
+			m_monsters[i]->SetScale(CVector3::One() * 20);
+		}
+		break;
 		default:
 			assert(false);
 			OutputDebugStringA("Trasan Anime < ‚È‚ñ‚ÅHHH\n");
@@ -59,7 +80,7 @@ bool DungeonTransition::Start() {
 
 		}
 		m_monsters[i]->SetPosition(pos);
-		pos.x += 80.f;
+		pos.x += 150.f;
 	}
 	m_camera = NewGO<DungeonTCamera>(0);
 	OutputDebugStringA("Play Transition\n");
