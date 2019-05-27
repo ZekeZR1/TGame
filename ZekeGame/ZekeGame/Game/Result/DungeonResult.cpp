@@ -19,6 +19,7 @@ bool DungeonResult::Start() {
 	MonsterSet();
 	CameraSet();
 	m_fade = FindGO<Fade>("fade");
+	m_fade->FadeIn();
 	return true;
 }
 

@@ -33,7 +33,6 @@ void DungeonGame::StartTransition() {
 	auto tra = NewGO<DungeonTransition>(0);
 	tra->SetGameData(m_files, m_enemyFiles, m_monai, m_ids, m_dunNum,m_aimode);
 	OutputDebugStringA("Created DungeonTransition Class\n");
-
 	MusicFade* mf = NewGO<MusicFade>(0, "mf");
 	mf->init(FindGO<Sound>("BGM"), 1, -2);
 }
