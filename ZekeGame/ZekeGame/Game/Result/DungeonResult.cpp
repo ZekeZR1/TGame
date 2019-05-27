@@ -251,7 +251,8 @@ void DungeonResult::CameraUpdate() {
 
 void DungeonResult::ToMonsterDrop() {
 	IDungeonData().SetRound(0);
-	NewGO<MonsterDrop>(0);
+	auto md = NewGO<MonsterDrop>(0);
+	md->setDungeonNum(m_dunNum);
 	auto dGame = FindGO<DungeonGame>("DungeonGame");
 	dGame->Relese();
 	DeleteGO(this);

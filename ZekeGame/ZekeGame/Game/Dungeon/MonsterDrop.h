@@ -10,6 +10,9 @@ public:
 	bool Start() override;
 	void Update() override;
 	void OnDestroy() override;
+	void setDungeonNum(int n) {
+		m_stage = n;
+	}
 private:
 	void InitUI();
 	void Notifications();
@@ -17,6 +20,7 @@ private:
 	void SceneTransition();
 	void ToDungeonSelect();
 	
+	int m_stage = 0;
 	DropEgg* m_egg = nullptr;
 	SkinModelRender* m_back = nullptr;
 	CVector3 m_backPosition = { 0.f,0.f,-300.f };

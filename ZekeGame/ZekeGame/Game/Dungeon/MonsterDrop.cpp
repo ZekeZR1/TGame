@@ -24,8 +24,8 @@ MonsterDrop::~MonsterDrop()
 bool MonsterDrop::Start() {
 	std::random_device rnd;
 	auto drop = rnd() % 100;
-	//if (drop >= 50) 
-		//ToDungeonSelect();
+	if (drop >= 50 - m_stage) 
+		ToDungeonSelect();
 	m_egg = NewGO<DropEgg>(0);
 	//
 	camera3d->SetTarget(CVector3::Zero());

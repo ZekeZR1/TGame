@@ -6,7 +6,6 @@ enum enMouseEve {
 	enNotchUp,
 	enNotchDown,
 	enNumMouseEve
-	//TODO : マウスイベントのenNotchUp down追加してtrigger取れるようにする
 };
 namespace Mouse {
 	int GetMouseNotch();

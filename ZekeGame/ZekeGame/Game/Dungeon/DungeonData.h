@@ -36,6 +36,11 @@ public:
 	}
 	const int GetNumRound(int);
 	bool isFinalRound(int DunNum);
+
+	static DungeonData& GetInstance() {
+		static DungeonData instance;
+		return instance;
+	}
 private:
 	PyFile m_files;
 	PyFile m_enemyFiles;
@@ -48,6 +53,5 @@ private:
 };
 
 static DungeonData& IDungeonData() {
-	static DungeonData dungeonData;
-	return dungeonData;
+	return DungeonData::GetInstance();
 }

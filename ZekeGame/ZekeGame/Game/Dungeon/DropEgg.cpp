@@ -8,7 +8,11 @@
 #include "MonsterDrop.h"
 #include <random>
 #include "DropEgg.h"
-
+#include "../Monster/Monsters/Armor.h"
+#include "../Monster/Monsters/Book.h"
+#include"..//Monster/Monsters/Uma.h"
+#include "../Monster/Monsters/Fairy.h"
+#include "../Monster/Monsters/Goblin.h"
 
 DropEgg::DropEgg()
 {
@@ -86,7 +90,6 @@ void DropEgg::Update() {
 }
 
 void DropEgg::NewMonster() {
-	//TODO モンスタークラスつかう
 	m_monster = NewGO<SkinModelRender>(0);
 	m_monster->SetScale(m_modelScale);
 	auto se = NewGO<Sound>(0);
@@ -115,6 +118,26 @@ void DropEgg::NewMonster() {
 		m_animClip[0].SetLoopFlag(true);
 		m_monster->Init(L"Assets/modelData/hnd.cmo", m_animClip, 1);
 		wcscpy(m_monsterName, L"妖精");
+		break;
+	case enArmor:
+		m_animClip[0].Load(L"Assets/modelData/armor/armor_idle.tka");
+		m_animClip[0].SetLoopFlag(true);
+		m_monster->SetScale(m_modelScale * 0.3);
+		m_monster->Init(L"Assets/modelData/armor.cmo", m_animClip, 1);
+		wcscpy(m_monsterName, L"アーマー");
+		break;
+	case enBook:
+		m_animClip[0].Load(L"Assets/modelData/book/book_idle.tka");
+		m_animClip[0].SetLoopFlag(true);
+		m_monster->Init(L"Assets/modelData/book.cmo", m_animClip, 1);
+		wcscpy(m_monsterName, L"本");
+		break;
+	case enGoblin:
+		m_animClip[0].Load(L"Assets/modelData/gob/gob_idle.tka");
+		m_animClip[0].SetLoopFlag(true);
+		m_monster->SetScale(m_modelScale * 30);
+		m_monster->Init(L"Assets/modelData/gob.cmo", m_animClip, 1);
+		wcscpy(m_monsterName, L"ゴブリン");
 		break;
 	}
 	m_monster->PlayAnimation(0);
