@@ -712,45 +712,123 @@
     <Media Include="Assets\sound\punch-middle2.wav" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Sprite\AIEdit\arrow.png" />
-    <None Include="Assets\Sprite\AIEdit\buttyon.png" />
-    <None Include="Assets\Sprite\AIEdit\click.png" />
-    <None Include="Assets\Sprite\AIEdit\clickButton.png" />
-    <None Include="Assets\Sprite\AIEdit\deletepoint.png" />
-    <None Include="Assets\Sprite\AIEdit\haik.png" />
-    <None Include="Assets\Sprite\AIEdit\help.png" />
-    <None Include="Assets\Sprite\AIEdit\HOM.png" />
-    <None Include="Assets\Sprite\AIEdit\hozon.png" />
-    <None Include="Assets\Sprite\AIEdit\karipoint.png" />
-    <None Include="Assets\Sprite\AIEdit\masss.png" />
-    <None Include="Assets\Sprite\AIEdit\menu.png" />
-    <None Include="Assets\Sprite\AIEdit\menu2.png" />
-    <None Include="Assets\Sprite\AIEdit\menuselect.png" />
-    <None Include="Assets\Sprite\AIEdit\menuselectsieat.png" />
-    <None Include="Assets\Sprite\AIEdit\open.png" />
-    <None Include="Assets\Sprite\AIEdit\point.png" />
-    <None Include="Assets\Sprite\AIEdit\sieat.png" />
-    <None Include="Assets\Sprite\Fade\fade_black.png" />
-    <None Include="Assets\Sprite\GUI\button1.png" />
-    <None Include="Assets\Sprite\GUI\button\sb_cancel.png" />
-    <None Include="Assets\Sprite\GUI\button\sb_OK.png" />
-    <None Include="Assets\Sprite\GUI\button\simple_button.png" />
-    <None Include="Assets\Sprite\GUI\button\simple_button_blue.png" />
-    <None Include="Assets\Sprite\GUI\cursor.png" />
-    <None Include="Assets\Sprite\GUI\Dungeon\d1.png" />
-    <None Include="Assets\Sprite\GUI\Dungeon\d2.png" />
-    <None Include="Assets\Sprite\GUI\Dungeon\d3.png" />
-    <None Include="Assets\Sprite\GUI\Dungeon\d4.png" />
-    <None Include="Assets\Sprite\GUI\Dungeon\d5.png" />
-    <None Include="Assets\Sprite\GUI\Dungeon\dungeonAiSelectWallpaper.png" />
-    <None Include="Assets\Sprite\GUI\Dungeon\dungeonSelectWallpaper.png" />
-    <None Include="Assets\Sprite\GUI\Dungeon\DungeonSp.png" />
-    <None Include="Assets\Sprite\GUI\Dungeon\DungeonSpS.png" />
-    <None Include="Assets\Sprite\GUI\Dungeon\leftButton.png" />
-    <None Include="Assets\Sprite\GUI\Dungeon\nextDungeon.png" />
-    <None Include="Assets\Sprite\GUI\Dungeon\notifyLine.png" />
-    <None Include="Assets\Sprite\GUI\Dungeon\rightButton.png" />
-    <None Include="Assets\Sprite\GUI\GO.png" />
+    <None Include="Assets\Sprite\AIEdit\arrow.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\AIEdit\buttyon.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\AIEdit\click.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\AIEdit\clickButton.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\AIEdit\deletepoint.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\AIEdit\haik.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\AIEdit\help.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\AIEdit\HOM.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\AIEdit\hozon.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\AIEdit\karipoint.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\AIEdit\masss.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\AIEdit\menu.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\AIEdit\menu2.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\AIEdit\menuselect.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\AIEdit\menuselectsieat.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\AIEdit\open.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\AIEdit\point.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\AIEdit\sieat.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\Fade\fade_black.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\button1.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\button\sb_cancel.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\button\sb_OK.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\button\simple_button.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\button\simple_button_blue.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\cursor.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\Dungeon\d1.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\Dungeon\d2.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\Dungeon\d3.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\Dungeon\d4.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\Dungeon\d5.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\Dungeon\dungeonAiSelectWallpaper.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\Dungeon\dungeonSelectWallpaper.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\Dungeon\DungeonSp.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\Dungeon\DungeonSpS.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\Dungeon\leftButton.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\Dungeon\nextDungeon.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\Dungeon\notifyLine.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\Dungeon\rightButton.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\GO.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
     <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\AIselect.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </None>
@@ -775,44 +853,120 @@
     <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\PVchenger_V.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </None>
-    <None Include="Assets\Sprite\GUI\modeSelect\modesel_back.png" />
-    <None Include="Assets\Sprite\GUI\modeSelect\modesel_back_aiedit.png" />
-    <None Include="Assets\Sprite\GUI\modeSelect\modesel_back_dung.png" />
-    <None Include="Assets\Sprite\GUI\modeSelect\modesel_back_local.png" />
-    <None Include="Assets\Sprite\GUI\modeSelect\modesel_frame.png" />
-    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\Monselect.png" />
-    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\monsel_back.png" />
-    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_back.png" />
-    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_fairy.png" />
-    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_frame.png" />
-    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_frameBlue.png" />
-    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_frameRed.png" />
-    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_frameYellow.png" />
-    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_none.png" />
-    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_uma.png" />
-    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_armor.png" />
-    <None Include="Assets\Sprite\GUI\MonActList\actBlock.png" />
-    <None Include="Assets\Sprite\GUI\MonActList\backBlue.png" />
-    <None Include="Assets\Sprite\GUI\MonActList\backRed.png" />
-    <None Include="Assets\Sprite\GUI\Net\close.png" />
-    <None Include="Assets\Sprite\GUI\Net\popupback.png" />
-    <None Include="Assets\Sprite\GUI\Net\ready.png" />
-    <None Include="Assets\Sprite\GUI\Net\waiting.png" />
-    <None Include="Assets\Sprite\GUI\returnButton\returnArrow.png" />
-    <None Include="Assets\Sprite\GUI\returnButton\returnArrowLong.png" />
-    <None Include="Assets\Sprite\GUI\returnButton\returnButton.png" />
-    <None Include="Assets\Sprite\marker\mark_1.png" />
-    <None Include="Assets\Sprite\marker\mark_2.png" />
-    <None Include="Assets\Sprite\marker\mark_3.png" />
-    <None Include="Assets\Sprite\marker\mark_blue.png" />
-    <None Include="Assets\Sprite\marker\mark_red.png" />
-    <None Include="Assets\Sprite\monsho\dun_stage0.png" />
-    <None Include="Assets\Sprite\readyGO\Ready2.png" />
-    <None Include="Assets\Sprite\readyGO\r_go.png" />
-    <None Include="Assets\Sprite\result\res_blueteam.png" />
-    <None Include="Assets\Sprite\result\res_Lose.png" />
-    <None Include="Assets\Sprite\result\res_redteam.png" />
-    <None Include="Assets\Sprite\result\res_Win.png" />
+    <None Include="Assets\Sprite\GUI\modeSelect\modesel_back.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\modesel_back_aiedit.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\modesel_back_dung.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\modesel_back_local.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\modesel_frame.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\Monselect.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\monsel_back.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_back.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_fairy.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_frame.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_frameBlue.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_frameRed.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_frameYellow.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_none.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_uma.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_armor.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\MonActList\actBlock.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\MonActList\backBlue.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\MonActList\backRed.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\Net\close.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\Net\popupback.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\Net\ready.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\Net\waiting.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\returnButton\returnArrow.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\returnButton\returnArrowLong.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\returnButton\returnButton.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\marker\mark_1.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\marker\mark_2.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\marker\mark_3.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\marker\mark_blue.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\marker\mark_red.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\monsho\dun_stage0.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\readyGO\Ready2.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\readyGO\r_go.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\result\res_blueteam.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\result\res_Lose.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\result\res_redteam.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\result\res_Win.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\modelData\dungeon\dungeonBack.FBX">
@@ -876,13 +1030,19 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_gob.png" />
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_gob.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_book.png" />
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_book.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Sprite\GUI\check.png" />
+    <None Include="Assets\Sprite\GUI\check.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Sprite\GUI\AImark\aimk_attack.png">
@@ -904,13 +1064,19 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Sprite\GUI\modeSelect\modesel_back_net.png" />
+    <None Include="Assets\Sprite\GUI\modeSelect\modesel_back_net.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Sprite\Network\particle.png" />
+    <None Include="Assets\Sprite\Network\particle.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Sprite\Network\p4.png" />
+    <None Include="Assets\Sprite\Network\p4.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Sprite\Network\wallpaper2.jpg" />
@@ -919,10 +1085,14 @@
     <None Include="Assets\Sprite\Network\wallpaper3.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Sprite\Network\syber1.png" />
+    <None Include="Assets\Sprite\Network\syber1.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Sprite\Network\hakkou1.png" />
+    <None Include="Assets\Sprite\Network\hakkou1.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

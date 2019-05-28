@@ -565,6 +565,7 @@
     <ClCompile Include="Game\Dungeon\MonsterDrop.cpp">
       <Filter>Game\Dungeon</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Title\GObutton.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\PythonBridge\include\unicodeobject.h" />
@@ -1438,6 +1439,7 @@
     <ClInclude Include="Game\Dungeon\MonsterDrop.h">
       <Filter>Game\Dungeon</Filter>
     </ClInclude>
+    <ClInclude Include="Game\Title\GObutton.h" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="python36.lib" />
@@ -1527,6 +1529,13 @@
     <None Include="Game\Title\MonAIPreset\MonAIPresetSave.cpp">
       <Filter>Game\AIMonSelect\AIMonPreset\NObuild</Filter>
     </None>
+    <None Include="Assets\Sprite\Network\wallpaper2.jpg">
+      <Filter>Assets\Sprite\netpvp</Filter>
+    </None>
+    <None Include="Assets\Sprite\Network\wallpaper3.jpg">
+      <Filter>Assets\Sprite\netpvp</Filter>
+    </None>
+    <None Include="Assets\effect\PONG.efk" />
     <None Include="Assets\Sprite\AIEdit\arrow.png">
       <Filter>Assets\Sprite\AIEdit</Filter>
     </None>
@@ -1580,6 +1589,42 @@
     </None>
     <None Include="Assets\Sprite\AIEdit\sieat.png">
       <Filter>Assets\Sprite\AIEdit</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\AImark\aimk_defense.png">
+      <Filter>Assets\Sprite\AImark</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\AImark\aimk_heal.png">
+      <Filter>Assets\Sprite\AImark</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\AImark\aimk_magic.png">
+      <Filter>Assets\Sprite\AImark</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_back_R.png">
+      <Filter>Assets\Sprite\AIselect</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_even.png">
+      <Filter>Assets\Sprite\AIselect</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_evenV.png">
+      <Filter>Assets\Sprite\AIselect</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_sel.png">
+      <Filter>Assets\Sprite\AIselect</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\AIselect.png">
+      <Filter>Assets\Sprite\AIselect</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\B_alpha.png">
+      <Filter>Assets\Sprite\AIselect</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\monsel_back.png">
+      <Filter>Assets\Sprite\AIselect</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\PVchenger_P.png">
+      <Filter>Assets\Sprite\AIselect</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\PVchenger_V.png">
+      <Filter>Assets\Sprite\AIselect</Filter>
     </None>
     <None Include="Assets\Sprite\GUI\Dungeon\d1.png">
       <Filter>Assets\Sprite\dungeon</Filter>
@@ -1638,6 +1683,9 @@
     <None Include="Assets\Sprite\GUI\modeSelect\modesel_back_local.png">
       <Filter>Assets\Sprite\modesel</Filter>
     </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\modesel_back_net.png">
+      <Filter>Assets\Sprite\modesel</Filter>
+    </None>
     <None Include="Assets\Sprite\GUI\modeSelect\modesel_frame.png">
       <Filter>Assets\Sprite\modesel</Filter>
     </None>
@@ -1671,6 +1719,9 @@
     <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_back.png">
       <Filter>Assets\Sprite\MonSelect</Filter>
     </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_book.png">
+      <Filter>Assets\Sprite\MonSelect</Filter>
+    </None>
     <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_fairy.png">
       <Filter>Assets\Sprite\MonSelect</Filter>
     </None>
@@ -1684,6 +1735,9 @@
       <Filter>Assets\Sprite\MonSelect</Filter>
     </None>
     <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_frameYellow.png">
+      <Filter>Assets\Sprite\MonSelect</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_gob.png">
       <Filter>Assets\Sprite\MonSelect</Filter>
     </None>
     <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_none.png">
@@ -1701,10 +1755,22 @@
     <None Include="Assets\Sprite\GUI\Net\close.png">
       <Filter>Assets\Sprite\netpvp</Filter>
     </None>
+    <None Include="Assets\Sprite\Network\hakkou1.png">
+      <Filter>Assets\Sprite\netpvp</Filter>
+    </None>
+    <None Include="Assets\Sprite\Network\p4.png">
+      <Filter>Assets\Sprite\netpvp</Filter>
+    </None>
+    <None Include="Assets\Sprite\Network\particle.png">
+      <Filter>Assets\Sprite\netpvp</Filter>
+    </None>
     <None Include="Assets\Sprite\GUI\Net\popupback.png">
       <Filter>Assets\Sprite\netpvp</Filter>
     </None>
     <None Include="Assets\Sprite\GUI\Net\ready.png">
+      <Filter>Assets\Sprite\netpvp</Filter>
+    </None>
+    <None Include="Assets\Sprite\Network\syber1.png">
       <Filter>Assets\Sprite\netpvp</Filter>
     </None>
     <None Include="Assets\Sprite\GUI\Net\waiting.png">
@@ -1752,13 +1818,22 @@
     <None Include="Assets\Sprite\GUI\button1.png">
       <Filter>Assets\Sprite</Filter>
     </None>
+    <None Include="Assets\Sprite\GUI\check.png">
+      <Filter>Assets\Sprite</Filter>
+    </None>
     <None Include="Assets\Sprite\GUI\cursor.png">
       <Filter>Assets\Sprite</Filter>
     </None>
     <None Include="Assets\Sprite\GUI\GO.png">
       <Filter>Assets\Sprite</Filter>
     </None>
+    <None Include="Assets\Sprite\GUI\AImark\aimk_attack.png">
+      <Filter>Assets\Sprite\AImark</Filter>
+    </None>
     <None Include="Assets\modelData\armor\armor.FBX">
+      <Filter>Assets\model</Filter>
+    </None>
+    <None Include="Assets\modelData\book\book.FBX">
       <Filter>Assets\model</Filter>
     </None>
     <None Include="Assets\modelData\door\door.fbx">
@@ -1779,6 +1854,9 @@
     <None Include="Assets\modelData\dungeon\egg.FBX">
       <Filter>Assets\model</Filter>
     </None>
+    <None Include="Assets\modelData\gob\gob.FBX">
+      <Filter>Assets\model</Filter>
+    </None>
     <None Include="Assets\modelData\fairy\hnd.FBX">
       <Filter>Assets\model</Filter>
     </None>
@@ -1794,6 +1872,9 @@
     <None Include="Assets\modelData\testMons\tesEnemy2.fbx">
       <Filter>Assets\model</Filter>
     </None>
+    <None Include="Assets\modelData\testMons\tesEnemy3.fbx">
+      <Filter>Assets\model</Filter>
+    </None>
     <None Include="Assets\modelData\dungeon\testback.FBX">
       <Filter>Assets\model</Filter>
     </None>
@@ -1805,84 +1886,6 @@
     </None>
     <None Include="Assets\modelData\uma\uma.nobone.fbx">
       <Filter>Assets\model</Filter>
-    </None>
-    <None Include="Assets\modelData\testMons\tesEnemy3.fbx">
-      <Filter>Assets\model</Filter>
-    </None>
-    <None Include="Assets\modelData\gob\gob.FBX">
-      <Filter>Assets\model</Filter>
-    </None>
-    <None Include="Assets\modelData\book\book.FBX">
-      <Filter>Assets\model</Filter>
-    </None>
-    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_book.png">
-      <Filter>Assets\Sprite\MonSelect</Filter>
-    </None>
-    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_gob.png">
-      <Filter>Assets\Sprite\MonSelect</Filter>
-    </None>
-    <None Include="Assets\Sprite\GUI\AImark\aimk_attack.png">
-      <Filter>Assets\Sprite\AImark</Filter>
-    </None>
-    <None Include="Assets\Sprite\GUI\AImark\aimk_defense.png">
-      <Filter>Assets\Sprite\AImark</Filter>
-    </None>
-    <None Include="Assets\Sprite\GUI\AImark\aimk_heal.png">
-      <Filter>Assets\Sprite\AImark</Filter>
-    </None>
-    <None Include="Assets\Sprite\GUI\AImark\aimk_magic.png">
-      <Filter>Assets\Sprite\AImark</Filter>
-    </None>
-    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_back_R.png">
-      <Filter>Assets\Sprite\AIselect</Filter>
-    </None>
-    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_even.png">
-      <Filter>Assets\Sprite\AIselect</Filter>
-    </None>
-    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_evenV.png">
-      <Filter>Assets\Sprite\AIselect</Filter>
-    </None>
-    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_sel.png">
-      <Filter>Assets\Sprite\AIselect</Filter>
-    </None>
-    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\AIselect.png">
-      <Filter>Assets\Sprite\AIselect</Filter>
-    </None>
-    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\B_alpha.png">
-      <Filter>Assets\Sprite\AIselect</Filter>
-    </None>
-    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\monsel_back.png">
-      <Filter>Assets\Sprite\AIselect</Filter>
-    </None>
-    <None Include="Assets\Sprite\GUI\modeSelect\modesel_back_net.png">
-      <Filter>Assets\Sprite\modesel</Filter>
-    </None>
-    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\PVchenger_V.png">
-      <Filter>Assets\Sprite\AIselect</Filter>
-    </None>
-    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\PVchenger_P.png">
-      <Filter>Assets\Sprite\AIselect</Filter>
-    </None>
-    <None Include="Assets\Sprite\GUI\check.png">
-      <Filter>Assets\Sprite</Filter>
-    </None>
-    <None Include="Assets\Sprite\Network\wallpaper2.jpg">
-      <Filter>Assets\Sprite\netpvp</Filter>
-    </None>
-    <None Include="Assets\Sprite\Network\wallpaper3.jpg">
-      <Filter>Assets\Sprite\netpvp</Filter>
-    </None>
-    <None Include="Assets\Sprite\Network\syber1.png">
-      <Filter>Assets\Sprite\netpvp</Filter>
-    </None>
-    <None Include="Assets\Sprite\Network\p4.png">
-      <Filter>Assets\Sprite\netpvp</Filter>
-    </None>
-    <None Include="Assets\Sprite\Network\particle.png">
-      <Filter>Assets\Sprite\netpvp</Filter>
-    </None>
-    <None Include="Assets\Sprite\Network\hakkou1.png">
-      <Filter>Assets\Sprite\netpvp</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>

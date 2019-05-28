@@ -184,6 +184,7 @@ void PvPModeSelect::Update()
 			//m_BGM->Stop();
 			DeleteGO(this);
 		}
+		return;
 	}
 
 	bool ispmm = false;

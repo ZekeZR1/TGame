@@ -4,6 +4,7 @@ class PMMonster;
 class Fade;
 class ReturnButton;
 class MonAIPresetOpenSuper;
+class GObutton;
 class DungeonAISelect : public SuperMonsterSelect
 {
 public:
@@ -32,7 +33,7 @@ private:
 	GameCursor* m_cursor;
 	PMMonster* m_pmm = nullptr;
 	std::vector<PMMonster*> m_pmms;
-	SpriteRender* m_GO = nullptr;
+	//SpriteRender* m_GO = nullptr;
 private:
 	static const int m_numMonster = 6;
 	const int m_numPmm = 3;
@@ -49,5 +50,7 @@ private:
 
 	MonAIPresetOpenSuper* m_msp = nullptr;		//presetのセーブ用
 	MonAIPresetOpenSuper* m_mlp = nullptr;		//presetのロード用(紅組用の)
+
+	GObutton* m_GOb = nullptr;
 };
 
