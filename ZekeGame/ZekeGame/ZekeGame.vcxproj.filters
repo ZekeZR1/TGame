@@ -565,6 +565,9 @@
       <Filter>Game\Monster</Filter>
     </ClCompile>
     <ClCompile Include="Game\NetPVP\backParticle.cpp" />
+    <ClCompile Include="Game\Title\GObutton.cpp">
+      <Filter>Game\AIMonSelect</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\PythonBridge\include\unicodeobject.h" />
@@ -1438,6 +1441,9 @@
       <Filter>Game\Monster</Filter>
     </ClInclude>
     <ClInclude Include="Game\NetPVP\backParticle.h" />
+    <ClInclude Include="Game\Title\GObutton.h">
+      <Filter>Game\AIMonSelect</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="python36.lib" />
