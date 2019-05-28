@@ -21,6 +21,8 @@
 #include "../Title/MonAIPreset/MonAIPresetSaveOpen.h"
 #include "../Title/MonAIPreset/MonAIPresetLoadOpen.h"
 
+#include "../Title/GObutton.h"
+
 DungeonAISelect::DungeonAISelect()
 {
 }
@@ -40,11 +42,12 @@ void DungeonAISelect::OnDestroy()
 	{
 		DeleteGO(go);
 	}
-	DeleteGO(m_GO);
+	//DeleteGO(m_GO);
 	DeleteGO(m_backSp);
 	DeleteGO(m_returnButton);
 	DeleteGO(m_msp);
 	DeleteGO(m_mlp);
+	DeleteGO(m_GOb);
 }
 
 bool DungeonAISelect::Start() {
@@ -81,9 +84,9 @@ bool DungeonAISelect::Start() {
 			m_pmms[i]->SetPython(ws, g_AIset[i].AInum, g_AIset[i].AImode);
 		}
 	}
-	m_GO = NewGO<SpriteRender>(1, "sp");
+	/*m_GO = NewGO<SpriteRender>(1, "sp");
 	m_GO->Init(L"Assets/sprite/GO.dds", 193, 93, true);
-	m_GO->SetPosition({ 400,-160,0 });
+	m_GO->SetPosition({ 400,-160,0 });*/
 	m_dunSp = NewGO<SpriteRender>(1, "dunSp");
 	m_dunSp->Init(L"Assets/Sprite/DadandanBk.dds", 350.f, 70.f);
 	m_dunSp->SetPosition({ 0.f,300.f,0.f });
@@ -103,6 +106,10 @@ bool DungeonAISelect::Start() {
 	//　紅組用のチームを開くやつ
 	m_mlp = NewGO<MonAIPresetLoadOpen>(0, "maplo");
 	m_mlp->init(this, m_cursor, L"チームを開く", { 410,60,0 }, 0);
+
+	m_GOb = NewGO<GObutton>(0, "gb");
+	m_GOb->init(m_cursor, { 400,-160,0 });
+	
 	return true;
 }
 
@@ -157,7 +164,7 @@ void DungeonAISelect::Update() {
 		}
 			
 
-		m_GO->SetCollisionTarget(m_cursor->GetCursor());
+		/*m_GO->SetCollisionTarget(m_cursor->GetCursor());
 		if (m_GO->isCollidingTarget())
 		{
 			if (Mouse::isTrigger(enLeftClick))
@@ -173,6 +180,19 @@ void DungeonAISelect::Update() {
 				se->Init(L"Assets/sound/se/button.wav", false);
 				se->Play();
 			}
+		}*/
+		if (m_GOb->isClick())
+		{
+			for (int i = 0; i < m_numPmm; i++)
+			{
+				moid[i] = static_cast<MonsterID>(m_pmms[i]->GetMonsterID());
+				monai[i] = m_pmms[i]->GetAI();
+			}
+			m_fade->FadeOut();
+			m_isfade = true;
+			auto se = NewGO<Sound>(0);
+			se->Init(L"Assets/sound/se/button.wav", false);
+			se->Play();
 		}
 		if (m_isfade && m_fade->isFadeStop()) {
 			auto dun = NewGO<DungeonGame>(0, "DungeonGame");

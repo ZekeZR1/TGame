@@ -712,371 +712,371 @@
     <Media Include="Assets\sound\punch-middle2.wav" />
   </ItemGroup>
   <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\AIEdit\arrow.png">
+    <None Include="Assets\Sprite\AIEdit\arrow.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\AIEdit\buttyon.png">
+    </None>
+    <None Include="Assets\Sprite\AIEdit\buttyon.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\AIEdit\click.png">
+    </None>
+    <None Include="Assets\Sprite\AIEdit\click.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\AIEdit\clickButton.png">
+    </None>
+    <None Include="Assets\Sprite\AIEdit\clickButton.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\AIEdit\deletepoint.png">
+    </None>
+    <None Include="Assets\Sprite\AIEdit\deletepoint.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\AIEdit\haik.png">
+    </None>
+    <None Include="Assets\Sprite\AIEdit\haik.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\AIEdit\help.png">
+    </None>
+    <None Include="Assets\Sprite\AIEdit\help.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\AIEdit\HOM.png">
+    </None>
+    <None Include="Assets\Sprite\AIEdit\HOM.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\AIEdit\hozon.png">
+    </None>
+    <None Include="Assets\Sprite\AIEdit\hozon.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\AIEdit\karipoint.png">
+    </None>
+    <None Include="Assets\Sprite\AIEdit\karipoint.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\AIEdit\masss.png">
+    </None>
+    <None Include="Assets\Sprite\AIEdit\masss.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\AIEdit\menu.png">
+    </None>
+    <None Include="Assets\Sprite\AIEdit\menu.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\AIEdit\menu2.png">
+    </None>
+    <None Include="Assets\Sprite\AIEdit\menu2.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\AIEdit\menuselect.png">
+    </None>
+    <None Include="Assets\Sprite\AIEdit\menuselect.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\AIEdit\menuselectsieat.png">
+    </None>
+    <None Include="Assets\Sprite\AIEdit\menuselectsieat.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\AIEdit\open.png">
+    </None>
+    <None Include="Assets\Sprite\AIEdit\open.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\AIEdit\point.png">
+    </None>
+    <None Include="Assets\Sprite\AIEdit\point.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\AIEdit\sieat.png">
+    </None>
+    <None Include="Assets\Sprite\AIEdit\sieat.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\Fade\fade_black.png">
+    </None>
+    <None Include="Assets\Sprite\Fade\fade_black.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\button1.png">
+    </None>
+    <None Include="Assets\Sprite\GUI\button1.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\button\sb_cancel.png">
+    </None>
+    <None Include="Assets\Sprite\GUI\button\sb_cancel.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\button\sb_OK.png">
+    </None>
+    <None Include="Assets\Sprite\GUI\button\sb_OK.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\button\simple_button.png">
+    </None>
+    <None Include="Assets\Sprite\GUI\button\simple_button.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\button\simple_button_blue.png">
+    </None>
+    <None Include="Assets\Sprite\GUI\button\simple_button_blue.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\cursor.png">
+    </None>
+    <None Include="Assets\Sprite\GUI\cursor.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\d1.png">
+    </None>
+    <None Include="Assets\Sprite\GUI\Dungeon\d1.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\d2.png">
+    </None>
+    <None Include="Assets\Sprite\GUI\Dungeon\d2.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\d3.png">
+    </None>
+    <None Include="Assets\Sprite\GUI\Dungeon\d3.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\d4.png">
+    </None>
+    <None Include="Assets\Sprite\GUI\Dungeon\d4.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\d5.png">
+    </None>
+    <None Include="Assets\Sprite\GUI\Dungeon\d5.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\dungeonAiSelectWallpaper.png">
+    </None>
+    <None Include="Assets\Sprite\GUI\Dungeon\dungeonAiSelectWallpaper.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\dungeonSelectWallpaper.png">
+    </None>
+    <None Include="Assets\Sprite\GUI\Dungeon\dungeonSelectWallpaper.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\DungeonSp.png">
+    </None>
+    <None Include="Assets\Sprite\GUI\Dungeon\DungeonSp.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\DungeonSpS.png">
+    </None>
+    <None Include="Assets\Sprite\GUI\Dungeon\DungeonSpS.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\leftButton.png">
+    </None>
+    <None Include="Assets\Sprite\GUI\Dungeon\leftButton.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\nextDungeon.png">
+    </None>
+    <None Include="Assets\Sprite\GUI\Dungeon\nextDungeon.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\notifyLine.png">
+    </None>
+    <None Include="Assets\Sprite\GUI\Dungeon\notifyLine.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\Dungeon\rightButton.png">
+    </None>
+    <None Include="Assets\Sprite\GUI\Dungeon\rightButton.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\GO.png">
+    </None>
+    <None Include="Assets\Sprite\GUI\GO.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\AIselect.png">
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\AIselect.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_back_R.png">
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_back_R.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_even.png">
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_even.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_sel.png">
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_sel.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\B_alpha.png">
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\B_alpha.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\monsel_back.png">
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\monsel_back.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\PVchenger_P.png">
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\PVchenger_P.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\PVchenger_V.png">
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\PVchenger_V.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_back.png">
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\modesel_back.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_back_aiedit.png">
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\modesel_back_aiedit.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_back_dung.png">
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\modesel_back_dung.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_back_local.png">
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\modesel_back_local.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_frame.png">
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\modesel_frame.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\Monselect.png">
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\Monselect.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\monsel_back.png">
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\monsel_back.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_back.png">
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_back.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_fairy.png">
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_fairy.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_frame.png">
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_frame.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_frameBlue.png">
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_frameBlue.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_frameRed.png">
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_frameRed.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_frameYellow.png">
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_frameYellow.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_none.png">
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_none.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_uma.png">
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_uma.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_armor.png">
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_armor.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\MonActList\actBlock.png">
+    </None>
+    <None Include="Assets\Sprite\GUI\MonActList\actBlock.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\MonActList\backBlue.png">
+    </None>
+    <None Include="Assets\Sprite\GUI\MonActList\backBlue.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\MonActList\backRed.png">
+    </None>
+    <None Include="Assets\Sprite\GUI\MonActList\backRed.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\Net\close.png">
+    </None>
+    <None Include="Assets\Sprite\GUI\Net\close.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\Net\popupback.png">
+    </None>
+    <None Include="Assets\Sprite\GUI\Net\popupback.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\Net\ready.png">
+    </None>
+    <None Include="Assets\Sprite\GUI\Net\ready.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\Net\waiting.png">
+    </None>
+    <None Include="Assets\Sprite\GUI\Net\waiting.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\returnButton\returnArrow.png">
+    </None>
+    <None Include="Assets\Sprite\GUI\returnButton\returnArrow.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\returnButton\returnArrowLong.png">
+    </None>
+    <None Include="Assets\Sprite\GUI\returnButton\returnArrowLong.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\returnButton\returnButton.png">
+    </None>
+    <None Include="Assets\Sprite\GUI\returnButton\returnButton.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\marker\mark_1.png">
+    </None>
+    <None Include="Assets\Sprite\marker\mark_1.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\marker\mark_2.png">
+    </None>
+    <None Include="Assets\Sprite\marker\mark_2.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\marker\mark_3.png">
+    </None>
+    <None Include="Assets\Sprite\marker\mark_3.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\marker\mark_blue.png">
+    </None>
+    <None Include="Assets\Sprite\marker\mark_blue.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\marker\mark_red.png">
+    </None>
+    <None Include="Assets\Sprite\marker\mark_red.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\monsho\dun_stage0.png">
+    </None>
+    <None Include="Assets\Sprite\monsho\dun_stage0.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\readyGO\Ready2.png">
+    </None>
+    <None Include="Assets\Sprite\readyGO\Ready2.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\readyGO\r_go.png">
+    </None>
+    <None Include="Assets\Sprite\readyGO\r_go.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\result\res_blueteam.png">
+    </None>
+    <None Include="Assets\Sprite\result\res_blueteam.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\result\res_Lose.png">
+    </None>
+    <None Include="Assets\Sprite\result\res_Lose.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\result\res_redteam.png">
+    </None>
+    <None Include="Assets\Sprite\result\res_redteam.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\result\res_Win.png">
+    </None>
+    <None Include="Assets\Sprite\result\res_Win.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <MeshContentTask Include="Assets\modelData\dungeon\dungeonBack.FBX">
+    <None Include="Assets\modelData\dungeon\dungeonBack.FBX">
       <FileType>Document</FileType>
-    </MeshContentTask>
-    <MeshContentTask Include="Assets\modelData\fairy\hnd.FBX">
+    </None>
+    <None Include="Assets\modelData\fairy\hnd.FBX">
       <FileType>Document</FileType>
-    </MeshContentTask>
-    <MeshContentTask Include="Assets\modelData\stage\dun.fbx">
+    </None>
+    <None Include="Assets\modelData\stage\dun.fbx">
       <FileType>Document</FileType>
-    </MeshContentTask>
-    <MeshContentTask Include="Assets\modelData\stage\dun_yuka.fbx">
+    </None>
+    <None Include="Assets\modelData\stage\dun_yuka.fbx">
       <FileType>Document</FileType>
-    </MeshContentTask>
-    <MeshContentTask Include="Assets\modelData\stage\limit.FBX">
+    </None>
+    <None Include="Assets\modelData\stage\limit.FBX">
       <FileType>Document</FileType>
-    </MeshContentTask>
-    <MeshContentTask Include="Assets\modelData\stage\limit2.fbx">
+    </None>
+    <None Include="Assets\modelData\stage\limit2.fbx">
       <FileType>Document</FileType>
-    </MeshContentTask>
-    <MeshContentTask Include="Assets\modelData\stage\map.FBX">
+    </None>
+    <None Include="Assets\modelData\stage\map.FBX">
       <FileType>Document</FileType>
-    </MeshContentTask>
-    <MeshContentTask Include="Assets\modelData\testMons\tesEnemy2.fbx">
+    </None>
+    <None Include="Assets\modelData\testMons\tesEnemy2.fbx">
       <FileType>Document</FileType>
-    </MeshContentTask>
-    <MeshContentTask Include="Assets\modelData\door\door.fbx">
+    </None>
+    <None Include="Assets\modelData\door\door.fbx">
       <FileType>Document</FileType>
-    </MeshContentTask>
-    <MeshContentTask Include="Assets\modelData\book\book.FBX">
+    </None>
+    <None Include="Assets\modelData\book\book.FBX">
       <FileType>Document</FileType>
-    </MeshContentTask>
-    <MeshContentTask Include="Assets\modelData\gob\gob.FBX">
+    </None>
+    <None Include="Assets\modelData\gob\gob.FBX">
       <FileType>Document</FileType>
-    </MeshContentTask>
-    <MeshContentTask Include="Assets\modelData\testMons\tesEnemy3.fbx">
+    </None>
+    <None Include="Assets\modelData\testMons\tesEnemy3.fbx">
       <FileType>Document</FileType>
-    </MeshContentTask>
-    <MeshContentTask Include="Assets\modelData\uma\uma.bone.fbx">
+    </None>
+    <None Include="Assets\modelData\uma\uma.bone.fbx">
       <FileType>Document</FileType>
-    </MeshContentTask>
-    <MeshContentTask Include="Assets\modelData\uma\uma.fbx">
+    </None>
+    <None Include="Assets\modelData\uma\uma.fbx">
       <FileType>Document</FileType>
-    </MeshContentTask>
-    <MeshContentTask Include="Assets\modelData\uma\uma.nobone.fbx">
+    </None>
+    <None Include="Assets\modelData\uma\uma.nobone.fbx">
       <FileType>Document</FileType>
-    </MeshContentTask>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <MeshContentTask Include="Assets\modelData\armor\armor.FBX">
+    <None Include="Assets\modelData\armor\armor.FBX">
       <FileType>Document</FileType>
-    </MeshContentTask>
-    <MeshContentTask Include="Assets\modelData\dungeon\dropwall.fbx">
+    </None>
+    <None Include="Assets\modelData\dungeon\dropwall.fbx">
       <FileType>Document</FileType>
-    </MeshContentTask>
-    <MeshContentTask Include="Assets\modelData\dungeon\egg.FBX">
+    </None>
+    <None Include="Assets\modelData\dungeon\egg.FBX">
       <FileType>Document</FileType>
-    </MeshContentTask>
-    <MeshContentTask Include="Assets\modelData\dungeon\testback.FBX">
+    </None>
+    <None Include="Assets\modelData\dungeon\testback.FBX">
       <FileType>Document</FileType>
-    </MeshContentTask>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_gob.png">
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_gob.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_book.png">
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_book.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\GUI\check.png">
+    <None Include="Assets\Sprite\GUI\check.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\GUI\AImark\aimk_attack.png">
+    <None Include="Assets\Sprite\GUI\AImark\aimk_attack.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\AImark\aimk_defense.png">
+    </None>
+    <None Include="Assets\Sprite\GUI\AImark\aimk_defense.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\AImark\aimk_heal.png">
+    </None>
+    <None Include="Assets\Sprite\GUI\AImark\aimk_heal.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\AImark\aimk_magic.png">
+    </None>
+    <None Include="Assets\Sprite\GUI\AImark\aimk_magic.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_evenV.png">
+    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_evenV.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_back_net.png">
+    <None Include="Assets\Sprite\GUI\modeSelect\modesel_back_net.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\Network\particle.png">
+    <None Include="Assets\Sprite\Network\particle.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\Network\p4.png">
+    <None Include="Assets\Sprite\Network\p4.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Sprite\Network\wallpaper2.jpg" />
@@ -1085,14 +1085,14 @@
     <None Include="Assets\Sprite\Network\wallpaper3.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\Network\syber1.png">
+    <None Include="Assets\Sprite\Network\syber1.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\Network\hakkou1.png">
+    <None Include="Assets\Sprite\Network\hakkou1.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
+    </None>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
