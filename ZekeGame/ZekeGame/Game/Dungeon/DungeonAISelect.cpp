@@ -169,6 +169,9 @@ void DungeonAISelect::Update() {
 				}
 				m_fade->FadeOut();
 				m_isfade = true;
+				auto se = NewGO<Sound>(0);
+				se->Init(L"Assets/sound/se/button.wav", false);
+				se->Play();
 			}
 		}
 		if (m_isfade && m_fade->isFadeStop()) {
@@ -184,8 +187,6 @@ void DungeonAISelect::Update() {
 			DeleteGO(this);
 		}
 
-		m_returnButton->UpdateEx<DungeonSelect>();
-
 		//	m_backSp->SetCollisionTarget(m_cursor->GetCursor());
 		////	if (g_pad[0].IsTrigger(enButtonA)) {
 		//	if(m_backSp->isCollidingTarget() && Mouse::isTrigger(enLeftClick)){
@@ -199,7 +200,8 @@ void DungeonAISelect::Update() {
 		DeleteGO(this);
 		DeleteGO(dgame);
 	}
-	
+	if(!isfade and !m_isfade)
+		m_returnButton->UpdateEx<DungeonSelect>();
 }
 
 void DungeonAISelect::LoadFiles() {

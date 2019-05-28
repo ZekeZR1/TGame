@@ -230,6 +230,9 @@ void DungeonResult::ButtonUpdate() {
 	//	return;
 	//m_buttonSp->SetCollisionTarget(m_cursor->GetCursor());
 	if (Mouse::isTrigger(enLeftClick)) {
+		auto se = NewGO<Sound>(0);
+		se->Init(L"Assets/sound/se/button.wav", false);
+		se->Play();
 		//if (m_buttonSp->isCollidingTarget()) {
 		SaveDungeonClearState();
 		auto dgame = FindGO<DungeonGame>("DungeonGame");

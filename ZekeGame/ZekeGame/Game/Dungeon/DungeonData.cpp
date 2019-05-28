@@ -2,7 +2,6 @@
 #include "../GameData.h"
 #include "DungeonData.h"
 
-//TODO AIƒ‚[ƒh‚ğİ’è‚·‚é
 void DungeonData::SetGameData(PyFile files, PyFile eneFile, int monsterAI[6], MonsterID monids[6], int DunNumber) {
 	m_files = files;
 	m_enemyFiles = eneFile;
