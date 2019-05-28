@@ -10,7 +10,6 @@
 /ZekeGame/x64/Release
 /ZekeGame/.vs/ZekeGame/v15
 
-Lib/
 __pycache__/
 
 *.suo
