@@ -341,9 +341,6 @@
     <ClCompile Include="Game\Result\DungeonResult.cpp">
       <Filter>Game\Dungeon</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Dungeon\DungeonSelect.cpp">
-      <Filter>Game\Dungeon</Filter>
-    </ClCompile>
     <ClCompile Include="Game\Dungeon\DungeonTransition.cpp">
       <Filter>Game\Dungeon</Filter>
     </ClCompile>
@@ -470,9 +467,6 @@
     <ClCompile Include="Game\MonsterBox\MonsterBox.cpp">
       <Filter>Game\Dungeon</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Dungeon\MonsterDrop.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
     <ClCompile Include="Game\AIEdit\AIEditNodeMenuSave.cpp">
       <Filter>Game\AIEdite</Filter>
     </ClCompile>
@@ -565,8 +559,11 @@
       <Filter>Game\Monster</Filter>
     </ClCompile>
     <ClCompile Include="Game\NetPVP\backParticle.cpp" />
-    <ClCompile Include="Game\Title\GObutton.cpp">
-      <Filter>Game\AIMonSelect</Filter>
+    <ClCompile Include="Game\Dungeon\DungeonSelect.cpp">
+      <Filter>Game\Dungeon</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Dungeon\MonsterDrop.cpp">
+      <Filter>Game\Dungeon</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1346,9 +1343,6 @@
     <ClInclude Include="Game\MonsterBox\MonsterBox.h">
       <Filter>Game\Dungeon</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Dungeon\MonsterDrop.h">
-      <Filter>Game</Filter>
-    </ClInclude>
     <ClInclude Include="Game\AIEdit\AIEditNodeMenuSave.h">
       <Filter>Game\AIEdite</Filter>
     </ClInclude>
@@ -1441,8 +1435,8 @@
       <Filter>Game\Monster</Filter>
     </ClInclude>
     <ClInclude Include="Game\NetPVP\backParticle.h" />
-    <ClInclude Include="Game\Title\GObutton.h">
-      <Filter>Game\AIMonSelect</Filter>
+    <ClInclude Include="Game\Dungeon\MonsterDrop.h">
+      <Filter>Game\Dungeon</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1889,9 +1883,6 @@
     </None>
     <None Include="Assets\Sprite\Network\hakkou1.png">
       <Filter>Assets\Sprite\netpvp</Filter>
-    </None>
-    <None Include="Assets\effect\PONG.efk">
-      <Filter>Assets</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>

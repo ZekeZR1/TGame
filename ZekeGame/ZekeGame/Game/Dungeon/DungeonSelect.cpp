@@ -218,6 +218,10 @@ void DungeonSelect::DungeonSelectClick() {
 		if (m_selectedNum == 1) {
 			return;
 		}
+		auto se = NewGO<Sound>(0);
+		se->Init(L"Assets/sound/se/button.wav", false);
+		se->Play();
+
 		left = true;
 		if(addPos.x == 0.f)
 			m_selectedNum--;
@@ -226,6 +230,9 @@ void DungeonSelect::DungeonSelectClick() {
 		if (m_selectedNum == m_numDungeon) {
 			return;
 		}
+		auto se = NewGO<Sound>(0);
+		se->Init(L"Assets/sound/se/button.wav", false);
+		se->Play();
 		right = true;
 		if (addPos.x == 0.f)
 			m_selectedNum++;
@@ -278,7 +285,8 @@ void DungeonSelect::StartDungeon() {
 }
 
 void DungeonSelect::BackToMenu() {
-	m_returnButton->UpdateEx<ModeSelect>();
+	if(!m_isfade and !m_backfade)
+		m_returnButton->UpdateEx<ModeSelect>();
 
 	/*m_backSp->SetCollisionTarget(m_cur->GetCursor());
 	if (Mouse::isTrigger(enLeftClick) && m_backSp->isCollidingTarget()) {
