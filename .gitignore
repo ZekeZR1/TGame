@@ -27,6 +27,10 @@ Release/
 obj/
 
 
+*.VC.db-shm
+
+*.VC.db-wal
+
 *_i.c
 
 *_p.c
