@@ -184,37 +184,55 @@ void StageSetup::SetEnemyAI(int dun, int* monAI, MonsterID* monId) {
 	switch (dun) {
 	case 0:
 		monAI[3] = 0;
-		monId[3] = enFairy;
+		monId[3] = enGoblin;
 		monAI[4] = 0;
-		monId[4] = enTest;
+		monId[4] = enGoblin;
 		monAI[5] = 0;
-		monId[5] = enFairy;
+		monId[5] = enGoblin;
 		break;
 	case 1:
 		if (round == 0) {
 			monAI[3] = 0;
-			monId[3] = enFairy;
-			monAI[4] = 0;
+			monId[3] = enGoblin;
+			monAI[4] = 1;
 			monId[4] = enFairy;
 			monAI[5] = 0;
-			monId[5] = enFairy;
+			monId[5] = enGoblin;
 		}
 		if (round == 1) {
 			monAI[3] = 1;
-			monId[3] = enArmor;
+			monId[3] = enFairy;
 			monAI[4] = 1;
 			monId[4] = enBook;
 			monAI[5] = 1;
-			monId[5] = enArmor;
+			monId[5] = enGoblin;
 		}
 		break;
 	case 2:
-		monAI[3] = 1;
-		monId[3] = enUmataur;
-		monAI[4] = 1;
-		monId[4] = enUmataur;
-		monAI[5] = 1;
-		monId[5] = enUmataur;
+		if (round == 0) {
+			monAI[3] = 1;
+			monId[3] = enUmataur;
+			monAI[4] = 1;
+			monId[4] = enUmataur;
+			monAI[5] = 1;
+			monId[5] = enUmataur;
+		}
+		if (round == 1) {
+			monAI[3] = 1;
+			monId[3] = enUmataur;
+			monAI[4] = 1;
+			monId[4] = enUmataur;
+			monAI[5] = 1;
+			monId[5] = enUmataur;
+		}
+		if (round == 2) {
+			monAI[3] = 1;
+			monId[3] = enUmataur;
+			monAI[4] = 1;
+			monId[4] = enUmataur;
+			monAI[5] = 1;
+			monId[5] = enUmataur;
+		}
 		break;
 	case 3:
 		monAI[3] = 1;
