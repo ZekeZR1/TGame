@@ -332,9 +332,11 @@
     <ClCompile Include="Game\Title\AIeditModeSelect.cpp" />
     <ClCompile Include="Game\Title\AIMSelect.cpp" />
     <ClCompile Include="Game\Title\AISelect.cpp" />
+    <ClCompile Include="Game\Title\GObutton.cpp" />
     <ClCompile Include="Game\Title\IconAI.cpp" />
     <ClCompile Include="Game\Title\IconMon.cpp" />
     <ClCompile Include="Game\Title\ModeSelect.cpp" />
+    <None Include="Assets\effect\PONG.efk" />
     <None Include="Game\Title\MonAIPreset\MonAIPreset.cpp" />
     <None Include="Game\Title\MonAIPreset\MonAIPresetClose.cpp" />
     <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetIcon.cpp" />
@@ -635,6 +637,7 @@
     <ClInclude Include="Game\Title\AIeditModeSelect.h" />
     <ClInclude Include="Game\Title\AIMSelect.h" />
     <ClInclude Include="Game\Title\AISelect.h" />
+    <ClInclude Include="Game\Title\GObutton.h" />
     <ClInclude Include="Game\Title\IconAI.h" />
     <ClInclude Include="Game\Title\IconMon.h" />
     <ClInclude Include="Game\Title\ModeSelect.h" />

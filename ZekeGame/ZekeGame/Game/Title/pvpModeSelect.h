@@ -9,6 +9,7 @@ class ReturnButton;
 
 class MonAIPresetOpen;
 class MonAIPresetOpenSuper;
+class GObutton;
 class PvPModeSelect :public SuperMonsterSelect
 {
 public:
@@ -40,7 +41,7 @@ private:
 	std::vector<PMMonster*> m_pmms;
 	//std::vector<SpriteRender*> m_monicon;
 
-	SpriteRender* m_GO = nullptr;
+	//SpriteRender* m_GO = nullptr;
 	SpriteRender* m_back = nullptr;
 
 	SpriteRender* m_return = nullptr;
@@ -58,6 +59,8 @@ private:
 	MonAIPresetOpenSuper* m_mlRed = nullptr;		//presetのロード用(紅組用の)
 	MonAIPresetOpenSuper* m_msBlue = nullptr;		//presetのセーブ用
 	MonAIPresetOpenSuper* m_mlBlue = nullptr;		//presetのロード用(青組用の)
+
+	GObutton* m_GOb = nullptr;				//go no button
 
 	Fade* m_fade = nullptr;
 	bool m_isfade = false;

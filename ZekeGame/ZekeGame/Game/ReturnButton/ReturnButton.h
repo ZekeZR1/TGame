@@ -54,6 +54,9 @@ public:
 			{
 				m_isFade = true;
 				m_fade->FadeOut();
+				auto se = NewGO<Sound>(0);
+				se->Init(L"Assets/sound/se/button.wav", false);
+				se->Play();
 			}
 			if (!m_isOver)
 			{

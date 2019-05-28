@@ -24,11 +24,11 @@ bool DungeonResult::Start() {
 }
 
 void DungeonResult::OnDestroy() {
-	DeleteGO(m_resultSp);
+	DeleteGO(m_srteam);
 	DeleteGO(FindGO<Game>("Game"));
-	DeleteGO(m_buttonSp);
-	DeleteGO(m_buttonText);
-	DeleteGO(m_cursor);
+	DeleteGO(m_srwin);
+	DeleteGO(m_nextfont);
+	//DeleteGO(m_cursor);
 	DeleteGO(m_cam);
 	//auto bgm = FindGO<Sound>("BGM");
 	//bgm->Stop();
@@ -105,26 +105,51 @@ void DungeonResult::ToNextStage(){
 }
 
 void DungeonResult::InitUI() {
-	m_resultSp = NewGO<SpriteRender>(0, "resultSp");
-	m_buttonSp = NewGO<SpriteRender>(0, "next");
-	m_buttonSp->Init(L"Assets/Sprite/button1.dds", 300.f, 100.f, true);
-	m_buttonSp->SetPosition(m_buttonPos);
-	m_buttonText = NewGO<FontRender>(0);
-	CVector3 textpos = m_buttonPos;
-	textpos.y += 15.f;
-	textpos.x += -30.f;
-	m_buttonText->Init(L"OK", { textpos.x,textpos.y }, 0.f, CVector4::White, 1.f, { 0.5f,0.5f });
+	m_nextfont = NewGO<FontRender>(5, "fr");
+	m_nextfont->SetTextType(CFont::en_Japanese);
+	m_nextfont->Init(L"ƒNƒŠƒbƒN‚µ‚Ä‚­‚¾‚³‚¢", { -600,-300 }, 0, { 1,1,1,1 }, 1, { 0,0 });
+	m_nextfont->DrawShadow();
 
-	if (m_team == WIN) {
-		m_resultSp->Init(L"Assets/Sprite/res_win.dds", 500.f, 200.f, true);
-	}
-	else {
-		m_resultSp->Init(L"Assets/Sprite/res_lose.dds", 500.f, 200.f, true);
-	}
-	//m_resultSp->SetPosition({ -410,160,0 });
-	m_resultSp->SetPosition({ -410,60,0 });
+	m_srwin = NewGO<SpriteRender>(0, "sr");
+	//m_srwin->Init(L"Assets/sprite/win.dds", 462, 262);
+	m_srwin->SetPivot({ 0,0.5f });
+	m_srwin->SetPosition({ -610,210,0 });
 
-	m_cursor = NewGO<GameCursor>(0);
+	m_srteam = NewGO<SpriteRender>(0, "sr");
+	if (m_team == WIN)
+	{
+		//m_srteam->Init(L"Assets/sprite/redteamp.dds", 768.0f, 315.75f);
+		m_srteam->Init(L"Assets/sprite/res_redteam.dds", 768.0f * 1.5f, 212.21f * 1.5f);
+		m_srwin->Init(L"Assets/sprite/res_Win.dds", 462 * 1.1f, 183.256f * 1.1f);
+	}
+	else
+	{
+		//m_srteam->Init(L"Assets/sprite/blueteamp.dds", 795.75f, 315.75f);
+		m_srteam->Init(L"Assets/sprite/res_redteam.dds", 795.75f * 1.5f, 212.21f * 1.5f);
+		m_srwin->Init(L"Assets/sprite/res_Lose.dds", 462 * 1.1f, 183.256f * 1.1f);
+	}
+	m_srteam->SetPivot({ 0,0.5f });
+	m_srteam->SetPosition({ -620,-210,0 });
+	//m_resultSp = NewGO<SpriteRender>(0, "resultSp");
+	//m_buttonSp = NewGO<SpriteRender>(0, "next");
+	//m_buttonSp->Init(L"Assets/Sprite/button1.dds", 300.f, 100.f, true);
+	//m_buttonSp->SetPosition(m_buttonPos);
+	//m_buttonText = NewGO<FontRender>(0);
+	//CVector3 textpos = m_buttonPos;
+	//textpos.y += 15.f;
+	//textpos.x += -30.f;
+	//m_buttonText->Init(L"OK", { textpos.x,textpos.y }, 0.f, CVector4::White, 1.f, { 0.5f,0.5f });
+
+	//if (m_team == WIN) {
+	//	m_resultSp->Init(L"Assets/Sprite/res_win.dds", 500.f, 200.f, true);
+	//}
+	//else {
+	//	m_resultSp->Init(L"Assets/Sprite/res_lose.dds", 500.f, 200.f, true);
+	//}
+	////m_resultSp->SetPosition({ -410,160,0 });
+	//m_resultSp->SetPosition({ -410,60,0 });
+
+	////m_cursor = NewGO<GameCursor>(0);
 }
 
 void DungeonResult::Lose() {
@@ -201,30 +226,32 @@ void DungeonResult::CameraSet() {
 }
 
 void DungeonResult::ButtonUpdate() {
-	if (m_buttonSp == nullptr)
-		return;
-	m_buttonSp->SetCollisionTarget(m_cursor->GetCursor());
+	//if (m_buttonSp == nullptr)
+	//	return;
+	//m_buttonSp->SetCollisionTarget(m_cursor->GetCursor());
 	if (Mouse::isTrigger(enLeftClick)) {
-		if (m_buttonSp->isCollidingTarget()) {
-			SaveDungeonClearState();
-			auto dgame = FindGO<DungeonGame>("DungeonGame");
-			dgame->ClearInGameMode();
-			if (m_team == WIN) {
-				if (IDungeonData().isFinalRound(m_dunNum)) {
-					//ToNextStage();
-					//MonsterDrop
-					m_fadeFlag = true;
-					m_fade->FadeOut();
-					//ToMonsterDrop();
-					//ToDungeonSelect();
-				}
-				else {
-					ToNextRound();
-				}
+		auto se = NewGO<Sound>(0);
+		se->Init(L"Assets/sound/se/button.wav", false);
+		se->Play();
+		//if (m_buttonSp->isCollidingTarget()) {
+		SaveDungeonClearState();
+		auto dgame = FindGO<DungeonGame>("DungeonGame");
+		dgame->ClearInGameMode();
+		if (m_team == WIN) {
+			if (IDungeonData().isFinalRound(m_dunNum)) {
+				//ToNextStage();
+				//MonsterDrop
+				m_fadeFlag = true;
+				m_fade->FadeOut();
+				//ToMonsterDrop();
+				//ToDungeonSelect();
 			}
 			else {
-				Lose();
+				ToNextRound();
 			}
+		}
+		else {
+			Lose();
 		}
 	}
 	if (m_fade->isFadeStop() && m_fadeFlag)

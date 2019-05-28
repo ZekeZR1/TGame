@@ -27,11 +27,9 @@ private:
 	int m_team = 0;
 	int m_dunNum = -1;
 	ResultCamera* m_cam = nullptr;
-	SpriteRender* m_resultSp = nullptr;
-	SpriteRender* m_buttonSp = nullptr;
-	CVector3 m_buttonPos = {460.f,-200.f,0.f};
-	FontRender* m_buttonText = nullptr;
-	GameCursor* m_cursor = nullptr;
+	FontRender* m_nextfont = nullptr;
+	SpriteRender* m_srwin = nullptr;
+	SpriteRender* m_srteam = nullptr;
 	Sound* m_BGM = nullptr;
 	CVector3 m_firstpos = CVector3::Zero();
 	CVector3 m_firsttar = CVector3::Zero();
