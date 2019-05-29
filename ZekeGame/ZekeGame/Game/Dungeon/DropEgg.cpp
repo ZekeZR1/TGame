@@ -92,6 +92,8 @@ void DropEgg::Update() {
 void DropEgg::NewMonster() {
 	m_monster = NewGO<SkinModelRender>(0);
 	m_monster->SetScale(m_modelScale);
+	m_monster->SetDirLight({ 0.f,1.f,0.f,1.f, }, 3);
+	m_monster->SetDirLigColor({ 1.f,0.f,0.f,1.f }, 3);
 	auto se = NewGO<Sound>(0);
 	//se->Init(L"Assets/sound/dungeon/ban1.wav", false);
 	se->Init(L"Assets/sound/dungeon/newmon.wav", false);

@@ -19,8 +19,8 @@ int WINAPI wWinMain(
 	NewGO<Fade>(0, "fade");
 	NewGO<GameCamera3D>(0, "cam3d");
 	NewGO<GameCamera2D>(0, "cam2d");
-	NewGO<ModeSelect>(0, "modesel");
-	//NewGO<MonsterDrop>(0);
+	//NewGO<ModeSelect>(0, "modesel");
+	NewGO<MonsterDrop>(0);
 	g_physics.SetDebugDraw(false);
 
 	//AnimationClip anim[3];

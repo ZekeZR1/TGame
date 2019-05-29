@@ -24,17 +24,17 @@ MonsterDrop::~MonsterDrop()
 bool MonsterDrop::Start() {
 	std::random_device rnd;
 	auto drop = rnd() % 100;
-	if (drop >= 50 - m_stage) {
-		ToDungeonSelect();
-		return true;
-	}
+	//if (drop >= 50 - m_stage) {
+	//	ToDungeonSelect();
+	//	return true;
+	//}
 	m_egg = NewGO<DropEgg>(0);
 	//
 	camera3d->SetTarget(CVector3::Zero());
-	camera3d->SetPosition({ 0,0,-100 });
-	camera3d->SetUpdateProjMatrixFunc(Camera::enUpdateProjMatrixFunc_Perspective);
 	camera3d->SetNear(0.1f);
 	camera3d->SetFar(50000.0f);
+	camera3d->SetPosition({ 0.f,0.f,450.f });
+	camera3d->SetUpdateProjMatrixFunc(Camera::enUpdateProjMatrixFunc_Ortho);
 	camera3d->Update();
 	//
 	camera2d->SetTarget(CVector3::Zero());
@@ -43,9 +43,7 @@ bool MonsterDrop::Start() {
 	camera2d->SetFar(1000.0f);
 	camera2d->Update();
 	//
-	camera3d->SetPosition({ 0.f,0.f,450.f });
-	camera3d->SetUpdateProjMatrixFunc(Camera::enUpdateProjMatrixFunc_Ortho);
-	camera3d->Update();
+
 
 	InitUI();
 	InitModels();
@@ -60,14 +58,13 @@ bool MonsterDrop::Start() {
 }
 
 void MonsterDrop::OnDestroy() {
-	DeleteGO(m_nextButtonSp);
 	DeleteGO(m_notifySp);
 	DeleteGO(m_monsterNameSp);
 	DeleteGO(m_egg);
 	DeleteGO(m_back);
-	DeleteGO(m_cursor);
 	DeleteGO(m_BGM);
 	DeleteGO(m_notifyFont);
+	DeleteGO(m_nextfont);
 }
 
 void MonsterDrop::Update() {
@@ -92,12 +89,9 @@ void MonsterDrop::ToDungeonSelect() {
 }
 
 void MonsterDrop::SceneTransition() {
-	m_nextButtonSp->SetCollisionTarget(m_cursor->GetCursor());
-	if (m_nextButtonSp->isCollidingTarget()) {
-		if (Mouse::isTrigger(enLeftClick)) {
-			m_fadeFlag = true;
-			m_fade->FadeOut();
-		}
+	if (Mouse::isTrigger(enLeftClick) and m_isInited) {
+		m_fadeFlag = true;
+		m_fade->FadeOut();
 	}
 	if (m_fade->isFadeStop() && m_fadeFlag) {
 		ToDungeonSelect();
@@ -105,13 +99,6 @@ void MonsterDrop::SceneTransition() {
 }
 
 void MonsterDrop::InitUI() {
-	m_cursor = NewGO<GameCursor>(2);
-	//m_monsterNameSp = NewGO<SpriteRender>(0);
-	m_nextButtonSp = NewGO<SpriteRender>(0);
-	m_nextButtonSp->Init(L"Assets/Sprite/button1.dds", 300.f, 100.f, true);
-	m_nextButtonSp->SetMulCol({ 1.f,1.f,1.f,1.0f });
-	m_nextButtonSp->SetPosition(m_nextButtonPos);
-
 	m_notifyFont = NewGO<FontRender>(1);
 	m_notifyFont->SetTextType(CFont::en_Japanese);
 }
@@ -136,8 +123,14 @@ void MonsterDrop::Notifications() {
 	wchar_t notify[] = L"をゲットしました";
 	wcscat(name,notify);
 	m_notifyFont->Init(name, { m_notifyLinePos.x - 250.f ,m_notifyLinePos.y + 20.f});
+	m_notifyFont->DrawShadow();
 	m_notifySp = NewGO<SpriteRender>(0);
 	m_notifySp->Init(L"Assets/Sprite/notifyLine.dds", 650.f, 50.f);
 	m_notifySp->SetPosition(m_notifyLinePos);
+
+	m_nextfont = NewGO<FontRender>(5, "fr");
+	m_nextfont->SetTextType(CFont::en_Japanese);
+	m_nextfont->Init(L"クリックしてください", { -600,-300 }, 0, { 1,1,1,1 }, 1, { 0,0 });
+	m_nextfont->DrawShadow();
 	m_isInited = true;
 }
