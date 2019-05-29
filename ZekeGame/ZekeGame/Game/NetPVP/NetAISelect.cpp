@@ -199,13 +199,10 @@ void NetAISelect::Update()
 
 		if (m_GOb->isClick())
 		{
-			if (Mouse::isTrigger(enLeftClick))
-			{
-				m_fade->FadeOut();
-				m_isfade = true;
-				//MusicFade* mf = NewGO<MusicFade>(0, "mf");
-				//mf->init(m_BGM, m_vol);
-			}
+			m_fade->FadeOut();
+			m_isfade = true;
+			//MusicFade* mf = NewGO<MusicFade>(0, "mf");
+			//mf->init(m_BGM, m_vol);
 		}
 
 		//m_returnMoji->SetCollisionTarget(curs);

@@ -19,6 +19,7 @@ public:
 	void init(int monID,const wchar_t* pypath,CVector3 pos);
 
 	void Setpos(CVector3 pos);
+	void Setrot(float rot,CVector3 pos);
 
 	void UpdateAIMON(int monID, const wchar_t* pypath);
 	//Update
@@ -34,5 +35,6 @@ private:
 	int m_num = 0;						//âΩî‘ñ⁄Ç©ÅB
 
 	CVector3 m_pos = CVector3::Zero();	//position
+
 
 };

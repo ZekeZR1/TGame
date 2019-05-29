@@ -1082,7 +1082,7 @@
     <None Include="Assets\Sprite\Network\wallpaper2.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Sprite\Network\wallpaper3.jpg" />
+    <ImageContentTask Include="Assets\Sprite\Network\wallpaper3.jpg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Sprite\Network\syber1.png">

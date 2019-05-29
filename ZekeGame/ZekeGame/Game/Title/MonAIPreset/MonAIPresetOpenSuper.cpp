@@ -15,8 +15,17 @@ MonAIPresets* MonAIPresetOpenSuper::m_maps = nullptr;
 bool MonAIPresetOpenSuper::m_isInit = false;
 MonAIPresetOpenSuper::~MonAIPresetOpenSuper()
 {
+	for (int i=0;i<6;i++)
+	{
+		delete m_presets[i];
+		m_presets[i] = nullptr;
+	}
+	DeleteGO(m_maps);
+	m_maps = nullptr;
 	DeleteGO(m_button);
 	DeleteGO(m_font);
+
+	m_isInit = false;
 }
 
 bool MonAIPresetOpenSuper::Start()
@@ -135,6 +144,56 @@ void MonAIPresetOpenSuper::Update()
 				Close();
 			}
 		}
+
+		if (m_backMulCol.w < 1.f)
+		{
+			m_backMulCol.w += 1.f / 6.f;
+			m_back->SetMulCol(m_backMulCol);
+		}
+
+		if (m_Closepos.x >= 540.f)
+		{
+			m_Closepos.x -= 28.8888888888888f;
+			CVector3 p3 = m_Closepos;
+			m_close->SetPosition(p3);
+
+			CVector2 p2 = p3.ToTwo();
+			p2.x -= 75;
+			p2.y += 23;
+			m_fclose->SetPosition(p2);
+		}
+	}
+	else
+	{
+		if (m_isInit && m_backMulCol.w > 0.f)
+		{
+			m_backMulCol.w -= 1.f/6.f;
+			m_back->SetMulCol(m_backMulCol);
+		}
+		else
+		{
+			DeleteGO(m_back);
+			m_back = nullptr;
+		}
+
+		if (m_isInit && m_close != nullptr && m_Closepos.x < 690.f)
+		{
+			m_Closepos.x += 28.8888888888888f;
+			CVector3 p3 = m_Closepos;
+			m_close->SetPosition(p3);
+
+			CVector2 p2 = p3.ToTwo();
+			p2.x -= 75;
+			p2.y += 23;
+			m_fclose->SetPosition(p2);
+		}
+		else
+		{
+			DeleteGO(m_close);
+			DeleteGO(m_fclose);
+			m_close = nullptr;
+			m_fclose = nullptr;
+		}
 	}
 }
 
@@ -187,6 +246,8 @@ void MonAIPresetOpenSuper::Open()
 	}
 	m_back = NewGO<SpriteRender>(2, "sp");
 	m_back->Init(L"Assets/sprite/B_alpha.dds", 1280, 720);
+	m_back->SetMulCol(m_backMulCol);
+	
 
 	for (int i = 0; i < 6; i++)
 	{
@@ -244,6 +305,8 @@ void MonAIPresetOpenSuper::Open()
 	m_maps->init(this,m_cursor);*/
 
 	CVector3 p3 = { 540,-260 ,0};
+	p3 = { 800,-260,0 };
+	m_Closepos = p3;
 	m_close = NewGO<SpriteRender>(3,"sp");
 	m_close->Init(L"Assets/sprite/fade_black.dds", 140, 64, true);
 	m_close->SetPosition(p3);
@@ -261,13 +324,13 @@ void MonAIPresetOpenSuper::Open()
 
 void MonAIPresetOpenSuper::Close()
 {
-	DeleteGO(m_back);
+	//DeleteGO(m_back);
 
 	m_maps->Close();
 	//DeleteGO(m_maps);
 
-	DeleteGO(m_close);
-	DeleteGO(m_fclose);
+	//DeleteGO(m_close);
+	//DeleteGO(m_fclose);
 
 	m_first = true;
 	m_isOpen = false;

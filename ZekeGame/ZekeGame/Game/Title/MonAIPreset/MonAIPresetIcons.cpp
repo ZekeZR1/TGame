@@ -144,3 +144,15 @@ void MonAIPresetIcons::Setpos(CVector3 pos)
 	m_back->SetPosition(ipos);
 	m_dummy->SetPosition(ipos);
 }
+
+void MonAIPresetIcons::Setrot(float rot)
+{
+	CQuaternion qrot;
+	qrot.SetRotationDeg(CVector3::AxisZ(), rot);
+
+	m_back->SetRotation(qrot);
+	for (auto icon : m_mapi)
+	{
+		icon->Setrot(rot,m_back->GetPosition());
+	}
+}

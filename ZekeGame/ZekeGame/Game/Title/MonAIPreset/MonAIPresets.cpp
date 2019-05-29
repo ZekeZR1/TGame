@@ -60,7 +60,7 @@ void MonAIPresets::Update()
 	{
 	case enOpening:
 	{
-		m_pos.y += 60;
+		m_pos.y += 125;
 		CVector3 pos = m_pos;
 		for (int i = 0; i < 6; i++)
 		{
@@ -72,8 +72,10 @@ void MonAIPresets::Update()
 	}
 		break;
 	case enOpen:
+		Rotation();
 		for (i = 0; i < 6; i++)
 		{
+			
 			if (m_icons[i]->IsClick())
 			{
 				break;
@@ -86,10 +88,12 @@ void MonAIPresets::Update()
 		break;
 	case enClosing:
 	{
-		m_pos.y -= 60;
+		m_rotSt = 0;
+		m_pos.y -= 125;
 		CVector3 pos = m_pos;
 		for (int i = 0; i < 6; i++)
 		{
+			
 			m_icons[i]->Setpos(pos);
 			pos.x += 170;
 		}
@@ -103,6 +107,50 @@ void MonAIPresets::Update()
 	
 	
 	m_clickNum = i;
+}
+
+void MonAIPresets::Rotation()
+{
+	float rotlist[3] = { 2.f, -2.f,0 };
+	switch (m_rotSt)
+	{
+	case 0:
+		if (rotlist[0] > m_rot)
+		{
+			m_rot += 2.f;
+			for (auto pres : m_icons)
+			{
+				pres->Setrot(m_rot);
+			}
+		}
+		else
+			m_rotSt++;
+		break;
+	case 1:
+		if (rotlist[1] < m_rot)
+		{
+			m_rot -= 2.f;
+			for (auto pres : m_icons)
+			{
+				pres->Setrot(m_rot);
+			}
+		}
+		else
+			m_rotSt++;
+		break;
+	case 2:
+		if (rotlist[2] > m_rot)
+		{
+			m_rot += 2.f;
+			for (auto pres : m_icons)
+			{
+				pres->Setrot(m_rot);
+			}
+		}
+		else
+			m_rotSt++;
+		break;
+	}
 }
 
 void MonAIPresets::UpdatePreset(int num)
