@@ -245,6 +245,8 @@ float4 PSMain(PSInput In) : SV_Target0
 		//‚±‚Á‚¿‚ÍƒgƒD[ƒ“
 		float lig = 0.0f;
 		lig = max(0.0f, dot(normal * -1.0f, mDirLight[0]));
+		//float4 dr = float4(0, 0, -1, 1);
+		//lig = max(0.0f, dot(normal * -1.0f, dr));
 		if (lig < 0.2f) {
 			albedoColor.xyz = shadowColor.xyz;
 		}

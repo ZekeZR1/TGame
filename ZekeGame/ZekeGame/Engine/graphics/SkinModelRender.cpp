@@ -17,7 +17,6 @@ bool SkinModelRender::Start() {
 	if (m_isShadowCaster) {
 		IGameObjectManager().AddShadowCaster(&m_skinModel);
 	}
-
 	return true;
 }
 
@@ -28,15 +27,17 @@ void SkinModelRender::Update() {
 }
 
 void SkinModelRender::Render() {
-	m_skinModel.SetDirColor(m_dirCol,0);
-	m_skinModel.SetDirLight(m_dirLight,0);
+	for (int i = 0; i < NUM_DIRECTION_LIG; i++) {
+		m_skinModel.SetDirColor(m_DirCol[i], i);
+		m_skinModel.SetDirLight(m_DirLight[i], i);
+	}
 	m_skinModel.SetShadowMap(IGameObjectManager().GetShadowMap()->GetShadowMapSRV());
 	//m_skinModel.Draw(enRenderMode_Normal,
 	m_skinModel.Draw(enRenderMode_Normal,
 		camera3d->GetViewMatrix(),
 		camera3d->GetProjectionMatrix());
-	m_skinModel.SetDirColor(m_defCol,0);
-	m_skinModel.SetDirLight(m_defDir,0);
+	//m_skinModel.SetDirColor(m_defCol,0);
+	//m_skinModel.SetDirLight(m_defDir,0);
 }
 
 

@@ -162,6 +162,9 @@ private:
 	bool m_hasSpecularMap = false;
 	EnRenderMode m_renderMode = enRenderMode_Invalid;	//レンダリングモード。
 	ID3D11ShaderResourceView* m_shadowMapSRV = nullptr;
+	//TODO : Zeke: ライト関係流石にアな感じでごちゃごちゃなので整理する。
+	const CVector4 m_defCol = { 1.f,1.f,1.f,1.f };
+	const CVector4 m_defDir = { 0.707,-0.707,0.0f,0.0f };
 	//DirectionLight m_light;q
 };
 

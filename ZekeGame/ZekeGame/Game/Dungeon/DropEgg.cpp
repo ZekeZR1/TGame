@@ -26,6 +26,8 @@ DropEgg::~DropEgg()
 
 bool DropEgg::Start() {
 	m_egg = NewGO<SkinModelRender>(0);
+	m_egg->SetShadowReciever(false);
+	m_egg->SetDirLight({ 0, 0, -1, 0 }, 0);
 	m_egg->Init(L"Assets/modelData/egg.cmo", nullptr, 0, enFbxUpAxisY);
 	m_egg->SetPosition(m_eggPos);
 	std::random_device rnd;
@@ -55,7 +57,6 @@ void DropEgg::Update() {
 	if (m_egg == nullptr)
 		return;
 	m_timer += 0.1f;
-
 	//rotation
 	m_eggTime += rotationSpeed;
 	float x = sin(m_eggTime);
@@ -91,9 +92,7 @@ void DropEgg::Update() {
 
 void DropEgg::NewMonster() {
 	m_monster = NewGO<SkinModelRender>(0);
-	m_monster->SetScale(m_modelScale);
-	m_monster->SetDirLight({ 0.f,1.f,0.f,1.f, }, 3);
-	m_monster->SetDirLigColor({ 1.f,0.f,0.f,1.f }, 3);
+	m_monster->SetDirLight({ 0, 0, -1, 0}, 0);
 	auto se = NewGO<Sound>(0);
 	//se->Init(L"Assets/sound/dungeon/ban1.wav", false);
 	se->Init(L"Assets/sound/dungeon/newmon.wav", false);

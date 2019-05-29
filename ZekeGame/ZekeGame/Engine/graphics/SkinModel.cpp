@@ -84,17 +84,10 @@ void SkinModel::InitConstantBuffer()
 }
 
 void SkinModel::InitDirectionLight() {
-		m_DirLight[0] = CVector3::Zero();
-		m_DirCol[0] = CVector4::Zero;
-
-		m_DirLight[1] = CVector3::Zero();
-		m_DirCol[1] = CVector4::Zero;
-
-		m_DirLight[2] = CVector3::Zero();
-		m_DirCol[2] = CVector4::Zero;
-
-		m_DirLight[3] = CVector3::Zero();
-		m_DirCol[3] = CVector4::Zero;
+		for (int i = 0; i < NUM_DIRECTION_LIG; i++) {
+			m_DirLight[i] = m_defDir;
+			m_DirCol[i] = m_defCol;
+		}
 }
 
 void SkinModel::InitSamplerState()
@@ -178,6 +171,7 @@ void SkinModel::Draw(EnRenderMode renderMode, CMatrix viewMatrix, CMatrix projMa
 	modelFxCb.mWorld = m_worldMatrix;
 	modelFxCb.mProj = projMatrix;
 	modelFxCb.mView = viewMatrix;
+
 	for (int i = 0; i < NUM_DIRECTION_LIG; i++) {
 		modelFxCb.mCol[i] = m_DirCol[i];
 		modelFxCb.mDir[i] = m_DirLight[i];
