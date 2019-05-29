@@ -19,10 +19,14 @@ public:
 	//	monids: モンスターのIDの配列
 	//	pypath: pythonのパスの配列
 	//	pos:	ポジション
-	void init(Preset preset,CVector3 pos,GameCursor* cur);
+	void init(Preset* preset,CVector3 pos,GameCursor* cur);
+
+	void UpdateIcon();
 
 	//Update
 	void Update();
+
+	void Setpos(CVector3 pos);
 
 	//クリックしたのか…？俺以外のやつと…？
 	bool IsClick()
@@ -40,4 +44,6 @@ private:
 	bool m_isClick = false;						//クリックされたのかどうか。
 
 	bool m_isSelect = false;					//マウスオーバーのフラッグＹＯ！。
+
+	Preset* m_preset;							//purisetto
 };

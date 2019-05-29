@@ -44,18 +44,18 @@ void MonAIPresetLoadOpen::Execute(int num)
 	for (int cc = 0; cc < 3; cc++)
 	{
 		int count = 0;
-		int hash = CUtil::MakeHash(m_presets[num].person[cc].str);
+		int hash = CUtil::MakeHash(m_presets[num]->person[cc]->str);
 		if (m_aimap.count(hash))
 		{
 			int index = m_aimap.at(hash);
-			m_presets[num].person[cc].stind = index;
+			m_presets[num]->person[cc]->stind = index;
 		}
 		else for (auto py : m_sms->GetFiles())
 		{
 
-			if (m_presets[num].person[cc].str == py)
+			if (m_presets[num]->person[cc]->str == py)
 			{
-				m_presets[num].person[cc].stind = count;
+				m_presets[num]->person[cc]->stind = count;
 				m_aimap.insert(std::make_pair(hash, count));
 				//i++;
 				break;
@@ -81,7 +81,7 @@ void MonAIPresetLoadOpen::Execute(int num)
 		}
 		i++;
 	}*/
-	if (m_presets[num].person->monID == 0)
+	if (m_presets[num]->person[0]->monID == 0)
 	{
 		return;
 	}
@@ -95,17 +95,17 @@ void MonAIPresetLoadOpen::Execute(int num)
 			setlocale(LC_ALL, "japanese");
 			size_t size = 0;
 			//mbstowcs_s(&size, ws, 20, chn[i].str, _TRUNCATE);
-			mbstowcs_s(&size, ws, 20, m_presets[num].person[i].str, _TRUNCATE);
+			mbstowcs_s(&size, ws, 20, m_presets[num]->person[i]->str, _TRUNCATE);
 			//todo:　俺　フォーマットにAIModeの追加
-			if (m_presets[num].person[i].aimode == 0)
+			if (m_presets[num]->person[i]->aimode == 0)
 			{
-				pmm->SetPython(ws, m_presets[num].person[i].stind, 0);
+				pmm->SetPython(ws, m_presets[num]->person[i]->stind, 0);
 			}
 			else
 			{
-				pmm->SetPython(ws, atoi(m_presets[num].person[i].str), 1);
+				pmm->SetPython(ws, atoi(m_presets[num]->person[i]->str), 1);
 			}
-			pmm->ChengeImage((MonsterID)m_presets[num].person[i].monID);
+			pmm->ChengeImage((MonsterID)m_presets[num]->person[i]->monID);
 			i++;
 		}
 		
