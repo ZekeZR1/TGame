@@ -29,14 +29,14 @@ bool MonAIPresetIcons::Start()
 	return true;
 }
 
-void MonAIPresetIcons::init(Preset preset, CVector3 pos,GameCursor* cur)
+void MonAIPresetIcons::init(Preset* preset, CVector3 pos,GameCursor* cur)
 {
 	m_cursor = cur;
 
 	CVector3 ipos = pos;
 	int cnt = 0;
 
-	if (preset.person->monID == 0)
+	if (preset->person[0]->monID == 0)
 	{
 		CVector3 iipos = pos;
 		iipos.x -= 80;
@@ -46,16 +46,16 @@ void MonAIPresetIcons::init(Preset preset, CVector3 pos,GameCursor* cur)
 		m_Nonefont->Init(L"な\n\nし", iipos.ToTwo(), 0, { 0.6f,0.6f,0.6f,1.0f }, 0.7f, { 1,0 });
 		
 	}
-	else for (auto p : preset.person)
+	else for (auto p : preset->person)
 	{
 		MonAIPresetIcon* mapicon = NewGO<MonAIPresetIcon>(0, "icon");
 
 		wchar_t ws[255];
 		setlocale(LC_ALL, "japanese");
 		size_t size = 0;
-		mbstowcs_s(&size, ws, 20, p.str, _TRUNCATE);
+		mbstowcs_s(&size, ws, 20, p->str, _TRUNCATE);
 
-		mapicon->init(p.monID, ws,ipos);
+		mapicon->init(p->monID, ws,ipos);
 		ipos.y -= 180;
 
 		m_mapi[cnt] = mapicon;
@@ -64,16 +64,32 @@ void MonAIPresetIcons::init(Preset preset, CVector3 pos,GameCursor* cur)
 
 	ipos = pos;
 	ipos.y -= 190;
+	ipos.y += 20;
+	ipos.x += 2;
 
 	m_back = NewGO<SpriteRender>(5, "sp");
-	m_back->Init(L"Assets/sprite/fade_black.dds", 150, 510);
-	if (preset.person->monID == 0)
+	m_back->Init(L"Assets/sprite/preset_back.dds", 157, 567);
+	if (preset->person[0]->monID == 0)
 		m_back->SetMulCol({ 0.2f,0.2f,0.2f,1.0f });
 	m_back->SetPosition(ipos);
 
 	m_dummy = NewGO<SpriteRender>(0, "sp");
-	m_dummy->Init(L"Assets/sprite/fade_black.dds", 150, 510,true);
+	m_dummy->Init(L"Assets/sprite/.dds", 157, 567,true);
 	m_dummy->SetPosition(ipos);
+
+	m_preset = preset;
+}
+
+void MonAIPresetIcons::UpdateIcon()
+{
+	for (int i=0;i<3;i++)
+	{
+		wchar_t ws[255];
+		setlocale(LC_ALL, "japanese");
+		size_t size = 0;
+		mbstowcs_s(&size, ws, 20, m_preset->person[i]->str, _TRUNCATE);
+		m_mapi[i]->UpdateAIMON(m_preset->person[i]->monID, ws);
+	}
 }
 
 void MonAIPresetIcons::Update()
@@ -88,6 +104,7 @@ void MonAIPresetIcons::Update()
 		}
 		if (!m_isSelect)			//マウスオーバー時のアクション
 		{
+			m_back->Init(L"Assets/sprite/preset_back_sel.dds", 157, 567);
 			m_isSelect = true;
 		}
 	}
@@ -95,7 +112,35 @@ void MonAIPresetIcons::Update()
 	{
 		if (m_isSelect)				//マウスオーバー解除のアクション
 		{
+			m_back->Init(L"Assets/sprite/preset_back.dds", 157, 567);
 			m_isSelect = false;
 		}
 	}
+}
+
+void MonAIPresetIcons::Setpos(CVector3 pos)
+{
+	CVector3 ipos = pos;
+	int cnt = 0;
+
+	if (m_preset->person[0]->monID == 0)
+	{
+		CVector3 iipos = pos;
+		iipos.x -= 80;
+		iipos.y += 10;
+		m_Nonefont->SetPosition(iipos.ToTwo());
+	}
+	else for (auto p : m_preset->person)
+	{
+		m_mapi[cnt]->Setpos(ipos);
+		ipos.y -= 180;
+		cnt++;
+	}
+
+	ipos = pos;
+	ipos.y -= 190;
+	ipos.y += 20;
+	ipos.x += 2;
+	m_back->SetPosition(ipos);
+	m_dummy->SetPosition(ipos);
 }

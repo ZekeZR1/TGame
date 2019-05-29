@@ -17,7 +17,12 @@ struct Person
 };
 struct Preset
 {
-	Person person[3];
+	~Preset()
+	{
+		for (int i = 0; i < 3; i++)
+			delete person[i];
+	}
+	Person* person[3];
 };
 
 class MonAIPresetOpenSuper :public GameObject
@@ -62,7 +67,7 @@ public:
 	}
 
 	//get プリセット
-	Preset* GetPresets()
+	Preset** GetPresets()
 	{
 		return m_presets;
 	}
@@ -81,11 +86,11 @@ protected:
 	SpriteRender* m_back = nullptr;		//後ろに表示する半透明のやつ。
 	SpriteRender* m_button = nullptr;	//ボタンのスプライト
 	SpriteRender* m_dummy = nullptr;	//だみー
-	MonAIPresets* m_maps = nullptr;		//Iconsの塊
+	static MonAIPresets* m_maps;		//Iconsの塊
 
 	FontRender* m_font = nullptr;		//フォントレンダー
 
-	static Preset m_presets[6];				//プリセット
+	static Preset* m_presets[6];				//プリセット
 	static std::map<int, int> m_aimap;		//ai用のmap
 
 	SMS* m_sms = nullptr;				//シーンのインスタンス
@@ -111,5 +116,7 @@ protected:
 
 	SpriteRender* m_close = nullptr;	//とじるボタン
 	FontRender* m_fclose = nullptr;		//とじるフォンと
+
+	static bool m_isInit;				//初期化された？
 };
 

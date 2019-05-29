@@ -7,6 +7,7 @@ class RatingInfo;
 class MonAIPresetOpenSuper;
 class Fade;
 class ReturnButton;
+class GObutton;
 class NetAISelect :public SuperMonsterSelect
 {
 public:
@@ -35,7 +36,7 @@ private:
 	std::vector<PMMonster*> m_pmms;
 	//std::vector<SpriteRender*> m_monicon;
 
-	SpriteRender* m_GO = nullptr;
+	//SpriteRender* m_GO = nullptr;
 	SpriteRender* m_back = nullptr;
 
 	SpriteRender* m_return = nullptr;
@@ -61,4 +62,6 @@ private:
 	RatingInfo* m_status = nullptr;
 
 	ReturnButton* m_returnButton = nullptr;			//–ß‚éƒ{ƒ^ƒ“
+
+	GObutton* m_GOb = nullptr;						//GO botan
 };

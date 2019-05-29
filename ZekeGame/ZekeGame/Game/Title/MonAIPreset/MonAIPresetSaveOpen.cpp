@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "MonAIPresetSaveOpen.h"
+#include "MonAIPresets.h"
 
 #include "../SuperMonsterSelect.h"
 #include "../PMMonster.h"
@@ -60,6 +61,7 @@ void MonAIPresetSaveOpen::Execute(int num)
 	{
 		for (int c = 0; c < 3; c++)
 		{
+
 			fread(&chn[r][c].aimode, 1, 1, file);
 			fread(&chn[r][c].monID, 1, 1, file);
 			fread(&chn[r][c].stlen, 4, 1, file);
@@ -74,6 +76,13 @@ void MonAIPresetSaveOpen::Execute(int num)
 	}
 	fclose(file);
 
+	for (int i = 0; i < 3; i++)
+	{
+		chn[num][i].aimode = aimode[i];
+
+		chn[num][i].monID = mon[i];
+	}
+
 	file = fopen("Assets/MonAIPreset/preset.amp", "rb+");
 	fseek(file, seek, SEEK_SET);
 	for (int i = 0; i < 3; i++)
@@ -86,25 +95,41 @@ void MonAIPresetSaveOpen::Execute(int num)
 			int len = py.length() + 1;
 			fwrite(&len, 4, 1, file);
 			fwrite(py.c_str(), len, 1, file);
+
+			
+			strcpy(m_presets[num]->person[i]->str, py.c_str());
+			m_presets[num]->person[i]->stlen = len;
+			//strcpy(chn[num][i].str, py.c_str());
+			//chn[num][i].stlen = len;
 		}
 		else//visualAIŽž
 		{
-			char num[32] = { '\0' };
-			sprintf(num, "%d", ai[i]);
-			int len = strlen(num)+1;
+			char Pnum[32] = { '\0' };
+			sprintf(Pnum, "%d", ai[i]);
+			int len = strlen(Pnum)+1;
 			fwrite(&len, 4, 1, file);
-			fwrite(num, len, 1, file);
+			fwrite(Pnum, len, 1, file);
+
+			strcpy(m_presets[num]->person[i]->str, Pnum);
+			m_presets[num]->person[i]->stlen = len;
+			//strcpy(chn[num][i].str, Pnum);
+			//chn[num][i].stlen = len;
 		}
+		m_presets[num]->person[i]->aimode = aimode[i];
+		m_presets[num]->person[i]->monID = mon[i];
+		//chn[num][i].aimode = aimode[i];
+		//chn[num][i].monID = mon[i];
+
 	}
 	for (int r = num + 1; r < 6; r++)
 	{
 		for (int c = 0; c < 3; c++)
 		{
-			m_presets[r].person[c].aimode = chn[r][c].aimode;
-			m_presets[r].person[c].monID = chn[r][c].monID;
-			m_presets[r].person[c].stlen = chn[r][c].stlen;
-			strcpy(m_presets[r].person[c].str, chn[r][c].str);
-			m_presets[r].person[c].stind = ai[c];
+			m_presets[r]->person[c]->aimode = chn[r][c].aimode;
+			m_presets[r]->person[c]->monID = chn[r][c].monID;
+			m_presets[r]->person[c]->stlen = chn[r][c].stlen;
+			strcpy(m_presets[r]->person[c]->str, chn[r][c].str);
+			m_presets[r]->person[c]->stind = ai[c];
 
 			fwrite(&chn[r][c].aimode, 1, 1, file);
 			fwrite(&chn[r][c].monID, 1, 1, file);
@@ -114,6 +139,8 @@ void MonAIPresetSaveOpen::Execute(int num)
 	}
 
 	fclose(file);
+	
+	m_maps->UpdatePreset(num);
 
 	Close();
 }

@@ -89,13 +89,20 @@ public:
 	}
 
 	void SetDirLigColor (const CVector4& col, const int index) {
-		m_skinModel.SetDirColor(col, index);
+		m_DirCol[index] = col;
+		//m_skinModel.SetDirColor(col, index);
 	}
 	void SetShadowCasterFlag(bool flag)
 	{
 		m_isShadowCaster = flag;
 	}
+
+	void SetDirLight(CVector4 dir, int index) {
+		//m_skinModel.SetDirLight(dir,index);
+		m_DirLight[index] = dir;
+	}
 private:
+	static const int NUM_DIRECTION_LIG = 4;
 	bool m_isShadowCaster = true;
 	SkinModel m_skinModel;
 	EnFbxUpAxis m_enFbxUpAxis;
@@ -107,10 +114,12 @@ private:
 	CVector3 m_pos;
 	CQuaternion m_rot = CQuaternion::Identity();
 	CVector3 m_scale = CVector3::One();
-	CVector4 m_dirCol = {0.5,0.5f,0.5f,1.f};
-	CVector4 m_dirLight = { 0.707,-0.707,0.0f,0.0f };
+	//CVector4 m_dirCol = {0.5,0.5f,0.5f,1.f};
+	//CVector4 m_dirLight = { 0.707,-0.707,0.0f,0.0f };
 	const CVector4 m_defCol = { 1.f,1.f,1.f,1.f };
 	const CVector4 m_defDir = { 0.707,-0.707,0.0f,0.0f };
+	CVector4 m_DirLight[NUM_DIRECTION_LIG] = { m_defDir ,m_defDir ,m_defDir ,m_defDir };
+	CVector4 m_DirCol[NUM_DIRECTION_LIG];// = { 1.0f,1.0f,1.0f,1.0f };
 	bool m_isUpdateAnimation = true;
 };
 

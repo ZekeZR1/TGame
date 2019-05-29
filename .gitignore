@@ -10,7 +10,6 @@
 /ZekeGame/x64/Release
 /ZekeGame/.vs/ZekeGame/v15
 
-Lib/
 __pycache__/
 
 *.suo
@@ -26,6 +25,10 @@ Debug/
 Release/
 obj/
 
+
+*.VC.db-shm
+
+*.VC.db-wal
 
 *_i.c
 

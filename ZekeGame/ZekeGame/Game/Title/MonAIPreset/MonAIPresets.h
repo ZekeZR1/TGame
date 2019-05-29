@@ -15,6 +15,11 @@ public:
 	//initialize function
 	void init(MAPopen* mapopen,GameCursor* cur);
 
+	//State をOpeningにする
+	void Open();
+	//State をClosingにする
+	void Close();
+
 	//Update
 	void Update();
 
@@ -29,6 +34,16 @@ public:
 	{
 		return m_clickNum;
 	}
+
+	void UpdatePreset(int num);
+
+	enum eState
+	{
+		enClose,
+		enClosing,
+		enOpen,
+		enOpening
+	};
 private:
 	MonAIPresetIcons* m_icons[6] = { nullptr };	//激うま！！icon６個詰めパック
 	SpriteRender* m_back = nullptr;				//後ろのやつ
@@ -40,5 +55,6 @@ private:
 	bool m_isClick = false;						//クリクリクリック。
 	int m_clickNum = 999;						//クリックされたプリセットの番号
 
-	
+	eState m_State = enClose;						//開かれてる？
+	CVector3 m_pos = CVector3::Zero();			//ポジション
 };

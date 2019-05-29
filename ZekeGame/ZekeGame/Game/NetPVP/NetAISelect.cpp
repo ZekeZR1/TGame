@@ -15,6 +15,7 @@
 #include "RatePopup.h"
 
 #include "../ReturnButton/ReturnButton.h"
+#include "../Title/GObutton.h"
 
 void NetAISelect::OnDestroy()
 {
@@ -23,7 +24,7 @@ void NetAISelect::OnDestroy()
 	DeleteGO(m_cursor);
 	DeleteGO(m_msRed);
 	DeleteGO(m_mlRed);
-	DeleteGO(m_GO);
+	//DeleteGO(m_GO);
 	DeleteGO(m_return);
 	DeleteGO(m_returnMoji);
 	DeleteGO(m_status);
@@ -31,6 +32,7 @@ void NetAISelect::OnDestroy()
 		DeleteGO(i);
 
 	DeleteGO(m_returnButton);
+	DeleteGO(m_GOb);
 }
 
 bool NetAISelect::Start()
@@ -80,9 +82,9 @@ bool NetAISelect::Start()
 		m_pmms.push_back(pmm);
 	}
 
-	m_GO = NewGO<SpriteRender>(0, "sp");
+	/*m_GO = NewGO<SpriteRender>(0, "sp");
 	m_GO->Init(L"Assets/sprite/GO.dds", 193, 93, true);
-	m_GO->SetPosition({ 520,240,0 });
+	m_GO->SetPosition({ 520,240,0 });*/
 
 	/*CVector3 repo = { -520,-260,0 };
 	m_returnS.x /= 3;
@@ -106,6 +108,9 @@ bool NetAISelect::Start()
 
 	m_returnButton = NewGO<ReturnButton>(0, "rb");
 	m_returnButton->init(this, "modesel", m_cursor);
+
+	m_GOb = NewGO<GObutton>(0, "gb");
+	m_GOb->init(m_cursor, { 520,240,0 });
 	
 	return true;
 }
@@ -130,6 +135,7 @@ void NetAISelect::Update()
 			//m_BGM->Stop();
 			DeleteGO(this);
 		}
+		return;
 	}
 
 	bool ispmm = false;
@@ -179,8 +185,19 @@ void NetAISelect::Update()
 			return;
 		CVector3 curs = m_cursor->GetCursor();
 
-		m_GO->SetCollisionTarget(curs);
-		if (m_GO->isCollidingTarget())
+		//m_GO->SetCollisionTarget(curs);
+		//if (m_GO->isCollidingTarget())
+		//{
+		//	if (Mouse::isTrigger(enLeftClick))
+		//	{
+		//		m_fade->FadeOut();
+		//		m_isfade = true;
+		//		//MusicFade* mf = NewGO<MusicFade>(0, "mf");
+		//		//mf->init(m_BGM, m_vol);
+		//	}
+		//}
+
+		if (m_GOb->isClick())
 		{
 			if (Mouse::isTrigger(enLeftClick))
 			{
