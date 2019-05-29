@@ -14,6 +14,7 @@ public:
 		return m_monsterName;
 	}
 private:
+	CQuaternion rot = CQuaternion::Identity();
 	void NewMonster();
 	//Monster
 	SkinModelRender* m_monster = nullptr;
