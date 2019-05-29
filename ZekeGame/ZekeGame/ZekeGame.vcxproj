@@ -1094,6 +1094,12 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Sprite\GUI\modeSelect\aimon_preset\preset_back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Sprite\GUI\modeSelect\aimon_preset\preset_back_sel.png" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="$(VCTargetsPath)\BuildCustomizations\ImageContentTask.targets" />

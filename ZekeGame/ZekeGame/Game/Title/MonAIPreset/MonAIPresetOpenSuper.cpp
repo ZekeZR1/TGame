@@ -8,9 +8,11 @@
 
 #include "MonAIPresets.h"
 
-Preset MonAIPresetOpenSuper::m_presets[6];
+Preset* MonAIPresetOpenSuper::m_presets[6];
 std::map<int, int> MonAIPresetOpenSuper::m_aimap;
 bool MonAIPresetOpenSuper::m_isAllNone;
+MonAIPresets* MonAIPresetOpenSuper::m_maps = nullptr;
+bool MonAIPresetOpenSuper::m_isInit = false;
 MonAIPresetOpenSuper::~MonAIPresetOpenSuper()
 {
 	DeleteGO(m_button);
@@ -24,6 +26,7 @@ bool MonAIPresetOpenSuper::Start()
 
 void MonAIPresetOpenSuper::init(SMS * sms, GameCursor * cursor, const wchar_t* tx,CVector3 pos, int team)
 {
+	
 	m_sms = sms;
 	m_cursor = cursor;
 	m_team = team;
@@ -45,6 +48,10 @@ void MonAIPresetOpenSuper::init(SMS * sms, GameCursor * cursor, const wchar_t* t
 	m_font->Init(tx, pos.ToTwo(), 0, CVector4::White, 0.7f, { 0,0 });
 	m_font->DrawShadow();
 
+	if (m_isInit)
+		return;
+	m_isInit = true;
+
 	FILE* file = FindPreset();
 	char head[5] = { 0 };
 	fread(head, 4, 1, file);
@@ -56,19 +63,20 @@ void MonAIPresetOpenSuper::init(SMS * sms, GameCursor * cursor, const wchar_t* t
 	int count = 0;
 	for (int i = 0; i < 6; i++)
 	{
-		Preset chn;
+		Preset* chn = new Preset;
 		for (int j = 0; j < 3; j++)
 		{
+			chn->person[j] = new Person;
 			char ch[255];
-			fread(&chn.person[j].aimode, 1, 1, file);
-			fread(&chn.person[j].monID, 1, 1, file);
-			fread(&chn.person[j].stlen, 4, 1, file);
-			fread(ch, chn.person[j].stlen, 1, file);
+			fread(&chn->person[j]->aimode, 1, 1, file);
+			fread(&chn->person[j]->monID, 1, 1, file);
+			fread(&chn->person[j]->stlen, 4, 1, file);
+			fread(ch, chn->person[j]->stlen, 1, file);
 			/*chn[j].str = (char*)malloc(sizeof(char)*(strlen(ch) + 1));
 			char[strlen(ch) + 1];*/
-			strcpy(chn.person[j].str, ch);
+			strcpy(chn->person[j]->str, ch);
 
-			if (chn.person[j].monID == 0)
+			if (chn->person[j]->monID == 0)
 				count++;
 		}
 		m_presets[i] = chn;
@@ -84,18 +92,18 @@ void MonAIPresetOpenSuper::init(SMS * sms, GameCursor * cursor, const wchar_t* t
 		for (int cc = 0;cc < 3;cc++)
 		{
 			int count = 0;
-			int hash = CUtil::MakeHash(m_presets[prc].person[cc].str);
+			int hash = CUtil::MakeHash(m_presets[prc]->person[cc]->str);
 			if (m_aimap.count(hash))
 			{
 				int index = m_aimap.at(hash);
-				m_presets[prc].person[cc].stind = index;
+				m_presets[prc]->person[cc]->stind = index;
 			}
 			else for (auto py : m_sms->GetFiles())
 			{
 				
-				if (m_presets[prc].person[cc].str == py)
+				if (m_presets[prc]->person[cc]->str == py)
 				{
-					m_presets[prc].person[cc].stind = count;
+					m_presets[prc]->person[cc]->stind = count;
 					m_aimap.insert(std::make_pair(hash, count));
 					//i++;
 					break;
@@ -105,7 +113,8 @@ void MonAIPresetOpenSuper::init(SMS * sms, GameCursor * cursor, const wchar_t* t
 			
 		}
 	}
-
+	m_maps = NewGO<MonAIPresets>(0, "maps");
+	m_maps->init(this, m_cursor);
 }
 
 void MonAIPresetOpenSuper::Update()
@@ -181,19 +190,25 @@ void MonAIPresetOpenSuper::Open()
 
 	for (int i = 0; i < 6; i++)
 	{
-		Preset chn;
+		//Preset* chn = new Preset;
 		for (int j = 0; j < 3; j++)
 		{
+			//chn->person[j] = new Person;
 			char ch[255];
-			fread(&chn.person[j].aimode, 1, 1, file);
-			fread(&chn.person[j].monID, 1, 1, file);
-			fread(&chn.person[j].stlen, 4, 1, file);
-			fread(ch, chn.person[j].stlen, 1, file);
+			/*fread(&chn->person[j]->aimode, 1, 1, file);
+			fread(&chn->person[j]->monID, 1, 1, file);
+			fread(&chn->person[j]->stlen, 4, 1, file);
+			fread(ch, chn->person[j]->stlen, 1, file);*/
+
+			fread(&m_presets[i]->person[j]->aimode, 1, 1, file);
+			fread(&m_presets[i]->person[j]->monID, 1, 1, file);
+			fread(&m_presets[i]->person[j]->stlen, 4, 1, file);
+			fread(ch, m_presets[i]->person[j]->stlen, 1, file);
 			/*chn[j].str = (char*)malloc(sizeof(char)*(strlen(ch) + 1));
 			char[strlen(ch) + 1];*/
-			strcpy(chn.person[j].str, ch);
+			strcpy(m_presets[i]->person[j]->str, ch);
 		}
-		m_presets[i] = chn;
+		
 	}
 
 	fclose(file);
@@ -201,21 +216,21 @@ void MonAIPresetOpenSuper::Open()
 
 	for (auto pre : m_presets)
 	{
-		for (auto c : pre.person)
+		for (auto c : pre->person)
 		{
-			int hash = CUtil::MakeHash(c.str);
+			int hash = CUtil::MakeHash(c->str);
 			int count = 0;
 			if (m_aimap.count(hash))
 			{
 				int index = m_aimap.at(hash);
-				c.stind = index;
+				c->stind = index;
 			}
 			else for (auto py : m_sms->GetFiles())
 			{
 
-				if (c.str == py)
+				if (c->str == py)
 				{
-					c.stind = i;
+					c->stind = i;
 					m_aimap.insert(std::make_pair(hash, count));
 					break;
 				}
@@ -224,9 +239,9 @@ void MonAIPresetOpenSuper::Open()
 			i++;
 		}
 	}
-
-	m_maps = NewGO<MonAIPresets>(0, "maps");
-	m_maps->init(this,m_cursor);
+	m_maps->Open();
+	/*m_maps = NewGO<MonAIPresets>(0, "maps");
+	m_maps->init(this,m_cursor);*/
 
 	CVector3 p3 = { 540,-260 ,0};
 	m_close = NewGO<SpriteRender>(3,"sp");
@@ -248,7 +263,8 @@ void MonAIPresetOpenSuper::Close()
 {
 	DeleteGO(m_back);
 
-	DeleteGO(m_maps);
+	m_maps->Close();
+	//DeleteGO(m_maps);
 
 	DeleteGO(m_close);
 	DeleteGO(m_fclose);

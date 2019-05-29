@@ -2015,6 +2015,9 @@
     <Filter Include="Game\Dungeon">
       <UniqueIdentifier>{ecc301f3-6fd1-409b-9ab5-30e1464f2b87}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Assets\Sprite\preset">
+      <UniqueIdentifier>{0b5d1d95-b9cb-41df-8d95-eb02e16651dc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Media Include="Assets\sound\punch-middle2.wav">
@@ -2029,5 +2032,13 @@
     <Media Include="Assets\sound\BGM\PerituneMaterial_Strategy5_loop.wav">
       <Filter>Assets\BGM</Filter>
     </Media>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\aimon_preset\preset_back.png">
+      <Filter>Assets\Sprite\preset</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\aimon_preset\preset_back_sel.png">
+      <Filter>Assets\Sprite\preset</Filter>
+    </ImageContentTask>
   </ItemGroup>
 </Project>
