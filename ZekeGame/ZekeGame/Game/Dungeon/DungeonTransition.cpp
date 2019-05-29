@@ -12,6 +12,8 @@ bool DungeonTransition::Start() {
 	bgm->Init(L"Assets/sound/dungeon/duntr.wav",true);
 	bgm->Play();
 
+	InitUI();
+
 	m_back = NewGO<SkinModelRender>(0);
 	//m_back->Init(L"Assets/modelData/dungeonBack.cmo");
 	m_back->Init(L"Assets/modelData/testback.cmo");
@@ -22,13 +24,52 @@ bool DungeonTransition::Start() {
 	m_back->SetPosition(m_backPos);
 	m_back->SetShadowCasterFlag(false);
 
+	InitModel();
+	m_camera = NewGO<DungeonTCamera>(0);
+	OutputDebugStringA("Play Transition\n");
+	return true;
+}
+
+void DungeonTransition::OnDestroy() {
+	DeleteGO(m_back);
+	DeleteGO(m_camera);
+	DeleteGO(m_nextfont);
+	for (auto model : m_monsters) {
+		DeleteGO(model);
+	}
+	auto bgm = FindGO<Sound>("BGM");
+	bgm->Stop();
+}
+
+void DungeonTransition::Update() {
+	for (int i = 0; i < 3; i++) {
+		auto pos = m_monsters[i]->GetPosition();
+		pos.z += 5.f;
+		m_monsters[i]->SetPosition(pos);
+	}
+	m_camera->SetTarget(m_monsters[1]->GetPosition());
+	auto p = m_monsters[0]->GetPosition();
+	if (p.z > -1100.f || Mouse::isTrigger(enLeftClick)) {
+		if (!m_isfade) {
+			m_fade->FadeOut();
+			m_isfade = true;
+		}
+	}
+	if (m_isfade && m_fade->isFadeStop()) {
+		auto select = NewGO<StageSelect>(0, "selectScene");
+		select->SetDungeonGameData(m_files, m_enemyFiles, m_monai, m_ids, m_dunNum,m_aimode);
+		DeleteGO(this);
+	}
+}
+
+void DungeonTransition::InitModel() {
 	CVector3 pos = CVector3::Zero();
 	pos.y -= 100.f;
 	pos.z = -2000.f;
 	for (int i = 0; i < m_numMonster; i++) {
 		m_monsters.push_back(NewGO<SkinModelRender>(1));
 		switch (m_ids[i]) {
-		//TODO : Zeke : add monsters transition scene
+			//TODO : Zeke : add monsters transition scene
 		case enTest:
 			m_monsters[i]->Init(L"Assets/modelData/tesEnemy3.cmo");//, m_animation, 1);
 			break;
@@ -52,7 +93,7 @@ bool DungeonTransition::Start() {
 			m_monsters[i]->PlayAnimation(0);
 			m_monsters[i]->SetScale(CVector3::One() * 0.25);
 		}
-			break;
+		break;
 		case enBook:
 		{
 			m_animClip[i][0].Load(L"Assets/modelData/book/book_idle.tka");
@@ -82,44 +123,13 @@ bool DungeonTransition::Start() {
 		m_monsters[i]->SetPosition(pos);
 		pos.x += 150.f;
 	}
-	m_camera = NewGO<DungeonTCamera>(0);
-	OutputDebugStringA("Play Transition\n");
-	return true;
 }
 
-void DungeonTransition::OnDestroy() {
-	DeleteGO(m_back);
-	DeleteGO(m_camera);
-	for (auto model : m_monsters) {
-		DeleteGO(model);
-	}
-	auto bgm = FindGO<Sound>("BGM");
-	bgm->Stop();
-}
-
-void DungeonTransition::Update() {
-	for (int i = 0; i < 3; i++) {
-		auto pos = m_monsters[i]->GetPosition();
-		pos.z += 5.f;
-		m_monsters[i]->SetPosition(pos);
-	}
-	m_camera->SetTarget(m_monsters[1]->GetPosition());
-	auto p = m_monsters[0]->GetPosition();
-	if (p.z > -1100.f || g_pad[0].IsTrigger(enEscape)) {
-		if (!m_isfade) {
-			m_fade->FadeOut();
-			//m_fade->SetMulCol(CVector4::White);
-			m_isfade = true;
-		}
-	}
-	char str[256];
-	sprintf_s(str, "Pos %f\n", p.z);
-	//OutputDebugString(str);
-	if (m_isfade && m_fade->isFadeStop()) {
-		auto select = NewGO<StageSelect>(0, "selectScene");
-		select->SetDungeonGameData(m_files, m_enemyFiles, m_monai, m_ids, m_dunNum,m_aimode);
-		DeleteGO(this);
-	}
+void DungeonTransition::InitUI() {
+	m_nextfont = NewGO<FontRender>(5, "fr");
+	m_nextfont->SetTextType(CFont::en_Japanese);
+	m_nextfont->Init(L"クリックでスキップ", { -600,-300 }, 0, { 1,1,1,1 }, 1, { 0,0 });
+	m_nextfont->DrawShadow();
 }
 
 //
@@ -194,3 +204,4 @@ void DungeonTransition::SetGameData(PyFile& files, PyFile& eneFile, int monsterA
 	}
 	m_dunNum = DunNumber;
 }
+

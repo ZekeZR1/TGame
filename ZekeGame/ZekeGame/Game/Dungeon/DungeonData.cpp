@@ -13,10 +13,7 @@ void DungeonData::SetGameData(PyFile files, PyFile eneFile, int monsterAI[6], Mo
 }
 
 bool DungeonData::isFinalRound(int DunNum) {
-	if (GetRound() == m_rounds[DunNum])
-		return true;
-	else
-		return false;
+	return GetRound() == m_rounds[DunNum];
 }
 
 const int DungeonData::GetNumRound(int dungeon) {

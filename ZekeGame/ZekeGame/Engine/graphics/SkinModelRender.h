@@ -95,6 +95,10 @@ public:
 	{
 		m_isShadowCaster = flag;
 	}
+
+	void SetDirLight(CVector4 dir, int index) {
+		m_skinModel.SetDirLight(dir,index);
+	}
 private:
 	bool m_isShadowCaster = true;
 	SkinModel m_skinModel;

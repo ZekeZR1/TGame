@@ -52,7 +52,7 @@ private:
 	//TODO : Zeke : ラウンド数の設定
 	//ダンジョンの1ゲームで何階層にするかここで決める
 	//階層数 = n + 1
-	int m_rounds[8] = { 0,1,2,3,2,1,0,0};
+	int m_rounds[8] = { 0,1,2,2,2,2,2,3};
 };
 
 static DungeonData& IDungeonData() {

@@ -23,9 +23,12 @@ private:
 	int m_aimode[6];
 	int m_dunNum = -1;
 private:
+	void InitUI();
+	void InitModel();
 	static const int m_numMonster = 3;
 	bool m_isfade = false;
 	Fade* m_fade;
+	FontRender* m_nextfont = nullptr;
 	SkinModelRender* m_back = nullptr;
 	std::vector<SkinModelRender*> m_monsters;
 	CVector3 m_backPos = CVector3::Zero();
@@ -35,6 +38,10 @@ private:
 	std::vector<AnimationClip> m_anims;
 	CVector3 m_standardPos = CVector3::Zero();
 };
+
+
+
+
 
 class DungeonTCamera : public GameObject {
 public:
