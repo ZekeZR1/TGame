@@ -7,6 +7,7 @@ void MonAIPresetIcon::OnDestroy()
 {
 	DeleteGO(m_Icon);
 	DeleteGO(m_font);
+	DeleteGO(m_back);
 }
 
 MonAIPresetIcon::~MonAIPresetIcon()
@@ -21,14 +22,17 @@ bool MonAIPresetIcon::Start()
 
 void MonAIPresetIcon::init(int monID, const wchar_t* pypath,CVector3 pos)
 {
+	m_back = NewGO<SpriteRender>(20, "sp");
+	m_back->Init(L"Assets/sprite/mon_none.dds", 140, 140);
+	CVector3 bp = pos;
+	bp.y -= 15;
+	m_back->SetPosition(bp);
+
 	m_Icon = NewGO<SpriteRender>(20, "sp");
 	m_Icon->Init(GameData::GetMonsterIconPath(monID), 150, 170);
 	m_Icon->SetPosition(pos);
 
 	m_pos = pos;
-
-	pos.x -= 80;
-	pos.y -= 30;
 
 	std::wstring ws = pypath;
 	int len = lstrlenW(pypath);
@@ -36,8 +40,12 @@ void MonAIPresetIcon::init(int monID, const wchar_t* pypath,CVector3 pos)
 	{
 		ws[6] = L'\0';
 		len = 6;
-		pos.y -= 15;
+		m_fontoffs.y = -40;
 	}
+
+	pos += m_fontoffs;
+
+	
 	float sc = len > 4 ? 4.f / float(len) : 1;
 
 	m_font = NewGO<FontRender>(21, "fr");
@@ -47,17 +55,18 @@ void MonAIPresetIcon::init(int monID, const wchar_t* pypath,CVector3 pos)
 
 void MonAIPresetIcon::Setpos(CVector3 pos)
 {
+	CVector3 bp = pos;
+	bp.y -= 15;
+	m_back->SetPosition(bp);
 	m_Icon->SetPosition(pos);
 	m_pos = pos;
 
-	pos.x -= 80;
-	pos.y -= 30;
-
-	int len = lstrlenW(m_font->getText());
+	pos += m_fontoffs;
+	/*int len = lstrlenW(m_font->getText());
 	if (len > 6)
 	{
-		pos.y -= 15;
-	}
+		pos.y -= 80;
+	}*/
 	m_font->SetPosition(pos.ToTwo());
 }
 
@@ -71,15 +80,21 @@ void MonAIPresetIcon::Setrot(float rot,CVector3 pos)
 	m_Icon->SetRotation(qrot);
 	m_Icon->SetPosition(pos+v);
 
-	CVector3 p = m_pos;
-	p.x -= 80;
-	p.y -= 30;
+	CVector3 bp = m_pos;
+	bp.y -= 15;
+	v = bp - pos;
+	qrot.Multiply(v);
+	m_back->SetRotation(qrot);
+	m_back->SetPosition(pos + v);
 
-	int len = lstrlenW(m_font->getText());
+	CVector3 p = m_pos;
+	p += m_fontoffs;
+
+	/*int len = lstrlenW(m_font->getText());
 	if (len > 6)
 	{
-		p.y -= 15;
-	}
+		p.y -= 80;
+	}*/
 
 	CVector3 v2 = p - pos;
 	qrot.SetRotationDeg(CVector3::AxisZ(), rot);
@@ -94,17 +109,18 @@ void MonAIPresetIcon::UpdateAIMON(int monID, const wchar_t* pypath)
 	m_Icon->Init(GameData::GetMonsterIconPath(monID), 150, 170);
 	CVector3 pos = m_pos;
 
-	pos.x -= 80;
-	pos.y -= 30;
-
 	std::wstring ws = pypath;
 	int len = lstrlenW(pypath);
 	if (len > 6)
 	{
 		ws[6] = L'\0';
 		len = 6;
-		pos.y -= 15;
+		m_fontoffs.y = -40;
 	}
+
+	pos += m_fontoffs;
+
+	
 	float sc = len > 4 ? 4.f / float(len) : 1;
 
 	m_font->Init(ws.c_str(), pos.ToTwo(), 0, CVector4::White, sc, { 0,0 });
@@ -112,4 +128,5 @@ void MonAIPresetIcon::UpdateAIMON(int monID, const wchar_t* pypath)
 
 void MonAIPresetIcon::Update()
 {
+
 }

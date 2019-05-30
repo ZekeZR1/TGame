@@ -2,6 +2,7 @@
 class GameCamera;
 class GameCursor;
 class Fade;
+class ModeSelectBack;
 struct button
 {
 	button()
@@ -57,4 +58,6 @@ private:
 	Fade* m_fade = nullptr;
 	bool m_isfade = false;
 	int m_mode = enDungeon;
+
+	ModeSelectBack* m_msBack = nullptr;			//haikei
 };

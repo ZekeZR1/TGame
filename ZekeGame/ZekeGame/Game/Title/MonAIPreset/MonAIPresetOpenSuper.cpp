@@ -13,6 +13,7 @@ std::map<int, int> MonAIPresetOpenSuper::m_aimap;
 bool MonAIPresetOpenSuper::m_isAllNone;
 MonAIPresets* MonAIPresetOpenSuper::m_maps = nullptr;
 bool MonAIPresetOpenSuper::m_isInit = false;
+
 MonAIPresetOpenSuper::~MonAIPresetOpenSuper()
 {
 	for (int i=0;i<6;i++)

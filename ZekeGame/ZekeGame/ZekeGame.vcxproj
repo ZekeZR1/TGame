@@ -339,6 +339,7 @@
     <None Include="Assets\effect\PONG.efk" />
     <None Include="Game\Title\MonAIPreset\MonAIPreset.cpp" />
     <None Include="Game\Title\MonAIPreset\MonAIPresetClose.cpp" />
+    <ClCompile Include="Game\Title\ModeSelect\ModeSelectBack.cpp" />
     <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetIcon.cpp" />
     <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetIcons.cpp" />
     <None Include="Game\Title\MonAIPreset\MonAIPresetLoad.cpp" />
@@ -349,6 +350,7 @@
     <None Include="Game\Title\MonAIPreset\MonAIPresetSave.cpp" />
     <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetSaveOpen.cpp" />
     <ClCompile Include="Game\Title\MonsterSelect.cpp" />
+    <ClCompile Include="Game\Title\MonsterSelectBack.cpp" />
     <ClCompile Include="Game\Title\PMMonster.cpp" />
     <ClCompile Include="Game\Title\pvpModeSelect.cpp" />
     <ClCompile Include="Game\Title\SuperMonsterSelect.cpp" />
@@ -643,6 +645,7 @@
     <ClInclude Include="Game\Title\ModeSelect.h" />
     <None Include="Game\Title\MonAIPreset\MonAIPreset.h" />
     <None Include="Game\Title\MonAIPreset\MonAIPresetClose.h" />
+    <ClInclude Include="Game\Title\ModeSelect\ModeSelectBack.h" />
     <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetIcon.h" />
     <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetIcons.h" />
     <None Include="Game\Title\MonAIPreset\MonAIPresetLoad.h" />
@@ -653,6 +656,7 @@
     <None Include="Game\Title\MonAIPreset\MonAIPresetSave.h" />
     <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetSaveOpen.h" />
     <ClInclude Include="Game\Title\MonsterSelect.h" />
+    <ClInclude Include="Game\Title\MonsterSelectBack.h" />
     <ClInclude Include="Game\Title\PMMonster.h" />
     <ClInclude Include="Game\Title\pvpModeSelect.h" />
     <ClInclude Include="Game\Title\SuperMonsterSelect.h" />
@@ -1095,10 +1099,16 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Sprite\GUI\modeSelect\aimon_preset\preset_back.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\aimon_preset\preset_back.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Sprite\GUI\modeSelect\aimon_preset\preset_back_sel.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\aimon_preset\preset_back_sel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_roku.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <MeshContentTask Include="Assets\modelData\ModeSelect\mdsel_None.fbx" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

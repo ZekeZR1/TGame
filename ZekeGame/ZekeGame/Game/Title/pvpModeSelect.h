@@ -10,6 +10,8 @@ class ReturnButton;
 class MonAIPresetOpen;
 class MonAIPresetOpenSuper;
 class GObutton;
+
+class MonsterSelectBack;
 class PvPModeSelect :public SuperMonsterSelect
 {
 public:
@@ -64,4 +66,6 @@ private:
 
 	Fade* m_fade = nullptr;
 	bool m_isfade = false;
+
+	MonsterSelectBack* m_msb = nullptr;		//îqå[
 };

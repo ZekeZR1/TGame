@@ -34,6 +34,8 @@
 
 #include "GObutton.h"
 
+#include "MonsterSelectBack.h"
+
 PvPModeSelect::~PvPModeSelect()
 {
 	
@@ -59,6 +61,8 @@ void PvPModeSelect::OnDestroy()
 
 	DeleteGO(m_returnButton);
 	DeleteGO(m_GOb);
+
+	DeleteGO(m_msb);
 }
 
 bool PvPModeSelect::Start()
@@ -75,8 +79,10 @@ bool PvPModeSelect::Start()
 	m_fade = FindGO<Fade>("fade");
 	m_fade->FadeIn();
 
-	m_back = NewGO<SpriteRender>(0, "sp");
-	m_back->Init(L"Assets/sprite/monsel_back.dds", 1280, 720);
+	//m_back = NewGO<SpriteRender>(0, "sp");
+	//m_back->Init(L"Assets/sprite/monsel_back.dds", 1280, 720);
+
+	m_msb = NewGO<MonsterSelectBack>(0, "msb");
 
 	m_files = PythonFileLoad::FilesLoad();
 	m_cursor = NewGO<GameCursor>(0, "cursor");
