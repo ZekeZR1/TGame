@@ -1101,7 +1101,9 @@
     <None Include="Assets\Sprite\GUI\modeSelect\aimon_preset\preset_back_sel.png" />
   </ItemGroup>
   <ItemGroup>
-    <MeshContentTask Include="Assets\modelData\dungeon\gorgeousWall.fbx" />
+    <None Include="Assets\modelData\dungeon\gorgeousWall.fbx">
+      <FileType>Document</FileType>
+    </None>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

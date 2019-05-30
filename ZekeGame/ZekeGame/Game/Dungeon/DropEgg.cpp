@@ -21,6 +21,7 @@ DropEgg::DropEgg()
 
 DropEgg::~DropEgg()
 {
+	
 }
 
 
@@ -49,6 +50,7 @@ void DropEgg::Update() {
 	static float bigTiming = 5.f + fixTiming;
 	static float smallTiming = 5.9f + fixTiming;
 	static float effectTiming = 4.7f + fixTiming;
+	static float bkEffectTiming = 15.f + fixTiming;
 	static float monsterTiming = 20.f + fixTiming;
 	static float bigSpeed = 0.01f;
 	static float smallSpeed = 0.05f;
@@ -83,6 +85,18 @@ void DropEgg::Update() {
 		se->Init(L"Assets/sound/dungeon/light.wav", false);
 		se->Play();
 	}
+	if (m_timer >= bkEffectTiming && !m_isPlayedBackEffect) {
+		ef = NewGO<CEffect>(0, "DRB");
+		ef->SetScale(CVector3::One() * 10);
+		CQuaternion rot = CQuaternion::Identity();
+		ef->SetRotation(rot);
+		auto p = m_monsterPos;
+		p.z -= 10.f;
+		p.y += 100.f;
+		ef->SetPosition(p);
+		ef->Play(L"Assets/effect/drback.efk");
+		m_isPlayedBackEffect = true;
+	}
 	//new monster
 	if (m_timer >= monsterTiming && !m_isDisplayMonster) {
 		NewMonster();
@@ -91,7 +105,7 @@ void DropEgg::Update() {
 }
 
 void DropEgg::NewMonster() {
-	m_monster = NewGO<SkinModelRender>(0);
+	m_monster = NewGO<SkinModelRender>(1);
 	m_monster->SetPosition(m_monsterPos);
 	m_monster->SetScale(CVector3::One() * 2);
 	m_monster->SetDirLight({ 0, 0, -1, 0}, 0);

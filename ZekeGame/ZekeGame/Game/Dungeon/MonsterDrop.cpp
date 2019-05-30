@@ -50,6 +50,8 @@ void MonsterDrop::OnDestroy() {
 	DeleteGO(m_BGM);
 	DeleteGO(m_notifyFont);
 	DeleteGO(m_nextfont);
+	auto ef = FindGO<CEffect>("DRB");
+	ef->Stop();
 }
 
 void MonsterDrop::Update() {
@@ -89,12 +91,12 @@ void MonsterDrop::InitUI() {
 }
 
 void MonsterDrop::InitModels() {
-	m_back = NewGO<SkinModelRender>(0);
-	m_back->Init(L"Assets/modelData/dropwall.cmo");
-	m_back->SetPosition(m_backPosition);
-	CQuaternion rot = CQuaternion::Identity();
-	rot.SetRotationDeg(CVector3::AxisX(), 90.f);
-	m_back->SetRotation(rot);
+	//m_back = NewGO<SkinModelRender>(0);
+	//m_back->Init(L"Assets/modelData/dropwall.cmo");
+	//m_back->SetPosition(m_backPosition);
+	//CQuaternion rot = CQuaternion::Identity();
+	//rot.SetRotationDeg(CVector3::AxisX(), 90.f);
+	//m_back->SetRotation(rot);
 }
 
 
@@ -118,7 +120,7 @@ void MonsterDrop::Notifications() {
 	m_nextfont->Init(L"ƒNƒŠƒbƒN‚µ‚Ä‚­‚¾‚³‚¢", { -600,-300 }, 0, { 1,1,1,1 }, 1, { 0,0 });
 	m_nextfont->DrawShadow();
 
-	m_back->Init(L"Assets/modelData/gorgeousWall.cmo");
+	//m_back->Init(L"Assets/modelData/gorgeousWall.cmo");
 
 	m_isInited = true;
 }

@@ -38,7 +38,6 @@ void Engine::Update() {
 	Mouse::UpdateMouseInput();
 
 	IGameObjectManager().Execute();
-	//FPS->Draw();
 #if _DEBUG
 	FPS->Draw();
 #endif
