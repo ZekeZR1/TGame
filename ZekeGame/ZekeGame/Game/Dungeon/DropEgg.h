@@ -18,7 +18,7 @@ private:
 	void NewMonster();
 	//Monster
 	SkinModelRender* m_monster = nullptr;
-	CVector3 m_monsterPos = { 0.f,-100.f,-200.f };
+	CVector3 m_monsterPos = { 0.f,-200.f,-200.f };
 	CVector3 m_modelScale = { 1.5f,1.5f ,1.5f };
 	CQuaternion m_monsterRot = CQuaternion::Identity();
 	AnimationClip m_animClip[1];

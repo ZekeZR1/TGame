@@ -24,27 +24,12 @@ MonsterDrop::~MonsterDrop()
 bool MonsterDrop::Start() {
 	std::random_device rnd;
 	auto drop = rnd() % 100;
-	//if (drop >= 50 - m_stage) {
-	//	ToDungeonSelect();
-	//	return true;
-	//}
+	if (drop >= 50 - m_stage) {
+		ToDungeonSelect();
+		return true;
+	}
 	m_egg = NewGO<DropEgg>(0);
-	//
-	camera3d->SetTarget(CVector3::Zero());
-	camera3d->SetNear(0.1f);
-	camera3d->SetFar(50000.0f);
-	camera3d->SetPosition({ 0.f,0.f,450.f });
-	camera3d->SetUpdateProjMatrixFunc(Camera::enUpdateProjMatrixFunc_Ortho);
-	camera3d->Update();
-	//
-	camera2d->SetTarget(CVector3::Zero());
-	camera2d->SetPosition({ 0.0f, 0.0f, -10.0f });
-	camera2d->SetNear(0.1f);
-	camera2d->SetFar(1000.0f);
-	camera2d->Update();
-	//
-
-
+	InitCamera();
 	InitUI();
 	InitModels();
 
@@ -125,12 +110,30 @@ void MonsterDrop::Notifications() {
 	m_notifyFont->Init(name, { m_notifyLinePos.x - 250.f ,m_notifyLinePos.y + 20.f});
 	m_notifyFont->DrawShadow();
 	m_notifySp = NewGO<SpriteRender>(0);
-	m_notifySp->Init(L"Assets/Sprite/notifyLine.dds", 650.f, 50.f);
+	m_notifySp->Init(L"Assets/Sprite/notifyLine.dds", 650.f, 80.f);
 	m_notifySp->SetPosition(m_notifyLinePos);
 
 	m_nextfont = NewGO<FontRender>(5, "fr");
 	m_nextfont->SetTextType(CFont::en_Japanese);
 	m_nextfont->Init(L"ƒNƒŠƒbƒN‚µ‚Ä‚­‚¾‚³‚¢", { -600,-300 }, 0, { 1,1,1,1 }, 1, { 0,0 });
 	m_nextfont->DrawShadow();
+
+	m_back->Init(L"Assets/modelData/gorgeousWall.cmo");
+
 	m_isInited = true;
+}
+
+void MonsterDrop::InitCamera() {
+	camera3d->SetTarget(CVector3::Zero());
+	camera3d->SetNear(0.1f);
+	camera3d->SetFar(50000.0f);
+	camera3d->SetPosition({ 0.f,0.f,450.f });
+	camera3d->SetUpdateProjMatrixFunc(Camera::enUpdateProjMatrixFunc_Ortho);
+	camera3d->Update();
+
+	camera2d->SetTarget(CVector3::Zero());
+	camera2d->SetPosition({ 0.0f, 0.0f, -10.0f });
+	camera2d->SetNear(0.1f);
+	camera2d->SetFar(1000.0f);
+	camera2d->Update();
 }

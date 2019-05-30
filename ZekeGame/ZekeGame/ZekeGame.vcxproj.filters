@@ -1887,6 +1887,8 @@
     <None Include="Assets\modelData\uma\uma.nobone.fbx">
       <Filter>Assets\model</Filter>
     </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\aimon_preset\preset_back.png" />
+    <None Include="Assets\Sprite\GUI\modeSelect\aimon_preset\preset_back_sel.png" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="act">
@@ -2034,11 +2036,8 @@
     </Media>
   </ItemGroup>
   <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\aimon_preset\preset_back.png">
-      <Filter>Assets\Sprite\preset</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\aimon_preset\preset_back_sel.png">
-      <Filter>Assets\Sprite\preset</Filter>
-    </ImageContentTask>
+    <MeshContentTask Include="Assets\modelData\dungeon\gorgeousWall.fbx">
+      <Filter>Assets\model</Filter>
+    </MeshContentTask>
   </ItemGroup>
 </Project>

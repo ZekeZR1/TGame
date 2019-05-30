@@ -92,6 +92,8 @@ void DropEgg::Update() {
 
 void DropEgg::NewMonster() {
 	m_monster = NewGO<SkinModelRender>(0);
+	m_monster->SetPosition(m_monsterPos);
+	m_monster->SetScale(CVector3::One() * 2);
 	m_monster->SetDirLight({ 0, 0, -1, 0}, 0);
 	auto se = NewGO<Sound>(0);
 	//se->Init(L"Assets/sound/dungeon/ban1.wav", false);
@@ -99,9 +101,9 @@ void DropEgg::NewMonster() {
 	se->Play();
 	{
 		auto se = NewGO<Sound>(0);
-	//se->Init(L"Assets/sound/dungeon/ban1.wav", false);
-	se->Init(L"Assets/sound/dungeon/newmon1.wav", false);
-	se->Play();
+		//se->Init(L"Assets/sound/dungeon/ban1.wav", false);
+		se->Init(L"Assets/sound/dungeon/newmon1.wav", false);
+		se->Play();
 	}
 	switch (m_monsterId) {
 	case enTest:
@@ -142,5 +144,4 @@ void DropEgg::NewMonster() {
 		break;
 	}
 	m_monster->PlayAnimation(0);
-	m_monster->SetPosition(m_monsterPos);
 }

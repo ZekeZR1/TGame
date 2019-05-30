@@ -15,6 +15,7 @@ public:
 	}
 private:
 	void InitUI();
+	void InitCamera();
 	void Notifications();
 	void InitModels();
 	void SceneTransition();
