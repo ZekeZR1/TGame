@@ -22,6 +22,7 @@
 #include "../Title/MonAIPreset/MonAIPresetLoadOpen.h"
 
 #include "../Title/GObutton.h"
+#include "../Title/MonsterSelectBack.h"
 
 DungeonAISelect::DungeonAISelect()
 {
@@ -48,6 +49,8 @@ void DungeonAISelect::OnDestroy()
 	DeleteGO(m_msp);
 	DeleteGO(m_mlp);
 	DeleteGO(m_GOb);
+
+	DeleteGO(m_back);
 }
 
 bool DungeonAISelect::Start() {
@@ -59,8 +62,9 @@ bool DungeonAISelect::Start() {
 		m_BGM->Play();
 	}
 	//m_backSp->Init(L"Assets/Sprite/dungeonAiSelectWallpaper.dds", 1280.f, 720.f, false);
-	m_backSp = NewGO<SpriteRender>(0, "sp");
-	m_backSp->Init(L"Assets/sprite/monsel_back.dds", 1280, 720);
+	//m_backSp = NewGO<SpriteRender>(0, "sp");
+	//m_backSp->Init(L"Assets/sprite/monsel_back.dds", 1280, 720);
+	m_back = NewGO<MonsterSelectBack>(0, "msb");
 
 	m_fade = FindGO<Fade>("fade");
 	m_fade->FadeIn();

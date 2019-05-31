@@ -16,6 +16,7 @@
 
 #include "../ReturnButton/ReturnButton.h"
 #include "../Title/GObutton.h"
+#include "../Title/MonsterSelectBack.h"
 
 void NetAISelect::OnDestroy()
 {
@@ -33,14 +34,16 @@ void NetAISelect::OnDestroy()
 
 	DeleteGO(m_returnButton);
 	DeleteGO(m_GOb);
+	DeleteGO(m_msback);
 }
 
 bool NetAISelect::Start()
 {
 	m_fade = FindGO<Fade>("fade");
 
-	m_back = NewGO<SpriteRender>(0, "sp");
-	m_back->Init(L"Assets/sprite/monsel_back.dds", 1280, 720);
+	//m_back = NewGO<SpriteRender>(0, "sp");
+	//m_back->Init(L"Assets/sprite/monsel_back.dds", 1280, 720);
+	m_msback = NewGO<MonsterSelectBack>(0, "msb");
 
 	m_files = PythonFileLoad::FilesLoad();
 
@@ -111,6 +114,7 @@ bool NetAISelect::Start()
 
 	m_GOb = NewGO<GObutton>(0, "gb");
 	m_GOb->init(m_cursor, { 520,240,0 });
+	
 	
 	return true;
 }
@@ -199,13 +203,10 @@ void NetAISelect::Update()
 
 		if (m_GOb->isClick())
 		{
-			if (Mouse::isTrigger(enLeftClick))
-			{
-				m_fade->FadeOut();
-				m_isfade = true;
-				//MusicFade* mf = NewGO<MusicFade>(0, "mf");
-				//mf->init(m_BGM, m_vol);
-			}
+			m_fade->FadeOut();
+			m_isfade = true;
+			//MusicFade* mf = NewGO<MusicFade>(0, "mf");
+			//mf->init(m_BGM, m_vol);
 		}
 
 		//m_returnMoji->SetCollisionTarget(curs);

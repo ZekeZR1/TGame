@@ -15,7 +15,7 @@
 #include "../Fade/MusicFade.h"
 
 #include "../Input/KeyBoard.h"
-
+#include "ModeSelect/ModeSelectBack.h"
 
 ModeSelect::~ModeSelect()
 {
@@ -33,6 +33,8 @@ ModeSelect::~ModeSelect()
 
 	DeleteGO(m_back);
 	DeleteGO(m_cursor);
+
+	DeleteGO(m_msBack);
 }
 
 bool ModeSelect::Start()
@@ -48,6 +50,8 @@ bool ModeSelect::Start()
 	m_fade = FindGO<Fade>("fade");
 	m_fade->FadeIn();
 	m_cursor = NewGO<GameCursor>(0, "cur");
+
+	m_msBack = NewGO<ModeSelectBack>(0, "msb");
 
 	m_back = NewGO<SpriteRender>(0, "sp");
 	m_back->Init(L"Assets/sprite/modesel_back.dds", 1280, 720);

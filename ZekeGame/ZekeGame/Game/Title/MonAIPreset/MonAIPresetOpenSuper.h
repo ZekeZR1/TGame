@@ -118,5 +118,8 @@ protected:
 	FontRender* m_fclose = nullptr;		//とじるフォンと
 
 	static bool m_isInit;				//初期化された？
+
+	CVector4 m_backMulCol = { 1,1,1,0 };//バックに表示するやつのムルカラー
+	CVector3 m_Closepos = { 670,-260,0 };//close button のポジション
 };
 
