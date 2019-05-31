@@ -21,6 +21,7 @@ DropEgg::DropEgg()
 
 DropEgg::~DropEgg()
 {
+	
 }
 
 
@@ -49,6 +50,7 @@ void DropEgg::Update() {
 	static float bigTiming = 5.f + fixTiming;
 	static float smallTiming = 5.9f + fixTiming;
 	static float effectTiming = 4.7f + fixTiming;
+	static float bkEffectTiming = 15.f + fixTiming;
 	static float monsterTiming = 20.f + fixTiming;
 	static float bigSpeed = 0.01f;
 	static float smallSpeed = 0.05f;
@@ -83,6 +85,28 @@ void DropEgg::Update() {
 		se->Init(L"Assets/sound/dungeon/light.wav", false);
 		se->Play();
 	}
+	if (m_timer >= bkEffectTiming && !m_isPlayedBackEffect) {
+	/*	ef = NewGO<CEffect>(0, "DRB");
+		ef->SetScale(CVector3::One() * 10);
+		CQuaternion rot = CQuaternion::Identity();
+		ef->SetRotation(rot);
+		auto p = m_monsterPos;
+		p.z -= 10.f;
+		p.y += 100.f;
+		ef->SetPosition(p);
+		ef->Play(L"Assets/effect/drback.efk");
+		m_efk->Play(L"Assets/effect/dropefk.efk", 2.5f);*/
+		ef = NewGO<CEffect>(0, "DRB");
+		//m_efk->SetScale({ 8.f,8.f,8.f });
+		ef->SetScale({ 13.f,13.f,13.f });
+		auto p = m_monsterPos;
+		p.z -= 10.f;
+		p.y += 200.f;
+		//m_efk->SetPosition({ 0.f,0.f,-200.f });
+		ef->SetPosition(p);
+		ef->Play(L"Assets/effect/drback.efk");
+		m_isPlayedBackEffect = true;
+	}
 	//new monster
 	if (m_timer >= monsterTiming && !m_isDisplayMonster) {
 		NewMonster();
@@ -91,7 +115,9 @@ void DropEgg::Update() {
 }
 
 void DropEgg::NewMonster() {
-	m_monster = NewGO<SkinModelRender>(0);
+	m_monster = NewGO<SkinModelRender>(1);
+	m_monster->SetPosition(m_monsterPos);
+	m_monster->SetScale(CVector3::One() * 2);
 	m_monster->SetDirLight({ 0, 0, -1, 0}, 0);
 	auto se = NewGO<Sound>(0);
 	//se->Init(L"Assets/sound/dungeon/ban1.wav", false);
@@ -99,9 +125,9 @@ void DropEgg::NewMonster() {
 	se->Play();
 	{
 		auto se = NewGO<Sound>(0);
-	//se->Init(L"Assets/sound/dungeon/ban1.wav", false);
-	se->Init(L"Assets/sound/dungeon/newmon1.wav", false);
-	se->Play();
+		//se->Init(L"Assets/sound/dungeon/ban1.wav", false);
+		se->Init(L"Assets/sound/dungeon/newmon1.wav", false);
+		se->Play();
 	}
 	switch (m_monsterId) {
 	case enTest:
@@ -142,5 +168,4 @@ void DropEgg::NewMonster() {
 		break;
 	}
 	m_monster->PlayAnimation(0);
-	m_monster->SetPosition(m_monsterPos);
 }
