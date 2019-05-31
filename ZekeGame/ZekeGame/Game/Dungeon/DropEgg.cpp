@@ -96,11 +96,15 @@ void DropEgg::Update() {
 		ef->SetPosition(p);
 		ef->Play(L"Assets/effect/drback.efk");
 		m_efk->Play(L"Assets/effect/dropefk.efk", 2.5f);*/
-		m_efk = NewGO<CEffect>(0);
+		ef = NewGO<CEffect>(0, "DRB");
 		//m_efk->SetScale({ 8.f,8.f,8.f });
-		m_efk->SetScale({ 9.f,9.f,9.f });
-		m_efk->SetPosition({ 0.f,-50.f,-200.f });
-		m_efk->Play(L"Assets/effect/dropefk.efk", 2.5f);
+		ef->SetScale({ 13.f,13.f,13.f });
+		auto p = m_monsterPos;
+		p.z -= 10.f;
+		p.y += 200.f;
+		//m_efk->SetPosition({ 0.f,0.f,-200.f });
+		ef->SetPosition(p);
+		ef->Play(L"Assets/effect/drback.efk");
 		m_isPlayedBackEffect = true;
 	}
 	//new monster

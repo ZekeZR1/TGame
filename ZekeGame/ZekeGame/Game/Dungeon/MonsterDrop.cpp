@@ -24,10 +24,10 @@ MonsterDrop::~MonsterDrop()
 bool MonsterDrop::Start() {
 	std::random_device rnd;
 	auto drop = rnd() % 100;
-	//if (drop >= 50 - m_stage) {
-	//	ToDungeonSelect();
-	//	return true;
-	//}
+	if (drop >= 50 - m_stage) {
+		ToDungeonSelect();
+		return true;
+	}
 	m_egg = NewGO<DropEgg>(0);
 	InitCamera();
 	InitUI();
@@ -57,12 +57,12 @@ void MonsterDrop::OnDestroy() {
 void MonsterDrop::Update() {
 	SceneTransition();
 	Notifications();
-#if _DEBUG
+//#if _DEBUG
 	if (g_pad[0].IsTrigger(enButtonA)) {
 		DeleteGO(this);
 		NewGO<MonsterDrop>(0);
 	}
-#endif
+//#endif
 }
 
 
@@ -91,12 +91,12 @@ void MonsterDrop::InitUI() {
 }
 
 void MonsterDrop::InitModels() {
-	//m_back = NewGO<SkinModelRender>(0);
-	//m_back->Init(L"Assets/modelData/dropwall.cmo");
-	//m_back->SetPosition(m_backPosition);
-	//CQuaternion rot = CQuaternion::Identity();
-	//rot.SetRotationDeg(CVector3::AxisX(), 90.f);
-	//m_back->SetRotation(rot);
+	m_back = NewGO<SkinModelRender>(0);
+	m_back->Init(L"Assets/modelData/dropwall.cmo");
+	m_back->SetPosition(m_backPosition);
+	CQuaternion rot = CQuaternion::Identity();
+	rot.SetRotationDeg(CVector3::AxisX(), 90.f);
+	m_back->SetRotation(rot);
 }
 
 
@@ -120,7 +120,7 @@ void MonsterDrop::Notifications() {
 	m_nextfont->Init(L"ƒNƒŠƒbƒN‚µ‚Ä‚­‚¾‚³‚¢", { -600,-300 }, 0, { 1,1,1,1 }, 1, { 0,0 });
 	m_nextfont->DrawShadow();
 
-	//m_back->Init(L"Assets/modelData/gorgeousWall.cmo");
+	m_back->Init(L"Assets/modelData/gorgeousWall.cmo");
 
 	m_isInited = true;
 }
