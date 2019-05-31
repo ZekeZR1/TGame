@@ -24,10 +24,10 @@ MonsterDrop::~MonsterDrop()
 bool MonsterDrop::Start() {
 	std::random_device rnd;
 	auto drop = rnd() % 100;
-	if (drop >= 50 - m_stage) {
-		ToDungeonSelect();
-		return true;
-	}
+	//if (drop >= 50 - m_stage) {
+	//	ToDungeonSelect();
+	//	return true;
+	//}
 	m_egg = NewGO<DropEgg>(0);
 	InitCamera();
 	InitUI();
@@ -46,12 +46,12 @@ void MonsterDrop::OnDestroy() {
 	DeleteGO(m_notifySp);
 	DeleteGO(m_monsterNameSp);
 	DeleteGO(m_egg);
-	DeleteGO(m_back);
 	DeleteGO(m_BGM);
 	DeleteGO(m_notifyFont);
 	DeleteGO(m_nextfont);
 	auto ef = FindGO<CEffect>("DRB");
-	ef->Stop();
+	if(ef!=nullptr)
+		ef->Stop();
 }
 
 void MonsterDrop::Update() {

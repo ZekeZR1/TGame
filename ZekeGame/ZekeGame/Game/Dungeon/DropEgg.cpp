@@ -86,7 +86,7 @@ void DropEgg::Update() {
 		se->Play();
 	}
 	if (m_timer >= bkEffectTiming && !m_isPlayedBackEffect) {
-		ef = NewGO<CEffect>(0, "DRB");
+	/*	ef = NewGO<CEffect>(0, "DRB");
 		ef->SetScale(CVector3::One() * 10);
 		CQuaternion rot = CQuaternion::Identity();
 		ef->SetRotation(rot);
@@ -95,6 +95,12 @@ void DropEgg::Update() {
 		p.y += 100.f;
 		ef->SetPosition(p);
 		ef->Play(L"Assets/effect/drback.efk");
+		m_efk->Play(L"Assets/effect/dropefk.efk", 2.5f);*/
+		m_efk = NewGO<CEffect>(0);
+		//m_efk->SetScale({ 8.f,8.f,8.f });
+		m_efk->SetScale({ 9.f,9.f,9.f });
+		m_efk->SetPosition({ 0.f,-50.f,-200.f });
+		m_efk->Play(L"Assets/effect/dropefk.efk", 2.5f);
 		m_isPlayedBackEffect = true;
 	}
 	//new monster
