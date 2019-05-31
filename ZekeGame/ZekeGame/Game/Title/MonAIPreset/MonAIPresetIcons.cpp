@@ -65,7 +65,7 @@ void MonAIPresetIcons::init(Preset* preset, CVector3 pos,GameCursor* cur)
 	ipos = pos;
 	ipos.y -= 190;
 	ipos.y += 20;
-	ipos.x += 2;
+	//ipos.x += 2;
 
 	m_back = NewGO<SpriteRender>(5, "sp");
 	m_back->Init(L"Assets/sprite/preset_back.dds", 157, 567);
@@ -139,8 +139,19 @@ void MonAIPresetIcons::Setpos(CVector3 pos)
 
 	ipos = pos;
 	ipos.y -= 190;
-	ipos.y += 20;
-	ipos.x += 2;
+	ipos.y += 19;
 	m_back->SetPosition(ipos);
 	m_dummy->SetPosition(ipos);
+}
+
+void MonAIPresetIcons::Setrot(float rot)
+{
+	CQuaternion qrot;
+	qrot.SetRotationDeg(CVector3::AxisZ(), rot);
+
+	m_back->SetRotation(qrot);
+	for (auto icon : m_mapi)
+	{
+		icon->Setrot(rot,m_back->GetPosition());
+	}
 }

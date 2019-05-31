@@ -27,6 +27,7 @@ public:
 	void Update();
 
 	void Setpos(CVector3 pos);
+	void Setrot(float rot);
 
 	//クリックしたのか…？俺以外のやつと…？
 	bool IsClick()

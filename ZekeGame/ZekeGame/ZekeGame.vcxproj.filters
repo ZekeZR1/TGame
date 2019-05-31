@@ -566,6 +566,15 @@
       <Filter>Game\Dungeon</Filter>
     </ClCompile>
     <ClCompile Include="Game\Title\GObutton.cpp" />
+    <ClCompile Include="Game\Title\MonsterSelectBack.cpp">
+      <Filter>Game\AIMonSelect</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Title\ModeSelect\ModeSelectBack.cpp">
+      <Filter>Game\ModeSelect</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\UIAnimator\UIAnimator.cpp">
+      <Filter>Game\UIAnimator</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\PythonBridge\include\unicodeobject.h" />
@@ -1440,6 +1449,15 @@
       <Filter>Game\Dungeon</Filter>
     </ClInclude>
     <ClInclude Include="Game\Title\GObutton.h" />
+    <ClInclude Include="Game\Title\MonsterSelectBack.h">
+      <Filter>Game\AIMonSelect</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Title\ModeSelect\ModeSelectBack.h">
+      <Filter>Game\ModeSelect</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\UIAnimator\UIAnimator.h">
+      <Filter>Game\UIAnimator</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="python36.lib" />
@@ -1530,9 +1548,6 @@
       <Filter>Game\AIMonSelect\AIMonPreset\NObuild</Filter>
     </None>
     <None Include="Assets\Sprite\Network\wallpaper2.jpg">
-      <Filter>Assets\Sprite\netpvp</Filter>
-    </None>
-    <None Include="Assets\Sprite\Network\wallpaper3.jpg">
       <Filter>Assets\Sprite\netpvp</Filter>
     </None>
     <None Include="Assets\effect\PONG.efk" />
@@ -1686,9 +1701,6 @@
     <None Include="Assets\Sprite\GUI\modeSelect\modesel_back_net.png">
       <Filter>Assets\Sprite\modesel</Filter>
     </None>
-    <None Include="Assets\Sprite\GUI\modeSelect\modesel_frame.png">
-      <Filter>Assets\Sprite\modesel</Filter>
-    </None>
     <None Include="Assets\Sprite\GUI\MonActList\actBlock.png">
       <Filter>Assets\Sprite\monActListNum</Filter>
     </None>
@@ -1726,15 +1738,6 @@
       <Filter>Assets\Sprite\MonSelect</Filter>
     </None>
     <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_frame.png">
-      <Filter>Assets\Sprite\MonSelect</Filter>
-    </None>
-    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_frameBlue.png">
-      <Filter>Assets\Sprite\MonSelect</Filter>
-    </None>
-    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_frameRed.png">
-      <Filter>Assets\Sprite\MonSelect</Filter>
-    </None>
-    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_frameYellow.png">
       <Filter>Assets\Sprite\MonSelect</Filter>
     </None>
     <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_gob.png">
@@ -1887,6 +1890,15 @@
     <None Include="Assets\modelData\uma\uma.nobone.fbx">
       <Filter>Assets\model</Filter>
     </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_frameBlue.png">
+      <Filter>Assets\Sprite\MonSelect</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_frameRed.png">
+      <Filter>Assets\Sprite\MonSelect</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_frameYellow.png">
+      <Filter>Assets\Sprite\MonSelect</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="act">
@@ -2018,6 +2030,12 @@
     <Filter Include="Assets\Sprite\preset">
       <UniqueIdentifier>{0b5d1d95-b9cb-41df-8d95-eb02e16651dc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\ModeSelect">
+      <UniqueIdentifier>{5540b851-9484-4414-9d63-db3316b59ab8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\UIAnimator">
+      <UniqueIdentifier>{f799ba4b-7abe-4031-8f31-d1d0c550e2cd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Media Include="Assets\sound\punch-middle2.wav">
@@ -2034,11 +2052,44 @@
     </Media>
   </ItemGroup>
   <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\aimon_preset\preset_back.png">
-      <Filter>Assets\Sprite\preset</Filter>
+    <ImageContentTask Include="Assets\Sprite\Network\wallpaper3.jpg" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_roku.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\aimon_preset\preset_back.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\aimon_preset\preset_back_sel.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_frame.png">
+      <Filter>Assets\Sprite\modesel</Filter>
     </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\aimon_preset\preset_back_sel.png">
-      <Filter>Assets\Sprite\preset</Filter>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\gear.png">
+      <Filter>Assets\Sprite\modesel</Filter>
     </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_blackF.png">
+      <Filter>Assets\Sprite\modesel</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_brain.png">
+      <Filter>Assets\Sprite\modesel</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_dun.png">
+      <Filter>Assets\Sprite\modesel</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_earth.png">
+      <Filter>Assets\Sprite\modesel</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_eye.png">
+      <Filter>Assets\Sprite\modesel</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_p.png">
+      <Filter>Assets\Sprite\modesel</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_txt.png">
+      <Filter>Assets\Sprite\modesel</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_VS.png">
+      <Filter>Assets\Sprite\modesel</Filter>
+    </ImageContentTask>
+  </ItemGroup>
+  <ItemGroup>
+    <MeshContentTask Include="Assets\modelData\ModeSelect\mdsel_None.fbx">
+      <Filter>Assets\model</Filter>
+    </MeshContentTask>
   </ItemGroup>
 </Project>

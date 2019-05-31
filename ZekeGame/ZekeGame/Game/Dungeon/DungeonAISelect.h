@@ -5,6 +5,7 @@ class Fade;
 class ReturnButton;
 class MonAIPresetOpenSuper;
 class GObutton;
+class MonsterSelectBack;
 class DungeonAISelect : public SuperMonsterSelect
 {
 public:
@@ -51,6 +52,7 @@ private:
 	MonAIPresetOpenSuper* m_msp = nullptr;		//presetのセーブ用
 	MonAIPresetOpenSuper* m_mlp = nullptr;		//presetのロード用(紅組用の)
 
-	GObutton* m_GOb = nullptr;
+	GObutton* m_GOb = nullptr;					//GO button
+	MonsterSelectBack* m_back = nullptr;		//haikei
 };
 

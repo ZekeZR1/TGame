@@ -8,6 +8,7 @@ class MonAIPresetOpenSuper;
 class Fade;
 class ReturnButton;
 class GObutton;
+class MonsterSelectBack;
 class NetAISelect :public SuperMonsterSelect
 {
 public:
@@ -64,4 +65,5 @@ private:
 	ReturnButton* m_returnButton = nullptr;			//–ß‚éƒ{ƒ^ƒ“
 
 	GObutton* m_GOb = nullptr;						//GO botan
+	MonsterSelectBack* m_msback = nullptr;			//‚Í‚¢‚¯‚¢
 };

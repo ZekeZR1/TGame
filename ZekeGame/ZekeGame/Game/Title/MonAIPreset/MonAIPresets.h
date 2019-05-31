@@ -23,6 +23,8 @@ public:
 	//Update
 	void Update();
 
+	void Rotation();
+
 	//クリックされますたんぐたいさ。
 	bool IsClick()
 	{
@@ -36,6 +38,7 @@ public:
 	}
 
 	void UpdatePreset(int num);
+
 
 	enum eState
 	{
@@ -57,4 +60,8 @@ private:
 
 	eState m_State = enClose;						//開かれてる？
 	CVector3 m_pos = CVector3::Zero();			//ポジション
+
+	bool m_isrot = false;
+	int m_rotSt = 0;
+	float m_rot = 0;
 };

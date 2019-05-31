@@ -19,6 +19,7 @@ public:
 	void init(int monID,const wchar_t* pypath,CVector3 pos);
 
 	void Setpos(CVector3 pos);
+	void Setrot(float rot,CVector3 pos);
 
 	void UpdateAIMON(int monID, const wchar_t* pypath);
 	//Update
@@ -26,6 +27,7 @@ public:
 private:
 	SpriteRender* m_Icon = nullptr;		//きっとモンスターの画像
 	FontRender* m_font = nullptr;		//pythonのを表示するための
+	SpriteRender* m_back = nullptr;		//後ろのやつ
 
 	int m_monID = 0;					//モンスターのID
 	int m_pyInd = 0;					//pythonの番号
@@ -35,4 +37,5 @@ private:
 
 	CVector3 m_pos = CVector3::Zero();	//position
 
+	CVector3 m_fontoffs = {-80,-20,0};
 };
