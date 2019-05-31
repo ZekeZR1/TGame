@@ -3,7 +3,7 @@
 
 ModeSelectBack::ModeSelectBack()
 {
-	camera3d->SetUpdateProjMatrixFunc(Camera::enUpdateProjMatrixFunc_Ortho);
+	//camera3d->SetUpdateProjMatrixFunc(Camera::enUpdateProjMatrixFunc_Ortho);
 	camera3d->SetTarget(CVector3::Zero());
 	camera3d->SetPosition({ 0,0,-800 });
 	camera3d->Update();
@@ -38,4 +38,154 @@ void ModeSelectBack::OnDestroy()
 	DeleteGO(m_back);
 	m_effect->Stop();
 	DeleteGO(m_effect);
+}
+
+void ModeSelectBack::Update()
+{
+	if (m_isfirst)
+	{
+		switch (m_mode)
+		{
+		case endundeon:
+			break;
+		case enpvp:
+			break;
+		case ennetpvp:
+			break;
+		case enAIedit:
+			break;
+		}
+	}
+}
+
+void ModeSelectBack::Dungeon()
+{
+	SpriteRender* sp = NewGO<SpriteRender>(0, "sp");
+	sp->Init(L"Assets/sprite/modesel_dun.dds", 1280, 673);
+
+	m_sprits.push_back(sp);
+	
+	sp = NewGO<SpriteRender>(0, "sp");
+	sp->Init(L"Assets/sprite/modesel_eye.dds", 303, 193);
+	m_sprits.push_back(sp);
+
+	m_mode = endundeon;
+}
+
+void ModeSelectBack::PVP()
+{
+
+	SpriteRender* sp;
+	for (int i = 0; i < 3; i++)
+	{
+		sp = NewGO<SpriteRender>(0, "sp");
+		sp->Init(L"Assets/sprite/modesel_p.dds", 339, 243);
+		m_sprits.push_back(sp);
+	}
+
+	CQuaternion rot;
+	rot.SetRotationDeg(CVector3::AxisZ(), 180);
+	for (int i = 0; i < 3; i++)
+	{
+		sp = NewGO<SpriteRender>(0, "sp");
+		sp->Init(L"Assets/sprite/modesel_p.dds", 339, 243);
+		sp->SetRotation(rot);
+		m_sprits.push_back(sp);
+	}
+
+	sp = NewGO<SpriteRender>(0, "sp");
+	sp->Init(L"Assets/sprite/modesel_blackF.dds", 726, 116);
+	m_sprits.push_back(sp);
+
+	sp = NewGO<SpriteRender>(0, "sp");
+	sp->Init(L"Assets/sprite/modesel_VS.dds", 708, 367);
+	m_sprits.push_back(sp);
+
+	m_mode = enpvp;
+}
+
+void ModeSelectBack::NetPVP()
+{
+	SpriteRender* sp;
+	for (int i = 0; i < 3; i++)
+	{
+		sp = NewGO<SpriteRender>(0, "sp");
+		sp->Init(L"Assets/sprite/modesel_p.dds", 339, 243);
+		m_sprits.push_back(sp);
+	}
+
+	CQuaternion rot;
+	rot.SetRotationDeg(CVector3::AxisZ(), 180);
+	for (int i = 0; i < 3; i++)
+	{
+		sp = NewGO<SpriteRender>(0, "sp");
+		sp->Init(L"Assets/sprite/modesel_p.dds", 339, 243);
+		sp->SetRotation(rot);
+		m_sprits.push_back(sp);
+	}
+
+	sp = NewGO<SpriteRender>(0, "sp");
+	sp->Init(L"Assets/sprite/modesel_earth.dds", 304, 295);
+	m_sprits.push_back(sp);
+
+	sp = NewGO<SpriteRender>(0, "sp");
+	sp->Init(L"Assets/sprite/modesel_blackF.dds", 726.f*0.7f, 116.f * 0.7f);
+	m_sprits.push_back(sp);
+
+	sp = NewGO<SpriteRender>(0, "sp");
+	sp->Init(L"Assets/sprite/modesel_VS.dds", 708.f * 0.7f, 367.f * 0.7f);
+	m_sprits.push_back(sp);
+
+	m_mode = ennetpvp;
+}
+
+void ModeSelectBack::AIedit()
+{
+	SpriteRender* sp = NewGO<SpriteRender>(0, "sp");
+	sp->Init(L"Assets/sprite/modesel_txt.dds", 440, 236);
+	m_sprits.push_back(sp);
+
+	sp = NewGO<SpriteRender>(0, "sp");
+	sp->Init(L"Assets/sprite/gear.dds", 400, 400);
+	m_sprits.push_back(sp);
+
+	sp = NewGO<SpriteRender>(0, "sp");
+	sp->Init(L"Assets/sprite/gear.dds", 400, 400);
+	m_sprits.push_back(sp);
+
+	sp = NewGO<SpriteRender>(0, "sp");
+	sp->Init(L"Assets/sprite/modesel_brain.dds", 571, 456);
+	m_sprits.push_back(sp);
+
+	sp = NewGO<SpriteRender>(0, "sp");
+	sp->Init(L"Assets/sprite/gear.dds", 400, 400);
+	m_sprits.push_back(sp);
+
+	m_mode = enAIedit;
+}
+
+void ModeSelectBack::delSprits()
+{
+	for (auto sp : m_sprits)
+	{
+		DeleteGO(sp);
+	}
+	m_sprits.clear();
+	m_sprits.shrink_to_fit();
+}
+
+void ModeSelectBack::moveDungeon()
+{
+}
+
+void ModeSelectBack::movePVP()
+{
+}
+
+void ModeSelectBack::moveNETPVP()
+{
+}
+
+void ModeSelectBack::moveAIedit()
+{
 }

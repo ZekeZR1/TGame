@@ -355,6 +355,7 @@
     <ClCompile Include="Game\Title\pvpModeSelect.cpp" />
     <ClCompile Include="Game\Title\SuperMonsterSelect.cpp" />
     <ClCompile Include="Game\Title\Title.cpp" />
+    <ClCompile Include="Game\UIAnimator\UIAnimator.cpp" />
     <ClCompile Include="Game\VisualScriptAI\VisualScriptAI.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -661,6 +662,7 @@
     <ClInclude Include="Game\Title\pvpModeSelect.h" />
     <ClInclude Include="Game\Title\SuperMonsterSelect.h" />
     <ClInclude Include="Game\Title\Title.h" />
+    <ClInclude Include="Game\UIAnimator\UIAnimator.h" />
     <ClInclude Include="Game\VisualScriptAI\VisualScriptAI.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="TestScene.h" />
@@ -869,9 +871,9 @@
     <None Include="Assets\Sprite\GUI\modeSelect\modesel_back_local.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </None>
-    <None Include="Assets\Sprite\GUI\modeSelect\modesel_frame.png">
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_frame.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </None>
+    </ImageContentTask>
     <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\Monselect.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </None>
@@ -1109,6 +1111,19 @@
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\ModeSelect\mdsel_None.fbx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\gear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_blackF.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_brain.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_dun.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_earth.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_eye.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_p.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_txt.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_VS.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
