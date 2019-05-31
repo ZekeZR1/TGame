@@ -17,6 +17,7 @@ struct UIkeyFrame
 	CQuaternion rot = { 0,0,0,1 };
 };
 
+//UIのアニメーション
 struct UIAnim
 {
 	std::vector<UIkeyFrame> frames;
@@ -25,17 +26,35 @@ struct UIAnim
 class UIAnimator :public GameObject
 {
 public:
+	void OnDestroy();
+	/*
+	UIをロードする
+	args:
+		path: path
+		fanc:	ラムダ式
+	*/
 	void loadUI(const wchar_t* path,std::function<SpriteRender*(sUI* ui,bool &isfook)> func);
+	/*
+	アニメーションを再生
+	path: path
+	*/
 	void playAnim(const wchar_t* path);
 
+	//Update
 	void Update();
 
+	// 今、アニメーションしてますか？
+	bool isAnimation()
+	{
+		return m_isAnimation;
+	}
 private:
-	std::vector<SpriteRender*> m_Sprits;
+	std::vector<SpriteRender*> m_Sprits;		//loadUIで取得したspriterenderたち
 
-	std::vector<UIAnim*> m_anims;
-	int m_frameCount = 0;
-	float m_time = 0;
-	int m_frame = 0;
-	bool m_isAnimation = false;
+	std::vector<UIAnim*> m_anims;				//現在実行しているアニメーション
+	int m_frameCount = 0;								//フレーム数
+	float m_time = 0;										//時間
+	int m_frame = 0;										//現在のフレーム
+	bool m_isAnimation = false;					//アニメーションしてる？
 };
+

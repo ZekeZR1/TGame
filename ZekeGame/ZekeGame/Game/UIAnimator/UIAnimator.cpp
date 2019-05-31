@@ -1,6 +1,15 @@
 #include "stdafx.h"
 #include "UIAnimator.h"
 
+void UIAnimator::OnDestroy()
+{
+	for (auto sp : m_Sprits)
+		DeleteGO(sp);
+	for (auto o : m_anims)
+		delete o;
+
+}
+
 void UIAnimator::loadUI(const wchar_t* path, std::function<SpriteRender* (sUI* ui,bool &isfook)> func)
 {
 	FILE* file = nullptr;
