@@ -56,6 +56,7 @@ public:
 	ID3D11Buffer*				m_indexBuffer = NULL;				
 	ID3D11DepthStencilState* m_depthStencilState = NULL;
 	ID3D11DepthStencilState*	spriteRender = NULL;
+	ID3D11DepthStencilState*	zspriteRender = NULL;
 	ID3D11RasterizerState*	rspriteRender = NULL;
 
 	Effect						m_effect;								

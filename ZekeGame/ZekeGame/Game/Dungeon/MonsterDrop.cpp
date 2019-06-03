@@ -24,15 +24,20 @@ MonsterDrop::~MonsterDrop()
 bool MonsterDrop::Start() {
 	std::random_device rnd;
 	auto drop = rnd() % 100;
-	if (drop >= 50 - m_stage) {
-		ToDungeonSelect();
-		return true;
-	}
+	//if (drop >= 50 - m_stage) {
+	//	ToDungeonSelect();
+	//	return true;
+	//}
 	m_egg = NewGO<DropEgg>(0);
 	InitCamera();
 	InitUI();
 	InitModels();
 
+	auto bgm = FindGO<Sound>("BGM");
+	if (bgm != nullptr)
+	{
+		bgm->Stop();
+	}
 	m_BGM = NewGO<Sound>(0, "BGM");
 	m_BGM->Init(L"Assets/sound/dungeon/mond.wav", true);
 	m_BGM->Play();
@@ -57,12 +62,6 @@ void MonsterDrop::OnDestroy() {
 void MonsterDrop::Update() {
 	SceneTransition();
 	Notifications();
-//#if _DEBUG
-	if (g_pad[0].IsTrigger(enButtonA)) {
-		DeleteGO(this);
-		NewGO<MonsterDrop>(0);
-	}
-//#endif
 }
 
 
@@ -79,6 +78,9 @@ void MonsterDrop::SceneTransition() {
 	if (Mouse::isTrigger(enLeftClick) and m_isInited) {
 		m_fadeFlag = true;
 		m_fade->FadeOut();
+		auto se = NewGO<Sound>(0);
+		se->Init(L"Assets/sound/se/button.wav", false);
+		se->Play();
 	}
 	if (m_fade->isFadeStop() && m_fadeFlag) {
 		ToDungeonSelect();

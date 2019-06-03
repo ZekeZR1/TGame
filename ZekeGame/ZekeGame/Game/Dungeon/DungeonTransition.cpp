@@ -53,6 +53,9 @@ void DungeonTransition::Update() {
 		if (!m_isfade) {
 			m_fade->FadeOut();
 			m_isfade = true;
+			auto se = NewGO<Sound>(0);
+			se->Init(L"Assets/sound/se/button.wav", false);
+			se->Play();
 		}
 	}
 	if (m_isfade && m_fade->isFadeStop()) {
