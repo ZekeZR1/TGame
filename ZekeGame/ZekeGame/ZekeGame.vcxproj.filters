@@ -1547,9 +1547,6 @@
     <None Include="Game\Title\MonAIPreset\MonAIPresetSave.cpp">
       <Filter>Game\AIMonSelect\AIMonPreset\NObuild</Filter>
     </None>
-    <None Include="Assets\Sprite\Network\wallpaper2.jpg">
-      <Filter>Assets\Sprite\netpvp</Filter>
-    </None>
     <None Include="Assets\effect\PONG.efk" />
     <None Include="Assets\Sprite\AIEdit\arrow.png">
       <Filter>Assets\Sprite\AIEdit</Filter>
@@ -1899,6 +1896,40 @@
     <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_frameYellow.png">
       <Filter>Assets\Sprite\MonSelect</Filter>
     </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\gear.png">
+      <Filter>Assets\Sprite\modesel</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\modesel_blackF.png">
+      <Filter>Assets\Sprite\modesel</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\modesel_brain.png">
+      <Filter>Assets\Sprite\modesel</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\modesel_dun.png">
+      <Filter>Assets\Sprite\modesel</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\modesel_earth.png">
+      <Filter>Assets\Sprite\modesel</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\modesel_eye.png">
+      <Filter>Assets\Sprite\modesel</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\modesel_frame.png">
+      <Filter>Assets\Sprite\modesel</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\modesel_p.png">
+      <Filter>Assets\Sprite\modesel</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\modesel_txt.png">
+      <Filter>Assets\Sprite\modesel</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\modesel_VS.png">
+      <Filter>Assets\Sprite\modesel</Filter>
+    </None>
+    <None Include="Assets\Sprite\Network\testes.png" />
+    <None Include="Assets\Sprite\GUI\modeSelect\aimon_preset\preset_back_sel.png" />
+    <None Include="Assets\Sprite\GUI\modeSelect\aimon_preset\preset_back.png" />
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_roku.png" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="act">
@@ -2053,39 +2084,7 @@
   </ItemGroup>
   <ItemGroup>
     <ImageContentTask Include="Assets\Sprite\Network\wallpaper3.jpg" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_roku.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\aimon_preset\preset_back.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\aimon_preset\preset_back_sel.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_frame.png">
-      <Filter>Assets\Sprite\modesel</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\gear.png">
-      <Filter>Assets\Sprite\modesel</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_blackF.png">
-      <Filter>Assets\Sprite\modesel</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_brain.png">
-      <Filter>Assets\Sprite\modesel</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_dun.png">
-      <Filter>Assets\Sprite\modesel</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_earth.png">
-      <Filter>Assets\Sprite\modesel</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_eye.png">
-      <Filter>Assets\Sprite\modesel</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_p.png">
-      <Filter>Assets\Sprite\modesel</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_txt.png">
-      <Filter>Assets\Sprite\modesel</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_VS.png">
-      <Filter>Assets\Sprite\modesel</Filter>
-    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\Network\wallpaper2.jpg" />
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\ModeSelect\mdsel_None.fbx">

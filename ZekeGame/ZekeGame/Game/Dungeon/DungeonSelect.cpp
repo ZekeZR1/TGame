@@ -265,13 +265,16 @@ void DungeonSelect::StartDungeon() {
 		return;
 	for (auto i : m_sps) {
 		i->SetCollisionTarget(m_cur->GetCursor());
-		if (Mouse::isTrigger(enLeftClick)) {
+		if (Mouse::isTrigger(enLeftClick) and !m_isfade) {
 			if (i->isCollidingTarget()) {
 				dunNum = m_dungeonButton[i];
 				if (dunNum > m_clearedDunNum + 1)
 					return;
 				m_fade->FadeOut();
 				m_isfade = true;
+				auto se = NewGO<Sound>(0);
+				se->Init(L"Assets/sound/se/button.wav", false);
+				se->Play();
 			}
 		}
 	}
