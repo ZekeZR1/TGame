@@ -1083,7 +1083,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Sprite\Network\wallpaper2.jpg" />
+    <ImageContentTask Include="Assets\Sprite\Network\wallpaper2.jpg" />
   </ItemGroup>
   <ItemGroup>
     <ImageContentTask Include="Assets\Sprite\Network\wallpaper3.jpg" />
@@ -1114,6 +1114,9 @@
     <None Include="Assets\modelData\dungeon\gorgeousWall.fbx">
       <FileType>Document</FileType>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageContentTask Include="Assets\Sprite\Network\testes.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

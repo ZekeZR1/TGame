@@ -126,6 +126,7 @@
             </Position_Fixed_UR>
           </Sprite>
         </DrawingValues>
+        <IsRendered>False</IsRendered>
         <Name>Light Beams</Name>
         <Children />
       </Node>
@@ -189,9 +190,11 @@
             </InnerColor_Fixed>
           </Ring>
         </DrawingValues>
+        <IsRendered>False</IsRendered>
         <Name>Ambient Glow</Name>
         <Children>
           <Node>
+            <IsRendered>False</IsRendered>
             <Name>Node</Name>
             <Children />
           </Node>
@@ -268,7 +271,13 @@
         <CommonValues>
           <MaxGeneration>
             <Value>200</Value>
+            <Infinite>True</Infinite>
           </MaxGeneration>
+          <Life>
+            <Center>300</Center>
+            <Max>300</Max>
+            <Min>300</Min>
+          </Life>
           <GenerationTimeOffset>
             <Center>25</Center>
             <Max>25</Max>
@@ -345,6 +354,7 @@
         <CommonValues>
           <MaxGeneration>
             <Value>200</Value>
+            <Infinite>True</Infinite>
           </MaxGeneration>
           <GenerationTimeOffset>
             <Center>145</Center>
@@ -416,6 +426,7 @@
             </ColorAll_Random>
           </Sprite>
         </DrawingValues>
+        <IsRendered>False</IsRendered>
         <Name>Twinkle Faster</Name>
         <Children />
       </Node>
@@ -424,6 +435,174 @@
           <MaxGeneration>
             <Infinite>True</Infinite>
           </MaxGeneration>
+          <Life>
+            <Center>35</Center>
+            <Max>35</Max>
+            <Min>35</Min>
+          </Life>
+          <GenerationTime>
+            <Center>2.75</Center>
+            <Max>5</Max>
+            <Min>0.5</Min>
+            <DrawnAs>0</DrawnAs>
+          </GenerationTime>
+          <GenerationTimeOffset>
+            <Center>65</Center>
+            <Max>65</Max>
+            <Min>65</Min>
+          </GenerationTimeOffset>
+        </CommonValues>
+        <LocationValues>
+          <Type>1</Type>
+          <PVA>
+            <Velocity>
+              <X>
+                <Max>0.1</Max>
+                <Min>-0.1</Min>
+              </X>
+              <Y>
+                <Max>0.1</Max>
+                <Min>-0.1</Min>
+              </Y>
+              <Z>
+                <Center>0.125</Center>
+                <Max>0.25</Max>
+              </Z>
+              <DrawnAs>0</DrawnAs>
+            </Velocity>
+            <Acceleration>
+              <X>
+                <Max>0.01</Max>
+                <Min>-0.01</Min>
+              </X>
+              <Y>
+                <Center>0.005</Center>
+                <Max>0.01</Max>
+              </Y>
+              <Z>
+                <Max>0.01</Max>
+                <Min>-0.01</Min>
+              </Z>
+              <DrawnAs>0</DrawnAs>
+            </Acceleration>
+          </PVA>
+        </LocationValues>
+        <ScalingValues>
+          <Type>1</Type>
+        </ScalingValues>
+        <LocationAbsValues>
+          <AttractiveForce>
+            <Force>0.01</Force>
+          </AttractiveForce>
+        </LocationAbsValues>
+        <GenerationLocationValues>
+          <EffectsRotation>True</EffectsRotation>
+          <Sphere>
+            <Radius>
+              <Center>2</Center>
+              <Max>3</Max>
+              <Min>1</Min>
+            </Radius>
+            <RotationX>
+              <Max>180</Max>
+              <Min>-180</Min>
+            </RotationX>
+            <RotationY>
+              <Max>180</Max>
+              <Min>-180</Min>
+            </RotationY>
+          </Sphere>
+        </GenerationLocationValues>
+        <DrawingValues>
+          <Type>0</Type>
+        </DrawingValues>
+        <Name>Ribbon Guide</Name>
+        <Children>
+          <Node>
+            <CommonValues>
+              <MaxGeneration>
+                <Infinite>True</Infinite>
+              </MaxGeneration>
+              <LocationEffectType>1</LocationEffectType>
+              <Life>
+                <Center>20</Center>
+                <Max>20</Max>
+                <Min>20</Min>
+              </Life>
+            </CommonValues>
+            <RendererCommonValues>
+              <ColorTexture>Texture/LaserMain02.png</ColorTexture>
+              <AlphaBlend>2</AlphaBlend>
+              <FadeOutType>1</FadeOutType>
+              <FadeOut>
+                <Frame>20</Frame>
+              </FadeOut>
+            </RendererCommonValues>
+            <DrawingValues>
+              <Type>3</Type>
+              <Ribbon>
+                <ViewpointDependent>True</ViewpointDependent>
+                <ColorAll>2</ColorAll>
+                <ColorAll_Fixed>
+                  <G>0</G>
+                  <B>0</B>
+                </ColorAll_Fixed>
+                <ColorAll_Random>
+                  <R>
+                    <Center>127</Center>
+                    <Min>0</Min>
+                  </R>
+                  <G>
+                    <Center>128</Center>
+                    <Max>128</Max>
+                    <Min>128</Min>
+                  </G>
+                  <B>
+                    <Center>192</Center>
+                    <Max>192</Max>
+                    <Min>192</Min>
+                  </B>
+                </ColorAll_Random>
+                <ColorAll_Easing>
+                  <Start>
+                    <R>
+                      <Center>0</Center>
+                      <Max>0</Max>
+                      <Min>0</Min>
+                    </R>
+                    <G>
+                      <Center>128</Center>
+                      <Max>128</Max>
+                      <Min>128</Min>
+                    </G>
+                    <B>
+                      <Center>192</Center>
+                      <Max>192</Max>
+                      <Min>192</Min>
+                    </B>
+                    <DrawnAs>0</DrawnAs>
+                  </Start>
+                  <End>
+                    <G>
+                      <Center>128</Center>
+                      <Max>128</Max>
+                      <Min>128</Min>
+                    </G>
+                    <A>
+                      <Center>127</Center>
+                      <Min>0</Min>
+                    </A>
+                  </End>
+                </ColorAll_Easing>
+              </Ribbon>
+            </DrawingValues>
+            <Name>Ribbon</Name>
+            <Children />
+          </Node>
+        </Children>
+      </Node>
+      <Node>
+        <CommonValues>
           <Life>
             <Center>35</Center>
             <Max>35</Max>
@@ -515,6 +694,7 @@
         <DrawingValues>
           <Type>0</Type>
         </DrawingValues>
+        <IsRendered>False</IsRendered>
         <Name>Ribbon Guide</Name>
         <Children>
           <Node>
@@ -596,7 +776,6 @@
                 </ColorAll_Easing>
               </Ribbon>
             </DrawingValues>
-            <IsRendered>False</IsRendered>
             <Name>Ribbon</Name>
             <Children />
           </Node>

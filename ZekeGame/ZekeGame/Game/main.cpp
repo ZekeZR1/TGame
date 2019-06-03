@@ -20,7 +20,7 @@ int WINAPI wWinMain(
 	NewGO<GameCamera3D>(0, "cam3d");
 	NewGO<GameCamera2D>(0, "cam2d");
 	NewGO<ModeSelect>(0, "modesel");
-	//NewGO<MonsterDrop>(0);
+	//NewGO<TestScene>(0);
 	g_physics.SetDebugDraw(false);
 
 	SkinModelRender* sm = NewGO<SkinModelRender>(0, "sm");

@@ -470,7 +470,6 @@
     <ClCompile Include="Game\AIEdit\AIEditNodeMenuSave.cpp">
       <Filter>Game\AIEdite</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Dungeon\DropEgg.cpp" />
     <ClCompile Include="Game\ExchangeData\ExchangeData.cpp" />
     <ClCompile Include="Game\Online\TestView.cpp" />
     <ClCompile Include="Game\NetPVP\NetPVPMode.cpp">
@@ -566,6 +565,11 @@
       <Filter>Game\Dungeon</Filter>
     </ClCompile>
     <ClCompile Include="Game\Title\GObutton.cpp" />
+    <ClCompile Include="Game\Title\ModeSelect\ModeSelectBack.cpp" />
+    <ClCompile Include="Game\Title\MonsterSelectBack.cpp" />
+    <ClCompile Include="Game\Dungeon\DropEgg.cpp">
+      <Filter>Game\Dungeon</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\PythonBridge\include\unicodeobject.h" />
@@ -1347,7 +1351,6 @@
     <ClInclude Include="Game\AIEdit\AIEditNodeMenuSave.h">
       <Filter>Game\AIEdite</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Dungeon\DropEgg.h" />
     <ClInclude Include="Game\ExchangeData\ExchangeData.h" />
     <ClInclude Include="Game\Online\TestView.h" />
     <ClInclude Include="Game\NetPVP\NetPVPMode.h">
@@ -1440,6 +1443,11 @@
       <Filter>Game\Dungeon</Filter>
     </ClInclude>
     <ClInclude Include="Game\Title\GObutton.h" />
+    <ClInclude Include="Game\Title\ModeSelect\ModeSelectBack.h" />
+    <ClInclude Include="Game\Title\MonsterSelectBack.h" />
+    <ClInclude Include="Game\Dungeon\DropEgg.h">
+      <Filter>Game\Dungeon</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="python36.lib" />
@@ -1528,12 +1536,6 @@
     </None>
     <None Include="Game\Title\MonAIPreset\MonAIPresetSave.cpp">
       <Filter>Game\AIMonSelect\AIMonPreset\NObuild</Filter>
-    </None>
-    <None Include="Assets\Sprite\Network\wallpaper2.jpg">
-      <Filter>Assets\Sprite\netpvp</Filter>
-    </None>
-    <None Include="Assets\Sprite\Network\wallpaper3.jpg">
-      <Filter>Assets\Sprite\netpvp</Filter>
     </None>
     <None Include="Assets\effect\PONG.efk" />
     <None Include="Assets\Sprite\AIEdit\arrow.png">
@@ -1887,8 +1889,7 @@
     <None Include="Assets\modelData\uma\uma.nobone.fbx">
       <Filter>Assets\model</Filter>
     </None>
-    <None Include="Assets\Sprite\GUI\modeSelect\aimon_preset\preset_back.png" />
-    <None Include="Assets\Sprite\GUI\modeSelect\aimon_preset\preset_back_sel.png" />
+    <None Include="Assets\modelData\dungeon\gorgeousWall.fbx" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="act">
@@ -2036,8 +2037,18 @@
     </Media>
   </ItemGroup>
   <ItemGroup>
-    <MeshContentTask Include="Assets\modelData\dungeon\gorgeousWall.fbx">
-      <Filter>Assets\model</Filter>
-    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\ModeSelect\mdsel_None.fbx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageContentTask Include="Assets\Sprite\Network\wallpaper3.jpg" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\aimon_preset\preset_back.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\aimon_preset\preset_back_sel.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_roku.png" />
+    <ImageContentTask Include="Assets\Sprite\Network\wallpaper2.jpg">
+      <Filter>Assets\Sprite\netpvp</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\Network\testes.png">
+      <Filter>Assets\Sprite\netpvp</Filter>
+    </ImageContentTask>
   </ItemGroup>
 </Project>
