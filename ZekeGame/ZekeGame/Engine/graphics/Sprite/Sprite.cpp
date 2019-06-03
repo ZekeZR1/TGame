@@ -32,6 +32,9 @@ Sprite::~Sprite()
 	}
 	if (spriteRender != NULL) {
 		spriteRender->Release();
+	}	
+	if (zspriteRender != NULL) {
+		zspriteRender->Release();
 	}
 	if (rspriteRender != NULL) {
 		rspriteRender->Release();
@@ -237,9 +240,7 @@ void Sprite::Init(const wchar_t* texFilePath, float w, float h)
 	ZeroMemory(&blendDesc, sizeof(blendDesc));
 	ID3D11Device* pd3d = g_graphicsEngine->GetD3DDevice();
 	blendDesc.RenderTarget[0].BlendEnable = true;
-	//blendDesc.RenderTarget[0].SrcBlend = D3D11_BLEND_ONE;
 	blendDesc.RenderTarget[0].SrcBlend = D3D11_BLEND_SRC_ALPHA;
-	//blendDesc.RenderTarget[0].DestBlend = D3D11_BLEND_ONE;
 	blendDesc.RenderTarget[0].DestBlend = D3D11_BLEND_INV_SRC_ALPHA;
 	blendDesc.RenderTarget[0].BlendOp = D3D11_BLEND_OP_ADD;
 	blendDesc.RenderTarget[0].SrcBlendAlpha = D3D11_BLEND_ONE;
@@ -249,25 +250,44 @@ void Sprite::Init(const wchar_t* texFilePath, float w, float h)
 	pd3d->CreateBlendState(&blendDesc, &pBlendState);
 	{
 		{
-			D3D11_DEPTH_STENCIL_DESC desc;
-			ZeroMemory(&desc, sizeof(desc));
-			ID3D11Device* pd3d = g_graphicsEngine->GetD3DDevice();
-			desc.DepthEnable = true;
-			desc.DepthWriteMask = D3D11_DEPTH_WRITE_MASK_ALL;
-			desc.DepthFunc = D3D11_COMPARISON_LESS_EQUAL;
-			desc.StencilEnable = false;
-			desc.FrontFace.StencilFailOp = D3D11_STENCIL_OP_KEEP;
-			desc.FrontFace.StencilDepthFailOp = D3D11_STENCIL_OP_KEEP;
-			desc.FrontFace.StencilPassOp = D3D11_STENCIL_OP_KEEP;
-			desc.FrontFace.StencilFunc = D3D11_COMPARISON_ALWAYS;
-
-			desc.BackFace.StencilFailOp = D3D11_STENCIL_OP_KEEP;
-			desc.BackFace.StencilDepthFailOp = D3D11_STENCIL_OP_KEEP;
-			desc.BackFace.StencilPassOp = D3D11_STENCIL_OP_KEEP;
-			desc.BackFace.StencilFunc = D3D11_COMPARISON_ALWAYS;
-			desc.DepthEnable = false;
-			desc.DepthWriteMask = D3D11_DEPTH_WRITE_MASK_ZERO;
-			pd3d->CreateDepthStencilState(&desc, &spriteRender);
+			{
+				D3D11_DEPTH_STENCIL_DESC desc;
+				ZeroMemory(&desc, sizeof(desc));
+				ID3D11Device* pd3d = g_graphicsEngine->GetD3DDevice();
+				desc.DepthWriteMask = D3D11_DEPTH_WRITE_MASK_ALL;
+				desc.DepthFunc = D3D11_COMPARISON_LESS;
+				desc.DepthEnable = true;
+				desc.StencilEnable = false;
+				//desc.FrontFace.StencilFailOp = D3D11_STENCIL_OP_KEEP;
+				//desc.FrontFace.StencilPassOp = D3D11_STENCIL_OP_KEEP;
+				//desc.FrontFace.StencilDepthFailOp = D3D11_STENCIL_OP_KEEP;
+				//desc.FrontFace.StencilFunc = D3D11_COMPARISON_ALWAYS;
+				//desc.BackFace.StencilFailOp = D3D11_STENCIL_OP_KEEP;
+				//desc.BackFace.StencilDepthFailOp = D3D11_STENCIL_OP_KEEP;
+				//desc.BackFace.StencilPassOp = D3D11_STENCIL_OP_KEEP;
+				//desc.BackFace.StencilFunc = D3D11_COMPARISON_ALWAYS;
+				pd3d->CreateDepthStencilState(&desc, &zspriteRender);
+			}
+			{
+				D3D11_DEPTH_STENCIL_DESC desc;
+				ZeroMemory(&desc, sizeof(desc));
+				ID3D11Device* pd3d = g_graphicsEngine->GetD3DDevice();
+				desc.DepthWriteMask = D3D11_DEPTH_WRITE_MASK_ALL;
+				//desc.DepthWriteMask = D3D11_DEPTH_WRITE_MASK_ZERO;
+				//desc.DepthFunc = D3D11_COMPARISON_LESS_EQUAL;
+				desc.DepthFunc = D3D11_COMPARISON_LESS;
+				desc.DepthEnable = false;
+				desc.StencilEnable = false;
+				//desc.FrontFace.StencilFailOp = D3D11_STENCIL_OP_KEEP;
+				//desc.FrontFace.StencilPassOp = D3D11_STENCIL_OP_KEEP;
+				//desc.FrontFace.StencilDepthFailOp = D3D11_STENCIL_OP_KEEP;
+				//desc.FrontFace.StencilFunc = D3D11_COMPARISON_ALWAYS;
+				//desc.BackFace.StencilFailOp = D3D11_STENCIL_OP_KEEP;
+				//desc.BackFace.StencilDepthFailOp = D3D11_STENCIL_OP_KEEP;
+				//desc.BackFace.StencilPassOp = D3D11_STENCIL_OP_KEEP;
+				//desc.BackFace.StencilFunc = D3D11_COMPARISON_ALWAYS;
+				pd3d->CreateDepthStencilState(&desc, &spriteRender);
+			}
 		}
 		{
 			D3D11_RASTERIZER_DESC desc = {};
@@ -299,33 +319,21 @@ void Sprite::Draw()
 		DXGI_FORMAT_R32_UINT,
 		0
 	);
-	////
-	////シェーダーを設定。
-	//ge->GetD3DDeviceContext()->VSSetShader(
-	//	(ID3D11VertexShader*)m_vs.GetBody(),
-	//	nullptr,
-	//	0
-	//);
-	//ge->GetD3DDeviceContext()->PSSetShader(
-	//	(ID3D11PixelShader*)m_ps.GetBody(),
-	//	nullptr,
-	//	0
-	//);
-	//ge->GetD3DDeviceContext()->IASetInputLayout(m_vs.GetInputLayout());
-	////
+	
 	float blendFactor[4] = { 0.0f, 0.0f, 0.0f, 0.0f };
 	g_graphicsEngine->GetD3DDeviceContext()->OMSetBlendState(pBlendState, blendFactor, 0xffffffff);
 	g_graphicsEngine->GetD3DDeviceContext()->PSSetShaderResources(0, 1, &m_texture);
 	g_graphicsEngine->GetD3DDeviceContext()->PSSetSamplers(0, 1, &m_samplerState);
-	//g_graphicsEngine->GetD3DDeviceContext()->OMSetDepthStencilState(spriteRender, 0);
-	//g_graphicsEngine->GetD3DDeviceContext()->RSSetState(rspriteRender);
+	g_graphicsEngine->GetD3DDeviceContext()->RSSetState(rspriteRender);
 	ConstantBuffer cb;
 	cb.WVP = m_world;
 	if (m_cameraMode == Camera::enUpdateProjMatrixFunc_Ortho) {
+		g_graphicsEngine->GetD3DDeviceContext()->OMSetDepthStencilState(spriteRender, 0);
 		cb.WVP.Mul(cb.WVP, camera2d->GetViewMatrix());
 		cb.WVP.Mul(cb.WVP, camera2d->GetProjectionMatrix());
 	}
 	else if(m_cameraMode == Camera::enUpdateProjMatrixFunc_Perspective){
+		g_graphicsEngine->GetD3DDeviceContext()->OMSetDepthStencilState(zspriteRender, 0);
 		cb.WVP.Mul(cb.WVP, camera3d->GetViewMatrix());
 		cb.WVP.Mul(cb.WVP, camera3d->GetProjectionMatrix());
 	}

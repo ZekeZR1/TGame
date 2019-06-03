@@ -6,17 +6,18 @@ class GameCamera;
 class GameCamera2D;
 class GameCursor;
 
-using namespace ExitGames::Common;
-using namespace ExitGames::LoadBalancing;
+class GameCursor;
 
 class TestScene : public GameObject
 {
 public:
-	TestScene();
-	~TestScene();
-	bool Start();
-	void Update();
-	void Nyan();
+	bool Start() override;
+	void OnDestroy() override;
+	void Update() override;
 private:
-	Hashtable h[3];
+	CEffect* m_efk = nullptr;
+	SpriteRender* m_sp = nullptr;
+	SpriteRender* m_spp = nullptr;
+	SkinModelRender* m_model = nullptr;
+	GameCursor* m_cur = nullptr;
 };

@@ -12,73 +12,63 @@
 #include"Engine/character/CharacterController.h"
 #include "Game/MonsterBox/MonsterBox.h"
 
-TestScene::TestScene()
-{
-}
-
-
-TestScene::~TestScene()
-{
-}
-
 //TODO : alpha, shadow
 bool TestScene::Start() {
-	Nyan();
+	m_model = NewGO<SkinModelRender>(0);
+	m_model->Init(L"Assets/modelData/uma.cmo");
+	m_model->SetPosition({ 0,0,130 });
+	
+	m_spp = NewGO<SpriteRender>(0);
+	m_spp->Init(L"Assets/sprite/hakkou1.dds", 1280, 720);
+	m_spp->ChangeCameraProjMatrix(Camera::enUpdateProjMatrixFunc_Perspective);
+	m_spp->SetPosition({ 30,0,900 });
+	
+	//	m_efk = NewGO<CEffect>(0, "DRB");
+	//m_efk->SetScale({ 15.f,15.f,15.f });
+	////m_efk->SetScale({ 13.f,13.f,13.f });
+	//m_efk->SetPosition({ 0.f,0.f,550.f });
+	//auto pp = m_model->GetPosition();
+	//m_efk->Play(L"Assets/effect/drback.efk");
+	//
+	m_sp = NewGO<SpriteRender>(0);
+	m_sp->Init(L"Assets/sprite/wallpaper2.dds", 1280, 720);
+	m_sp->ChangeCameraProjMatrix(Camera::enUpdateProjMatrixFunc_Perspective);
+	m_sp->SetPosition({ 30,0,800 });
+
+
+	m_efk = NewGO<CEffect>(0, "DRB");
+	m_efk->SetScale({ 15.f,15.f,15.f });
+	//m_efk->SetScale({ 13.f,13.f,13.f });
+	m_efk->SetPosition({ 0.f,0.f,330.f });
+	auto pp = m_model->GetPosition();
+	m_efk->Play(L"Assets/effect/drback.efk");
 	return true;
+}
+
+void TestScene::OnDestroy() {
+	DeleteGO(m_sp);
+	DeleteGO(m_efk);
+	//DeleteGO(m_model);
 }
 
 
 void TestScene::Update() {
-	if (g_pad[0].IsTrigger(enButtonA)) {
-		Nyan();
-	}
-}
+	if (Mouse::isPress(enLeftClick)) {
+		//auto p = m_efk->GetPosition();
+		//p.z += 10.f;
+		//m_efk->SetPosition(p);
 
+		auto p = m_sp->GetPosition();
+		p.z += 10.f;
+		m_sp->SetPosition(p);
+	}
+	if (Mouse::isPress(enRightClick)) {
+		//auto p = m_efk->GetPosition();
+		//p.z -= 10.f;
+		//m_efk->SetPosition(p);
 
-void TestScene::Nyan() {
-	using namespace std;
-	char cd[255] = { '\0' };
-	GetCurrentDirectoryA(255, cd);
-	std::string path = "\\Assets\\VisualAI\\";
-	path += "002.va";
-	char* cstr = new char[path.size() + 1];
-	std::char_traits<char>::copy(cstr, path.c_str(), path.size() + 1);
-	strcat(cd, cstr);
-	delete[] cstr;
-	ifstream ifs;
-	JString data;
-	ifs.open(cd, ios::in | ios::binary);
-	if(!ifs)
-		OutputDebugString("1enemy.va open failed\n");
-	ifs.seekg(0,fstream::end);
-	UINT endpos = ifs.tellg();
-	ifs.seekg(0, fstream::beg);
-	while (ifs.tellg() != endpos) {
-		byte x;
-		ifs.read((char*)& x, 1);
-		char ss[256];
-		sprintf_s(ss, "%02x", x);
-		data += ss;
-	}
-	/*for (int i = 0; i < 1024; i++) {
-		byte x;
-		ifs.read((char*)&x, 1);
-		char ss[256];
-		sprintf_s(ss, "%02x", x);
-		data += ss;
-		if (ifs.eof())
-			break;
-	}*/
-	ofstream ofs;
-	ofs.open("NetworkEnemyAIs/1enemy.va", ios::out | ios::binary);
-	if (!ofs) {
-		OutputDebugString("1enemy.va open failed\n");
-	}
-	for (int i = 0; i < data.capacity(); i+=2) {
-		string nyan = "0x";
-		nyan += data[i];
-		nyan += data[i + 1];
-		byte x = atof(nyan.c_str());
-		ofs.write((char*)& x, 1);
+		auto p = m_sp->GetPosition();
+		p.z -= 10.f;
+		m_sp->SetPosition(p);
 	}
 }
