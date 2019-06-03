@@ -49,7 +49,8 @@ void DungeonTransition::Update() {
 	}
 	m_camera->SetTarget(m_monsters[1]->GetPosition());
 	auto p = m_monsters[0]->GetPosition();
-	if (p.z > -1100.f || Mouse::isTrigger(enLeftClick)) {
+	auto pos = m_monsters[0]->GetPosition();
+	if (p.z > -1100.f || Mouse::isTrigger(enLeftClick) and pos.z > -1900.f) {
 		if (!m_isfade) {
 			m_fade->FadeOut();
 			m_isfade = true;
