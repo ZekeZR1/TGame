@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "ModeSelectBack.h"
-
+#include "../../UIAnimator/UIAnimator.h"
 ModeSelectBack::ModeSelectBack()
 {
 	//camera3d->SetUpdateProjMatrixFunc(Camera::enUpdateProjMatrixFunc_Ortho);
@@ -101,6 +101,8 @@ void ModeSelectBack::PVP()
 	sp->Init(L"Assets/sprite/modesel_VS.dds", 708, 367);
 	m_sprits.push_back(sp);
 
+	
+
 	m_mode = enpvp;
 }
 
@@ -141,7 +143,7 @@ void ModeSelectBack::NetPVP()
 
 void ModeSelectBack::AIedit()
 {
-	SpriteRender* sp = NewGO<SpriteRender>(0, "sp");
+	/*SpriteRender* sp = NewGO<SpriteRender>(0, "sp");
 	sp->Init(L"Assets/sprite/modesel_txt.dds", 440, 236);
 	m_sprits.push_back(sp);
 
@@ -160,6 +162,41 @@ void ModeSelectBack::AIedit()
 	sp = NewGO<SpriteRender>(0, "sp");
 	sp->Init(L"Assets/sprite/gear.dds", 400, 400);
 	m_sprits.push_back(sp);
+*/
+	DeleteGO(m_uia);
+	m_sprits.clear();
+	m_sprits.shrink_to_fit();
+	bool isgf = true;
+	m_uia = NewGO<UIAnimator>(0, "uia");
+	m_uia->loadUI(L"Assets/UI/modesel_aiedit.uip", [&](sUI * ui, bool isfook)->SpriteRender *
+	{
+		SpriteRender* sp;
+		if (wcscmp(ui->name, L"modesel_brain") == 0)
+		{
+			sp = NewGO<SpriteRender>(1, "sp");
+		}
+		else if (wcscmp(ui->name, L"gear") == 0)
+		{
+			if (isgf)
+			{
+				sp = NewGO<SpriteRender>(2, "sp");
+				sp->SetMulCol({ 0.05f,0.05f ,0.05f ,1 });
+				isgf = false;
+			}
+			else
+			{
+				sp = NewGO<SpriteRender>(0, "sp");
+				sp->SetMulCol({ 0.2f,0.2f ,0.1f ,1 });
+			}
+		}
+		else
+		{
+			sp = NewGO<SpriteRender>(0, "sp");
+		}
+		m_sprits.push_back(sp);
+		return sp;
+	});
+	m_uia->playAnim(L"Assets/UI/modesel_aiedit1.uim");
 
 	m_mode = enAIedit;
 }

@@ -1547,6 +1547,9 @@
     <None Include="Game\Title\MonAIPreset\MonAIPresetSave.cpp">
       <Filter>Game\AIMonSelect\AIMonPreset\NObuild</Filter>
     </None>
+    <None Include="Assets\Sprite\Network\wallpaper2.jpg">
+      <Filter>Assets\Sprite\netpvp</Filter>
+    </None>
     <None Include="Assets\effect\PONG.efk" />
     <None Include="Assets\Sprite\AIEdit\arrow.png">
       <Filter>Assets\Sprite\AIEdit</Filter>
@@ -1682,9 +1685,6 @@
     </None>
     <None Include="Assets\Sprite\Fade\fade_black.png">
       <Filter>Assets\Sprite\fade</Filter>
-    </None>
-    <None Include="Assets\Sprite\GUI\modeSelect\modesel_back.png">
-      <Filter>Assets\Sprite\modesel</Filter>
     </None>
     <None Include="Assets\Sprite\GUI\modeSelect\modesel_back_aiedit.png">
       <Filter>Assets\Sprite\modesel</Filter>
@@ -1926,10 +1926,11 @@
     <None Include="Assets\Sprite\GUI\modeSelect\modesel_VS.png">
       <Filter>Assets\Sprite\modesel</Filter>
     </None>
-    <None Include="Assets\Sprite\Network\testes.png" />
+    <None Include="Assets\modelData\ModeSelect\mdsel_None.fbx">
+      <Filter>Assets\model</Filter>
+    </None>
     <None Include="Assets\Sprite\GUI\modeSelect\aimon_preset\preset_back_sel.png" />
     <None Include="Assets\Sprite\GUI\modeSelect\aimon_preset\preset_back.png" />
-    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_roku.png" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="act">
@@ -2084,11 +2085,9 @@
   </ItemGroup>
   <ItemGroup>
     <ImageContentTask Include="Assets\Sprite\Network\wallpaper3.jpg" />
-    <ImageContentTask Include="Assets\Sprite\Network\wallpaper2.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <MeshContentTask Include="Assets\modelData\ModeSelect\mdsel_None.fbx">
-      <Filter>Assets\model</Filter>
-    </MeshContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_roku.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_back.png">
+      <Filter>Assets\Sprite\modesel</Filter>
+    </ImageContentTask>
   </ItemGroup>
 </Project>

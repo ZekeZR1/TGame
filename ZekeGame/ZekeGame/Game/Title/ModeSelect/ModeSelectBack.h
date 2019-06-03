@@ -1,5 +1,6 @@
 #pragma once
 
+class UIAnimator;
 class ModeSelectBack :public GameObject
 {
 public:
@@ -45,6 +46,8 @@ private:
 	std::vector<SpriteRender*> m_AIedit;//AIedit sprite
 
 	std::vector<SpriteRender*> m_sprits;//spriteW‡‘Ì
+
+	UIAnimator* m_uia = nullptr;	//UIAnimator
 
 	bool m_isfirst = false;			//‰‚ß‚Ä‚©H
 
