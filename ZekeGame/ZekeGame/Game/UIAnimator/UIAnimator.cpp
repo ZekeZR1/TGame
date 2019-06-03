@@ -24,7 +24,7 @@ void UIAnimator::loadUI(const wchar_t* path, std::function<SpriteRender* (sUI* u
 	std::vector<sUI*> UIs;
 	for (int i = 0; i < cnt; i++)
 	{
-		sUI ui;
+		sUI* ui = new sUI;
 		int len = 0;
 		fread(&len, sizeof(int), 1, file);
 		char* name = new char[len];
@@ -44,16 +44,17 @@ void UIAnimator::loadUI(const wchar_t* path, std::function<SpriteRender* (sUI* u
 
 		wchar_t boneName[256];
 		mbstowcs(boneName, name, 256);
-		ui.name = boneName;
-		ui.dimensions = dim;
-		ui.pos = pos;
-		ui.scale = sca;
-		ui.rot = rot;
+		wcscpy(ui->name, boneName);
+		ui->dimensions = dim;
+		ui->pos = pos;
+		ui->scale = sca;
+		ui->rot = rot;
 
-		UIs.push_back(&ui);
+		UIs.push_back(ui);
 
 		delete[] name;
 	}
+	fclose(file);
 
 	for (auto UI : UIs)
 	{
@@ -74,7 +75,9 @@ void UIAnimator::loadUI(const wchar_t* path, std::function<SpriteRender* (sUI* u
 		sp->SetRotation(UI->rot);
 
 		m_Sprits.push_back(sp);
+		delete UI;
 	}
+
 }
 
 void UIAnimator::playAnim(const wchar_t* path)
@@ -87,7 +90,7 @@ void UIAnimator::playAnim(const wchar_t* path)
 
 	int cnt = 0;
 	fread(&cnt, sizeof(int), 1, file);
-	m_frameCount = cnt;
+	m_frameCount = cnt / m_Sprits.size();
 
 	for (int j = 0; j < m_Sprits.size(); j++)
 	{
@@ -95,7 +98,7 @@ void UIAnimator::playAnim(const wchar_t* path)
 		m_anims.push_back(ua);
 	}
 
-	for (int i = 0; i < cnt; i++)
+	for (int i = 0; i < cnt/ m_Sprits.size(); i++)
 	{
 		float time = 0;
 		fread(&time, sizeof(time), 1, file);
@@ -129,15 +132,25 @@ void UIAnimator::Update()
 {
 	if (!m_isAnimation)
 		return;
-	for (int i = 0; i < m_Sprits.size(); i++)
+	int spsize = m_Sprits.size();
+	if(m_frame < m_frameCount)
 	{
-		m_Sprits[i]->SetPosition(m_anims[i]->frames[m_frame].pos);
-		m_Sprits[i]->SetScale(m_anims[i]->frames[m_frame].scale);
-		m_Sprits[i]->SetRotation(m_anims[i]->frames[m_frame].rot);
-		
-		m_frame++;
-		
+		m_frame += IGameTime().GetFrameDeltaTime() * m_speed;
+		if (m_frame >= m_frameCount)
+		{
+			m_frame = 0;
+			if(!m_isLoop)
+				m_isAnimation = false;
+			return;
+		}
+		for (int i = 0; i < spsize; i++)
+		{
+			m_Sprits[i]->SetPosition(m_anims[i]->frames[(int)m_frame].pos);
+			m_Sprits[i]->SetScale(m_anims[i]->frames[(int)m_frame].scale);
+			m_Sprits[i]->SetRotation(m_anims[i]->frames[(int)m_frame].rot);
+
+
+
+		}
 	}
-	if (m_frame >= m_frameCount)
-		m_isAnimation = false;
 }

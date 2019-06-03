@@ -21,17 +21,18 @@ int WINAPI wWinMain(
 	NewGO<Fade>(0, "fade");
 	NewGO<GameCamera3D>(0, "cam3d");
 	NewGO<GameCamera2D>(0, "cam2d");
-	//NewGO<ModeSelect>(0, "modesel");
+	NewGO<ModeSelect>(0, "modesel");
 	//NewGO<MonsterDrop>(0);
 	g_physics.SetDebugDraw(false);
 
-	UIAnimator* UIA = NewGO<UIAnimator>(0, "uia");
-	UIA->loadUI(L"Assets/UI/UI.uip", [&](sUI* ui, bool isfook)->SpriteRender *
+	/*UIAnimator* UIA = NewGO<UIAnimator>(0, "uia");
+	UIA->loadUI(L"Assets/UI/modesel_aiedit.uip", [&](sUI* ui, bool isfook)->SpriteRender *
 	{
 		SpriteRender* sp = NewGO<SpriteRender>(0, "sp");
 		return sp;
 	});
-	UIA->playAnim(L"Assets/UI/UI.uim");
+	UIA->playAnim(L"Assets/UI/modesel_aiedit2.uim");
+	UIA->setLoopFlag(true);*/
 
 	//AnimationClip anim[3];
 	//anim[0].Load(L"Assets/modelData/book/book_idle.tka");
