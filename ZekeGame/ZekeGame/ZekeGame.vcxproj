@@ -1107,7 +1107,7 @@
     <None Include="Assets\Sprite\GUI\modeSelect\aimon_preset\preset_back_sel.png" />
   </ItemGroup>
   <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_roku.png" />
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_roku.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\modelData\ModeSelect\mdsel_None.fbx">
@@ -1128,7 +1128,7 @@
     <None Include="Assets\Sprite\GUI\modeSelect\modesel_VS.png" />
   </ItemGroup>
   <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\Network\testes.png" />
+    <None Include="Assets\Sprite\Network\testes.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
