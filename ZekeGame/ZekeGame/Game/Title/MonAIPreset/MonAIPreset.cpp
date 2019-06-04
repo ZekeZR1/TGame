@@ -78,6 +78,8 @@ void MonAIPreset::Update()
 		if (Mouse::isTrigger(enLeftClick))
 		{
 			Close();
+			PlayButtonSE();
+
 		}
 	}
 }

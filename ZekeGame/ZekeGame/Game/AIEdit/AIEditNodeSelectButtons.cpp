@@ -99,7 +99,7 @@ void AIEditNodeSelectButtons::Update()
 
 	if (menuselect == false) {
 		bool isClick = Mouse::isTrigger(enLeftClick);
-
+		PlayButtonSE();
 		//メニューを表示する。	
 		m_spriterender2->SetCollisionTarget(cursorpos);
 		if (m_spriterender2->isCollidingTarget()) {

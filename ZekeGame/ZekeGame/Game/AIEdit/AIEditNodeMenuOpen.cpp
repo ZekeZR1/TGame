@@ -122,6 +122,7 @@ void AIEditNodeMenuOpen::Update()
 	{
 		if (isLeftClick)
 		{
+			PlayButtonSE();
 
 			m_nsb->Setmenuselect(false);
 			DeleteGO(this);

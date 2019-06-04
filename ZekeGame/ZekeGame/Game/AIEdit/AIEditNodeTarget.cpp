@@ -104,6 +104,7 @@ void AIEditNodeTarget::Technique()
 	if (Mouse::isTrigger(enLeftClick))	//左クリック
 	{
 		m_aieditnodetechique = NewGO<AIEditNodeTechnique>(0, "Technique");
+		PlayButtonSE();
 
 		Choice0 = true;
 
@@ -171,6 +172,8 @@ void AIEditNodeTarget::Update()
 
 		if (Mouse::isTrigger(enLeftClick)) {	//左クリック
 			if (m_nodebuttons[button - 3]->GetSpriteRender()->isCollidingTarget()) {
+				PlayButtonSE();
+
 				m_target = enme;
 				m_aieditnodeprocess->Setkeeptarget(enme);
 				Num();

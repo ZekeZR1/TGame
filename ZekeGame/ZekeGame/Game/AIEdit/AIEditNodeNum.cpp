@@ -196,6 +196,8 @@ void AIEditNodeNum::Update()
 
 	if (Mouse::isTrigger(enLeftClick)) {	//¶ƒNƒŠƒbƒN
 		if (m_nodebuttons[button - 7]->GetSpriteRender()->isCollidingTarget()) {
+			PlayButtonSE();
+
 			m_num = en1;
 			m_aieditnodeprocess->Setkeepnum(en1);
 			Order();

@@ -218,6 +218,8 @@ void AIEditNodeMenu::Update()
 				if (menuconf == false) {
 					m_aieditnodemenuconfirmation = NewGO<AIEditNodeMenuConfirmation>(0, "menuconf");
 					menuconf = true;
+					PlayButtonSE();
+
 				}
 			}
 
