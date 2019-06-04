@@ -55,7 +55,7 @@ bool ModeSelect::Start()
 
 	m_back = NewGO<SpriteRender>(0, "sp");
 	m_back->Init(L"Assets/sprite/modesel_back.dds", 1280, 720);
-
+	//m_back->SetPosition({ 0,0,50 });
 
 	/*CVector3 vadd = { 25,100,0 };
 	vadd *= -1;

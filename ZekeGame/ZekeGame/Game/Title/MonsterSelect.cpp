@@ -47,7 +47,7 @@ bool MonsterSelect::Start()
 	pos.y = 205.0f;
 	m_monstercount = enNumMonster;
 	//for (int i = 1; i < m_monstercount; i++)
-	for (int i = 0; i < 100; i++)
+	for (int i = 0; i < m_monstercount; i++)
 	{
 		IconMon* im = NewGO<IconMon>(0, "im");
 		//std::wstring path;
