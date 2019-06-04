@@ -214,6 +214,7 @@ void AIEditNodeTechnique::Update()
 			m_technique = enEscape;
 			m_aieditnodeprocess->Setkeeptechnique(enEscape);
 			Order();
+			PlayButtonSE();
 
 		}
 
@@ -221,30 +222,40 @@ void AIEditNodeTechnique::Update()
 			m_technique = enCase;
 			m_aieditnodeprocess->Setkeeptechnique(enCase);
 			Order();
+			PlayButtonSE();
+
 		}
 
 		if (m_nodebuttons[button - 4]->GetSpriteRender()->isCollidingTarget()) {
 			m_technique = enProtect;
 			m_aieditnodeprocess->Setkeeptechnique(enProtect);
 			Order();
+			PlayButtonSE();
+
 		}
 
 		if (m_nodebuttons[button - 3]->GetSpriteRender()->isCollidingTarget()) {
 			m_technique = enHeel;
 			m_aieditnodeprocess->Setkeeptechnique(enHeel);
 			Order();
+			PlayButtonSE();
+
 		}
 
 		if (m_nodebuttons[button - 2]->GetSpriteRender()->isCollidingTarget()) {
 			m_technique = enSpecial1;
 			m_aieditnodeprocess->Setkeeptechnique(enSpecial1);
 			Order();
+			PlayButtonSE();
+
 		}
 
 		if (m_nodebuttons[button - 1]->GetSpriteRender()->isCollidingTarget()) {
 			m_technique = enSpecial2;
 			m_aieditnodeprocess->Setkeeptechnique(enSpecial2);
 			Order();
+			PlayButtonSE();
+
 		}
 	}
 }
