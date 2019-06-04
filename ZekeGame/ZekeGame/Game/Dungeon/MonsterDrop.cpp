@@ -54,6 +54,7 @@ void MonsterDrop::OnDestroy() {
 	DeleteGO(m_BGM);
 	DeleteGO(m_notifyFont);
 	DeleteGO(m_nextfont);
+	DeleteGO(m_back);
 	auto ef = FindGO<CEffect>("DRB");
 	if(ef!=nullptr)
 		ef->Stop();

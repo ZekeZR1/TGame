@@ -30,7 +30,7 @@ void DungeonResult::OnDestroy() {
 	DeleteGO(m_nextfont);
 	//DeleteGO(m_cursor);
 	DeleteGO(m_cam);
-	DeleteGO(m_BGM);
+	//DeleteGO(m_BGM);
 	//auto bgm = FindGO<Sound>("BGM");
 	//bgm->Stop();
 }
