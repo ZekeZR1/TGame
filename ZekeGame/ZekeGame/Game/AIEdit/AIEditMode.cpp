@@ -34,6 +34,7 @@ bool AIEditMode::Start()
 	m_aieditnodeprocess = NewGO<AIEditNodeProcess>(0, "process");
 
 	//!!!--RETURN TRUE--!!!
+	//Å™ëê
 	return true;
 	//!!!--RETURN TRUE--!!!
 }

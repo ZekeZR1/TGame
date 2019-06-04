@@ -82,7 +82,7 @@ void RatePopup::InitEnemyInfo() {
 
 bool RatingInfo::Start() {
 	m_backsp = NewGO<SpriteRender>(5);
-	m_backsp->Init(L"Assets/Sprite/popupback.dds", m_backSca.x * m_scale, m_backSca.y * m_scale);
+	m_backsp->Init(L"Assets/Sprite/syber1.dds", m_backSca.x * m_scale, m_backSca.y * m_scale);
 	m_backsp->SetPosition(m_pos);
 
 	m_info = NewGO<FontRender>(5);

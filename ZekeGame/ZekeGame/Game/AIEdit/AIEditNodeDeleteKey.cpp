@@ -57,6 +57,8 @@ void AIEditNodeDeleteKey::deleteclick()
 	if (Mouse::isTrigger(enLeftClick)) {
 		if (m_spriteRender->isCollidingTarget())
 		{
+			PlayButtonSE();
+
 			//—ñ‚·‚×‚Ä‚Ì‚à‚Ì‚ðDeleteB
 			m_aieditnodeprocess->DeleteKey(m_orderpoint);
 			m_aieditnodeprocess->Click();

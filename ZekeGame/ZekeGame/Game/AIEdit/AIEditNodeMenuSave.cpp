@@ -270,7 +270,7 @@ void AIEditNodeMenuSave::confProc()
 		if (click == false) {
 			if (Mouse::isTrigger(enLeftClick)) {
 				if (sp[button - 2]->isCollidingTarget()) {		//　はい　を選択した場合。
-
+					PlayButtonSE();
 					//m_aieditnodeprocess->AISave();
 
 					PaletteInit();
@@ -295,6 +295,7 @@ void AIEditNodeMenuSave::confProc()
 				}
 
 				else if (sp[button - 1]->isCollidingTarget()) {		//　いいえ　を選択した場合。
+					PlayButtonSE();
 					m_aieditselectbuttons->Setmenuselect(false);
 					DeleteGO(this);
 
@@ -371,6 +372,8 @@ void AIEditNodeMenuSave::PaletteProc()
 		}
 		if (Mouse::isTrigger(enLeftClick))
 		{
+			PlayButtonSE();
+
 			for (int i = 0; i < 4; i++)
 			{
 				if (m_palette[i]->isCollidingTarget())
@@ -389,6 +392,7 @@ void AIEditNodeMenuSave::PaletteProc()
 
 		if (m_spriteRender3->isCollidingTarget()) {
 			if (Mouse::isTrigger(enLeftClick)) {
+				PlayButtonSE();
 				m_aieditselectbuttons->Setmenuselect(false);
 				DeleteGO(this);
 			}
@@ -416,6 +420,8 @@ void AIEditNodeMenuSave::Update()
 					m_SelectBlock = i;
 					AISelected();
 					m_isSelected = true;
+					PlayButtonSE();
+
 				}
 			}
 

@@ -206,12 +206,15 @@ void AIEditNodeTechnique::Update()
 			m_technique = enAttak;
 			m_aieditnodeprocess->Setkeeptechnique(enAttak);
 			Order();
+			PlayButtonSE();
+
 		}
 
 		if (m_nodebuttons[button - 6]->GetSpriteRender()->isCollidingTarget()) {
 			m_technique = enEscape;
 			m_aieditnodeprocess->Setkeeptechnique(enEscape);
 			Order();
+
 		}
 
 		if (m_nodebuttons[button - 5]->GetSpriteRender()->isCollidingTarget()) {

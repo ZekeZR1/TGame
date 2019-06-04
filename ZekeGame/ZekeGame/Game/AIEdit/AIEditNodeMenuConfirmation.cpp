@@ -74,10 +74,14 @@ void AIEditNodeMenuConfirmation::Update()
 	if (Mouse::isTrigger(enLeftClick)) {
 		if (sp[button - 2]->isCollidingTarget()) {//　はい　を選択した場合。
 			m_aieditnodemenu->BackMenu();
+			PlayButtonSE();
+
 		}
 
 		if (sp[button - 1]->isCollidingTarget()) {//　いいえ　を選択した場合。
 			m_aieditnodemenu->SetMenuconf(false);
+			PlayButtonSE();
+
 			DeleteGO(this);
 		}
 
