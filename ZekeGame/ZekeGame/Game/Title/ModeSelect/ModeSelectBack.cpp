@@ -3,7 +3,7 @@
 #include "../../UIAnimator/UIAnimator.h"
 ModeSelectBack::ModeSelectBack()
 {
-	//camera3d->SetUpdateProjMatrixFunc(Camera::enUpdateProjMatrixFunc_Ortho);
+	camera3d->SetUpdateProjMatrixFunc(Camera::enUpdateProjMatrixFunc_Ortho);
 	camera3d->SetTarget(CVector3::Zero());
 	camera3d->SetPosition({ 0,0,-800 });
 	camera3d->Update();
@@ -50,10 +50,30 @@ void ModeSelectBack::Update()
 		case endundeon:
 			break;
 		case enpvp:
+			if (!m_uia->isAnimation())
+			{
+				m_uia->playAnim(L"Assets/ui/modesel_pvp2.uim");
+				m_uia->setLoopFlag(true);
+				m_isfirst = false;
+			}
 			break;
 		case ennetpvp:
+			if (!m_uia->isAnimation())
+			{
+				m_uia->playAnim(L"Assets/ui/modesel_netpvp2.uim");
+				m_uia->setLoopFlag(true);
+				m_isfirst = false;
+			}
 			break;
 		case enAIedit:
+			if (!m_uia->isAnimation())
+			{
+				CQuaternion add;
+				add.SetRotationDeg(CVector3::AxisZ(), 5);
+				CQuaternion rot = m_sprits[0]->GetRotation();
+				rot.Multiply(add);
+				m_sprits[0]->SetRotation(rot);
+			}
 			break;
 		}
 	}
@@ -61,22 +81,45 @@ void ModeSelectBack::Update()
 
 void ModeSelectBack::Dungeon()
 {
-	SpriteRender* sp = NewGO<SpriteRender>(0, "sp");
+	/*SpriteRender* sp = NewGO<SpriteRender>(0, "sp");
 	sp->Init(L"Assets/sprite/modesel_dun.dds", 1280, 673);
 
 	m_sprits.push_back(sp);
 	
 	sp = NewGO<SpriteRender>(0, "sp");
 	sp->Init(L"Assets/sprite/modesel_eye.dds", 303, 193);
-	m_sprits.push_back(sp);
+	m_sprits.push_back(sp);*/
+
+
+	m_isfirst = true;
+	DeleteGO(m_uia);
+	m_sprits.clear();
+	m_sprits.shrink_to_fit();
+	bool isgf = true;
+	m_uia = NewGO<UIAnimator>(0, "uia");
+	m_uia->loadUI(L"Assets/UI/modesel_dungeon.uip", [&](sUI * ui, bool isfook)->SpriteRender *
+	{
+		SpriteRender* sp;
+		if (wcscmp(ui->name, L"modesel_eye") == 0)
+		{
+			sp = NewGO<SpriteRender>(1, "sp");
+		}
+		else
+		{
+			sp = NewGO<SpriteRender>(0, "sp");
+		}
+		//sp->ChangeCameraProjMatrix(Camera::enUpdateProjMatrixFunc_Perspective);
+		m_sprits.push_back(sp);
+		return sp;
+	});
 
 	m_mode = endundeon;
 }
 
 void ModeSelectBack::PVP()
 {
-
-	SpriteRender* sp;
+	m_isfirst = true;
+	/*SpriteRender* sp;
 	for (int i = 0; i < 3; i++)
 	{
 		sp = NewGO<SpriteRender>(0, "sp");
@@ -100,8 +143,32 @@ void ModeSelectBack::PVP()
 
 	sp = NewGO<SpriteRender>(0, "sp");
 	sp->Init(L"Assets/sprite/modesel_VS.dds", 708, 367);
-	m_sprits.push_back(sp);
-
+	m_sprits.push_back(sp);*/
+	DeleteGO(m_uia);
+	m_sprits.clear();
+	m_sprits.shrink_to_fit();
+	bool isgf = true;
+	m_uia = NewGO<UIAnimator>(0, "uia");
+	m_uia->loadUI(L"Assets/UI/modesel_pvp.uip", [&](sUI * ui, bool isfook)->SpriteRender *
+	{
+		SpriteRender* sp;
+		if (wcscmp(ui->name, L"modesel_VS")==0)
+		{
+			sp = NewGO<SpriteRender>(2, "sp");
+		}
+		else if (wcscmp(ui->name, L"modesel_backF")==0)
+		{
+			sp = NewGO<SpriteRender>(1, "sp");
+		}
+		else
+		{
+			sp = NewGO<SpriteRender>(0, "sp");
+		}
+		//sp->ChangeCameraProjMatrix(Camera::enUpdateProjMatrixFunc_Perspective);
+		m_sprits.push_back(sp);
+		return sp;
+	});
+	m_uia->playAnim(L"Assets/UI/modesel_pvp1.uim");
 	
 
 	m_mode = enpvp;
@@ -109,7 +176,7 @@ void ModeSelectBack::PVP()
 
 void ModeSelectBack::NetPVP()
 {
-	SpriteRender* sp;
+	/*SpriteRender* sp;
 	for (int i = 0; i < 3; i++)
 	{
 		sp = NewGO<SpriteRender>(0, "sp");
@@ -137,7 +204,38 @@ void ModeSelectBack::NetPVP()
 
 	sp = NewGO<SpriteRender>(0, "sp");
 	sp->Init(L"Assets/sprite/modesel_VS.dds", 708.f * 0.7f, 367.f * 0.7f);
-	m_sprits.push_back(sp);
+	m_sprits.push_back(sp);*/
+
+	m_isfirst = true;
+	DeleteGO(m_uia);
+	m_sprits.clear();
+	m_sprits.shrink_to_fit();
+	bool isgf = true;
+	m_uia = NewGO<UIAnimator>(0, "uia");
+	m_uia->loadUI(L"Assets/UI/modesel_netpvp.uip", [&](sUI * ui, bool isfook)->SpriteRender *
+	{
+		SpriteRender* sp;
+		if (wcscmp(ui->name, L"modesel_VS") == 0)
+		{
+			sp = NewGO<SpriteRender>(3, "sp");
+		}
+		else if (wcscmp(ui->name, L"modesel_blackF") == 0)
+		{
+			sp = NewGO<SpriteRender>(2, "sp");
+		}
+		else if (wcscmp(ui->name, L"modesel_earth") == 0)
+		{
+			sp = NewGO<SpriteRender>(1, "sp");
+		}
+		else
+		{
+			sp = NewGO<SpriteRender>(0, "sp");
+		}
+		//sp->ChangeCameraProjMatrix(Camera::enUpdateProjMatrixFunc_Perspective);
+		m_sprits.push_back(sp);
+		return sp;
+	});
+	m_uia->playAnim(L"Assets/UI/modesel_netpvp1.uim");
 
 	m_mode = ennetpvp;
 }
@@ -164,6 +262,8 @@ void ModeSelectBack::AIedit()
 	sp->Init(L"Assets/sprite/gear.dds", 400, 400);
 	m_sprits.push_back(sp);
 */
+	m_isfirst = true;
+
 	DeleteGO(m_uia);
 	m_sprits.clear();
 	m_sprits.shrink_to_fit();

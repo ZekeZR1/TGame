@@ -288,12 +288,16 @@ void ModeSelect::Update()
 				{
 				case enDungeon:
 					//m_back->Init(L"Assets/sprite/modesel_back_dung.dds", 1280, 720);
+					m_msBack->Dungeon();
 					break;
 				case enLocalpvp:
 					//m_back->Init(L"Assets/sprite/modesel_back_local.dds", 1280, 720);
+					m_msBack->PVP();
 					break;
 				case enRandompvp:
 					//m_back->Init(L"Assets/sprite/modesel_back_net.dds", 1280, 720);
+					m_msBack->NetPVP();
+					
 					break;
 				case enAIedit:
 					//m_back->Init(L"Assets/sprite/modesel_back_AIedit.dds", 1280, 720);
