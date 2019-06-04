@@ -17,10 +17,10 @@ ModeSelectBack::ModeSelectBack()
 	m_back->SetScale(CVector3::One() * 100);
 	m_back->SetPosition({ 0,0,-500 });*/
 
-	m_backS = NewGO<SpriteRender>(0, "sp");
+	/*m_backS = NewGO<SpriteRender>(0, "sp");
 	m_backS->Init(L"Assets/sprite/modesel_back_aiedit.dds", 1280, 720);
 	m_backS->SetPosition({ 0,0,100 });
-	m_backS->ChangeCameraProjMatrix(Camera::enUpdateProjMatrixFunc_Perspective);
+	m_backS->ChangeCameraProjMatrix(Camera::enUpdateProjMatrixFunc_Perspective);*/
 	//m_backS->SetRotation(rot);
 	
 
@@ -35,9 +35,10 @@ void ModeSelectBack::OnDestroy()
 	camera3d->SetUpdateProjMatrixFunc(Camera::enUpdateProjMatrixFunc_Perspective);
 	camera3d->Update();
 
-	DeleteGO(m_back);
+	//DeleteGO(m_back);
 	m_effect->Stop();
 	DeleteGO(m_effect);
+	DeleteGO(m_uia);
 }
 
 void ModeSelectBack::Update()
@@ -181,18 +182,20 @@ void ModeSelectBack::AIedit()
 			{
 				sp = NewGO<SpriteRender>(2, "sp");
 				sp->SetMulCol({ 0.05f,0.05f ,0.05f ,1 });
+				
 				isgf = false;
 			}
 			else
 			{
 				sp = NewGO<SpriteRender>(0, "sp");
-				sp->SetMulCol({ 0.2f,0.2f ,0.1f ,1 });
+				sp->SetMulCol({ 0.2f,0.15f ,0.1f ,1 });
 			}
 		}
 		else
 		{
 			sp = NewGO<SpriteRender>(0, "sp");
 		}
+		//sp->ChangeCameraProjMatrix(Camera::enUpdateProjMatrixFunc_Perspective);
 		m_sprits.push_back(sp);
 		return sp;
 	});

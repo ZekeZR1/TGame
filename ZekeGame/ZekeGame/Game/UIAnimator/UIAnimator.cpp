@@ -67,13 +67,12 @@ void UIAnimator::loadUI(const wchar_t* path, std::function<SpriteRender* (sUI* u
 			path += UI->name;
 			path += L".dds";
 			sp->Init(path.c_str(), UI->dimensions.x, UI->dimensions.y);
+
+			UI->pos.z = 0;
+			sp->SetPosition(UI->pos);
+			sp->SetScale(UI->scale);
+			sp->SetRotation(UI->rot);
 		}
-
-		UI->pos.z = 0;
-		sp->SetPosition(UI->pos);
-		sp->SetScale(UI->scale);
-		sp->SetRotation(UI->rot);
-
 		m_Sprits.push_back(sp);
 		delete UI;
 	}
