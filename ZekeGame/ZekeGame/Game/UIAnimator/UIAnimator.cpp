@@ -81,6 +81,13 @@ void UIAnimator::loadUI(const wchar_t* path, std::function<SpriteRender* (sUI* u
 
 void UIAnimator::playAnim(const wchar_t* path)
 {
+	for (auto an : m_anims)
+	{
+		delete(an);
+	}
+	m_anims.clear();
+	m_anims.shrink_to_fit();
+
 	FILE* file = nullptr;
 	_wfopen_s(&file, path, L"rb");
 
