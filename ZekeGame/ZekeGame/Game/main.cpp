@@ -9,7 +9,6 @@
 #include "../Game/Dungeon/MonsterDrop.h"
 
 #include "UIAnimator/UIAnimator.h"
-#include "Dungeon/DungeonSelect.h"
 
 int WINAPI wWinMain(
 	HINSTANCE hInstance,
@@ -22,7 +21,7 @@ int WINAPI wWinMain(
 	NewGO<Fade>(0, "fade");
 	NewGO<GameCamera3D>(0, "cam3d");
 	NewGO<GameCamera2D>(0, "cam2d");
-	NewGO<DungeonSelect>(0, "modesel");
+	NewGO<ModeSelect>(0, "modesel");
 	//NewGO<MonsterDrop>(0);
 	g_physics.SetDebugDraw(false);
 
