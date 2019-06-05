@@ -176,12 +176,11 @@ void PvPModeSelect::Update()
 	static bool isopen = false;
 	if (m_aibutton->isFading())
 		return;
-	m_aibutton->SetTarget(m_cursor->GetCursor());
 	//何か開いていた場合は他のものはクリックしても反応しない。
 	if (!(m_msRed->IsOpen() || m_mlRed->IsOpen() || m_msBlue->IsOpen() || m_mlBlue->IsOpen() || ispmm || isopen))
 	{
 		m_returnButton->UpdateEx<ModeSelect>();
-
+		m_aibutton->SetTarget(m_cursor->GetCursor());
 		m_msRed->UpdateEx();
 		m_mlRed->UpdateEx();
 		m_msBlue->UpdateEx();

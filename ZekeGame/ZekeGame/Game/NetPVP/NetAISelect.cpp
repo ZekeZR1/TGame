@@ -163,6 +163,7 @@ void NetAISelect::Update()
 		m_returnButton->UpdateEx<ModeSelect>();
 		m_msRed->UpdateEx();
 		m_mlRed->UpdateEx();
+		m_aiButton->SetTarget(m_cursor->GetCursor());
 		//プリセットのセーブ
 		if (m_msRed->IsClick())
 		{
@@ -242,5 +243,4 @@ void NetAISelect::Update()
 		NewGO<ModeSelect>(0);
 		DeleteGO(this);
 	}
-	m_aiButton->SetTarget(m_cursor->GetCursor());
 }
