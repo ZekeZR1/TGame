@@ -267,6 +267,7 @@ void AIEditNodeMenuSave::AISelected()
 
 void AIEditNodeMenuSave::confProc()
 {
+	bool isLeftClick = Mouse::isTrigger(enLeftClick);
 	if (!clickyes)
 	{
 		for (int i = 0; i < button; i++) {
@@ -275,8 +276,11 @@ void AIEditNodeMenuSave::confProc()
 		}
 
 		if (click == false) {
-			if (Mouse::isTrigger(enLeftClick)) {
-				if (sp[button - 2]->isCollidingTarget()) {		//　はい　を選択した場合。
+			if (sp[button - 2]->isCollidingTarget()) //　はい　を選択した場合。
+			{		
+				sp[button - 2]->SetMulCol({1.3f,1.3f, 1.3f, 1});
+				if (isLeftClick) 
+				{
 					PlayButtonSE();
 					//m_aieditnodeprocess->AISave();
 
@@ -299,16 +303,29 @@ void AIEditNodeMenuSave::confProc()
 					//Confirmation();
 
 					click = true;
-				}
 
-				else if (sp[button - 1]->isCollidingTarget()) {		//　いいえ　を選択した場合。
+					return;
+				}
+			}
+			else
+			{
+				sp[button - 2]->SetMulCol(CVector4::White);
+			}
+			if (sp[button - 1]->isCollidingTarget()) //　いいえ　を選択した場合。
+			{		
+				sp[button - 1]->SetMulCol({ 1.3f,1.3f, 1.3f, 1 });
+				if (isLeftClick)
+				{
 					PlayButtonSE();
 					m_aieditselectbuttons->Setmenuselect(false);
 					DeleteGO(this);
 
 					click = true;
 				}
-
+			}
+			else
+			{
+				sp[button - 1]->SetMulCol(CVector4::White);
 			}
 		}
 	}
@@ -377,19 +394,24 @@ void AIEditNodeMenuSave::PaletteProc()
 		{
 			sp->SetCollisionTarget(cursorpos);
 		}
-		if (Mouse::isTrigger(enLeftClick))
+		for (int i = 0; i < 4; i++)
 		{
-			PlayButtonSE();
-
-			for (int i = 0; i < 4; i++)
+			if (m_palette[i]->isCollidingTarget())
 			{
-				if (m_palette[i]->isCollidingTarget())
+				m_palette[i]->SetMulCol({ 1.3f,1.3f, 1.3f, 1 });
+				if (Mouse::isTrigger(enLeftClick))
 				{
+					PlayButtonSE();
+
 					m_selCol = i;
 					Confirmation();
 					m_isColSel = true;
-					m_aieditnodeprocess->AISave(m_SelectBlock,m_selCol);
+					m_aieditnodeprocess->AISave(m_SelectBlock, m_selCol);
 				}
+			}
+			else
+			{
+				m_palette[i]->SetMulCol(CVector4::White);
 			}
 		}
 	}
@@ -398,17 +420,23 @@ void AIEditNodeMenuSave::PaletteProc()
 		m_spriteRender3->SetCollisionTarget(cursorpos);
 
 		if (m_spriteRender3->isCollidingTarget()) {
+			m_spriteRender3->SetMulCol({ 1.3f,1.3f, 1.3f, 1 });
 			if (Mouse::isTrigger(enLeftClick)) {
 				PlayButtonSE();
 				m_aieditselectbuttons->Setmenuselect(false);
 				DeleteGO(this);
 			}
 		}
+		else
+		{
+			m_spriteRender3->SetMulCol(CVector4::White);
+		}
 	}
 }
 
 void AIEditNodeMenuSave::Update()
 {
+	bool isLeftClick = Mouse::isTrigger(enLeftClick);
 	cursorpos = m_gamecursor->GetCursor();
 	if (!m_isSelected)
 	{
@@ -418,27 +446,38 @@ void AIEditNodeMenuSave::Update()
 		}
 		m_close->SetCollisionTarget(cursorpos);
 
-		if (Mouse::isTrigger(enLeftClick))
+		for (int i = 0; i < 12; i++)
 		{
-			for (int i = 0; i < 12; i++)
+			if (m_buttonsF[i]->isCollidingTarget())
 			{
-				if (m_buttonsF[i]->isCollidingTarget())
+				m_buttonsF[i]->SetMulCol({ 1.3f,1.3f,1.3f,1 });
+				if (isLeftClick)
 				{
 					m_SelectBlock = i;
 					AISelected();
 					m_isSelected = true;
 					PlayButtonSE();
-
 				}
 			}
-
-			if (m_close->isCollidingTarget())
+			else
+			{
+				m_buttonsF[i]->SetMulCol(CVector4::White);
+			}
+		}
+		if (m_close->isCollidingTarget())
+		{
+			m_close->SetMulCol({ 1.3f,1.3f,1.3f,1 });
+			if (isLeftClick)
 			{
 				m_aieditselectbuttons->Setmenuselect(false);
 				PlayButtonSE();
 
 				DeleteGO(this);
 			}
+		}
+		else
+		{
+			m_close->SetMulCol(CVector4::White);
 		}
 	}
 	else

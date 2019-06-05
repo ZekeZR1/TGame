@@ -201,7 +201,7 @@ void AIEditNodeMenu::Menuwin()
 
 void AIEditNodeMenu::Update()
 {
-
+	bool isLeftClick = Mouse::isTrigger(enLeftClick);
 	CVector3 cursorpos = m_gamecursor->GetCursor();
 
 	for (int i = 0; i < button; i++) {
@@ -211,10 +211,10 @@ void AIEditNodeMenu::Update()
 
 	if (menu == true) {
 		m_spriteRender->SetCollisionTarget(cursorpos);
-		if (Mouse::isTrigger(enLeftClick)) {	//左クリック
-			
-			//メニューセレクトへ戻るを選択した場合。
-			if (sp[button - 3]->isCollidingTarget()) {
+		//メニューセレクトへ戻るを選択した場合。
+		if (sp[button - 3]->isCollidingTarget()) {
+			sp[button - 3]->SetMulCol({ 1.3f,1.3f, 1.3f, 1 });
+			if (Mouse::isTrigger(enLeftClick)) {	//左クリック
 				if (menuconf == false) {
 					m_aieditnodemenuconfirmation = NewGO<AIEditNodeMenuConfirmation>(0, "menuconf");
 					menuconf = true;
@@ -222,18 +222,36 @@ void AIEditNodeMenu::Update()
 
 				}
 			}
+		}
+		else
+		{
+			sp[button - 3]->SetMulCol(CVector4::White);
+		}
 
-			//特殊技一覧を選択した場合。
-			if (sp[button - 2]->isCollidingTarget()) {
+		//特殊技一覧を選択した場合。
+		if (sp[button - 2]->isCollidingTarget()) {
+			sp[button - 2]->SetMulCol({ 1.3f,1.3f, 1.3f, 1 });
+			if (Mouse::isTrigger(enLeftClick)) {	//左クリック
 				PlayButtonSE();
 			}
+		}
+		else
+		{
+			sp[button - 2]->SetMulCol(CVector4::White);
+		}
 
-			//戻るを選択した場合。
-			if (sp[button - 1]->isCollidingTarget()) {
+		//戻るを選択した場合。
+		if (sp[button - 1]->isCollidingTarget()) {
+			sp[button - 1]->SetMulCol({ 1.3f,1.3f, 1.3f, 1 });
+			if (Mouse::isTrigger(enLeftClick)) {	//左クリック
 				m_aieditnodeselectbuttons->Setmenuselect(false);
 				PlayButtonSE();
 				DeleteGO(this);
 			}
+		}
+		else
+		{
+			sp[button - 1]->SetMulCol(CVector4::White);
 		}
 	}	
 }
