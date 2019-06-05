@@ -355,7 +355,6 @@
     <ClCompile Include="Game\Title\pvpModeSelect.cpp" />
     <ClCompile Include="Game\Title\SuperMonsterSelect.cpp" />
     <ClCompile Include="Game\Title\Title.cpp" />
-    <ClCompile Include="Game\ToAiEditModeButton.cpp" />
     <ClCompile Include="Game\UIAnimator\UIAnimator.cpp" />
     <ClCompile Include="Game\VisualScriptAI\VisualScriptAI.cpp" />
     <ClCompile Include="stdafx.cpp">
@@ -663,7 +662,6 @@
     <ClInclude Include="Game\Title\pvpModeSelect.h" />
     <ClInclude Include="Game\Title\SuperMonsterSelect.h" />
     <ClInclude Include="Game\Title\Title.h" />
-    <ClInclude Include="Game\ToAiEditModeButton.h" />
     <ClInclude Include="Game\UIAnimator\UIAnimator.h" />
     <ClInclude Include="Game\VisualScriptAI\VisualScriptAI.h" />
     <ClInclude Include="stdafx.h" />
@@ -723,9 +721,9 @@
     <None Include="Assets\Sprite\AIEdit\arrow.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </None>
-    <None Include="Assets\Sprite\AIEdit\buttyon.png">
+    <ImageContentTask Include="Assets\Sprite\AIEdit\buttyon.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </None>
+    </ImageContentTask>
     <None Include="Assets\Sprite\AIEdit\click.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </None>
@@ -744,12 +742,6 @@
     <None Include="Assets\Sprite\AIEdit\HOM.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </None>
-    <None Include="Assets\Sprite\AIEdit\hozon.png">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </None>
-    <None Include="Assets\Sprite\AIEdit\karipoint.png">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </None>
     <None Include="Assets\Sprite\AIEdit\masss.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </None>
@@ -759,19 +751,7 @@
     <None Include="Assets\Sprite\AIEdit\menu2.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </None>
-    <None Include="Assets\Sprite\AIEdit\menuselect.png">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </None>
     <None Include="Assets\Sprite\AIEdit\menuselectsieat.png">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </None>
-    <None Include="Assets\Sprite\AIEdit\open.png">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </None>
-    <None Include="Assets\Sprite\AIEdit\point.png">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </None>
-    <None Include="Assets\Sprite\AIEdit\sieat.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </None>
     <None Include="Assets\Sprite\Fade\fade_black.png">
@@ -1087,10 +1067,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\Network\wallpaper2.jpg" />
+    <None Include="Assets\Sprite\Network\wallpaper2.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\Network\wallpaper3.jpg" />
+    <None Include="Assets\Sprite\Network\wallpaper3.jpg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Sprite\Network\syber1.png">
@@ -1133,7 +1113,8 @@
     <None Include="Assets\Sprite\Network\testes.png" />
   </ItemGroup>
   <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\GUI\AiButton.png" />
+    <ImageContentTask Include="Assets\Sprite\AIEdit\AIbrawser.png" />
+    <ImageContentTask Include="Assets\Sprite\AIEdit\AIEIcon.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
