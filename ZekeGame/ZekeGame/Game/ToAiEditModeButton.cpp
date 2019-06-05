@@ -24,11 +24,15 @@ void ToAiEditModeButton::OnDestroy() {
 void ToAiEditModeButton::Update() {
 	sp->SetCollisionTarget(tar);
 	if (sp->isCollidingTarget()) {
+		sp->SetScale(CVector3::One());
 		if (Mouse::isTrigger(enLeftClick)) {
 			fade = true;
 			m_fade->FadeOut();
 			PlayButtonSE();
 		}
+	}
+	else {
+		sp->SetScale(CVector3::One() * 1.05);
 	}
 	if (m_fade->isFadeStop() and fade) {
 		NewGO<AIEditModeSelect>(0);
