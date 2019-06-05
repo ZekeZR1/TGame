@@ -575,6 +575,9 @@
     <ClCompile Include="Game\UIAnimator\UIAnimator.cpp">
       <Filter>Game\UIAnimator</Filter>
     </ClCompile>
+    <ClCompile Include="Game\ToAiEditModeButton.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\PythonBridge\include\unicodeobject.h" />
@@ -1458,6 +1461,9 @@
     <ClInclude Include="Game\UIAnimator\UIAnimator.h">
       <Filter>Game\UIAnimator</Filter>
     </ClInclude>
+    <ClInclude Include="Game\ToAiEditModeButton.h">
+      <Filter>Game</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="python36.lib" />
@@ -1609,9 +1615,6 @@
       <Filter>Assets\model</Filter>
     </None>
     <None Include="Assets\Sprite\AIEdit\arrow.png">
-      <Filter>Assets\Sprite\AIEdit</Filter>
-    </None>
-    <None Include="Assets\Sprite\AIEdit\buttyon.png">
       <Filter>Assets\Sprite\AIEdit</Filter>
     </None>
     <None Include="Assets\Sprite\AIEdit\click.png">
@@ -1915,6 +1918,8 @@
     <None Include="Assets\Sprite\GUI\AImark\aimk_attack.png">
       <Filter>Assets\Sprite\AImark</Filter>
     </None>
+    <None Include="Assets\Sprite\Network\wallpaper2.jpg" />
+    <None Include="Assets\Sprite\Network\wallpaper3.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="act">
@@ -2068,15 +2073,8 @@
     </Media>
   </ItemGroup>
   <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\Network\wallpaper3.jpg" />
-    <ImageContentTask Include="Assets\Sprite\Network\wallpaper2.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="Assets\Sprite\AIEdit\AIbrawser.png">
-      <Filter>Assets\Sprite\AIEdit</Filter>
-    </Image>
-    <Image Include="Assets\Sprite\AIEdit\AIEIcon.png">
-      <Filter>Assets\Sprite\AIEdit</Filter>
-    </Image>
+    <ImageContentTask Include="Assets\Sprite\AIEdit\buttyon.png" />
+    <ImageContentTask Include="Assets\Sprite\AIEdit\AIbrawser.png" />
+    <ImageContentTask Include="Assets\Sprite\AIEdit\AIEIcon.png" />
   </ItemGroup>
 </Project>
