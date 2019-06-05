@@ -859,9 +859,9 @@
     <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\PVchenger_V.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </None>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\modesel_back.png">
+    <None Include="Assets\Sprite\GUI\modeSelect\modesel_back.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
+    </None>
     <None Include="Assets\Sprite\GUI\modeSelect\modesel_back_aiedit.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </None>
