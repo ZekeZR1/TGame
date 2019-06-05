@@ -48,17 +48,36 @@ public:
 	{
 		return m_isAnimation;
 	}
+
+	//再生のスピードを設定する
+	//初期は30
 	void setSpeed(float sp)
 	{
 		m_speed = sp;
 	}
+
+	//ループするの？
 	bool isLoop()
 	{
 		return m_isLoop;
 	}
+
+	//ループしますか、しませんか？
 	void setLoopFlag(bool b)
 	{
 		m_isLoop = b;
+	}
+
+	//pojisyon を設定する
+	void setPos(CVector3 pos)
+	{
+		m_pos = pos;
+	}
+
+	//ポジションを返す
+	CVector3 getPos()
+	{
+		return m_pos;
 	}
 private:
 	std::vector<SpriteRender*> m_Sprits;		//loadUIで取得したspriterenderたち
@@ -70,5 +89,7 @@ private:
 	float m_speed = 30.f;							//speed
 	bool m_isAnimation = false;					//アニメーションしてる？
 	bool m_isLoop = false;					//ループスループ？
+
+	CVector3 m_pos = CVector3::Zero();		//ポジション
 };
 

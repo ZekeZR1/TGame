@@ -23,6 +23,9 @@ public:
 	//更新
 	void Update();
 
+	//更新
+	void UpdateEx();
+
 	//クリックされました？
 	bool isClick()
 	{

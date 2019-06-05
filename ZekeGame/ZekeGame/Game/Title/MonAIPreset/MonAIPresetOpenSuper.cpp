@@ -42,7 +42,7 @@ void MonAIPresetOpenSuper::init(SMS * sms, GameCursor * cursor, const wchar_t* t
 	m_team = team;
 
 	m_button = NewGO<SpriteRender>(1, "sp");
-	m_button->Init(L"Assets/sprite/fade_black.dds", 200, 60);
+	m_button->Init(L"Assets/sprite/buttyon.dds", 200, 60);
 	m_button->SetPivot({ 0.f,0.5f });
 	m_button->SetPosition(pos);
 	m_button->SetMulCol({ 0.7f,0.7f, 0.7f, 1 });
@@ -144,6 +144,19 @@ void MonAIPresetOpenSuper::Update()
 			{
 				Close();
 			}
+			if (!m_iscloseOver)
+			{
+				m_close->SetMulCol({ 1,1,1,1 });
+				m_iscloseOver = true;
+			}
+		}
+		else
+		{
+			if (m_iscloseOver)
+			{
+				m_close->SetMulCol({ 0.7f,0.7f,0.7f,1 });
+				m_iscloseOver = false;
+			}
 		}
 
 		if (m_backMulCol.w < 1.f)
@@ -217,7 +230,7 @@ void MonAIPresetOpenSuper::UpdateEx()
 
 		if (!m_isSelect)	//マウスオーバー時のアクション
 		{
-
+			m_button->SetMulCol({ 1,1,1,1 });
 			m_isSelect = true;
 		}
 	}
@@ -225,7 +238,7 @@ void MonAIPresetOpenSuper::UpdateEx()
 	{
 		if (m_isSelect)		//notマウスオーバー時のアクション
 		{
-
+			m_button->SetMulCol({ 0.7f,0.7f,0.7f,1 });
 			m_isSelect = false;
 		}
 	}
@@ -309,8 +322,9 @@ void MonAIPresetOpenSuper::Open()
 	p3 = { 800,-260,0 };
 	m_Closepos = p3;
 	m_close = NewGO<SpriteRender>(3,"sp");
-	m_close->Init(L"Assets/sprite/fade_black.dds", 140, 64, true);
+	m_close->Init(L"Assets/sprite/buttyon.dds", 140, 64, true);
 	m_close->SetPosition(p3);
+	m_close->SetMulCol({ 0.7f,0.7f, 0.7f, 1 });
 
 	m_fclose = NewGO<FontRender>(3, "fr");
 	m_fclose->SetTextType(CFont::en_Japanese);

@@ -575,6 +575,9 @@
     <ClCompile Include="Game\UIAnimator\UIAnimator.cpp">
       <Filter>Game\UIAnimator</Filter>
     </ClCompile>
+    <ClCompile Include="Game\ToAiEditModeButton.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\PythonBridge\include\unicodeobject.h" />
@@ -1457,6 +1460,9 @@
     </ClInclude>
     <ClInclude Include="Game\UIAnimator\UIAnimator.h">
       <Filter>Game\UIAnimator</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\ToAiEditModeButton.h">
+      <Filter>Game</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
