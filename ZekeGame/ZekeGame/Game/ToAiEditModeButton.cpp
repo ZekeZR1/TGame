@@ -19,6 +19,7 @@ bool ToAiEditModeButton::Start() {
 
 void ToAiEditModeButton::OnDestroy() {
 	DeleteGO(sp);
+	DeleteGO(m_font);
 }
 
 void ToAiEditModeButton::Update() {
