@@ -191,6 +191,7 @@ void DungeonAISelect::Update() {
 				se->Play();
 			}
 		}*/
+		m_GOb->UpdateEx();
 		if (m_GOb->isClick())
 		{
 			for (int i = 0; i < m_numPmm; i++)

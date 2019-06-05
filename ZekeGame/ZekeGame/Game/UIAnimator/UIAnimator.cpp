@@ -151,7 +151,7 @@ void UIAnimator::Update()
 		}
 		for (int i = 0; i < spsize; i++)
 		{
-			m_Sprits[i]->SetPosition(m_anims[i]->frames[(int)m_frame].pos);
+			m_Sprits[i]->SetPosition(m_anims[i]->frames[(int)m_frame].pos+m_pos);
 			m_Sprits[i]->SetScale(m_anims[i]->frames[(int)m_frame].scale);
 			m_Sprits[i]->SetRotation(m_anims[i]->frames[(int)m_frame].rot);
 

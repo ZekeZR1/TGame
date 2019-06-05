@@ -207,6 +207,7 @@ void NetAISelect::Update()
 		//	}
 		//}
 
+		m_GOb->UpdateEx();
 		if (m_GOb->isClick())
 		{
 			m_fade->FadeOut();
