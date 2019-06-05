@@ -9,6 +9,11 @@ bool ToAiEditModeButton::Start() {
 	sp->SetPosition(pos);
 
 	m_fade = FindGO<Fade>("fade");
+
+	m_font = NewGO<FontRender>(0);
+	m_font->SetTextType(CFont::en_Japanese);
+	m_font->Init(L"A\nI\n•Ò\nW", { fpos.x,fpos.y });
+	m_font->DrawShadow();
 	return true;
 }
 

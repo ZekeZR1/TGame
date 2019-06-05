@@ -18,9 +18,11 @@ public:
 private:
 	SpriteRender* sp = nullptr;
 	CVector3 pos = { -600, 240,0 };
+	CVector3 fpos = { -615, 340,0 };
 	CVector3 tar = CVector3::Zero();
 	Fade* m_fade = nullptr;
 	bool fade = false;
 	GameObject* m_scene = nullptr;
+	FontRender* m_font = nullptr;
 };
 
