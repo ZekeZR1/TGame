@@ -12,6 +12,7 @@ class MonAIPresetOpenSuper;
 class GObutton;
 
 class MonsterSelectBack;
+class ToAiEditModeButton;
 class PvPModeSelect :public SuperMonsterSelect
 {
 public:
@@ -68,4 +69,5 @@ private:
 	bool m_isfade = false;
 
 	MonsterSelectBack* m_msb = nullptr;		//îqå[
+	ToAiEditModeButton* m_aibutton = nullptr;
 };

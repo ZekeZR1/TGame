@@ -22,7 +22,7 @@
 #include "../Fade/MusicFade.h"
 
 #include "../ReturnButton/ReturnButton.h"
-
+#include "..//ToAiEditModeButton.h"
 
 //#include "MonAIPreset/MonAIPresetSave.h"
 //#include "MonAIPreset/MonAIPresetLoad.h"
@@ -58,6 +58,7 @@ void PvPModeSelect::OnDestroy()
 	DeleteGO(m_mlRed);
 	DeleteGO(m_msBlue);
 	DeleteGO(m_mlBlue);
+	DeleteGO(m_aibutton);
 
 	DeleteGO(m_returnButton);
 	DeleteGO(m_GOb);
@@ -75,7 +76,8 @@ bool PvPModeSelect::Start()
 		m_BGM->SetVolume(m_vol);
 		m_BGM->Play();
 	}
-
+	m_aibutton = NewGO< ToAiEditModeButton>(0);
+	m_aibutton->SetCurrentScene(this);
 	m_fade = FindGO<Fade>("fade");
 	m_fade->FadeIn();
 
@@ -202,7 +204,9 @@ void PvPModeSelect::Update()
 	}
 
 	static bool isopen = false;
-
+	if (m_aibutton->isFading())
+		return;
+	m_aibutton->SetTarget(m_cursor->GetCursor());
 	//何か開いていた場合は他のものはクリックしても反応しない。
 	if (!(m_msRed->IsOpen() || m_mlRed->IsOpen() || m_msBlue->IsOpen() || m_mlBlue->IsOpen() || ispmm || isopen))
 	{

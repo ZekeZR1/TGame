@@ -1,6 +1,7 @@
 #pragma once
 #include "../Title/SuperMonsterSelect.h"
 class PMMonster;
+class ToAiEditModeButton;
 class Fade;
 class ReturnButton;
 class MonAIPresetOpenSuper;
@@ -54,5 +55,7 @@ private:
 
 	GObutton* m_GOb = nullptr;					//GO button
 	MonsterSelectBack* m_back = nullptr;		//haikei
+
+	ToAiEditModeButton* m_aiButton = nullptr;
 };
 

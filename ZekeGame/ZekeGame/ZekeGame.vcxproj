@@ -355,6 +355,7 @@
     <ClCompile Include="Game\Title\pvpModeSelect.cpp" />
     <ClCompile Include="Game\Title\SuperMonsterSelect.cpp" />
     <ClCompile Include="Game\Title\Title.cpp" />
+    <ClCompile Include="Game\ToAiEditModeButton.cpp" />
     <ClCompile Include="Game\UIAnimator\UIAnimator.cpp" />
     <ClCompile Include="Game\VisualScriptAI\VisualScriptAI.cpp" />
     <ClCompile Include="stdafx.cpp">
@@ -662,6 +663,7 @@
     <ClInclude Include="Game\Title\pvpModeSelect.h" />
     <ClInclude Include="Game\Title\SuperMonsterSelect.h" />
     <ClInclude Include="Game\Title\Title.h" />
+    <ClInclude Include="Game\ToAiEditModeButton.h" />
     <ClInclude Include="Game\UIAnimator\UIAnimator.h" />
     <ClInclude Include="Game\VisualScriptAI\VisualScriptAI.h" />
     <ClInclude Include="stdafx.h" />
