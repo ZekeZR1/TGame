@@ -225,12 +225,13 @@ void AIEditNodeMenu::Update()
 
 			//特殊技一覧を選択した場合。
 			if (sp[button - 2]->isCollidingTarget()) {
-
+				PlayButtonSE();
 			}
 
 			//戻るを選択した場合。
 			if (sp[button - 1]->isCollidingTarget()) {
 				m_aieditnodeselectbuttons->Setmenuselect(false);
+				PlayButtonSE();
 				DeleteGO(this);
 			}
 		}

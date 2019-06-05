@@ -138,9 +138,9 @@ void AIEditNodeMenuOpen::Update()
 			sp->SetScale({ 1.04,1.04,1.04 });
 			if (isLeftClick)
 			{
+				PlayButtonSE();
 				AIEditNodeProcess* proc = FindGO<AIEditNodeProcess>("process");
 				proc->DeleteAll();
-
 				char path[255];
 				sprintf(path, "Assets/VisualAI/%03d.va", i);
 				OpenAI(path);

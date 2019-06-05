@@ -105,6 +105,7 @@ void AIEditNodeSelectButtons::Update()
 		if (m_spriterender2->isCollidingTarget()) {
 			if (isClick) {
 				m_aieditnodemenu = NewGO<AIEditNodeMenu>(0, "menu");
+				PlayButtonSE();
 				menuselect = true;
 			}
 			if (!m_bmenu)
@@ -137,6 +138,8 @@ void AIEditNodeSelectButtons::Update()
 			if (isClick) {
 				m_aieditnodemenusave = NewGO<AIEditNodeMenuSave>(0, "menusave");
 				menuselect = true;
+				PlayButtonSE();
+
 			}
 			if (!m_bsave)
 			{
@@ -157,6 +160,8 @@ void AIEditNodeSelectButtons::Update()
 				//Ç±Ç±Ç≈âΩÇ©ÇNewÅB
 				m_aieditnodemenuopen = NewGO<AIEditNodeMenuOpen>(0, "menuopen");
 				m_aieditnodemenuopen->init(this, m_gamecursor);
+				PlayButtonSE();
+
 				menuselect = true;
 			}
 			if (!m_bopen)
