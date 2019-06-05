@@ -428,6 +428,8 @@ void AIEditNodeMenuSave::Update()
 			if (m_close->isCollidingTarget())
 			{
 				m_aieditselectbuttons->Setmenuselect(false);
+				PlayButtonSE();
+
 				DeleteGO(this);
 			}
 		}

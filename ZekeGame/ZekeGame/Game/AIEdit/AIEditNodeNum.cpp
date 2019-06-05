@@ -208,36 +208,48 @@ void AIEditNodeNum::Update()
 			m_num = en10;
 			m_aieditnodeprocess->Setkeepnum(en10);
 			Order();
+			PlayButtonSE();
+
 		}
 
 		if (m_nodebuttons[button - 5]->GetSpriteRender()->isCollidingTarget()) {
 			m_num = en30;
 			m_aieditnodeprocess->Setkeepnum(en30);
 			Order();
+			PlayButtonSE();
+
 		}
 
 		if (m_nodebuttons[button - 4]->GetSpriteRender()->isCollidingTarget()) {
 			m_num = en50;
 			m_aieditnodeprocess->Setkeepnum(en50);
 			Order();
+			PlayButtonSE();
+
 		}
 
 		if (m_nodebuttons[button - 3]->GetSpriteRender()->isCollidingTarget()) {
 			m_num = en70;
 			m_aieditnodeprocess->Setkeepnum(en70);
 			Order();
+			PlayButtonSE();
+
 		}
 
 		if (m_nodebuttons[button - 2]->GetSpriteRender()->isCollidingTarget()) {
 			m_num = en90;
 			m_aieditnodeprocess->Setkeepnum(en90);
 			Order();
+			PlayButtonSE();
+
 		}
 
 		if (m_nodebuttons[button - 1]->GetSpriteRender()->isCollidingTarget()) {
 			m_num = en100;
 			m_aieditnodeprocess->Setkeepnum(en100);
 			Order();
+			PlayButtonSE();
+
 		}
 
 	}

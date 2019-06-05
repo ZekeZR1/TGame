@@ -183,6 +183,7 @@ void AIEditNodeTarget::Update()
 			if (m_nodebuttons[button - 2]->GetSpriteRender()->isCollidingTarget()) {
 				m_target = enbaddy;
 				m_aieditnodeprocess->Setkeeptarget(enbaddy);
+				PlayButtonSE();
 				Num();
 				contact2 = true;
 			}
@@ -190,6 +191,7 @@ void AIEditNodeTarget::Update()
 			if (m_nodebuttons[button - 1]->GetSpriteRender()->isCollidingTarget()) {
 				m_target = enenemy;
 				m_aieditnodeprocess->Setkeeptarget(enenemy);
+				PlayButtonSE();
 				Num();
 				contact2 = true;
 			}

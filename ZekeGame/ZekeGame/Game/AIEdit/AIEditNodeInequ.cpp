@@ -150,6 +150,8 @@ void AIEditNodeInequ::Update()
 			m_aieditnodeprocess->Setkeepinequ(enShowers);
 			Num();
 			contact2 = true;
+			PlayButtonSE();
+
 		}
 
 	}
