@@ -126,6 +126,7 @@ void AIEditNodeMenuOpen::Update()
 	bool isLeftClick = Mouse::isTrigger(enLeftClick);
 	if (m_close->isCollidingTarget())
 	{
+		m_close->SetMulCol({ 1.3f,1.3f,1.3f,1 });
 		if (isLeftClick)
 		{
 			PlayButtonSE();
@@ -134,6 +135,10 @@ void AIEditNodeMenuOpen::Update()
 			DeleteGO(this);
 		}
 	}
+	else
+	{
+		m_close->SetMulCol(CVector4::White);
+	}
 
 	for (int i = 0;i<12;i++)
 	{
@@ -141,7 +146,7 @@ void AIEditNodeMenuOpen::Update()
 		sp->SetCollisionTarget(cpos);
 		if (sp->isCollidingTarget())
 		{
-			sp->SetScale({ 1.04,1.04,1.04 });
+			sp->SetMulCol({ 1.3f,1.3f,1.3f,1 });
 			if (isLeftClick)
 			{
 				PlayButtonSE();
@@ -197,7 +202,7 @@ void AIEditNodeMenuOpen::Update()
 		}
 		else
 		{
-			sp->SetScale(CVector3::One());
+			sp->SetMulCol(CVector4::White);
 		}
 	}
 }

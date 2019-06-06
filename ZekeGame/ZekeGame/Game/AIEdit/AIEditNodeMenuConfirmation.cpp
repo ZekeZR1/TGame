@@ -64,26 +64,38 @@ bool AIEditNodeMenuConfirmation::Start()
 
 void AIEditNodeMenuConfirmation::Update()
 {
+	bool isLeftClick = Mouse::isTrigger(enLeftClick);
 	CVector3 cursorpos = m_gamecursor->GetCursor();
 
 	for (int i = 0; i < button; i++) {
 
 		sp[i]->SetCollisionTarget(cursorpos);
 	}
-
-	if (Mouse::isTrigger(enLeftClick)) {
-		if (sp[button - 2]->isCollidingTarget()) {//　はい　を選択した場合。
+	if (sp[button - 2]->isCollidingTarget()) {//　はい　を選択した場合。
+		sp[button - 2]->SetMulCol({ 1.3f,1.3f, 1.3f, 1 });
+		if (isLeftClick)
+		{
 			m_aieditnodemenu->BackMenu();
 			PlayButtonSE();
-
 		}
+	}
+	else
+	{
+		sp[button - 2]->SetMulCol(CVector4::White);
+	}
 
-		if (sp[button - 1]->isCollidingTarget()) {//　いいえ　を選択した場合。
+	if (sp[button - 1]->isCollidingTarget()) {//　いいえ　を選択した場合。
+		sp[button - 1]->SetMulCol({ 1.3f,1.3f, 1.3f, 1 });
+		if (isLeftClick)
+		{
 			m_aieditnodemenu->SetMenuconf(false);
 			PlayButtonSE();
 
 			DeleteGO(this);
 		}
-
+	}
+	else
+	{
+		sp[button - 1]->SetMulCol(CVector4::White);
 	}
 }
