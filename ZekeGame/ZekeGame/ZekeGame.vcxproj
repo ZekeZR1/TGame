@@ -738,9 +738,9 @@
     <None Include="Assets\Sprite\AIEdit\arrow.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </None>
-    <ImageContentTask Include="Assets\Sprite\AIEdit\buttyon.png">
+    <None Include="Assets\Sprite\AIEdit\buttyon.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
+    </None>
     <None Include="Assets\Sprite\AIEdit\click.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </None>
@@ -1130,8 +1130,13 @@
     <None Include="Assets\Sprite\Network\testes.png" />
   </ItemGroup>
   <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\AIEdit\AIbrawser.png" />
-    <ImageContentTask Include="Assets\Sprite\AIEdit\AIEIcon.png" />
+    <None Include="Assets\Sprite\AIEdit\AIbrawser.png" />
+    <None Include="Assets\Sprite\AIEdit\AIEIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Sprite\GUI\returnButton\Rarrow0.png" />
+    <None Include="Assets\Sprite\GUI\returnButton\Rarrow1.png" />
+    <None Include="Assets\Sprite\GUI\returnButton\Rarrow2.png" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="ZekeGame.rc" />
