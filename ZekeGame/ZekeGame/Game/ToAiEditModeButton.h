@@ -17,8 +17,10 @@ public:
 	}
 private:
 	SpriteRender* sp = nullptr;
-	CVector3 pos = { -600, 240,0 };
-	CVector3 fpos = { -615, 340,0 };
+	const CVector3 defpos = { -650, 240,0 };
+	const CVector3 selpos = { -600, 240,0 };
+	const CVector3 deffpos = { -615, 330,0 };
+	const CVector3 selfpos = { -615 + 50, 330,0 };
 	CVector3 tar = CVector3::Zero();
 	Fade* m_fade = nullptr;
 	bool fade = false;
