@@ -116,6 +116,7 @@ protected:
 
 	SpriteRender* m_close = nullptr;	//とじるボタン
 	FontRender* m_fclose = nullptr;		//とじるフォンと
+	bool m_iscloseOver = false;			//とじるにマウスオーバー
 
 	static bool m_isInit;				//初期化された？
 

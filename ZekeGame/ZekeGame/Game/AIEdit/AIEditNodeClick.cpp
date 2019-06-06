@@ -66,7 +66,8 @@ void AIEditNodeClick::Update()
 				m_aieditnodetarget = NewGO<AIEditNodeTarget>(0, "target");
 
 				Choice0 = true;
-		
+				PlayButtonSE();
+
 				m_aieditnodeprocess->SetTechniqueGenerate(false);
 				m_aieditnodeprocess->ClickClicking();
 			}

@@ -293,7 +293,7 @@ void NetPVPMode::InitUI() {
 	m_cur = NewGO<GameCursor>(0);
 
 	m_returnButton = NewGO<ReturnButton>(0, "rb");
-	m_returnButton->init(this, "modesel", m_cur);
+	m_returnButton->init(this, "pvp", m_cur);
 	
 	//particle
 	for (int i = 0; i < m_numParticle; i++) {

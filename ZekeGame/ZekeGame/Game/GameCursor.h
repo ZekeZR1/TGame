@@ -15,3 +15,9 @@ private:
 	SpriteRender* m_cursor = nullptr;
 	CVector3 m_pos = CVector3::Zero();
 };
+
+ static inline void PlayButtonSE() {
+	auto se = NewGO<Sound>(0);
+	se->Init(L"Assets/sound/se/button.wav", false);
+	se->Play();
+}

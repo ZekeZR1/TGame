@@ -2,7 +2,7 @@
 
 #include "../graphics/Sprite/Sprite.h"
 #include "../graphics/Camera.h"
-
+class FontRender;
 class SpriteRender : public GameObject
 {
 public:
@@ -19,7 +19,8 @@ public:
 		m_sprite.SetMulColor(col);
 	}
 
-	void Init(const wchar_t* texFilePath, float w, float h,bool collisionFlag = false);
+	
+	void Init(const wchar_t* texFilePath, float w, float h,bool collisionFlag = false, bool PosChangeByMouse = false);
 
 	void SetPosition(const CVector3& pos)
 	{
@@ -61,11 +62,14 @@ public:
 		m_scale = scale;
 	}
 private:
+	void MouseActionUpdate();
 	CVector3 m_pos = CVector3::Zero();
 	CQuaternion m_rotation = CQuaternion::Identity();
 	CVector3 m_scale = CVector3::One();
 	CVector2 m_pivot = Sprite::DEFAULT_PIVOT;
 	bool m_isNeedExecuteCollision = false;
+	bool m_isPosChangeByMouse = false;
+	FontRender* m_PosDataText = nullptr;
 	SpriteBoxCollider m_collider;
 	CVector3 m_target = CVector3::Zero();
 	float m_w;

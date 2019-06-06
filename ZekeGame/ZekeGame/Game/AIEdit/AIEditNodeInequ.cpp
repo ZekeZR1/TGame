@@ -141,6 +141,8 @@ void AIEditNodeInequ::Update()
 			m_aieditnodeprocess->Setkeepinequ(enDainari);
 			Num();
 			contact2 = true;
+			PlayButtonSE();
+
 		}
 
 		if (m_nodebuttons[button - 1]->GetSpriteRender()->isCollidingTarget()) {
@@ -148,6 +150,8 @@ void AIEditNodeInequ::Update()
 			m_aieditnodeprocess->Setkeepinequ(enShowers);
 			Num();
 			contact2 = true;
+			PlayButtonSE();
+
 		}
 
 	}

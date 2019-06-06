@@ -107,6 +107,8 @@ void AIEditNode::Technique()
 
 	if (Mouse::isTrigger(enLeftClick))	//ç∂ÉNÉäÉbÉN
 	{
+		PlayButtonSE();
+
 		//NewGO<AIEditNodeTechnique>(0, "Technique");
 		m_aieditnodeprocess->Technique();
 		Choice1 = true;
@@ -182,6 +184,7 @@ void AIEditNode::Update()
 				m_aieditnodeprocess->Setkeeonode(enHp);
 				Inequ();
 				contact2 = true;
+				PlayButtonSE();
 			}
 
 			if (m_nodebuttons[button - 3]->GetSpriteRender()->isCollidingTarget()) {
@@ -189,6 +192,8 @@ void AIEditNode::Update()
 				m_aieditnodeprocess->Setkeeonode(enMp);
 				Inequ();
 				contact2 = true;
+				PlayButtonSE();
+
 			}
 
 			if (m_nodebuttons[button - 2]->GetSpriteRender()->isCollidingTarget()) {
@@ -196,6 +201,8 @@ void AIEditNode::Update()
 				m_aieditnodeprocess->Setkeeonode(enAb);
 				Abnormal();
 				contact2 = true;
+				PlayButtonSE();
+
 			}
 
 			if (m_nodebuttons[button - 1]->GetSpriteRender()->isCollidingTarget()) {
@@ -203,6 +210,8 @@ void AIEditNode::Update()
 				m_aieditnodeprocess->Setkeeonode(enTechnique);
 				Technique();
 				contact2 = true;
+				PlayButtonSE();
+
 			}
 		}
 	}

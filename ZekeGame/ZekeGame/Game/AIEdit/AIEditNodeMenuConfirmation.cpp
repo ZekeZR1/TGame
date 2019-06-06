@@ -50,12 +50,16 @@ bool AIEditNodeMenuConfirmation::Start()
 	m_fontpos2.x -= 370;
 	m_fontpos2.y += 120;
 	m_fonts2->Init(L"警告：変更内容が破棄されます", { m_fontpos2 }, 0.0, CVector4::Red, 0.8, { 0.0,0.0 });
+	//m_fonts2->DrawShadow({ 5,-5 }, 1, 0, { 1,1,1,1 });
 
 	m_fontpos.y += 20;
 	m_fontpos.x -= 300.f;
 	m_fonts[0]->Init(L"はい", { m_fontpos }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
+	//m_fonts[0]->DrawShadow();
+
 	m_fontpos.x += 225;
 	m_fonts[1]->Init(L"いいえ", { m_fontpos }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
+	//m_fonts[1]->DrawShadow();
 
 	return true;
 
@@ -64,22 +68,38 @@ bool AIEditNodeMenuConfirmation::Start()
 
 void AIEditNodeMenuConfirmation::Update()
 {
+	bool isLeftClick = Mouse::isTrigger(enLeftClick);
 	CVector3 cursorpos = m_gamecursor->GetCursor();
 
 	for (int i = 0; i < button; i++) {
 
 		sp[i]->SetCollisionTarget(cursorpos);
 	}
-
-	if (Mouse::isTrigger(enLeftClick)) {
-		if (sp[button - 2]->isCollidingTarget()) {//　はい　を選択した場合。
+	if (sp[button - 2]->isCollidingTarget()) {//　はい　を選択した場合。
+		sp[button - 2]->SetMulCol({ 1.3f,1.3f, 1.3f, 1 });
+		if (isLeftClick)
+		{
 			m_aieditnodemenu->BackMenu();
+			PlayButtonSE();
 		}
+	}
+	else
+	{
+		sp[button - 2]->SetMulCol(CVector4::White);
+	}
 
-		if (sp[button - 1]->isCollidingTarget()) {//　いいえ　を選択した場合。
+	if (sp[button - 1]->isCollidingTarget()) {//　いいえ　を選択した場合。
+		sp[button - 1]->SetMulCol({ 1.3f,1.3f, 1.3f, 1 });
+		if (isLeftClick)
+		{
 			m_aieditnodemenu->SetMenuconf(false);
+			PlayButtonSE();
+
 			DeleteGO(this);
 		}
-
+	}
+	else
+	{
+		sp[button - 1]->SetMulCol(CVector4::White);
 	}
 }

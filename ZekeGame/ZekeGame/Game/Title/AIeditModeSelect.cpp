@@ -12,6 +12,10 @@ AIEditModeSelect::~AIEditModeSelect()
 
 bool AIEditModeSelect::Start()
 {
+
+	NewGO<AIEditMode>(0, "AIEM");
+	DeleteGO(this);
+
 	m_fade = FindGO<Fade>("fade");
 	m_fade->FadeIn();
 	CVector3 basepos = { 100,100,0 };

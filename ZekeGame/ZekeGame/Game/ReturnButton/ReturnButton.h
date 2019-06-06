@@ -61,13 +61,35 @@ public:
 			if (!m_isOver)
 			{
 				m_isOver = true;
-				m_arrow->Init(L"Assets/sprite/returnArrowLong.dds", m_buttonSize.x, m_buttonSize.y);
+				//m_arrow->Init(L"Assets/sprite/returnArrowLong.dds", m_buttonSize.x, m_buttonSize.y);
 			}
 		}
 		else if (m_isOver)
 		{
 			m_isOver = false;
-			m_arrow->Init(L"Assets/sprite/returnArrow.dds", m_buttonSize.x, m_buttonSize.y);
+			//m_arrow->Init(L"Assets/sprite/returnArrow.dds", m_buttonSize.x, m_buttonSize.y);
+		}
+		if (m_isOver)
+		{
+			if (m_bowsca < 1.f)
+			{
+				m_bowsca += 0.1f;
+				m_bow->SetScale({ m_bowsca,1,1 });
+				CVector3 bowpos = m_arrowpos;
+				bowpos.x -= m_bowsca * 80;
+				m_top->SetPosition(bowpos);
+			}
+		}
+		else
+		{
+			if (m_bowsca > 0.7f)
+			{
+				m_bowsca -= 0.1f;
+				m_bow->SetScale({ m_bowsca,1,1 });
+				CVector3 bowpos = m_arrowpos;
+				bowpos.x -= m_bowsca * 80;
+				m_top->SetPosition(bowpos);
+			}
 		}
 	}
 
@@ -89,8 +111,17 @@ public:
 private:
 	SpriteRender* m_button = nullptr;		//button
 	SpriteRender* m_arrow = nullptr;		//–îˆó
+	SpriteRender* m_top = nullptr;			//–î‚¶‚è
+	SpriteRender* m_bow = nullptr;			//–_
+
+	CVector3 m_arrowpos = CVector3::Zero();//ya no pos
 
 	CVector2 m_buttonSize = { 384,256 };	//button size
+	double m_scale = 0.39024390243902439024390243902439;	//size
+	CVector2 m_topsize = CVector2{ 212/2,377/2 };		//yajiri size
+	
+	CVector2 m_bowsize = CVector2{ 337/2,186/2 };		//bow size
+	float m_bowsca = 0.6f;		//bow no scale
 
 	CVector3 m_pos = CVector3::Zero();	//position
 

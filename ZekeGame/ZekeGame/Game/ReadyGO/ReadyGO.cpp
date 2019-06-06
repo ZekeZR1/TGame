@@ -66,6 +66,10 @@ void ReadyGO::GO()
 		m_gScale *= 1.4f;
 	}
 	else
+	{
 		m_gScale *= 1.005f;
+		m_gAlpha -= 0.1f;
+	}
 	m_GO->SetScale({ m_gScale,m_gScale ,m_gScale });
+	m_GO->SetMulCol({ 1,1,1,m_gAlpha });
 }

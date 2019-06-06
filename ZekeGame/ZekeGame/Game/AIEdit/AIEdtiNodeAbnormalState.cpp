@@ -166,21 +166,29 @@ void AIEditNodeAbnormalState::Update()
 				m_abnormal = endoku;
 				m_aieditnodeprocess->Setkeepabnormal(endoku);
 				Order();
+				PlayButtonSE();
+
 			}
 			if (m_nodebuttons[button - 3]->GetSpriteRender()->isCollidingTarget()) {
 				m_abnormal = enyakedo;
 				m_aieditnodeprocess->Setkeepabnormal(enyakedo);
 				Order();
+				PlayButtonSE();
+
 			}
 			if (m_nodebuttons[button - 2]->GetSpriteRender()->isCollidingTarget()) {
 				m_abnormal = enhyouketu;
 				m_aieditnodeprocess->Setkeepabnormal(enhyouketu);
 				Order();
+				PlayButtonSE();
+
 			}
 			if (m_nodebuttons[button - 1]->GetSpriteRender()->isCollidingTarget()) {
 				m_abnormal = ensutan;
 				m_aieditnodeprocess->Setkeepabnormal(ensutan);
 				Order();
+				PlayButtonSE();
+
 			}
 
 		}

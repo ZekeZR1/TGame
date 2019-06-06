@@ -24,6 +24,11 @@ void GObutton::OnDestroy()
 
 void GObutton::Update()
 {
+	
+}
+
+void GObutton::UpdateEx()
+{
 	m_isClick = false;
 
 	m_button->SetCollisionTarget(m_cursor->GetCursor());

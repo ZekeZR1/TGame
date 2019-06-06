@@ -27,7 +27,7 @@ void AIEditNodeMenuOpen::Awake()
 	std::vector<VisualAIState> vass = VisualAIOpen::openVAs();
 
 	m_back = NewGO<SpriteRender>(10, "sp");
-	m_back->Init(L"Assets/sprite/fade_black.dds", 740, 700);
+	m_back->Init(L"Assets/sprite/AIbrawser.dds", 740, 700);
 
 	CVector3 pos = { -357.5f,175.f,0 };
 	int len = vass.size();
@@ -55,15 +55,18 @@ void AIEditNodeMenuOpen::Awake()
 			mark->SetPosition(mpos);
 			m_marks.push_back(mark);
 
-			sp->Init(L"Assets/sprite/fade_black.dds", 175, 175, true);
+			sp->Init(L"Assets/sprite/AIEIcon.dds", 175, 175, true);
 			//sp->SetMulCol(vass[vasc].col);
-			sp->SetMulCol({ 0.7f,0.7f ,0.7f,1 });
+			//sp->SetMulCol({ 0.7f,0.7f ,0.7f,1 });
 			sp->SetPivot({ 0.f,0.5f });
 			sp->SetPosition(pos);
 
 			wchar_t tx[3] = { '\0' };
 			swprintf_s(tx, L"%d", vass[vasc].num);
-			fr->Init(tx, (pos + CVector3(-20, 85.0f, 0)).ToTwo(), 0, { 1,1,1,1 }, 0.8f);
+			if(vass[vasc].num < 10)
+				fr->Init(tx, (pos + CVector3(-20, 85.0f, 0)).ToTwo(), 0, { 1,1,1,1 }, 0.8f);
+			else
+				fr->Init(tx, (pos + CVector3(-20, 85.0f, 0)).ToTwo(), 0, { 1,1,1,1 }, 0.7f);
 			fr->SetTextType(CFont::en_JapaneseBIG);
 			fr->DrawShadow();
 			m_fonts.push_back(fr);
@@ -74,7 +77,7 @@ void AIEditNodeMenuOpen::Awake()
 		{
 			//データが存在しない
 
-			sp->Init(L"Assets/sprite/fade_black.dds", 175, 175);
+			sp->Init(L"Assets/sprite/AIEIcon.dds", 175, 175);
 			sp->SetMulCol({ 0.6f,0.6f ,0.6f ,1 });
 			//sp->SetPivot({ 0.5f,0.5f });
 			CVector3 spos = pos;
@@ -96,14 +99,17 @@ void AIEditNodeMenuOpen::Awake()
 	m_head->Init(L"開くAIを選択してください", { -320,330.5f }, 0, { 1,1,1,1 }, 0.3f, { 0.5f,1.f });
 	m_head->DrawShadow();
 
+	CVector3 cpos = { 357.5f ,-340,0 };
 	m_close = NewGO<SpriteRender>(11, "sr");
-	m_close->Init(L"Assets/sprite/fade_black.dds", 160, 64, true);
-	m_close->SetPosition({ 357.5f ,-345,0 });
+	m_close->Init(L"Assets/sprite/HOM.dds", 160, 64, true);
+	m_close->SetPosition(cpos);
 	m_close->SetPivot({ 1,0 });
-	m_close->SetMulCol({ 0.5,0.5,0.5,1 });
-
+	//m_close->SetMulCol({ 0.5,0.5,0.5,1 });
+	cpos.x -= 147.5f;
+	cpos.y += 55;
 	m_cfont = NewGO<FontRender>(12, "fr");
-	m_cfont->Init(L"とじる", { 210.0f ,-290 }, 0, {1,1,1,1},1);
+	//m_cfont->Init(L"とじる", { 210.0f ,-290 }, 0, {1,1,1,1},1);
+	m_cfont->Init(L"とじる", cpos.ToTwo(), 0, { 1,1,1,1 }, 1);
 	m_cfont->SetTextType(CFont::en_Japanese);
 	m_cfont->DrawShadow();
 }
@@ -120,12 +126,18 @@ void AIEditNodeMenuOpen::Update()
 	bool isLeftClick = Mouse::isTrigger(enLeftClick);
 	if (m_close->isCollidingTarget())
 	{
+		m_close->SetMulCol({ 1.3f,1.3f,1.3f,1 });
 		if (isLeftClick)
 		{
+			PlayButtonSE();
 
 			m_nsb->Setmenuselect(false);
 			DeleteGO(this);
 		}
+	}
+	else
+	{
+		m_close->SetMulCol(CVector4::White);
 	}
 
 	for (int i = 0;i<12;i++)
@@ -134,12 +146,12 @@ void AIEditNodeMenuOpen::Update()
 		sp->SetCollisionTarget(cpos);
 		if (sp->isCollidingTarget())
 		{
-			sp->SetScale({ 1.04,1.04,1.04 });
+			sp->SetMulCol({ 1.3f,1.3f,1.3f,1 });
 			if (isLeftClick)
 			{
+				PlayButtonSE();
 				AIEditNodeProcess* proc = FindGO<AIEditNodeProcess>("process");
 				proc->DeleteAll();
-
 				char path[255];
 				sprintf(path, "Assets/VisualAI/%03d.va", i);
 				OpenAI(path);
@@ -190,7 +202,7 @@ void AIEditNodeMenuOpen::Update()
 		}
 		else
 		{
-			sp->SetScale(CVector3::One());
+			sp->SetMulCol(CVector4::White);
 		}
 	}
 }

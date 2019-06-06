@@ -48,5 +48,5 @@ private:
 	FontRender* m_info = nullptr;
 	FontRender* m_myRate = nullptr;
 	float m_scale = 1.f;
-	CVector2 m_backSca = { 500.f,600.f };
+	CVector2 m_backSca = { 500.f,800.f };
 };

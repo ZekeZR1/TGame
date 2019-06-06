@@ -98,7 +98,7 @@ void AIEditNodeMenuSave::Awake()
 
 	//ファイルの選択GUI
 	m_back = NewGO<SpriteRender>(10, "sp");
-	m_back->Init(L"Assets/sprite/fade_black.dds", 740, 700);
+	m_back->Init(L"Assets/sprite/AIbrawser.dds", 740, 700);
 
 	CVector3 pos = { -357.5f,175.f,0 };
 	int len = vass.size();
@@ -125,15 +125,18 @@ void AIEditNodeMenuSave::Awake()
 			mark->SetPosition(mpos);
 			m_marks.push_back(mark);
 
-			sp->Init(L"Assets/sprite/fade_black.dds", 175, 175, true);
+			sp->Init(L"Assets/sprite/AIEIcon.dds", 175, 175, true);
 			//sp->SetMulCol(vass[vasc].col);
-			sp->SetMulCol({0.7f,0.7f ,0.7f,1 });
+			//sp->SetMulCol({0.7f,0.7f ,0.7f,1 });
 			sp->SetPivot({ 0.f,0.5f });
 			sp->SetPosition(pos);
 
 			wchar_t tx[3] = {'\0'};
 			swprintf_s(tx, L"%d", vass[vasc].num);
-			fr->Init(tx, (pos + CVector3(-20, 85.0f, 0)).ToTwo(), 0, { 1,1,1,1 },0.8f);
+			if (vass[vasc].num < 10)
+				fr->Init(tx, (pos + CVector3(-20, 85.0f, 0)).ToTwo(), 0, { 1,1,1,1 }, 0.8f);
+			else
+				fr->Init(tx, (pos + CVector3(-20, 85.0f, 0)).ToTwo(), 0, { 1,1,1,1 }, 0.7f);
 			fr->SetTextType(CFont::en_JapaneseBIG);
 			fr->DrawShadow();
 			m_fontsF.push_back(fr);
@@ -142,7 +145,7 @@ void AIEditNodeMenuSave::Awake()
 		}
 		else
 		{
-			sp->Init(L"Assets/sprite/fade_black.dds", 175, 175, true);
+			sp->Init(L"Assets/sprite/AIEIcon.dds", 175, 175, true);
 			sp->SetMulCol({ 0.6f,0.6f ,0.6f ,1 });
 			sp->SetPivot({ 0.f,0.5f });
 			sp->SetPosition(pos);
@@ -162,14 +165,18 @@ void AIEditNodeMenuSave::Awake()
 	m_head->Init(L"保存する場所を選択してください", { -340,330.5f }, 0, { 1,1,1,1 }, 0.27f, { 0.5f,1.f });
 	m_head->DrawShadow();
 
+	CVector3 cpos = { 357.5f ,-340,0 };
 	m_close = NewGO<SpriteRender>(11, "sr");
-	m_close->Init(L"Assets/sprite/fade_black.dds", 160, 64, true);
-	m_close->SetPosition({ 357.5f ,-345,0 });
+	m_close->Init(L"Assets/sprite/HOM.dds", 160, 64, true);
+	m_close->SetPosition(cpos);
 	m_close->SetPivot({ 1,0 });
-	m_close->SetMulCol({ 0.5,0.5,0.5,1 });
+	//m_close->SetMulCol({ 0.5,0.5,0.5,1 });
+
+	cpos.x -= 147.5f;
+	cpos.y += 55;
 
 	m_cfont = NewGO<FontRender>(12, "fr");
-	m_cfont->Init(L"とじる", { 210.0f ,-290 }, 0, { 1,1,1,1 }, 1);
+	m_cfont->Init(L"とじる", cpos.ToTwo(), 0, { 1,1,1,1 }, 1);
 	m_cfont->SetTextType(CFont::en_Japanese);
 	m_cfont->DrawShadow();
 }
@@ -249,17 +256,22 @@ void AIEditNodeMenuSave::AISelected()
 
 	m_fontpos2.x -= 370;
 	m_fontpos2.y += 120;
-	m_fonts2->Init(L"保存しますか", { m_fontpos2 }, 0.0, CVector4::Red, 0.8, { 0.0,0.0 });
+	m_fonts2->Init(L"保存しますか", { m_fontpos2 }, 0.0, CVector4::White, 0.8, { 0.0,0.0 });
+	//m_fonts[0]->DrawShadow();
 
 	m_fontpos.y += 20;
 	m_fontpos.x -= 300.f;
 	m_fonts[0]->Init(L"はい", { m_fontpos }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
+	//m_fonts[0]->DrawShadow();
+
 	m_fontpos.x += 225;
 	m_fonts[1]->Init(L"いいえ", { m_fontpos }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
+	//m_fonts[0]->DrawShadow();
 }
 
 void AIEditNodeMenuSave::confProc()
 {
+	bool isLeftClick = Mouse::isTrigger(enLeftClick);
 	if (!clickyes)
 	{
 		for (int i = 0; i < button; i++) {
@@ -268,9 +280,12 @@ void AIEditNodeMenuSave::confProc()
 		}
 
 		if (click == false) {
-			if (Mouse::isTrigger(enLeftClick)) {
-				if (sp[button - 2]->isCollidingTarget()) {		//　はい　を選択した場合。
-
+			if (sp[button - 2]->isCollidingTarget()) //　はい　を選択した場合。
+			{		
+				sp[button - 2]->SetMulCol({1.3f,1.3f, 1.3f, 1});
+				if (isLeftClick) 
+				{
+					PlayButtonSE();
 					//m_aieditnodeprocess->AISave();
 
 					PaletteInit();
@@ -292,15 +307,29 @@ void AIEditNodeMenuSave::confProc()
 					//Confirmation();
 
 					click = true;
-				}
 
-				else if (sp[button - 1]->isCollidingTarget()) {		//　いいえ　を選択した場合。
+					return;
+				}
+			}
+			else
+			{
+				sp[button - 2]->SetMulCol(CVector4::White);
+			}
+			if (sp[button - 1]->isCollidingTarget()) //　いいえ　を選択した場合。
+			{		
+				sp[button - 1]->SetMulCol({ 1.3f,1.3f, 1.3f, 1 });
+				if (isLeftClick)
+				{
+					PlayButtonSE();
 					m_aieditselectbuttons->Setmenuselect(false);
 					DeleteGO(this);
 
 					click = true;
 				}
-
+			}
+			else
+			{
+				sp[button - 1]->SetMulCol(CVector4::White);
 			}
 		}
 	}
@@ -326,7 +355,7 @@ void AIEditNodeMenuSave::PaletteInit()
 {
 	CVector3 posp = { 160,-30,0 };
 	m_backC = NewGO<SpriteRender>(20, "sp");
-	m_backC->Init(L"Assets/sprite/fade_black.dds", 740, 250);
+	m_backC->Init(L"Assets/sprite/AIbrawser.dds", 740, 250);
 	m_backC->SetPosition(posp);
 
 	CVector3 pos = { -357.5f,-30.f,0 };
@@ -336,10 +365,10 @@ void AIEditNodeMenuSave::PaletteInit()
 		SpriteRender* sp = NewGO<SpriteRender>(21, "sp");
 		
 		CVector4 col = CVector4::Black;
-		sp->Init(L"Assets/sprite/fade_black.dds", 175, 175, true);
+		sp->Init(L"Assets/sprite/AIEIcon.dds", 175, 175, true);
 		sp->SetPivot({ 0,0.5f });
 		sp->SetPosition(pos);
-		sp->SetMulCol({0.7f,0.7f,0.7f,1});
+		//sp->SetMulCol({0.7f,0.7f,0.7f,1});
 
 		SpriteRender* mk = NewGO<SpriteRender>(21, "sp");
 		mk->Init(VisualAIOpen::getMark(i), 170, 170);
@@ -369,17 +398,24 @@ void AIEditNodeMenuSave::PaletteProc()
 		{
 			sp->SetCollisionTarget(cursorpos);
 		}
-		if (Mouse::isTrigger(enLeftClick))
+		for (int i = 0; i < 4; i++)
 		{
-			for (int i = 0; i < 4; i++)
+			if (m_palette[i]->isCollidingTarget())
 			{
-				if (m_palette[i]->isCollidingTarget())
+				m_palette[i]->SetMulCol({ 1.3f,1.3f, 1.3f, 1 });
+				if (Mouse::isTrigger(enLeftClick))
 				{
+					PlayButtonSE();
+
 					m_selCol = i;
 					Confirmation();
 					m_isColSel = true;
-					m_aieditnodeprocess->AISave(m_SelectBlock,m_selCol);
+					m_aieditnodeprocess->AISave(m_SelectBlock, m_selCol);
 				}
+			}
+			else
+			{
+				m_palette[i]->SetMulCol(CVector4::White);
 			}
 		}
 	}
@@ -388,16 +424,23 @@ void AIEditNodeMenuSave::PaletteProc()
 		m_spriteRender3->SetCollisionTarget(cursorpos);
 
 		if (m_spriteRender3->isCollidingTarget()) {
+			m_spriteRender3->SetMulCol({ 1.3f,1.3f, 1.3f, 1 });
 			if (Mouse::isTrigger(enLeftClick)) {
+				PlayButtonSE();
 				m_aieditselectbuttons->Setmenuselect(false);
 				DeleteGO(this);
 			}
+		}
+		else
+		{
+			m_spriteRender3->SetMulCol(CVector4::White);
 		}
 	}
 }
 
 void AIEditNodeMenuSave::Update()
 {
+	bool isLeftClick = Mouse::isTrigger(enLeftClick);
 	cursorpos = m_gamecursor->GetCursor();
 	if (!m_isSelected)
 	{
@@ -407,23 +450,38 @@ void AIEditNodeMenuSave::Update()
 		}
 		m_close->SetCollisionTarget(cursorpos);
 
-		if (Mouse::isTrigger(enLeftClick))
+		for (int i = 0; i < 12; i++)
 		{
-			for (int i = 0; i < 12; i++)
+			if (m_buttonsF[i]->isCollidingTarget())
 			{
-				if (m_buttonsF[i]->isCollidingTarget())
+				m_buttonsF[i]->SetMulCol({ 1.3f,1.3f,1.3f,1 });
+				if (isLeftClick)
 				{
 					m_SelectBlock = i;
 					AISelected();
 					m_isSelected = true;
+					PlayButtonSE();
 				}
 			}
-
-			if (m_close->isCollidingTarget())
+			else
+			{
+				m_buttonsF[i]->SetMulCol(CVector4::White);
+			}
+		}
+		if (m_close->isCollidingTarget())
+		{
+			m_close->SetMulCol({ 1.3f,1.3f,1.3f,1 });
+			if (isLeftClick)
 			{
 				m_aieditselectbuttons->Setmenuselect(false);
+				PlayButtonSE();
+
 				DeleteGO(this);
 			}
+		}
+		else
+		{
+			m_close->SetMulCol(CVector4::White);
 		}
 	}
 	else

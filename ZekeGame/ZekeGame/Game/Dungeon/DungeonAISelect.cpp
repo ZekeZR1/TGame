@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include <string>
+#include "../ToAiEditModeButton.h"
 #include "DungeonGame.h"
 #include "DungeonSelect.h"
 #include "../Title/ModeSelect.h"
@@ -15,7 +16,7 @@
 #include "../Title/PMMonster.h"
 #include "DungeonAISelect.h"
 #include "DungeonTransition.h"
-
+#include "..//Title/AIeditModeSelect.h"
 #include "../ReturnButton/ReturnButton.h"
 #include "../Title/MonAIPreset/MonAIPresetOpenSuper.h"
 #include "../Title/MonAIPreset/MonAIPresetSaveOpen.h"
@@ -51,6 +52,7 @@ void DungeonAISelect::OnDestroy()
 	DeleteGO(m_GOb);
 
 	DeleteGO(m_back);
+	DeleteGO(m_aiButton);
 }
 
 bool DungeonAISelect::Start() {
@@ -113,7 +115,9 @@ bool DungeonAISelect::Start() {
 
 	m_GOb = NewGO<GObutton>(0, "gb");
 	m_GOb->init(m_cursor, { 400,-160,0 });
-	
+
+	m_aiButton = NewGO< ToAiEditModeButton>(0);
+	m_aiButton->SetCurrentScene(this);
 	return true;
 }
 
@@ -129,7 +133,9 @@ void DungeonAISelect::Update() {
 	}
 	if (ispmm)
 		return;
-	
+	if (m_aiButton->isFading())
+		return;
+
 	/*for (auto pmm : m_pmms)
 	{
 		if (pmm->isClick())
@@ -185,6 +191,7 @@ void DungeonAISelect::Update() {
 				se->Play();
 			}
 		}*/
+		m_GOb->UpdateEx();
 		if (m_GOb->isClick())
 		{
 			for (int i = 0; i < m_numPmm; i++)
@@ -226,6 +233,8 @@ void DungeonAISelect::Update() {
 	}
 	if(!isfade and !m_isfade)
 		m_returnButton->UpdateEx<DungeonSelect>();
+
+	m_aiButton->SetTarget(m_cursor->GetCursor());
 }
 
 void DungeonAISelect::LoadFiles() {

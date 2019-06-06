@@ -17,6 +17,7 @@
 #include "../ReturnButton/ReturnButton.h"
 #include "../Title/GObutton.h"
 #include "../Title/MonsterSelectBack.h"
+#include "../ToAiEditModeButton.h"
 
 void NetAISelect::OnDestroy()
 {
@@ -34,6 +35,7 @@ void NetAISelect::OnDestroy()
 
 	DeleteGO(m_returnButton);
 	DeleteGO(m_GOb);
+	DeleteGO(m_aiButton);
 	DeleteGO(m_msback);
 }
 
@@ -115,7 +117,8 @@ bool NetAISelect::Start()
 	m_GOb = NewGO<GObutton>(0, "gb");
 	m_GOb->init(m_cursor, { 520,240,0 });
 	
-	
+	m_aiButton = NewGO< ToAiEditModeButton>(0);
+	m_aiButton->SetCurrentScene(this);
 	return true;
 }
 
@@ -141,6 +144,8 @@ void NetAISelect::Update()
 		}
 		return;
 	}
+	if (m_aiButton->isFading())
+		return;
 
 	bool ispmm = false;
 	for (auto pmm : m_pmms)
@@ -158,6 +163,7 @@ void NetAISelect::Update()
 		m_returnButton->UpdateEx<ModeSelect>();
 		m_msRed->UpdateEx();
 		m_mlRed->UpdateEx();
+		m_aiButton->SetTarget(m_cursor->GetCursor());
 		//プリセットのセーブ
 		if (m_msRed->IsClick())
 		{
@@ -201,6 +207,7 @@ void NetAISelect::Update()
 		//	}
 		//}
 
+		m_GOb->UpdateEx();
 		if (m_GOb->isClick())
 		{
 			m_fade->FadeOut();

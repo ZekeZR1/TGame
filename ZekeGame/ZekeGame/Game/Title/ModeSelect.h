@@ -7,11 +7,11 @@ struct button
 {
 	button()
 	{
-		frame = NewGO<SpriteRender>(2, "sp");
+		frame = NewGO<SpriteRender>(5, "sp");
 		frame->Init(L"Assets/sprite/modesel_frame.dds", 690, 150,true);
 		
 		//moji = NewGO<SpriteRender>(3, "sp");
-		font = NewGO<FontRender>(3, "fr");
+		font = NewGO<FontRender>(6, "fr");
 		font->SetTextType(CFont::en_JapaneseBIG);
 	}
 	~button()

@@ -20,7 +20,7 @@ bool DungeonTransition::Start() {
 	CQuaternion m_rot = CQuaternion::Identity();
 	m_rot.SetRotationDeg(CVector3::AxisY(), 180.f);
 	//m_back->SetRotation(m_rot);
-	m_back->SetScale({ 3.f,3.f,3.f });
+	m_back->SetScale({ 3.5f,3.5f,3.5f });
 	m_back->SetPosition(m_backPos);
 	m_back->SetShadowCasterFlag(false);
 
@@ -49,7 +49,8 @@ void DungeonTransition::Update() {
 	}
 	m_camera->SetTarget(m_monsters[1]->GetPosition());
 	auto p = m_monsters[0]->GetPosition();
-	if (p.z > -1100.f || Mouse::isTrigger(enLeftClick)) {
+	auto pos = m_monsters[0]->GetPosition();
+	if (p.z > -1100.f || Mouse::isTrigger(enLeftClick) and pos.z > -1900.f) {
 		if (!m_isfade) {
 			m_fade->FadeOut();
 			m_isfade = true;

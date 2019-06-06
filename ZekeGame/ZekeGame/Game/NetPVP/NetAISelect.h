@@ -1,7 +1,7 @@
 #pragma once
 
 #include "../Title/SuperMonsterSelect.h"
-
+class ToAiEditModeButton;
 class GameCursor;
 class RatingInfo;
 class MonAIPresetOpenSuper;
@@ -45,7 +45,7 @@ private:
 
 	//rating information
 	SpriteRender* m_info = nullptr;
-	CVector3 m_infoPos = { -500.f,220.f ,0.f };
+	CVector3 m_infoPos = { 550.f,-200.f ,0.f };
 
 	bool isReturnOver = false;
 	CVector2 m_returnS = { 604,256 };
@@ -65,5 +65,6 @@ private:
 	ReturnButton* m_returnButton = nullptr;			//–ß‚éƒ{ƒ^ƒ“
 
 	GObutton* m_GOb = nullptr;						//GO botan
+	ToAiEditModeButton* m_aiButton = nullptr;
 	MonsterSelectBack* m_msback = nullptr;			//‚Í‚¢‚¯‚¢
 };
