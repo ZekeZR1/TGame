@@ -1920,6 +1920,24 @@
     </None>
     <None Include="Assets\Sprite\Network\wallpaper2.jpg" />
     <None Include="Assets\Sprite\Network\wallpaper3.jpg" />
+    <None Include="Assets\Sprite\GUI\returnButton\Rarrow2.png">
+      <Filter>Assets\Sprite\returnButton</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\returnButton\Rarrow0.png">
+      <Filter>Assets\Sprite\returnButton</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\returnButton\Rarrow1.png">
+      <Filter>Assets\Sprite\returnButton</Filter>
+    </None>
+    <None Include="Assets\Sprite\AIEdit\buttyon.png">
+      <Filter>Assets\Sprite\AIEdit</Filter>
+    </None>
+    <None Include="Assets\Sprite\AIEdit\AIbrawser.png">
+      <Filter>Assets\Sprite\AIEdit</Filter>
+    </None>
+    <None Include="Assets\Sprite\AIEdit\AIEIcon.png">
+      <Filter>Assets\Sprite\AIEdit</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="act">
@@ -2071,10 +2089,5 @@
     <Media Include="Assets\sound\BGM\PerituneMaterial_Strategy5_loop.wav">
       <Filter>Assets\BGM</Filter>
     </Media>
-  </ItemGroup>
-  <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\AIEdit\buttyon.png" />
-    <ImageContentTask Include="Assets\Sprite\AIEdit\AIbrawser.png" />
-    <ImageContentTask Include="Assets\Sprite\AIEdit\AIEIcon.png" />
   </ItemGroup>
 </Project>
