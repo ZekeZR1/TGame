@@ -1126,6 +1126,7 @@
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\gk_human\gk_human.FBX" />
     <MeshContentTask Include="Assets\modelData\kikyo_chan\hero.FBX" />
+    <MeshContentTask Include="Assets\modelData\RedHead\RedHead.fbx" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

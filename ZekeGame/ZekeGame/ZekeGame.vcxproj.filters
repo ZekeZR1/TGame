@@ -2097,5 +2097,8 @@
     <MeshContentTask Include="Assets\modelData\gk_human\gk_human.FBX">
       <Filter>Assets\model</Filter>
     </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\RedHead\RedHead.fbx">
+      <Filter>Assets\model</Filter>
+    </MeshContentTask>
   </ItemGroup>
 </Project>
