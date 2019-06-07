@@ -3,19 +3,19 @@
   <ItemGroup>
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="Game\Monster\Action\Act_Atack.cpp">
-      <Filter>Game\Monster\act</Filter>
+      <Filter>act</Filter>
     </ClCompile>
     <ClCompile Include="Game\Monster\Action\Act_Chase.cpp">
-      <Filter>Game\Monster\act</Filter>
+      <Filter>act</Filter>
     </ClCompile>
     <ClCompile Include="Game\Monster\Action\Act_Fire.cpp">
-      <Filter>Game\Monster\act</Filter>
+      <Filter>act</Filter>
     </ClCompile>
     <ClCompile Include="Game\Monster\Action\Act_Leave.cpp">
-      <Filter>Game\Monster\act</Filter>
+      <Filter>act</Filter>
     </ClCompile>
     <ClCompile Include="Game\Monster\Action\Act_Defense.cpp">
-      <Filter>Game\Monster\act</Filter>
+      <Filter>act</Filter>
     </ClCompile>
     <ClCompile Include="Game\AIEdit\AIEditLine.cpp">
       <Filter>Game\AIEdite</Filter>
@@ -411,16 +411,16 @@
       <Filter>Game\AIEdite</Filter>
     </ClCompile>
     <ClCompile Include="Game\Monster\Action\Act_Recovery.cpp">
-      <Filter>Game\Monster\act</Filter>
+      <Filter>act</Filter>
     </ClCompile>
     <ClCompile Include="Game\Monster\Action\Act_Guardian.cpp">
-      <Filter>Game\Monster\act</Filter>
+      <Filter>act</Filter>
     </ClCompile>
     <ClCompile Include="Game\Monster\Action\Act_Tackle.cpp">
-      <Filter>Game\Monster\act</Filter>
+      <Filter>act</Filter>
     </ClCompile>
     <ClCompile Include="Game\Monster\Action\ACTEffect.cpp">
-      <Filter>Game\Monster\act</Filter>
+      <Filter>act</Filter>
     </ClCompile>
     <ClCompile Include="Game\Fade\Fade.cpp">
       <Filter>Game\fade</Filter>
@@ -531,22 +531,25 @@
       <Filter>Game\Monster</Filter>
     </ClCompile>
     <ClCompile Include="Game\Monster\Action\Act_superBeam.cpp">
-      <Filter>Game\Monster\act</Filter>
+      <Filter>act</Filter>
     </ClCompile>
     <ClCompile Include="Game\Monster\Action\Act_Cleanse.cpp">
-      <Filter>Game\Monster\act</Filter>
+      <Filter>act</Filter>
     </ClCompile>
     <ClCompile Include="Game\Monster\Action\Act_buffAtcPow.cpp">
-      <Filter>Game\Monster\act\buff</Filter>
+      <Filter>act\buff</Filter>
     </ClCompile>
     <ClCompile Include="Game\Monster\Action\Act_buffDefPow.cpp">
-      <Filter>Game\Monster\act\buff</Filter>
+      <Filter>act\buff</Filter>
     </ClCompile>
     <ClCompile Include="Game\Monster\Action\Act_debuffAtcPow.cpp">
-      <Filter>Game\Monster\act\debuff</Filter>
+      <Filter>act\debuff</Filter>
     </ClCompile>
     <ClCompile Include="Game\Monster\Action\Act_debuffDefPow.cpp">
-      <Filter>Game\Monster\act\debuff</Filter>
+      <Filter>act\debuff</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\Action\Act_ObstMove.cpp">
+      <Filter>act\debuff</Filter>
     </ClCompile>
     <ClCompile Include="Game\Monster\Action\Act_ObstMove.cpp" />
     <ClCompile Include="Game\Monster\Monsters\Book.cpp">
@@ -575,48 +578,24 @@
     <ClCompile Include="Game\ToAiEditModeButton.cpp">
       <Filter>Game</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Monster\Action\Act_ObstMove.cpp">
-      <Filter>Game\Monster\act</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Monster\Action\Act_Majinken.cpp">
-      <Filter>Game\Monster\act\new</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Monster\Action\Act_ManaHeal.cpp">
-      <Filter>Game\Monster\act\new</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Monster\Action\Act_ClearStack.cpp">
-      <Filter>Game\Monster\act\new</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Monster\Action\Act_Thunder.cpp">
-      <Filter>Game\Monster\act\Abnormal condition</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Monster\Action\Act_Blizzard.cpp">
-      <Filter>Game\Monster\act\Abnormal condition</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Monster\Action\Act_Ignite.cpp">
-      <Filter>Game\Monster\act\Abnormal condition</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Monster\Action\Act_Poison.cpp">
-      <Filter>Game\Monster\act\Abnormal condition</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\PythonBridge\include\unicodeobject.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="Game\Monster\Action\Act_Atack.h">
-      <Filter>Game\Monster\act</Filter>
+      <Filter>act</Filter>
     </ClInclude>
     <ClInclude Include="Game\Monster\Action\Act_Chase.h">
-      <Filter>Game\Monster\act</Filter>
+      <Filter>act</Filter>
     </ClInclude>
     <ClInclude Include="Game\Monster\Action\Act_Fire.h">
-      <Filter>Game\Monster\act</Filter>
+      <Filter>act</Filter>
     </ClInclude>
     <ClInclude Include="Game\Monster\Action\Act_Leave.h">
-      <Filter>Game\Monster\act</Filter>
+      <Filter>act</Filter>
     </ClInclude>
     <ClInclude Include="Game\Monster\Action\Act_Defense.h">
-      <Filter>Game\Monster\act</Filter>
+      <Filter>act</Filter>
     </ClInclude>
     <ClInclude Include="Game\PythonBridge\include\abstract.h">
       <Filter>Engine</Filter>
@@ -1321,16 +1300,16 @@
       <Filter>Game\AIEdite</Filter>
     </ClInclude>
     <ClInclude Include="Game\Monster\Action\Act_Recovery.h">
-      <Filter>Game\Monster\act</Filter>
+      <Filter>act</Filter>
     </ClInclude>
     <ClInclude Include="Game\Monster\Action\Act_Tackle.h">
-      <Filter>Game\Monster\act</Filter>
+      <Filter>act</Filter>
     </ClInclude>
     <ClInclude Include="Game\Monster\Action\Act_Guardian.h">
-      <Filter>Game\Monster\act</Filter>
+      <Filter>act</Filter>
     </ClInclude>
     <ClInclude Include="Game\Monster\Action\ACTEffect.h">
-      <Filter>Game\Monster\act</Filter>
+      <Filter>act</Filter>
     </ClInclude>
     <ClInclude Include="Game\Fade\Fade.h">
       <Filter>Game\fade</Filter>
@@ -1441,22 +1420,25 @@
       <Filter>Game\Monster</Filter>
     </ClInclude>
     <ClInclude Include="Game\Monster\Action\Act_superBeam.h">
-      <Filter>Game\Monster\act</Filter>
+      <Filter>act</Filter>
     </ClInclude>
     <ClInclude Include="Game\Monster\Action\Act_Cleanse.h">
-      <Filter>Game\Monster\act</Filter>
+      <Filter>act</Filter>
     </ClInclude>
     <ClInclude Include="Game\Monster\Action\Act_buffAtcPow.h">
-      <Filter>Game\Monster\act\buff</Filter>
+      <Filter>act\buff</Filter>
     </ClInclude>
     <ClInclude Include="Game\Monster\Action\Act_buffDefPow.h">
-      <Filter>Game\Monster\act\buff</Filter>
+      <Filter>act\buff</Filter>
     </ClInclude>
     <ClInclude Include="Game\Monster\Action\Act_debuffDefPow.h">
-      <Filter>Game\Monster\act\debuff</Filter>
+      <Filter>act\debuff</Filter>
     </ClInclude>
     <ClInclude Include="Game\Monster\Action\Act_debuffAtcPow.h">
-      <Filter>Game\Monster\act\debuff</Filter>
+      <Filter>act\debuff</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\Action\Act_ObstMove.h">
+      <Filter>act\debuff</Filter>
     </ClInclude>
     <ClInclude Include="Game\Monster\Action\Act_ObstMove.h" />
     <ClInclude Include="Game\Monster\Monsters\Book.h">
@@ -1481,31 +1463,6 @@
     </ClInclude>
     <ClInclude Include="Game\ToAiEditModeButton.h">
       <Filter>Game</Filter>
-    </ClInclude>
-    <ClInclude Include="resource.h" />
-    <ClInclude Include="Game\Monster\Action\Act_ObstMove.h">
-      <Filter>Game\Monster\act</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Monster\Action\Act_Majinken.h">
-      <Filter>Game\Monster\act\new</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Monster\Action\Act_ManaHeal.h">
-      <Filter>Game\Monster\act\new</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Monster\Action\Act_ClearStack.h">
-      <Filter>Game\Monster\act\new</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Monster\Action\Act_Thunder.h">
-      <Filter>Game\Monster\act\Abnormal condition</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Monster\Action\Act_Blizzard.h">
-      <Filter>Game\Monster\act\Abnormal condition</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Monster\Action\Act_Ignite.h">
-      <Filter>Game\Monster\act\Abnormal condition</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Monster\Action\Act_Poison.h">
-      <Filter>Game\Monster\act\Abnormal condition</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1963,8 +1920,29 @@
     </None>
     <None Include="Assets\Sprite\Network\wallpaper2.jpg" />
     <None Include="Assets\Sprite\Network\wallpaper3.jpg" />
+    <None Include="Assets\Sprite\GUI\returnButton\Rarrow2.png">
+      <Filter>Assets\Sprite\returnButton</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\returnButton\Rarrow0.png">
+      <Filter>Assets\Sprite\returnButton</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\returnButton\Rarrow1.png">
+      <Filter>Assets\Sprite\returnButton</Filter>
+    </None>
+    <None Include="Assets\Sprite\AIEdit\buttyon.png">
+      <Filter>Assets\Sprite\AIEdit</Filter>
+    </None>
+    <None Include="Assets\Sprite\AIEdit\AIbrawser.png">
+      <Filter>Assets\Sprite\AIEdit</Filter>
+    </None>
+    <None Include="Assets\Sprite\AIEdit\AIEIcon.png">
+      <Filter>Assets\Sprite\AIEdit</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
+    <Filter Include="act">
+      <UniqueIdentifier>{ed9ac73e-291a-47fa-99d2-535de596c2f8}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Game">
       <UniqueIdentifier>{bbca8a34-1f3d-4b20-a230-eadf10875c5b}</UniqueIdentifier>
     </Filter>
@@ -2076,6 +2054,12 @@
     <Filter Include="Assets\Sprite\MonSelect">
       <UniqueIdentifier>{980c3a0a-ea09-46ea-8843-ecabbd66a6cd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="act\buff">
+      <UniqueIdentifier>{479eeb42-6d03-4573-840b-dbdbff08b05e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="act\debuff">
+      <UniqueIdentifier>{e67c7ddd-6282-4d37-aee9-827fcb7fae34}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Assets\Sprite\AImark">
       <UniqueIdentifier>{0e080f1a-2d6a-4846-94a8-ecec42545a18}</UniqueIdentifier>
     </Filter>
@@ -2090,21 +2074,6 @@
     </Filter>
     <Filter Include="Game\UIAnimator">
       <UniqueIdentifier>{f799ba4b-7abe-4031-8f31-d1d0c550e2cd}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\Monster\act">
-      <UniqueIdentifier>{ed9ac73e-291a-47fa-99d2-535de596c2f8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\Monster\act\buff">
-      <UniqueIdentifier>{479eeb42-6d03-4573-840b-dbdbff08b05e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\Monster\act\debuff">
-      <UniqueIdentifier>{e67c7ddd-6282-4d37-aee9-827fcb7fae34}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\Monster\act\new">
-      <UniqueIdentifier>{e55f8792-2994-49b3-8383-592b1f0833eb}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\Monster\act\Abnormal condition">
-      <UniqueIdentifier>{087328eb-9ac8-427f-a66b-7b4e76b4af8c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -2122,11 +2091,14 @@
     </Media>
   </ItemGroup>
   <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\AIEdit\buttyon.png" />
-    <ImageContentTask Include="Assets\Sprite\AIEdit\AIbrawser.png" />
-    <ImageContentTask Include="Assets\Sprite\AIEdit\AIEIcon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="ZekeGame.rc" />
+    <MeshContentTask Include="Assets\modelData\kikyo_chan\hero.FBX">
+      <Filter>Assets\model</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\gk_human\gk_human.FBX">
+      <Filter>Assets\model</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\RedHead\RedHead.fbx">
+      <Filter>Assets\model</Filter>
+    </MeshContentTask>
   </ItemGroup>
 </Project>

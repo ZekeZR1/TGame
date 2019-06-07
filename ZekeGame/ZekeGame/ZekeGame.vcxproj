@@ -275,27 +275,20 @@
     <ClCompile Include="Game\MonsterBox\MonsterBox.cpp" />
     <ClCompile Include="Game\Monster\Action\ACTEffect.cpp" />
     <ClCompile Include="Game\Monster\Action\Act_Atack.cpp" />
-    <ClCompile Include="Game\Monster\Action\Act_Blizzard.cpp" />
     <ClCompile Include="Game\Monster\Action\Act_buffAtcPow.cpp" />
     <ClCompile Include="Game\Monster\Action\Act_buffDefPow.cpp" />
     <ClCompile Include="Game\Monster\Action\Act_Chase.cpp" />
     <ClCompile Include="Game\Monster\Action\Act_Cleanse.cpp" />
-    <ClCompile Include="Game\Monster\Action\Act_ClearStack.cpp" />
     <ClCompile Include="Game\Monster\Action\Act_debuffAtcPow.cpp" />
     <ClCompile Include="Game\Monster\Action\Act_debuffDefPow.cpp" />
     <ClCompile Include="Game\Monster\Action\Act_Defense.cpp" />
     <ClCompile Include="Game\Monster\Action\Act_Fire.cpp" />
     <ClCompile Include="Game\Monster\Action\Act_Guardian.cpp" />
-    <ClCompile Include="Game\Monster\Action\Act_Ignite.cpp" />
     <ClCompile Include="Game\Monster\Action\Act_Leave.cpp" />
-    <ClCompile Include="Game\Monster\Action\Act_Majinken.cpp" />
-    <ClCompile Include="Game\Monster\Action\Act_ManaHeal.cpp" />
     <ClCompile Include="Game\Monster\Action\Act_ObstMove.cpp" />
-    <ClCompile Include="Game\Monster\Action\Act_Poison.cpp" />
     <ClCompile Include="Game\Monster\Action\Act_Recovery.cpp" />
     <ClCompile Include="Game\Monster\Action\Act_superBeam.cpp" />
     <ClCompile Include="Game\Monster\Action\Act_Tackle.cpp" />
-    <ClCompile Include="Game\Monster\Action\Act_Thunder.cpp" />
     <ClCompile Include="Game\Monster\Monster.cpp" />
     <ClCompile Include="Game\Monster\MonsterAction.cpp" />
     <ClCompile Include="Game\Monster\MonsterActionList.cpp" />
@@ -493,27 +486,20 @@
     <ClInclude Include="Game\MonsterBox\MonsterBox.h" />
     <ClInclude Include="Game\Monster\Action\ACTEffect.h" />
     <ClInclude Include="Game\Monster\Action\Act_Atack.h" />
-    <ClInclude Include="Game\Monster\Action\Act_Blizzard.h" />
     <ClInclude Include="Game\Monster\Action\Act_buffAtcPow.h" />
     <ClInclude Include="Game\Monster\Action\Act_buffDefPow.h" />
     <ClInclude Include="Game\Monster\Action\Act_Chase.h" />
     <ClInclude Include="Game\Monster\Action\Act_Cleanse.h" />
-    <ClInclude Include="Game\Monster\Action\Act_ClearStack.h" />
     <ClInclude Include="Game\Monster\Action\Act_debuffAtcPow.h" />
     <ClInclude Include="Game\Monster\Action\Act_debuffDefPow.h" />
     <ClInclude Include="Game\Monster\Action\Act_Defense.h" />
     <ClInclude Include="Game\Monster\Action\Act_Fire.h" />
     <ClInclude Include="Game\Monster\Action\Act_Guardian.h" />
-    <ClInclude Include="Game\Monster\Action\Act_Ignite.h" />
     <ClInclude Include="Game\Monster\Action\Act_Leave.h" />
-    <ClInclude Include="Game\Monster\Action\Act_Majinken.h" />
-    <ClInclude Include="Game\Monster\Action\Act_ManaHeal.h" />
     <ClInclude Include="Game\Monster\Action\Act_ObstMove.h" />
-    <ClInclude Include="Game\Monster\Action\Act_Poison.h" />
     <ClInclude Include="Game\Monster\Action\Act_Recovery.h" />
     <ClInclude Include="Game\Monster\Action\Act_superBeam.h" />
     <ClInclude Include="Game\Monster\Action\Act_Tackle.h" />
-    <ClInclude Include="Game\Monster\Action\Act_Thunder.h" />
     <ClInclude Include="Game\Monster\Monster.h" />
     <ClInclude Include="Game\Monster\MonsterAction.h" />
     <ClInclude Include="Game\Monster\MonsterActionList.h" />
@@ -680,7 +666,6 @@
     <ClInclude Include="Game\ToAiEditModeButton.h" />
     <ClInclude Include="Game\UIAnimator\UIAnimator.h" />
     <ClInclude Include="Game\VisualScriptAI\VisualScriptAI.h" />
-    <ClInclude Include="resource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="TestScene.h" />
     <ClInclude Include="TestScene2.h" />
@@ -1139,7 +1124,9 @@
     <None Include="Assets\Sprite\GUI\returnButton\Rarrow2.png" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="ZekeGame.rc" />
+    <MeshContentTask Include="Assets\modelData\gk_human\gk_human.FBX" />
+    <MeshContentTask Include="Assets\modelData\kikyo_chan\hero.FBX" />
+    <MeshContentTask Include="Assets\modelData\RedHead\RedHead.fbx" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
