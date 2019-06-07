@@ -88,8 +88,6 @@ void ACTEffectGrant::AddAct() {
 	case enHardCC:
 	{
 		m_abnormal = Monster::abStan;
-		m_tarSpeed = m_target->GetSpeed();
-		m_target->SetSpeed(0.f);
 		//m_target->stop
 		break;
 	}

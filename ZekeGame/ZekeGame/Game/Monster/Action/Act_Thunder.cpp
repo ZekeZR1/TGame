@@ -24,7 +24,7 @@ bool Act_Thunder::Action(Monster* me) {
 		actEG->init(m_efk, m_target, ACTEffectGrant::State::enHardCC, 0, 0, 650);
 		m_target->SetAbnormalState(actEG);
 		//float dam = m_damPow * me->GetExAttack() * 1 / m_target->GetExDefense();
-		m_target->DamageEx(0);
+		m_target->DamageEx(20);
 
 		Sound* snd = NewGO<Sound>(0, "snd");
 		snd->Init(L"Assets/sound/buff.wav");
