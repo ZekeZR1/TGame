@@ -24,7 +24,7 @@ bool Act_buffAtcPow::Action(Monster* me) {
 		m_target->SetAttackPower(m_pow * 1.5);
 		m_ExPow = m_target->GetExAttack();
 		m_target->SetAttackPower(m_ExPow * 1.5);*/
-
+		me->anim_extra1();
 		auto m_efk = NewGO<CEffect>(0, "ef");
 		m_efk->SetScale({ 8,8,8 });
 		m_efk->SetPosition(m_target->Getpos());
@@ -53,6 +53,7 @@ bool Act_buffAtcPow::Action(Monster* me) {
 		{
 			//m_target->SetAttackPower(m_pow);
 			//m_target->SetExAttackPower(m_ExPow);
+			me->anim_idle();
 			return true;
 		}
 	}

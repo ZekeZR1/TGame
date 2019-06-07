@@ -357,6 +357,11 @@ public:
 		return m_ID;
 	}
 
+	//技のスタックをクリアする
+	void ClearActionStack() {
+		m_actions.clear();
+	}
+
 	//これいらない
 	Monster* Getmon()
 	{
