@@ -20,7 +20,7 @@ public:
 		dam:食らわすダメージ
 		time:ダメージのスパン。0未満の場合は毎フレーム
 	*/
-	void init(CEffect* effect, Monster* target, int state = enNull, float dam = 0,float time = -1,float endTime = 0);
+	void init(CEffect* effect, Monster* target, int state = enNull, float dam = 0,float time = -1,float endTime = 0, Monster* me = nullptr);
 
 	/*
 	Update
@@ -41,11 +41,14 @@ public:
 		enNull,		//何もしない
 		enDamage,	//ダメージ
 		enCC,	//移動妨害
-		enBuffAtcPow,
-		enBuffDefPow,
-		enDebuffAtcPow,
-		enDebuffDefPow,
-		enbuffAtc,
+		enBuffAtcPow, //攻撃力バフ
+		enBuffDefPow,	//防御力バフ
+		enDebuffAtcPow,	//攻撃力デバフ
+		enDebuffDefPow,	//防御力全般低下
+		enbuffAtc,	//攻撃力全般バフ
+		enDoT,	//Damage over time(継続ダメージを受ける)
+		enHardCC, //行動妨害(移動不可andスキル使用不可)
+		enMajinken
 	};
 
 	State GetState() {
@@ -70,4 +73,6 @@ private:
 	double m_ExPow = 0;
 	CEffect* m_effect = nullptr;
 	Monster* m_target = nullptr;
+	float DoTParam = 0.5f;
+	Monster* m_Invoker = nullptr;
 };

@@ -18,6 +18,13 @@
 #include "Action/Act_buffDefPow.h"
 #include "Action/Act_debuffAtcPow.h"
 #include "Action/Act_debuffDefPow.h"
+#include "Action/Act_ClearStack.h"
+#include "Action/Act_Majinken.h"
+#include "Action/Act_ManaHeal.h"
+#include "Action/Act_Blizzard.h"
+#include "Action/Act_Ignite.h"
+#include "Action/Act_Poison.h"
+#include "Action/Act_Thunder.h"
 
 MonsterAction * MonsterActionManeger::LoadAction(int id,int target)
 {
@@ -86,6 +93,34 @@ MonsterAction * MonsterActionManeger::LoadAction(int id,int target)
 		return ac;
 	case enDebuffDef:
 		ac = NewGO<Act_debuffDefPow>(0, "action");
+		ac->Settarget(target);
+		return ac;
+	case enClearStack:
+		ac = NewGO<Act_ClearStack>(0, "action");
+		ac->Settarget(target);
+		return ac;
+	case enMajinken:
+		ac = NewGO<Act_Majinken>(0, "action");
+		ac->Settarget(target);
+		return ac;
+	case enManaHeal:
+		ac = NewGO<Act_ManaHeal>(0, "action");
+		ac->Settarget(target);
+		return ac;
+	case enBlizzard:
+		ac = NewGO<Act_Blizzard>(0, "action");
+		ac->Settarget(target);
+		return ac;
+	case enIgnite:
+		ac = NewGO<Act_Ignite>(0, "action");
+		ac->Settarget(target);
+		return ac;
+	case enPoison:
+		ac = NewGO<Act_Poison>(0, "action");
+		ac->Settarget(target);
+		return ac;
+	case enThunder:
+		ac = NewGO<Act_Thunder>(0, "action");
 		ac->Settarget(target);
 		return ac;
 	}
