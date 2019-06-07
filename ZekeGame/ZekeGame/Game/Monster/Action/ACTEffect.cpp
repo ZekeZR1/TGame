@@ -11,7 +11,7 @@ ACTEffectGrant::~ACTEffectGrant()
 	}
 }
 
-void ACTEffectGrant::init(CEffect * effect, Monster * target, int state, float dam, float time,float endTime)
+void ACTEffectGrant::init(CEffect * effect, Monster * target, int state, float dam, float time,float endTime, Monster* me)
 {
 	m_effect = effect;
 	m_target = target;
@@ -20,7 +20,7 @@ void ACTEffectGrant::init(CEffect * effect, Monster * target, int state, float d
 	m_dam = dam;
 	m_damTime = time;
 	m_endTime = endTime;
-
+	m_Invoker = me;
 	AddAct();
 }
 
@@ -29,6 +29,21 @@ void ACTEffectGrant::Update()
 	if (m_target == nullptr)
 	{
 		DeleteGO(this);
+		return;
+	}
+	if (m_time >= m_endTime) {
+		DeleteGO(this);
+		return;
+	}
+	switch (m_state)
+	{
+	case enDoT:
+	{
+		float hp = m_target->GetHP();
+		hp -= DoTParam * m_Invoker->GetExAttack() *  10 / m_target->GetExDefense();
+		m_target->SetHP(hp);
+		break;
+	}
 	}
 
 	if (m_damTime < -0.00001f || m_damTime <= m_time)
@@ -36,20 +51,22 @@ void ACTEffectGrant::Update()
 		switch (m_state)
 		{
 		case enDamage:
+		{
 			float HP = m_target->GetHP();
 			m_target->SetHP(HP - m_dam);
 			break;
 			m_time = 0;
 			DeleteGO(this);
+			break;
+		}
 		}
 	}
-
+	if(m_effect->IsPlay())
+		m_effect->SetPosition(m_target->Getpos());
 	m_time += IGameTime().GetFrameDeltaTime() * 10;
-
 	if (m_time >= m_endTime) {
 		Clear();
 	}
-	m_effect->SetPosition(m_target->Getpos());
 }
 
 void ACTEffectGrant::SetAbnormalState(int abn)
@@ -66,9 +83,14 @@ void ACTEffectGrant::AddAct() {
 	{
 		m_tarSpeed = m_target->GetSpeed();
 		m_target->SetSpeed(m_tarSpeed * 0.5);
-		char s[256];
-		sprintf_s(s, "%f\n", m_tarSpeed * 0.5);
-		OutputDebugString(s);
+		break;
+	}
+	case enHardCC:
+	{
+		m_abnormal = Monster::abStan;
+		m_tarSpeed = m_target->GetSpeed();
+		m_target->SetSpeed(0.f);
+		//m_target->stop
 		break;
 	}
 	case enBuffAtcPow:
@@ -107,10 +129,15 @@ void ACTEffectGrant::AddAct() {
 }
 
 void ACTEffectGrant::Clear() {
-	m_target->ClearAbnormalState(this);
 	switch (m_state) {
 	case enCC:
 	{
+		m_target->SetSpeed(m_tarSpeed);
+		m_target->ClearAbnormalState(this);
+		DeleteGO(this);
+		break;
+	}
+	case enHardCC: {
 		m_target->SetSpeed(m_tarSpeed);
 		DeleteGO(this);
 		break;
@@ -119,13 +146,15 @@ void ACTEffectGrant::Clear() {
 	{
 		m_target->SetAttackPower(m_pow);
 		m_target->SetExAttackPower(m_ExPow);
+		m_target->ClearAbnormalState(this);
 		DeleteGO(this);
 		break;
 	}
 	case enBuffDefPow:
-	{			
+	{
 		m_target->SetDefensePower(m_pow);
 		m_target->SetExDefense(m_ExPow);
+		m_target->ClearAbnormalState(this);
 		DeleteGO(this);
 		break;
 	}
@@ -133,6 +162,7 @@ void ACTEffectGrant::Clear() {
 	{
 		m_target->SetAttackPower(m_pow);
 		m_target->SetExAttackPower(m_ExPow);
+		m_target->ClearAbnormalState(this);
 		DeleteGO(this);
 		break;
 	}
@@ -140,6 +170,7 @@ void ACTEffectGrant::Clear() {
 	{
 		m_target->SetDefensePower(m_pow);
 		m_target->SetExDefense(m_ExPow);
+		m_target->ClearAbnormalState(this);
 		DeleteGO(this);
 		break;
 	}

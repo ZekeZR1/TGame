@@ -49,7 +49,6 @@ int WINAPI wWinMain(
 	sm->SetPosition(CVector3::Zero());
 	sm->SetScale({ 0.001f,0.001f,0.001f });
 
-
 	//MainRoop
 	Engine::IEngine().GameRoop();
 	//Release

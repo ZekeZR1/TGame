@@ -32,6 +32,13 @@ enum ActionID
 	enDebuffAtc,
 	enBuffDef,
 	enDebuffDef,
+	enClearStack,
+	enMajinken,
+	enManaHeal,
+	enBlizzard,
+	enIgnite,
+	enPoison,
+	enThunder,
 	enActNone = 999
 };
 

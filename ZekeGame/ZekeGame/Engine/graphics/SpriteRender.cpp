@@ -44,6 +44,12 @@ void SpriteRender::PostRender() {
 }
 
 void SpriteRender::MouseActionUpdate() {
+	//初期化時にマウスによる調整フラグをtrueにすると以下の操作ができる.
+	//ドラッグ : ポジション移動.
+	//マウスホイール  : Z座標移動.
+	//右クリックを押しながらマウスホイール : スケール変更.
+	//※ゲーム内のみで変更が適応されるので調整が完了した場合プログラムを変更する必要があります.
+	//※この機能を使用するにはスプライトの当たり判定フラグをtrueにする必要があります.
 	if (!m_isPosChangeByMouse)
 		return;
 	wchar_t str[256];

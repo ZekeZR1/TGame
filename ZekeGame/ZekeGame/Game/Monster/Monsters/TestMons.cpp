@@ -46,6 +46,13 @@ TestMons::TestMons()
 	ua[10] = enDebuffAtc;
 	ua[11] = enBuffDef;
 	ua[12] = enDebuffDef;
+	ua[13] = enMajinken;
+	ua[14] = enClearStack;
+	ua[15] = enManaHeal;
+	ua[16] = enBlizzard;
+	ua[17] = enIgnite;
+	ua[18] = enPoison;
+	ua[19] = enThunder;
 	SetUseAction(ua,99);
 	//m_PB = FindGO<PythonBridge>("PB");
 
