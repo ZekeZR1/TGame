@@ -16,8 +16,8 @@ public:
 	void Update() override;
 private:
 	CEffect* m_efk = nullptr;
-	SpriteRender* m_sp = nullptr;
-	SpriteRender* m_spp = nullptr;
-	SkinModelRender* m_model = nullptr;
-	GameCursor* m_cur = nullptr;
+	SkinModelRender* m_meModel = nullptr;
+	SkinModelRender* m_targetModel = nullptr;
+	SkinModelRender* m_anotherMonster = nullptr;
+	CVector3 m_targetPos = { 0,0,500 };
 };

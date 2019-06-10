@@ -14,35 +14,54 @@
 
 //TODO : alpha, shadow
 bool TestScene::Start() {
-	//m_model = NewGO<SkinModelRender>(0);
-	//m_model->Init(L"Assets/modelData/uma.cmo");
-	//m_model->SetPosition({ 0,0,130 });
-	m_cur = NewGO<GameCursor>(0);
-
-	m_sp = NewGO<SpriteRender>(0);
-	m_sp->Init(L"Assets/sprite/hakkou1.dds", 300, 300,true,true);
-
-	m_spp = NewGO<SpriteRender>(0);
-	m_spp->Init(L"Assets/sprite/hakkou1.dds", 200, 500, true, true);
-	//m_sp->ChangeCameraProjMatrix(Camera::enUpdateProjMatrixFunc_Perspective);
-	//m_sp->SetPosition({ 30,0,900 });
-	
-	//m_efk = NewGO<CEffect>(0, "DRB");
-	//m_efk->SetScale({ 15.f,15.f,15.f });
-	////m_efk->SetScale({ 13.f,13.f,13.f });
-	//m_efk->SetPosition({ 0.f,0.f,330.f });
-	//auto pp = m_model->GetPosition();
-	//m_efk->Play(L"Assets/effect/drback.efk");
+	m_meModel = NewGO<SkinModelRender>(0);
+	m_meModel->Init(L"Assets/modelData/uma.cmo");
+	m_targetModel = NewGO<SkinModelRender>(0);
+	m_targetModel->Init(L"Assets/modelData/uma.cmo");
+	m_targetModel->SetPosition(m_targetPos);
+	m_anotherMonster = NewGO<SkinModelRender>(0);
+	m_anotherMonster->Init(L"Assets/modelData/uma.cmo");
 	return true;
 }
 
 void TestScene::OnDestroy() {
-	DeleteGO(m_sp);
-	DeleteGO(m_cur);
 }
 
 
 void TestScene::Update() {
-	m_sp->SetCollisionTarget(m_cur->GetCursor());
-	m_spp->SetCollisionTarget(m_cur->GetCursor());
+	auto p = m_anotherMonster->GetPosition();
+	double movs = 10;
+	if (g_pad[0].IsPress(enButtonUp)) {
+		p.z += movs;
+	}
+	if (g_pad[0].IsPress(enButtonDown)) {
+		p.z -= movs;
+	}
+	if (g_pad[0].IsPress(enButtonLeft)) {
+		p.x -= movs;
+	}
+	if (g_pad[0].IsPress(enButtonRight)) {
+		p.x += movs;
+	}
+	m_anotherMonster->SetPosition(p);
+	auto toTarV = m_targetModel->GetPosition() - m_meModel->GetPosition();
+	auto toAnotherV = m_anotherMonster->GetPosition() - m_meModel->GetPosition();
+	auto result = ccw(toTarV, toAnotherV);
+	switch (result) {
+	case enCOUNTER_CLOCKWISE:
+		OutputDebugString("enCOUNTER_CLOCKWISE\n");
+			break;
+	case enCLOCKWISE:
+		OutputDebugString("enCLOCKWISE\n");
+			break;
+	case enONLINE_BACK:
+		OutputDebugString("enONLINE_BACK\n");
+			break;
+	case enONLINE_FRONT:
+		OutputDebugString("enONLINE_FRONT\n");
+			break;
+	case enON_SEGMENT:
+		OutputDebugString("enON_SEGMENT\n");
+			break;
+	}
 }
