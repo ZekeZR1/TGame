@@ -9,9 +9,10 @@ ACTEffectGrant::~ACTEffectGrant()
 	{
 		m_target->ClearAbnormalState(this);
 	}
+	m_effect->Stop();
 }
 
-void ACTEffectGrant::init(CEffect * effect, Monster * target, int state, float dam, float time,float endTime, Monster* me)
+void ACTEffectGrant::init(CEffect * effect, Monster * target, int state, float dam, float time,float endTime, Monster* me,float DoTParam)
 {
 	m_effect = effect;
 	m_target = target;
@@ -21,6 +22,7 @@ void ACTEffectGrant::init(CEffect * effect, Monster * target, int state, float d
 	m_damTime = time;
 	m_endTime = endTime;
 	m_Invoker = me;
+	m_DoTParam = DoTParam;
 	AddAct();
 }
 
@@ -41,8 +43,7 @@ void ACTEffectGrant::Update()
 	case enDoT:
 	{
 		float hp = m_target->GetHP();
-		//TODO : ZELE : ON 
-		//hp -= DoTParam * m_Invoker->GetExAttack() *  1 / m_target->GetExDefense();
+		hp -= m_DoTParam * m_Invoker->GetExAttack();
 		m_target->SetHP(hp);
 		break;
 	}

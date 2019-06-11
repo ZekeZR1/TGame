@@ -19,6 +19,8 @@ Monster::~Monster()
 	DeleteGO(m_PB);
 	ReleaseMAL();
 	ReleaseMark();
+	for (auto a : m_abnormalStates)
+		DeleteGO(a);
 	delete[] m_UseAction;
 	delete m_pyFile;
 	delete m_visualAI;
