@@ -71,7 +71,7 @@ void Act_Blizzard::GrantAbnormalState(Monster* mon, Monster* me) {
 	efk->SetScale(m_efs);
 	efk->Play(L"Assets/effect/KOTIKOTI.efk");
 	ACTEffectGrant* actEG = NewGO<ACTEffectGrant>(0, "actEG");
-	actEG->init(efk, mon, ACTEffectGrant::State::enDoT, 0, 0, m_DoTEndTime, me);
+	actEG->init(efk, mon, ACTEffectGrant::State::enHardCC, 0, 0, m_DoTEndTime, me);
 	mon->SetAbnormalState(actEG);
 	m_isAbnormal[mon] = true;
 }
