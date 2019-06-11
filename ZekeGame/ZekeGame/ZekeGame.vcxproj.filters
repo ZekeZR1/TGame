@@ -578,6 +578,27 @@
     <ClCompile Include="Game\ToAiEditModeButton.cpp">
       <Filter>Game</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Monster\Action\Act_ClearStack.cpp">
+      <Filter>act</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\Action\Act_Ignite.cpp">
+      <Filter>act</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\Action\Act_Majinken.cpp">
+      <Filter>act</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\Action\Act_ManaHeal.cpp">
+      <Filter>act</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\Action\Act_Poison.cpp">
+      <Filter>act</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\Action\Act_Thunder.cpp">
+      <Filter>act</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\Action\Act_Blizzard.cpp">
+      <Filter>act</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\PythonBridge\include\unicodeobject.h" />
@@ -1463,6 +1484,27 @@
     </ClInclude>
     <ClInclude Include="Game\ToAiEditModeButton.h">
       <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\Action\Act_ClearStack.h">
+      <Filter>act</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\Action\Act_Ignite.h">
+      <Filter>act</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\Action\Act_Majinken.h">
+      <Filter>act</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\Action\Act_ManaHeal.h">
+      <Filter>act</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\Action\Act_Poison.h">
+      <Filter>act</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\Action\Act_Thunder.h">
+      <Filter>act</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\Action\Act_Blizzard.h">
+      <Filter>act</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
