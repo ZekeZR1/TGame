@@ -11,8 +11,8 @@ private:
 	bool m_first = true;
 	float m_cost = 20.f;
 	float m_timer = 0;
-	int m_cooltime = 3;
-	CVector3 m_efs = { 5,5,5 };
+	int m_cooltime = 5;
+	CVector3 m_efs = CVector3::One() * 3.5;
 	CEffect* m_efk = nullptr;
 	CEffect* m_beamefk = nullptr;
 	CVector3 crs;

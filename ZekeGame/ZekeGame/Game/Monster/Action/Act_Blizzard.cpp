@@ -23,9 +23,12 @@ bool Act_Blizzard::Action(Monster* me) {
 
 		m_beamefk = NewGO<CEffect>(0);
 		m_beamefk->SetPosition(me->Getpos());
-		m_beamefk->SetRotation(me->GetRotation());
+		CQuaternion er = CQuaternion::Identity();
+		er.SetRotationDeg(CVector3::AxisY(), 180);
+		er.Multiply(me->GetRotation());
+		m_beamefk->SetRotation(er);
 		m_beamefk->SetScale(m_efs);
-		m_beamefk->Play(L"Assets/effect/beam/Laserbeam.efk");
+		m_beamefk->Play(L"Assets/effect/briza.efk");
 
 		//TODO : ‰¹‚ð•Ï‚¦‚é
 		Sound* sound = NewGO<Sound>(0, "snd");
@@ -66,7 +69,7 @@ void Act_Blizzard::GrantAbnormalState(Monster* mon, Monster* me) {
 	efk->SetPosition(me->Getpos());
 	efk->SetRotation(me->GetRotation());
 	efk->SetScale(m_efs);
-	efk->Play(L"Assets/effect/buff.efk");
+	efk->Play(L"Assets/effect/KOTIKOTI.efk");
 	ACTEffectGrant* actEG = NewGO<ACTEffectGrant>(0, "actEG");
 	actEG->init(efk, mon, ACTEffectGrant::State::enDoT, 0, 0, m_DoTEndTime, me);
 	mon->SetAbnormalState(actEG);
