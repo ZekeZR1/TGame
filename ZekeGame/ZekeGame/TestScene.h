@@ -19,5 +19,6 @@ private:
 	SkinModelRender* m_meModel = nullptr;
 	SkinModelRender* m_targetModel = nullptr;
 	SkinModelRender* m_anotherMonster = nullptr;
-	CVector3 m_targetPos = { 0,0,500 };
+	CVector3 m_targetPos = { 0,0,0 };
+	CVector3 m_mePos = { 0,0,500 };
 };

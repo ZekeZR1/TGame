@@ -11,8 +11,10 @@ private:
 	int m_timer = 0;
 	int m_cooltime = 120;
 	CVector3 m_efs = { 5,5,5 };
-	float m_laserTheta = 0.f;
-	float m_near = 0.2f;
 	CEffect* m_efk = nullptr;
+	CEffect* m_beamefk = nullptr;
+	CVector3 crs;
+	float laserRange = 150;
+	CVector3 m_targetPosition = CVector3::Zero();
 };
 

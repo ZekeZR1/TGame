@@ -40,7 +40,12 @@ void ACTEffectGrant::Update()
 	case enDoT:
 	{
 		float hp = m_target->GetHP();
-		hp -= DoTParam * m_Invoker->GetExAttack() *  10 / m_target->GetExDefense();
+		if (hp <= 0) {
+			m_target = nullptr;
+			break;
+		}
+		//TODO : ZELE : ON 
+		//hp -= DoTParam * m_Invoker->GetExAttack() *  1 / m_target->GetExDefense();
 		m_target->SetHP(hp);
 		break;
 	}
