@@ -70,7 +70,8 @@ public:
 		abPoison,	//“Å
 		abStan,		//ƒXƒ^ƒ“
 		abBurn,		//‚â‚¯‚Ç
-		abCC,		//s“®–WŠQ
+		abCC,		//ˆÚ“®–WŠQ
+		abHardCC, //ˆÚ“®s“®–WŠQ
 	};
 
 	//ó‘ÔˆÙí‚Ìİ’è

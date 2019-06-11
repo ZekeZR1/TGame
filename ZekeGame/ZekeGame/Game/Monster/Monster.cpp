@@ -156,6 +156,13 @@ void Monster::Update()
 			if (as->GetAbnormalState() == abStan)
 			{
 				isAbnormal = false;
+				m_movespeed = CVector3::Zero();
+				break;
+			}
+			if (as->GetAbnormalState() == abHardCC)
+			{
+				m_movespeed = CVector3::Zero();
+				isAbnormal = false;
 				break;
 			}
 		}

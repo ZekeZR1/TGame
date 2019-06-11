@@ -92,7 +92,7 @@ void ACTEffectGrant::AddAct() {
 	{
 		m_abnormal = Monster::abStan;
 		m_tarSpeed = m_target->GetSpeed();
-		m_target->SetSpeed(0);
+		//m_target->SetSpeed(0);
 		m_target->anim_idle();
 		//m_target->stop
 		break;
@@ -142,7 +142,7 @@ void ACTEffectGrant::Clear() {
 		break;
 	}
 	case enHardCC: {
-		m_target->SetSpeed(m_tarSpeed);
+		//m_target->SetSpeed(m_tarSpeed);
 		m_effect->Stop();
 		DeleteGO(this);
 		break;
