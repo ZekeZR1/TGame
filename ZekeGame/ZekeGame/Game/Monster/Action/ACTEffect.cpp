@@ -32,6 +32,7 @@ void ACTEffectGrant::Update()
 		return;
 	}
 	if (m_time >= m_endTime) {
+		m_effect->Stop();
 		DeleteGO(this);
 		return;
 	}
