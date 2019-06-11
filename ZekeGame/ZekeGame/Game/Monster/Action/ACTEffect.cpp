@@ -87,8 +87,8 @@ void ACTEffectGrant::AddAct() {
 	}
 	case enHardCC:
 	{
-		m_tarSpeed = m_target->GetSpeed();
-		m_target->SetSpeed(0.f);
+		m_abnormal = Monster::abStan;
+		//m_target->stop
 		break;
 	}
 	case enBuffAtcPow:
@@ -128,10 +128,15 @@ void ACTEffectGrant::AddAct() {
 
 void ACTEffectGrant::Clear() {
 	switch (m_state) {
-	case enCC or enHardCC:
+	case enCC:
 	{
 		m_target->SetSpeed(m_tarSpeed);
 		m_target->ClearAbnormalState(this);
+		DeleteGO(this);
+		break;
+	}
+	case enHardCC: {
+		m_target->SetSpeed(m_tarSpeed);
 		DeleteGO(this);
 		break;
 	}

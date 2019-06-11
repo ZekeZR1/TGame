@@ -12,6 +12,6 @@ private:
 	float m_timer = 0;
 	float m_damagePow = 100.f;
 	int m_chargeTime = 100;
-	int m_cooltime = 400;
+	int m_cooltime = 1000;
 };
 

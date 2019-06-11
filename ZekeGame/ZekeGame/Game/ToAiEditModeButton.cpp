@@ -23,7 +23,7 @@ void ToAiEditModeButton::OnDestroy() {
 }
 
 void ToAiEditModeButton::Update() {
-	static const float moveSpeed = 60.f;
+	static const float moveSpeed = 150.f;
 	sp->SetCollisionTarget(tar);
 	if (sp->isCollidingTarget()) {
 		auto currentSpritePos = sp->GetPosition();

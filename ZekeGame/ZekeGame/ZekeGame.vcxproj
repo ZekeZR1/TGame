@@ -680,7 +680,6 @@
     <ClInclude Include="Game\ToAiEditModeButton.h" />
     <ClInclude Include="Game\UIAnimator\UIAnimator.h" />
     <ClInclude Include="Game\VisualScriptAI\VisualScriptAI.h" />
-    <ClInclude Include="resource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="TestScene.h" />
     <ClInclude Include="TestScene2.h" />
@@ -1139,7 +1138,9 @@
     <None Include="Assets\Sprite\GUI\returnButton\Rarrow2.png" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="ZekeGame.rc" />
+    <MeshContentTask Include="Assets\modelData\gk_human\gk_human.FBX" />
+    <MeshContentTask Include="Assets\modelData\kikyo_chan\hero.FBX" />
+    <MeshContentTask Include="Assets\modelData\RedHead\RedHead.fbx" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
