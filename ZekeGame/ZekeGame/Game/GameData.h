@@ -12,6 +12,8 @@ enum MonsterID
 	enArmor,
 	enGoblin,
 	enBook,
+	enRedHead,
+	enKikyo,
 	enNumMonster,
 };
 

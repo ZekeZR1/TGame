@@ -306,6 +306,8 @@
     <ClCompile Include="Game\Monster\Monsters\Book.cpp" />
     <ClCompile Include="Game\Monster\Monsters\Fairy.cpp" />
     <ClCompile Include="Game\Monster\Monsters\Goblin.cpp" />
+    <ClCompile Include="Game\Monster\Monsters\kikyo.cpp" />
+    <ClCompile Include="Game\Monster\Monsters\RedHead.cpp" />
     <ClCompile Include="Game\Monster\Monsters\TestMons.cpp" />
     <ClCompile Include="Game\Monster\Monsters\Uma.cpp" />
     <ClCompile Include="Game\NetPVP\backParticle.cpp" />
@@ -524,6 +526,8 @@
     <ClInclude Include="Game\Monster\Monsters\Book.h" />
     <ClInclude Include="Game\Monster\Monsters\Fairy.h" />
     <ClInclude Include="Game\Monster\Monsters\Goblin.h" />
+    <ClInclude Include="Game\Monster\Monsters\kikyo.h" />
+    <ClInclude Include="Game\Monster\Monsters\RedHead.h" />
     <ClInclude Include="Game\Monster\Monsters\TestMons.h" />
     <ClInclude Include="Game\Monster\Monsters\Uma.h" />
     <ClInclude Include="Game\NetPVP\backParticle.h" />
@@ -1138,9 +1142,21 @@
     <None Include="Assets\Sprite\GUI\returnButton\Rarrow2.png" />
   </ItemGroup>
   <ItemGroup>
-    <MeshContentTask Include="Assets\modelData\gk_human\gk_human.FBX" />
-    <MeshContentTask Include="Assets\modelData\kikyo_chan\hero.FBX" />
-    <MeshContentTask Include="Assets\modelData\RedHead\RedHead.fbx" />
+    <None Include="Assets\modelData\kikyo_chan\hero.FBX">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="Assets\modelData\RedHead\RedHead.fbx">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="Assets\modelData\si_bug\si_bug.FBX">
+      <FileType>Document</FileType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_redHead.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_kikyo.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

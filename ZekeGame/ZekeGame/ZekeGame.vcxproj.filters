@@ -599,6 +599,12 @@
     <ClCompile Include="Game\Monster\Action\Act_Blizzard.cpp">
       <Filter>act</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Monster\Monsters\RedHead.cpp">
+      <Filter>Game\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\Monsters\kikyo.cpp">
+      <Filter>Game\Monster</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\PythonBridge\include\unicodeobject.h" />
@@ -1506,6 +1512,12 @@
     <ClInclude Include="Game\Monster\Action\Act_Blizzard.h">
       <Filter>act</Filter>
     </ClInclude>
+    <ClInclude Include="Game\Monster\Monsters\RedHead.h">
+      <Filter>Game\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\Monsters\kikyo.h">
+      <Filter>Game\Monster</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="python36.lib" />
@@ -1980,6 +1992,15 @@
     <None Include="Assets\Sprite\AIEdit\AIEIcon.png">
       <Filter>Assets\Sprite\AIEdit</Filter>
     </None>
+    <None Include="Assets\modelData\kikyo_chan\hero.FBX">
+      <Filter>Assets\model</Filter>
+    </None>
+    <None Include="Assets\modelData\RedHead\RedHead.fbx">
+      <Filter>Assets\model</Filter>
+    </None>
+    <None Include="Assets\modelData\si_bug\si_bug.FBX">
+      <Filter>Assets\model</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="act">
@@ -2133,14 +2154,11 @@
     </Media>
   </ItemGroup>
   <ItemGroup>
-    <MeshContentTask Include="Assets\modelData\kikyo_chan\hero.FBX">
-      <Filter>Assets\model</Filter>
-    </MeshContentTask>
-    <MeshContentTask Include="Assets\modelData\gk_human\gk_human.FBX">
-      <Filter>Assets\model</Filter>
-    </MeshContentTask>
-    <MeshContentTask Include="Assets\modelData\RedHead\RedHead.fbx">
-      <Filter>Assets\model</Filter>
-    </MeshContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_redHead.png">
+      <Filter>Assets\Sprite\MonSelect</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_kikyo.png">
+      <Filter>Assets\Sprite\MonSelect</Filter>
+    </ImageContentTask>
   </ItemGroup>
 </Project>
