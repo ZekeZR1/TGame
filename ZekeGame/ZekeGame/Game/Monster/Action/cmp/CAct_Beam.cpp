@@ -6,11 +6,7 @@
 
 void CAct_Beam::Fire(Monster* me, Monster* target, const wchar_t* effectPath, const wchar_t* soundPath, float range, float baseDamage, CVector3 effectScale) {
 
-	CVector3 v = target->Getpos() - me->Getpos();
-	float cta = atan2f(v.x, v.z);
-	CQuaternion rot;
-	rot.SetRotation(CVector3::AxisY(), cta);
-	me->SetRotation(rot);
+	RotateToTarget(me, target);
 
 	m_beamefk = NewGO<CEffect>(0);
 	auto ep = me->Getpos();
@@ -56,24 +52,6 @@ bool CAct_Beam::DamageCalc() {
 	return false;
 }
 
-void CAct_Beam::GrantAbnormalState(
-	Monster* mon,
-	Monster* me,
-	const wchar_t* efPath,
-	ACTEffectGrant::State state,
-	float endTime,
-	float DoTParam) {
-
-	auto efk = NewGO<CEffect>(0);
-	efk->SetScale(efs);
-	efk->Play(efPath);
-
-	ACTEffectGrant* actEG = NewGO<ACTEffectGrant>(0, "actEG");
-	actEG->init(efk, mon, state, 0, 0, endTime, me, DoTParam);
-	mon->SetAbnormalState(actEG);
-	m_isAbnormal[mon] = true;
-
-}
 
 bool CAct_Beam::IsHitting(Monster* mon, Monster* me) {
 
