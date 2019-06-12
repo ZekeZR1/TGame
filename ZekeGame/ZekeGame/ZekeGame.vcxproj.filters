@@ -605,10 +605,11 @@
     <ClCompile Include="Game\Monster\Action\cmp\CAct_Beam.cpp">
       <Filter>Game\Monster\act\comp</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Monster\Action\cmp\IAct.cpp">
+    <ClCompile Include="Game\Monster\Action\cmp\CAct_FanShaped.cpp">
       <Filter>Game\Monster\act\comp</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Monster\Action\cmp\CAct_FanShaped.cpp">
+    <ClCompile Include="IAct.cpp" />
+    <ClCompile Include="Game\Monster\Action\cmp\IAct.cpp">
       <Filter>Game\Monster\act\comp</Filter>
     </ClCompile>
   </ItemGroup>
@@ -1524,10 +1525,11 @@
     <ClInclude Include="Game\Monster\Action\cmp\CAct_Beam.h">
       <Filter>Game\Monster\act\comp</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Monster\Action\cmp\IAct.h">
+    <ClInclude Include="Game\Monster\Action\cmp\CAct_FanShaped.h">
       <Filter>Game\Monster\act\comp</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Monster\Action\cmp\CAct_FanShaped.h">
+    <ClInclude Include="IAct.h" />
+    <ClInclude Include="Game\Monster\Action\cmp\IAct.h">
       <Filter>Game\Monster\act\comp</Filter>
     </ClInclude>
   </ItemGroup>

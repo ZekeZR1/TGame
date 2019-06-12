@@ -6,13 +6,11 @@
 
 void CAct_Beam::Fire(Monster* me, Monster* target, const wchar_t* effectPath, const wchar_t* soundPath,float range,float baseDamage, CVector3 effectScale) {
 
-	me->anim_extra1();
-
-	CVector3 v = target->Getpos() - me->Getpos();
-	float cta = atan2f(v.x, v.z);
-	CQuaternion rot;
-	rot.SetRotation(CVector3::AxisY(), cta);
-	me->SetRotation(rot);
+		CVector3 v = target->Getpos() - me->Getpos();
+		float cta = atan2f(v.x, v.z);
+		CQuaternion rot;
+		rot.SetRotation(CVector3::AxisY(), cta);
+		me->SetRotation(rot);
 
 	m_beamefk = NewGO<CEffect>(0);
 	m_beamefk->SetPosition(me->Getpos());
@@ -33,7 +31,6 @@ void CAct_Beam::Fire(Monster* me, Monster* target, const wchar_t* effectPath, co
 	crs *= range;
 	m_targetPosition = target->Getpos();
 
-	efs = effectScale;
 	m_me = me;
 	m_baseDamage = baseDamage;
 }
@@ -47,10 +44,11 @@ bool CAct_Beam::DamageCalc() {
 		if (!IsHitting(mon, m_me)) continue;
 		float dmg = m_me->GetExAttack() * m_baseDamage;
 		mon->DamageEx(dmg);
+		if (m_state == ACTEffectGrant::State::enNull) continue;
 		if (m_isAbnormal[mon]) continue;
 		m_timerForGrantAbs[mon] += IGameTime().GetFrameDeltaTime();
 		if (m_timerForGrantAbs[mon] > m_grantAbsTime)
-			GrantAbnormalState(mon, m_me, m_absEfkPath, m_state, m_DoTEndTime,m_DoTDamage);
+			GrantAbnormalState(mon, m_me, m_absEfkPath, m_state, m_DoTEndTime, m_DoTDamage);
 	}
 	return false;
 }
@@ -64,10 +62,9 @@ void CAct_Beam::GrantAbnormalState(
 	float DoTParam) {
 
 	auto efk = NewGO<CEffect>(0);
-	efk->SetPosition(me->Getpos());
-	efk->SetRotation(me->GetRotation());
 	efk->SetScale(efs);
 	efk->Play(efPath);
+
 	ACTEffectGrant* actEG = NewGO<ACTEffectGrant>(0, "actEG");
 	actEG->init(efk, mon, state, 0, 0, endTime, me, DoTParam);
 	mon->SetAbnormalState(actEG);

@@ -369,6 +369,7 @@
     <ClCompile Include="Game\ToAiEditModeButton.cpp" />
     <ClCompile Include="Game\UIAnimator\UIAnimator.cpp" />
     <ClCompile Include="Game\VisualScriptAI\VisualScriptAI.cpp" />
+    <ClCompile Include="IAct.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
     </ClCompile>
@@ -688,6 +689,7 @@
     <ClInclude Include="Game\ToAiEditModeButton.h" />
     <ClInclude Include="Game\UIAnimator\UIAnimator.h" />
     <ClInclude Include="Game\VisualScriptAI\VisualScriptAI.h" />
+    <ClInclude Include="IAct.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="TestScene.h" />
     <ClInclude Include="TestScene2.h" />
