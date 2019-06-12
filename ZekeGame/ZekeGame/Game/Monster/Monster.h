@@ -71,7 +71,6 @@ public:
 		abStan,		//ƒXƒ^ƒ“
 		abBurn,		//‚â‚¯‚Ç
 		abCC,		//ˆÚ“®–WŠQ
-		abHardCC, //ˆÚ“®s“®–WŠQ
 	};
 
 	//ó‘ÔˆÙí‚Ìİ’è

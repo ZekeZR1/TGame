@@ -296,6 +296,10 @@
     <ClCompile Include="Game\Monster\Action\Act_superBeam.cpp" />
     <ClCompile Include="Game\Monster\Action\Act_Tackle.cpp" />
     <ClCompile Include="Game\Monster\Action\Act_Thunder.cpp" />
+    <ClCompile Include="Game\Monster\Action\cmp\CAct_Beam.cpp" />
+    <ClCompile Include="Game\Monster\Action\cmp\CAct_Dist.cpp" />
+    <ClCompile Include="Game\Monster\Action\cmp\CAct_FanShaped.cpp" />
+    <ClCompile Include="Game\Monster\Action\cmp\IAct.cpp" />
     <ClCompile Include="Game\Monster\Monster.cpp" />
     <ClCompile Include="Game\Monster\MonsterAction.cpp" />
     <ClCompile Include="Game\Monster\MonsterActionList.cpp" />
@@ -514,6 +518,10 @@
     <ClInclude Include="Game\Monster\Action\Act_superBeam.h" />
     <ClInclude Include="Game\Monster\Action\Act_Tackle.h" />
     <ClInclude Include="Game\Monster\Action\Act_Thunder.h" />
+    <ClInclude Include="Game\Monster\Action\cmp\CAct_Beam.h" />
+    <ClInclude Include="Game\Monster\Action\cmp\CAct_Dist.h" />
+    <ClInclude Include="Game\Monster\Action\cmp\CAct_FanShaped.h" />
+    <ClInclude Include="Game\Monster\Action\cmp\IAct.h" />
     <ClInclude Include="Game\Monster\Monster.h" />
     <ClInclude Include="Game\Monster\MonsterAction.h" />
     <ClInclude Include="Game\Monster\MonsterActionList.h" />

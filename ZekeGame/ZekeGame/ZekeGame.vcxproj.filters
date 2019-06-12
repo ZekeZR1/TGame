@@ -599,6 +599,18 @@
     <ClCompile Include="Game\Monster\Action\Act_Blizzard.cpp">
       <Filter>Game\Monster\act\abnormal</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Monster\Action\cmp\CAct_Dist.cpp">
+      <Filter>Game\Monster\act\comp</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\Action\cmp\CAct_Beam.cpp">
+      <Filter>Game\Monster\act\comp</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\Action\cmp\IAct.cpp">
+      <Filter>Game\Monster\act\comp</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\Action\cmp\CAct_FanShaped.cpp">
+      <Filter>Game\Monster\act\comp</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\PythonBridge\include\unicodeobject.h" />
@@ -1506,6 +1518,18 @@
     <ClInclude Include="Game\Monster\Action\Act_Blizzard.h">
       <Filter>Game\Monster\act\abnormal</Filter>
     </ClInclude>
+    <ClInclude Include="Game\Monster\Action\cmp\CAct_Dist.h">
+      <Filter>Game\Monster\act\comp</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\Action\cmp\CAct_Beam.h">
+      <Filter>Game\Monster\act\comp</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\Action\cmp\IAct.h">
+      <Filter>Game\Monster\act\comp</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\Action\cmp\CAct_FanShaped.h">
+      <Filter>Game\Monster\act\comp</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="python36.lib" />
@@ -2119,6 +2143,9 @@
     </Filter>
     <Filter Include="Game\Monster\act\abnormal">
       <UniqueIdentifier>{2ded88aa-5eba-4baf-be6a-a6fc7eec4c69}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Monster\act\comp">
+      <UniqueIdentifier>{1ae1d035-a666-4ea8-a101-a4a8fbfcf088}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

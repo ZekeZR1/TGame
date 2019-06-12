@@ -159,12 +159,6 @@ void Monster::Update()
 				m_movespeed = CVector3::Zero();
 				break;
 			}
-			if (as->GetAbnormalState() == abHardCC)
-			{
-				m_movespeed = CVector3::Zero();
-				isAbnormal = false;
-				break;
-			}
 		}
 		if (!m_isKnockback && isAbnormal)
 			execute();
