@@ -10,7 +10,6 @@ Act_Majinken::Act_Majinken() {
 
 bool Act_Majinken::Action(Monster* me) {
 	if (m_target == nullptr) return true;
-	CVector3 knock;
 	if (m_first) {
 		float mp = me->GetMP();
 		if (mp < m_cost) return true;
@@ -32,10 +31,10 @@ bool Act_Majinken::Action(Monster* me) {
 		float mil = m_target->Getradius() + me->Getradius() + 30;
 		if (len <= mil) {
 			knock.Normalize();
-			knock *= 800;
+			knock *= 300;
 			m_target->StartKnockback(knock);
 			//float dam = m_damagePow * me->GetExAttack() * 1 / m_target->GetExDefense();
-			m_target->Damage(80);
+			m_target->Damage(10);
 			m_attacked = true;
 			Sound* se = NewGO<Sound>(0, "snd");
 			se->Init(L"Assets/sound/punch-high2.wav");

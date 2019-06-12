@@ -20,7 +20,7 @@ public:
 		dam:食らわすダメージ
 		time:ダメージのスパン。0未満の場合は毎フレーム
 	*/
-	void init(CEffect* effect, Monster* target, int state = enNull, float dam = 0,float time = -1,float endTime = 0, Monster* me = nullptr);
+	void init(CEffect* effect , Monster* target, int state = enNull, float dam = 0,float time = -1,float endTime = 0, Monster* me = nullptr, float dmgParam = 0.01);
 
 	/*
 	Update
@@ -73,6 +73,6 @@ private:
 	double m_ExPow = 0;
 	CEffect* m_effect = nullptr;
 	Monster* m_target = nullptr;
-	float DoTParam = 0.5f;
+	float m_DoTParam = 0;
 	Monster* m_Invoker = nullptr;
 };

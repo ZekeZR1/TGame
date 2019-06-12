@@ -9,9 +9,10 @@ ACTEffectGrant::~ACTEffectGrant()
 	{
 		m_target->ClearAbnormalState(this);
 	}
+	m_effect->Stop();
 }
 
-void ACTEffectGrant::init(CEffect * effect, Monster * target, int state, float dam, float time,float endTime, Monster* me)
+void ACTEffectGrant::init(CEffect * effect, Monster * target, int state, float dam, float time,float endTime, Monster* me,float DoTParam)
 {
 	m_effect = effect;
 	m_target = target;
@@ -21,6 +22,7 @@ void ACTEffectGrant::init(CEffect * effect, Monster * target, int state, float d
 	m_damTime = time;
 	m_endTime = endTime;
 	m_Invoker = me;
+	m_DoTParam = DoTParam;
 	AddAct();
 }
 
@@ -32,6 +34,7 @@ void ACTEffectGrant::Update()
 		return;
 	}
 	if (m_time >= m_endTime) {
+		m_effect->Stop();
 		DeleteGO(this);
 		return;
 	}
@@ -40,7 +43,7 @@ void ACTEffectGrant::Update()
 	case enDoT:
 	{
 		float hp = m_target->GetHP();
-		hp -= DoTParam * m_Invoker->GetExAttack() *  10 / m_target->GetExDefense();
+		hp -= m_DoTParam * m_Invoker->GetExAttack();
 		m_target->SetHP(hp);
 		break;
 	}
@@ -88,6 +91,9 @@ void ACTEffectGrant::AddAct() {
 	case enHardCC:
 	{
 		m_abnormal = Monster::abStan;
+		m_tarSpeed = m_target->GetSpeed();
+		//m_target->SetSpeed(0);
+		m_target->anim_idle();
 		//m_target->stop
 		break;
 	}
@@ -136,7 +142,8 @@ void ACTEffectGrant::Clear() {
 		break;
 	}
 	case enHardCC: {
-		m_target->SetSpeed(m_tarSpeed);
+		//m_target->SetSpeed(m_tarSpeed);
+		m_effect->Stop();
 		DeleteGO(this);
 		break;
 	}

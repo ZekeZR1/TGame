@@ -3,6 +3,14 @@
 
 class CMatrix;
 
+enum CLOCKWISE {
+	enCOUNTER_CLOCKWISE = 1,
+	enCLOCKWISE = -1,
+	enONLINE_BACK = 2,
+	enONLINE_FRONT = -2,
+	enON_SEGMENT = 0
+};
+
 class CVector2 {
 public:
 	CVector2()
@@ -26,6 +34,26 @@ public:
 		struct { float x, y; };
 		float v[2];
 	};
+
+	double norm() { return x * x + y * y; }
+
+
+	static double cross(CVector2 a, CVector2 b) {
+		return a.x * b.y - a.y * b.x;
+	}
+
+	static double dot(CVector2 a, CVector2 b) {
+		return a.x * b.x + a.y * b.y;
+	}
+
+	static  CLOCKWISE ccw(CVector2 a, CVector2 b) {
+		const double EPS = 1e-9;
+		if (cross(a, b) > EPS) return enCOUNTER_CLOCKWISE;
+		if (cross(a, b) < -EPS) return enCLOCKWISE;
+		if (dot(a, b) < -EPS) return enONLINE_BACK;
+		if (a.norm() < b.norm()) return enONLINE_FRONT;
+		return enON_SEGMENT;
+	}
 
 	void Add(CVector2 v1, CVector2 v2)
 	{
@@ -64,6 +92,10 @@ public:
 		enFbxUpAxisZ,		//Z-up
 	};
 public:
+	//xz ccw
+	static CLOCKWISE ccw(CVector3 a, CVector3 b) {
+		return CVector2::ccw(CVector2(a.x, a.z), CVector2(b.x, b.z));
+	}
 	//XMVECTOR�ւ̈Öق̕ϊ��B
 	operator DirectX::XMVECTOR() const
 	{
@@ -655,4 +687,3 @@ static inline TVector operator-(const TVector& v0, const TVector& v1)
 	result.Subtract(v0, v1);
 	return result;
 }
-
