@@ -4,16 +4,19 @@
 #include "../ACTEffect.h"
 #include "../../../GameData.h"
 
-void CAct_Beam::Fire(Monster* me, Monster* target, const wchar_t* effectPath, const wchar_t* soundPath,float range,float baseDamage, CVector3 effectScale) {
+void CAct_Beam::Fire(Monster* me, Monster* target, const wchar_t* effectPath, const wchar_t* soundPath, float range, float baseDamage, CVector3 effectScale) {
 
-		CVector3 v = target->Getpos() - me->Getpos();
-		float cta = atan2f(v.x, v.z);
-		CQuaternion rot;
-		rot.SetRotation(CVector3::AxisY(), cta);
-		me->SetRotation(rot);
+	CVector3 v = target->Getpos() - me->Getpos();
+	float cta = atan2f(v.x, v.z);
+	CQuaternion rot;
+	rot.SetRotation(CVector3::AxisY(), cta);
+	me->SetRotation(rot);
 
 	m_beamefk = NewGO<CEffect>(0);
-	m_beamefk->SetPosition(me->Getpos());
+	auto ep = me->Getpos();
+	auto h = me->Getheight();
+	ep.y += h / 2;
+	m_beamefk->SetPosition(ep);
 	CQuaternion er = CQuaternion::Identity();
 	er.SetRotationDeg(CVector3::AxisY(), 180);
 	er.Multiply(me->GetRotation());
