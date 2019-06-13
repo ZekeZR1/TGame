@@ -1,8 +1,8 @@
 #pragma once
 #include "..//ACTEffect.h"
-#include "../../Monster.h"
-#include "../../../GameData.h"
 
+#include "../../../GameData.h"
+class Monster;
 class IAct {
 public:
 	void RotateToTarget(Monster* me, Monster* target) {
