@@ -1167,13 +1167,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_redHead.png" />
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_redHead.png" />
   </ItemGroup>
   <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_kikyo.png" />
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_kikyo.png" />
   </ItemGroup>
   <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_bug.png" />
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_bug.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -15,6 +15,7 @@ bool GameCamera2D::Start()
 	camera2d->SetUpdateProjMatrixFunc(Camera::enUpdateProjMatrixFunc_Ortho);
 	camera2d->SetNear(0.1f);
 	//camera2d->SetFar(1000.0f);
+	camera2d->SetNear(10);
 	camera2d->SetFar(2000.0f);
 	camera2d->Update();
 	return true;

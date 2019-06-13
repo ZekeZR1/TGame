@@ -17,11 +17,11 @@ ModeSelectBack::ModeSelectBack()
 	m_back->SetScale(CVector3::One() * 100);
 	m_back->SetPosition({ 0,0,-500 });*/
 
-	m_backS = NewGO<SpriteRender>(0, "sp");
+	/*m_backS = NewGO<SpriteRender>(0, "sp");
 	m_backS->Init(L"Assets/sprite/modesel_back.dds", 1280, 720);
 	m_backS->SetPosition({ 0,0,100 });
 	
-	m_backS->ChangeCameraProjMatrix(Camera::enUpdateProjMatrixFunc_Perspective);
+	m_backS->ChangeCameraProjMatrix(Camera::enUpdateProjMatrixFunc_Perspective);*/
 	//m_backS->SetRotation(rot);
 	
 
@@ -144,12 +144,13 @@ void ModeSelectBack::PVP()
 		}
 		std::wstring path = L"Assets/sprite/";
 		path += ui->name;
+		path += L".dds";
 		sp->Init(path.c_str(),ui->dimensions.x,ui->dimensions.y);
 		sp->SetRotation(ui->rot);
 		sp->SetScale(ui->scale);
 		CVector3 pos = ui->pos;
 		pos.z *= -1;
-		sp->SetPosition(pos);t
+		sp->SetPosition(pos);
 
 		sp->ChangeCameraProjMatrix(Camera::enUpdateProjMatrixFunc_Perspective);
 		m_sprits.push_back(sp);
