@@ -25,6 +25,7 @@
 #include "Action/Act_Ignite.h"
 #include "Action/Act_Poison.h"
 #include "Action/Act_Thunder.h"
+#include "Action/Act_specialAttack.h"
 
 MonsterAction * MonsterActionManeger::LoadAction(int id,int target)
 {
@@ -121,6 +122,10 @@ MonsterAction * MonsterActionManeger::LoadAction(int id,int target)
 		return ac;
 	case enThunder:
 		ac = NewGO<Act_Thunder>(0, "action");
+		ac->Settarget(target);
+		return ac;
+	case enSpecialAttack:
+		ac = NewGO<Act_SpecialAttack>(0, "action");
 		ac->Settarget(target);
 		return ac;
 	}

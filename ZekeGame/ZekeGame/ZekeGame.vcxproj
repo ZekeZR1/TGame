@@ -293,6 +293,7 @@
     <ClCompile Include="Game\Monster\Action\Act_ObstMove.cpp" />
     <ClCompile Include="Game\Monster\Action\Act_Poison.cpp" />
     <ClCompile Include="Game\Monster\Action\Act_Recovery.cpp" />
+    <ClCompile Include="Game\Monster\Action\Act_specialAttack.cpp" />
     <ClCompile Include="Game\Monster\Action\Act_superBeam.cpp" />
     <ClCompile Include="Game\Monster\Action\Act_Tackle.cpp" />
     <ClCompile Include="Game\Monster\Action\Act_Thunder.cpp" />
@@ -519,6 +520,7 @@
     <ClInclude Include="Game\Monster\Action\Act_ObstMove.h" />
     <ClInclude Include="Game\Monster\Action\Act_Poison.h" />
     <ClInclude Include="Game\Monster\Action\Act_Recovery.h" />
+    <ClInclude Include="Game\Monster\Action\Act_specialAttack.h" />
     <ClInclude Include="Game\Monster\Action\Act_superBeam.h" />
     <ClInclude Include="Game\Monster\Action\Act_Tackle.h" />
     <ClInclude Include="Game\Monster\Action\Act_Thunder.h" />

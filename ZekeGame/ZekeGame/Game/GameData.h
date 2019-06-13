@@ -42,6 +42,7 @@ enum ActionID
 	enIgnite,
 	enPoison,
 	enThunder,
+	enSpecialAttack,
 	enActNone = 999
 };
 

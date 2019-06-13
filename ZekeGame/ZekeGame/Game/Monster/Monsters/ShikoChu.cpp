@@ -19,15 +19,15 @@ ShikoChu::ShikoChu()
 		10,
 		0,
 		10,
-		0,
-		10,
+		30,
+		50,
 		50,
 		150,
 		sr,
 		0
 	);
 	ActionID* ua = new ActionID[6];
-	ua[enAtack] = enAtack;
+	ua[enAtack] = enSpecialAttack;
 	ua[enChase] = enChase;
 	SetUseAction(ua, 2);
 	//tginit(10, 10, 10, 20, 70, sr, 0);
