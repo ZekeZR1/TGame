@@ -45,8 +45,8 @@ bool CAct_Beam::DamageCalc() {
 		if (m_state == ACTEffectGrant::State::enNull) continue;
 		if (m_isAbnormal[mon]) continue;
 		m_timerForGrantAbs[mon] += IGameTime().GetFrameDeltaTime();
-		//if (m_timerForGrantAbs[mon] > m_grantAbsTime)
-			//GrantAbnormalState(mon, m_me, m_absEfkPath, m_state, m_DoTEndTime, m_DoTDamage);
+		if (m_timerForGrantAbs[mon] > m_grantAbsTime)
+			GrantAbnormalState(mon, m_me, m_absEfkPath, m_state, m_DoTEndTime, m_DoTDamage);
 	}
 	return false;
 }
