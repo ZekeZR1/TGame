@@ -18,8 +18,9 @@ ModeSelectBack::ModeSelectBack()
 	m_back->SetPosition({ 0,0,-500 });*/
 
 	/*m_backS = NewGO<SpriteRender>(0, "sp");
-	m_backS->Init(L"Assets/sprite/modesel_back_aiedit.dds", 1280, 720);
+	m_backS->Init(L"Assets/sprite/modesel_back.dds", 1280, 720);
 	m_backS->SetPosition({ 0,0,100 });
+	
 	m_backS->ChangeCameraProjMatrix(Camera::enUpdateProjMatrixFunc_Perspective);*/
 	//m_backS->SetRotation(rot);
 	
@@ -39,6 +40,7 @@ void ModeSelectBack::OnDestroy()
 	m_effect->Stop();
 	DeleteGO(m_effect);
 	DeleteGO(m_uia);
+	DeleteGO(m_backS);
 }
 
 void ModeSelectBack::Update()
@@ -125,7 +127,7 @@ void ModeSelectBack::PVP()
 	m_sprits.shrink_to_fit();
 	bool isgf = true;
 	m_uia = NewGO<UIAnimator>(0, "uia");
-	m_uia->loadUI(L"Assets/UI/modesel_pvp.uip", [&](sUI * ui, bool isfook)->SpriteRender *
+	m_uia->loadUI(L"Assets/UI/modesel_pvp.uip", [&](sUI * ui, bool& isfook)->SpriteRender *
 	{
 		SpriteRender* sp;
 		if (wcscmp(ui->name, L"modesel_VS")==0)
@@ -140,8 +142,21 @@ void ModeSelectBack::PVP()
 		{
 			sp = NewGO<SpriteRender>(0, "sp");
 		}
-		//sp->ChangeCameraProjMatrix(Camera::enUpdateProjMatrixFunc_Perspective);
+		std::wstring path = L"Assets/sprite/";
+		path += ui->name;
+		path += L".dds";
+		sp->Init(path.c_str(),ui->dimensions.x,ui->dimensions.y);
+		sp->SetRotation(ui->rot);
+		sp->SetScale(ui->scale);
+		CVector3 pos = ui->pos;
+		pos.z *= -1;
+		sp->SetPosition(pos);
+
+		sp->ChangeCameraProjMatrix(Camera::enUpdateProjMatrixFunc_Perspective);
 		m_sprits.push_back(sp);
+
+		isfook = true;
+
 		return sp;
 	});
 	m_uia->playAnim(L"Assets/UI/modesel_pvp1.uim");
