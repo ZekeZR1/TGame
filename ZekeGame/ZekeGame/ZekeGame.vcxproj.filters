@@ -609,6 +609,8 @@
       <Filter>Game\Monster\act\comp</Filter>
     </ClCompile>
     <ClCompile Include="IAct.cpp" />
+    <ClCompile Include="Game\Monster\Monsters\kikyo.cpp" />
+    <ClCompile Include="Game\Monster\Monsters\RedHead.cpp" />
     <ClCompile Include="Game\Monster\Action\cmp\IAct.cpp">
       <Filter>Game\Monster\act\comp</Filter>
     </ClCompile>
@@ -1529,6 +1531,8 @@
       <Filter>Game\Monster\act\comp</Filter>
     </ClInclude>
     <ClInclude Include="IAct.h" />
+    <ClInclude Include="Game\Monster\Monsters\kikyo.h" />
+    <ClInclude Include="Game\Monster\Monsters\RedHead.h" />
     <ClInclude Include="Game\Monster\Action\cmp\IAct.h">
       <Filter>Game\Monster\act\comp</Filter>
     </ClInclude>
@@ -2006,6 +2010,9 @@
     <None Include="Assets\Sprite\AIEdit\AIEIcon.png">
       <Filter>Assets\Sprite\AIEdit</Filter>
     </None>
+    <None Include="Assets\modelData\kikyo_chan\hero.FBX" />
+    <None Include="Assets\modelData\RedHead\RedHead.fbx" />
+    <None Include="Assets\modelData\si_bug\si_bug.FBX" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Game">
@@ -2165,14 +2172,7 @@
     </Media>
   </ItemGroup>
   <ItemGroup>
-    <MeshContentTask Include="Assets\modelData\kikyo_chan\hero.FBX">
-      <Filter>Assets\model</Filter>
-    </MeshContentTask>
-    <MeshContentTask Include="Assets\modelData\gk_human\gk_human.FBX">
-      <Filter>Assets\model</Filter>
-    </MeshContentTask>
-    <MeshContentTask Include="Assets\modelData\RedHead\RedHead.fbx">
-      <Filter>Assets\model</Filter>
-    </MeshContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_redHead.png" />
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_kikyo.png" />
   </ItemGroup>
 </Project>

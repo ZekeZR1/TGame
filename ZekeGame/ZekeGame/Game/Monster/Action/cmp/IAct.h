@@ -13,7 +13,12 @@ public:
 		me->SetRotation(rot);
 	};
 
-	void GrantAbnormalState(Monster* target, Monster* me, const wchar_t* effectPath, ACTEffectGrant::State state, float endTime, float DoTParam);
+	void GrantAbnormalState(Monster* target,
+		Monster* me,
+		const wchar_t* effectPath,
+		ACTEffectGrant::State state,
+		float endTime,
+		float DoTParam);
 
 	void InitAbnormalStateInfo(const wchar_t* effectPath,
 		ACTEffectGrant::State state,

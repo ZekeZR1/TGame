@@ -10,9 +10,11 @@ public:
 	~SpriteRender();
 	bool Start() override;
 	void Update() override;
+	void Render() override;
 	void PostRender() override;
 	void ChangeCameraProjMatrix(Camera::EnUpdateProjMatrixFunc cameraMode) {
 		m_sprite.ChangeCameraProjMatrix(cameraMode);
+		m_projMatrixFunc = cameraMode;
 	}
 
 	void SetMulCol(const CVector4& col) {
@@ -62,6 +64,7 @@ public:
 		m_scale = scale;
 	}
 private:
+	Camera::EnUpdateProjMatrixFunc m_projMatrixFunc = Camera::enUpdateProjMatrixFunc_Ortho;
 	void MouseActionUpdate();
 	CVector3 m_pos = CVector3::Zero();
 	CQuaternion m_rotation = CQuaternion::Identity();

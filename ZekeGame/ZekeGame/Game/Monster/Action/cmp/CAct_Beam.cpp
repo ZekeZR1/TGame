@@ -7,7 +7,6 @@
 void CAct_Beam::Fire(Monster* me, Monster* target, const wchar_t* effectPath, const wchar_t* soundPath, float range, float baseDamage, CVector3 effectScale) {
 
 	RotateToTarget(me, target);
-
 	m_beamefk = NewGO<CEffect>(0);
 	auto ep = me->Getpos();
 	auto h = me->Getheight();
@@ -46,8 +45,8 @@ bool CAct_Beam::DamageCalc() {
 		if (m_state == ACTEffectGrant::State::enNull) continue;
 		if (m_isAbnormal[mon]) continue;
 		m_timerForGrantAbs[mon] += IGameTime().GetFrameDeltaTime();
-		if (m_timerForGrantAbs[mon] > m_grantAbsTime)
-			GrantAbnormalState(mon, m_me, m_absEfkPath, m_state, m_DoTEndTime, m_DoTDamage);
+		//if (m_timerForGrantAbs[mon] > m_grantAbsTime)
+			//GrantAbnormalState(mon, m_me, m_absEfkPath, m_state, m_DoTEndTime, m_DoTDamage);
 	}
 	return false;
 }
