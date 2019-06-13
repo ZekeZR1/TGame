@@ -1,6 +1,7 @@
 #pragma once
 #include "../MonsterAction.h"
 #include "cmp/CAct_Beam.h"
+
 class Act_superBeam : public MonsterAction
 {
 public:

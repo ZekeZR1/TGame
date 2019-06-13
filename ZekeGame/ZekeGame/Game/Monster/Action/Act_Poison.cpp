@@ -27,7 +27,7 @@ bool Act_Poison::Action(Monster* me) {
 		m_efk->Play(L"Assets/effect/DOCDOC.efk");
 
 		ACTEffectGrant* actEG = NewGO<ACTEffectGrant>(0, "actEG");
-		actEG->init(m_efk, m_target, ACTEffectGrant::State::enDoT, 0, 0, 100);
+		actEG->init(m_efk, m_target, ACTEffectGrant::State::enDoT, 0, 0, 100,me,0);
 		m_target->SetAbnormalState(actEG);
 
 		Sound* snd = NewGO<Sound>(0, "snd");

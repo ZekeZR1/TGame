@@ -66,6 +66,7 @@ public:
 	virtual void PostRender() {
 		//(void)renderContext;
 	}
+
 	/*!
 	*@brief	€–Sƒtƒ‰ƒO‚ğ—§‚Ä‚éB
 	*@details
@@ -125,6 +126,7 @@ public:
 			PostRender();
 		}
 	}
+
 	//void RenderWrapper(CRenderContext& renderContext)
 	void RenderWrapper()
 	{

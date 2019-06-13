@@ -39,9 +39,16 @@ void SpriteRender::Update() {
 	m_sprite.Update(m_pos, m_rotation, m_scale, m_pivot);
 }
 
-void SpriteRender::PostRender() {
-	m_sprite.Draw();
+void SpriteRender::Render() {
+	if (m_projMatrixFunc == Camera::enUpdateProjMatrixFunc_Perspective)
+		m_sprite.Draw();
 }
+
+void SpriteRender::PostRender() {
+	if (m_projMatrixFunc == Camera::enUpdateProjMatrixFunc_Ortho)
+		m_sprite.Draw();
+}
+
 
 void SpriteRender::MouseActionUpdate() {
 	//初期化時にマウスによる調整フラグをtrueにすると以下の操作ができる.
@@ -86,3 +93,4 @@ void SpriteRender::MouseActionUpdate() {
 		SetPosition(p);
 	}
 }
+
