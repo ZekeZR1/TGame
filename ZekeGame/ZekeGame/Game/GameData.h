@@ -14,6 +14,7 @@ enum MonsterID
 	enBook,
 	enRedHead,
 	enKikyo,
+	enShikoChu,
 	enNumMonster,
 };
 

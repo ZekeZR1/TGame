@@ -8,6 +8,8 @@
 #include "Monster/Monsters/Book.h"
 #include "Monster/Monsters/RedHead.h"
 #include "Monster/Monsters/kikyo.h"
+#include "Monster/Monsters/ShikoChu.h"
+
 
 Monster* g_mons[64];
 int g_buddyCount = 0;
@@ -70,6 +72,9 @@ Monster * GameData::LoadMonster(int monID)
 	case enKikyo:
 		mon = NewGO<Kikyo>(0, "monster");
 		break;
+	case enShikoChu:
+		mon = NewGO<ShikoChu>(0, "monster");
+		break;
 	}
 	return mon;
 }
@@ -101,6 +106,9 @@ const wchar_t * GameData::GetMonsterIconPath(int monID)
 		break;
 	case enKikyo:
 		return L"Assets/sprite/mon_kikyo.dds";
+		break;
+	case enShikoChu:
+		return L"Assets/sprite/mon_bug.dds";
 		break;
 	}
 	return nullptr;

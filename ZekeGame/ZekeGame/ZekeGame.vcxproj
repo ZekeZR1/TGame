@@ -312,6 +312,7 @@
     <ClCompile Include="Game\Monster\Monsters\Goblin.cpp" />
     <ClCompile Include="Game\Monster\Monsters\kikyo.cpp" />
     <ClCompile Include="Game\Monster\Monsters\RedHead.cpp" />
+    <ClCompile Include="Game\Monster\Monsters\ShikoChu.cpp" />
     <ClCompile Include="Game\Monster\Monsters\TestMons.cpp" />
     <ClCompile Include="Game\Monster\Monsters\Uma.cpp" />
     <ClCompile Include="Game\NetPVP\backParticle.cpp" />
@@ -537,6 +538,7 @@
     <ClInclude Include="Game\Monster\Monsters\Goblin.h" />
     <ClInclude Include="Game\Monster\Monsters\kikyo.h" />
     <ClInclude Include="Game\Monster\Monsters\RedHead.h" />
+    <ClInclude Include="Game\Monster\Monsters\ShikoChu.h" />
     <ClInclude Include="Game\Monster\Monsters\TestMons.h" />
     <ClInclude Include="Game\Monster\Monsters\Uma.h" />
     <ClInclude Include="Game\NetPVP\backParticle.h" />
@@ -1167,6 +1169,9 @@
   </ItemGroup>
   <ItemGroup>
     <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_kikyo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_bug.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
