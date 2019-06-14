@@ -44,6 +44,22 @@ void Monster::ReleaseMark()
 	}
 }
 
+void Monster::init(MonsterInitParam param) {
+	init(
+		param.HP,
+		param.MP, 
+		param.DefencePow, 
+		param.ExDefensePow, 
+		param.AttackPow, 
+		param.ExAttackPow,
+		param.Speed,
+		param.Radius,
+		param.Height,
+		param.ModelRender,
+		param.NumAnimation
+	);
+}
+
 void Monster::init(float HP, float MP,float Defense,float ExDefense, float Attack, float ExAttack, float speed, float radius, float height, SkinModelRender * smr, int animnum)
 {
 	m_HP = HP;

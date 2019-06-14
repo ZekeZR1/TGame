@@ -24,21 +24,22 @@ Kikyo::Kikyo()
 	//sr->SetScale({ 1.8f,1.8f,1.8f });
 	//sr->Init(L"Assets/modelData/uma.bone.cmo");
 	sr->SetPosition(CVector3::Zero());
-	init
-	(
-		//160,
-		80,
-		30,
-		10,
-		0,
-		10,
-		0,
-		10,
-		50,
-		150,
-		sr,
-		6
-	);
+
+	MonsterInitParam prm;
+	prm.HP = 80;
+	prm.MP = 30;
+	prm.DefencePow = 10;
+	prm.ExDefensePow = 0;
+	prm.AttackPow = 10;
+	prm.ExAttackPow = 0;
+	prm.Speed = 10;
+	prm.Radius = 50;
+	prm.Height = 150;
+	prm.ModelRender = sr;
+	prm.NumAnimation = 6;
+
+	init(prm);
+
 	ActionID* ua = new ActionID[6];
 	ua[enAtack] = enAtack;
 	ua[enChase] = enChase;

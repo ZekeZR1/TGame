@@ -18,21 +18,22 @@ Uma::Uma()
 	//sr->SetScale({ 1.8f,1.8f,1.8f });
 	//sr->Init(L"Assets/modelData/uma.bone.cmo");
 	sr->SetPosition(CVector3::Zero());
-	init
-	(
-		//160,
-		80,
-		30,
-		10,
-		0,
-		10,
-		0,
-		10,
-		50,
-		250,
-		sr,
-		3
-	);
+	
+	MonsterInitParam prm;
+	prm.HP = 80;
+	prm.MP = 30;
+	prm.DefencePow = 10;
+	prm.ExDefensePow = 0;
+	prm.AttackPow = 10;
+	prm.ExAttackPow = 0;
+	prm.Speed = 10;
+	prm.Radius = 50;
+	prm.Height = 250;
+	prm.ModelRender = sr;
+	prm.NumAnimation = 3;
+
+	init(prm);
+
 	ActionID* ua = new ActionID[6];
 	ua[enAtack] = enAtack;
 	ua[enChase] = enChase;
