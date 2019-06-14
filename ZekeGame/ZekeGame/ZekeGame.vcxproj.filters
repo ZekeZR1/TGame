@@ -245,15 +245,6 @@
     <ClCompile Include="Engine\level\Level.cpp">
       <Filter>Engine</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Result\Lose\Lose.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Result\Lose\Lose_localPVP.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Result\Lose\Lose_randomPVP.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
     <ClCompile Include="Engine\level\MapChip.cpp">
       <Filter>Engine</Filter>
     </ClCompile>
@@ -306,15 +297,6 @@
       <Filter>Game</Filter>
     </ClCompile>
     <ClCompile Include="Game\SuddenDeath.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Result\Win\Win.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Result\Win\Win_localPVP.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Result\Win\Win_randomPVP.cpp">
       <Filter>Game</Filter>
     </ClCompile>
     <ClCompile Include="Engine\math\Vector.cpp">
@@ -617,6 +599,27 @@
     </ClCompile>
     <ClCompile Include="Game\Monster\Effect\EFire.cpp">
       <Filter>act</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Result\Draw.cpp">
+      <Filter>Game\result</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Result\Lose\Lose.cpp">
+      <Filter>Game\result</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Result\Lose\Lose_localPVP.cpp">
+      <Filter>Game\result</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Result\Lose\Lose_randomPVP.cpp">
+      <Filter>Game\result</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Result\Win\Win.cpp">
+      <Filter>Game\result</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Result\Win\Win_localPVP.cpp">
+      <Filter>Game\result</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Result\Win\Win_randomPVP.cpp">
+      <Filter>Game\result</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1048,15 +1051,6 @@
     <ClInclude Include="Engine\level\Level.h">
       <Filter>Engine</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Result\Lose\Lose.h">
-      <Filter>Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Result\Lose\Lose_localPVP.h">
-      <Filter>Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Result\Lose\Lose_randomPVP.h">
-      <Filter>Game</Filter>
-    </ClInclude>
     <ClInclude Include="Game\PythonBridge\include\longobject.h">
       <Filter>Python</Filter>
     </ClInclude>
@@ -1199,15 +1193,6 @@
       <Filter>Game</Filter>
     </ClInclude>
     <ClInclude Include="Game\SuddenDeath.h">
-      <Filter>Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Result\Win\Win_randomPVP.h">
-      <Filter>Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Result\Win\Win.h">
-      <Filter>Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Result\Win\Win_localPVP.h">
       <Filter>Game</Filter>
     </ClInclude>
     <ClInclude Include="Game\PythonBridge\include\structmember.h">
@@ -1543,6 +1528,27 @@
     </ClInclude>
     <ClInclude Include="Game\Monster\Effect\EFire.h">
       <Filter>act</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Result\Draw.h">
+      <Filter>Game\result</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Result\Lose\Lose.h">
+      <Filter>Game\result</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Result\Lose\Lose_localPVP.h">
+      <Filter>Game\result</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Result\Lose\Lose_randomPVP.h">
+      <Filter>Game\result</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Result\Win\Win.h">
+      <Filter>Game\result</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Result\Win\Win_localPVP.h">
+      <Filter>Game\result</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Result\Win\Win_randomPVP.h">
+      <Filter>Game\result</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -2176,6 +2182,9 @@
     <Filter Include="Game\Monster\Monsters">
       <UniqueIdentifier>{cb9e658e-8c97-4132-896e-143fa8d9eb3b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\result">
+      <UniqueIdentifier>{baf3c78e-c54e-45be-adf9-de068c3d7888}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Media Include="Assets\sound\punch-middle2.wav">
@@ -2190,5 +2199,10 @@
     <Media Include="Assets\sound\BGM\PerituneMaterial_Strategy5_loop.wav">
       <Filter>Assets\BGM</Filter>
     </Media>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageContentTask Include="Assets\Sprite\result\res_draw.png">
+      <Filter>Assets\Sprite\result</Filter>
+    </ImageContentTask>
   </ItemGroup>
 </Project>

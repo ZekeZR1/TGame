@@ -330,6 +330,7 @@
     <ClCompile Include="Game\Online\TestView.cpp" />
     <ClCompile Include="Game\PythonBridge\PythonBridge.cpp" />
     <ClCompile Include="Game\ReadyGO\ReadyGO.cpp" />
+    <ClCompile Include="Game\Result\Draw.cpp" />
     <ClCompile Include="Game\Result\DungeonResult.cpp" />
     <ClCompile Include="Game\Result\Lose\Lose.cpp" />
     <ClCompile Include="Game\Result\Lose\Lose_localPVP.cpp" />
@@ -657,6 +658,7 @@
     <ClInclude Include="Game\PythonBridge\include\weakrefobject.h" />
     <ClInclude Include="Game\PythonBridge\PythonBridge.h" />
     <ClInclude Include="Game\ReadyGO\ReadyGO.h" />
+    <ClInclude Include="Game\Result\Draw.h" />
     <ClInclude Include="Game\Result\DungeonResult.h" />
     <ClInclude Include="Game\Result\Lose\Lose.h" />
     <ClInclude Include="Game\Result\Lose\Lose_localPVP.h" />
@@ -1174,6 +1176,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_bug.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageContentTask Include="Assets\Sprite\result\res_draw.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
