@@ -64,7 +64,8 @@ void DungeonResult::SaveDungeonClearState(){
 		//sprintf_s(ms1, "now cleared num is %d\n", cleared);
 		//OutputDebugStringA(msg);
 		//
-		if (cleared < m_dunNum) {
+
+		if (cleared < m_dunNum and IDungeonData().isFinalRound(m_dunNum)) {
 			cleared += 1;
 			fout.open("Assets/saveData/clearstate.dd", ios::out | ios::binary | ios::trunc);
 			fout.write((char*)&cleared, sizeof(int));
