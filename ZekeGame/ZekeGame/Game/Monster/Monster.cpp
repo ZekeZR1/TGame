@@ -19,8 +19,8 @@ Monster::~Monster()
 	DeleteGO(m_PB);
 	ReleaseMAL();
 	ReleaseMark();
-	for (auto i : m_abnormalStates)
-		DeleteGO(i);
+	for (auto a : m_abnormalStates)
+		DeleteGO(a);
 	delete[] m_UseAction;
 	delete m_pyFile;
 	delete m_visualAI;
@@ -156,6 +156,7 @@ void Monster::Update()
 			if (as->GetAbnormalState() == abStan)
 			{
 				isAbnormal = false;
+				m_movespeed = CVector3::Zero();
 				break;
 			}
 		}

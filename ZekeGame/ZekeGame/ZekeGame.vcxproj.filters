@@ -392,15 +392,6 @@
     <ClCompile Include="Game\Monster\MonsterMarker.cpp">
       <Filter>Game\Monster</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Monster\Monsters\Uma.cpp">
-      <Filter>Game\Monster</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Monster\Monsters\Fairy.cpp">
-      <Filter>Game\Monster</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Monster\Monsters\TestMons.cpp">
-      <Filter>Game\Monster</Filter>
-    </ClCompile>
     <ClCompile Include="Game\AIEdit\AIEditNodeTarget.cpp">
       <Filter>Game\AIEdite</Filter>
     </ClCompile>
@@ -527,9 +518,6 @@
     <ClCompile Include="Game\ReturnButton\ReturnButton.cpp">
       <Filter>Game\ReturnButton</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Monster\Monsters\Armor.cpp">
-      <Filter>Game\Monster</Filter>
-    </ClCompile>
     <ClCompile Include="Game\Monster\Action\Act_superBeam.cpp">
       <Filter>act</Filter>
     </ClCompile>
@@ -552,12 +540,6 @@
       <Filter>act\debuff</Filter>
     </ClCompile>
     <ClCompile Include="Game\Monster\Action\Act_ObstMove.cpp" />
-    <ClCompile Include="Game\Monster\Monsters\Book.cpp">
-      <Filter>Game\Monster</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Monster\Monsters\Goblin.cpp">
-      <Filter>Game\Monster</Filter>
-    </ClCompile>
     <ClCompile Include="Game\NetPVP\backParticle.cpp" />
     <ClCompile Include="Game\Dungeon\DungeonSelect.cpp">
       <Filter>Game\Dungeon</Filter>
@@ -597,6 +579,43 @@
       <Filter>act</Filter>
     </ClCompile>
     <ClCompile Include="Game\Monster\Action\Act_Blizzard.cpp">
+      <Filter>act</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\Monsters\Armor.cpp">
+      <Filter>Game\Monster\Monsters</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\Monsters\Book.cpp">
+      <Filter>Game\Monster\Monsters</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\Monsters\Fairy.cpp">
+      <Filter>Game\Monster\Monsters</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\Monsters\Goblin.cpp">
+      <Filter>Game\Monster\Monsters</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\Monsters\kikyo.cpp">
+      <Filter>Game\Monster\Monsters</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\Monsters\RedHead.cpp">
+      <Filter>Game\Monster\Monsters</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\Monsters\TestMons.cpp">
+      <Filter>Game\Monster\Monsters</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\Monsters\Uma.cpp">
+      <Filter>Game\Monster\Monsters</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\Monsters\ShikoChu.cpp">
+      <Filter>Game\Monster\Monsters</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\Action\cmp\CAct_Beam.cpp" />
+    <ClCompile Include="Game\Monster\Action\cmp\CAct_Dist.cpp" />
+    <ClCompile Include="Game\Monster\Action\cmp\CAct_FanShaped.cpp" />
+    <ClCompile Include="Game\Monster\Action\cmp\IAct.cpp" />
+    <ClCompile Include="Game\Monster\Action\Act_specialAttack.cpp">
+      <Filter>act</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\Effect\EFire.cpp">
       <Filter>act</Filter>
     </ClCompile>
   </ItemGroup>
@@ -1302,15 +1321,6 @@
     <ClInclude Include="Game\Monster\MonsterMarker.h">
       <Filter>Game\Monster</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Monster\Monsters\Uma.h">
-      <Filter>Game\Monster</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Monster\Monsters\Fairy.h">
-      <Filter>Game\Monster</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Monster\Monsters\TestMons.h">
-      <Filter>Game\Monster</Filter>
-    </ClInclude>
     <ClInclude Include="Game\AIEdit\AIEditNodeTarget.h">
       <Filter>Game\AIEdite</Filter>
     </ClInclude>
@@ -1437,9 +1447,6 @@
     <ClInclude Include="Game\ReturnButton\ReturnButton.h">
       <Filter>Game\ReturnButton</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Monster\Monsters\Armor.h">
-      <Filter>Game\Monster</Filter>
-    </ClInclude>
     <ClInclude Include="Game\Monster\Action\Act_superBeam.h">
       <Filter>act</Filter>
     </ClInclude>
@@ -1462,12 +1469,6 @@
       <Filter>act\debuff</Filter>
     </ClInclude>
     <ClInclude Include="Game\Monster\Action\Act_ObstMove.h" />
-    <ClInclude Include="Game\Monster\Monsters\Book.h">
-      <Filter>Game\Monster</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Monster\Monsters\Goblin.h">
-      <Filter>Game\Monster</Filter>
-    </ClInclude>
     <ClInclude Include="Game\NetPVP\backParticle.h" />
     <ClInclude Include="Game\Dungeon\MonsterDrop.h">
       <Filter>Game\Dungeon</Filter>
@@ -1504,6 +1505,43 @@
       <Filter>act</Filter>
     </ClInclude>
     <ClInclude Include="Game\Monster\Action\Act_Blizzard.h">
+      <Filter>act</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\Monsters\Armor.h">
+      <Filter>Game\Monster\Monsters</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\Monsters\Book.h">
+      <Filter>Game\Monster\Monsters</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\Monsters\Fairy.h">
+      <Filter>Game\Monster\Monsters</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\Monsters\Goblin.h">
+      <Filter>Game\Monster\Monsters</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\Monsters\kikyo.h">
+      <Filter>Game\Monster\Monsters</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\Monsters\RedHead.h">
+      <Filter>Game\Monster\Monsters</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\Monsters\TestMons.h">
+      <Filter>Game\Monster\Monsters</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\Monsters\Uma.h">
+      <Filter>Game\Monster\Monsters</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\Monsters\ShikoChu.h">
+      <Filter>Game\Monster\Monsters</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\Action\cmp\CAct_Beam.h" />
+    <ClInclude Include="Game\Monster\Action\cmp\CAct_Dist.h" />
+    <ClInclude Include="Game\Monster\Action\cmp\CAct_FanShaped.h" />
+    <ClInclude Include="Game\Monster\Action\cmp\IAct.h" />
+    <ClInclude Include="Game\Monster\Action\Act_specialAttack.h">
+      <Filter>act</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\Effect\EFire.h">
       <Filter>act</Filter>
     </ClInclude>
   </ItemGroup>
@@ -1980,6 +2018,24 @@
     <None Include="Assets\Sprite\AIEdit\AIEIcon.png">
       <Filter>Assets\Sprite\AIEdit</Filter>
     </None>
+    <None Include="Assets\modelData\kikyo_chan\hero.FBX">
+      <Filter>Assets\model</Filter>
+    </None>
+    <None Include="Assets\modelData\RedHead\RedHead.fbx">
+      <Filter>Assets\model</Filter>
+    </None>
+    <None Include="Assets\modelData\si_bug\si_bug.FBX">
+      <Filter>Assets\model</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_redHead.png">
+      <Filter>Assets\Sprite\MonSelect</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_kikyo.png">
+      <Filter>Assets\Sprite\MonSelect</Filter>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_bug.png">
+      <Filter>Assets\Sprite\MonSelect</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="act">
@@ -2117,6 +2173,9 @@
     <Filter Include="Game\UIAnimator">
       <UniqueIdentifier>{f799ba4b-7abe-4031-8f31-d1d0c550e2cd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\Monster\Monsters">
+      <UniqueIdentifier>{cb9e658e-8c97-4132-896e-143fa8d9eb3b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Media Include="Assets\sound\punch-middle2.wav">
@@ -2131,16 +2190,5 @@
     <Media Include="Assets\sound\BGM\PerituneMaterial_Strategy5_loop.wav">
       <Filter>Assets\BGM</Filter>
     </Media>
-  </ItemGroup>
-  <ItemGroup>
-    <MeshContentTask Include="Assets\modelData\kikyo_chan\hero.FBX">
-      <Filter>Assets\model</Filter>
-    </MeshContentTask>
-    <MeshContentTask Include="Assets\modelData\gk_human\gk_human.FBX">
-      <Filter>Assets\model</Filter>
-    </MeshContentTask>
-    <MeshContentTask Include="Assets\modelData\RedHead\RedHead.fbx">
-      <Filter>Assets\model</Filter>
-    </MeshContentTask>
   </ItemGroup>
 </Project>

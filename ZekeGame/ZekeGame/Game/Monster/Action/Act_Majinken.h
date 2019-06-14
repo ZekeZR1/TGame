@@ -13,5 +13,7 @@ private:
 	float m_damagePow = 100.f;
 	int m_chargeTime = 100;
 	int m_cooltime = 1000;
+	CVector3 knock;
+	CEffect* m_efk = nullptr;
 };
 

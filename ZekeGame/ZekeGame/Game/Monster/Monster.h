@@ -70,7 +70,7 @@ public:
 		abPoison,	//“Å
 		abStan,		//ƒXƒ^ƒ“
 		abBurn,		//‚â‚¯‚Ç
-		abCC,		//s“®–WŠQ
+		abCC,		//ˆÚ“®–WŠQ
 	};
 
 	//ó‘ÔˆÙí‚Ìİ’è

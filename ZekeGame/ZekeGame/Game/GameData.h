@@ -12,6 +12,9 @@ enum MonsterID
 	enArmor,
 	enGoblin,
 	enBook,
+	enRedHead,
+	enKikyo,
+	enShikoChu,
 	enNumMonster,
 };
 
@@ -39,6 +42,7 @@ enum ActionID
 	enIgnite,
 	enPoison,
 	enThunder,
+	enSpecialAttack,
 	enActNone = 999
 };
 

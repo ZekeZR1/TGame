@@ -1,5 +1,6 @@
 #pragma once
 #include "../MonsterAction.h"
+#include "cmp/CAct_Beam.h"
 
 class Act_superBeam : public MonsterAction
 {
@@ -7,13 +8,14 @@ public:
 	Act_superBeam();
 	bool Action(Monster* me) override;
 private:
-	int m_cost = 50;
+	CAct_Beam m_cBeam;
 	bool m_first = true;
-	CVector3 m_efPos = CVector3::Zero();
-	CVector3 m_laserVec = CVector3::Zero();
-	CEffect* m_efk = nullptr;
-	CVector3 m_efs = { 5,5,5 };
-	float m_laserTheta = 0.f;
-	float m_near = 0.2f;
+	float m_cost = 20.f;
+	float m_timer = 0;
+	int m_cooltime = 5;
+	float laserRange = 100;
+	float m_grantAbsTime = 0.5;
+	float m_damage = 0.001;
+	int m_DoTEndTime = 50;
 };
 
