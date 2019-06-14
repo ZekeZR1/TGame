@@ -25,8 +25,8 @@ bool MonsterDrop::Start() {
 	std::random_device rnd;
 	auto drop = rnd() % 100;
 	//if (drop >= 50 - m_stage) {
-	//	ToDungeonSelect();
-	//	return true;
+		ToDungeonSelect();
+		return true;
 	//}
 	m_egg = NewGO<DropEgg>(0);
 	InitCamera();
