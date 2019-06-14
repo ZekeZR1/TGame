@@ -118,6 +118,33 @@ void DungeonTransition::InitModel() {
 			m_monsters[i]->SetScale(CVector3::One() * 20);
 		}
 		break;
+		case enRedHead:
+		{
+			m_animClip[i][0].Load(L"Assets/modelData/RedHead/run.tka");
+			m_animClip[i][0].SetLoopFlag(true);
+			m_monsters[i]->Init(L"Assets/modelData/RedHead.cmo", m_animClip[i], 1);
+			m_monsters[i]->PlayAnimation(0);
+			m_monsters[i]->SetScale(CVector3::One());
+		}
+		break;
+		case enKikyo:
+		{
+			m_animClip[i][0].Load(L"Assets/modelData/kikyo_chan/hero_walk_animation.tka");
+			m_animClip[i][0].SetLoopFlag(true);
+			m_monsters[i]->Init(L"Assets/modelData/hero.cmo", m_animClip[i], 1,enFbxUpAxisY);
+			m_monsters[i]->PlayAnimation(0);
+			m_monsters[i]->SetScale(CVector3::One());
+		}
+		break;
+		case enShikoChu:
+		{
+			//m_animClip[i][0].Load(L"Assets/modelData/si_bug/gob_walk.tka");
+			//m_animClip[i][0].SetLoopFlag(true);
+			m_monsters[i]->Init(L"Assets/modelData/si_bug.cmo");//, m_animClip[i], 1);
+			//m_monsters[i]->PlayAnimation(0);
+			m_monsters[i]->SetScale(CVector3::One());
+		}
+		break;
 		default:
 			assert(false);
 			OutputDebugStringA("Trasan Anime < ‚È‚ñ‚ÅHHH\n");
