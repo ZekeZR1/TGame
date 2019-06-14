@@ -53,9 +53,9 @@ void Monster::init(MonsterInitParam param) {
 		param.AttackPow, 
 		param.ExAttackPow,
 		param.Speed,
-		param.radius,
-		param.height,
-		param.skinModelRender,
+		param.Radius,
+		param.Height,
+		param.ModelRender,
 		param.NumAnimation
 	);
 }

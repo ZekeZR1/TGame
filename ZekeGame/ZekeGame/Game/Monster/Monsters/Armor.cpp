@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "Armor.h"
 #include "../../GameData.h"
+
 Armor::Armor()
 {
 	m_anim[en_idle].Load(L"Assets/modeldata/armor/armor_idle.tka");
