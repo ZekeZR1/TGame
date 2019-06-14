@@ -14,25 +14,6 @@
 
 //TODO : alpha, shadow
 bool TestScene::Start() {
-	cur = NewGO<GameCursor>(0);
-
-	sp = NewGO<SpriteRender>(2);
-	sp->Init(L"Assets/sprite/leftButton.dds",300,50,true,true);
-	sp->SetPosition({ 0,0,0 });
-	sp->ChangeCameraProjMatrix(Camera::enUpdateProjMatrixFunc_Perspective);
-
-	spp = NewGO<SpriteRender>(1);
-	spp->Init(L"Assets/sprite/rightButton.dds", 50, 300, true, true);
-	spp->SetPosition({ 0,0,1 });
-	spp->ChangeCameraProjMatrix(Camera::enUpdateProjMatrixFunc_Perspective);
-
-	spp = NewGO<SpriteRender>(0);
-	spp->Init(L"Assets/sprite/modesel_back_aiedit.dds", 1280, 720, false, false);
-	spp->SetPosition({ 0,0,510 });
-	spp->ChangeCameraProjMatrix(Camera::enUpdateProjMatrixFunc_Perspective);
-
-	efk = NewGO<CEffect>(0);
-	efk->Play(L"Assets/effect/majinken_wiat.efk");
 	return true;
 }
 
@@ -41,7 +22,8 @@ void TestScene::OnDestroy() {
 
 
 void TestScene::Update() {
-	auto p = cur->GetCursor();
-	sp->SetCollisionTarget(p);
-	spp->SetCollisionTarget(p);
+	if (g_pad[0].IsTrigger(enButtonA)) {
+		auto efk = NewGO<CEffect>(0);
+		efk->Play(L"Assets/effect/majinken_attack.efk");
+	}
 }

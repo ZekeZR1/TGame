@@ -15,9 +15,4 @@ public:
 	void OnDestroy() override;
 	void Update() override;
 private:
-	CEffect* efk = nullptr;
-	SpriteRender* sp;
-	SpriteRender* spp;
-	SpriteRender* sppp;
-	GameCursor* cur;
 };

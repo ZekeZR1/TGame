@@ -8,6 +8,9 @@ CEffectEngine::CEffectEngine()
 
 CEffectEngine::~CEffectEngine()
 {
+	for (auto e : m_effectsMap) {
+		ES_SAFE_RELEASE(e.second);
+	}
 	// 先にエフェクト管理用インスタンスを破棄
 	m_manager->Destroy();
 
@@ -64,3 +67,16 @@ void CEffectEngine::Draw() {
 	m_renderer->EndRendering();
 }
 
+
+Effekseer::Effect* CEffectEngine::GetEffect(const wchar_t* filepath) {
+	Effekseer::Effect* res = nullptr;
+	auto it = m_effectsMap.find(filepath);
+	if (it == m_effectsMap.end()) {
+		res = Effekseer::Effect::Create(&(g_graphicsEngine->GetEffectEngine().GetEffekseerManager()), (const EFK_CHAR*)filepath);
+		m_effectsMap.insert({ filepath, std::move(res)});
+	}
+	else {
+		res = it->second;
+	}
+	return res;
+}
