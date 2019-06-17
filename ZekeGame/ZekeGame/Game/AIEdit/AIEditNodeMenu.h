@@ -1,5 +1,6 @@
 #pragma once
 class GameCursor;
+class ShowMonsters;
 class AIEditNodeProcess;
 class AIEditNodeButton;
 class AIEditLine;
@@ -81,5 +82,5 @@ private:
 	AIEditNodeSelectFonts* m_aieditnodeselectfonts;
 	AIEditNodeSelectButtons* m_aieditnodeselectbuttons;
 	AIEditNodeDeleteKey* m_aieditnodedeletekey;
-
+	ShowMonsters* m_monstersInfo = nullptr;
 };

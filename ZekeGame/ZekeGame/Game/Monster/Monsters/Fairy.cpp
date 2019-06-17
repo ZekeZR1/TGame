@@ -49,8 +49,8 @@ Fairy::Fairy()
 	ua[enChase] = enChase;
 	ua[enLeave] = enLeave;
 	ua[enDefense] = enDefense;
-	ua[4] = enFire;
-	ua[5] = enActNone;
+	ua[4] = enRecovery;
+	ua[5] = enFire;
 	SetUseAction(ua,6);
 
 	m_ID = enFairy;
