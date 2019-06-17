@@ -621,6 +621,9 @@
     <ClCompile Include="Game\Result\Win\Win_randomPVP.cpp">
       <Filter>Game\result</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Monster\Monsters\Ringo.cpp">
+      <Filter>Game\Monster\Monsters</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\PythonBridge\include\unicodeobject.h" />
@@ -1550,6 +1553,9 @@
     <ClInclude Include="Game\Result\Win\Win_randomPVP.h">
       <Filter>Game\result</Filter>
     </ClInclude>
+    <ClInclude Include="Game\Monster\Monsters\Ringo.h">
+      <Filter>Game\Monster\Monsters</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="python36.lib" />
@@ -2204,5 +2210,10 @@
     <ImageContentTask Include="Assets\Sprite\result\res_draw.png">
       <Filter>Assets\Sprite\result</Filter>
     </ImageContentTask>
+  </ItemGroup>
+  <ItemGroup>
+    <MeshContentTask Include="Assets\modelData\RingoChan\ringo.FBX">
+      <Filter>Assets\model</Filter>
+    </MeshContentTask>
   </ItemGroup>
 </Project>
