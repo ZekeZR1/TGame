@@ -40,14 +40,8 @@ Kikyo::Kikyo()
 
 	init(prm);
 
-	ActionID* ua = new ActionID[6];
-	ua[enAtack] = enAtack;
-	ua[enChase] = enChase;
-	ua[enLeave] = enLeave;
-	ua[enDefense] = enDefense;
-	ua[4] = enSuperBeam;
-	ua[5] = enManaHeal;
-	SetUseAction(ua, 6);
-
 	m_ID = enKikyo;
+	int cnt = 0;
+	ActionID* ua = GameData::GetMonsterActions(m_ID, cnt);
+	SetUseAction(ua, cnt);
 }

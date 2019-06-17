@@ -40,15 +40,12 @@ Goblin::Goblin()
 
 	init(prm);
 
-	ActionID* ua = new ActionID[6];
-	ua[enAtack] = enAtack;
-	ua[enChase] = enChase;
-	ua[enLeave] = enLeave;
-	ua[enDefense] = enDefense;
-	ua[4] = enPoison;
-	ua[5] = enDebuffAtc;
-	SetUseAction(ua, 6);
+	m_ID = enGoblin;
+	int cnt = 0;
+	
+	ActionID* ua = GameData::GetMonsterActions(m_ID, cnt);
+	SetUseAction(ua, cnt);
 	//tginit(10, 10, 10, 20, 70, sr, 0);
 
-	m_ID = enGoblin;
+	
 }

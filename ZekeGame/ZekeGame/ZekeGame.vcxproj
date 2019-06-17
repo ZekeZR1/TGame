@@ -1187,6 +1187,9 @@
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\RingoChan\ringo.FBX" />
   </ItemGroup>
+  <ItemGroup>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_ringo.png" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="$(VCTargetsPath)\BuildCustomizations\ImageContentTask.targets" />

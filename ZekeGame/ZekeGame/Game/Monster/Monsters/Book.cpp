@@ -54,14 +54,8 @@ Book::Book()
 
 	init(prm);
 
-	ActionID* ua = new ActionID[6];
-	ua[enAtack] = enAtack;
-	ua[enChase] = enChase;
-	ua[enLeave] = enLeave;
-	ua[enDefense] = enDefense;
-	ua[4] = enCleanse;
-	ua[5] = enClearStack;
-	SetUseAction(ua, 6);
-
 	m_ID = enBook;
+	int cnt = 0;
+	ActionID* ua = GameData::GetMonsterActions(m_ID, cnt);
+	SetUseAction(ua, cnt);
 }

@@ -15,6 +15,7 @@ enum MonsterID
 	enRedHead,
 	enKikyo,
 	enShikoChu,
+	enRingo,
 	enNumMonster,
 };
 
@@ -84,4 +85,22 @@ public:
 	static void deletemons(Monster* mon);
 	static Monster* LoadMonster(int monID);
 	static const wchar_t* GetMonsterIconPath(int monID);
+
+	/*
+	モンスターが使用するActionIDを返す
+	注意:必ずデリートしてね。
+	args:
+		monsterID: モンスターのID
+		count: この中にモンスターが使用するActionの個数が入る
+	*/
+	static ActionID* GetMonsterActions(int monsterID, int& count);
+
+	/*
+	モンスターが使用する指定した位置のActionIDを返す
+	注意:失敗した場合はActionID::enActNoneを返す
+	args:
+		monsterID: モンスターのID
+		actionIndex: 何番目の技か
+	*/
+	static ActionID GetMonsterAction(int monsterID, int actionIndex);
 };

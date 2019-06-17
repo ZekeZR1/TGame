@@ -34,15 +34,8 @@ Uma::Uma()
 
 	init(prm);
 
-	ActionID* ua = new ActionID[6];
-	ua[enAtack] = enAtack;
-	ua[enChase] = enChase;
-	ua[enLeave] = enActNone;
-	ua[enDefense] = enDefense;
-	ua[4] = enTackle;
-	ua[5] = enMajinken;
-	SetUseAction(ua,6);
-	//tginit(10, 10, 10, 20, 70, sr, 0);
-
 	m_ID = enUmataur;
+	int cnt = 0;
+	ActionID* ua = GameData::GetMonsterActions(m_ID, cnt);
+	SetUseAction(ua, cnt);
 }

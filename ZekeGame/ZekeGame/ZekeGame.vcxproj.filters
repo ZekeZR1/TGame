@@ -624,6 +624,7 @@
     <ClCompile Include="Game\Monster\Monsters\Ringo.cpp">
       <Filter>Game\Monster\Monsters</Filter>
     </ClCompile>
+    <ClCompile Include="Game\AIEdit\ShowMonsters.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\PythonBridge\include\unicodeobject.h" />
@@ -1556,6 +1557,7 @@
     <ClInclude Include="Game\Monster\Monsters\Ringo.h">
       <Filter>Game\Monster\Monsters</Filter>
     </ClInclude>
+    <ClInclude Include="Game\AIEdit\ShowMonsters.h" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="python36.lib" />
@@ -2209,6 +2211,9 @@
   <ItemGroup>
     <ImageContentTask Include="Assets\Sprite\result\res_draw.png">
       <Filter>Assets\Sprite\result</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_ringo.png">
+      <Filter>Assets\Sprite\MonSelect</Filter>
     </ImageContentTask>
   </ItemGroup>
   <ItemGroup>

@@ -26,11 +26,11 @@ ShikoChu::ShikoChu()
 	prm.NumAnimation = 0;
 	init(prm);
 
-	ActionID* ua = new ActionID[6];
-	ua[enAtack] = enSpecialAttack;
-	ua[enChase] = enChase;
-	SetUseAction(ua, 2);
+	m_ID = enShikoChu;
+	int cnt = 0;
+	ActionID* ua = GameData::GetMonsterActions(m_ID, cnt);
+	SetUseAction(ua, cnt);
 	//tginit(10, 10, 10, 20, 70, sr, 0);
 
-	m_ID = enShikoChu;
+	
 }

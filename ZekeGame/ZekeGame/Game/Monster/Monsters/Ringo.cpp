@@ -40,15 +40,8 @@ Ringo::Ringo()
 
 	init(prm);
 
-	ActionID* ua = new ActionID[6];
-	ua[enAtack] = enAtack;
-	ua[enChase] = enChase;
-	ua[enLeave] = enLeave;
-	ua[enDefense] = enDefense;
-	ua[4] = enTackle;
-	ua[5] = enGuardian;
-	SetUseAction(ua, 6);
-	//tginit(10, 10, 10, 20, 70, sr, 0);
-
-	m_ID = enGoblin;
+	m_ID = enRingo;
+	int cnt = 0;
+	ActionID* ua = GameData::GetMonsterActions(m_ID, cnt);
+	SetUseAction(ua, cnt);
 }
