@@ -621,6 +621,10 @@
     <ClCompile Include="Game\AIEdit\ShowMonsters.cpp">
       <Filter>Game\AIEdite\monsterSkillList</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Result\Draw.cpp" />
+    <ClCompile Include="Game\AIEdit\ShowMonsterSkills.cpp">
+      <Filter>Game\AIEdite\monsterSkillList</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\PythonBridge\include\unicodeobject.h" />
@@ -1550,6 +1554,10 @@
     <ClInclude Include="Game\AIEdit\ShowMonsters.h">
       <Filter>Game\AIEdite\monsterSkillList</Filter>
     </ClInclude>
+    <ClInclude Include="Game\Result\Draw.h" />
+    <ClInclude Include="Game\AIEdit\ShowMonsterSkills.h">
+      <Filter>Game\AIEdite\monsterSkillList</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="python36.lib" />
@@ -2199,5 +2207,8 @@
     <Media Include="Assets\sound\BGM\PerituneMaterial_Strategy5_loop.wav">
       <Filter>Assets\BGM</Filter>
     </Media>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageContentTask Include="Assets\Sprite\result\res_draw.png" />
   </ItemGroup>
 </Project>

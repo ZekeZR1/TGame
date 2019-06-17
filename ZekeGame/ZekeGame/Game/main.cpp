@@ -9,6 +9,7 @@
 #include "../Game/Dungeon/MonsterDrop.h"
 
 #include "UIAnimator/UIAnimator.h"
+#include "AIEdit/ShowMonsters.h"
 
 int WINAPI wWinMain(
 	HINSTANCE hInstance,
@@ -22,7 +23,7 @@ int WINAPI wWinMain(
 	NewGO<GameCamera3D>(0, "cam3d");
 	NewGO<GameCamera2D>(0, "cam2d");
 	NewGO<ModeSelect>(0, "modesel");
-	//NewGO<MonsterDrop>(0);
+	//NewGO<ShowMonsters>(0);
 	g_physics.SetDebugDraw(false);
 
 	/*UIAnimator* UIA = NewGO<UIAnimator>(0, "uia");
