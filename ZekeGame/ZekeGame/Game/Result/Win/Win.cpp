@@ -66,7 +66,7 @@ void Win::init(int team, Game::Mode mode)
 
 	float hie = g_mons[0]->Getheight();
 	m_lastpos = { hie/-13+hie/-5, hie/2+hie/7.3f, hie/10 + hie /4 };
-	m_lasttar = { 30, hie/2+hie/7.f, 0 };
+	m_lasttar = { 15, hie/2+hie/7.f, 0 };
 
 	/*switch (g_mons[0]->GetID())
 	{
