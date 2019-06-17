@@ -19,6 +19,8 @@
 #include "Fade/Fade.h"
 #include "Fade/MusicFade.h"
 
+#include "Result/Draw.h"
+
 void Game::GamePVPmodeInit(std::vector<std::string> files, int monsterAI[6],MonsterID MonsterID[6])
 {
 	//StageSetup::PVPSetup(files, monsterAI,MonsterID);
@@ -145,7 +147,23 @@ void Game::Update() {
 			}
 			if (red == 0 && blue == 0) //両方モンスターが全滅した場合（ドローの処理）
 			{
-
+				auto dr = NewGO<BattleDraw>(0, "bd");
+				switch (m_playMode)
+				{
+				case enLocalPVP:
+				{
+					dr->SetPVPMode(enLocalPVP);
+				}
+				case enRandomPVP:
+				{
+					dr->SetPVPMode(enRandomPVP);
+				}
+				case enDungeon:
+				{
+					dr->SetPVPMode(enLocalPVP);
+					dr->SetDunNum(m_dunNum);
+				}
+				}
 			}
 			else
 			{
@@ -172,9 +190,10 @@ void Game::Update() {
 					break;
 				}
 				}
+				m_fade->SetSpeed(5);
 			}
 			m_isGameSet = true;
-			m_fade->SetSpeed(5);
+			
 		}
 		return;
 	}

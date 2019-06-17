@@ -42,15 +42,8 @@ RedHead::RedHead()
 
 	init(prm);
 
-	ActionID* ua = new ActionID[6];
-	ua[enAtack] = enAtack;
-	ua[enChase] = enChase;
-	ua[enLeave] = enLeave;
-	ua[enDefense] = enDefense;
-	ua[4] = enIgnite;
-	ua[5] = enThunder;
-	SetUseAction(ua, 6);
-	//tginit(10, 10, 10, 20, 70, sr, 0);
-
 	m_ID = enRedHead;
+	int cnt = 0;
+	ActionID* ua = GameData::GetMonsterActions(m_ID, cnt);
+	SetUseAction(ua, cnt);
 }
