@@ -20,8 +20,8 @@ TestMons::TestMons()
 
 	init
 	(
-		10,		//HP
-		INT_MAX,		//MP
+		100000,		//HP
+		100000,		//MP
 		10,		//–hŒä—Í
 		10,		//“Áê–hŒä—Í
 		10,		//UŒ‚—Í

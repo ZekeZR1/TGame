@@ -40,7 +40,7 @@ Uma::Uma()
 	ua[enLeave] = enActNone;
 	ua[enDefense] = enDefense;
 	ua[4] = enTackle;
-	ua[5] = enGuardian;
+	ua[5] = enMajinken;
 	SetUseAction(ua,6);
 	//tginit(10, 10, 10, 20, 70, sr, 0);
 

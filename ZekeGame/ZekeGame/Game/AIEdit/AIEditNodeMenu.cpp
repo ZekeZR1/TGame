@@ -22,6 +22,7 @@
 #include "AIEditNodeSelectButtons.h"
 #include "AIEditNodeBackGround.h"
 #include "AIEditNodeDeleteKey.h"
+#include "ShowMonsters.h"
 
 AIEditNodeMenu::~AIEditNodeMenu()
 {
@@ -232,6 +233,7 @@ void AIEditNodeMenu::Update()
 		if (sp[button - 2]->isCollidingTarget()) {
 			sp[button - 2]->SetMulCol({ 1.3f,1.3f, 1.3f, 1 });
 			if (Mouse::isTrigger(enLeftClick)) {	//¶ƒNƒŠƒbƒN
+				m_monstersInfo = NewGO<ShowMonsters>(0);
 				PlayButtonSE();
 			}
 		}

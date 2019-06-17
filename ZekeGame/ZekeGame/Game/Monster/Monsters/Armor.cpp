@@ -40,8 +40,8 @@ Armor::Armor()
 	ua[enChase] = enChase;
 	ua[enLeave] = enLeave;
 	ua[enDefense] = enDefense;
-	ua[4] = enActNone;
-	ua[5] = enActNone;
+	ua[4] = enTackle;
+	ua[5] = enGuardian;
 	SetUseAction(ua,6);
 
 	m_ID = enArmor;

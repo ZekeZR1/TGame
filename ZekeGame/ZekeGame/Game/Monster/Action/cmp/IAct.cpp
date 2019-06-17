@@ -20,7 +20,6 @@ void IAct::GrantAbnormalState(
 	actEG->init(efk, target, state, 0, 0, endTime, me, DoTParam);
 	target->SetAbnormalState(actEG);
 	m_isAbnormal[target] = true;
-
 }
 //
 //void IAct::RotateToTarget(Monster* me, Monster* target) {

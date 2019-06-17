@@ -618,6 +618,9 @@
     <ClCompile Include="Game\Monster\Effect\EFire.cpp">
       <Filter>act</Filter>
     </ClCompile>
+    <ClCompile Include="Game\AIEdit\ShowMonsters.cpp">
+      <Filter>Game\AIEdite\monsterSkillList</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\PythonBridge\include\unicodeobject.h" />
@@ -1544,6 +1547,9 @@
     <ClInclude Include="Game\Monster\Effect\EFire.h">
       <Filter>act</Filter>
     </ClInclude>
+    <ClInclude Include="Game\AIEdit\ShowMonsters.h">
+      <Filter>Game\AIEdite\monsterSkillList</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="python36.lib" />
@@ -2175,6 +2181,9 @@
     </Filter>
     <Filter Include="Game\Monster\Monsters">
       <UniqueIdentifier>{cb9e658e-8c97-4132-896e-143fa8d9eb3b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\AIEdite\monsterSkillList">
+      <UniqueIdentifier>{3939e58d-289b-46ae-b601-7d8820287a91}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

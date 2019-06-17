@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "Book.h"
+#include "../../GameData.h"
 
 Book::Book()
 {
@@ -37,4 +38,30 @@ Book::Book()
 	m_smr = NewGO<SkinModelRender>(0,"sr");
 	m_smr->Init(L"Assets/modelData/book.cmo", m_anim, 6);
 	m_AnimNum = 6;
+
+	MonsterInitParam prm;
+	prm.HP = m_HP;
+	prm.MP = m_MP;
+	prm.DefencePow = m_Defense;
+	prm.ExDefensePow = m_ExDefense;
+	prm.AttackPow = m_Attack;
+	prm.ExAttackPow = m_ExAttack;
+	prm.Speed = m_speed;
+	prm.Radius = m_radius;
+	prm.Height = m_height;
+	prm.ModelRender = m_smr;
+	prm.NumAnimation = 6;
+
+	init(prm);
+
+	ActionID* ua = new ActionID[6];
+	ua[enAtack] = enAtack;
+	ua[enChase] = enChase;
+	ua[enLeave] = enLeave;
+	ua[enDefense] = enDefense;
+	ua[4] = enCleanse;
+	ua[5] = enClearStack;
+	SetUseAction(ua, 6);
+
+	m_ID = enBook;
 }

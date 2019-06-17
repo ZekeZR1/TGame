@@ -47,8 +47,8 @@ RedHead::RedHead()
 	ua[enChase] = enChase;
 	ua[enLeave] = enLeave;
 	ua[enDefense] = enDefense;
-	ua[4] = enTackle;
-	ua[5] = enGuardian;
+	ua[4] = enIgnite;
+	ua[5] = enThunder;
 	SetUseAction(ua, 6);
 	//tginit(10, 10, 10, 20, 70, sr, 0);
 
