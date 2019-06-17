@@ -31,6 +31,10 @@ public:
 	void BackMenu();
 	void Menuwin();
 
+	void SetWindowActive(bool activeFlag) {
+		m_isActive = activeFlag;
+	}
+
 	void SetMenuconf(bool a)
 	{
 
@@ -53,7 +57,7 @@ private:
 	int button = 3;          //メニューの選択ボタンの数。
 	bool menu = false;
 	bool menuconf = false;
-
+	bool isActive = true;
 	std::vector<FontRender*> m_fonts;
 	std::vector<SpriteRender*> sp;
 	CVector3 m_position = CVector3::Zero();

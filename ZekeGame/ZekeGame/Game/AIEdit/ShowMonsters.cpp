@@ -6,7 +6,8 @@
 #include "ShowMonsterSkills.h"
 
 bool ShowMonsters::Start() {
-	m_cur = NewGO<GameCursor>(0);
+	m_cur = FindGO<GameCursor>("cursor");
+
 	m_backSp = NewGO<SpriteRender>(0);
 	m_backSp->Init(L"Assets/sprite/modesel_back.dds", 1000.f, 650.f);
 
