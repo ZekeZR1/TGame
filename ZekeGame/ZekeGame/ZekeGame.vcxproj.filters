@@ -2050,6 +2050,15 @@
     <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_bug.png">
       <Filter>Assets\Sprite\MonSelect</Filter>
     </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_ringo.png">
+      <Filter>Assets\Sprite\MonSelect</Filter>
+    </None>
+    <None Include="Assets\Sprite\result\res_draw.png">
+      <Filter>Assets\Sprite\result</Filter>
+    </None>
+    <None Include="Assets\modelData\RingoChan\ringo.FBX">
+      <Filter>Assets\model</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="act">
@@ -2207,18 +2216,5 @@
     <Media Include="Assets\sound\BGM\PerituneMaterial_Strategy5_loop.wav">
       <Filter>Assets\BGM</Filter>
     </Media>
-  </ItemGroup>
-  <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\result\res_draw.png">
-      <Filter>Assets\Sprite\result</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_ringo.png">
-      <Filter>Assets\Sprite\MonSelect</Filter>
-    </ImageContentTask>
-  </ItemGroup>
-  <ItemGroup>
-    <MeshContentTask Include="Assets\modelData\RingoChan\ringo.FBX">
-      <Filter>Assets\model</Filter>
-    </MeshContentTask>
   </ItemGroup>
 </Project>

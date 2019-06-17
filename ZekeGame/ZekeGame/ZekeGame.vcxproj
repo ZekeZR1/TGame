@@ -1182,13 +1182,15 @@
     <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_bug.png" />
   </ItemGroup>
   <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\result\res_draw.png" />
+    <None Include="Assets\Sprite\result\res_draw.png" />
   </ItemGroup>
   <ItemGroup>
-    <MeshContentTask Include="Assets\modelData\RingoChan\ringo.FBX" />
+    <None Include="Assets\modelData\RingoChan\ringo.FBX">
+      <FileType>Document</FileType>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_ringo.png" />
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_ringo.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
