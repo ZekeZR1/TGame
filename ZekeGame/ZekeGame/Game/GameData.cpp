@@ -9,6 +9,7 @@
 #include "Monster/Monsters/RedHead.h"
 #include "Monster/Monsters/kikyo.h"
 #include "Monster/Monsters/ShikoChu.h"
+#include "Monster/Monsters/Ringo.h"
 
 
 Monster* g_mons[64];
@@ -75,6 +76,9 @@ Monster * GameData::LoadMonster(int monID)
 	case enShikoChu:
 		mon = NewGO<ShikoChu>(0, "monster");
 		break;
+	case enRingo:
+		mon = NewGO<Ringo>(0, "monster");
+		break;
 	}
 	return mon;
 }
@@ -110,6 +114,142 @@ const wchar_t * GameData::GetMonsterIconPath(int monID)
 	case enShikoChu:
 		return L"Assets/sprite/mon_bug.dds";
 		break;
+	case enRingo:
+		return L"Assets/sprite/mon_ringo.dds";
+		break;
 	}
 	return nullptr;
+}
+
+ActionID* GameData::GetMonsterActions(int monsterID, int& count)
+{
+	ActionID* ua = nullptr;
+	count = 0;
+	switch (monsterID)
+	{
+	case enTest:
+		count = 99;
+		ua = new ActionID[count];
+		ua[enAtack] = enAtack;
+		ua[enChase] = enChase;
+		ua[enLeave] = enLeave;
+		ua[enDefense] = enDefense;
+		ua[4] = enTackle;
+		ua[5] = enActNone;
+		ua[6] = enSuperBeam;
+		ua[7] = enObstMove;
+		ua[8] = enCleanse;
+		ua[9] = enBuffAtc;
+		ua[10] = enDebuffAtc;
+		ua[11] = enBuffDef;
+		ua[12] = enDebuffDef;
+		ua[13] = enMajinken;
+		ua[14] = enClearStack;
+		ua[15] = enManaHeal;
+		ua[16] = enBlizzard;
+		ua[17] = enIgnite;
+		ua[18] = enPoison;
+		ua[19] = enThunder;
+		break;
+	case enUmataur:
+		count = 6;
+		ua = new ActionID[count];
+		ua[enAtack] = enAtack;
+		ua[enChase] = enChase;
+		ua[enLeave] = enActNone;
+		ua[enDefense] = enDefense;
+		ua[4] = enTackle;
+		ua[5] = enMajinken;
+		break;
+	case enFairy:
+		count = 6;
+		ua = new ActionID[count];
+		ua[enAtack] = enAtack;
+		ua[enChase] = enChase;
+		ua[enLeave] = enLeave;
+		ua[enDefense] = enDefense;
+		ua[4] = enRecovery;
+		ua[5] = enFire;
+		break;
+	case enArmor:
+		count = 6;
+		ua = new ActionID[count];
+		ua[enAtack] = enAtack;
+		ua[enChase] = enChase;
+		ua[enLeave] = enLeave;
+		ua[enDefense] = enDefense;
+		ua[4] = enTackle;
+		ua[5] = enGuardian;
+		break;
+	case enGoblin:
+		count = 6;
+		ua = new ActionID[count];
+		ua[enAtack] = enAtack;
+		ua[enChase] = enChase;
+		ua[enLeave] = enLeave;
+		ua[enDefense] = enDefense;
+		ua[4] = enPoison;
+		ua[5] = enDebuffAtc;
+		break;
+	case enBook:
+		count = 6;
+		ua = new ActionID[count];
+		ua[enAtack] = enAtack;
+		ua[enChase] = enChase;
+		ua[enLeave] = enLeave;
+		ua[enDefense] = enDefense;
+		ua[4] = enCleanse;
+		ua[5] = enClearStack;
+		break;
+	case enRedHead:
+		count = 6;
+		ua = new ActionID[count];
+		ua[enAtack] = enAtack;
+		ua[enChase] = enChase;
+		ua[enLeave] = enLeave;
+		ua[enDefense] = enDefense;
+		ua[4] = enIgnite;
+		ua[5] = enThunder;
+		break;
+	case enKikyo:
+		count = 6;
+		ua = new ActionID[count];
+		ua[enAtack] = enAtack;
+		ua[enChase] = enChase;
+		ua[enLeave] = enLeave;
+		ua[enDefense] = enDefense;
+		ua[4] = enSuperBeam;
+		ua[5] = enManaHeal;
+		break;
+	case enShikoChu:
+		count = 2;
+		ua = new ActionID[count];
+		ua[enAtack] = enSpecialAttack;
+		ua[enChase] = enChase;
+		break;
+	case enRingo:
+		count = 6;
+		ua = new ActionID[count];
+		ua[enAtack] = enAtack;
+		ua[enChase] = enChase;
+		ua[enLeave] = enActNone;
+		ua[enDefense] = enDefense;
+		ua[4] = enTackle;
+		ua[5] = enMajinken;
+		break;
+	}
+	return ua;
+}
+
+ActionID GameData::GetMonsterAction(int monsterID, int actionIndex)
+{
+	int cnt = 0;
+	ActionID* ua = GetMonsterActions(monsterID, cnt);
+	
+	if (actionIndex >= cnt)
+		return ActionID::enActNone;
+
+	ActionID ad = ua[actionIndex];
+	delete ua;
+	return ad;
 }

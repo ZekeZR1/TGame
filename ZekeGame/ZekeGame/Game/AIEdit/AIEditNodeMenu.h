@@ -1,5 +1,6 @@
 #pragma once
 class GameCursor;
+class ShowMonsters;
 class AIEditNodeProcess;
 class AIEditNodeButton;
 class AIEditLine;
@@ -30,6 +31,10 @@ public:
 	void BackMenu();
 	void Menuwin();
 
+	void SetWindowActive(bool activeFlag) {
+		m_isActive = activeFlag;
+	}
+
 	void SetMenuconf(bool a)
 	{
 
@@ -52,7 +57,7 @@ private:
 	int button = 3;          //メニューの選択ボタンの数。
 	bool menu = false;
 	bool menuconf = false;
-
+	bool isActive = true;
 	std::vector<FontRender*> m_fonts;
 	std::vector<SpriteRender*> sp;
 	CVector3 m_position = CVector3::Zero();
@@ -81,5 +86,5 @@ private:
 	AIEditNodeSelectFonts* m_aieditnodeselectfonts;
 	AIEditNodeSelectButtons* m_aieditnodeselectbuttons;
 	AIEditNodeDeleteKey* m_aieditnodedeletekey;
-
+	ShowMonsters* m_monstersInfo = nullptr;
 };

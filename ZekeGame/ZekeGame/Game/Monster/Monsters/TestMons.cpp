@@ -20,8 +20,8 @@ TestMons::TestMons()
 
 	init
 	(
-		10,		//HP
-		INT_MAX,		//MP
+		100000,		//HP
+		100000,		//MP
 		10,		//–hŒä—Í
 		10,		//“Áê–hŒä—Í
 		10,		//UŒ‚—Í
@@ -32,29 +32,9 @@ TestMons::TestMons()
 		m_smr,	//‚rkin ‚lodel ‚qender
 		0		//ƒAƒjƒ[ƒVƒ‡ƒ“‚Ì”
 	);
-	ActionID* ua = new ActionID[99];
-	ua[enAtack] = enAtack;
-	ua[enChase] = enChase;
-	ua[enLeave] = enLeave;
-	ua[enDefense] = enDefense;
-	ua[4] = enTackle;
-	ua[5] = enActNone;
-	ua[6] = enSuperBeam;
-	ua[7] = enObstMove;
-	ua[8] = enCleanse;
-	ua[9] = enBuffAtc;
-	ua[10] = enDebuffAtc;
-	ua[11] = enBuffDef;
-	ua[12] = enDebuffDef;
-	ua[13] = enMajinken;
-	ua[14] = enClearStack;
-	ua[15] = enManaHeal;
-	ua[16] = enBlizzard;
-	ua[17] = enIgnite;
-	ua[18] = enPoison;
-	ua[19] = enThunder;
-	SetUseAction(ua,99);
-	//m_PB = FindGO<PythonBridge>("PB");
 
 	m_ID = 0;
+	int cnt = 0;
+	ActionID* ua = GameData::GetMonsterActions(m_ID, cnt);
+	SetUseAction(ua, cnt);
 }

@@ -11,26 +11,26 @@ ShikoChu::ShikoChu()
 	//sr->SetScale(CVector3::One() * 20);
 
 	sr->SetPosition(CVector3::Zero());
-	init
-	(
-		//160,
-		80,
-		30,
-		10,
-		0,
-		10,
-		30,
-		50,
-		50,
-		150,
-		sr,
-		0
-	);
-	ActionID* ua = new ActionID[6];
-	ua[enAtack] = enSpecialAttack;
-	ua[enChase] = enChase;
-	SetUseAction(ua, 2);
-	//tginit(10, 10, 10, 20, 70, sr, 0);
+
+	MonsterInitParam prm;
+	prm.HP = 80;
+	prm.MP = 30;
+	prm.DefencePow = 10;
+	prm.ExDefensePow = 0;
+	prm.AttackPow = 10;
+	prm.ExAttackPow = 30;
+	prm.Speed = 50;
+	prm.Radius = 50;
+	prm.Height = 150;
+	prm.ModelRender = sr;
+	prm.NumAnimation = 0;
+	init(prm);
 
 	m_ID = enShikoChu;
+	int cnt = 0;
+	ActionID* ua = GameData::GetMonsterActions(m_ID, cnt);
+	SetUseAction(ua, cnt);
+	//tginit(10, 10, 10, 20, 70, sr, 0);
+
+	
 }

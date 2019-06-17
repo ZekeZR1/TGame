@@ -28,29 +28,24 @@ Fairy::Fairy()
 	
 	smr->Init(L"Assets/modelData/hnd.cmo",m_anim,7);
 	//smr->SetScale({ 1.8f,1.8f,1.8f });
-	init
-	(
-		//160,
-		60,
-		30,
-		5,
-		15,
-		5,
-		10,
-		30,
-		20,
-		130,
-		smr,
-		7
-	);
-	ActionID* ua = new ActionID[6];
-	ua[enAtack] = enAtack;
-	ua[enChase] = enChase;
-	ua[enLeave] = enLeave;
-	ua[enDefense] = enDefense;
-	ua[4] = enFire;
-	ua[5] = enActNone;
-	SetUseAction(ua,6);
+
+	MonsterInitParam prm;
+	prm.HP = 60;
+	prm.MP = 30;
+	prm.DefencePow = 5;
+	prm.ExDefensePow = 15;
+	prm.AttackPow = 5;
+	prm.ExAttackPow = 10;
+	prm.Speed = 30;
+	prm.Radius = 20;
+	prm.Height = 130;
+	prm.ModelRender = smr;
+	prm.NumAnimation = 7;
+
+	init(prm);
 
 	m_ID = enFairy;
+	int cnt = 0;
+	ActionID* ua = GameData::GetMonsterActions(m_ID, cnt);
+	SetUseAction(ua, cnt);
 }

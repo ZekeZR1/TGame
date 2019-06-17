@@ -69,7 +69,7 @@ void DungeonSelect::CheckDungeonClearState() {
 			OutputDebugStringA("clearstate.dd‚ÌƒI[ƒvƒ“‚É¸”s‚µ‚Ü‚µ‚½");
 			ofstream fout;
 			fout.open(outfile, ios::out | ios::binary | ios::trunc);
-			int n = 0;
+			int n = -1;
 			fout.write((char*)&n, sizeof(int));
 			fout.close();
 			return;

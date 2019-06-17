@@ -17,18 +17,18 @@ ModeSelectBack::ModeSelectBack()
 	m_back->SetScale(CVector3::One() * 100);
 	m_back->SetPosition({ 0,0,-500 });*/
 
-	/*m_backS = NewGO<SpriteRender>(0, "sp");
+	m_backS = NewGO<SpriteRender>(0, "sp");
 	m_backS->Init(L"Assets/sprite/modesel_back.dds", 1280, 720);
-	m_backS->SetPosition({ 0,0,100 });
+	m_backS->SetPosition({ 0,0,500 });
 	
-	m_backS->ChangeCameraProjMatrix(Camera::enUpdateProjMatrixFunc_Perspective);*/
+	m_backS->ChangeCameraProjMatrix(Camera::enUpdateProjMatrixFunc_Perspective);
 	//m_backS->SetRotation(rot);
 	
 
-	m_effect = NewGO<CEffect>(0, "ef");
+	m_effect = NewGO<CEffect>(10, "ef");
 	m_effect->Play(L"Assets/effect/fireFlower.efk");
 	m_effect->SetScale(CVector3::One()*2);
-	m_effect->SetPosition({ 0,-360,0 });
+	m_effect->SetPosition({ 0,-500,0 });
 }
 
 void ModeSelectBack::OnDestroy()
@@ -99,7 +99,7 @@ void ModeSelectBack::Dungeon()
 	m_sprits.shrink_to_fit();
 	bool isgf = true;
 	m_uia = NewGO<UIAnimator>(0, "uia");
-	m_uia->loadUI(L"Assets/UI/modesel_dungeon.uip", [&](sUI * ui, bool isfook)->SpriteRender *
+	m_uia->loadUI(L"Assets/UI/modesel_dungeon.uip", [&](sUI * ui, bool& isfook)->SpriteRender *
 	{
 		SpriteRender* sp;
 		if (wcscmp(ui->name, L"modesel_eye") == 0)
@@ -110,8 +110,21 @@ void ModeSelectBack::Dungeon()
 		{
 			sp = NewGO<SpriteRender>(0, "sp");
 		}
-		//sp->ChangeCameraProjMatrix(Camera::enUpdateProjMatrixFunc_Perspective);
+		std::wstring path = L"Assets/sprite/";
+		path += ui->name;
+		path += L".dds";
+		sp->Init(path.c_str(), ui->dimensions.x, ui->dimensions.y);
+		sp->SetRotation(ui->rot);
+		sp->SetScale(ui->scale);
+		CVector3 pos = ui->pos;
+		pos.z *= -1;
+		pos.z += 300;
+		sp->SetPosition(pos);
+
+		sp->ChangeCameraProjMatrix(Camera::enUpdateProjMatrixFunc_Perspective);
 		m_sprits.push_back(sp);
+
+		isfook = true;
 		return sp;
 	});
 
@@ -126,6 +139,7 @@ void ModeSelectBack::PVP()
 	m_sprits.clear();
 	m_sprits.shrink_to_fit();
 	bool isgf = true;
+	float pz = 0;
 	m_uia = NewGO<UIAnimator>(0, "uia");
 	m_uia->loadUI(L"Assets/UI/modesel_pvp.uip", [&](sUI * ui, bool& isfook)->SpriteRender *
 	{
@@ -134,13 +148,15 @@ void ModeSelectBack::PVP()
 		{
 			sp = NewGO<SpriteRender>(2, "sp");
 		}
-		else if (wcscmp(ui->name, L"modesel_backF")==0)
+		else if (wcscmp(ui->name, L"modesel_blackF")==0)
 		{
 			sp = NewGO<SpriteRender>(1, "sp");
 		}
 		else
 		{
 			sp = NewGO<SpriteRender>(0, "sp");
+			ui->pos.z = pz;
+			pz += 2;
 		}
 		std::wstring path = L"Assets/sprite/";
 		path += ui->name;
@@ -150,6 +166,7 @@ void ModeSelectBack::PVP()
 		sp->SetScale(ui->scale);
 		CVector3 pos = ui->pos;
 		pos.z *= -1;
+		pos.z += 300;
 		sp->SetPosition(pos);
 
 		sp->ChangeCameraProjMatrix(Camera::enUpdateProjMatrixFunc_Perspective);
@@ -173,7 +190,8 @@ void ModeSelectBack::NetPVP()
 	m_sprits.shrink_to_fit();
 	bool isgf = true;
 	m_uia = NewGO<UIAnimator>(0, "uia");
-	m_uia->loadUI(L"Assets/UI/modesel_netpvp.uip", [&](sUI * ui, bool isfook)->SpriteRender *
+	float pz = 0;
+	m_uia->loadUI(L"Assets/UI/modesel_netpvp.uip", [&](sUI * ui, bool& isfook)->SpriteRender *
 	{
 		SpriteRender* sp;
 		if (wcscmp(ui->name, L"modesel_VS") == 0)
@@ -191,9 +209,24 @@ void ModeSelectBack::NetPVP()
 		else
 		{
 			sp = NewGO<SpriteRender>(0, "sp");
+			ui->pos.z = pz;
+			pz += 2;
 		}
-		//sp->ChangeCameraProjMatrix(Camera::enUpdateProjMatrixFunc_Perspective);
+		std::wstring path = L"Assets/sprite/";
+		path += ui->name;
+		path += L".dds";
+		sp->Init(path.c_str(), ui->dimensions.x, ui->dimensions.y);
+		sp->SetRotation(ui->rot);
+		sp->SetScale(ui->scale);
+		CVector3 pos = ui->pos;
+		pos.z *= -1;
+		pos.z += 300;
+		sp->SetPosition(pos);
+
+		sp->ChangeCameraProjMatrix(Camera::enUpdateProjMatrixFunc_Perspective);
 		m_sprits.push_back(sp);
+
+		isfook = true;
 		return sp;
 	});
 	m_uia->playAnim(L"Assets/UI/modesel_netpvp1.uim");
@@ -209,8 +242,9 @@ void ModeSelectBack::AIedit()
 	m_sprits.clear();
 	m_sprits.shrink_to_fit();
 	bool isgf = true;
+	float gz = 0;
 	m_uia = NewGO<UIAnimator>(0, "uia");
-	m_uia->loadUI(L"Assets/UI/modesel_aiedit.uip", [&](sUI * ui, bool isfook)->SpriteRender *
+	m_uia->loadUI(L"Assets/UI/modesel_aiedit.uip", [&](sUI * ui, bool& isfook)->SpriteRender *
 	{
 		SpriteRender* sp;
 		if (wcscmp(ui->name, L"modesel_brain") == 0)
@@ -230,14 +264,29 @@ void ModeSelectBack::AIedit()
 			{
 				sp = NewGO<SpriteRender>(0, "sp");
 				sp->SetMulCol({ 0.2f,0.15f ,0.1f ,1 });
+				ui->pos.z = gz;
+				gz += 2;
 			}
 		}
 		else
 		{
 			sp = NewGO<SpriteRender>(0, "sp");
 		}
-		//sp->ChangeCameraProjMatrix(Camera::enUpdateProjMatrixFunc_Perspective);
+		std::wstring path = L"Assets/sprite/";
+		path += ui->name;
+		path += L".dds";
+		sp->Init(path.c_str(), ui->dimensions.x, ui->dimensions.y);
+		sp->SetRotation(ui->rot);
+		sp->SetScale(ui->scale);
+		CVector3 pos = ui->pos;
+		pos.z *= -1;
+		pos.z += 300;
+		sp->SetPosition(pos);
+
+		sp->ChangeCameraProjMatrix(Camera::enUpdateProjMatrixFunc_Perspective);
 		m_sprits.push_back(sp);
+
+		isfook = true;
 		return sp;
 	});
 	m_uia->playAnim(L"Assets/UI/modesel_aiedit1.uim");

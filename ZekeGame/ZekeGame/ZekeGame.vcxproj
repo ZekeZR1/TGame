@@ -252,6 +252,8 @@
     <ClCompile Include="Game\AIEdit\AIEditNodeTarget.cpp" />
     <ClCompile Include="Game\AIEdit\AIEditNodeTechnique.cpp" />
     <ClCompile Include="Game\AIEdit\AIEdtiNodeAbnormalState.cpp" />
+    <ClCompile Include="Game\AIEdit\ShowMonsters.cpp" />
+    <ClCompile Include="Game\AIEdit\ShowMonsterSkills.cpp" />
     <ClCompile Include="Game\AIEdit\VisualAIOpen.cpp" />
     <ClCompile Include="Game\Dungeon\DropEgg.cpp" />
     <ClCompile Include="Game\Dungeon\DungeonAISelect.cpp" />
@@ -314,6 +316,7 @@
     <ClCompile Include="Game\Monster\Monsters\Goblin.cpp" />
     <ClCompile Include="Game\Monster\Monsters\kikyo.cpp" />
     <ClCompile Include="Game\Monster\Monsters\RedHead.cpp" />
+    <ClCompile Include="Game\Monster\Monsters\Ringo.cpp" />
     <ClCompile Include="Game\Monster\Monsters\ShikoChu.cpp" />
     <ClCompile Include="Game\Monster\Monsters\TestMons.cpp" />
     <ClCompile Include="Game\Monster\Monsters\Uma.cpp" />
@@ -330,6 +333,7 @@
     <ClCompile Include="Game\Online\TestView.cpp" />
     <ClCompile Include="Game\PythonBridge\PythonBridge.cpp" />
     <ClCompile Include="Game\ReadyGO\ReadyGO.cpp" />
+    <ClCompile Include="Game\Result\Draw.cpp" />
     <ClCompile Include="Game\Result\DungeonResult.cpp" />
     <ClCompile Include="Game\Result\Lose\Lose.cpp" />
     <ClCompile Include="Game\Result\Lose\Lose_localPVP.cpp" />
@@ -480,6 +484,8 @@
     <ClInclude Include="Game\AIEdit\AIEditNodeTarget.h" />
     <ClInclude Include="Game\AIEdit\AIEditNodeTechnique.h" />
     <ClInclude Include="Game\AIEdit\AIEdtiNodeAbnormalState.h" />
+    <ClInclude Include="Game\AIEdit\ShowMonsters.h" />
+    <ClInclude Include="Game\AIEdit\ShowMonsterSkills.h" />
     <ClInclude Include="Game\AIEdit\VisualAIOpen.h" />
     <ClInclude Include="Game\Dungeon\DropEgg.h" />
     <ClInclude Include="Game\Dungeon\DungeonAISelect.h" />
@@ -541,6 +547,7 @@
     <ClInclude Include="Game\Monster\Monsters\Goblin.h" />
     <ClInclude Include="Game\Monster\Monsters\kikyo.h" />
     <ClInclude Include="Game\Monster\Monsters\RedHead.h" />
+    <ClInclude Include="Game\Monster\Monsters\Ringo.h" />
     <ClInclude Include="Game\Monster\Monsters\ShikoChu.h" />
     <ClInclude Include="Game\Monster\Monsters\TestMons.h" />
     <ClInclude Include="Game\Monster\Monsters\Uma.h" />
@@ -657,6 +664,7 @@
     <ClInclude Include="Game\PythonBridge\include\weakrefobject.h" />
     <ClInclude Include="Game\PythonBridge\PythonBridge.h" />
     <ClInclude Include="Game\ReadyGO\ReadyGO.h" />
+    <ClInclude Include="Game\Result\Draw.h" />
     <ClInclude Include="Game\Result\DungeonResult.h" />
     <ClInclude Include="Game\Result\Lose\Lose.h" />
     <ClInclude Include="Game\Result\Lose\Lose_localPVP.h" />
@@ -1174,6 +1182,17 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_bug.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Sprite\result\res_draw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\modelData\RingoChan\ringo.FBX">
+      <FileType>Document</FileType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_ringo.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

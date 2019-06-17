@@ -61,9 +61,14 @@ void Win::init(int team, Game::Mode mode)
 	m_cam->SetPos(m_firstpos);
 	m_cam->SetTar(m_firsttar);
 
-	m_lastpos = { -35,50,50 };
-	m_lasttar = { 0,55,0 };
-	switch (g_mons[0]->GetID())
+	//m_lastpos = { -35,50,50 };
+	//m_lasttar = { 0,55,0 };
+
+	float hie = g_mons[0]->Getheight();
+	m_lastpos = { hie/-13+hie/-5, hie/2+hie/7.3f, hie/10 + hie /4 };
+	m_lasttar = { 15, hie/2+hie/7.f, 0 };
+
+	/*switch (g_mons[0]->GetID())
 	{
 	case enTest:
 		break;
@@ -75,7 +80,7 @@ void Win::init(int team, Game::Mode mode)
 		m_lastpos = { -35,90,50 };
 		m_lasttar = { 0,90,0 };
 		break;
-	}
+	}*/
 
 	m_addpos = (m_lastpos - m_firstpos) / 10.0f;
 	m_addtar = (m_lasttar - m_firsttar) / 10.0f;
