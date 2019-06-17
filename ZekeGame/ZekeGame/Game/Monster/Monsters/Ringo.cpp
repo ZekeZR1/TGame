@@ -5,22 +5,22 @@
 
 Ringo::Ringo()
 {
-	m_anim[Monster::en_idle].Load(L"Assets/modelData/ringo/idle.tka");
+	m_anim[Monster::en_idle].Load(L"Assets/modelData/RingoChan/idle.tka");
 	m_anim[Monster::en_idle].SetLoopFlag(true);
-	m_anim[Monster::en_walk].Load(L"Assets/modelData/ringo/wark.tka");
+	m_anim[Monster::en_walk].Load(L"Assets/modelData/RingoChan/wark.tka");
 	m_anim[Monster::en_walk].SetLoopFlag(true);
-	m_anim[Monster::en_atack].Load(L"Assets/modelData/ringo/attack1.tka");
+	m_anim[Monster::en_atack].Load(L"Assets/modelData/RingoChan/attak1.tka");
 	m_anim[Monster::en_atack].SetLoopFlag(false);
-	m_anim[Monster::en_defenseF].Load(L"Assets/modelData/ringo/ringo_dife_F.tka");
+	m_anim[Monster::en_defenseF].Load(L"Assets/modelData/RingoChan/ringo_dife_f.tka");
 	m_anim[Monster::en_defenseF].SetLoopFlag(false);
-	m_anim[Monster::en_defenseM].Load(L"Assets/modelData/ringo/ringo_dife_M.tka");
+	m_anim[Monster::en_defenseM].Load(L"Assets/modelData/RingoChan/ringo_dife_m.tka");
 	m_anim[Monster::en_defenseM].SetLoopFlag(true);
-	m_anim[Monster::en_defenseE].Load(L"Assets/modelData/ringo/ringo_dife_M.tka");
+	m_anim[Monster::en_defenseE].Load(L"Assets/modelData/RingoChan/ringo_dife_e.tka");
 	m_anim[Monster::en_defenseE].SetLoopFlag(false);
 
 	SkinModelRender* sr = NewGO<SkinModelRender>(0, "smr");
 	sr->Init(L"Assets/modelData/ringo.cmo", m_anim, 3);
-	sr->SetScale(CVector3::One() * 20);
+	sr->SetScale(CVector3::One()/10);
 	//sr->SetScale({ 1.8f,1.8f,1.8f });
 	//sr->Init(L"Assets/modelData/uma.bone.cmo");
 	sr->SetPosition(CVector3::Zero());
