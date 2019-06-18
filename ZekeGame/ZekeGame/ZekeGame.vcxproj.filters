@@ -2215,4 +2215,9 @@
       <Filter>Assets\BGM</Filter>
     </Media>
   </ItemGroup>
+  <ItemGroup>
+    <MeshContentTask Include="Assets\modelData\chris\cri.FBX">
+      <Filter>Assets\model</Filter>
+    </MeshContentTask>
+  </ItemGroup>
 </Project>
