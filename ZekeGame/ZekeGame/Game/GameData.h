@@ -88,9 +88,8 @@ public:
 	static Monster* LoadMonster(int monID);
 	static const wchar_t* GetMonsterIconPath(int monID);
 	static const wchar_t* GetMonsterName(MonsterID monID);
-
 	static const wchar_t* GetActionName(ActionID actID);
-
+	static const wchar_t* GetActionInfo(ActionID actID);
 	/*
 	モンスターが使用するActionIDを返す
 	注意:必ずデリートしてね。

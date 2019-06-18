@@ -1,5 +1,6 @@
 #pragma once
 class GameCursor;
+enum MonsterID;
 
 class ShowMonsters : public GameObject
 {
@@ -20,6 +21,7 @@ private:
 	std::vector<SpriteRender*> m_monsterSps;
 	std::vector<SpriteRender*> m_frames;
 	std::vector<FontRender*> m_MonsterNames;
+	std::map<SpriteRender*, MonsterID> m_spId;
 	SpriteRender* m_backSp = nullptr;
 	SpriteRender* m_quitSp = nullptr;
 	SpriteRender* m_leftSp = nullptr;
