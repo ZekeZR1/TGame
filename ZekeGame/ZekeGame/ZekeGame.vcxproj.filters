@@ -626,6 +626,12 @@
       <Filter>Game\AIEdite\monsterSkillList</Filter>
     </ClCompile>
     <ClCompile Include="Game\Monster\Monsters\Ringo.cpp" />
+    <ClCompile Include="Game\Monster\Monsters\Chris.cpp">
+      <Filter>Game\Monster\Monsters</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\Monsters\Shell.cpp">
+      <Filter>Game\Monster\Monsters</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\PythonBridge\include\unicodeobject.h" />
@@ -1560,6 +1566,12 @@
       <Filter>Game\AIEdite\monsterSkillList</Filter>
     </ClInclude>
     <ClInclude Include="Game\Monster\Monsters\Ringo.h" />
+    <ClInclude Include="Game\Monster\Monsters\Chris.h">
+      <Filter>Game\Monster\Monsters</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\Monsters\Shell.h">
+      <Filter>Game\Monster\Monsters</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="python36.lib" />
@@ -2219,5 +2231,13 @@
     <MeshContentTask Include="Assets\modelData\chris\cri.FBX">
       <Filter>Assets\model</Filter>
     </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\shell\hotate.FBX">
+      <Filter>Assets\model</Filter>
+    </MeshContentTask>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_cri.png">
+      <Filter>Assets\Sprite\MonSelect</Filter>
+    </ImageContentTask>
   </ItemGroup>
 </Project>

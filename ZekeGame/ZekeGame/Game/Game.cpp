@@ -147,7 +147,7 @@ void Game::Update() {
 			}
 			if (red == 0 && blue == 0) //両方モンスターが全滅した場合（ドローの処理）
 			{
-				auto dr = NewGO<BattleDraw>(0, "bd");
+ 				auto dr = NewGO<BattleDraw>(0, "bd");
 				switch (m_playMode)
 				{
 				case enLocalPVP:
@@ -260,6 +260,9 @@ void Game::Update() {
 		return;
 
 	bool isEne = true;
+	bool isALLDead = false;
+	if (g_mons[0] == nullptr)
+		isALLDead = true;
 	for (int i = 0;i < 6;i++)
 	{
 		if (g_mons[i] == nullptr || (i == 0 && g_mons[i]->Getteam() == 1))
@@ -286,8 +289,8 @@ void Game::Update() {
 		m_fade->FadeOut();
 		MusicFade* mf = NewGO<MusicFade>(0, "mf");
 		mf->init(m_BGM,0.15f);
-
-		m_winTeam = g_mons[0]->Getteam();
+		if(!isALLDead)
+			m_winTeam = g_mons[0]->Getteam();
 		DeleteGO(m_menu);
 		m_menu = nullptr;
 

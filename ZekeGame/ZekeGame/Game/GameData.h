@@ -15,7 +15,9 @@ enum MonsterID
 	enRedHead,
 	enKikyo,
 	enShikoChu,
-	enRingo,
+	//enRingo,
+	enChris,
+	enShell,
 	enNumMonster,
 };
 
