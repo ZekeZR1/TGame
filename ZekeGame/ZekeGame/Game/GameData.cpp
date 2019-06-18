@@ -169,21 +169,21 @@ const wchar_t* GameData::GetActionInfo(ActionID actID) {
 	case enLeave:
 		return L"逃げるんだよ";
 	case enDefense:
-		return L"防御";
+		return L" 防御";
 	case enFire:
 		return L"ファイアー";
 	case enTackle:
 		return L"敵をぶっとばす";
 	case enGuardian:
-		return L"敵の攻撃を集中させる";
+		return L"敵の攻撃を\n集中させる";
 	case enRecovery:
 		return L"回復させる";
 	case enSuperBeam:
-		return L"ビームに当たったモンスターにダメージを与える";
+		return L"当たったモンスターに\nダメージを与える";
 	case enObstMove:
 		return L"移動妨害をする";
 	case enCleanse:
-		return L"状態異常をクリアする";
+		return L"状態異常をクリア";
 	case enBuffAtc:
 		return L"攻撃力を上げる";
 	case enDebuffAtc:
@@ -193,21 +193,21 @@ const wchar_t* GameData::GetActionInfo(ActionID actID) {
 	case enDebuffDef:
 		return L"防御力を下げる";
 	case enClearStack:
-		return L"敵の行動を全て解除する";
+		return L"敵の行動を\n全て解除する";
 	case enMajinken:
-		return L"チャージしてパンチを撃つ";
+		return L"チャージ&パンチ";
 	case enManaHeal:
-		return L"MPを回復させる";
+		return L"MPを回復";
 	case enBlizzard:
-		return L"連続ダメージと状態異常を付与する";
+		return L"連続ダメージ\n状態異常を付与";
 	case enIgnite:
-		return L"対象をやけど状態にする";
+		return L"対象にやけど状態";
 	case enPoison:
-		return L"対象を毒状態にする";
+		return L"対象に毒状態";
 	case enThunder:
-		return L"連続ダメージとしびれ状態を付与";
+		return L"連続ダメージ\nしびれ状態付与";
 	case enSpecialAttack:
-		return L"自分の体力を削って敵を攻撃";
+		return L"自分の体力を\n削って敵を攻撃";
 	default:
 		return L"ないです";
 	}

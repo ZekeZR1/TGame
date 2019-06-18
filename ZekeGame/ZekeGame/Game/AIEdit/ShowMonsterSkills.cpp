@@ -31,7 +31,7 @@ bool ShowMonsterSkills::Start() {
 		m_defSkillNamesFR.push_back(fr);
 		//‹ZÚ×î•ñ
 		sp = NewGO<SpriteRender>(19);
-		sp->Init(L"Assets/sprite/buttyon.dds", 350, 110);
+		sp->Init(L"Assets/sprite/AIbrawser.dds", 350, 110);
 		sp->SetPosition({ pos.x + 300,pos.y,pos.z });
 		m_sps.push_back(sp);
 		if (m_monsterSkillNameFR.size() > i)
@@ -82,7 +82,8 @@ void ShowMonsterSkills::LoadSkillInfo() {
 		auto info = GameData::GetActionInfo(actions[i]);
 		fr->Init(info);
 		fr->DrawShadow();
-		fr->SetScale(0.8);
+		fr->SetScale(0.6);
+		//fr->SetColor({ 0.9,0.9,0.9,1.0 });
 		m_monsterSkillInfoFR.push_back(fr);
 	}
 }
