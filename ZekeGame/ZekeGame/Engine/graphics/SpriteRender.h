@@ -22,7 +22,7 @@ public:
 	}
 
 	
-	void Init(const wchar_t* texFilePath, float w, float h,bool collisionFlag = false, bool PosChangeByMouse = false);
+	void Init(const wchar_t* texFilePath, float w, float h,bool collisionFlag = true, bool PosChangeByMouse = false);
 
 	void SetPosition(const CVector3& pos)
 	{

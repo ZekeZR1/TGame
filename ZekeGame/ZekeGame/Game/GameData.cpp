@@ -121,6 +121,45 @@ const wchar_t * GameData::GetMonsterIconPath(int monID)
 	return nullptr;
 }
 
+const wchar_t* GameData::GetMonsterName(MonsterID id) {
+	switch (id)
+	{
+	case enTest:
+		return L"テスト";
+		break;
+	case enUmataur:
+		return L"馬タウロス";
+		break;
+	case enFairy:
+		return L"妖精";
+		break;
+	case enArmor:
+		return L"鎧";
+		break;
+	case enGoblin:
+		return L"ゴブリン";
+		break;
+	case enBook:
+		return L"本";
+		break;
+	case enRedHead:
+		return L"レッドヘッド";
+		break;
+	case enKikyo:
+		return L"キキョウ";
+		break;
+	case enShikoChu:
+		return L"死光虫";
+		break;
+	case enRingo:
+		return L"りんごちゃん";
+		break;
+	default:
+		assert(false);
+		break;
+	}
+}
+
 ActionID* GameData::GetMonsterActions(int monsterID, int& count)
 {
 	ActionID* ua = nullptr;
