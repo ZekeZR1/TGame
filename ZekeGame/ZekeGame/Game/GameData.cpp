@@ -131,10 +131,10 @@ const wchar_t* GameData::GetMonsterName(MonsterID id) {
 		return L"馬タウロス";
 		break;
 	case enFairy:
-		return L"妖精";
+		return L" 妖精";
 		break;
 	case enArmor:
-		return L"鎧";
+		return L" 鎧";
 		break;
 	case enGoblin:
 		return L"ゴブリン";
@@ -160,6 +160,58 @@ const wchar_t* GameData::GetMonsterName(MonsterID id) {
 	}
 }
 
+const wchar_t* GameData::GetActionInfo(ActionID actID) {
+	switch (actID) {
+	case enChase:
+		return L"追いかける";
+	case enAtack:
+		return L"通常攻撃";
+	case enLeave:
+		return L"逃げるんだよ";
+	case enDefense:
+		return L"防御";
+	case enFire:
+		return L"ファイアー";
+	case enTackle:
+		return L"敵をぶっとばす";
+	case enGuardian:
+		return L"敵の攻撃を集中させる";
+	case enRecovery:
+		return L"回復させる";
+	case enSuperBeam:
+		return L"ビームに当たったモンスターにダメージを与える";
+	case enObstMove:
+		return L"移動妨害をする";
+	case enCleanse:
+		return L"状態異常をクリアする";
+	case enBuffAtc:
+		return L"攻撃力を上げる";
+	case enDebuffAtc:
+		return L"攻撃力を下げる";
+	case enBuffDef:
+		return L"防御力を上げる";
+	case enDebuffDef:
+		return L"防御力を下げる";
+	case enClearStack:
+		return L"敵の行動を全て解除する";
+	case enMajinken:
+		return L"チャージしてパンチを撃つ";
+	case enManaHeal:
+		return L"MPを回復させる";
+	case enBlizzard:
+		return L"連続ダメージと状態異常を付与する";
+	case enIgnite:
+		return L"対象をやけど状態にする";
+	case enPoison:
+		return L"対象を毒状態にする";
+	case enThunder:
+		return L"連続ダメージとしびれ状態を付与";
+	case enSpecialAttack:
+		return L"自分の体力を削って敵を攻撃";
+	default:
+		return L"ないです";
+	}
+}
 const wchar_t* GameData::GetActionName(ActionID actID)
 {
 	const wchar_t* ws;
@@ -196,6 +248,51 @@ const wchar_t* GameData::GetActionName(ActionID actID)
 	case enRecovery:
 		//ws = L"回復";
 		ws = L"HEAL";
+	case enSuperBeam:
+		ws = L"SUPER BEAM";
+		break;
+	case enObstMove:
+		ws = L"Obst Move";
+		break;
+	case enCleanse:
+		ws = L"Cleanse";
+		break;
+	case enBuffAtc:
+		ws = L"Attack Buff";
+		break;
+	case enDebuffAtc:
+		ws = L"Attack Debuff";
+		break;
+	case enBuffDef:
+		ws = L"Defense Buff";
+		break;
+	case enDebuffDef:
+		ws = L"Defense Debuff";
+		break;
+	case enClearStack:
+		ws = L"Clear Stack";
+		break;
+	case enMajinken:
+		ws = L"Majinken";
+		break;
+	case enManaHeal:
+		ws = L"MP Heal";
+		break;
+	case enBlizzard:
+		ws = L"Blizzard";
+		break;
+	case enIgnite:
+		ws = L"Ignite";
+		break;
+	case enPoison:
+		ws = L"Poison";
+		break;
+	case enThunder:
+		ws = L"Thunder";
+		break;
+	case enSpecialAttack:
+		ws = L"Tokkou";
+		break;
 	default:
 		ws = L"";
 	}

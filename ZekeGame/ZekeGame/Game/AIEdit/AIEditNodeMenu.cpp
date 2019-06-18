@@ -239,6 +239,8 @@ void AIEditNodeMenu::Update()
 					m_monstersInfo = NewGO<ShowMonsters>(0, "MonstersInfo");
 					DeleteGO(this);
 					PlayButtonSE();
+					//menuconf = true;
+					m_aieditnodeselectbuttons->Setmenuselect(true);
 					isActive = false;
 				}
 			}
