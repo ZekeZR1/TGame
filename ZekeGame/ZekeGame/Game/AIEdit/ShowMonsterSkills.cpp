@@ -16,10 +16,17 @@ bool ShowMonsterSkills::Start() {
 	static const int Ydist = 110;
 	CVector3 pos = { -200, 250, 0 };
 	for (int i = 0; i < 6 ; i++) {
+		//ãZ
 		auto sp = NewGO<SpriteRender>(4);
 		sp->Init(L"Assets/sprite/buttyon.dds", 150, 50);
 		sp->SetPosition(pos);
 		m_sps.push_back(sp);
+		auto fr = NewGO<FontRender>(5);
+		fr->SetTextType(CFont::en_Japanese);
+		fr->Init(m_defSkillNamesStr[i].c_str(), { pos.x - 50,pos.y  + 25});
+		fr->DrawShadow();
+		m_defSkillNamesFR.push_back(fr);
+		//ãZè⁄ç◊èÓïÒ
 		sp = NewGO<SpriteRender>(4);
 		sp->Init(L"Assets/sprite/buttyon.dds", 350, 110);
 		sp->SetPosition({ pos.x + 300,pos.y,pos.z });
@@ -32,6 +39,8 @@ bool ShowMonsterSkills::Start() {
 void ShowMonsterSkills::OnDestroy() {
 	for (auto sp : m_sps)
 		DeleteGO(sp);
+	for (auto fr : m_defSkillNamesFR)
+		DeleteGO(fr);
 	DeleteGO(m_backSp);
 	DeleteGO(m_quitSp);
 }

@@ -83,6 +83,7 @@ void ShowMonsters::InitButtons() {
 		frame->Init(L"Assets/sprite/buttyon.dds", 300, 190, true);
 		frame->SetPosition({ pos.x + 90,pos.y,pos.z });
 		m_frames.push_back(frame);
+		m_spId[frame] = static_cast<MonsterID>(i + 1);
 	}
 
 	m_quitSp = NewGO<SpriteRender>(4);
@@ -98,7 +99,8 @@ void ShowMonsters::ButtonUpdate() {
 	for (auto i : m_frames) {
 		i->SetCollisionTarget(m_cur->GetCursor());
 		if (i->isCollidingTarget() and Mouse::isTrigger(enLeftClick)) {
-			NewGO<ShowMonsterSkills > (0);
+			auto sms = NewGO<ShowMonsterSkills > (0);
+			sms->SetMonster(m_spId[i]);
 			m_isActive = false;
 		}
 	}
