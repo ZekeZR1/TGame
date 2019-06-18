@@ -7,6 +7,7 @@ class ReturnButton;
 class MonAIPresetOpenSuper;
 class GObutton;
 class MonsterSelectBack;
+class GameCursor;
 class DungeonAISelect : public SuperMonsterSelect
 {
 public:

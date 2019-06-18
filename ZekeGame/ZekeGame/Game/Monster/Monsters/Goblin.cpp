@@ -24,30 +24,28 @@ Goblin::Goblin()
 	//sr->SetScale({ 1.8f,1.8f,1.8f });
 	//sr->Init(L"Assets/modelData/uma.bone.cmo");
 	sr->SetPosition(CVector3::Zero());
-	init
-	(
-		//160,
-		80,
-		30,
-		10,
-		0,
-		10,
-		0,
-		10,
-		50,
-		150,
-		sr,
-		3
-	);
-	ActionID* ua = new ActionID[6];
-	ua[enAtack] = enAtack;
-	ua[enChase] = enChase;
-	ua[enLeave] = enLeave;
-	ua[enDefense] = enDefense;
-	ua[4] = enTackle;
-	ua[5] = enGuardian;
-	SetUseAction(ua, 6);
-	//tginit(10, 10, 10, 20, 70, sr, 0);
+		
+	MonsterInitParam prm;
+	prm.HP = 80;
+	prm.MP = 30;
+	prm.DefencePow = 10;
+	prm.ExDefensePow = 0;
+	prm.AttackPow = 10;
+	prm.ExAttackPow = 0;
+	prm.Speed = 10;
+	prm.Radius = 50;
+	prm.Height = 150;
+	prm.ModelRender = sr;
+	prm.NumAnimation = 3;
+
+	init(prm);
 
 	m_ID = enGoblin;
+	int cnt = 0;
+	
+	ActionID* ua = GameData::GetMonsterActions(m_ID, cnt);
+	SetUseAction(ua, cnt);
+	//tginit(10, 10, 10, 20, 70, sr, 0);
+
+	
 }

@@ -618,6 +618,14 @@
     <ClCompile Include="Game\Monster\Effect\EFire.cpp">
       <Filter>act</Filter>
     </ClCompile>
+    <ClCompile Include="Game\AIEdit\ShowMonsters.cpp">
+      <Filter>Game\AIEdite\monsterSkillList</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Result\Draw.cpp" />
+    <ClCompile Include="Game\AIEdit\ShowMonsterSkills.cpp">
+      <Filter>Game\AIEdite\monsterSkillList</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\Monsters\Ringo.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\PythonBridge\include\unicodeobject.h" />
@@ -1544,6 +1552,14 @@
     <ClInclude Include="Game\Monster\Effect\EFire.h">
       <Filter>act</Filter>
     </ClInclude>
+    <ClInclude Include="Game\AIEdit\ShowMonsters.h">
+      <Filter>Game\AIEdite\monsterSkillList</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Result\Draw.h" />
+    <ClInclude Include="Game\AIEdit\ShowMonsterSkills.h">
+      <Filter>Game\AIEdite\monsterSkillList</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\Monsters\Ringo.h" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="python36.lib" />
@@ -2036,6 +2052,11 @@
     <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_bug.png">
       <Filter>Assets\Sprite\MonSelect</Filter>
     </None>
+    <None Include="Assets\Sprite\result\res_draw.png" />
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_ringo.png" />
+    <None Include="Assets\modelData\RingoChan\ringo.FBX">
+      <Filter>Assets\model</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="act">
@@ -2176,6 +2197,9 @@
     <Filter Include="Game\Monster\Monsters">
       <UniqueIdentifier>{cb9e658e-8c97-4132-896e-143fa8d9eb3b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\AIEdite\monsterSkillList">
+      <UniqueIdentifier>{3939e58d-289b-46ae-b601-7d8820287a91}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Media Include="Assets\sound\punch-middle2.wav">
@@ -2190,5 +2214,10 @@
     <Media Include="Assets\sound\BGM\PerituneMaterial_Strategy5_loop.wav">
       <Filter>Assets\BGM</Filter>
     </Media>
+  </ItemGroup>
+  <ItemGroup>
+    <MeshContentTask Include="Assets\modelData\chris\cri.FBX">
+      <Filter>Assets\model</Filter>
+    </MeshContentTask>
   </ItemGroup>
 </Project>

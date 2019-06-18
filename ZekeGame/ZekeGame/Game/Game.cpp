@@ -19,6 +19,8 @@
 #include "Fade/Fade.h"
 #include "Fade/MusicFade.h"
 
+#include "Result/Draw.h"
+
 void Game::GamePVPmodeInit(std::vector<std::string> files, int monsterAI[6],MonsterID MonsterID[6])
 {
 	//StageSetup::PVPSetup(files, monsterAI,MonsterID);
@@ -132,31 +134,66 @@ void Game::Update() {
 	{
 		if (m_fade->isFadeStop() && !m_isGameSet)
 		{
-			switch (m_playMode)
+			int red = 0;
+			int blue = 0;
+			for (auto mon : g_mons)
 			{
-			case enLocalPVP:
-			{
-				auto win = NewGO<Win>(0, "win");
-				win->init(m_winTeam, enLocalPVP);
-				break;
+				if (mon == nullptr)
+					break;
+				if (mon->Getteam() == 0)
+					red++;
+				else
+					blue++;
 			}
-			case enRandomPVP:
+			if (red == 0 && blue == 0) //両方モンスターが全滅した場合（ドローの処理）
 			{
-				auto win = NewGO<Win>(0, "win");
-				win->init(m_winTeam, enRandomPVP);
-				RatingSystem().SetWinner(m_winTeam);
-				RatingSystem().PopupRate(m_eneRate);
-				break;
+				auto dr = NewGO<BattleDraw>(0, "bd");
+				switch (m_playMode)
+				{
+				case enLocalPVP:
+				{
+					dr->SetPVPMode(enLocalPVP);
+				}
+				case enRandomPVP:
+				{
+					dr->SetPVPMode(enRandomPVP);
+				}
+				case enDungeon:
+				{
+					dr->SetPVPMode(enLocalPVP);
+					dr->SetDunNum(m_dunNum);
+				}
+				}
 			}
-			case enDungeon:
+			else
 			{
-				auto dr = NewGO<DungeonResult>(0, "dr");
-				dr->init(m_winTeam, m_dunNum);
-				break;
-			}
+				switch (m_playMode)
+				{
+				case enLocalPVP:
+				{
+					auto win = NewGO<Win>(0, "win");
+					win->init(m_winTeam, enLocalPVP);
+					break;
+				}
+				case enRandomPVP:
+				{
+					auto win = NewGO<Win>(0, "win");
+					win->init(m_winTeam, enRandomPVP);
+					RatingSystem().SetWinner(m_winTeam);
+					RatingSystem().PopupRate(m_eneRate);
+					break;
+				}
+				case enDungeon:
+				{
+					auto dr = NewGO<DungeonResult>(0, "dr");
+					dr->init(m_winTeam, m_dunNum);
+					break;
+				}
+				}
+				m_fade->SetSpeed(5);
 			}
 			m_isGameSet = true;
-			m_fade->SetSpeed(5);
+			
 		}
 		return;
 	}

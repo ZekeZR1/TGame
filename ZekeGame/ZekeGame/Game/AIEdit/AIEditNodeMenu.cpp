@@ -22,6 +22,7 @@
 #include "AIEditNodeSelectButtons.h"
 #include "AIEditNodeBackGround.h"
 #include "AIEditNodeDeleteKey.h"
+#include "ShowMonsters.h"
 
 AIEditNodeMenu::~AIEditNodeMenu()
 {
@@ -201,6 +202,8 @@ void AIEditNodeMenu::Menuwin()
 
 void AIEditNodeMenu::Update()
 {
+	if (!m_isActive)	return;
+
 	bool isLeftClick = Mouse::isTrigger(enLeftClick);
 	CVector3 cursorpos = m_gamecursor->GetCursor();
 
@@ -232,7 +235,10 @@ void AIEditNodeMenu::Update()
 		if (sp[button - 2]->isCollidingTarget()) {
 			sp[button - 2]->SetMulCol({ 1.3f,1.3f, 1.3f, 1 });
 			if (Mouse::isTrigger(enLeftClick)) {	//ç∂ÉNÉäÉbÉN
+				m_monstersInfo = NewGO<ShowMonsters>(0,"MonstersInfo");
+				DeleteGO(this);
 				PlayButtonSE();
+				isActive = false;
 			}
 		}
 		else

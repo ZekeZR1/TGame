@@ -34,6 +34,8 @@ void SpriteRender::Init(const wchar_t* FilePath, float w, float h, bool Collisio
 void SpriteRender::Update() {
 	if (m_isNeedExecuteCollision) {
 		m_collider.Execute(m_target);
+		// TODO : Zeke : ターゲットセットしなくていいようにしたのコードに変更する
+		//m_collider.Execute(Mouse::GetCursorPos());
 	}
 	MouseActionUpdate();
 	m_sprite.Update(m_pos, m_rotation, m_scale, m_pivot);

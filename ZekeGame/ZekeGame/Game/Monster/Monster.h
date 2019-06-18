@@ -16,7 +16,27 @@ class Monster:public GameObject
 public:
 	~Monster();
 
-	void init(float HP, float MP,float Defence, float ExDefense, float Attack,float ExAttack, float speed, float radius, float height, SkinModelRender* smr, int animnum);
+	struct MonsterInitParam {
+		float HP;
+		float MP;
+		float DefencePow;
+		float ExDefensePow;
+		float AttackPow;
+		float ExAttackPow;
+		float Speed;
+		float Radius;
+		float Height;
+		SkinModelRender* ModelRender;
+		int NumAnimation;
+	};
+
+	void init(float HP, float MP,float Defence, float ExDefense, 
+		float Attack,float ExAttack, float speed, 
+					float radius, float height, SkinModelRender* smr, 
+		int animnum);
+
+	void init(MonsterInitParam param);
+
 	void SuddenDeath();
 
 	bool Start() override final;
