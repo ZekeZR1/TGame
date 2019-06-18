@@ -71,7 +71,7 @@ void ShowMonsterSkills::LoadSkillInfo() {
 	auto actions = GameData::GetMonsterActions(m_monsterId, count);
 	for (int i = 0; i < count; i++) {
 		auto name =GameData::GetActionName(actions[i]);
-		auto fr = NewGO<FontRender>(5);
+		auto fr = NewGO<FontRender>(20);
 		fr->Init(name);
 		fr->DrawShadow();
 		fr->SetScale(0.4);
