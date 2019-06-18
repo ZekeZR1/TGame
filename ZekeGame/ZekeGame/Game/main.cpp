@@ -36,10 +36,10 @@ int WINAPI wWinMain(
 	UIA->setLoopFlag(true);*/
 
 	/*AnimationClip anim[3];
-	anim[0].Load(L"Assets/modelData/RingoChan/ringo_dife_f.tka");
+	anim[0].Load(L"Assets/modelData/chris/cri_idle.tka");
 	anim[0].SetLoopFlag(true);
 	SkinModelRender* sr = NewGO<SkinModelRender>(0, "sr");
-	sr->Init(L"Assets/modelData/ringo.cmo",anim,1);*/
+	sr->Init(L"Assets/modelData/cri.cmo",anim,1);*/
 	//sr->Init(L"Assets/modelData/si_bug.cmo",nullptr,0);
 	//sr->SetScale(CVector3{ 10,10,10 } / 100);
 	//sr->SetScale(CVector3::One()/2);

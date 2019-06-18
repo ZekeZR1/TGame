@@ -160,6 +160,48 @@ const wchar_t* GameData::GetMonsterName(MonsterID id) {
 	}
 }
 
+const wchar_t* GameData::GetActionName(ActionID actID)
+{
+	const wchar_t* ws;
+	switch (actID)
+	{
+	case enChase:
+		//ws = L"追跡";
+		ws = L"CHASE";
+		break;
+	case enAtack:
+		//ws = L"パンチ";
+		ws = L"ATTACK";
+		break;
+	case enLeave:
+		//ws = L"逃げる";
+		ws = L"ESCAPE";
+		break;
+	case enDefense:
+		//ws = L"守る";
+		ws = L"DEFENSE";
+		break;
+	case enFire:
+		//ws = L"ファイア";
+		ws = L"FIRE";
+		break;
+	case enTackle:
+		//ws = L"タックル";
+		ws = L"TACKLE";
+		break;
+	case enGuardian:
+		//ws = L"守護";
+		ws = L"GUARDIAN";
+		break;
+	case enRecovery:
+		//ws = L"回復";
+		ws = L"HEAL";
+	default:
+		ws = L"";
+	}
+	return ws;
+}
+
 ActionID* GameData::GetMonsterActions(int monsterID, int& count)
 {
 	ActionID* ua = nullptr;
