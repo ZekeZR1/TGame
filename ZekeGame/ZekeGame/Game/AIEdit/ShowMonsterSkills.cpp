@@ -13,6 +13,9 @@ bool ShowMonsterSkills::Start() {
 
 	m_cur = FindGO<GameCursor>("cursor");
 
+
+	LoadSkillInfo();
+
 	static const int Ydist = 110;
 	CVector3 pos = { -200, 250, 0 };
 	for (int i = 0; i < 6 ; i++) {
@@ -31,6 +34,7 @@ bool ShowMonsterSkills::Start() {
 		sp->Init(L"Assets/sprite/buttyon.dds", 350, 110);
 		sp->SetPosition({ pos.x + 300,pos.y,pos.z });
 		m_sps.push_back(sp);
+		m_monsterSkillNameFR[i]->SetPosition({ pos.x + 250,pos.y + 50 });
 		pos.y -= Ydist;
 	}
 	return true;
@@ -40,6 +44,8 @@ void ShowMonsterSkills::OnDestroy() {
 	for (auto sp : m_sps)
 		DeleteGO(sp);
 	for (auto fr : m_defSkillNamesFR)
+		DeleteGO(fr);	
+	for (auto fr : m_monsterSkillNameFR)
 		DeleteGO(fr);
 	DeleteGO(m_backSp);
 	DeleteGO(m_quitSp);
@@ -51,5 +57,17 @@ void ShowMonsterSkills::Update() {
 		auto smc = FindGO<ShowMonsters>("MonstersInfo");
 		smc->SetWindowActive(true);
 		DeleteGO(this);
+	}
+}
+
+void ShowMonsterSkills::LoadSkillInfo() {
+	int count;
+	auto actions = GameData::GetMonsterActions(m_monsterId, count);
+	for (int i = 0; i < count; i++) {
+		auto name =GameData::GetActionName(actions[i]);
+		auto fr = NewGO<FontRender>(5);
+		fr->Init(name);
+		fr->DrawShadow();
+		m_monsterSkillNameFR.push_back(fr);
 	}
 }

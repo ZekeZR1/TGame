@@ -235,10 +235,12 @@ void AIEditNodeMenu::Update()
 		if (sp[button - 2]->isCollidingTarget()) {
 			sp[button - 2]->SetMulCol({ 1.3f,1.3f, 1.3f, 1 });
 			if (Mouse::isTrigger(enLeftClick)) {	//ç∂ÉNÉäÉbÉN
-				m_monstersInfo = NewGO<ShowMonsters>(0,"MonstersInfo");
-				DeleteGO(this);
-				PlayButtonSE();
-				isActive = false;
+				if (menuconf == false) {
+					m_monstersInfo = NewGO<ShowMonsters>(0, "MonstersInfo");
+					DeleteGO(this);
+					PlayButtonSE();
+					isActive = false;
+				}
 			}
 		}
 		else
