@@ -139,12 +139,14 @@ void DropEgg::NewMonster() {
 		m_animClip[0].SetLoopFlag(true);
 		m_monster->Init(L"Assets/modelData/uma.cmo", m_animClip, 1);
 		wcscpy(m_monsterName, L"馬");
+		m_monster->PlayAnimation(0);
 		break;
 	case enFairy:
 		m_animClip[0].Load(L"Assets/modelData/fairy/hnd_idle.tka");
 		m_animClip[0].SetLoopFlag(true);
 		m_monster->Init(L"Assets/modelData/hnd.cmo", m_animClip, 1);
 		wcscpy(m_monsterName, L"妖精");
+		m_monster->PlayAnimation(0);
 		break;
 	case enArmor:
 		m_animClip[0].Load(L"Assets/modelData/armor/armor_idle.tka");
@@ -152,12 +154,14 @@ void DropEgg::NewMonster() {
 		m_monster->SetScale(m_modelScale * 0.3);
 		m_monster->Init(L"Assets/modelData/armor.cmo", m_animClip, 1);
 		wcscpy(m_monsterName, L"アーマー");
+		m_monster->PlayAnimation(0);
 		break;
 	case enBook:
 		m_animClip[0].Load(L"Assets/modelData/book/book_idle.tka");
 		m_animClip[0].SetLoopFlag(true);
 		m_monster->Init(L"Assets/modelData/book.cmo", m_animClip, 1);
 		wcscpy(m_monsterName, L"本");
+		m_monster->PlayAnimation(0);
 		break;
 	case enGoblin:
 		m_animClip[0].Load(L"Assets/modelData/gob/gob_idle.tka");
@@ -165,7 +169,38 @@ void DropEgg::NewMonster() {
 		m_monster->SetScale(m_modelScale * 30);
 		m_monster->Init(L"Assets/modelData/gob.cmo", m_animClip, 1);
 		wcscpy(m_monsterName, L"ゴブリン");
+		m_monster->PlayAnimation(0);
+		break;
+	case enRedHead:
+		m_animClip[0].Load(L"Assets/modelData/RedHead/idle.tka");
+		m_animClip[0].SetLoopFlag(true);
+		m_monster->SetScale(m_modelScale * 30);
+		m_monster->Init(L"Assets/modelData/RedHead.cmo", m_animClip, 1);
+		wcscpy(m_monsterName, L"レッドヘッド");
+		m_monster->PlayAnimation(0);
+		break;
+	case enKikyo:
+		m_animClip[0].Load(L"Assets/modelData/kikyo_chan/hero_taiki_animation.tka");
+		m_animClip[0].SetLoopFlag(true);
+		m_monster->SetScale(m_modelScale * 30);
+		m_monster->Init(L"Assets/modelData/hero.cmo", m_animClip, 1);
+		wcscpy(m_monsterName, L"キキョウちゃん");
+		m_monster->PlayAnimation(0);
+		break;
+	case enShikoChu:
+		//m_animClip[0].Load(L"Assets/modelData/si_bug/si_bug.tka");
+		//m_animClip[0].SetLoopFlag(true);
+		m_monster->SetScale(m_modelScale * 30);
+		m_monster->Init(L"Assets/modelData/si_bug.cmo", m_animClip, 1);
+		wcscpy(m_monsterName, L"死光虫");
+		break;
+	case enRingo:
+		m_animClip[0].Load(L"Assets/modelData/RingoChan/idle.tka");
+		m_animClip[0].SetLoopFlag(true);
+		m_monster->SetScale(m_modelScale * 30);
+		m_monster->Init(L"Assets/modelData/ringo.cmo", m_animClip, 1);
+		wcscpy(m_monsterName, L"りんごちゃん");
+		m_monster->PlayAnimation(0);
 		break;
 	}
-	m_monster->PlayAnimation(0);
 }
