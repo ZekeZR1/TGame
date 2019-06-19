@@ -43,4 +43,5 @@ private:
 	Game::Mode m_mode;
 
 	Fade* m_fade = nullptr;					//fade 
+	bool m_isClick = false;
 };

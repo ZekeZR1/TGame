@@ -14,6 +14,7 @@ public:
 		const wchar_t* soundPath,
 		float range,
 		float baseDamage,
+		float cost,
 		CVector3 effectScale = { 3.5,3.5,3.5 }
 	);
 
@@ -26,5 +27,6 @@ private:
 	CVector3 crs = CVector3::Zero();
 	CVector3 m_targetPosition = CVector3::Zero();
 	Monster* m_me = nullptr;
+	float m_cost = 0.f;
 };
 

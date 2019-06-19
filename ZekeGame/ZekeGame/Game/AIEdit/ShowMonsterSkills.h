@@ -12,12 +12,16 @@ public :
 		m_monsterId = id;
 	}
 private:
+	void LoadSkillInfo();
 	MonsterID m_monsterId;
 	SpriteRender* m_backSp = nullptr;
 	SpriteRender* m_quitSp = nullptr;
 	std::vector<FontRender*> m_defSkillNamesFR;
 	std::vector<SpriteRender*> m_sps;
+	std::vector<FontRender*> m_monsterSkillNameFR;
+	std::vector<FontRender*> m_monsterSkillInfoFR;
 	GameCursor* m_cur = nullptr;
-	std::wstring m_defSkillNamesStr[6] = { L"UŒ‚",L"’ÇÕ",L"“¦–S",L"ç‚é",L"“Áê1",L"“Áê2" };
+	std::wstring m_defSkillNamesStr[6] = { L"UŒ‚",L"’ÇÕ",L"‚É‚°‚é",L"ç‚é",L"“Áê1",L"“Áê2" };
+	std::vector<std::wstring> m_skillInfos;
 };
 

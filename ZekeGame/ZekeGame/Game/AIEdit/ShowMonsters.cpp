@@ -11,8 +11,9 @@
 bool ShowMonsters::Start() {
 	m_cur = FindGO<GameCursor>("cursor");
 
-	m_backSp = NewGO<SpriteRender>(0);
-	m_backSp->Init(L"Assets/sprite/modesel_back.dds", 1000.f, 650.f);
+	m_backSp = NewGO<SpriteRender>(15);
+	//m_backSp->Init(L"Assets/sprite/modesel_back.dds", 1000.f, 720.f);
+	m_backSp->Init(L"Assets/sprite/AIbrawser.dds", 1000.f, 720.f);
 
 	InitFont();
 	InitButtons();
@@ -40,19 +41,20 @@ void ShowMonsters::Update() {
 
 void ShowMonsters::InitSideButtons() {
 	CVector3 pos = { 400.f,-300.f,0.f };
-	m_leftSp = NewGO<SpriteRender>(3);
+	m_leftSp = NewGO<SpriteRender>(18);
 	m_leftSp->Init(L"Assets/Sprite/leftButton.dds", 50.f, 100.f, true);
 	m_leftSp->SetPosition({ -400.f, -300.f, 0.f });
-	m_rightSp = NewGO<SpriteRender>(3);
+	m_rightSp = NewGO<SpriteRender>(18);
 	m_rightSp->Init(L"Assets/Sprite/rightButton.dds", 50.f, 100.f, true);
 	m_rightSp->SetPosition(pos);
 }
 
 void ShowMonsters::InitFont() {
 	for (int i = 1; i < enNumMonster; i++) {
-		auto font = NewGO<FontRender>(1);
+		auto font = NewGO<FontRender>(17);
 		font->SetTextType(CFont::en_Japanese);
 		font->Init(GameData::GetMonsterName(static_cast<MonsterID>(i)));
+		font->SetScale(0.7);
 		m_MonsterNames.push_back(font);;
 	}
 }
@@ -73,20 +75,20 @@ void ShowMonsters::InitButtons() {
 			pos.x += 1500.f;
 		}
 		auto path = GameData::GetMonsterIconPath(i+1);
-		auto sp = NewGO<SpriteRender>(1);
+		auto sp = NewGO<SpriteRender>(16);
 		sp->Init(path, 150.f, 150.f);
 		sp->SetPosition(pos);
 		m_MonsterNames[i]->SetPosition({ pos.x + 50,pos.y });
 		m_MonsterNames[i]->DrawShadow();
 		m_monsterSps.push_back(sp);
-		auto frame = NewGO<SpriteRender>(0);
-		frame->Init(L"Assets/sprite/buttyon.dds", 300, 190, true);
-		frame->SetPosition({ pos.x + 90,pos.y,pos.z });
+		auto frame = NewGO<SpriteRender>(15);
+		frame->Init(L"Assets/sprite/buttyon.dds", 290, 190, true);
+		frame->SetPosition({ pos.x + 70,pos.y,pos.z });
 		m_frames.push_back(frame);
 		m_spId[frame] = static_cast<MonsterID>(i + 1);
 	}
 
-	m_quitSp = NewGO<SpriteRender>(4);
+	m_quitSp = NewGO<SpriteRender>(19);
 	m_quitSp->Init(L"Assets/Sprite/deletepoint.dds", 100, 50);
 	m_quitSp->SetPosition({ 0,-300,0 });
 
@@ -99,7 +101,7 @@ void ShowMonsters::ButtonUpdate() {
 	for (auto i : m_frames) {
 		i->SetCollisionTarget(m_cur->GetCursor());
 		if (i->isCollidingTarget() and Mouse::isTrigger(enLeftClick)) {
-			auto sms = NewGO<ShowMonsterSkills > (0);
+			auto sms = NewGO<ShowMonsterSkills > (15);
 			sms->SetMonster(m_spId[i]);
 			m_isActive = false;
 		}

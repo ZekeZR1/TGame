@@ -13,6 +13,8 @@ bool Act_Majinken::Action(Monster* me) {
 	if (m_first) {
 		float mp = me->GetMP();
 		if (mp < m_cost) return true;
+		me->SetMP(mp - m_cost);
+
 		knock = m_target->Getpos() - me->Getpos();
 		CVector3 v = m_target->Getpos() - me->Getpos();
 		float cta = atan2f(v.x, v.z);
@@ -51,6 +53,7 @@ bool Act_Majinken::Action(Monster* me) {
 	}
 	if (m_timer >= m_cooltime and !me->isAnimPlay() and m_attacked) {
 		me->anim_idle();
+		m_efk->Stop();
 		return true;
 	}
 	m_timer += 60 * IGameTime().GetFrameDeltaTime();

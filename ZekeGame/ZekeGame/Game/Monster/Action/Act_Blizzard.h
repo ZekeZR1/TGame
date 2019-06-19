@@ -11,7 +11,7 @@ private:
 	CAct_Beam m_cBeam;
 	CVector3 m_efs = CVector3::One() * 3.5;
 	bool m_first = true;
-	float m_cost = 20.f;
+	float m_cost = 5.f;
 	float m_timer = 0;
 	int m_cooltime = 5;
 	float laserRange = 100;

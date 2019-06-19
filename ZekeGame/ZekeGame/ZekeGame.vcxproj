@@ -312,11 +312,13 @@
     <ClCompile Include="Game\Monster\MonsterMarker.cpp" />
     <ClCompile Include="Game\Monster\Monsters\Armor.cpp" />
     <ClCompile Include="Game\Monster\Monsters\Book.cpp" />
+    <ClCompile Include="Game\Monster\Monsters\Chris.cpp" />
     <ClCompile Include="Game\Monster\Monsters\Fairy.cpp" />
     <ClCompile Include="Game\Monster\Monsters\Goblin.cpp" />
     <ClCompile Include="Game\Monster\Monsters\kikyo.cpp" />
     <ClCompile Include="Game\Monster\Monsters\RedHead.cpp" />
     <ClCompile Include="Game\Monster\Monsters\Ringo.cpp" />
+    <ClCompile Include="Game\Monster\Monsters\Shell.cpp" />
     <ClCompile Include="Game\Monster\Monsters\ShikoChu.cpp" />
     <ClCompile Include="Game\Monster\Monsters\TestMons.cpp" />
     <ClCompile Include="Game\Monster\Monsters\Uma.cpp" />
@@ -543,11 +545,13 @@
     <ClInclude Include="Game\Monster\MonsterMarker.h" />
     <ClInclude Include="Game\Monster\Monsters\Armor.h" />
     <ClInclude Include="Game\Monster\Monsters\Book.h" />
+    <ClInclude Include="Game\Monster\Monsters\Chris.h" />
     <ClInclude Include="Game\Monster\Monsters\Fairy.h" />
     <ClInclude Include="Game\Monster\Monsters\Goblin.h" />
     <ClInclude Include="Game\Monster\Monsters\kikyo.h" />
     <ClInclude Include="Game\Monster\Monsters\RedHead.h" />
     <ClInclude Include="Game\Monster\Monsters\Ringo.h" />
+    <ClInclude Include="Game\Monster\Monsters\Shell.h" />
     <ClInclude Include="Game\Monster\Monsters\ShikoChu.h" />
     <ClInclude Include="Game\Monster\Monsters\TestMons.h" />
     <ClInclude Include="Game\Monster\Monsters\Uma.h" />
@@ -1195,7 +1199,18 @@
     <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_ringo.png" />
   </ItemGroup>
   <ItemGroup>
-    <MeshContentTask Include="Assets\modelData\chris\cri.FBX" />
+    <None Include="Assets\modelData\chris\cri.FBX">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="Assets\modelData\shell\hotate.FBX">
+      <FileType>Document</FileType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_cri.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_shell.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

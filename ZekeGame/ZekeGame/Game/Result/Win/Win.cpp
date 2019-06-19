@@ -144,7 +144,13 @@ void Win::Update()
 	}
 	else
 	{
+		
 		if (Mouse::isTrigger(enLeftClick))
+		{
+			m_fade->FadeOut();
+			m_isClick = true;
+		}
+		if (m_fade->isFadeStop() && m_isClick)
 		{
 			DeleteGO(this);
 		}
