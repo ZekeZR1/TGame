@@ -242,6 +242,8 @@ void MonsterActionList::Update()
 			CVector3 p = {pos.x,(float)(pos.y + (45 * i)),0 };
 			const wchar_t* ws = GameData::GetActionName((ActionID)mas[i]->GetactionID());
 			
+			float sc = wcslen(ws) <= 7 ? 0.7f : 0.7f - float(wcslen(ws) - 7)*0.05f;
+
 			//todo: フォント変更座標変更
 			m_frs[i]->Init(ws, { p.x,p.y +45-5+/*これ→*/8}, 0, CVector4::White, 0.7f, { 0,0 });
 			m_Sfrs[i]->Init(ws, { p.x+5,p.y + 45-5-5+/**/8 }, 0, {0,0,0,1}, 0.7f, { 0,0 });

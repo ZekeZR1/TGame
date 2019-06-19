@@ -6,6 +6,7 @@ class Act_Blizzard : public MonsterAction
 {
 public:
 	Act_Blizzard();
+	~Act_Blizzard();
 	bool Action(Monster* me) override;
 private:
 	CAct_Beam m_cBeam;
