@@ -35,9 +35,9 @@ bool ShowMonsterSkills::Start() {
 		sp->SetPosition({ pos.x + 300,pos.y,pos.z });
 		m_sps.push_back(sp);
 		if (m_monsterSkillNameFR.size() > i)
-			m_monsterSkillNameFR[i]->SetPosition({ pos.x + 250,pos.y + 50 });
+			m_monsterSkillNameFR[i]->SetPosition({ pos.x +130,pos.y + 50 });
 		if (m_monsterSkillInfoFR.size()  > i)
-			m_monsterSkillInfoFR[i]->SetPosition({ pos.x + 220,pos.y + 20 });
+			m_monsterSkillInfoFR[i]->SetPosition({ pos.x + 130,pos.y + 20 });
 		
 		pos.y -= Ydist;
 	}

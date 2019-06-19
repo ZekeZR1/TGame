@@ -40,10 +40,10 @@ void ShowMonsters::Update() {
 
 void ShowMonsters::InitSideButtons() {
 	CVector3 pos = { 400.f,-300.f,0.f };
-	m_leftSp = NewGO<SpriteRender>(3);
+	m_leftSp = NewGO<SpriteRender>(18);
 	m_leftSp->Init(L"Assets/Sprite/leftButton.dds", 50.f, 100.f, true);
 	m_leftSp->SetPosition({ -400.f, -300.f, 0.f });
-	m_rightSp = NewGO<SpriteRender>(3);
+	m_rightSp = NewGO<SpriteRender>(18);
 	m_rightSp->Init(L"Assets/Sprite/rightButton.dds", 50.f, 100.f, true);
 	m_rightSp->SetPosition(pos);
 }

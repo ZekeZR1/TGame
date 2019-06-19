@@ -194,13 +194,13 @@ void DropEgg::NewMonster() {
 		m_monster->Init(L"Assets/modelData/si_bug.cmo", m_animClip, 1);
 		wcscpy(m_monsterName, L"Ž€Œõ’Ž");
 		break;
-	case enRingo:
+	/*case enRingo:
 		m_animClip[0].Load(L"Assets/modelData/RingoChan/idle.tka");
 		m_animClip[0].SetLoopFlag(true);
 		m_monster->SetScale(m_modelScale * 30);
 		m_monster->Init(L"Assets/modelData/ringo.cmo", m_animClip, 1);
 		wcscpy(m_monsterName, L"‚è‚ñ‚²‚¿‚á‚ñ");
 		m_monster->PlayAnimation(0);
-		break;
+		break;*/
 	}
 }
