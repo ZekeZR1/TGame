@@ -77,9 +77,9 @@ Monster * GameData::LoadMonster(int monID)
 	case enShikoChu:
 		mon = NewGO<ShikoChu>(0, "monster");
 		break;
-	/*case enRingo:
+	case enRingo:
 		mon = NewGO<Ringo>(0, "monster");
-		break;*/
+		break;
 	case enChris:
 		mon = NewGO<Chris>(0, "monster");
 		break;
@@ -118,9 +118,9 @@ const wchar_t * GameData::GetMonsterIconPath(int monID)
 	case enShikoChu:
 		return L"Assets/sprite/mon_bug.dds";
 		break;
-	/*case enRingo:
+	case enRingo:
 		return L"Assets/sprite/mon_ringo.dds";
-		break;*/
+		break;
 	case enChris:
 		return L"Assets/sprite/mon_cri.dds";
 		break;
@@ -161,9 +161,9 @@ const wchar_t* GameData::GetMonsterName(MonsterID id) {
 	case enShikoChu:
 		return L"Ž€Œõ’Ž";
 		break;
-	/*case enRingo:
+	case enRingo:
 		return L"‚è‚ñ‚²‚¿‚á‚ñ";
-		break;*/
+		break;
 	case enChris:
 		return L"ƒNƒŠƒX";
 	case enShell:
@@ -419,7 +419,7 @@ ActionID* GameData::GetMonsterActions(int monsterID, int& count)
 		ua[enAtack] = enSpecialAttack;
 		ua[enChase] = enChase;
 		break;
-	/*case enRingo:
+	case enRingo:
 		count = 6;
 		ua = new ActionID[count];
 		ua[enAtack] = enAtack;
@@ -427,7 +427,7 @@ ActionID* GameData::GetMonsterActions(int monsterID, int& count)
 		ua[enLeave] = enActNone;
 		ua[enDefense] = enDefense;
 		ua[4] = enTackle;
-		ua[5] = enMajinken;*/
+		ua[5] = enMajinken;
 	case enChris:
 		count = 6;
 		ua = new ActionID[count];

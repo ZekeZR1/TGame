@@ -15,10 +15,11 @@ enum MonsterID
 	enRedHead,
 	enKikyo,
 	enShikoChu,
-	//enRingo,
 	enChris,
-	enShell,
 	enNumMonster,
+	enRingo,
+	enShell,
+	
 };
 
 enum ActionID

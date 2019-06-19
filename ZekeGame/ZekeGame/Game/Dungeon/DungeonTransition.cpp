@@ -144,7 +144,8 @@ void DungeonTransition::InitModel() {
 			//m_monsters[i]->PlayAnimation(0);
 			m_monsters[i]->SetScale(CVector3::One());
 		}
-		break;/*
+		break;
+		
 		case enRingo:
 		{
 			m_animClip[i][0].Load(L"Assets/modelData/RingoChan/idle.tka");
@@ -153,7 +154,16 @@ void DungeonTransition::InitModel() {
 			m_monsters[i]->Init(L"Assets/modelData/ringo.cmo", m_animClip[i], 1);
 			m_monsters[i]->PlayAnimation(0);
 		}
-		break;*/
+		break;
+		case enChris:
+		{
+			m_animClip[i][0].Load(L"Assets/modelData/chris/cri_idle.tka");
+			m_animClip[i][0].SetLoopFlag(true);
+			m_monsters[i]->Init(L"Assets/modelData/cri.cmo", m_animClip[i], 1);
+			m_monsters[i]->PlayAnimation(0);
+			m_monsters[i]->SetScale(CVector3::One()*2);
+		}
+			break;
 		default:
 			assert(false);
 			OutputDebugStringA("Trasan Anime < ‚È‚ñ‚ÅHHH\n");
