@@ -7,6 +7,8 @@ class CAct_Beam : public IAct
 {
 public:
 
+	~CAct_Beam();
+
 	void Fire(
 		Monster* me,
 		Monster* target,
