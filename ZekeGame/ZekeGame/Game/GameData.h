@@ -6,7 +6,6 @@ extern Monster* g_mons[64];
 
 enum MonsterID
 {
-	enTest,
 	enUmataur,
 	enFairy,
 	enArmor,
@@ -18,8 +17,8 @@ enum MonsterID
 	enChris,
 	enNumMonster,
 	enRingo,
+	enTest,
 	enShell,
-	
 };
 
 enum ActionID

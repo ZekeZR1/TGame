@@ -2239,4 +2239,9 @@
       <Filter>Assets\BGM</Filter>
     </Media>
   </ItemGroup>
+  <ItemGroup>
+    <MeshContentTask Include="Assets\modelData\dungeon\gorgeousWall.fbx">
+      <Filter>Assets\model</Filter>
+    </MeshContentTask>
+  </ItemGroup>
 </Project>
