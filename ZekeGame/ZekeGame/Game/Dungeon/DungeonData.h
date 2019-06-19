@@ -49,10 +49,9 @@ private:
 	int m_dunNum = -1;
 	int m_currentR = -1;
 	int m_round = 0;
-	//TODO : Zeke : ƒ‰ƒEƒ“ƒh”‚Ìİ’è
 	//ƒ_ƒ“ƒWƒ‡ƒ“‚Ì1ƒQ[ƒ€‚Å‰½ŠK‘w‚É‚·‚é‚©‚±‚±‚ÅŒˆ‚ß‚é
 	//ŠK‘w” = n + 1
-	int m_rounds[8] = { 0,1,0,0,0,0,0,0};
+	int m_rounds[8] = { 0,1,1,1,1,2,2,2};
 };
 
 static DungeonData& IDungeonData() {
