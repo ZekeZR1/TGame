@@ -26,7 +26,7 @@ bool ShowMonsterSkills::Start() {
 		m_sps.push_back(sp);
 		auto fr = NewGO<FontRender>(20);
 		fr->SetTextType(CFont::en_Japanese);
-		fr->Init(m_defSkillNamesStr[i].c_str(), { pos.x - 50,pos.y  + 25});
+		fr->Init(m_defSkillNamesStr[i].c_str(), { pos.x - 40 - 14 * (m_defSkillNamesStr[i].length() - 2),pos.y  + 20},0,CVector4::White,0.8f);
 		fr->DrawShadow();
 		m_defSkillNamesFR.push_back(fr);
 		//‹ZÚ×î•ñ
