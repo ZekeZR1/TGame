@@ -31,7 +31,7 @@ Goblin::Goblin()
 	prm.DefencePow = 10;
 	prm.ExDefensePow = 0;
 	prm.AttackPow = 10;
-	prm.ExAttackPow = 0;
+	prm.ExAttackPow = 1;
 	prm.Speed = 10;
 	prm.Radius = 50;
 	prm.Height = 150;

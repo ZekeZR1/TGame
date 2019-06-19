@@ -204,7 +204,7 @@ void StageSetup::SetEnemyAI(int dun, int* monAI, MonsterID* monId) {
 		if (round == 1) {
 			monAI[3] = 1;
 			monId[3] = enGoblin;
-			monAI[4] = 1;
+			monAI[4] = 2;
 			monId[4] = enFairy;
 			monAI[5] = 1;
 			monId[5] = enGoblin;
