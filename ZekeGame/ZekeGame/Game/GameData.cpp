@@ -10,6 +10,7 @@
 #include "Monster/Monsters/kikyo.h"
 #include "Monster/Monsters/ShikoChu.h"
 #include "Monster/Monsters/Ringo.h"
+#include "Monster/Monsters/Chris.h"
 
 
 Monster* g_mons[64];
@@ -79,6 +80,9 @@ Monster * GameData::LoadMonster(int monID)
 	case enRingo:
 		mon = NewGO<Ringo>(0, "monster");
 		break;
+	case enChris:
+		mon = NewGO<Chris>(0, "monster");
+		break;
 	}
 	return mon;
 }
@@ -117,8 +121,196 @@ const wchar_t * GameData::GetMonsterIconPath(int monID)
 	case enRingo:
 		return L"Assets/sprite/mon_ringo.dds";
 		break;
+	case enChris:
+		return L"Assets/sprite/mon_cri.dds";
+		break;
+	case enShell:
+		return L"Assets/sprite/mon_shell.dds";
+		break;
 	}
 	return nullptr;
+}
+
+const wchar_t* GameData::GetMonsterName(MonsterID id) {
+	switch (id)
+	{
+	case enTest:
+		return L"テスト";
+		break;
+	case enUmataur:
+		return L"馬タウロス";
+		break;
+	case enFairy:
+		return L" 妖精";
+		break;
+	case enArmor:
+		return L" 鎧";
+		break;
+	case enGoblin:
+		return L"ゴブリン";
+		break;
+	case enBook:
+		return L"本";
+		break;
+	case enRedHead:
+		return L"レッドヘッド";
+		break;
+	case enKikyo:
+		return L"キキョウ";
+		break;
+	case enShikoChu:
+		return L"死光虫";
+		break;
+	case enRingo:
+		return L"りんごちゃん";
+		break;
+	case enChris:
+		return L"クリス";
+	case enShell:
+		return L"シェル";
+	default:
+		assert(false);
+		break;
+	}
+}
+
+const wchar_t* GameData::GetActionInfo(ActionID actID) {
+	switch (actID) {
+	case enChase:
+		return L"追いかける";
+	case enAtack:
+		return L"通常攻撃";
+	case enLeave:
+		return L"逃げるんだよ";
+	case enDefense:
+		return L"防御";
+	case enFire:
+		return L"ファイアー";
+	case enTackle:
+		return L"敵をぶっとばす";
+	case enGuardian:
+		return L"敵の攻撃を\n集中させる";
+	case enRecovery:
+		return L"回復させる";
+	case enSuperBeam:
+		return L"当たったモンスターに\nダメージを与える";
+	case enObstMove:
+		return L"移動妨害をする";
+	case enCleanse:
+		return L"状態異常をクリア";
+	case enBuffAtc:
+		return L"攻撃力を上げる";
+	case enDebuffAtc:
+		return L"攻撃力を下げる";
+	case enBuffDef:
+		return L"防御力を上げる";
+	case enDebuffDef:
+		return L"防御力を下げる";
+	case enClearStack:
+		return L"敵の行動を\n全て解除する";
+	case enMajinken:
+		return L"チャージ&パンチ";
+	case enManaHeal:
+		return L"MPを回復";
+	case enBlizzard:
+		return L"連続ダメージ\n当たった者は凍り付く";
+	case enIgnite:
+		return L"対象にやけど状態";
+	case enPoison:
+		return L"対象に毒状態";
+	case enThunder:
+		return L"連続ダメージ\nしびれ状態付与";
+	case enSpecialAttack:
+		return L"捨て身の特攻";
+	default:
+		return L"ないです";
+	}
+}
+const wchar_t* GameData::GetActionName(ActionID actID)
+{
+	const wchar_t* ws;
+	switch (actID)
+	{
+	case enChase:
+		//ws = L"追跡";
+		ws = L"CHASE";
+		break;
+	case enAtack:
+		//ws = L"パンチ";
+		ws = L"ATTACK";
+		break;
+	case enLeave:
+		//ws = L"逃げる";
+		ws = L"ESCAPE";
+		break;
+	case enDefense:
+		//ws = L"守る";
+		ws = L"DEFENSE";
+		break;
+	case enFire:
+		//ws = L"ファイア";
+		ws = L"FIRE";
+		break;
+	case enTackle:
+		//ws = L"タックル";
+		ws = L"TACKLE";
+		break;
+	case enGuardian:
+		//ws = L"守護";
+		ws = L"GUARDIAN";
+		break;
+	case enRecovery:
+		//ws = L"回復";
+		ws = L"HEAL";
+	case enSuperBeam:
+		ws = L"SUPER BEAM";
+		break;
+	case enObstMove:
+		ws = L"Obst Move";
+		break;
+	case enCleanse:
+		ws = L"Cleanse";
+		break;
+	case enBuffAtc:
+		ws = L"ATK Buff";
+		break;
+	case enDebuffAtc:
+		ws = L"ATK Debuff";
+		break;
+	case enBuffDef:
+		ws = L"DEF Buff";
+		break;
+	case enDebuffDef:
+		ws = L"DEF Debuff";
+		break;
+	case enClearStack:
+		ws = L"Clear Stack";
+		break;
+	case enMajinken:
+		ws = L"Majinken";
+		break;
+	case enManaHeal:
+		ws = L"MP Heal";
+		break;
+	case enBlizzard:
+		ws = L"Blizzard";
+		break;
+	case enIgnite:
+		ws = L"Ignite";
+		break;
+	case enPoison:
+		ws = L"Poison";
+		break;
+	case enThunder:
+		ws = L"Thunder";
+		break;
+	case enSpecialAttack:
+		ws = L"Kamikaze";
+		break;
+	default:
+		ws = L"";
+	}
+	return ws;
 }
 
 ActionID* GameData::GetMonsterActions(int monsterID, int& count)
@@ -177,9 +369,9 @@ ActionID* GameData::GetMonsterActions(int monsterID, int& count)
 		ua[enAtack] = enAtack;
 		ua[enChase] = enChase;
 		ua[enLeave] = enLeave;
-		ua[enDefense] = enDefense;
-		ua[4] = enTackle;
-		ua[5] = enGuardian;
+		ua[enDefense] = enGuardian;
+		ua[4] = ActionID::enBuffDef;
+		ua[5] = ActionID::enDebuffDef;
 		break;
 	case enGoblin:
 		count = 6;
@@ -236,6 +428,27 @@ ActionID* GameData::GetMonsterActions(int monsterID, int& count)
 		ua[enDefense] = enDefense;
 		ua[4] = enTackle;
 		ua[5] = enMajinken;
+		break;
+	case enChris:
+		count = 6;
+		ua = new ActionID[count];
+		ua[enAtack] = enAtack;
+		ua[enChase] = enChase;
+		ua[enLeave] = enLeave;
+		ua[enDefense] = enDefense;
+		ua[4] = enBlizzard;
+		ua[5] = enSuperBeam;
+		break;
+	case enShell:
+		count = 6;
+		ua = new ActionID[count];
+		ua[enAtack] = enAtack;
+		ua[enChase] = enChase;
+		ua[enLeave] = enLeave;
+		ua[enDefense] = enDefense;
+		ua[4] = enBlizzard;
+		ua[5] = enSuperBeam;
+		break;
 		break;
 	}
 	return ua;

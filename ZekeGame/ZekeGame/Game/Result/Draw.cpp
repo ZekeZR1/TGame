@@ -19,6 +19,10 @@ BattleDraw::BattleDraw()
 	m_fade = FindGO<Fade>("fade");
 	m_fade->FadeIn();
 	m_fade->SetSpeed(1);
+
+	camera3d->SetTarget(CVector3::Zero());
+	camera3d->SetPosition({ 0.0f, 350.0f, 1000.0f });
+	camera3d->Update();
 }
 
 void BattleDraw::OnDestroy()

@@ -20,6 +20,7 @@ bool Act_buffDefPow::Action(Monster* me) {
 	if (m_first) {
 		float mp = me->GetMP();
 		if (mp < m_cost) return true;
+		me->SetMP(mp - m_cost);
 
 		//m_pow = m_target->GetDefense();
 		//m_target->SetDefensePower(m_pow * 1.5);
@@ -49,8 +50,8 @@ bool Act_buffDefPow::Action(Monster* me) {
 		m_first = false;
 	}
 	else {
-		m_timer++;
-		if (!me->isAnimPlay() and m_timer >= m_cooltime)
+		m_timer+=IGameTime().GetFrameDeltaTime();
+		if (/*!me->isAnimPlay() and*/ m_timer >= m_cooltime)
 		{
 			//m_target->SetDefensePower(m_pow);
 			//m_target->SetExDefense(m_ExPow);

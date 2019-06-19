@@ -240,44 +240,14 @@ void MonsterActionList::Update()
 		for (int i = 0; i < len; i++)
 		{
 			CVector3 p = {pos.x,(float)(pos.y + (45 * i)),0 };
-			const wchar_t* ws = L"";
-			switch (mas[i]->GetactionID())
-			{
-			case enChase:
-				//ws = L"追跡";
-				ws = L"CHASE";
-				break;
-			case enAtack:
-				//ws = L"パンチ";
-				ws = L"ATTACK";
-				break;
-			case enLeave:
-				//ws = L"逃げる";
-				ws = L"ESCAPE";
-				break;
-			case enDefense:
-				//ws = L"守る";
-				ws = L"DEFENSE";
-				break;
-			case enFire:
-				//ws = L"ファイア";
-				ws = L"FIRE";
-				break;
-			case enTackle:
-				//ws = L"タックル";
-				ws = L"TACKLE";
-				break;
-			case enGuardian:
-				//ws = L"守護";
-				ws = L"GUARDIAN";
-				break;
-			case enRecovery:
-				//ws = L"回復";
-				ws = L"HEAL";
-			}
+			const wchar_t* ws = GameData::GetActionName((ActionID)mas[i]->GetactionID());
+			
+			float len = wcslen(ws);
+			float sc = len <= 7 ? 0.7f : 0.7f - (((len - 7.f)*0.08f) - (len-7.f)*0.008f);
+
 			//todo: フォント変更座標変更
-			m_frs[i]->Init(ws, { p.x,p.y +45-5+/*これ→*/8}, 0, CVector4::White, 0.7f, { 0,0 });
-			m_Sfrs[i]->Init(ws, { p.x+5,p.y + 45-5-5+/**/8 }, 0, {0,0,0,1}, 0.7f, { 0,0 });
+			m_frs[i]->Init(ws, { p.x,p.y +45-5+/*これ→*/8}, 0, CVector4::White, sc, { 0,0 });
+			m_Sfrs[i]->Init(ws, { p.x+5,p.y + 45-5-5+/**/8 }, 0, {0,0,0,1}, sc, { 0,0 });
 		}
 
 		m_len = len;

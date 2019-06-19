@@ -11,7 +11,7 @@ bool DungeonGame::Start() {
 }
 
 void DungeonGame::OnDestroy() {
-
+	IDungeonData().SetRound(0);
 }
 
 void DungeonGame::Update() {

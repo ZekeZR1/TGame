@@ -21,13 +21,13 @@ Armor::Armor()
 	sr->SetScale(CVector3::One() / 3.f);
 
 	MonsterInitParam prm;
-	prm.HP = 180;
-	prm.MP = 60;
-	prm.DefencePow = 100;
+	prm.HP = 100;
+	prm.MP = 120;
+	prm.DefencePow = 20;
 	prm.ExDefensePow = 0;
-	prm.AttackPow = 40;
+	prm.AttackPow = 5;
 	prm.ExAttackPow = 0;
-	prm.Speed = 30;
+	prm.Speed = 5;
 	prm.Radius = 10;
 	prm.Height = 300;
 	prm.ModelRender = sr;

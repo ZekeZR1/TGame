@@ -13,6 +13,7 @@ bool Act_ManaHeal::Action(Monster* me) {
 	if (m_first) {
 		float mp = me->GetMP();
 		if (mp < m_cost) return true;
+		me->SetMP(mp - m_cost);
 
 		me->anim_extra1();
 		{

@@ -182,34 +182,44 @@ void StageSetup::SetEnemyAI(int dun, int* monAI, MonsterID* monId) {
 	//TODO : Zeke : É_ÉìÉWÉáÉìÇÃìGAIÇÃí≤êÆ
 	int round = IDungeonData().GetRound();
 	switch (dun) {
-	case 0:
+	case 0: //1
+	{
 		monAI[3] = 0;
 		monId[3] = enGoblin;
 		monAI[4] = 0;
 		monId[4] = enGoblin;
 		monAI[5] = 0;
 		monId[5] = enGoblin;
+	}
 		break;
-	case 1:
+	case 1: //2
 		if (round == 0) {
 			monAI[3] = 0;
 			monId[3] = enGoblin;
 			monAI[4] = 1;
-			monId[4] = enFairy;
+			monId[4] = enGoblin;
 			monAI[5] = 0;
 			monId[5] = enGoblin;
 		}
 		if (round == 1) {
 			monAI[3] = 1;
-			monId[3] = enFairy;
-			monAI[4] = 1;
-			monId[4] = enBook;
+			monId[3] = enGoblin;
+			monAI[4] = 2;
+			monId[4] = enFairy;
 			monAI[5] = 1;
 			monId[5] = enGoblin;
 		}
 		break;
-	case 2:
+	case 2: //2
 		if (round == 0) {
+			monAI[3] = 2;
+			monId[3] = enFairy;
+			monAI[4] = 1;
+			monId[4] = enGoblin;
+			monAI[5] = 2;
+			monId[5] = enFairy;
+		}
+		if (round == 1) {
 			monAI[3] = 1;
 			monId[3] = enGoblin;
 			monAI[4] = 1;
@@ -217,159 +227,119 @@ void StageSetup::SetEnemyAI(int dun, int* monAI, MonsterID* monId) {
 			monAI[5] = 1;
 			monId[5] = enGoblin;
 		}
+		break;
+	case 3:	//2
+		if (round == 0) {
+			monAI[3] = 2;
+			monId[3] = enFairy;
+			monAI[4] = 4;
+			monId[4] = enUmataur;
+			monAI[5] = 2;
+			monId[5] = enFairy;
+		}
 		if (round == 1) {
-			monAI[3] = 1;
-			monId[3] = enUmataur;
-			monAI[4] = 1;
+			monAI[3] = 2;
+			monId[3] = enFairy;
+			monAI[4] = 5;
 			monId[4] = enArmor;
-			monAI[5] = 1;
-			monId[5] = enUmataur;
-		}
-		if (round == 2) {
-			monAI[3] = 1;
-			monId[3] = enUmataur;
-			monAI[4] = 1;
-			monId[4] = enUmataur;
-			monAI[5] = 1;
+			monAI[5] = 4;
 			monId[5] = enUmataur;
 		}
 		break;
-	case 3:
+	case 4: //2
 		if (round == 0) {
-			monAI[3] = 1;
+			monAI[3] = 4;
 			monId[3] = enUmataur;
-			monAI[4] = 1;
+			monAI[4] = 4;
 			monId[4] = enUmataur;
-			monAI[5] = 1;
+			monAI[5] = 4;
 			monId[5] = enUmataur;
 		}
 		if (round == 1) {
-			monAI[3] = 1;
-			monId[3] = enUmataur;
-			monAI[4] = 1;
+			monAI[3] = 5;
+			monId[3] = enArmor;
+			monAI[4] = 6;
+			monId[4] = enKikyo;
+			monAI[5] = 5;
+			monId[5] = enArmor;
+		}
+		break;
+	case 5: //3
+		if (round == 0) {
+			monAI[3] = 5;
+			monId[3] = enArmor;
+			monAI[4] = 4;
 			monId[4] = enUmataur;
-			monAI[5] = 1;
+			monAI[5] = 2;
+			monId[5] = enFairy;
+		}
+		if (round == 1) {
+			monAI[3] = 2;
+			monId[3] = enFairy;
+			monAI[4] = 6;
+			monId[4] = enKikyo;
+			monAI[5] = 4;
 			monId[5] = enUmataur;
 		}
 		if (round == 2) {
-			monAI[3] = 1;
+			monAI[3] = 4;
 			monId[3] = enUmataur;
-			monAI[4] = 1;
-			monId[4] = enUmataur;
-			monAI[5] = 1;
+			monAI[4] = 7;
+			monId[4] = enBook;
+			monAI[5] = 4;
 			monId[5] = enUmataur;
 		}
 		break;
-	case 4:
+	case 6: //3
 		if (round == 0) {
-			monAI[3] = 1;
-			monId[3] = enUmataur;
-			monAI[4] = 1;
-			monId[4] = enUmataur;
-			monAI[5] = 1;
-			monId[5] = enUmataur;
+			monAI[3] = 7;
+			monId[3] = enBook;
+			monAI[4] = 6;
+			monId[4] = enKikyo;
+			monAI[5] = 7;
+			monId[5] = enBook;
 		}
 		if (round == 1) {
-			monAI[3] = 1;
-			monId[3] = enUmataur;
-			monAI[4] = 1;
+			monAI[3] = 5;
+			monId[3] = enArmor;
+			monAI[4] = 4;
 			monId[4] = enUmataur;
 			monAI[5] = 1;
-			monId[5] = enUmataur;
+			monId[5] = enGoblin;
 		}
 		if (round == 2) {
 			monAI[3] = 1;
-			monId[3] = enUmataur;
+			monId[3] = enShikoChu;
 			monAI[4] = 1;
-			monId[4] = enUmataur;
+			monId[4] = enShikoChu;
 			monAI[5] = 1;
-			monId[5] = enUmataur;
+			monId[5] = enShikoChu;
 		}
 		break;
-	case 5:
+	case 7:	//3
 		if (round == 0) {
-			monAI[3] = 1;
+			monAI[3] = 3;
 			monId[3] = enUmataur;
-			monAI[4] = 1;
-			monId[4] = enUmataur;
-			monAI[5] = 1;
-			monId[5] = enUmataur;
+			monAI[4] = 6;
+			monId[4] = enKikyo;
+			monAI[5] = 5;
+			monId[5] = enArmor;
 		}
 		if (round == 1) {
 			monAI[3] = 1;
-			monId[3] = enUmataur;
-			monAI[4] = 1;
-			monId[4] = enUmataur;
-			monAI[5] = 1;
-			monId[5] = enUmataur;
+			monId[3] = enGoblin;
+			monAI[4] = 9;
+			monId[4] = enRedHead;
+			monAI[5] = 8;
+			monId[5] = enShikoChu;
 		}
 		if (round == 2) {
-			monAI[3] = 1;
-			monId[3] = enUmataur;
-			monAI[4] = 1;
-			monId[4] = enUmataur;
-			monAI[5] = 1;
-			monId[5] = enUmataur;
-		}
-		break;
-	case 6:
-		if (round == 0) {
-			monAI[3] = 1;
-			monId[3] = enUmataur;
-			monAI[4] = 1;
-			monId[4] = enUmataur;
-			monAI[5] = 1;
-			monId[5] = enUmataur;
-		}
-		if (round == 1) {
-			monAI[3] = 1;
-			monId[3] = enUmataur;
-			monAI[4] = 1;
-			monId[4] = enUmataur;
-			monAI[5] = 1;
-			monId[5] = enUmataur;
-		}
-		if (round == 2) {
-			monAI[3] = 1;
-			monId[3] = enUmataur;
-			monAI[4] = 1;
-			monId[4] = enUmataur;
-			monAI[5] = 1;
-			monId[5] = enUmataur;
-		}
-		break;
-	case 7:
-		if (round == 0) {
-			monAI[3] = 1;
-			monId[3] = enUmataur;
-			monAI[4] = 1;
-			monId[4] = enUmataur;
-			monAI[5] = 1;
-			monId[5] = enUmataur;
-		}
-		if (round == 1) {
-			monAI[3] = 1;
-			monId[3] = enUmataur;
-			monAI[4] = 1;
-			monId[4] = enUmataur;
-			monAI[5] = 1;
-			monId[5] = enUmataur;
-		}
-		if (round == 2) {
-			monAI[3] = 1;
-			monId[3] = enUmataur;
-			monAI[4] = 1;
-			monId[4] = enUmataur;
-			monAI[5] = 1;
-			monId[5] = enUmataur;
-		}
-		if (round == 3) {
-			monAI[3] = 1;
-			monId[3] = enUmataur;
-			monAI[4] = 1;
-			monId[4] = enUmataur;
-			monAI[5] = 1;
-			monId[5] = enUmataur;
+			monAI[3] = 7;
+			monId[3] = enBook;
+			monAI[4] = 10;
+			monId[4] = enChris;
+			monAI[5] = 2;
+			monId[5] = enFairy;
 		}
 		break;
 	}

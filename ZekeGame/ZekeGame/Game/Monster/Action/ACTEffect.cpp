@@ -5,10 +5,6 @@
 
 ACTEffectGrant::~ACTEffectGrant()
 {
-	if (m_abnormal != Monster::abNull)
-	{
-		m_target->ClearAbnormalState(this);
-	}
 	m_effect->Stop();
 }
 
@@ -35,6 +31,10 @@ void ACTEffectGrant::Update()
 	}
 	if (m_time >= m_endTime) {
 		m_effect->Stop();
+		if (m_abnormal != Monster::abNull)
+		{
+			m_target->ClearAbnormalState(this);
+		}
 		DeleteGO(this);
 		return;
 	}
