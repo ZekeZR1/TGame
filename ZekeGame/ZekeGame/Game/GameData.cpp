@@ -183,7 +183,7 @@ const wchar_t* GameData::GetActionInfo(ActionID actID) {
 	case enLeave:
 		return L"逃げるんだよ";
 	case enDefense:
-		return L" 防御";
+		return L"防御";
 	case enFire:
 		return L"ファイアー";
 	case enTackle:
@@ -213,7 +213,7 @@ const wchar_t* GameData::GetActionInfo(ActionID actID) {
 	case enManaHeal:
 		return L"MPを回復";
 	case enBlizzard:
-		return L"連続ダメージ\n状態異常を付与";
+		return L"連続ダメージ\n当たった者は凍り付く";
 	case enIgnite:
 		return L"対象にやけど状態";
 	case enPoison:
@@ -221,7 +221,7 @@ const wchar_t* GameData::GetActionInfo(ActionID actID) {
 	case enThunder:
 		return L"連続ダメージ\nしびれ状態付与";
 	case enSpecialAttack:
-		return L"自分の体力を\n削って敵を攻撃";
+		return L"捨て身の特攻";
 	default:
 		return L"ないです";
 	}
@@ -272,16 +272,16 @@ const wchar_t* GameData::GetActionName(ActionID actID)
 		ws = L"Cleanse";
 		break;
 	case enBuffAtc:
-		ws = L"Attack Buff";
+		ws = L"ATK Buff";
 		break;
 	case enDebuffAtc:
-		ws = L"Attack Debuff";
+		ws = L"ATK Debuff";
 		break;
 	case enBuffDef:
-		ws = L"Defense Buff";
+		ws = L"DEF Buff";
 		break;
 	case enDebuffDef:
-		ws = L"Defense Debuff";
+		ws = L"DEF Debuff";
 		break;
 	case enClearStack:
 		ws = L"Clear Stack";
@@ -305,7 +305,7 @@ const wchar_t* GameData::GetActionName(ActionID actID)
 		ws = L"Thunder";
 		break;
 	case enSpecialAttack:
-		ws = L"Tokkou";
+		ws = L"Kamikaze";
 		break;
 	default:
 		ws = L"";

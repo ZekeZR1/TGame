@@ -16,7 +16,7 @@ bool Act_superBeam::Action(Monster* me) {
 			m_cBeam.Fire(me, m_target, L"Assets/effect/beam/Laserbeam.efk", L"Assets/sound/bom.wav", laserRange, m_damage,m_cost);
 			m_first = false;
 		}
-		else if (!me->isAnimPlay() and m_timer >= m_cooltime) {
+		else if (m_timer >= m_cooltime) {
 			me->anim_idle();
 			return true;
 		}

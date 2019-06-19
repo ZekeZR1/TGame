@@ -24,8 +24,8 @@ enum MonsterID
 
 enum ActionID
 {
-	enChase,
 	enAtack,
+	enChase,
 	enLeave,
 	enDefense,
 	enFire,
