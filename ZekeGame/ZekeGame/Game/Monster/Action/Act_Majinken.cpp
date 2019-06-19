@@ -53,6 +53,7 @@ bool Act_Majinken::Action(Monster* me) {
 	}
 	if (m_timer >= m_cooltime and !me->isAnimPlay() and m_attacked) {
 		me->anim_idle();
+		m_efk->Stop();
 		return true;
 	}
 	m_timer += 60 * IGameTime().GetFrameDeltaTime();

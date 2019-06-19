@@ -51,8 +51,8 @@ bool Act_debuffDefPow::Action(Monster* me) {
 		m_first = false;
 	}
 	else {
-		m_timer++;
-		if (!me->isAnimPlay() and m_timer >= m_cooltime)
+		m_timer+= IGameTime().GetFrameDeltaTime();
+		if (/*!me->isAnimPlay() and */m_timer >= m_cooltime)
 		{
 			//m_target->SetDefense(m_pow);
 			//m_target->SetExDefense(m_ExPow);

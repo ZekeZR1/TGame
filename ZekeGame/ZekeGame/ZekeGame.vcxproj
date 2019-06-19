@@ -1199,11 +1199,18 @@
     <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_ringo.png" />
   </ItemGroup>
   <ItemGroup>
-    <MeshContentTask Include="Assets\modelData\chris\cri.FBX" />
-    <MeshContentTask Include="Assets\modelData\shell\hotate.FBX" />
+    <None Include="Assets\modelData\chris\cri.FBX">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="Assets\modelData\shell\hotate.FBX">
+      <FileType>Document</FileType>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_cri.png" />
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_cri.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_shell.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
