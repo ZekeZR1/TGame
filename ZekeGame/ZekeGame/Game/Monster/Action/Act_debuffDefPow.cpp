@@ -21,6 +21,8 @@ bool Act_debuffDefPow::Action(Monster* me) {
 		if (mp < m_cost) return true;
 		me->SetMP(mp - m_cost);
 
+		me->SetMP(mp - m_cost);
+
 		//m_pow = m_target->GetDefense();
 		//m_target->SetDefense(m_pow * 0.5);
 		//m_ExPow = m_target->GetExDefense();
