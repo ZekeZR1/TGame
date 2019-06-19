@@ -27,11 +27,11 @@ Kikyo::Kikyo()
 
 	MonsterInitParam prm;
 	prm.HP = 80;
-	prm.MP = 30;
+	prm.MP = 300;
 	prm.DefencePow = 10;
-	prm.ExDefensePow = 0;
+	prm.ExDefensePow = 1;
 	prm.AttackPow = 10;
-	prm.ExAttackPow = 0;
+	prm.ExAttackPow = 1;
 	prm.Speed = 10;
 	prm.Radius = 50;
 	prm.Height = 150;
