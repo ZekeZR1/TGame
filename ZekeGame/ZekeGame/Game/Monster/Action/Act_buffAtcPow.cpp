@@ -20,6 +20,7 @@ bool Act_buffAtcPow::Action(Monster* me) {
 		float mp = me->GetMP();
 		if (mp < m_cost) return true;
 		me->SetMP(mp - m_cost);
+
 		/*m_pow = m_target->GetAttack();
 		m_target->SetAttackPower(m_pow * 1.5);
 		m_ExPow = m_target->GetExAttack();

@@ -19,6 +19,7 @@ bool Act_debuffDefPow::Action(Monster* me) {
 	if (m_first) {
 		float mp = me->GetMP();
 		if (mp < m_cost) return true;
+		me->SetMP(mp - m_cost);
 
 		me->SetMP(mp - m_cost);
 

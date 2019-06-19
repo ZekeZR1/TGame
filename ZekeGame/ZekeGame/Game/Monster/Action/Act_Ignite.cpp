@@ -13,6 +13,8 @@ bool Act_Ignite::Action(Monster* me) {
 	if (m_first) {
 		float mp = me->GetMP();
 		if (mp < m_cost) return true;
+		me->SetMP(mp - m_cost);
+
 		auto toTarV = m_target->Getpos() - me->Getpos();
 		if (toTarV.Length() > m_SkillRange) return true;
 
