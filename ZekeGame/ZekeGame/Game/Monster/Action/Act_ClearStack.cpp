@@ -13,6 +13,7 @@ bool Act_ClearStack::Action(Monster* me) {
 	if (m_first) {
 		float mp = me->GetMP();
 		if (mp < m_cost) return true;
+		me->SetMP(mp - m_cost);
 
 		me->anim_extra1();
 		auto m_efk = NewGO<CEffect>(0, "ef");

@@ -13,6 +13,8 @@ bool Act_Majinken::Action(Monster* me) {
 	if (m_first) {
 		float mp = me->GetMP();
 		if (mp < m_cost) return true;
+		me->SetMP(mp - m_cost);
+
 		knock = m_target->Getpos() - me->Getpos();
 		CVector3 v = m_target->Getpos() - me->Getpos();
 		float cta = atan2f(v.x, v.z);
