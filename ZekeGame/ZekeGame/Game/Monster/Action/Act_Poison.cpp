@@ -19,17 +19,17 @@ bool Act_Poison::Action(Monster* me) {
 		if (toTarV.Length() > m_SkillRange) return true;
 
 		me->anim_extra1();
-		auto ef = NewGO<CEffect>(0, "ef");
+		/*auto ef = NewGO<CEffect>(0, "ef");
 		ef->SetScale(m_efs);
 		ef->SetPosition(m_target->Getpos());
-		ef->Play(L"Assets/effect/poison.efk");
+		ef->Play(L"Assets/effect/poison.efk");*/
 		auto m_efk = NewGO<CEffect>(0, "ef");
 		m_efk->SetScale(m_efs);
 		m_efk->SetPosition(m_target->Getpos());
-		m_efk->Play(L"Assets/effect/DOCDOC.efk");
+		m_efk->Play(L"Assets/effect/poison.efk");
 
 		ACTEffectGrant* actEG = NewGO<ACTEffectGrant>(0, "actEG");
-		actEG->init(m_efk, m_target, ACTEffectGrant::State::enDoT, 0, 0, 100,me,0);
+		actEG->init(m_efk, m_target, ACTEffectGrant::State::enDoT, 0, 0, 100,me,m_damage);
 		m_target->SetAbnormalState(actEG);
 
 		Sound* snd = NewGO<Sound>(0, "snd");
