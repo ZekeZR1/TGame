@@ -20,6 +20,7 @@ bool Act_buffDefPow::Action(Monster* me) {
 	if (m_first) {
 		float mp = me->GetMP();
 		if (mp < m_cost) return true;
+		me->SetMP(mp - m_cost);
 
 		//m_pow = m_target->GetDefense();
 		//m_target->SetDefensePower(m_pow * 1.5);

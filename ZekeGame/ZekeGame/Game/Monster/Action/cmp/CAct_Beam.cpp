@@ -4,7 +4,7 @@
 #include "../ACTEffect.h"
 #include "../../../GameData.h"
 
-void CAct_Beam::Fire(Monster* me, Monster* target, const wchar_t* effectPath, const wchar_t* soundPath, float range, float baseDamage, CVector3 effectScale) {
+void CAct_Beam::Fire(Monster* me, Monster* target, const wchar_t* effectPath, const wchar_t* soundPath, float range, float baseDamage, float cost, CVector3 effectScale) {
 
 	RotateToTarget(me, target);
 	m_beamefk = NewGO<CEffect>(0);
@@ -31,12 +31,17 @@ void CAct_Beam::Fire(Monster* me, Monster* target, const wchar_t* effectPath, co
 
 	m_me = me;
 	m_baseDamage = baseDamage;
+	m_cost = cost;
 }
 
 
 bool CAct_Beam::DamageCalc() {
 	if (!m_beamefk->IsPlay()) return true;
-
+	if (m_me->GetMP() - m_cost <= 0) {
+		m_beamefk->Stop();
+		return true;
+	}
+	m_me->SetMP(m_me->GetMP() - m_cost);
 	for (auto mon : g_mons) {
 		if (mon == nullptr or mon == m_me) continue;
 		if (!IsHitting(mon, m_me)) continue;
