@@ -40,7 +40,7 @@ Ringo::Ringo()
 
 	init(prm);
 
-	m_ID = enRingo;
+	//m_ID = enRingo;
 	int cnt = 0;
 	ActionID* ua = GameData::GetMonsterActions(m_ID, cnt);
 	SetUseAction(ua, cnt);

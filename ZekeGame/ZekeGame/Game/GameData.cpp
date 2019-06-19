@@ -10,6 +10,7 @@
 #include "Monster/Monsters/kikyo.h"
 #include "Monster/Monsters/ShikoChu.h"
 #include "Monster/Monsters/Ringo.h"
+#include "Monster/Monsters/Chris.h"
 
 
 Monster* g_mons[64];
@@ -76,8 +77,11 @@ Monster * GameData::LoadMonster(int monID)
 	case enShikoChu:
 		mon = NewGO<ShikoChu>(0, "monster");
 		break;
-	case enRingo:
+	/*case enRingo:
 		mon = NewGO<Ringo>(0, "monster");
+		break;*/
+	case enChris:
+		mon = NewGO<Chris>(0, "monster");
 		break;
 	}
 	return mon;
@@ -114,8 +118,14 @@ const wchar_t * GameData::GetMonsterIconPath(int monID)
 	case enShikoChu:
 		return L"Assets/sprite/mon_bug.dds";
 		break;
-	case enRingo:
+	/*case enRingo:
 		return L"Assets/sprite/mon_ringo.dds";
+		break;*/
+	case enChris:
+		return L"Assets/sprite/mon_cri.dds";
+		break;
+	case enShell:
+		return L"Assets/sprite/mon_shell.dds";
 		break;
 	}
 	return nullptr;
@@ -151,9 +161,13 @@ const wchar_t* GameData::GetMonsterName(MonsterID id) {
 	case enShikoChu:
 		return L"死光虫";
 		break;
-	case enRingo:
+	/*case enRingo:
 		return L"りんごちゃん";
-		break;
+		break;*/
+	case enChris:
+		return L"クリス";
+	case enShell:
+		return L"シェル";
 	default:
 		assert(false);
 		break;
@@ -405,7 +419,7 @@ ActionID* GameData::GetMonsterActions(int monsterID, int& count)
 		ua[enAtack] = enSpecialAttack;
 		ua[enChase] = enChase;
 		break;
-	case enRingo:
+	/*case enRingo:
 		count = 6;
 		ua = new ActionID[count];
 		ua[enAtack] = enAtack;
@@ -413,7 +427,27 @@ ActionID* GameData::GetMonsterActions(int monsterID, int& count)
 		ua[enLeave] = enActNone;
 		ua[enDefense] = enDefense;
 		ua[4] = enTackle;
-		ua[5] = enMajinken;
+		ua[5] = enMajinken;*/
+	case enChris:
+		count = 6;
+		ua = new ActionID[count];
+		ua[enAtack] = enAtack;
+		ua[enChase] = enChase;
+		ua[enLeave] = enLeave;
+		ua[enDefense] = enDefense;
+		ua[4] = enBlizzard;
+		ua[5] = enSuperBeam;
+		break;
+	case enShell:
+		count = 6;
+		ua = new ActionID[count];
+		ua[enAtack] = enAtack;
+		ua[enChase] = enChase;
+		ua[enLeave] = enLeave;
+		ua[enDefense] = enDefense;
+		ua[4] = enBlizzard;
+		ua[5] = enSuperBeam;
+		break;
 		break;
 	}
 	return ua;
