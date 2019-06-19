@@ -8,6 +8,9 @@ Act_Blizzard::Act_Blizzard() {
 	m_ActionId = enBlizzard;
 }
 
+Act_Blizzard::~Act_Blizzard() {
+}
+
 bool Act_Blizzard::Action(Monster* me) {
 	if (m_target == nullptr and m_timer >= m_cooltime) return true;
 

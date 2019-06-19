@@ -35,15 +35,15 @@ public:
 		float v[2];
 	};
 
-	double norm() { return x * x + y * y; }
+	double norm() { return (x * x) + (y * y); }
 
 
 	static double cross(CVector2 a, CVector2 b) {
-		return a.x * b.y - a.y * b.x;
+		return (a.x * b.y) - (a.y * b.x);
 	}
 
 	static double dot(CVector2 a, CVector2 b) {
-		return a.x * b.x + a.y * b.y;
+		return (a.x * b.x) + (a.y * b.y);
 	}
 
 	static  CLOCKWISE ccw(CVector2 a, CVector2 b) {
