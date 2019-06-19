@@ -93,7 +93,7 @@ void ShowMonsters::InitButtons() {
 	m_quitSp->SetPosition({ 0,-300,0 });
 
 	m_totalPage = (static_cast<int>(enNumMonster)  - 1)  / nButtonMax;
-	InitSideButtons();
+	//InitSideButtons();
 }
 
 void ShowMonsters::ButtonUpdate() {
@@ -114,7 +114,7 @@ void ShowMonsters::ButtonUpdate() {
 		DeleteGO(this);
 	}
 
-	ChangePage();
+	//ChangePage();
 
 }
 
