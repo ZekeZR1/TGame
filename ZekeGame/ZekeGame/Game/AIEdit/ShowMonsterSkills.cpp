@@ -66,7 +66,9 @@ void ShowMonsterSkills::Update() {
 			PlayButtonSE();
 			DeleteGO(this);
 		}
-		m_quitSp->SetMulCol(CVector4::White * 1.2);
+		auto mulcol = CVector4::White * 1.2;
+		mulcol.w = 1.f;
+		m_quitSp->SetMulCol(mulcol);
 	}
 	else {
 		m_quitSp->SetMulCol(CVector4::White);
