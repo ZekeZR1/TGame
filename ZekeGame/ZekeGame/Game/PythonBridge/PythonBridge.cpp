@@ -4,6 +4,8 @@
 #include "../Monster/MonsterAction.h"
 #include "../Monster/MonsterActionManeger.h"
 
+#include "include/structmember.h"
+
 //#include "../GameData.h"
 //#include "../Monster/Monster.h"
 Monster* ME = nullptr;
@@ -363,6 +365,45 @@ static PyObject* SetAction(PyObject* self, PyObject* args)
 	return pnull;
 }
 
+typedef struct
+{
+	PyObject_HEAD
+	double x;
+	double y;
+	double z;
+}MVector3;
+
+static PyTypeObject MVector3Type = {
+	PyVarObject_HEAD_INIT(NULL,0)
+};
+
+static PyMemberDef MVector3Members[] =
+{
+	{(char*)"x",T_FLOAT,offsetof(MVector3,x),0,(char*)""},
+	{(char*)"y",T_FLOAT,offsetof(MVector3,y),0,(char*)""},
+	{(char*)"z",T_FLOAT,offsetof(MVector3,z),0,(char*)""},
+	{NULL}
+};
+
+void MVector3init()
+{
+	MVector3Type.tp_name = "SendGame.Vector3";
+	MVector3Type.tp_doc = "";
+	MVector3Type.tp_basicsize = sizeof(MVector3);
+	MVector3Type.tp_itemsize = 0;
+	MVector3Type.tp_flags = Py_TPFLAGS_DEFAULT;
+	MVector3Type.tp_new = PyType_GenericNew;
+
+	MVector3Type.tp_members = MVector3Members;
+}
+
+
+
+void MVector3setVector(PyObject* self, PyObject* x, PyObject* y, PyObject* z)
+{
+
+}
+
 //moduleì‡ÇÃä÷êîÇΩÇø
 static PyMethodDef methods[] =
 {
@@ -584,6 +625,7 @@ void PythonBridge::py_exe(int num,int team,const char* file)
 	PyTypeObject* pNclass;
 	PyMethodDef pMet;
 	//pMet.
+	
 
 	PyObject *pName, *pModule, *pFunction, *pArgs, *pValue;
 
