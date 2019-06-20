@@ -245,9 +245,11 @@ void MonsterActionList::Update()
 			float len = wcslen(ws);
 			float sc = len <= 7 ? 0.7f : 0.7f - (((len - 7.f)*0.08f) - (len-7.f)*0.008f);
 
+			float up = 3.f;
+
 			//todo: フォント変更座標変更
-			m_frs[i]->Init(ws, { p.x,p.y +45-5+/*これ→*/8}, 0, CVector4::White, sc, { 0,0 });
-			m_Sfrs[i]->Init(ws, { p.x+5,p.y + 45-5-5+/**/8 }, 0, {0,0,0,1}, sc, { 0,0 });
+			m_frs[i]->Init(ws, { p.x,p.y +40.f+8.f+up}, 0, CVector4::White, sc, { 0,0 });
+			m_Sfrs[i]->Init(ws, { p.x+5,p.y+40.f-5.f+8.f+up }, 0, {0,0,0,1}, sc, { 0,0 });
 		}
 
 		m_len = len;

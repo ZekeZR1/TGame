@@ -401,11 +401,13 @@ static PyModuleDef pModule =
 	NULL,
 	NULL
 };
+PyObject* thisModule = nullptr;
 
 //moduleの初期化
 static PyObject* initModule(void)
 {
-	return PyModule_Create(&pModule);
+	thisModule = PyModule_Create(&pModule);
+	return thisModule;
 }
 
 
@@ -493,6 +495,14 @@ bool py_exe(int num, int team, const char* file)
 
 		PyImport_AppendInittab("SendGame", initModule);
 
+		/*for (int i = 0; i < MonsterID::enNumMonster; i++)
+		{
+			PyObject* v;
+			v = PyLong_FromLong(i);
+
+			
+		}*/
+
 		PyObject *pName, *pModule, *pFunction, *pArgs, *pValue;
 
 		Py_Initialize();
@@ -530,6 +540,7 @@ bool py_exe(int num, int team, const char* file)
 	return true;
 }
 
+/*これ！！！*/
 //pythonを実行するゾ。
 void PythonBridge::py_exe(int num,int team,const char* file)
 {

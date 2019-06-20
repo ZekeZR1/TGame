@@ -46,6 +46,7 @@ enum ActionID
 	enPoison,
 	enThunder,
 	enSpecialAttack,
+	enNumAction,
 	enActNone = 999
 };
 

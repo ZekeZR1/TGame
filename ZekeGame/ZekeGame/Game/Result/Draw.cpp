@@ -57,7 +57,9 @@ void BattleDraw::Update()
 		}
 		if (isEND)
 		{
-			DeleteGO(FindGO<Game>("Game"));
+			Game* game = FindGO<Game>("Game");
+			m_monsel = game->GetGameMode();
+			DeleteGO(game);
 			DeleteGO(this);
 			switch (m_monsel)
 			{
