@@ -62,8 +62,9 @@ void ShowMonsterSkills::Update() {
 	if (m_quitSp->isCollidingTarget()) {
 		if (Mouse::isTrigger(enLeftClick)) {
 			auto smc = FindGO<ShowMonsters>("MonstersInfo");
-				smc->SetWindowActive(true);
-				DeleteGO(this);
+			smc->SetWindowActive(true);
+			PlayButtonSE();
+			DeleteGO(this);
 		}
 		m_quitSp->SetMulCol(CVector4::White * 1.2);
 	}
