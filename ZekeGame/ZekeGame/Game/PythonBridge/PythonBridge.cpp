@@ -568,6 +568,19 @@ void PythonBridge::py_exe(int num,int team,const char* file)
 	PyImport_AppendInittab("SendGame", initModule);
 	Py_InitializeEx(1);
 
+	for (int i = 0; i < ActionID::enNumAction; i++)
+	{
+		size_t s = 0;
+		const wchar_t* ws = GameData::GetActionName((ActionID)i);
+		char st[256] = {0};
+		wcstombs_s(&s,st, ws, wcslen(ws));
+		PyModule_AddIntConstant(thisModule, st,i);
+	}
+	for (int i = 0; i < MonsterID::enNumMonster; i++)
+	{
+		PyModule_AddIntConstant(thisModule, GameData::GetMonsterNameMulti((MonsterID)i), i);
+	}
+
 	PyObject *pName, *pModule, *pFunction, *pArgs, *pValue;
 
 	//pName = PyUnicode_DecodeFSDefault(file);

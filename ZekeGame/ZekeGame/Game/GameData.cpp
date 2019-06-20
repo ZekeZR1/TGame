@@ -174,6 +174,50 @@ const wchar_t* GameData::GetMonsterName(MonsterID id) {
 	}
 }
 
+const char* GameData::GetMonsterNameMulti(MonsterID monID)
+{
+	switch (monID)
+	{
+	case enTest:
+		return "testMons";
+		break;
+	case enUmataur:
+		return "Uma";
+		break;
+	case enFairy:
+		return "Yose";
+		break;
+	case enArmor:
+		return "Armor";
+		break;
+	case enGoblin:
+		return "Goblin";
+		break;
+	case enBook:
+		return "Book";
+		break;
+	case enRedHead:
+		return "RedHead";
+		break;
+	case enKikyo:
+		return "Kikyo";
+		break;
+	case enShikoChu:
+		return "SicoChu";
+		break;
+	case enRingo:
+		return "Ringo";
+		break;
+	case enChris:
+		return "Chris";
+	case enShell:
+		return "Shell";
+	default:
+		assert(false);
+		break;
+	}
+}
+
 const wchar_t* GameData::GetActionInfo(ActionID actID) {
 	switch (actID) {
 	case enChase:

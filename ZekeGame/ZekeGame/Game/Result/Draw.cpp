@@ -6,6 +6,7 @@
 #include "../Game.h"
 
 #include "../Dungeon/DungeonAISelect.h"
+#include "../Dungeon/DungeonGame.h"
 #include "../Title/pvpModeSelect.h"
 #include "../NetPVP/NetAISelect.h"
 
@@ -70,6 +71,8 @@ void BattleDraw::Update()
 				NewGO<NetAISelect>(0, "pvp");
 				break;
 			case Game::enDungeon:
+				DeleteGO(FindGO<DungeonGame>("DungeonGame"));
+
 				auto da = NewGO<DungeonAISelect>(0,"pvp");
 				da->SetDungeonNumber(m_dunNum);
 				break;
