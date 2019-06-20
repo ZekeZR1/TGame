@@ -1215,6 +1215,9 @@
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\dungeon\gorgeousWall.fbx" />
   </ItemGroup>
+  <ItemGroup>
+    <ImageContentTask Include="Assets\Sprite\AIEdit\closeButton.png" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="$(VCTargetsPath)\BuildCustomizations\ImageContentTask.targets" />

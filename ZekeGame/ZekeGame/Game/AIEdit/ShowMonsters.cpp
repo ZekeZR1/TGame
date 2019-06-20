@@ -54,7 +54,7 @@ void ShowMonsters::InitFont() {
 		auto font = NewGO<FontRender>(17);
 		font->SetTextType(CFont::en_Japanese);
 		font->Init(GameData::GetMonsterName(static_cast<MonsterID>(i)));
-		font->SetScale(0.7);
+		font->SetScale(0.5);
 		m_MonsterNames.push_back(font);;
 	}
 }
@@ -89,7 +89,7 @@ void ShowMonsters::InitButtons() {
 	}
 
 	m_quitSp = NewGO<SpriteRender>(19);
-	m_quitSp->Init(L"Assets/Sprite/deletepoint.dds", 100, 50);
+	m_quitSp->Init(L"Assets/Sprite/closeButton.dds", 100, 50);
 	m_quitSp->SetPosition({ 0,-300,0 });
 
 	m_totalPage = (static_cast<int>(enNumMonster)  - 1)  / nButtonMax;
@@ -117,14 +117,18 @@ void ShowMonsters::ButtonUpdate() {
 	}
 	//•Â‚¶‚é
 	m_quitSp->SetCollisionTarget(m_cur->GetCursor());
-	if (m_quitSp->isCollidingTarget() and Mouse::isTrigger(enLeftClick)) {
-		auto aieditnodeselectbuttons = FindGO<AIEditNodeSelectButtons>("selectbuttons");
-		aieditnodeselectbuttons->Setmenuselect(false);
-		DeleteGO(this);
+	if (m_quitSp->isCollidingTarget()) {
+		if (Mouse::isTrigger(enLeftClick)) {
+			auto aieditnodeselectbuttons = FindGO<AIEditNodeSelectButtons>("selectbuttons");
+			aieditnodeselectbuttons->Setmenuselect(false);
+			DeleteGO(this);
+		}
+		m_quitSp->SetMulCol(CVector4::White * 1.2);
 	}
-
+	else {
+		m_quitSp->SetMulCol(CVector4::White);
+	}
 	//ChangePage();
-
 }
 
 void ShowMonsters::ChangePage() {
