@@ -20,6 +20,10 @@ public:
 		menuselect = a;
 	}
 
+	bool GetMenuSelect() {
+		return menuselect;
+	}
+
 private:
 
 	bool menuselect = false;
