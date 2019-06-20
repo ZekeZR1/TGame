@@ -106,6 +106,7 @@ void ShowMonsters::ButtonUpdate() {
 			{
 				auto sms = NewGO<ShowMonsterSkills >(15);
 				sms->SetMonster(m_spId[i]);
+				PlayButtonSE();
 				m_isActive = false;
 			}
 			i->SetMulCol(CVector4::White * 1.2f);
@@ -121,6 +122,7 @@ void ShowMonsters::ButtonUpdate() {
 		if (Mouse::isTrigger(enLeftClick)) {
 			auto aieditnodeselectbuttons = FindGO<AIEditNodeSelectButtons>("selectbuttons");
 			aieditnodeselectbuttons->Setmenuselect(false);
+			PlayButtonSE();
 			DeleteGO(this);
 		}
 		m_quitSp->SetMulCol(CVector4::White * 1.2);

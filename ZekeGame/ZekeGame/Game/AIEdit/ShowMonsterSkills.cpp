@@ -8,8 +8,8 @@ bool ShowMonsterSkills::Start() {
 	m_backSp->Init(L"Assets/sprite/menu.dds", 600, 720);
 
 	m_quitSp = NewGO<SpriteRender>(25);
-	m_quitSp->Init(L"Assets/sprite/closeButton.dds", 50, 50,true,false);
-	m_quitSp->SetPosition({ 280,330,0 });
+	m_quitSp->Init(L"Assets/sprite/closeButton.dds", 80, 40,true,false);
+	m_quitSp->SetPosition({ 270,340,0 });
 
 	m_cur = FindGO<GameCursor>("cursor");
 
@@ -62,10 +62,13 @@ void ShowMonsterSkills::Update() {
 	if (m_quitSp->isCollidingTarget()) {
 		if (Mouse::isTrigger(enLeftClick)) {
 			auto smc = FindGO<ShowMonsters>("MonstersInfo");
-				smc->SetWindowActive(true);
-				DeleteGO(this);
+			smc->SetWindowActive(true);
+			PlayButtonSE();
+			DeleteGO(this);
 		}
-		m_quitSp->SetMulCol(CVector4::White * 1.2);
+		auto mulcol = CVector4::White * 1.2;
+		mulcol.w = 1.f;
+		m_quitSp->SetMulCol(mulcol);
 	}
 	else {
 		m_quitSp->SetMulCol(CVector4::White);
