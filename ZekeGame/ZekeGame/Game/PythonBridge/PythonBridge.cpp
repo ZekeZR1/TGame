@@ -406,7 +406,7 @@ PyObject* thisModule = nullptr;
 //moduleÇÃèâä˙âª
 static PyObject* initModule(void)
 {
-	thisModule = PyModule_Create(&pModule);
+	
 	return thisModule;
 }
 
@@ -568,6 +568,7 @@ void PythonBridge::py_exe(int num,int team,const char* file)
 	PyImport_AppendInittab("SendGame", initModule);
 	Py_InitializeEx(1);
 
+	thisModule = PyModule_Create(&pModule);
 	for (int i = 0; i < ActionID::enNumAction; i++)
 	{
 		size_t s = 0;
