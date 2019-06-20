@@ -138,19 +138,19 @@ const wchar_t* GameData::GetMonsterName(MonsterID id) {
 		return L"テスト";
 		break;
 	case enUmataur:
-		return L"馬タウロス";
+		return L"ウマタウロス";
 		break;
 	case enFairy:
 		return L" 妖精";
 		break;
 	case enArmor:
-		return L" 鎧";
+		return L" 鎧の怪";
 		break;
 	case enGoblin:
 		return L"ゴブリン";
 		break;
 	case enBook:
-		return L"本";
+		return L"魔本";
 		break;
 	case enRedHead:
 		return L"レッドヘッド";

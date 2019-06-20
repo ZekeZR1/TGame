@@ -13,7 +13,7 @@ bool ShowMonsters::Start() {
 
 	m_backSp = NewGO<SpriteRender>(15);
 	//m_backSp->Init(L"Assets/sprite/modesel_back.dds", 1000.f, 720.f);
-	m_backSp->Init(L"Assets/sprite/AIbrawser.dds", 1000.f, 720.f);
+	m_backSp->Init(L"Assets/sprite/AIbrawser.dds", 910.f, 720.f);
 
 	InitFont();
 	InitButtons();
@@ -100,10 +100,19 @@ void ShowMonsters::ButtonUpdate() {
 	//モンスターのスキルを表示する
 	for (auto i : m_frames) {
 		i->SetCollisionTarget(m_cur->GetCursor());
-		if (i->isCollidingTarget() and Mouse::isTrigger(enLeftClick)) {
-			auto sms = NewGO<ShowMonsterSkills > (15);
-			sms->SetMonster(m_spId[i]);
-			m_isActive = false;
+		if (i->isCollidingTarget())
+		{
+			if (Mouse::isTrigger(enLeftClick)) 
+			{
+				auto sms = NewGO<ShowMonsterSkills >(15);
+				sms->SetMonster(m_spId[i]);
+				m_isActive = false;
+			}
+			i->SetMulCol(CVector4::White * 1.2f);
+		}
+		else
+		{
+			i->SetMulCol(CVector4::White);
 		}
 	}
 	//閉じる

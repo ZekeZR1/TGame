@@ -207,21 +207,9 @@ void DungeonResult::CameraSet() {
 	m_cam->SetPos(m_firstpos);
 	m_cam->SetTar(m_firsttar);
 
-	m_lastpos = { -35,50,50 };
-	m_lasttar = { 0,55,0 };
-	switch (g_mons[0]->GetID())
-	{
-	case enTest:
-		break;
-	case enUmataur:
-		m_lastpos = { -20,150,72 };
-		m_lasttar = { 30,165,0 };
-		break;
-	case enFairy:
-		m_lastpos = { -35,90,50 };
-		m_lasttar = { 0,90,0 };
-		break;
-	}
+	float hie = g_mons[0]->Getheight();
+	m_lastpos = { hie / -13 + hie / -5, hie / 2 + hie / 7.3f, hie / 10 + hie / 4 };
+	m_lasttar = { 15, hie / 2 + hie / 7.f, 0 };
 
 	m_addpos = (m_lastpos - m_firstpos) / 8.0f;
 	m_addtar = (m_lasttar - m_firsttar) / 8.0f;
