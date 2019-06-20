@@ -8,8 +8,8 @@ bool ShowMonsterSkills::Start() {
 	m_backSp->Init(L"Assets/sprite/menu.dds", 600, 720);
 
 	m_quitSp = NewGO<SpriteRender>(25);
-	m_quitSp->Init(L"Assets/sprite/closeButton.dds", 50, 50,true,false);
-	m_quitSp->SetPosition({ 280,330,0 });
+	m_quitSp->Init(L"Assets/sprite/closeButton.dds", 80, 40,true,false);
+	m_quitSp->SetPosition({ 270,340,0 });
 
 	m_cur = FindGO<GameCursor>("cursor");
 
