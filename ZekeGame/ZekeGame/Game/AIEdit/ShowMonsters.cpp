@@ -50,7 +50,7 @@ void ShowMonsters::InitSideButtons() {
 }
 
 void ShowMonsters::InitFont() {
-	for (int i = 1; i < enNumMonster; i++) {
+	for (int i = 0; i < enNumMonster; i++) {
 		auto font = NewGO<FontRender>(17);
 		font->SetTextType(CFont::en_Japanese);
 		font->Init(GameData::GetMonsterName(static_cast<MonsterID>(i)));
@@ -74,7 +74,7 @@ void ShowMonsters::InitButtons() {
 			pos.y = m_basePos.y;
 			pos.x += 1500.f;
 		}
-		auto path = GameData::GetMonsterIconPath(i+1);
+		auto path = GameData::GetMonsterIconPath(i);
 		auto sp = NewGO<SpriteRender>(16);
 		sp->Init(path, 150.f, 150.f);
 		sp->SetPosition(pos);
@@ -85,7 +85,7 @@ void ShowMonsters::InitButtons() {
 		frame->Init(L"Assets/sprite/buttyon.dds", 290, 190, true);
 		frame->SetPosition({ pos.x + 70,pos.y,pos.z });
 		m_frames.push_back(frame);
-		m_spId[frame] = static_cast<MonsterID>(i + 1);
+		m_spId[frame] = static_cast<MonsterID>(i);
 	}
 
 	m_quitSp = NewGO<SpriteRender>(19);
