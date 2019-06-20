@@ -581,6 +581,9 @@ void PythonBridge::py_exe(int num,int team,const char* file)
 	{
 		PyModule_AddIntConstant(thisModule, GameData::GetMonsterNameMulti((MonsterID)i), i);
 	}
+	PyTypeObject* pNclass;
+	PyMethodDef pMet;
+	//pMet.
 
 	PyObject *pName, *pModule, *pFunction, *pArgs, *pValue;
 
@@ -592,7 +595,7 @@ void PythonBridge::py_exe(int num,int team,const char* file)
 		pName = PyUnicode_DecodeFSDefault("PythonEnemyAIs._MiddleExecute");
 	pModule = PyImport_Import(pName);
 	Py_DECREF(pName);
-
+	
 	pFunction = PyObject_GetAttrString(pModule, "execute");
 
 	pArgs = PyTuple_New(3);

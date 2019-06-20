@@ -368,8 +368,8 @@ TestmonsID = 0
 UmataurID = 1
 FairyID = 2
 
-Uma = 1
-Yousei = 2
+Uma = SendGame.Uma
+Yousei = SendGame.Yose
 
 def GetMonsStateHP(id):
     hp = 1
