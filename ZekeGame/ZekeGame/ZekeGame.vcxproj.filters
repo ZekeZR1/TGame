@@ -2052,9 +2052,6 @@
     <None Include="Assets\modelData\RedHead\RedHead.fbx">
       <Filter>Assets\model</Filter>
     </None>
-    <None Include="Assets\modelData\si_bug\si_bug.FBX">
-      <Filter>Assets\model</Filter>
-    </None>
     <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_redHead.png">
       <Filter>Assets\Sprite\MonSelect</Filter>
     </None>
@@ -2241,6 +2238,9 @@
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\dungeon\gorgeousWall.fbx">
+      <Filter>Assets\model</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\si_bug\si_bug.FBX">
       <Filter>Assets\model</Filter>
     </MeshContentTask>
   </ItemGroup>

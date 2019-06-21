@@ -9,7 +9,7 @@ class GameMenu;
 class Fade;
 
 class ReadyGO;
-struct Pyinit;
+
 
 class Game : public GameObject
 {
@@ -48,7 +48,6 @@ public:
 		m_eneRate = rate;
 	}
 private:
-	Pyinit* m_pi;
 	SkinModelRender* m_model;
 	SkinModelRender* m_floor;
 
