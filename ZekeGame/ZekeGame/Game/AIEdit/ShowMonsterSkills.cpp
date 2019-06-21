@@ -8,8 +8,8 @@ bool ShowMonsterSkills::Start() {
 	m_backSp->Init(L"Assets/sprite/menu.dds", 600, 720);
 
 	m_quitSp = NewGO<SpriteRender>(25);
-	m_quitSp->Init(L"Assets/sprite/deletepoint.dds", 50, 50,true,false);
-	m_quitSp->SetPosition({ 280,330,0 });
+	m_quitSp->Init(L"Assets/sprite/closeButton.dds", 80, 40,true,false);
+	m_quitSp->SetPosition({ 270,340,0 });
 
 	m_cur = FindGO<GameCursor>("cursor");
 
@@ -26,7 +26,7 @@ bool ShowMonsterSkills::Start() {
 		m_sps.push_back(sp);
 		auto fr = NewGO<FontRender>(20);
 		fr->SetTextType(CFont::en_Japanese);
-		fr->Init(m_defSkillNamesStr[i].c_str(), { pos.x - 50,pos.y  + 25});
+		fr->Init(m_defSkillNamesStr[i].c_str(), { pos.x - 40 - 14 * (m_defSkillNamesStr[i].length() - 2),pos.y  + 20},0,CVector4::White,0.8f);
 		fr->DrawShadow();
 		m_defSkillNamesFR.push_back(fr);
 		//‹ZÚ×î•ñ
@@ -59,10 +59,19 @@ void ShowMonsterSkills::OnDestroy() {
 
 void ShowMonsterSkills::Update() {
 	m_quitSp->SetCollisionTarget(m_cur->GetCursor());
-	if (m_quitSp->isCollidingTarget() and Mouse::isTrigger(enLeftClick)) {
-		auto smc = FindGO<ShowMonsters>("MonstersInfo");
-		smc->SetWindowActive(true);
-		DeleteGO(this);
+	if (m_quitSp->isCollidingTarget()) {
+		if (Mouse::isTrigger(enLeftClick)) {
+			auto smc = FindGO<ShowMonsters>("MonstersInfo");
+			smc->SetWindowActive(true);
+			PlayButtonSE();
+			DeleteGO(this);
+		}
+		auto mulcol = CVector4::White * 1.2;
+		mulcol.w = 1.f;
+		m_quitSp->SetMulCol(mulcol);
+	}
+	else {
+		m_quitSp->SetMulCol(CVector4::White);
 	}
 }
 

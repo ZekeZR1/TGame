@@ -24,10 +24,10 @@ MonsterDrop::~MonsterDrop()
 bool MonsterDrop::Start() {
 	std::random_device rnd;
 	auto drop = rnd() % 100;
-	if (drop >= 50 - m_stage) {
-		ToDungeonSelect();
-		return true;
-	}
+	//if (drop >= 50 - m_stage) {
+	//	ToDungeonSelect();
+	//	return true;
+	//}
 	m_egg = NewGO<DropEgg>(0);
 	InitCamera();
 	InitUI();
@@ -63,6 +63,12 @@ void MonsterDrop::OnDestroy() {
 void MonsterDrop::Update() {
 	SceneTransition();
 	Notifications();
+#if _DEBUG
+	if (g_pad[0].IsTrigger(enButtonA)) {
+		DeleteGO(this);
+		NewGO<MonsterDrop>(0);
+	}
+#endif
 }
 
 

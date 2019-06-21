@@ -37,7 +37,7 @@ bool Game::Start() {
 	m_fade->FadeIn();
 	m_fade->SetSpeed(5);
 
-	m_pi = new Pyinit;
+	//m_pi = new Pyinit;
 	NewGO<MonsterActionManeger>(0, "MAM");
 	m_model = NewGO<SkinModelRender>(0, "model");
 	m_model->SetShadowCasterFlag(false);
@@ -104,7 +104,7 @@ void Game::OnDestroy() {
 		//Engine::IEngine().DestroyNetworkSystem();
 	}
 	RatingSystem().ClosePopup();
-	delete m_pi;
+	//delete m_pi;
 
 	if(camera!=nullptr)
 		delete camera;

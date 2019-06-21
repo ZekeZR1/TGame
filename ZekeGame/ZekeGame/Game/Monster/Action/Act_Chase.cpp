@@ -2,10 +2,11 @@
 #include "Act_Chase.h"
 //#include "MonsterAction.h"
 #include "../Monster.h"
+#include "../../GameData.h"
 
 Act_Chase::Act_Chase()
 {
-	m_ActionId = 0;
+	m_ActionId = ActionID::enChase;
 }
 
 bool Act_Chase::Action(Monster* me)
