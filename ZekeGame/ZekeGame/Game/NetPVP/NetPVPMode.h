@@ -69,6 +69,8 @@ private:
 	CVector3 m_bbPos = { -500,-300,0 };
 	FontRender* m_font = nullptr;
 	ReturnButton* m_returnButton = nullptr;			//–ß‚éƒ{ƒ^ƒ“
+	CVector2 m_waitingFontPos = { -180.f,320.f };
+	CVector2 m_findFontPos = { -270.f,320.f };
 	//other
 	GameCursor* m_cur = nullptr;
 	LoadBalancingListener* m_lbl = nullptr;
