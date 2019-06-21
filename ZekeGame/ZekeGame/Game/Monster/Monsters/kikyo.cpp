@@ -26,12 +26,12 @@ Kikyo::Kikyo()
 	sr->SetPosition(CVector3::Zero());
 
 	MonsterInitParam prm;
-	prm.HP = 40;
-	prm.MP = 150;
+	prm.HP = 50;
+	prm.MP = 180;
 	prm.DefencePow = 5;
 	prm.ExDefensePow = 10;
 	prm.AttackPow = 10;
-	prm.ExAttackPow = 10;
+	prm.ExAttackPow = 6;
 	prm.Speed = 10;
 	prm.Radius = 50;
 	prm.Height = 150;

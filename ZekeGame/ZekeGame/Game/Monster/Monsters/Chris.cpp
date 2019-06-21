@@ -31,9 +31,9 @@ Chris::Chris()
 	prm.HP = 80;
 	prm.MP = 50;
 	prm.DefencePow = 10;
-	prm.ExDefensePow = 0;
+	prm.ExDefensePow = 5;
 	prm.AttackPow = 10;
-	prm.ExAttackPow = 0;
+	prm.ExAttackPow = 5;
 	prm.Speed = 10;
 	prm.Radius = 50;
 	prm.Height = 300;
