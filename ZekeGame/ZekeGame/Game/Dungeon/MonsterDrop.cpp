@@ -24,10 +24,10 @@ MonsterDrop::~MonsterDrop()
 bool MonsterDrop::Start() {
 	std::random_device rnd;
 	auto drop = rnd() % 100;
-	//if (drop >= 50 - m_stage) {
-	//	ToDungeonSelect();
-	//	return true;
-	//}
+	if (drop >= 50 - m_stage) {
+		ToDungeonSelect();
+		return true;
+	}
 	m_egg = NewGO<DropEgg>(0);
 	InitCamera();
 	InitUI();
@@ -113,15 +113,17 @@ void MonsterDrop::Notifications() {
 	if (m_isInited)
 		return;
 	auto name = m_egg->GetMonsterName();
+	auto namesize = sizeof(name) / sizeof(wchar_t);
+	m_fontFix = namesize * 12;
 	wchar_t q = L'?';
 	if(wcschr(name, q) != nullptr)
 		return;
 	wchar_t notify[] = L"‚ðƒQƒbƒg‚µ‚Ü‚µ‚½";
 	wcscat(name,notify);
-	m_notifyFont->Init(name, { m_notifyLinePos.x - 250.f ,m_notifyLinePos.y + 20.f});
+	m_notifyFont->Init(name, { m_notifyLinePos.x - 250.f - m_fontFix ,m_notifyLinePos.y + 20.f});
 	m_notifyFont->DrawShadow();
 	m_notifySp = NewGO<SpriteRender>(0);
-	m_notifySp->Init(L"Assets/Sprite/notifyLine.dds", 650.f, 80.f);
+	m_notifySp->Init(L"Assets/Sprite/notifyLine.dds", 750.f, 80.f);
 	m_notifySp->SetPosition(m_notifyLinePos);
 
 	m_nextfont = NewGO<FontRender>(5, "fr");
