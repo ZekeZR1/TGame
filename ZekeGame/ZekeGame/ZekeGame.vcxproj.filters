@@ -632,6 +632,15 @@
     <ClCompile Include="Game\Monster\Monsters\Shell.cpp">
       <Filter>Game\Monster\Monsters</Filter>
     </ClCompile>
+    <ClCompile Include="Game\PythonBridge\MVector3.cpp">
+      <Filter>Game\PythonBridge</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\PythonBridge\MMonster.cpp">
+      <Filter>Game\PythonBridge</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\PythonBridge\MGameData.cpp">
+      <Filter>Game\PythonBridge</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\PythonBridge\include\unicodeobject.h" />
@@ -1572,6 +1581,15 @@
     <ClInclude Include="Game\Monster\Monsters\Shell.h">
       <Filter>Game\Monster\Monsters</Filter>
     </ClInclude>
+    <ClInclude Include="Game\PythonBridge\MVector3.h">
+      <Filter>Game\PythonBridge</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\MMonster.h">
+      <Filter>Game\PythonBridge</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PythonBridge\MGameData.h">
+      <Filter>Game\PythonBridge</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="python36.lib" />
@@ -2078,6 +2096,11 @@
     <None Include="Assets\modelData\shell\hotate.FBX">
       <Filter>Assets\model</Filter>
     </None>
+    <None Include="Assets\modelData\si_bug\si_bug.FBX" />
+    <None Include="Assets\modelData\dungeon\gorgeousWall.fbx" />
+    <None Include="Assets\Sprite\AIEdit\closeButton.png">
+      <Filter>Assets\Sprite\AIEdit</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="act">
@@ -2221,6 +2244,9 @@
     <Filter Include="Game\AIEdite\monsterSkillList">
       <UniqueIdentifier>{3939e58d-289b-46ae-b601-7d8820287a91}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\PythonBridge">
+      <UniqueIdentifier>{c1ba429b-73d7-443f-9956-35e138a6ab83}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Media Include="Assets\sound\punch-middle2.wav">
@@ -2235,18 +2261,5 @@
     <Media Include="Assets\sound\BGM\PerituneMaterial_Strategy5_loop.wav">
       <Filter>Assets\BGM</Filter>
     </Media>
-  </ItemGroup>
-  <ItemGroup>
-    <MeshContentTask Include="Assets\modelData\dungeon\gorgeousWall.fbx">
-      <Filter>Assets\model</Filter>
-    </MeshContentTask>
-    <MeshContentTask Include="Assets\modelData\si_bug\si_bug.FBX">
-      <Filter>Assets\model</Filter>
-    </MeshContentTask>
-  </ItemGroup>
-  <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\AIEdit\closeButton.png">
-      <Filter>Assets\Sprite\AIEdit</Filter>
-    </ImageContentTask>
   </ItemGroup>
 </Project>
