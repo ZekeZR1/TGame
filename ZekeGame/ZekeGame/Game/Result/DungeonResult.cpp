@@ -227,14 +227,15 @@ void DungeonResult::ButtonUpdate() {
 		SaveDungeonClearState();
 		auto dgame = FindGO<DungeonGame>("DungeonGame");
 		dgame->ClearInGameMode();
+		m_fadeFlag = true;
+		m_fade->FadeOut();
+				
+	}
+	if (m_fade->isFadeStop() && m_fadeFlag)
+	{
 		if (m_team == WIN) {
 			if (IDungeonData().isFinalRound(m_dunNum)) {
-				//ToNextStage();
-				//MonsterDrop
-				m_fadeFlag = true;
-				m_fade->FadeOut();
-				//ToMonsterDrop();
-				//ToDungeonSelect();
+				ToMonsterDrop();
 			}
 			else {
 				ToNextRound();
@@ -244,8 +245,7 @@ void DungeonResult::ButtonUpdate() {
 			Lose();
 		}
 	}
-	if (m_fade->isFadeStop() && m_fadeFlag)
-		ToMonsterDrop();
+		
 }
 
 void DungeonResult::CameraUpdate() {
