@@ -105,6 +105,7 @@ void GameMenu::Update()
 					m_fade->FadeOut();
 					MusicFade* mf = NewGO<MusicFade>(0, "mf");
 					mf->init(FindGO<Sound>("BGM"), 1, -2);
+					PlayButtonSE();
 					break;
 				}
 				case 2:
@@ -114,6 +115,7 @@ void GameMenu::Update()
 					m_buttons.shrink_to_fit();
 					DeleteGO(m_cursor);
 					m_cursor = nullptr;
+					PlayButtonSE();
 
 					m_isOpen = false;
 					break;
@@ -128,6 +130,7 @@ void GameMenu::Update()
 			m_buttons.shrink_to_fit();
 			DeleteGO(m_cursor);
 			m_cursor = nullptr;
+			PlayButtonSE();
 
 			m_isOpen = false;
 		}
@@ -165,6 +168,7 @@ void GameMenu::Update()
 
 				pos.y -= 110;
 			}
+			PlayButtonSE();
 
 			m_isOpen = true;
 		}
