@@ -20,11 +20,11 @@ Uma::Uma()
 	sr->SetPosition(CVector3::Zero());
 	
 	MonsterInitParam prm;
-	prm.HP = 80;
+	prm.HP = 100;
 	prm.MP = 30;
 	prm.DefencePow = 10;
 	prm.ExDefensePow = 0;
-	prm.AttackPow = 10;
+	prm.AttackPow = 15;
 	prm.ExAttackPow = 0;
 	prm.Speed = 10;
 	prm.Radius = 50;

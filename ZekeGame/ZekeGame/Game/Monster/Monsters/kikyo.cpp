@@ -28,7 +28,7 @@ Kikyo::Kikyo()
 	MonsterInitParam prm;
 	prm.HP = 40;
 	prm.MP = 150;
-	prm.DefencePow = 10;
+	prm.DefencePow = 5;
 	prm.ExDefensePow = 10;
 	prm.AttackPow = 10;
 	prm.ExAttackPow = 10;

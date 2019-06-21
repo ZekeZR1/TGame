@@ -31,7 +31,7 @@ Fairy::Fairy()
 
 	MonsterInitParam prm;
 	prm.HP = 60;
-	prm.MP = 30;
+	prm.MP = 100;
 	prm.DefencePow = 5;
 	prm.ExDefensePow = 15;
 	prm.AttackPow = 5;
