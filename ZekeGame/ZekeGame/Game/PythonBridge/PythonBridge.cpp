@@ -389,7 +389,7 @@ static PyMemberDef MVector3Members[] =
 
 void MVector3setVector(PyObject* self, PyObject* xyz)
 {
-
+	
 }
 
 static PyMethodDef MVector3Methods[] =
