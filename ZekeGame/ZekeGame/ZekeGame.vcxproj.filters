@@ -2052,9 +2052,6 @@
     <None Include="Assets\modelData\RedHead\RedHead.fbx">
       <Filter>Assets\model</Filter>
     </None>
-    <None Include="Assets\modelData\si_bug\si_bug.FBX">
-      <Filter>Assets\model</Filter>
-    </None>
     <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_redHead.png">
       <Filter>Assets\Sprite\MonSelect</Filter>
     </None>
@@ -2238,5 +2235,18 @@
     <Media Include="Assets\sound\BGM\PerituneMaterial_Strategy5_loop.wav">
       <Filter>Assets\BGM</Filter>
     </Media>
+  </ItemGroup>
+  <ItemGroup>
+    <MeshContentTask Include="Assets\modelData\dungeon\gorgeousWall.fbx">
+      <Filter>Assets\model</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\si_bug\si_bug.FBX">
+      <Filter>Assets\model</Filter>
+    </MeshContentTask>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageContentTask Include="Assets\Sprite\AIEdit\closeButton.png">
+      <Filter>Assets\Sprite\AIEdit</Filter>
+    </ImageContentTask>
   </ItemGroup>
 </Project>

@@ -11,5 +11,5 @@ def Brain(num,team):
 	mon = cb.GetBuddyNeerMonster()
 	cb.addAction(mon,8)
 	mon = cb.GetBuddyNeerMonster()
-	cb.addAction(mon,0)
+	cb.addAction(mon,1)
 	cb.End()

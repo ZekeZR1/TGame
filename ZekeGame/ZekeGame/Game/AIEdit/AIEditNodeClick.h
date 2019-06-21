@@ -1,5 +1,5 @@
 #pragma once
-
+class AIEditNodeSelectButtons;
 class GameCursor;
 class AIEditNode;
 class AIEditNodeTarget;
@@ -53,6 +53,7 @@ private:
 	AIEditNode* m_aieditnode;
 	AIEditNodeTarget* m_aieditnodetarget;
 	AIEditNodeProcess* m_aieditnodeprocess;
+	AIEditNodeSelectButtons* m_aieditnodeselectbuttons = nullptr;
 
 	SpriteRender* m_button = nullptr;			//botan
 	FontRender* m_font = nullptr;				//click MOJI

@@ -20,7 +20,7 @@ int g_monsCount = 0;
 int g_meNum = 0;
 int g_meTeam = 0;
 
-int g_monset[6] = { 1,1,1,1,1,1 };
+int g_monset[6] = { 0,0,0,0,0,0 };
 AIsetData g_AIset[6] = { 0,0,0,0,0,0,0,0,0,0,0,0 };
 void GameData::deletemons(Monster * mon)
 {
@@ -138,19 +138,19 @@ const wchar_t* GameData::GetMonsterName(MonsterID id) {
 		return L"テスト";
 		break;
 	case enUmataur:
-		return L"馬タウロス";
+		return L"ウマタウロス";
 		break;
 	case enFairy:
 		return L" 妖精";
 		break;
 	case enArmor:
-		return L" 鎧";
+		return L" 鎧の怪";
 		break;
 	case enGoblin:
 		return L"ゴブリン";
 		break;
 	case enBook:
-		return L"本";
+		return L"魔本";
 		break;
 	case enRedHead:
 		return L"レッドヘッド";
@@ -168,6 +168,50 @@ const wchar_t* GameData::GetMonsterName(MonsterID id) {
 		return L"クリス";
 	case enShell:
 		return L"シェル";
+	default:
+		assert(false);
+		break;
+	}
+}
+
+const char* GameData::GetMonsterNameMulti(MonsterID monID)
+{
+	switch (monID)
+	{
+	case enTest:
+		return "testMons";
+		break;
+	case enUmataur:
+		return "Uma";
+		break;
+	case enFairy:
+		return "Yose";
+		break;
+	case enArmor:
+		return "Armor";
+		break;
+	case enGoblin:
+		return "Goblin";
+		break;
+	case enBook:
+		return "Book";
+		break;
+	case enRedHead:
+		return "RedHead";
+		break;
+	case enKikyo:
+		return "Kikyo";
+		break;
+	case enShikoChu:
+		return "SicoChu";
+		break;
+	case enRingo:
+		return "Ringo";
+		break;
+	case enChris:
+		return "Chris";
+	case enShell:
+		return "Shell";
 	default:
 		assert(false);
 		break;

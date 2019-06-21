@@ -7,6 +7,7 @@
 //camera
 #include "../../GameCamera.h"
 #include "AIEditNodeProcess.h"
+#include "AIEditNodeSelectButtons.h"
 
 AIEditNodeClick::~AIEditNodeClick()
 {
@@ -40,8 +41,7 @@ bool AIEditNodeClick::Start()
 	m_font->Init(L"ƒNƒŠƒbƒN", v2, 0, { 1.0f,0.7f,0.3f,1 }, 0.7f);
 	m_font->DrawShadow();
 
-
-
+	 m_aieditnodeselectbuttons = FindGO<AIEditNodeSelectButtons>("selectbuttons");
 	return true;
 
 }
@@ -55,7 +55,10 @@ void AIEditNodeClick::SetPosition(CVector3 m_pos)
 
 void AIEditNodeClick::Update()
 {
+
 	CVector3 cursorpos = m_gamecursor->GetCursor();
+	
+	if (m_aieditnodeselectbuttons->GetMenuSelect()) return;
 
 	m_spriteRender->SetCollisionTarget(cursorpos);
 

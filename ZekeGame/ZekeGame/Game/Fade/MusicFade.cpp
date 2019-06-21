@@ -29,5 +29,8 @@ void MusicFade::Update()
 		DeleteGO(this);
 		m_vol = 0;
 	}
-	m_Music->SetVolume(m_vol);
+	if (m_Music == nullptr)
+		DeleteGO(this);
+	else 
+		m_Music->SetVolume(m_vol);
 }
