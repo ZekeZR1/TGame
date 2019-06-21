@@ -36,7 +36,7 @@ void MonAIPresetIcons::init(Preset* preset, CVector3 pos,GameCursor* cur)
 	CVector3 ipos = pos;
 	int cnt = 0;
 
-	if (preset->person[0]->monID == 0)
+	if (preset->person[0]->monID == 999)
 	{
 		CVector3 iipos = pos;
 		iipos.x -= 80;
@@ -69,7 +69,7 @@ void MonAIPresetIcons::init(Preset* preset, CVector3 pos,GameCursor* cur)
 
 	m_back = NewGO<SpriteRender>(5, "sp");
 	m_back->Init(L"Assets/sprite/preset_back.dds", 157, 567);
-	if (preset->person[0]->monID == 0)
+	if (preset->person[0]->monID == 999)
 		m_back->SetMulCol({ 0.2f,0.2f,0.2f,1.0f });
 	m_back->SetPosition(ipos);
 
@@ -123,7 +123,7 @@ void MonAIPresetIcons::Setpos(CVector3 pos)
 	CVector3 ipos = pos;
 	int cnt = 0;
 
-	if (m_preset->person[0]->monID == 0)
+	if (m_preset->person[0]->monID == 999)
 	{
 		CVector3 iipos = pos;
 		iipos.x -= 80;
