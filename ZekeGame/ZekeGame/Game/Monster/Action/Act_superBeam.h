@@ -10,12 +10,12 @@ public:
 private:
 	CAct_Beam m_cBeam;
 	bool m_first = true;
-	float m_cost = 0.1f;
+	float m_cost = 1.f;
 	float m_timer = 0;
 	int m_cooltime = 5;
 	float laserRange = 100;
 	float m_grantAbsTime = 0.5;
-	float m_damage = 0.001;
+	float m_damage = 1.5f;
 	int m_DoTEndTime = 50;
 };
 
