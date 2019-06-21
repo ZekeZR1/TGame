@@ -14,7 +14,7 @@ public:
 private:
 	void initFile();
 	void LoadMyBox();
-	int m_monsters[500] = { 0 };
+	int m_monsters[30] = { 0 };
 };
 
 static MonsterBox& IMonsterBox() {
