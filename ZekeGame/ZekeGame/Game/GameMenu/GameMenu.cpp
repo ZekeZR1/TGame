@@ -4,6 +4,8 @@
 #include "../Game.h"
 #include "../GameCursor.h"
 
+#include "../Fade/MusicFade.h"
+
 #include "../Title/ModeSelect.h"
 #include "../Title/pvpModeSelect.h"
 #include "../Dungeon/DungeonAISelect.h"
@@ -97,10 +99,14 @@ void GameMenu::Update()
 				{
 				case 0:
 				case 1:
+				{
 					m_bnum = i;
 					m_isFade = true;
 					m_fade->FadeOut();
+					MusicFade* mf = NewGO<MusicFade>(0, "mf");
+					mf->init(FindGO<Sound>("BGM"), 1, -2);
 					break;
+				}
 				case 2:
 					for (auto go : m_buttons)
 						DeleteGO(go);
