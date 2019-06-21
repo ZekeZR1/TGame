@@ -312,6 +312,7 @@ void ModeSelect::Update()
 				m_fade->FadeOut();
 				m_mode = count;
 				m_isfade = true;
+				PlayButtonSE();
 			}
 		}
 		else
