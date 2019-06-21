@@ -75,7 +75,6 @@ void MonAIPresets::Update()
 		Rotation();
 		for (i = 0; i < 6; i++)
 		{
-			
 			if (m_icons[i]->IsClick())
 			{
 				break;
@@ -93,7 +92,6 @@ void MonAIPresets::Update()
 		CVector3 pos = m_pos;
 		for (int i = 0; i < 6; i++)
 		{
-			
 			m_icons[i]->Setpos(pos);
 			pos.x += 170;
 		}
