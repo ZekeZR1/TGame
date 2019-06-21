@@ -415,7 +415,7 @@ ActionID* GameData::GetMonsterActions(int monsterID, int& count)
 		ua[enLeave] = enLeave;
 		ua[enDefense] = enGuardian;
 		ua[4] = ActionID::enBuffDef;
-		ua[5] = ActionID::enDebuffDef;
+		ua[5] = ActionID::enBuffAtc;
 		break;
 	case enGoblin:
 		count = 6;
