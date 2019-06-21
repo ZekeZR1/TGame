@@ -222,6 +222,7 @@ void Monster::execute()
 
 void Monster::Move()
 {
+	CVector3 oldPos = m_pos;
 	CVector3 move = m_movespeed + m_vKnockback;
 	move *= m_speed;
 	m_pos = m_cc.Execute(IGameTime().GetFrameDeltaTime(), move);
@@ -235,6 +236,15 @@ void Monster::Move()
 	{
 		Turn();
 		//TurnEx();
+	}
+
+	//ˆÚ“®§ŒÀ
+	auto v = m_pos - CVector3::Zero();
+	auto dist = v.Length();
+	if (abs(dist) > m_limitDist) {
+		v.Normalize();
+		auto np = v * m_limitDist;
+		m_pos = np;
 	}
 }
 
