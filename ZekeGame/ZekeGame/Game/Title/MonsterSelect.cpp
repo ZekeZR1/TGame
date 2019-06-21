@@ -6,6 +6,8 @@
 #include "../GameCursor.h"
 #include "IconMon.h"
 #include <string>
+
+#include "../MonsterBox/MonsterBox.h"
 //#include "../GameData.h"
 
 #include "AISelect.h"
@@ -47,38 +49,28 @@ bool MonsterSelect::Start()
 	pos.y = 205.0f;
 	m_monstercount = enNumMonster;
 	//for (int i = 1; i < m_monstercount; i++)
+	int count = 0;
 	for (int i = 0; i < m_monstercount; i++)
 	{
+		if (!IMonsterBox().isGot((MonsterID)i))
+			continue;
 		IconMon* im = NewGO<IconMon>(0, "im");
 		//std::wstring path;
 
 		im->init(GameData::GetMonsterIconPath(i),m_cursor);
 
-		/*switch (i)
-		{
-		case enTest:
-			im->init(L"Assets/sprite/mon_one.dds",m_cursor);
-			path = L"Assets/sprite/mon_one.dds";
-			break;
-		case enUmataur:
-			im->init(L"Assets/sprite/mon_two.dds", m_cursor);
-			path = L"Assets/sprite/mon_two.dds";
-			break;
-		case enFairy:
-			im->init(L"Assets/sprite/mon_three.dds", m_cursor);
-			path = L"Assets/sprite/mon_three.dds";
-			break;
-		}*/
 		im->Setpos(pos);
 		//if (((i+1) % 5) == 0)
-		if (((i + 1) % 4) == 0)
+		if (((count + 1) % 4) == 0)
 		{
 			pos.x = -179;
 			pos.y -= 133;
 		}
 		else pos += {137, 0, 0};//pos += {133,0, 0};
 		m_icons.push_back(im);
-		//m_paths.push_back(path);
+		//m_paths.push_back(path);.
+
+		count++;
 	}
 	m_maxScroll = pos.y*-1;
 

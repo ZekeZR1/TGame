@@ -371,9 +371,10 @@ FILE* MonAIPresetOpenSuper::initPreset()
 		for (int c = 0; c < 3; c++)
 		{
 			int z = 0;
+			int monNone = 999;
 			int o = 1;
 			fwrite(&z, 1, 1, file);//AIの種類 0はpython 1はVisualAI
-			fwrite(&z, 1, 1, file);//モンスターの種類
+			fwrite(&monNone, 1, 1, file);//モンスターの種類
 			fwrite(&o, 4, 1, file);//ファイルの文字数
 			fwrite(&z, 1, 1, file);//ファイル名
 		}

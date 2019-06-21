@@ -52,8 +52,12 @@ void MonsterBox::initFile() {
 	ofstream fout;
 	fout.open("Assets/saveData/monsterbox.mbx", ios::out | ios::binary | ios::trunc);
 	int n = 0;
+	int y = 1;
 	for (int i = 0; i < enNumMonster; i++) {
-		fout.write((char*)&n, sizeof(int));
+		if (i == MonsterID::enUmataur || i == MonsterID::enFairy)
+			fout.write((char*)& y, sizeof(int));
+		else
+			fout.write((char*)&n, sizeof(int));
 		//fout << 0;
 	}
 	fout.close();
@@ -69,6 +73,7 @@ void MonsterBox::LoadMyBox() {
 			m_monsters[i] = 0;
 		}
 		initFile();
+		LoadMyBox();
 		return;
 	}
 	for (int i = 0; i < enNumMonster; i++) {

@@ -38,6 +38,7 @@ private:
 	//Fade
 	Fade* m_fade = nullptr;
 	bool m_fadeFlag = false;
+	float m_fontFix = 0.f;
 	//other
 	Sound* m_BGM = nullptr;
 };
