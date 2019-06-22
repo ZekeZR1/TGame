@@ -122,6 +122,7 @@ void MVector3init()
 	MVector3Type.tp_new = PyType_GenericNew;
 
 	MVector3Type.tp_members = MVector3Members;
+	MVector3Type.tp_methods = MVector3Methods;
 	MVector3Type.tp_new = MVector3new;
 	MVector3Type.tp_init = (initproc)MVvector3Initialize;
 	MVector3Type.tp_dealloc = (destructor)MVector3Destruct;
