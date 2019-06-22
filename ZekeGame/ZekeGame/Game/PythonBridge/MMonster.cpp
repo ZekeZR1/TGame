@@ -49,7 +49,7 @@ static PyObject* MMonsterNew(PyTypeObject* type, PyObject* args, PyObject* kwds)
 {
 	MMonster* self;
 	self = (MMonster*)type->tp_alloc(type, 0);
-	self->position = (MVector3*)MVector3Type.tp_alloc(&MVector3Type, 0);
+	self->position = PyObject_New(MVector3, &MVector3Type);
 	self->ID = 999;
 	self->team = 0;
 	self->maxHP = 0.f;
@@ -61,8 +61,8 @@ static PyObject* MMonsterNew(PyTypeObject* type, PyObject* args, PyObject* kwds)
 	self->Defence = 0.f;
 	self->DefenceEx = 0.f;
 	self->speed = 0.f;
-	self->movespeed = (MVector3*)MVector3Type.tp_alloc(&MVector3Type, 0);
-	self->stateList = (PyListObject*)PyList_Type.tp_alloc(&PyList_Type, 0);
+	self->movespeed = PyObject_New(MVector3, &MVector3Type);
+	self->stateList = (PyListObject*)PyList_New(0);
 
 	return (PyObject*)self;
 }
@@ -109,6 +109,13 @@ int MMonsterInitialize(MMonster* self, PyObject* args, PyObject* kwds)
 
 void MMonsterDestruct(MMonster* self)
 {
+	Py_DECREF(self->position);
+	Py_DECREF(self->movespeed);
+	int size = PyList_Size((PyObject*)self->stateList);
+	for (int i = 0; i < size; i++)
+		Py_DECREF(self->stateList->ob_item[i]);
+	Py_DECREF(self->stateList);
+
 	Py_TYPE(self)->tp_free((PyObject*)self);
 }
 
