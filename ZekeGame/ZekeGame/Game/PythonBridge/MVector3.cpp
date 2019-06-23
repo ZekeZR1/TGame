@@ -3,8 +3,6 @@
 #include "MVector3.h"
 
 
-
-
 PyTypeObject MVector3Type = {
 	PyVarObject_HEAD_INIT(NULL,0)
 };

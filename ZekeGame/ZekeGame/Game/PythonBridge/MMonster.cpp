@@ -1,26 +1,10 @@
 #include "stdafx.h"
+//#include "MVector3.h"
 #include "MMonster.h"
 #include "include/structmember.h"
-#include "MVector3.h"
 
-typedef struct {
-	PyObject_HEAD
-	MVector3* position;
-	int ID;
-	int team;
-	float maxHP;
-	float HP;
-	float maxMP;
-	float MP;
-	float Attack;
-	float AttackEx;
-	float Defence;
-	float DefenceEx;
-	float speed;
-	MVector3* movespeed;
-	PyListObject* stateList;
 
-}MMonster;
+#include "../Monster/Monster.h"
 
 PyTypeObject MMonsterType = {
 	PyVarObject_HEAD_INIT(NULL,0)
@@ -30,6 +14,7 @@ static PyMemberDef MMonsterMembers[] =
 {
 	{(char*)"position",T_OBJECT,offsetof(MMonster,position),0,(char*)""},
 	{(char*)"ID",T_INT,offsetof(MMonster,ID),0,(char*)""},
+	{(char*)"num",T_INT,offsetof(MMonster,num),0,(char*)""},
 	{(char*)"team",T_INT,offsetof(MMonster,team),0,(char*)""},
 	{(char*)"maxHP",T_FLOAT,offsetof(MMonster,maxHP),0,(char*)""},
 	{(char*)"HP",T_FLOAT,offsetof(MMonster,HP),0,(char*)""},
@@ -41,7 +26,7 @@ static PyMemberDef MMonsterMembers[] =
 	{(char*)"DefenceEx",T_FLOAT,offsetof(MMonster,DefenceEx),0,(char*)""},
 	{(char*)"speed",T_FLOAT,offsetof(MMonster,speed),0,(char*)""},
 	{(char*)"movespeed",T_OBJECT,offsetof(MMonster,movespeed),0,(char*)""},
-	{(char*)"state",T_FLOAT,offsetof(MMonster,stateList),0,(char*)""},
+	{(char*)"state",T_OBJECT,offsetof(MMonster,stateList),0,(char*)""},
 	{NULL}
 };
 
@@ -51,6 +36,7 @@ static PyObject* MMonsterNew(PyTypeObject* type, PyObject* args, PyObject* kwds)
 	self = (MMonster*)type->tp_alloc(type, 0);
 	self->position = PyObject_New(MVector3, &MVector3Type);
 	self->ID = 999;
+	self->num = 0;
 	self->team = 0;
 	self->maxHP = 0.f;
 	self->HP = 0.f;
@@ -72,6 +58,7 @@ int MMonsterInitialize(MMonster* self, PyObject* args, PyObject* kwds)
 	static char* kwlist[] = { 
 		(char*)"position", 
 		(char*)"ID", 
+		(char*)"num",
 		(char*)"team", 
 		(char*)"maxHP", 
 		(char*)"HP", 
@@ -90,6 +77,7 @@ int MMonsterInitialize(MMonster* self, PyObject* args, PyObject* kwds)
 	if (!PyArg_ParseTupleAndKeywords(args, kwds, "|OOi", kwlist, 
 		&self->position, 
 		&self->ID, 
+		&self->num,
 		&self->team,
 		&self->maxHP,
 		&self->HP,
@@ -111,15 +99,63 @@ void MMonsterDestruct(MMonster* self)
 {
 	Py_DECREF(self->position);
 	Py_DECREF(self->movespeed);
-	int size = PyList_Size((PyObject*)self->stateList);
-	for (int i = 0; i < size; i++)
-		Py_DECREF(self->stateList->ob_item[i]);
 	Py_DECREF(self->stateList);
 
 	Py_TYPE(self)->tp_free((PyObject*)self);
 }
 
+PyObject* MMonsterGetPosition(MMonster* self, void* closure)
+{
+	Py_INCREF(self->position);
+	return (PyObject*)self->position;
+}
+int MMonsterSetPosition(MMonster* self, PyObject* value, void* closure)
+{
+	if (value->ob_type != &MVector3Type)
+		return -1;
+	Py_DECREF(self->position);
+	self->position = (MVector3*)value;
+	Py_INCREF(self->position);
+	return 0;
+}
 
+PyObject* MMonsterGetMoveSpeed(MMonster* self, void* closure)
+{
+	Py_INCREF(self->movespeed);
+	return (PyObject*)self->movespeed;
+}
+int MMonsterSetMoveSpeed(MMonster* self, PyObject* value, void* closure)
+{
+	if (value->ob_type != &MVector3Type)
+		return -1;
+	Py_DECREF(self->movespeed);
+	self->movespeed = (MVector3*)value;
+	Py_INCREF(self->movespeed);
+	return 0;
+}
+
+PyObject* MMonsterGetState(MMonster* self, void* closure)
+{
+	Py_INCREF(self->stateList);
+	return (PyObject*)self->stateList;
+}
+int MMonsterSetState(MMonster* self, PyObject* value, void* closure)
+{
+	if (value->ob_type != &PyListIter_Type)
+		return -1;
+	Py_DECREF(self->stateList);
+	self->stateList = (PyListObject*)value;
+	Py_INCREF(self->stateList);
+	return 0;
+}
+
+static PyGetSetDef MMonsterGetSet[] =
+{
+	{(char*)"position",(getter)MMonsterGetPosition,(setter)MMonsterSetPosition,(char*)"",NULL},
+	{(char*)"movespeed",(getter)MMonsterGetMoveSpeed,(setter)MMonsterSetMoveSpeed,(char*)"",NULL},
+	{(char*)"state",(getter)MMonsterGetState,(setter)MMonsterSetState,(char*)"",NULL},
+	{NULL}
+};
 
 
 void MMonsterInit()
@@ -136,4 +172,37 @@ void MMonsterInit()
 	MMonsterType.tp_new = MMonsterNew;
 	MMonsterType.tp_init = (initproc)MMonsterInitialize;
 	MMonsterType.tp_dealloc = (destructor)MMonsterDestruct;
+	MMonsterType.tp_getset = MMonsterGetSet;
+}
+
+MMonster* CcreateMMonster(Monster* mon)
+{
+	MMonster* m = PyObject_New(MMonster, &MMonsterType);
+	m->ID = mon->GetID();
+	m->num = mon->Getnum();
+	m->team = mon->Getteam();
+	m->HP = mon->GetHP();
+	m->maxHP = mon->GetMaxHP();
+	m->MP = mon->GetMP();
+	m->maxMP = mon->GetMaxMP();
+	m->Attack = mon->GetAttack();
+	m->AttackEx = mon->GetExAttack();
+	m->Defence = mon->GetDefense();
+	m->DefenceEx = mon->GetExDefense();
+	m->speed = mon->GetSpeed();
+	CVector3 cv = mon->Getpos();
+	MVector3* v = PyObject_New(MVector3, &MVector3Type);
+	v->x = cv.x;
+	v->y = cv.y;
+	v->z = cv.z;
+	m->position = v;
+	cv = mon->Getspeed();
+	v = PyObject_New(MVector3, &MVector3Type);
+	v->x = cv.x;
+	v->y = cv.y;
+	v->z = cv.z;
+	m->movespeed = v;
+	PyListObject* sl = (PyListObject*)PyList_New(0);
+
+	return nullptr;
 }
