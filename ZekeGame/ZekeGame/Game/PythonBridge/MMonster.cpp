@@ -203,6 +203,13 @@ MMonster* CcreateMMonster(Monster* mon)
 	v->z = cv.z;
 	m->movespeed = v;
 	PyListObject* sl = (PyListObject*)PyList_New(0);
-
+	int size = mon->GetAbnormalState().size();
+	for (int i = 0; i < size; i++)
+	{
+		int abn = mon->GetAbnormalStateID(i);
+		if (abn == 0)
+			continue;
+		PyList_Append((PyObject*)sl, PyLong_FromLong(abn));
+	}
 	return nullptr;
 }

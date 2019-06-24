@@ -231,13 +231,11 @@ void Monster::Move()
 	auto v = m_pos - CVector3::Zero();
 	auto dist = v.Length();
 	if (abs(dist) > m_limitDist) {
+		static const int outSpeed = 300;
 		v.Normalize();
 		v *= -1;
-		auto diff = abs(m_limitDist - dist);
-		if (diff > 0.2) {
-			auto np = v * diff;
-			m_pos = m_cc.Execute(IGameTime().GetFrameDeltaTime(), np);
-		}
+		v *= outSpeed;
+		m_pos = m_cc.Execute(IGameTime().GetFrameDeltaTime(), v);
 	}
 
 	m_smr->SetPosition(m_pos);
@@ -430,4 +428,10 @@ void Monster::anim_extra1()
 bool Monster::isAnimPlay()
 {
 	return m_smr->IsPlayingAnimation();
+}
+
+
+int Monster::GetAbnormalStateID(int num)
+{
+	return m_abnormalStates[num]->GetAbnormalState();
 }
