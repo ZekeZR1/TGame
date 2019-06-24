@@ -4,6 +4,7 @@ class Act_Majinken : public MonsterAction
 {
 public:
 	Act_Majinken();
+	~Act_Majinken();
 	bool Action(Monster* me) override;
 private:
 	bool m_first = true;

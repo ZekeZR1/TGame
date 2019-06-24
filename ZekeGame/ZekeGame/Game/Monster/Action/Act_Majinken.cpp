@@ -8,6 +8,12 @@ Act_Majinken::Act_Majinken() {
 	m_ActionId = enMajinken;
 }
 
+Act_Majinken::~Act_Majinken() {
+	if (m_efk != nullptr and m_efk->IsPlay())
+		m_efk->Stop();
+}
+
+
 bool Act_Majinken::Action(Monster* me) {
 	if (m_target == nullptr) return true;
 	if (m_first) {
@@ -48,10 +54,10 @@ bool Act_Majinken::Action(Monster* me) {
 			se->Play();
 		}
 		else {
-			return true;
+			m_attacked = true;
 		}
 	}
-	if (m_timer >= m_cooltime and !me->isAnimPlay() and m_attacked) {
+	if (m_timer >= m_cooltime and m_attacked) {
 		me->anim_idle();
 		m_efk->Stop();
 		return true;
