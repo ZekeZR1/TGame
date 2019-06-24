@@ -465,10 +465,10 @@
     <ClCompile Include="Game\ExchangeData\ExchangeData.cpp" />
     <ClCompile Include="Game\Online\TestView.cpp" />
     <ClCompile Include="Game\NetPVP\NetPVPMode.cpp">
-      <Filter>Game\NetPVP</Filter>
+      <Filter>act\NetPVP</Filter>
     </ClCompile>
     <ClCompile Include="Game\NetPVP\NetAISelect.cpp">
-      <Filter>Game\NetPVP</Filter>
+      <Filter>act\NetPVP</Filter>
     </ClCompile>
     <ClCompile Include="Game\AIEdit\AIEditNodeMenuOpen.cpp">
       <Filter>Game\AIEdite</Filter>
@@ -495,25 +495,25 @@
       <Filter>Game\AIMonSelect\AIMonPreset</Filter>
     </ClCompile>
     <ClCompile Include="Game\NetPVP\CRatingSystem.cpp">
-      <Filter>Game\NetPVP</Filter>
+      <Filter>act\NetPVP</Filter>
     </ClCompile>
     <ClCompile Include="Game\Online\Console.cpp">
-      <Filter>Game\NetPVP</Filter>
+      <Filter>act\NetPVP</Filter>
     </ClCompile>
     <ClCompile Include="Game\Online\BaseView.cpp">
-      <Filter>Game\NetPVP</Filter>
+      <Filter>act\NetPVP</Filter>
     </ClCompile>
     <ClCompile Include="Game\Online\LoadBalancingListener.cpp">
-      <Filter>Game\NetPVP</Filter>
+      <Filter>act\NetPVP</Filter>
     </ClCompile>
     <ClCompile Include="Game\Online\NetworkLogic.cpp">
-      <Filter>Game\NetPVP</Filter>
+      <Filter>act\NetPVP</Filter>
     </ClCompile>
     <ClCompile Include="Game\Online\OutputListener.cpp">
-      <Filter>Game\NetPVP</Filter>
+      <Filter>act\NetPVP</Filter>
     </ClCompile>
     <ClCompile Include="Game\NetPVP\RatePopup.cpp">
-      <Filter>Game\NetPVP</Filter>
+      <Filter>act\NetPVP</Filter>
     </ClCompile>
     <ClCompile Include="Game\ReturnButton\ReturnButton.cpp">
       <Filter>Game\ReturnButton</Filter>
@@ -534,9 +534,6 @@
       <Filter>act\debuff</Filter>
     </ClCompile>
     <ClCompile Include="Game\Monster\Action\Act_debuffDefPow.cpp">
-      <Filter>act\debuff</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Monster\Action\Act_ObstMove.cpp">
       <Filter>act\debuff</Filter>
     </ClCompile>
     <ClCompile Include="Game\Monster\Action\Act_ObstMove.cpp" />
@@ -608,9 +605,6 @@
     <ClCompile Include="Game\Monster\Monsters\ShikoChu.cpp">
       <Filter>Game\Monster\Monsters</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Monster\Action\cmp\CAct_Beam.cpp" />
-    <ClCompile Include="Game\Monster\Action\cmp\CAct_Dist.cpp" />
-    <ClCompile Include="Game\Monster\Action\cmp\CAct_FanShaped.cpp" />
     <ClCompile Include="Game\Monster\Action\cmp\IAct.cpp" />
     <ClCompile Include="Game\Monster\Action\Act_specialAttack.cpp">
       <Filter>act</Filter>
@@ -640,6 +634,18 @@
     </ClCompile>
     <ClCompile Include="Game\PythonBridge\MGameData.cpp">
       <Filter>Game\PythonBridge</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\Action\Act_ObstMove.cpp">
+      <Filter>act</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\Action\cmp\CAct_Dist.cpp">
+      <Filter>act</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\Action\cmp\CAct_Beam.cpp">
+      <Filter>act</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Monster\Action\cmp\CAct_FanShaped.cpp">
+      <Filter>act</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1417,10 +1423,10 @@
     <ClInclude Include="Game\ExchangeData\ExchangeData.h" />
     <ClInclude Include="Game\Online\TestView.h" />
     <ClInclude Include="Game\NetPVP\NetPVPMode.h">
-      <Filter>Game\NetPVP</Filter>
+      <Filter>act\NetPVP</Filter>
     </ClInclude>
     <ClInclude Include="Game\NetPVP\NetAISelect.h">
-      <Filter>Game\NetPVP</Filter>
+      <Filter>act\NetPVP</Filter>
     </ClInclude>
     <ClInclude Include="Game\AIEdit\AIEditNodeMenuOpen.h">
       <Filter>Game\AIEdite</Filter>
@@ -1447,25 +1453,25 @@
       <Filter>Game\AIMonSelect\AIMonPreset</Filter>
     </ClInclude>
     <ClInclude Include="Game\NetPVP\CRatingSystem.h">
-      <Filter>Game\NetPVP</Filter>
+      <Filter>act\NetPVP</Filter>
     </ClInclude>
     <ClInclude Include="Game\Online\Console.h">
-      <Filter>Game\NetPVP</Filter>
+      <Filter>act\NetPVP</Filter>
     </ClInclude>
     <ClInclude Include="Game\Online\BaseView.h">
-      <Filter>Game\NetPVP</Filter>
+      <Filter>act\NetPVP</Filter>
     </ClInclude>
     <ClInclude Include="Game\Online\LoadBalancingListener.h">
-      <Filter>Game\NetPVP</Filter>
+      <Filter>act\NetPVP</Filter>
     </ClInclude>
     <ClInclude Include="Game\Online\NetworkLogic.h">
-      <Filter>Game\NetPVP</Filter>
+      <Filter>act\NetPVP</Filter>
     </ClInclude>
     <ClInclude Include="Game\Online\OutputListener.h">
-      <Filter>Game\NetPVP</Filter>
+      <Filter>act\NetPVP</Filter>
     </ClInclude>
     <ClInclude Include="Game\NetPVP\RatePopup.h">
-      <Filter>Game\NetPVP</Filter>
+      <Filter>act\NetPVP</Filter>
     </ClInclude>
     <ClInclude Include="Game\ReturnButton\ReturnButton.h">
       <Filter>Game\ReturnButton</Filter>
@@ -1486,9 +1492,6 @@
       <Filter>act\debuff</Filter>
     </ClInclude>
     <ClInclude Include="Game\Monster\Action\Act_debuffAtcPow.h">
-      <Filter>act\debuff</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Monster\Action\Act_ObstMove.h">
       <Filter>act\debuff</Filter>
     </ClInclude>
     <ClInclude Include="Game\Monster\Action\Act_ObstMove.h" />
@@ -1557,9 +1560,6 @@
     <ClInclude Include="Game\Monster\Monsters\ShikoChu.h">
       <Filter>Game\Monster\Monsters</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Monster\Action\cmp\CAct_Beam.h" />
-    <ClInclude Include="Game\Monster\Action\cmp\CAct_Dist.h" />
-    <ClInclude Include="Game\Monster\Action\cmp\CAct_FanShaped.h" />
     <ClInclude Include="Game\Monster\Action\cmp\IAct.h" />
     <ClInclude Include="Game\Monster\Action\Act_specialAttack.h">
       <Filter>act</Filter>
@@ -1589,6 +1589,18 @@
     </ClInclude>
     <ClInclude Include="Game\PythonBridge\MGameData.h">
       <Filter>Game\PythonBridge</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\Action\Act_ObstMove.h">
+      <Filter>act</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\Action\cmp\CAct_Beam.h">
+      <Filter>act</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\Action\cmp\CAct_Dist.h">
+      <Filter>act</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\Action\cmp\CAct_FanShaped.h">
+      <Filter>act</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -2163,9 +2175,6 @@
     <Filter Include="Game\Input">
       <UniqueIdentifier>{12da6ca0-c822-400f-8b4e-89ca2e6419f7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\NetPVP">
-      <UniqueIdentifier>{736400d6-d82f-4535-8980-f973e86efcf1}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Assets\model">
       <UniqueIdentifier>{54e45174-d863-4cee-b43e-a6cd4a2fc83c}</UniqueIdentifier>
     </Filter>
@@ -2246,6 +2255,9 @@
     </Filter>
     <Filter Include="Game\PythonBridge">
       <UniqueIdentifier>{c1ba429b-73d7-443f-9956-35e138a6ab83}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="act\NetPVP">
+      <UniqueIdentifier>{736400d6-d82f-4535-8980-f973e86efcf1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
