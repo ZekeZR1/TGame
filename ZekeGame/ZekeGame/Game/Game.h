@@ -66,7 +66,7 @@ private:
 
 	float m_time = 180.0f;
 
-	SkinModelDummy* m_smd = nullptr;
+	//SkinModelDummy* m_smd = nullptr;
 	FontRender* m_fr = nullptr;
 	FontRender* m_frS = nullptr;
 

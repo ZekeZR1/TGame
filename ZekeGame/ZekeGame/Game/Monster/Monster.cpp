@@ -227,6 +227,19 @@ void Monster::Move()
 	move *= m_speed;
 	m_pos = m_cc.Execute(IGameTime().GetFrameDeltaTime(), move);
 	
+	//ˆÚ“®§ŒÀ
+	auto v = m_pos - CVector3::Zero();
+	auto dist = v.Length();
+	if (abs(dist) > m_limitDist) {
+		v.Normalize();
+		v *= -1;
+		auto diff = abs(m_limitDist - dist);
+		if (diff > 0.2) {
+			auto np = v * diff;
+			m_pos = m_cc.Execute(IGameTime().GetFrameDeltaTime(), np);
+		}
+	}
+
 	m_smr->SetPosition(m_pos);
 	if (m_isKnockback)
 	{
@@ -236,15 +249,6 @@ void Monster::Move()
 	{
 		Turn();
 		//TurnEx();
-	}
-
-	//ˆÚ“®§ŒÀ
-	auto v = m_pos - CVector3::Zero();
-	auto dist = v.Length();
-	if (abs(dist) > m_limitDist) {
-		v.Normalize();
-		auto np = v * m_limitDist;
-		m_pos = np;
 	}
 }
 
