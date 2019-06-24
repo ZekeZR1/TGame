@@ -23,8 +23,8 @@ Armor::Armor()
 	MonsterInitParam prm;
 	prm.HP = 150;
 	prm.MP = 120;
-	prm.DefencePow = 20;
-	prm.ExDefensePow = 0;
+	prm.DefencePow = 15;
+	prm.ExDefensePow = 10;
 	prm.AttackPow = 5;
 	prm.ExAttackPow = 0;
 	prm.Speed = 5;

@@ -29,7 +29,7 @@ bool Act_Ignite::Action(Monster* me) {
 		m_efk->Play(L"Assets/effect/YKD.efk");
 
 		ACTEffectGrant* actEG = NewGO<ACTEffectGrant>(0, "actEG");
-		actEG->init(m_efk, m_target, ACTEffectGrant::State::enDoT, 0, 0, 100,me,0);
+		actEG->init(m_efk, m_target, ACTEffectGrant::State::enDoT, 0, 0, 100,me, m_damage);
 		m_target->SetAbnormalState(actEG);
 
 		Sound* snd = NewGO<Sound>(0, "snd");
