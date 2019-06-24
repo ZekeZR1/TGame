@@ -6,7 +6,8 @@
 ACTEffectGrant::~ACTEffectGrant()
 {
 	m_effect->Stop();
-	m_target->ClearAbnormalState(this);
+	if(!m_target->IsDead())
+		m_target->ClearAbnormalState(this);
 }
 
 void ACTEffectGrant::init(CEffect * effect, Monster * target, int state, float dam, float time,float endTime, Monster* me,float DoTParam)
@@ -31,11 +32,6 @@ void ACTEffectGrant::Update()
 		return;
 	}
 	if (m_time >= m_endTime and m_endTime != 0) {
-		m_effect->Stop();
-		if (m_abnormal != Monster::abNull)
-		{
-			m_target->ClearAbnormalState(this);
-		}
 		DeleteGO(this);
 		return;
 	}

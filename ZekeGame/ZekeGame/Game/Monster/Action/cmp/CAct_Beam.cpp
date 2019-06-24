@@ -23,9 +23,9 @@ void CAct_Beam::Fire(Monster* me, Monster* target, const wchar_t* effectPath, co
 	m_beamefk->SetScale(effectScale);
 	m_beamefk->Play(effectPath);
 
-	Sound* sound = NewGO<Sound>(0, "snd");
-	sound->Init(soundPath);
-	sound->Play();
+	m_se = NewGO<Sound>(0, "snd");
+	m_se->Init(soundPath);
+	m_se->Play();
 
 	crs = target->Getpos() - me->Getpos();
 	crs.Cross(CVector3::Up());
@@ -43,6 +43,7 @@ bool CAct_Beam::DamageCalc() {
 	if (!m_beamefk->IsPlay()) return true;
 	if (m_me->GetMP() - m_cost <= 0) {
 		m_beamefk->Stop();
+		m_se->Stop();
 		return true;
 	}
 	m_me->SetMP(m_me->GetMP() - m_cost);
