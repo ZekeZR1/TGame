@@ -32,7 +32,7 @@ bool Act_Cleanse::Action(Monster* me) {
 		actEG->init(eff, m_target);
 
 		Sound* snd = NewGO<Sound>(0, "snd");
-		snd->Init(L"Assets/sound/se_maoudamashii_magical11.wav");
+		snd->Init(L"Assets/sound/kira2.wav");
 		snd->SetVolume(1.2f);
 		snd->Play();
 

@@ -28,7 +28,7 @@ bool Act_ClearStack::Action(Monster* me) {
 		m_target->ClearActionStack();
 
 		Sound* snd = NewGO<Sound>(0, "snd");
-		snd->Init(L"Assets/sound/buff.wav");
+		snd->Init(L"Assets/sound/shock1.wav");
 		snd->SetVolume(1.2f);
 		snd->Play();
 

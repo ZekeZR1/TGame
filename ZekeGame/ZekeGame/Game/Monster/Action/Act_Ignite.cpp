@@ -33,7 +33,7 @@ bool Act_Ignite::Action(Monster* me) {
 		m_target->SetAbnormalState(actEG);
 
 		Sound* snd = NewGO<Sound>(0, "snd");
-		snd->Init(L"Assets/sound/buff.wav");
+		snd->Init(L"Assets/sound/fire2.wav");
 		snd->SetVolume(1.2f);
 		snd->Play();
 
