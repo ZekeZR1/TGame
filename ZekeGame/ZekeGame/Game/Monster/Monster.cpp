@@ -431,3 +431,9 @@ bool Monster::isAnimPlay()
 {
 	return m_smr->IsPlayingAnimation();
 }
+
+
+int Monster::GetAbnormalStateID(int num)
+{
+	return m_abnormalStates[num]->GetAbnormalState();
+}

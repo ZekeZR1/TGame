@@ -59,6 +59,8 @@ bool MonsterSelect::Start()
 
 		im->init(GameData::GetMonsterIconPath(i),m_cursor);
 
+		im->SetMonID(i);
+
 		im->Setpos(pos);
 		//if (((i+1) % 5) == 0)
 		if (((count + 1) % 4) == 0)
