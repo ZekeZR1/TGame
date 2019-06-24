@@ -5,7 +5,8 @@
 #include "../../../GameData.h"
 
 CAct_Beam::~CAct_Beam() {
-	m_beamefk->Stop();
+	if(m_beamefk != nullptr)
+		m_beamefk->Stop();
 }
 
 void CAct_Beam::Fire(Monster* me, Monster* target, const wchar_t* effectPath, const wchar_t* soundPath, float range, float baseDamage, float cost, CVector3 effectScale) {

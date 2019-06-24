@@ -61,7 +61,7 @@ void Sound::Stop() {
 }
 
 bool Sound::isPlaying() {
-	if (!m_isInited)	return;
+	if (!m_isInited)	return false;
 	//return soundEffect->IsInUse();
 	auto state = effect->GetState();
 	return state == DirectX::SoundState::PLAYING;
