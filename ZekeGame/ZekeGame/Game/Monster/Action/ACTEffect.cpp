@@ -6,6 +6,7 @@
 ACTEffectGrant::~ACTEffectGrant()
 {
 	m_effect->Stop();
+	m_target->ClearAbnormalState(this);
 }
 
 void ACTEffectGrant::init(CEffect * effect, Monster * target, int state, float dam, float time,float endTime, Monster* me,float DoTParam)
