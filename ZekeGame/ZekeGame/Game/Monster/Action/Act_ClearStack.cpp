@@ -40,8 +40,8 @@ bool Act_ClearStack::Action(Monster* me) {
 		m_first = false;
 	}
 	else {
-		m_timer++;
-		if (!me->isAnimPlay() and m_timer >= m_cooltime)
+		m_timer += IGameTime().GetFrameDeltaTime();
+		if (m_timer >= m_cooltime)
 		{
 			me->anim_idle();
 			return true;
