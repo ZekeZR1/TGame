@@ -59,6 +59,8 @@ bool MonsterSelect::Start()
 
 		im->init(GameData::GetMonsterIconPath(i),m_cursor);
 
+		im->SetMonID(i);
+
 		im->Setpos(pos);
 		//if (((i+1) % 5) == 0)
 		if (((count + 1) % 4) == 0)
@@ -99,8 +101,8 @@ void MonsterSelect::Update()
 		if (m_icons[i]->isClick())
 		{
 			//todo:monsel debug
-			m_aims->Setmon(i+1);
-			m_aims->Setmon(i);
+			//m_aims->Setmon(i+1);
+			m_aims->Setmon(m_icons[i]->GetMonID());
 
 			m_check->SetPosition(m_icons[i]->Getpos());
 			//m_pmm->ChengeImage(m_paths[i].c_str(),i);

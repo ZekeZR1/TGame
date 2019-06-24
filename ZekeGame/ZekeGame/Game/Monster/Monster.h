@@ -131,6 +131,9 @@ public:
 	{
 		return m_abnormalStates;
 	}
+
+	//状態異常を返す(ID)
+	int GetAbnormalStateID(int num);
 	
 
 	//使うpythonのファイルを設定する
