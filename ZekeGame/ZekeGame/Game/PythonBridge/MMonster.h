@@ -4,7 +4,7 @@
 
 typedef struct {
 	PyObject_HEAD
-		MVector3* position;
+	MVector3* position;
 	int ID;
 	int num;
 	int team;
