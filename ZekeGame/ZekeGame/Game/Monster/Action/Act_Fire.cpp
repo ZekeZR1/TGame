@@ -34,7 +34,7 @@ bool Act_Fire::Action(Monster * me)
 		m_effect->Play(L"Assets/effect/fire1/fire1.efk");
 
 		Sound* sound = NewGO<Sound>(0, "snd");
-		sound->Init(L"Assets/sound/bom.wav");
+		sound->Init(L"Assets/sound/fire2.wav");
 		sound->Play();
 
 		CVector3 v = m_target->Getpos() - me->Getpos();

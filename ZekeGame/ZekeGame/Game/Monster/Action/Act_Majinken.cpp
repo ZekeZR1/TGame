@@ -32,6 +32,11 @@ bool Act_Majinken::Action(Monster* me) {
 		m_efk->SetScale(CVector3::One() * 3.5);
 		m_efk->SetPosition(me->Getpos());
 		m_efk->Play(L"Assets/effect/majinken_wiat.efk");
+		//TODO : kaeru SE
+		Sound* se = NewGO<Sound>(0, "snd");
+		se->Init(L"Assets/sound/hai-hai1.wav");
+		se->Init(L"Assets/sound/dissonance1.wav");
+		se->Play();
 		m_first = false;
 	}
 	if (m_timer >= m_chargeTime and !m_attacked) {
