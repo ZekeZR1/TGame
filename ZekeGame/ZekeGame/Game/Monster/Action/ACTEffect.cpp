@@ -29,7 +29,7 @@ void ACTEffectGrant::Update()
 		DeleteGO(this);
 		return;
 	}
-	if (m_time >= m_endTime) {
+	if (m_time >= m_endTime and m_endTime != 0) {
 		m_effect->Stop();
 		if (m_abnormal != Monster::abNull)
 		{
@@ -37,6 +37,12 @@ void ACTEffectGrant::Update()
 		}
 		DeleteGO(this);
 		return;
+	}
+	else {
+		if (!m_effect->IsPlay()) {
+			DeleteGO(this);
+			return;
+		}
 	}
 	switch (m_state)
 	{

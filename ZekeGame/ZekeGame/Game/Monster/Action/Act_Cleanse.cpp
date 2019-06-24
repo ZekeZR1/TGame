@@ -45,5 +45,10 @@ bool Act_Cleanse::Action(Monster* me) {
 
 		m_first = false;
 	}
+	if (m_timer >= m_cooltime) {
+		me->anim_idle();
+		return true;
+	}
+	m_timer +=  IGameTime().GetFrameDeltaTime();
 	return false;
 }
