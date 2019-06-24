@@ -503,4 +503,6 @@ protected:
 
 	bool m_isUseVSAI = false;					//visualAI‚ðŽg‚¤‚©‚Ç‚¤‚©
 	VisualScriptAI* m_visualAI = nullptr;		//visualAI‚Ì‚¢‚ñ‚·‚½‚ñ‚·
+
+	float m_limitDist = 1036.f;
 };
