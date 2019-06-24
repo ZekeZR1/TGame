@@ -68,7 +68,7 @@ void NetPVPMode::Update() {
 	 LoadEnemyData();
 	 UiUpdate();
 	 if (m_lbl->isConect()) {
-		 m_font->Init(L"‘Îí‘Šè‚ªŒ©‚Â‚©‚è‚Ü‚µ‚½", { -270.f,320.f }, 0.f, CVector4::White, 1.f, { 1,1 });
+		 m_font->Init(L"‘Îí‘Šè‚ªŒ©‚Â‚©‚è‚Ü‚µ‚½", m_findFontPos, 0.f, CVector4::White, 1.f, { 1,1 });
 	 }
 	 if (m_lbl->isGotEnemyPythonCodes()) {
 		 m_lbl->raiseMyLoadingState();
@@ -124,7 +124,7 @@ void NetPVPMode::TimeOut() {
 	int add = rnd() % 100;
 	m_recTime = 120 + add;
 	m_isTimeout = true;
-	m_font->Init(L"‘Îí‘Šè‚ğŒŸõ’†", { -170.f,320.f }, 0.f, CVector4::White, 1.f, { 1,1 });
+	m_font->Init(L"‘Îí‘Šè‚ğŒŸõ’†", m_waitingFontPos, 0.f, CVector4::White, 1.f, { 1,1 });
 }
 
 void NetPVPMode::Reconnect() {
@@ -303,7 +303,7 @@ void NetPVPMode::InitUI() {
 	//notification font
 	m_font = NewGO<FontRender>(2);
 	m_font->SetTextType(CFont::en_Japanese);
-	m_font->Init(L"‘Îí‘Šè‚ğŒŸõ’†", { -170.f,320.f }, 0.f, CVector4::White, 1.f, { 1,1 });
+	m_font->Init(L"‘Îí‘Šè‚ğŒŸõ’†", m_waitingFontPos, 0.f, CVector4::White, 1.f, { 1,1 });
 	m_font->DrawShadow();
 	//other
 	m_informationSp = NewGO<SpriteRender>(1);
@@ -313,10 +313,10 @@ void NetPVPMode::InitUI() {
 
 void NetPVPMode::UiUpdate() {
 	if (m_lbl->isConect()) {
-		m_font->Init(L"‘Îí‘Šè‚ªŒ©‚Â‚©‚è‚Ü‚µ‚½", { -270.f,320.f }, 0.f, CVector4::White, 1.f, { 1,1 });
+		m_font->Init(L"‘Îí‘Šè‚ªŒ©‚Â‚©‚è‚Ü‚µ‚½", m_findFontPos, 0.f, CVector4::White, 1.f, { 1,1 });
 	}
 	else {
-		m_font->Init(L"‘Îí‘Šè‚ğŒŸõ’†", { -170.f,320.f }, 0.f, CVector4::White, 1.f, { 1,1 });
+		m_font->Init(L"‘Îí‘Šè‚ğŒŸõ’†", m_waitingFontPos, 0.f, CVector4::White, 1.f, { 1,1 });
 	}
 	m_returnButton->UpdateEx<NetAISelect>();
 }

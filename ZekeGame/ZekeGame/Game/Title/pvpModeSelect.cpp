@@ -230,6 +230,7 @@ void PvPModeSelect::Update()
 			m_isfade = true;
 			MusicFade* mf = NewGO<MusicFade>(0, "mf");
 			mf->init(m_BGM, m_vol);
+			PlayButtonSE();
 		}
 	}
 	isopen = ispmm;

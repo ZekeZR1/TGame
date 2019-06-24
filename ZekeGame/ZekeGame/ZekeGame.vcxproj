@@ -333,6 +333,9 @@
     <ClCompile Include="Game\Online\NetworkLogic.cpp" />
     <ClCompile Include="Game\Online\OutputListener.cpp" />
     <ClCompile Include="Game\Online\TestView.cpp" />
+    <ClCompile Include="Game\PythonBridge\MGameData.cpp" />
+    <ClCompile Include="Game\PythonBridge\MMonster.cpp" />
+    <ClCompile Include="Game\PythonBridge\MVector3.cpp" />
     <ClCompile Include="Game\PythonBridge\PythonBridge.cpp" />
     <ClCompile Include="Game\ReadyGO\ReadyGO.cpp" />
     <ClCompile Include="Game\Result\Draw.cpp" />
@@ -666,6 +669,9 @@
     <ClInclude Include="Game\PythonBridge\include\unicodeobject.h" />
     <ClInclude Include="Game\PythonBridge\include\warnings.h" />
     <ClInclude Include="Game\PythonBridge\include\weakrefobject.h" />
+    <ClInclude Include="Game\PythonBridge\MGameData.h" />
+    <ClInclude Include="Game\PythonBridge\MMonster.h" />
+    <ClInclude Include="Game\PythonBridge\MVector3.h" />
     <ClInclude Include="Game\PythonBridge\PythonBridge.h" />
     <ClInclude Include="Game\ReadyGO\ReadyGO.h" />
     <ClInclude Include="Game\Result\Draw.h" />
@@ -1174,9 +1180,9 @@
     <None Include="Assets\modelData\RedHead\RedHead.fbx">
       <FileType>Document</FileType>
     </None>
-    <MeshContentTask Include="Assets\modelData\si_bug\si_bug.FBX">
+    <None Include="Assets\modelData\si_bug\si_bug.FBX">
       <FileType>Document</FileType>
-    </MeshContentTask>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_redHead.png" />
@@ -1213,10 +1219,12 @@
     <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_shell.png" />
   </ItemGroup>
   <ItemGroup>
-    <MeshContentTask Include="Assets\modelData\dungeon\gorgeousWall.fbx" />
+    <None Include="Assets\modelData\dungeon\gorgeousWall.fbx">
+      <FileType>Document</FileType>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\AIEdit\closeButton.png" />
+    <None Include="Assets\Sprite\AIEdit\closeButton.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

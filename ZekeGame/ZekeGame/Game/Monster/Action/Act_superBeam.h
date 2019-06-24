@@ -14,8 +14,8 @@ private:
 	float m_timer = 0;
 	int m_cooltime = 5;
 	float laserRange = 100;
-	float m_grantAbsTime = 0.5;
-	float m_damage = 0.001;
+	float m_grantAbsTime = 0.3;
+	float m_damage = 0.5f;
 	int m_DoTEndTime = 50;
 };
 

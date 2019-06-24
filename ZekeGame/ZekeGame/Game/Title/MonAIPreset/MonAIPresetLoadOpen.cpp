@@ -62,7 +62,6 @@ void MonAIPresetLoadOpen::Execute(int num)
 			}
 			count++;
 		}
-
 	}
 
 	/*for (auto c : chn)
@@ -81,7 +80,7 @@ void MonAIPresetLoadOpen::Execute(int num)
 		}
 		i++;
 	}*/
-	if (m_presets[num]->person[0]->monID == 0)
+	if (m_presets[num]->person[0]->monID == 999)
 	{
 		return;
 	}

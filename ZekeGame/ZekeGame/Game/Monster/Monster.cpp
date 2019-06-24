@@ -222,6 +222,7 @@ void Monster::execute()
 
 void Monster::Move()
 {
+	CVector3 oldPos = m_pos;
 	CVector3 move = m_movespeed + m_vKnockback;
 	move *= m_speed;
 	m_pos = m_cc.Execute(IGameTime().GetFrameDeltaTime(), move);
@@ -235,6 +236,15 @@ void Monster::Move()
 	{
 		Turn();
 		//TurnEx();
+	}
+
+	//ˆÚ“®§ŒÀ
+	auto v = m_pos - CVector3::Zero();
+	auto dist = v.Length();
+	if (abs(dist) > m_limitDist) {
+		v.Normalize();
+		auto np = v * m_limitDist;
+		m_pos = np;
 	}
 }
 
@@ -268,7 +278,8 @@ void Monster::receiveDamage()
 	if (m_Damage > 0)
 	{
 		float dm = m_Damage - m_Defense;
-		dm += 3;
+		if (dm <= 0)
+			dm = m_Damage / m_Defense;
 		if (dm > 0)
 			m_HP -= dm;
 		m_Damage = 0;
@@ -278,8 +289,9 @@ void Monster::receiveDamage()
 
 	if (m_DamageEx)
 	{
-		float dm = m_DamageEx - m_DamageEx;
-		dm += 3;
+		float dm = m_DamageEx - m_ExDefense;
+		if(dm <= 0)
+			dm = m_DamageEx / m_ExDefense;
 		if (dm > 0)
 			m_HP -= dm;
 		m_DamageEx = 0;

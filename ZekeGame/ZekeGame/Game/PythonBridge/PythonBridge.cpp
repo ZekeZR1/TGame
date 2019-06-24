@@ -6,151 +6,13 @@
 
 #include "include/structmember.h"
 
+#include "MVector3.h"
+
 //#include "../GameData.h"
 //#include "../Monster/Monster.h"
 Monster* ME = nullptr;
 
-//égópÇµÇƒÇ¢ÇÈMonsterÇÃÉ|ÉWÉVÉáÉìÇï‘ÇµÇ‹Ç∑
-//îpä¸ó\íË
-static PyObject* GetMyPosition(PyObject* self,PyObject* args)
-{
-	Monster* mon = nullptr;
-	for (Monster* obj : g_mons)
-	{
-		if (obj->Getnum() == g_meNum)
-		{
-			mon = obj;
-			break;
-		}
-	}
-	PyObject *x, *y, *z;
-	x = PyFloat_FromDouble(mon->Getpos().x);
-	y = PyFloat_FromDouble(mon->Getpos().y);
-	z = PyFloat_FromDouble(mon->Getpos().z);
 
-
-	PyObject* pos = PyList_New(3);
-	PyList_SetItem(pos, 0, x);
-
-	//pos = PyList_New(1);
-	PyList_SetItem(pos, 1, y);
-
-	//pos = PyList_New(2);
-	PyList_SetItem(pos, 2, z);
-
-	/*Py_DECREF(x);
-	Py_DECREF(y);
-	Py_DECREF(z);*/
-
-	return pos;
-}
-
-//îpä¸ó\íË
-static PyObject* GetMyHP(PyObject* self, PyObject* args)
-{
-	Monster* mon = nullptr;
-	for (Monster* obj : g_mons)
-	{
-		if (obj->Getnum() == g_meNum)
-		{
-			mon = obj;
-			break;
-		}
-	}
-	PyObject* pHP = PyLong_FromLong(mon->GetHP());
-	return pHP;
-}
-
-//îpä¸ó\íË
-static PyObject* GetMyMP(PyObject* self, PyObject* args)
-{
-	Monster* mon = nullptr;
-	for (Monster* obj : g_mons)
-	{
-		if (obj->Getnum() == g_meNum)
-		{
-			mon = obj;
-			break;
-		}
-	}
-	PyObject* pMP = PyLong_FromLong(mon->GetMP());
-	return pMP;
-}
-
-//îpä¸ó\íË
-static PyObject* GetMyTeam(PyObject* self, PyObject* args)
-{
-	PyObject* pTeam = PyLong_FromLong(g_meTeam);
-	return pTeam;
-}
-
-//îpä¸ó\íË
-static PyObject* GetMyNum(PyObject* self, PyObject* args)
-{
-	PyObject* pNum = PyLong_FromLong(g_meNum);
-	return pNum;
-}
-
-//ñ¢égóp
-static PyObject* GetMonster(PyObject* self, PyObject* args)
-{
-	int num = PyLong_AsLong(PyTuple_GetItem(args, 0));
-
-	Monster* mon = g_mons[num];
-
-}
-
-//îpä¸ó\íË
-static PyObject* GetAllBuddyPosition(PyObject* self, PyObject* args)
-{
-	//PyObject* poss = PyList_New(g_buddyCount-1);
-	PyObject* poss = PyList_New(g_buddyCount);
-	int count = 0;
-	for (Monster* mon : g_mons)
-	{
-		if (mon == NULL)
-			break;
-		if (/*mon->Getnum() == g_meNum ||*/ mon->Getteam() != g_meTeam)
-			continue;
-		PyObject *x, *y, *z;
-		x = PyLong_FromDouble(mon->Getpos().x);
-		y = PyLong_FromDouble(mon->Getpos().y);
-		z = PyLong_FromDouble(mon->Getpos().z);
-
-		PyObject* pos = PyList_New(3);
-		PyList_SetItem(pos, 0, x);
-
-		PyList_SetItem(pos, 1, y);
-
-		PyList_SetItem(pos, 2, z);
-
-		PyList_SetItem(poss, count, pos);
-		count++;
-	}
-	
-	return poss;
-}
-
-//îpä¸ó\íË
-static PyObject* GetAllBuddyNum(PyObject* self, PyObject* args)
-{
-	//PyObject* nums = PyList_New(g_buddyCount-1);
-	PyObject* nums = PyList_New(g_buddyCount);
-	int count = 0;
-	for (Monster* mon : g_mons)
-	{
-		if (mon == NULL)
-			break;
-		if (/*mon->Getnum() == g_meNum ||*/ mon->Getteam() != g_meTeam)
-			continue;
-		PyObject* num = PyLong_FromLong(mon->Getnum());
-
-		PyList_SetItem(nums, count, num);
-		count++;
-	}
-
-	return nums;
-}
 
 //args = [team]
 PyObject* GetAllBuddyData(PyObject* self, PyObject* args)
@@ -204,76 +66,6 @@ PyObject* GetAllBuddyData(PyObject* self, PyObject* args)
 		count++;
 	}
 	return pDatas;
-}
-
-
-//îpä¸ó\íË
-static PyObject* GetAllEnemyPosition(PyObject* self, PyObject* args)
-{
-	PyObject* poss = PyList_New(g_enemyCount);
-
-	int count = 0;
-	for (Monster* mon : g_mons)
-	{
-		if (mon == NULL)
-			break;
-		if (mon->Getnum() == g_meNum || mon->Getteam() == g_meTeam)
-			continue;
-		PyObject *x, *y, *z;
-		x = PyLong_FromDouble(mon->Getpos().x);
-		y = PyLong_FromDouble(mon->Getpos().y);
-		z = PyLong_FromDouble(mon->Getpos().z);
-
-		PyObject* pos = PyList_New(3);
-		PyList_SetItem(pos, 0, x);
-
-		PyList_SetItem(pos, 1, y);
-
-		PyList_SetItem(pos, 2, z);
-
-		PyList_SetItem(poss, count, pos);
-		count++;
-	}
-
-	return poss;
-}
-
-//îpä¸ó\íË
-static PyObject* GetAllEnemyNum(PyObject* self, PyObject* args)
-{
-	PyObject* nums = PyList_New(g_enemyCount);
-	int count = 0;
-	for (Monster* mon : g_mons)
-	{
-		if (mon == NULL)
-			break;
-		if (mon->Getnum() == g_meNum || mon->Getteam() == g_meTeam)
-			continue;
-		PyObject* num = PyLong_FromLong(mon->Getnum());
-
-		PyList_SetItem(nums, count, num);
-		count++;
-	}
-
-	return nums;
-}
-//îpä¸ó\íË
-static PyObject* GetAllEnemyHP(PyObject* self, PyObject* args)
-{
-	PyObject* pHPs = PyList_New(g_enemyCount);
-	int count = 0;
-	for (Monster* mon : g_mons)
-	{
-		if (mon == NULL)
-			break;
-		if (mon->Getnum() == g_meNum || mon->Getteam() == g_meTeam)
-			continue;
-		PyObject* num = PyLong_FromLong(mon->GetHP());
-
-		PyList_SetItem(pHPs, count, num);
-		count++;
-	}
-	return pHPs;
 }
 
 //args = [team]
@@ -365,77 +157,20 @@ static PyObject* SetAction(PyObject* self, PyObject* args)
 	return pnull;
 }
 
-typedef struct
-{
-	PyObject_HEAD
-	double x;
-	double y;
-	double z;
-}MVector3;
-
-static PyTypeObject MVector3Type = {
-	PyVarObject_HEAD_INIT(NULL,0)
-};
-
-
-
-static PyMemberDef MVector3Members[] =
-{
-	{(char*)"x",T_FLOAT,offsetof(MVector3,x),0,(char*)""},
-	{(char*)"y",T_FLOAT,offsetof(MVector3,y),0,(char*)""},
-	{(char*)"z",T_FLOAT,offsetof(MVector3,z),0,(char*)""},
-	{NULL}
-};
-
-void MVector3setVector(PyObject* self, PyObject* xyz)
-{
-
-}
-
-static PyMethodDef MVector3Methods[] =
-{
-	{"SetVector",(PyCFunction)MVector3setVector,METH_VARARGS,""},
-};
-
-void MVector3init()
-{
-	MVector3Type.tp_name = "SendGame.Vector3";
-	MVector3Type.tp_doc = "";
-	MVector3Type.tp_basicsize = sizeof(MVector3);
-	MVector3Type.tp_itemsize = 0;
-	MVector3Type.tp_flags = Py_TPFLAGS_DEFAULT;
-	MVector3Type.tp_new = PyType_GenericNew;
-
-	MVector3Type.tp_members = MVector3Members;
-	MVector3Type.tp_init;
-}
-
-
-
-
 
 //moduleì‡ÇÃä÷êîÇΩÇø
 static PyMethodDef methods[] =
 {
-	//{"GetMyPosition",GetMyPosition,METH_NOARGS,"Jibun no position wo tuple de kaeshi masu."},				//îpä¸ó\íË
-	//{"GetMyHP",GetMyHP,METH_NOARGS,"Jibun no HP wo kaeshi masu."},											//îpä¸ó\íË
-	//{"GetMyMP",GetMyMP,METH_NOARGS,"Jibun no MP wo kaeshi masu."},											//îpä¸ó\íË
-	//{"GetMyTeam",GetMyTeam,METH_NOARGS,"Jibun no Team wo kaeshi masu."},									//îpä¸ó\íË
-	//{"GetMyNum",GetMyNum,METH_NOARGS,"Jibun no num wo kaeshi masu."},
-
-	//{"GetAllBuddyPosition",GetAllBuddyPosition,METH_NOARGS,"Nakama zenin no position wo kaeshi masu."},		//îpä¸ó\íË
-	//{"GetAllBuddyNum",GetAllBuddyNum,METH_NOARGS,"Nakama zenin no num wo kaeshi masu."},					//îpä¸ó\íË
 	{"GetAllBuddyData",GetAllBuddyData,METH_VARARGS,"Nakama zenin no data wo kaeshi masu."},
 
-	//{"GetAllEnemyPosition",GetAllEnemyPosition,METH_NOARGS,"Teki zenin no position wo kaeshi masu."},		//îpä¸ó\íË
-	//{"GetAllEnemyNum",GetAllEnemyNum,METH_NOARGS,"Teki zenin no num wo kaeshi masu."},						//îpä¸ó\íË
-	//{"GetAllEnemyHP",GetAllEnemyHP,METH_NOARGS,"Teki zenin no HP wo kaeshi masu."},							//îpä¸ó\íË
 	{"GetAllEnemyData",GetAllEnemyData,METH_VARARGS,"Teki zenin no data wo kaeshi masu."},
 
 	{"GetBuddyCount",GetBuddyCount,METH_NOARGS,"mikata no kazu wo kaeshi masu."},
 	{"GetEnemyCount",GetEnemyCount,METH_NOARGS,"teki no kazu wo kaeshi masu."},
 
 	{"SetAction",SetAction,METH_VARARGS,"action wo settei simasu"},
+
+	{"sqrt",MSqrt,METH_VARARGS,"hehokon"},
 	{NULL,NULL,0,NULL}
 };
 
@@ -457,7 +192,28 @@ PyObject* thisModule = nullptr;
 //moduleÇÃèâä˙âª
 static PyObject* initModule(void)
 {
+	thisModule = PyModule_Create(&pModule);
+	for (int i = 0; i < ActionID::enNumAction; i++)
+	{
+		size_t s = 0;
+		const wchar_t* ws = GameData::GetActionName((ActionID)i);
+		char st[256] = { 0 };
+		wcstombs_s(&s, st, ws, wcslen(ws));
+		PyModule_AddIntConstant(thisModule, st, i);
+	}
+	for (int i = 0; i < MonsterID::enNumMonster; i++)
+	{
+		PyModule_AddIntConstant(thisModule, GameData::GetMonsterNameMulti((MonsterID)i), i);
+	}
 	
+	
+	//ÉÇÉWÉÖÅ[ÉãÇ…ÉNÉâÉXí«â¡
+	MVector3init();
+	if (PyType_Ready(&MVector3Type) < 0)
+		return NULL;
+	Py_INCREF(&MVector3Type);
+	PyModule_AddObject(thisModule, "Vector3", (PyObject*)&MVector3Type);
+
 	return thisModule;
 }
 
@@ -496,23 +252,6 @@ void PythonBridge::py_exe(int num,int team,const char* file)
 	SetCurrentDirectory("Python36");
 	PyImport_AppendInittab("SendGame", initModule);
 	Py_InitializeEx(1);
-
-	thisModule = PyModule_Create(&pModule);
-	for (int i = 0; i < ActionID::enNumAction; i++)
-	{
-		size_t s = 0;
-		const wchar_t* ws = GameData::GetActionName((ActionID)i);
-		char st[256] = {0};
-		wcstombs_s(&s,st, ws, wcslen(ws));
-		PyModule_AddIntConstant(thisModule, st,i);
-	}
-	for (int i = 0; i < MonsterID::enNumMonster; i++)
-	{
-		PyModule_AddIntConstant(thisModule, GameData::GetMonsterNameMulti((MonsterID)i), i);
-	}
-	PyTypeObject* pNclass;
-	PyMethodDef pMet;
-	//pMet.
 	
 
 	PyObject *pName, *pModule, *pFunction, *pArgs, *pValue;
