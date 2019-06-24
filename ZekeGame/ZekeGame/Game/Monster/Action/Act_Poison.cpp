@@ -46,7 +46,7 @@ bool Act_Poison::Action(Monster* me) {
 	}
 	else {
 		m_timer += IGameTime().GetFrameDeltaTime();
-		if (!me->isAnimPlay() and m_timer >= m_cooltime)
+		if ( m_timer >= m_cooltime)
 		{
 			me->anim_idle();
 			return true;
