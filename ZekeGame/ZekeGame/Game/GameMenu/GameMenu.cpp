@@ -104,7 +104,7 @@ void GameMenu::Update()
 					m_isFade = true;
 					m_fade->FadeOut();
 					MusicFade* mf = NewGO<MusicFade>(0, "mf");
-					mf->init(FindGO<Sound>("BGM"), 1, -2);
+					mf->init(FindGO<Sound>("BGM"), 1, 10);
 					PlayButtonSE();
 					break;
 				}

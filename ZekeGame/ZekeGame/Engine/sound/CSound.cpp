@@ -7,6 +7,8 @@ Sound::Sound() {
 }
 
 Sound::~Sound() {
+	if (m_isInited) 
+		effect->Stop();
 }
 
 bool Sound::Start() {
@@ -57,7 +59,7 @@ void Sound::Play() {
 void Sound::Stop() {
 	if (!m_isInited)	return;
 	effect->Stop();
-	//DeleteGO(this);
+	DeleteGO(this);
 }
 
 bool Sound::isPlaying() {
