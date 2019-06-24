@@ -47,7 +47,7 @@ bool Act_ObstMove::Action(Monster* me) {
 	}
 	else {
 		m_timer++;
-		if (!me->isAnimPlay() and m_timer >= m_cooltime)
+		if (m_timer >= m_cooltime)
 		{
 			//m_target->SetSpeed(m_enemySpeed);
 			return true;
