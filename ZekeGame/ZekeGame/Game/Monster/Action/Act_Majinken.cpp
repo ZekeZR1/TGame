@@ -41,7 +41,7 @@ bool Act_Majinken::Action(Monster* me) {
 			knock *= 300;
 			m_target->StartKnockback(knock);
 			//float dam = m_damagePow * me->GetExAttack() * 1 / m_target->GetExDefense();
-			m_target->Damage(10);
+			m_target->Damage(m_damagePow);
 			m_attacked = true;
 			Sound* se = NewGO<Sound>(0, "snd");
 			se->Init(L"Assets/sound/punch-high2.wav");

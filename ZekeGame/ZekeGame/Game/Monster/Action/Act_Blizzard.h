@@ -20,5 +20,6 @@ private:
 	float m_damage = 0.3f;
 	float m_DoTDamageParam = 1.f;
 	int m_DoTEndTime = 50;
+
 };
 
