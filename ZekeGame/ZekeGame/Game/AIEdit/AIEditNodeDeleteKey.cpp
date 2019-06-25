@@ -5,6 +5,7 @@
 #include "AIEditLine.h"
 #include "AIEditNodeProcess.h"
 #include "AIEditNodeTechnique.h"
+#include "AIEditNodeSelectButtons.h"
 
 AIEditNodeDeleteKey::~AIEditNodeDeleteKey()
 {
@@ -57,12 +58,15 @@ void AIEditNodeDeleteKey::deleteclick()
 	if (Mouse::isTrigger(enLeftClick)) {
 		if (m_spriteRender->isCollidingTarget())
 		{
-			PlayButtonSE();
+			auto aieditnodeselectbuttons = FindGO<AIEditNodeSelectButtons>("selectbuttons");
+			if (!aieditnodeselectbuttons->GetMenuSelect()) {
+				PlayButtonSE();
 
-			//—ñ‚·‚×‚Ä‚Ì‚à‚Ì‚ðDeleteB
-			m_aieditnodeprocess->DeleteKey(m_orderpoint);
-			m_aieditnodeprocess->Click();
-			//m_aieditnodeprocess->SetTechniqueGenerate(false);
+				//—ñ‚·‚×‚Ä‚Ì‚à‚Ì‚ðDeleteB
+				m_aieditnodeprocess->DeleteKey(m_orderpoint);
+				m_aieditnodeprocess->Click();
+				//m_aieditnodeprocess->SetTechniqueGenerate(false);
+			}
 		}
 	}
 }
