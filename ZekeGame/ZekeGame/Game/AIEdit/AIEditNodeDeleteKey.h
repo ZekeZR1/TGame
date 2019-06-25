@@ -20,16 +20,15 @@ public:
 
 private:
 
-
 	CVector3 m_position = CVector3::Zero();
 
-	AIEditNodeOrder* m_orderpoint = nullptr;
+	SpriteRender* m_spriteRender = nullptr;
 
-	SpriteRender* m_spriteRender;
-	GameCursor* m_gamecursor;
-	AIEditNodeOrder* m_aieditnodeorder;
-	AIEditLine* m_aieditline;
-	AIEditNodeProcess* m_aieditnodeprocess;
-	AIEditNodeTechnique* m_aieditnodetechnique;
+	AIEditNodeOrder* m_orderpoint = nullptr;
+	GameCursor* m_gamecursor = nullptr;
+	AIEditNodeOrder* m_aieditnodeorder = nullptr;
+	AIEditLine* m_aieditline = nullptr;
+	AIEditNodeProcess* m_aieditnodeprocess = nullptr;
+	AIEditNodeTechnique* m_aieditnodetechnique = nullptr;
 	
 };

@@ -14,7 +14,6 @@ public:
 
 	~AIEditNodeTechnique();
 
-
 	bool Start();
 	void Update();
 	void Order();
@@ -22,7 +21,6 @@ public:
 
 	bool GetTec()
 	{
-
 		return Tec;
 	}
 
@@ -40,7 +38,6 @@ public:
 
 	int Gettechnique()
 	{
-
 		return m_technique;
 	}
 
@@ -52,25 +49,29 @@ public:
 private:
 
 	Technique m_technique = ennull;
+
+	int button = 7;
+	int techniquefont = false;
+
 	bool Tec = false;
 	bool Choice4 = false;
 	bool contact1 = false;
 	bool contact2 = false;
-	int button = 7;
-	int techniquefont = false;
 
 	CVector3 m_position = CVector3::Zero();
 	CVector3 m_pointposition = CVector3::Zero();
 
 	std::vector<FontRender*> m_fonts;
 	std::vector<FontRender*> m_font;
-	SpriteRender * m_spriteRender;
-	GameCursor * m_gamecursor;
-	AIEditNodeButton* m_aieditnodebutton;
-	AIEditNodeOrder* m_aieditnodeorder;
-	AIEditNodeProcess* m_aieditnodeprocess;
-	AIEditNodeSelectFonts* m_aieditnodeselectfonts;
-	AIEditNodeDeleteKey* m_aieditnodedeletekey;
-
 	std::vector<AIEditNodeButton*> m_nodebuttons;
+
+	SpriteRender * m_spriteRender = nullptr;
+
+	GameCursor * m_gamecursor = nullptr;
+	AIEditNodeButton* m_aieditnodebutton = nullptr;
+	AIEditNodeOrder* m_aieditnodeorder = nullptr;
+	AIEditNodeProcess* m_aieditnodeprocess = nullptr;
+	AIEditNodeSelectFonts* m_aieditnodeselectfonts = nullptr;
+	AIEditNodeDeleteKey* m_aieditnodedeletekey = nullptr;
+
 };

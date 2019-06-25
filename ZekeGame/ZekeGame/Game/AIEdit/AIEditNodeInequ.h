@@ -19,17 +19,17 @@ public:
 	void Num();
 	void FontsConfirmation();
 
-	void GetChoice2(bool a)
-	{
-		Choice2 = a;
-	}
-
 	enum Inequ {
 
 		enDainari = 300,
 		enShowers,
 		enNull = 0,
 	};
+
+	void GetChoice2(bool a)
+	{
+		Choice2 = a;
+	}
 
 	int GetInequ()
 	{
@@ -38,7 +38,6 @@ public:
 
 	bool Getinequfont()
 	{
-
 		return Inequfont;
 	}
 
@@ -46,26 +45,31 @@ public:
 private:
 
 	Inequ m_inequ = enNull;
+
 	int button = 2;							//ボタンの数。
+
 	bool Choice2 = false;					//何かが選択されたらtrueになる。
 	bool Inequfont = false;
 	bool contact1 = false;
 	bool contact2 = false;
+
 	CVector3 cursorpos = CVector3::Zero();
+	CVector3 m_position = CVector3::Zero();
+	CVector3 m_pointposition = CVector3::Zero();
 
 	std::vector<FontRender*> m_fonts;
 	std::vector<FontRender*> m_font;
-	SpriteRender * m_spriteRender;
-	SpriteRender* sr;
-	GameCursor * m_gamecursor;
-	AIEditNodeNum* m_aieditnodenum;
-	AIEditNodeButton* m_aieditnodebutton;
-	AIEditNodeProcess* m_aieditnodeprocess;
-	CVector3 m_position = CVector3::Zero();
-	CVector3 m_pointposition = CVector3::Zero();
-	AIEditNode * m_aieditnode;
-	AIEditNodeSelectFonts* m_aieditnodeselectfont;
 	std::vector<SpriteRender*> m_spriteRenders;
-
 	std::vector<AIEditNodeButton*> m_nodebuttons;
+
+	SpriteRender * m_spriteRender = nullptr;
+	SpriteRender* sr = nullptr;
+
+	GameCursor * m_gamecursor = nullptr;
+	AIEditNodeNum* m_aieditnodenum = nullptr;
+	AIEditNodeButton* m_aieditnodebutton = nullptr;
+	AIEditNodeProcess* m_aieditnodeprocess = nullptr; 
+	AIEditNode* m_aieditnode = nullptr;
+	AIEditNodeSelectFonts* m_aieditnodeselectfont = nullptr;
+
 };

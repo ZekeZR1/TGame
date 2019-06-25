@@ -34,6 +34,7 @@ bool AIEditNodeOrder::Start()
 {
 	if (m_isMakeOrder)
 		return true;
+
 	m_gamecursor = FindGO<GameCursor>("cursor");
 	m_aieditnodeclick = FindGO<AIEditNodeClick>("click");
 	m_aieditnode = FindGO<AIEditNode>("firstwin");
@@ -46,11 +47,13 @@ bool AIEditNodeOrder::Start()
 	m_aieditonodeselectfonts = FindGO<AIEditNodeSelectFonts>("fonts");
 	
 	CVector3 v = CVector3::Zero();
+
 	QueryGOs<AIEditLine>("Line", [&](auto go)->bool
 	{
 		v = go->GetPos();
 		return true;
 	});
+
 	m_pos = v;
 
 	m_pos.x += 300;
