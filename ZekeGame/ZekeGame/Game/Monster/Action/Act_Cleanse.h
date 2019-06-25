@@ -8,5 +8,7 @@ public:
 private:
 	bool m_first = true;
 	float m_cost = 20;
+	int m_cooltime = 5;
+	float m_timer = 0;
 };
 

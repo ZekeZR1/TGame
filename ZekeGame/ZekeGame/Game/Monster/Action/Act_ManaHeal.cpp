@@ -47,7 +47,7 @@ bool Act_ManaHeal::Action(Monster* me) {
 	}
 	else {
 		m_timer++;
-		if (!me->isAnimPlay() and m_timer >= m_cooltime)
+		if (m_timer >= m_cooltime)
 		{
 			me->anim_idle();
 			return true;

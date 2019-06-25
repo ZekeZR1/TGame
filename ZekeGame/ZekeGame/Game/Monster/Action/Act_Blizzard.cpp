@@ -18,7 +18,7 @@ bool Act_Blizzard::Action(Monster* me) {
 		if (me->GetMP() < m_cost) return true;
 		me->SetMP(me->GetMP() - m_cost);
 		m_cBeam.InitAbnormalStateInfo(L"Assets/effect/KOTIKOTI.efk",ACTEffectGrant::State::enHardCC,m_efs,m_DoTEndTime,m_grantAbsTime, m_DoTDamageParam);
-		m_cBeam.Fire(me, m_target, L"Assets/effect/briza.efk", L"Assets/sound/bom.wav", laserRange, m_damage,m_cost);
+		m_cBeam.Fire(me, m_target, L"Assets/effect/briza.efk", L"Assets/sound/blizzard.wav", laserRange, m_damage,m_cost);
 		m_first = false;
 	}
 	else if (m_timer >= m_cooltime) {

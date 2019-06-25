@@ -29,6 +29,7 @@ private:
 	CVector3 crs = CVector3::Zero();
 	CVector3 m_targetPosition = CVector3::Zero();
 	Monster* m_me = nullptr;
+	Sound* m_se = nullptr;
 	float m_cost = 0.f;
 };
 

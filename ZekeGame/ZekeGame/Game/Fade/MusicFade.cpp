@@ -26,6 +26,7 @@ void MusicFade::Update()
 	m_vol -= m_speed * IGameTime().GetFrameDeltaTime();
 	if (m_vol <= 0)
 	{
+		m_Music->Stop();
 		DeleteGO(this);
 		m_vol = 0;
 	}
