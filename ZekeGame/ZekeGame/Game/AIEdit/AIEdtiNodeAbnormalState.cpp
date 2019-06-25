@@ -133,7 +133,6 @@ void AIEditNodeAbnormalState::FontsConfirmation()
 		cont = false;
 	}
 
-
 	if (contact1 == true) {
 		if (cont == false) {
 			m_font[0]->Init(L"", { m_fontpos1 }, 0.0, CVector4::White, 0.8, { 0.0,0.0 });

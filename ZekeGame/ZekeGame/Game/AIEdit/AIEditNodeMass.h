@@ -12,6 +12,6 @@ public:
 
 private:
 
-	SpriteRender * m_spriteRender;
+	SpriteRender * m_spriteRender = nullptr;
 
 };

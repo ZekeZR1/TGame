@@ -21,7 +21,6 @@ AIEditNodeSelectButtons::~AIEditNodeSelectButtons()
 
 }
 
-
 bool AIEditNodeSelectButtons::Start()
 {
 	m_proc = FindGO<AIEditNodeProcess>("process");
@@ -120,15 +119,6 @@ void AIEditNodeSelectButtons::Update()
 			m_bmenu = false;
 		}
 
-		//?をクリックしたときにhelpを表示する。
-		//m_spriterender3->SetCollisionTarget(cursorpos);
-		//if (m_spriterender3->isCollidingTarget()) {
-		//	if (isClick) {
-		//		//ここで何かをNew。
-		//		menuselect = true;
-		//	}
-		//}
-
 		if (m_proc->isClickClicked())
 			return;
 
@@ -141,14 +131,14 @@ void AIEditNodeSelectButtons::Update()
 				PlayButtonSE();
 
 			}
-			if (!m_bsave)
-			{
+
+			if (!m_bsave){
 				m_spriterender4->SetMulCol({ 1.4f,1.4f ,1.4f ,1 });
 				m_bsave = true;
 			}
 		}
-		else if (m_bsave)
-		{
+
+		else if (m_bsave){
 			m_spriterender4->SetMulCol({ 1.f,1.f ,1.f ,1 });
 			m_bsave = false;
 		}
@@ -164,17 +154,18 @@ void AIEditNodeSelectButtons::Update()
 
 				menuselect = true;
 			}
-			if (!m_bopen)
-			{
+
+			if (!m_bopen){
 				m_spriterender5->SetMulCol({ 1.4f,1.4f ,1.4f ,1 });
 				m_bopen = true;
 			}
 		}
-		else if (m_bopen)
-		{
+
+		else if (m_bopen){
 			m_spriterender5->SetMulCol({ 1.f,1.f ,1.f ,1 });
 			m_bopen = false;
 		}
 
 	}
+
 }

@@ -6,31 +6,27 @@ class AIEditNodeButton : public GameObject
 
 public:
 	~AIEditNodeButton();
-	void Awake();
 	bool Start();
 	void Update();
+	void Awake();
 	
 	void SetButton(int num)
 	{
-
 		button = num;
 	}
 
 	void SetPos(CVector3 pos)
 	{
-
 		kari = pos;
 	}
 
 	void SetPri(int pri)
 	{
-
 		priority = pri;
 	}
 
 	SpriteRender * GetSpriteRender()
 	{
-
 		return m_spriteRender;
 	}
 
@@ -54,8 +50,11 @@ private:
 	int priority = 0;     //ï`âÊóDêÊèáà 
 	int x = 0;   
 	int y = 140;
-	SpriteRender * m_spriteRender;
+
 	CVector3 kari = CVector3::Zero();
-	GameCursor * m_gamecursor;
+
+	SpriteRender * m_spriteRender = nullptr;
+
+	GameCursor * m_gamecursor = nullptr;
 
 };

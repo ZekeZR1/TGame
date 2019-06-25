@@ -20,6 +20,7 @@ enum eTarget {
 	enenemy,
 	enTAnull = 0,
 };
+
 enum eNode {
 
 	enHp = 200,
@@ -28,12 +29,14 @@ enum eNode {
 	enTechnique,
 	enNonull = 0,
 };
+
 enum eInequ {
 
 	enDainari = 300,
 	enShowers,
 	enINnull = 0,
 };
+
 enum eNum {
 
 	en1 = 400,
@@ -58,6 +61,7 @@ enum eTechnique {
 	enSpecial2,
 	enTEnull = 0,
 };
+
 enum eAbnormal {
 
 	endoku = 600,
@@ -66,6 +70,7 @@ enum eAbnormal {
 	ensutan,
 	enABnull = 0,
 };
+
 struct sOrder
 {
 	eTarget tar = enTAnull;
@@ -88,7 +93,6 @@ public:
 	void Update() override final;
 	void DeleteGOs();
 	void Fonts();
-
 	void makeOrder(int l,int o,sOrder* order,bool isEnd=false);
 	void makeFonts(sOrder* order);
 	
@@ -130,34 +134,38 @@ public:
 
 private:
 
+	int num = 1;
+	int fonttimer = 25;          //上に表示されている確認用のfontを
+
 	bool Technique = false;		//技を選択したときtrueになる。　
 	bool techniqueOrder = false;
 	bool timer = false;
 	bool key = false; //deletekeyに何かが入ったらtrueになる。
-	int num = 1;
-	int fonttimer = 25;          //上に表示されている確認用のfontを
-	float scale = 0.7;          //fontのスケール。
 	bool NextClickFlag = false;  //Deletekeyを使って列をDeleteしたと気にtrueになる。
+	bool m_isMakeOrder = false;				//makeOrderした場合はStart等を無視するためのフラグ
+
+	float scale = 0.7;          //fontのスケール。
+	
+	CVector3 m_pos = CVector3::Zero();
 
 	AIEditNodeDeleteKey* m_keepdelete[8];
 
 	std::vector<FontRender*> m_fonts;
-	CVector3 m_pos = CVector3::Zero();
-	GameCursor * m_gamecursor;
-	AIEditMode * m_aieditmode;
-	AIEditNode * m_aieditnode;
-	AIEditNodeInequ * m_aieditnodeinequ;
-	AIEditNodeNum * m_aieditnodenum;
-	AIEditNodeClick* m_aieditnodeclick;
-	AIEditLine * m_aieditline;
-	SpriteRender * m_spriteRender;
-	AIEditNodeTarget* m_aieditnodetarget;
-	AIEditNodeProcess* m_aieditnodeprocess;
-	AIEditNodeTechnique* m_aieditnodetechnique;
-	AIEditNodeAbnormalState* m_aieditnodeabnormalstate;
-	AIEditNodeSelectFonts* m_aieditonodeselectfonts;
-	AIEditNodeDeleteKey* m_aieditnodedeletekey;
 
+	SpriteRender* m_spriteRender = nullptr;
 
-	bool m_isMakeOrder = false;				//makeOrderした場合はStart等を無視するためのフラグ
+	GameCursor * m_gamecursor = nullptr;
+	AIEditMode * m_aieditmode = nullptr;
+	AIEditNode * m_aieditnode = nullptr;
+	AIEditNodeInequ * m_aieditnodeinequ = nullptr;
+	AIEditNodeNum * m_aieditnodenum = nullptr;
+	AIEditNodeClick* m_aieditnodeclick = nullptr;
+	AIEditLine * m_aieditline = nullptr;
+	AIEditNodeTarget* m_aieditnodetarget = nullptr;
+	AIEditNodeProcess* m_aieditnodeprocess = nullptr;
+	AIEditNodeTechnique* m_aieditnodetechnique = nullptr;
+	AIEditNodeAbnormalState* m_aieditnodeabnormalstate = nullptr;
+	AIEditNodeSelectFonts* m_aieditonodeselectfonts = nullptr;
+	AIEditNodeDeleteKey* m_aieditnodedeletekey = nullptr;
+
 };

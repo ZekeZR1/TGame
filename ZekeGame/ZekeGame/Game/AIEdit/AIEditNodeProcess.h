@@ -24,12 +24,11 @@ public:
 	void Target();
 	void Technique();
 	void DeleteKey(AIEditNodeOrder* a);
-
 	//flagkeepとorderkeepを消す
 	void DeleteAll();
+	void AISave(int num, int col);
+
 	AIEditNodeOrder* CreateOrder();
-	
-	void AISave(int num,int col);
 
 	bool GetClickFlag()
 	{
@@ -146,6 +145,8 @@ public:
 
 private:
 
+	AIEditNodeOrder* m_orderkeep[8][3];
+
 	int flagkeep[8][3][6];   //各クラスで何を選択したかを保持しておくためのもの。
 	int keep1 = 0; //８行ある内の何個目か。
 	int keep2 = 0; //３列のうちの何個目か。
@@ -155,30 +156,29 @@ private:
 											  3 = num
 											  4 = abnormal
 											  5 = technique 　　*/
-
-	AIEditNodeOrder* m_orderkeep[8][3];
-
 	int StateNum = 1;
-	
 	int num = 0;
 	int TechniqueCount = 0;
-	float ClickePosY = 275;				//AIEditNodeClickをNewするときのY座標。
+
 	bool Clickflag = 0;
 	bool OrderChoice = false;			//AIEditNodeOrderが表示されていないとき。
 	bool TechniqueGenerate = false;		//techniqueが表示されるとtrueになる。deletekeyで使う。
-
-	AIEditNode * m_aieditnode;
-	AIEditNodeInequ * m_aieditnodeinequ;
-	AIEditNodeNum * m_aieditnodenum;
-	AIEditNodeOrder * m_aieditnodeorder;
-	AIEditLine * m_aieditline;
-	AIEditNodeTarget* m_aieditnodetarget;
-	AIEditNodeClick* m_aieditnodeclick;
-	SpriteRender * m_spriteRender;
-	AIEditNodeTechnique* m_aieditnodetechnique;
-	AIEditNodeMenu* m_aieditnodemenu;
-	AIEditNodeSelectButtons* m_aieditnodeselectbuttons;
-	AIEditNodeDeleteKey* m_aieditnodedeletekey;
-
 	bool m_isClickClicked = false;		//クリックがクリックされたか
+
+	float ClickePosY = 275;				//AIEditNodeClickをNewするときのY座標。
+
+	AIEditNode * m_aieditnode = nullptr;
+	AIEditNodeInequ * m_aieditnodeinequ = nullptr;
+	AIEditNodeNum * m_aieditnodenum = nullptr;
+	AIEditNodeOrder * m_aieditnodeorder = nullptr;
+	AIEditLine * m_aieditline = nullptr;
+	AIEditNodeTarget* m_aieditnodetarget = nullptr;
+	AIEditNodeClick* m_aieditnodeclick = nullptr;
+	SpriteRender * m_spriteRender = nullptr;
+	AIEditNodeTechnique* m_aieditnodetechnique = nullptr;
+	AIEditNodeMenu* m_aieditnodemenu = nullptr;
+	AIEditNodeSelectButtons* m_aieditnodeselectbuttons = nullptr;
+	AIEditNodeDeleteKey* m_aieditnodedeletekey = nullptr
+		;
+
 };

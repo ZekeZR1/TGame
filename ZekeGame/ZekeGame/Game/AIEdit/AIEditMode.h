@@ -28,8 +28,9 @@ private:
 	GameCursor* m_cursor = nullptr;				// This is cursor
 	GameCamera* m_camera = nullptr;				//<-THIS IS CAMERA
 	AIEditNodeClick* m_aieditnodeclick= nullptr;
-	SpriteRender * m_spriteRender;
-	AIEditNodeProcess* m_aieditnodeprocess;
-	AIEditNodeBackGround* m_aieditnodebackground;
+	AIEditNodeProcess* m_aieditnodeprocess = nullptr;
+	AIEditNodeBackGround* m_aieditnodebackground = nullptr;
+
+	SpriteRender* m_spriteRender = nullptr;
 
 };
