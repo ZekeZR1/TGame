@@ -465,10 +465,10 @@
     <ClCompile Include="Game\ExchangeData\ExchangeData.cpp" />
     <ClCompile Include="Game\Online\TestView.cpp" />
     <ClCompile Include="Game\NetPVP\NetPVPMode.cpp">
-      <Filter>act\NetPVP</Filter>
+      <Filter>Game\NetPVP</Filter>
     </ClCompile>
     <ClCompile Include="Game\NetPVP\NetAISelect.cpp">
-      <Filter>act\NetPVP</Filter>
+      <Filter>Game\NetPVP</Filter>
     </ClCompile>
     <ClCompile Include="Game\AIEdit\AIEditNodeMenuOpen.cpp">
       <Filter>Game\AIEdite</Filter>
@@ -495,25 +495,25 @@
       <Filter>Game\AIMonSelect\AIMonPreset</Filter>
     </ClCompile>
     <ClCompile Include="Game\NetPVP\CRatingSystem.cpp">
-      <Filter>act\NetPVP</Filter>
+      <Filter>Game\NetPVP</Filter>
     </ClCompile>
     <ClCompile Include="Game\Online\Console.cpp">
-      <Filter>act\NetPVP</Filter>
+      <Filter>Game\NetPVP</Filter>
     </ClCompile>
     <ClCompile Include="Game\Online\BaseView.cpp">
-      <Filter>act\NetPVP</Filter>
+      <Filter>Game\NetPVP</Filter>
     </ClCompile>
     <ClCompile Include="Game\Online\LoadBalancingListener.cpp">
-      <Filter>act\NetPVP</Filter>
+      <Filter>Game\NetPVP</Filter>
     </ClCompile>
     <ClCompile Include="Game\Online\NetworkLogic.cpp">
-      <Filter>act\NetPVP</Filter>
+      <Filter>Game\NetPVP</Filter>
     </ClCompile>
     <ClCompile Include="Game\Online\OutputListener.cpp">
-      <Filter>act\NetPVP</Filter>
+      <Filter>Game\NetPVP</Filter>
     </ClCompile>
     <ClCompile Include="Game\NetPVP\RatePopup.cpp">
-      <Filter>act\NetPVP</Filter>
+      <Filter>Game\NetPVP</Filter>
     </ClCompile>
     <ClCompile Include="Game\ReturnButton\ReturnButton.cpp">
       <Filter>Game\ReturnButton</Filter>
@@ -1423,10 +1423,10 @@
     <ClInclude Include="Game\ExchangeData\ExchangeData.h" />
     <ClInclude Include="Game\Online\TestView.h" />
     <ClInclude Include="Game\NetPVP\NetPVPMode.h">
-      <Filter>act\NetPVP</Filter>
+      <Filter>Game\NetPVP</Filter>
     </ClInclude>
     <ClInclude Include="Game\NetPVP\NetAISelect.h">
-      <Filter>act\NetPVP</Filter>
+      <Filter>Game\NetPVP</Filter>
     </ClInclude>
     <ClInclude Include="Game\AIEdit\AIEditNodeMenuOpen.h">
       <Filter>Game\AIEdite</Filter>
@@ -1453,25 +1453,25 @@
       <Filter>Game\AIMonSelect\AIMonPreset</Filter>
     </ClInclude>
     <ClInclude Include="Game\NetPVP\CRatingSystem.h">
-      <Filter>act\NetPVP</Filter>
+      <Filter>Game\NetPVP</Filter>
     </ClInclude>
     <ClInclude Include="Game\Online\Console.h">
-      <Filter>act\NetPVP</Filter>
+      <Filter>Game\NetPVP</Filter>
     </ClInclude>
     <ClInclude Include="Game\Online\BaseView.h">
-      <Filter>act\NetPVP</Filter>
+      <Filter>Game\NetPVP</Filter>
     </ClInclude>
     <ClInclude Include="Game\Online\LoadBalancingListener.h">
-      <Filter>act\NetPVP</Filter>
+      <Filter>Game\NetPVP</Filter>
     </ClInclude>
     <ClInclude Include="Game\Online\NetworkLogic.h">
-      <Filter>act\NetPVP</Filter>
+      <Filter>Game\NetPVP</Filter>
     </ClInclude>
     <ClInclude Include="Game\Online\OutputListener.h">
-      <Filter>act\NetPVP</Filter>
+      <Filter>Game\NetPVP</Filter>
     </ClInclude>
     <ClInclude Include="Game\NetPVP\RatePopup.h">
-      <Filter>act\NetPVP</Filter>
+      <Filter>Game\NetPVP</Filter>
     </ClInclude>
     <ClInclude Include="Game\ReturnButton\ReturnButton.h">
       <Filter>Game\ReturnButton</Filter>
@@ -2255,7 +2255,7 @@
     <Filter Include="Game\PythonBridge">
       <UniqueIdentifier>{c1ba429b-73d7-443f-9956-35e138a6ab83}</UniqueIdentifier>
     </Filter>
-    <Filter Include="act\NetPVP">
+    <Filter Include="Game\NetPVP">
       <UniqueIdentifier>{736400d6-d82f-4535-8980-f973e86efcf1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>

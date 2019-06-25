@@ -27,7 +27,10 @@ void NetPVPMode::init(std::vector<std::string> files, int monai[3], int moid[3],
 {
 	for (int i=0;i<3;i++)
 	{
-		m_files.push_back(files[monai[i]]);
+		if (aimode[i] == 1) 
+			m_files.push_back("VISUAL AI");
+		else 
+			m_files.push_back(files[monai[i]]);
 		m_monai[i] = monai[i];
 		m_moid[i] = moid[i];
 		m_aimode[i] = aimode[i];
@@ -67,9 +70,6 @@ void NetPVPMode::Update() {
 	 RaiseData();
 	 LoadEnemyData();
 	 UiUpdate();
-	 if (m_lbl->isConect()) {
-		 m_font->Init(L"‘Îí‘ŠŽè‚ªŒ©‚Â‚©‚è‚Ü‚µ‚½", m_findFontPos, 0.f, CVector4::White, 1.f, { 1,1 });
-	 }
 	 if (m_lbl->isGotEnemyPythonCodes()) {
 		 m_lbl->raiseMyLoadingState();
 		 OutputDebugString("\n");
