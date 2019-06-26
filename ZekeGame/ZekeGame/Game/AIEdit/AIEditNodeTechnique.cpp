@@ -23,9 +23,6 @@ AIEditNodeTechnique ::~AIEditNodeTechnique()
 		DeleteGO(fonts);
 }
 
-
-
-
 bool AIEditNodeTechnique::Start()
 {
 
@@ -50,7 +47,6 @@ bool AIEditNodeTechnique::Start()
 		m_aieditnodebutton->SetPos(m_position);
 		m_nodebuttons.push_back(m_aieditnodebutton);
 	}
-
 
 	//ƒtƒHƒ“ƒg
 	for (int i = 0; i < button; i++) {
@@ -86,7 +82,6 @@ bool AIEditNodeTechnique::Start()
 	m_fontpos.y -= 55.f;
 	m_fonts[6]->Init(L"‚Æ‚­‚µ‚ã‚Q", { m_fontpos }, 0.0, CVector4::White, 0.55, { 0.0,0.0 });
 	m_fonts[6]->DrawShadow({ 5,-5 });
-
 	
 	m_font.push_back(NewGO<FontRender>(3));
 	m_font[0]->SetTextType(CFont::en_Japanese);
@@ -174,7 +169,6 @@ void AIEditNodeTechnique::FontsConfirmation()
 	else {
 		cont = false;
 	}
-
 
 	if (contact1 == true) {
 		if (cont == false) {

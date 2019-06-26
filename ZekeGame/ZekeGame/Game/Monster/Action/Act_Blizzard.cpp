@@ -12,7 +12,7 @@ Act_Blizzard::~Act_Blizzard() {
 }
 
 bool Act_Blizzard::Action(Monster* me) {
-	if (m_target == nullptr and m_timer >= m_cooltime) return true;
+	if (m_target == nullptr) return true;
 
 	if (m_first) {
 		if (me->GetMP() < m_cost) return true;

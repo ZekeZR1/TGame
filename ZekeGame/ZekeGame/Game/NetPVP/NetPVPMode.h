@@ -62,6 +62,7 @@ private:
 	int m_rcuTime = 0;
 	//UI
 	int m_numParticle = 20;
+	bool m_isEnemyHere = false;
 	std::vector<backParticle*> m_particles;
 	SpriteRender* m_informationSp = nullptr;
 	CVector3 m_informationPos = { 0.f,300.f,0.f };
@@ -74,4 +75,5 @@ private:
 	//other
 	GameCursor* m_cur = nullptr;
 	LoadBalancingListener* m_lbl = nullptr;
+	int timeout = 100;
 };

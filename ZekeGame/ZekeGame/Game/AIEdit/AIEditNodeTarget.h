@@ -7,12 +7,9 @@ class AIEditNodeProcess;
 class AIEditNodeSelectFonts;
 class AIEditNodeTarget : public GameObject
 {
-
-
 public:
 
 	~AIEditNodeTarget();
-
 
 	bool Start();
 	void Update();
@@ -37,14 +34,13 @@ public:
 	{
 		return fonttarget;
 	}
-	
 
 private:
 
 	target m_target = ennull;
-	std::vector<FontRender*> m_fonts;
-	std::vector<FontRender*> m_font;
+
 	int button = 3;
+
 	bool Choice0 = false;
 	bool fonttarget = false;
 	bool fonts = false;
@@ -54,14 +50,18 @@ private:
 	CVector3 m_position = CVector3::Zero();
 	CVector3 cursorpos = CVector3::Zero();
 
-	AIEditNodeButton* m_aieditnodebutton;
-	SpriteRender* m_spriteRender;
-	FontRender* m_fontRender;
-	GameCursor * m_gamecursor;
-	AIEditNode* m_aieditnode;
-	AIEditNodeTechnique* m_aieditnodetechique;
-	AIEditNodeProcess* m_aieditnodeprocess;
-	AIEditNodeSelectFonts* m_aieditnodeselectfonts;
-
+	std::vector<FontRender*> m_fonts;
+	std::vector<FontRender*> m_font;
 	std::vector<AIEditNodeButton*> m_nodebuttons;
+
+	SpriteRender* m_spriteRender = nullptr;
+	FontRender* m_fontRender = nullptr;
+
+	AIEditNodeButton* m_aieditnodebutton = nullptr; 
+	GameCursor * m_gamecursor = nullptr;
+	AIEditNode* m_aieditnode = nullptr;
+	AIEditNodeTechnique* m_aieditnodetechique = nullptr;
+	AIEditNodeProcess* m_aieditnodeprocess = nullptr;
+	AIEditNodeSelectFonts* m_aieditnodeselectfonts = nullptr;
+
 };

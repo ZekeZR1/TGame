@@ -15,7 +15,6 @@ AIEditNodeSelectFonts::~AIEditNodeSelectFonts()
 
 }
 
-
 bool AIEditNodeSelectFonts::Start()
 {
 	for (int i = 0; i < 6; i++) {
@@ -183,8 +182,8 @@ void AIEditNodeSelectFonts::FontsDisplay()
 
 			abnormal = false;
 		}
-	}
 
+	}
 
 }
 
