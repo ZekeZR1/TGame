@@ -44,6 +44,7 @@ bool CAct_Beam::DamageCalc() {
 	if (m_beamefk == nullptr or !m_beamefk->IsPlay()) return true;
 	if (m_me->GetMP() - m_cost <= 0) {
 		m_beamefk->Stop();
+		m_beamefk = nullptr;
 		m_se->Stop();
 		return true;
 	}
