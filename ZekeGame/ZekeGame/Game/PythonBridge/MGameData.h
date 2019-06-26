@@ -13,4 +13,7 @@ typedef struct
 } MGameData;
 
 extern PyTypeObject MGameDataType;
+
+PyObject* MGameDataNew(PyTypeObject* type, PyObject* args, PyObject* kwds);
+int MGameDataInitialize(MGameData* self, PyObject* args, PyObject* kwds);
 void MGameDataInit();

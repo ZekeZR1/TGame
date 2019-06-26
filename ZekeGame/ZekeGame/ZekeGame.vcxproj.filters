@@ -2112,6 +2112,7 @@
     <None Include="Assets\Sprite\AIEdit\closeButton.png">
       <Filter>Assets\Sprite\AIEdit</Filter>
     </None>
+    <None Include="Assets\modelData\si_bug\si_bug.FBX" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="act">
