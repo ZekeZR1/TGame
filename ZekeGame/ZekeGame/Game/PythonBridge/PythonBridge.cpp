@@ -857,6 +857,7 @@ static PyObject* addAction(PyObject* self, PyObject* args)
 		}
 	}
 	mon->AddAction(MonsterActionManeger::LoadAction(act,tar->num));
+	return &_Py_NoneStruct;
 }
 
 //module“à‚ÌŠÖ”‚½‚¿
