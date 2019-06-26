@@ -34,6 +34,7 @@ bool Act_buffDefPow::Action(Monster* me) {
 
 		ACTEffectGrant* actEG = NewGO<ACTEffectGrant>(0, "actEG");
 		actEG->init(m_efk, m_target, ACTEffectGrant::State::enBuffDefPow, 0, 0, 50);
+		actEG->SetBuffDebuffParam(1.5);
 		m_target->SetAbnormalState(actEG);
 
 		Sound* snd = NewGO<Sound>(0, "snd");
