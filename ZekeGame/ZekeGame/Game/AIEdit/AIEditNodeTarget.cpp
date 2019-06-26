@@ -9,6 +9,7 @@
 #include "AIEditNodeProcess.h"
 #include "AIEditNodeSelectFonts.h"
 #include "AIEditNodeSelectFonts.h"
+
 AIEditNodeTarget::~AIEditNodeTarget()
 {
 	DeleteGO(m_spriteRender);
@@ -23,8 +24,6 @@ AIEditNodeTarget::~AIEditNodeTarget()
 		DeleteGO(fonts);
 }
 
-
-
 bool AIEditNodeTarget::Start()
 {
 	m_gamecursor = FindGO<GameCursor>("cursor");
@@ -36,11 +35,6 @@ bool AIEditNodeTarget::Start()
 
 	m_aieditnodeselectfonts = NewGO<AIEditNodeSelectFonts>(0, "fonts");
 
-	//CVector3 cursorpos = m_gamecursor->GetCursor();
-	//cursorpos.x += 135.0f;
-	//cursorpos.y += -140.0f;
-	//m_position = cursorpos;
-	//m_position.x -= 100;
 	m_position.x -= 300;
 	m_position.y = 150;
 	m_spriteRender->SetPosition(m_position);	//AIEditNodeのボタンの座標座標
@@ -59,7 +53,9 @@ bool AIEditNodeTarget::Start()
 		m_fonts.push_back(NewGO<FontRender>(5));
 		m_fonts[i]->SetTextType(CFont::en_Japanese);
 	}
+
 	auto bacon = m_nodebuttons[0]->GetPos();
+
 	CVector2 m_fontpos = CVector2::Zero();
 	m_fontpos.x = bacon.x - 60.0;
 	m_fontpos.y = bacon.y + 105.0;
@@ -72,11 +68,9 @@ bool AIEditNodeTarget::Start()
 	m_fontpos.y -= 55.f;
 	m_fonts[2]->Init(L"てき", { m_fontpos }, 0.0, CVector4::White, 0.8, { 0.0,0.0 });
 	m_fonts[2]->DrawShadow({ 5,-5 });
-
 	
 	m_font.push_back(NewGO<FontRender>(3));
 	m_font[0]->SetTextType(CFont::en_Japanese);
-
 
 	return true;
 }
@@ -143,7 +137,6 @@ void AIEditNodeTarget::FontsConfirmation()
 	else {
 		cont = false;
 	}
-	
 
 	if (contact1 == true) {
 		if (cont == false) {
@@ -156,7 +149,6 @@ void AIEditNodeTarget::FontsConfirmation()
 
 void AIEditNodeTarget::Update()
 {
-
 	cursorpos = m_gamecursor->GetCursor();
 	
 	for (int i = 0; i < button; i++) {

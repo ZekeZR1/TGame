@@ -6,6 +6,8 @@
 ACTEffectGrant::~ACTEffectGrant()
 {
 	m_effect->Stop();
+	if(!m_target->IsDead())
+		m_target->ClearAbnormalState(this);
 }
 
 void ACTEffectGrant::init(CEffect * effect, Monster * target, int state, float dam, float time,float endTime, Monster* me,float DoTParam)
@@ -29,14 +31,15 @@ void ACTEffectGrant::Update()
 		DeleteGO(this);
 		return;
 	}
-	if (m_time >= m_endTime) {
-		m_effect->Stop();
-		if (m_abnormal != Monster::abNull)
-		{
-			m_target->ClearAbnormalState(this);
-		}
+	if (m_time >= m_endTime and m_endTime != 0) {
 		DeleteGO(this);
 		return;
+	}
+	else {
+		if (!m_effect->IsPlay()) {
+			DeleteGO(this);
+			return;
+		}
 	}
 	switch (m_state)
 	{
@@ -100,33 +103,33 @@ void ACTEffectGrant::AddAct() {
 	case enBuffAtcPow:
 	{
 		m_pow = m_target->GetAttack();
-		m_target->SetAttackPower(m_pow * 1.5);
+		m_target->SetAttackPower(m_pow * m_buffdebuffParam);
 		m_ExPow = m_target->GetExAttack();
-		m_target->SetAttackPower(m_ExPow * 1.5);
+		m_target->SetAttackPower(m_ExPow * m_buffdebuffParam);
 		break;
 	}
 	case enBuffDefPow:
 	{
 		m_pow = m_target->GetDefense();
-		m_target->SetDefensePower(m_pow * 1.5);
+		m_target->SetDefensePower(m_pow * m_buffdebuffParam);
 		m_ExPow = m_target->GetExDefense();
-		m_target->SetExDefense(m_ExPow * 1.5);
+		m_target->SetExDefense(m_ExPow * m_buffdebuffParam);
 		break;
 	}
 	case enDebuffAtcPow:
 	{
 		m_pow = m_target->GetAttack();
-		m_target->SetDefense(m_pow * 0.5);
+		m_target->SetDefense(m_pow * m_buffdebuffParam);
 		m_ExPow = m_target->GetExDefense();
-		m_target->SetExDefensePower(m_ExPow * 0.5);
+		m_target->SetExDefensePower(m_ExPow * m_buffdebuffParam);
 		break;
 	}
 	case enDebuffDefPow:
 	{
 		m_pow = m_target->GetDefense();
-		m_target->SetDefense(m_pow * 0.5);
+		m_target->SetDefense(m_pow * m_buffdebuffParam);
 		m_ExPow = m_target->GetExDefense();
-		m_target->SetExDefense(m_ExPow * 0.5);
+		m_target->SetExDefense(m_ExPow * m_buffdebuffParam);
 		break;
 	}
 	}

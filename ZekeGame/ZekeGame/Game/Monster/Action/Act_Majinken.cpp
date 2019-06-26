@@ -8,6 +8,12 @@ Act_Majinken::Act_Majinken() {
 	m_ActionId = enMajinken;
 }
 
+Act_Majinken::~Act_Majinken() {
+	if (m_efk != nullptr and m_efk->IsPlay())
+		m_efk->Stop();
+}
+
+
 bool Act_Majinken::Action(Monster* me) {
 	if (m_target == nullptr) return true;
 	if (m_first) {
@@ -26,13 +32,21 @@ bool Act_Majinken::Action(Monster* me) {
 		m_efk->SetScale(CVector3::One() * 3.5);
 		m_efk->SetPosition(me->Getpos());
 		m_efk->Play(L"Assets/effect/majinken_wiat.efk");
+		ACTEffectGrant* actEG = NewGO<ACTEffectGrant>(0, "actEG");
+		actEG->init(m_efk, me, ACTEffectGrant::State::enNull);
+		me->SetAbnormalState(actEG);
+
+		Sound* se = NewGO<Sound>(0, "snd");
+		//se->Init(L"Assets/sound/hai-hai1.wav");
+		se->Init(L"Assets/sound/dissonance1.wav");
+		se->Play();
 		m_first = false;
 	}
 	if (m_timer >= m_chargeTime and !m_attacked) {
 		float len = (m_target->Getpos() - me->Getpos()).Length();
 		float mil = m_target->Getradius() + me->Getradius() + 30;
+		m_efk->Stop();
 		if (len <= mil) {
-			m_efk->Stop();
 			auto efk = NewGO<CEffect>(0, "ef");
 			efk->SetScale(CVector3::One() * 2);
 			efk->SetPosition(me->Getpos());
@@ -48,14 +62,15 @@ bool Act_Majinken::Action(Monster* me) {
 			se->Play();
 		}
 		else {
-			return true;
+			m_attacked = true;
 		}
 	}
-	if (m_timer >= m_cooltime and !me->isAnimPlay() and m_attacked) {
+	if (m_timer >= m_cooltime and m_attacked) {
 		me->anim_idle();
 		m_efk->Stop();
 		return true;
 	}
+
 	m_timer += 60 * IGameTime().GetFrameDeltaTime();
 	return false;
 }

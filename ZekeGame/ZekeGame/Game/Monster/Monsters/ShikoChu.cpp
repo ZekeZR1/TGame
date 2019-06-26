@@ -16,7 +16,7 @@ ShikoChu::ShikoChu()
 	prm.HP = 80;
 	prm.MP = 30;
 	prm.DefencePow = 10;
-	prm.ExDefensePow = 0;
+	prm.ExDefensePow = 5;
 	prm.AttackPow = 10;
 	prm.ExAttackPow = 30;
 	prm.Speed = 50;

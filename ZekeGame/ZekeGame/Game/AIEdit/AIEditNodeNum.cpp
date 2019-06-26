@@ -85,10 +85,8 @@ bool AIEditNodeNum::Start()
 	m_fonts[6]->Init(L" 100", { m_fontpos }, 0.0, CVector4::White, scale, { 0.0,0.0 });
 	m_fonts[6]->DrawShadow({ 5,-5 });
 
-
 	m_font.push_back(NewGO<FontRender>(3));
 	m_font[0]->SetTextType(CFont::en_Japanese);
-	
 
 	return true;
 }
@@ -255,4 +253,3 @@ void AIEditNodeNum::Update()
 	}
 
 }
-

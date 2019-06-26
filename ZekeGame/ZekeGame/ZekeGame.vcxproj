@@ -1180,9 +1180,9 @@
     <None Include="Assets\modelData\RedHead\RedHead.fbx">
       <FileType>Document</FileType>
     </None>
-    <None Include="Assets\modelData\si_bug\si_bug.FBX">
+    <MeshContentTask Include="Assets\modelData\si_bug\si_bug.FBX">
       <FileType>Document</FileType>
-    </None>
+    </MeshContentTask>
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_redHead.png" />
@@ -1219,9 +1219,9 @@
     <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_shell.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\modelData\dungeon\gorgeousWall.fbx">
+    <MeshContentTask Include="Assets\modelData\dungeon\gorgeousWall.fbx">
       <FileType>Document</FileType>
-    </None>
+    </MeshContentTask>
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Sprite\AIEdit\closeButton.png" />

@@ -37,7 +37,7 @@ Fairy::Fairy()
 	prm.AttackPow = 5;
 	prm.ExAttackPow = 10;
 	prm.Speed = 30;
-	prm.Radius = 20;
+	prm.Radius = 30;
 	prm.Height = 130;
 	prm.ModelRender = smr;
 	prm.NumAnimation = 7;
