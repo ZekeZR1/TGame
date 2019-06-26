@@ -841,8 +841,9 @@ me‚ÉƒAƒNƒVƒ‡ƒ“‚ð’Ç‰Á
 */
 static PyObject* addAction(PyObject* self, PyObject* args)
 {
-	MMonster* tar = (MMonster*)PyList_GetItem(args, 0);
-	int act = PyLong_AsLong(PyList_GetItem(args, 1));
+	
+	PyObject* tar = PyTuple_GetItem(args, 0);
+	int act = PyLong_AsLong(PyTuple_GetItem(args, 1));
 	
 	Monster* mon = NULL;
 	Monster* target = NULL;
@@ -856,7 +857,10 @@ static PyObject* addAction(PyObject* self, PyObject* args)
 			break;
 		}
 	}
-	mon->AddAction(MonsterActionManeger::LoadAction(act,tar->num));
+	if(tar->ob_type==&MMonsterType)
+		mon->AddAction(MonsterActionManeger::LoadAction(act,((MMonster*)tar)->num));
+	else
+		mon->AddAction(MonsterActionManeger::LoadAction(act,PyLong_AsLong(tar)));
 	return &_Py_NoneStruct;
 }
 
