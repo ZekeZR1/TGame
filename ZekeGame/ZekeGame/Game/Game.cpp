@@ -55,10 +55,10 @@ bool Game::Start() {
 	}
 	camera = new GameCamera;
 
-	m_smd = NewGO<SkinModelDummy>(0, "smd");
+	/*m_smd = NewGO<SkinModelDummy>(0, "smd");
 	m_smd->Init(L"Assets/modelData/limit2.cmo", enFbxUpAxisZ);
 	m_smd->SetPosition(CVector3::Zero());
-	m_smd->CreatePhysicsStaticObject();
+	m_smd->CreatePhysicsStaticObject();*/
 
 	OutputDebugStringA("Start Battle");
 
@@ -98,7 +98,7 @@ void Game::OnDestroy() {
 	DeleteGO(m_fr);
 	DeleteGO(m_frS);
 	DeleteGO(m_floor);
-	DeleteGO(m_smd);
+	//DeleteGO(m_smd);
 	DeleteGO(m_dunInfoF);
 	if (m_isOnlineGame) {
 		//Engine::IEngine().DestroyNetworkSystem();

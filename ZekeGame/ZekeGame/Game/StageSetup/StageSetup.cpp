@@ -125,7 +125,7 @@ void StageSetup::DungeonSetup(PyFile files, PyFile eneFiles, int monsterAI[6], M
 	poss[4] = { 0,0,-500 };
 	poss[5] = { -250,0,-500 };
 
-	SetEnemyAI(dunNumber,monsterAI, monids);
+	PyFile enemyfiles = SetEnemyAI(dunNumber,monsterAI, monids);
 
 	for (int i = 0; i < 6; i++)
 	{
@@ -167,7 +167,8 @@ void StageSetup::DungeonSetup(PyFile files, PyFile eneFiles, int monsterAI[6], M
 		else{
 			//enemy
 			std::string* path = new std::string("PythonEnemyAIs.");
-			*path += eneFiles[monsterAI[i]];
+			//*path += eneFiles[monsterAI[i]];
+			*path += enemyfiles[i-3];
 			mon->SetpyFile(path);
 		}
 		g_mons[i] = mon;
@@ -178,12 +179,17 @@ void StageSetup::DungeonSetup(PyFile files, PyFile eneFiles, int monsterAI[6], M
 }
 
 //dungeon enemy ai and id
-void StageSetup::SetEnemyAI(int dun, int* monAI, MonsterID* monId) {
+std::vector<std::string> StageSetup::SetEnemyAI(int dun, int* monAI, MonsterID* monId) {
 	//TODO : Zeke : É_ÉìÉWÉáÉìÇÃìGAIÇÃí≤êÆ
 	int round = IDungeonData().GetRound();
+	std::vector<std::string> filenames;
+	filenames.reserve(3);
 	switch (dun) {
 	case 0: //1
 	{
+		filenames.push_back("00_gob");
+		filenames.push_back("00_gob");
+		filenames.push_back("00_gob");
 		monAI[3] = 0;
 		monId[3] = enGoblin;
 		monAI[4] = 0;
@@ -194,6 +200,9 @@ void StageSetup::SetEnemyAI(int dun, int* monAI, MonsterID* monId) {
 		break;
 	case 1: //2
 		if (round == 0) {
+			filenames.push_back("00_gob");
+			filenames.push_back("01_gob");
+			filenames.push_back("00_gob");
 			monAI[3] = 0;
 			monId[3] = enGoblin;
 			monAI[4] = 1;
@@ -202,6 +211,9 @@ void StageSetup::SetEnemyAI(int dun, int* monAI, MonsterID* monId) {
 			monId[5] = enGoblin;
 		}
 		if (round == 1) {
+			filenames.push_back("01_gob");
+			filenames.push_back("02_fairy");
+			filenames.push_back("01_gob");
 			monAI[3] = 1;
 			monId[3] = enGoblin;
 			monAI[4] = 2;
@@ -212,6 +224,9 @@ void StageSetup::SetEnemyAI(int dun, int* monAI, MonsterID* monId) {
 		break;
 	case 2: //2
 		if (round == 0) {
+			filenames.push_back("02_fairy");
+			filenames.push_back("01_gob");
+			filenames.push_back("02_fairy");
 			monAI[3] = 2;
 			monId[3] = enFairy;
 			monAI[4] = 1;
@@ -220,6 +235,9 @@ void StageSetup::SetEnemyAI(int dun, int* monAI, MonsterID* monId) {
 			monId[5] = enFairy;
 		}
 		if (round == 1) {
+			filenames.push_back("01_gob");
+			filenames.push_back("03_uma");
+			filenames.push_back("01_gob");
 			monAI[3] = 1;
 			monId[3] = enGoblin;
 			monAI[4] = 1;
@@ -230,6 +248,9 @@ void StageSetup::SetEnemyAI(int dun, int* monAI, MonsterID* monId) {
 		break;
 	case 3:	//2
 		if (round == 0) {
+			filenames.push_back("02_fairy");
+			filenames.push_back("04_uma");
+			filenames.push_back("02_fairy");
 			monAI[3] = 2;
 			monId[3] = enFairy;
 			monAI[4] = 4;
@@ -238,6 +259,9 @@ void StageSetup::SetEnemyAI(int dun, int* monAI, MonsterID* monId) {
 			monId[5] = enFairy;
 		}
 		if (round == 1) {
+			filenames.push_back("02_fairy");
+			filenames.push_back("05_armor");
+			filenames.push_back("04_uma");
 			monAI[3] = 2;
 			monId[3] = enFairy;
 			monAI[4] = 5;
@@ -248,6 +272,9 @@ void StageSetup::SetEnemyAI(int dun, int* monAI, MonsterID* monId) {
 		break;
 	case 4: //2
 		if (round == 0) {
+			filenames.push_back("04_uma");
+			filenames.push_back("04_uma");
+			filenames.push_back("04_uma");
 			monAI[3] = 4;
 			monId[3] = enUmataur;
 			monAI[4] = 4;
@@ -256,6 +283,9 @@ void StageSetup::SetEnemyAI(int dun, int* monAI, MonsterID* monId) {
 			monId[5] = enUmataur;
 		}
 		if (round == 1) {
+			filenames.push_back("05_armor");
+			filenames.push_back("06_kikyo");
+			filenames.push_back("05_armor");
 			monAI[3] = 5;
 			monId[3] = enArmor;
 			monAI[4] = 6;
@@ -266,6 +296,9 @@ void StageSetup::SetEnemyAI(int dun, int* monAI, MonsterID* monId) {
 		break;
 	case 5: //3
 		if (round == 0) {
+			filenames.push_back("05_armor");
+			filenames.push_back("04_uma");
+			filenames.push_back("02_fairy");
 			monAI[3] = 5;
 			monId[3] = enArmor;
 			monAI[4] = 4;
@@ -274,6 +307,9 @@ void StageSetup::SetEnemyAI(int dun, int* monAI, MonsterID* monId) {
 			monId[5] = enFairy;
 		}
 		if (round == 1) {
+			filenames.push_back("02_fairy");
+			filenames.push_back("06_kikyo");
+			filenames.push_back("04_uma");
 			monAI[3] = 2;
 			monId[3] = enFairy;
 			monAI[4] = 6;
@@ -282,6 +318,9 @@ void StageSetup::SetEnemyAI(int dun, int* monAI, MonsterID* monId) {
 			monId[5] = enUmataur;
 		}
 		if (round == 2) {
+			filenames.push_back("04_uma");
+			filenames.push_back("07_book");
+			filenames.push_back("04_uma");
 			monAI[3] = 4;
 			monId[3] = enUmataur;
 			monAI[4] = 7;
@@ -292,6 +331,9 @@ void StageSetup::SetEnemyAI(int dun, int* monAI, MonsterID* monId) {
 		break;
 	case 6: //3
 		if (round == 0) {
+			filenames.push_back("07_book");
+			filenames.push_back("06_kikyo");
+			filenames.push_back("07_book");
 			monAI[3] = 7;
 			monId[3] = enBook;
 			monAI[4] = 6;
@@ -300,6 +342,9 @@ void StageSetup::SetEnemyAI(int dun, int* monAI, MonsterID* monId) {
 			monId[5] = enBook;
 		}
 		if (round == 1) {
+			filenames.push_back("05_armor");
+			filenames.push_back("04_uma");
+			filenames.push_back("01_gob");
 			monAI[3] = 5;
 			monId[3] = enArmor;
 			monAI[4] = 4;
@@ -308,6 +353,9 @@ void StageSetup::SetEnemyAI(int dun, int* monAI, MonsterID* monId) {
 			monId[5] = enGoblin;
 		}
 		if (round == 2) {
+			filenames.push_back("01_gob");
+			filenames.push_back("01_gob");
+			filenames.push_back("01_gob");
 			monAI[3] = 1;
 			monId[3] = enShikoChu;
 			monAI[4] = 1;
@@ -318,6 +366,9 @@ void StageSetup::SetEnemyAI(int dun, int* monAI, MonsterID* monId) {
 		break;
 	case 7:	//3
 		if (round == 0) {
+			filenames.push_back("03_uma");
+			filenames.push_back("06_kikyo");
+			filenames.push_back("05_armor");
 			monAI[3] = 3;
 			monId[3] = enUmataur;
 			monAI[4] = 6;
@@ -326,6 +377,9 @@ void StageSetup::SetEnemyAI(int dun, int* monAI, MonsterID* monId) {
 			monId[5] = enArmor;
 		}
 		if (round == 1) {
+			filenames.push_back("01_gob");
+			filenames.push_back("09_redHead");
+			filenames.push_back("08_si_bug");
 			monAI[3] = 1;
 			monId[3] = enGoblin;
 			monAI[4] = 9;
@@ -334,6 +388,9 @@ void StageSetup::SetEnemyAI(int dun, int* monAI, MonsterID* monId) {
 			monId[5] = enShikoChu;
 		}
 		if (round == 2) {
+			filenames.push_back("07_book");
+			filenames.push_back("10_chris");
+			filenames.push_back("02_fairy");
 			monAI[3] = 7;
 			monId[3] = enBook;
 			monAI[4] = 10;
@@ -343,6 +400,7 @@ void StageSetup::SetEnemyAI(int dun, int* monAI, MonsterID* monId) {
 		}
 		break;
 	}
+	return filenames;
 }
 
 void StageSetup::OshiFes()
