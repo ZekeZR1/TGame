@@ -238,8 +238,9 @@ void Game::Update() {
 			}
 			SuddenDeath();
 			DeleteGO(m_fr);
+			DeleteGO(m_frS);
 			m_fr = nullptr;
-
+			m_frS = nullptr;
 			
 		}
 		else

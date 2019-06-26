@@ -103,33 +103,33 @@ void ACTEffectGrant::AddAct() {
 	case enBuffAtcPow:
 	{
 		m_pow = m_target->GetAttack();
-		m_target->SetAttackPower(m_pow * 1.5);
+		m_target->SetAttackPower(m_pow * m_buffdebuffParam);
 		m_ExPow = m_target->GetExAttack();
-		m_target->SetAttackPower(m_ExPow * 1.5);
+		m_target->SetAttackPower(m_ExPow * m_buffdebuffParam);
 		break;
 	}
 	case enBuffDefPow:
 	{
 		m_pow = m_target->GetDefense();
-		m_target->SetDefensePower(m_pow * 1.5);
+		m_target->SetDefensePower(m_pow * m_buffdebuffParam);
 		m_ExPow = m_target->GetExDefense();
-		m_target->SetExDefense(m_ExPow * 1.5);
+		m_target->SetExDefense(m_ExPow * m_buffdebuffParam);
 		break;
 	}
 	case enDebuffAtcPow:
 	{
 		m_pow = m_target->GetAttack();
-		m_target->SetDefense(m_pow * 0.5);
+		m_target->SetDefense(m_pow * m_buffdebuffParam);
 		m_ExPow = m_target->GetExDefense();
-		m_target->SetExDefensePower(m_ExPow * 0.5);
+		m_target->SetExDefensePower(m_ExPow * m_buffdebuffParam);
 		break;
 	}
 	case enDebuffDefPow:
 	{
 		m_pow = m_target->GetDefense();
-		m_target->SetDefense(m_pow * 0.5);
+		m_target->SetDefense(m_pow * m_buffdebuffParam);
 		m_ExPow = m_target->GetExDefense();
-		m_target->SetExDefense(m_ExPow * 0.5);
+		m_target->SetExDefense(m_ExPow * m_buffdebuffParam);
 		break;
 	}
 	}

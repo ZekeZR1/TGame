@@ -38,6 +38,8 @@ void NetPVPMode::init(std::vector<std::string> files, int monai[3], int moid[3],
 }
 
 bool NetPVPMode::Start() {
+	std::random_device rnd;
+	 timeout  = rnd() % 20;
 	InitUI();
 	return true;
 }
@@ -57,8 +59,8 @@ void NetPVPMode::OnDestroy()
 
 
 void NetPVPMode::Update() {
-	static const float timeout = 300.f;
-	m_lbl = NetSystem().GetNetworkLogic().GetLBL();
+	if(m_lbl == nullptr)
+		m_lbl = NetSystem().GetNetworkLogic().GetLBL();
 #if _DEBUG
 	if (g_pad[0].IsTrigger(enButtonA)) {
 	}
@@ -92,28 +94,45 @@ void NetPVPMode::Update() {
 			 m_isfade = true;
 			 m_fade->FadeOut();
 	 }
+	 //戦闘開始
 	 if (m_fade->isFadeStop() && m_isfade) {
 		 BattleStart();
 	 }
-	 //if (m_isBackFade && m_fade->isFadeStop()) {
-		 //BackToMenu();
-	 //}
+	 //相手が全然見つからない場合は接続しなおす
 	 if (!m_lbl->CanStartGame() and m_timer > timeout) {
 		 TimeOut();
 	 }
+	 //敵が見つかってない時にタイマーを進める
 	 if (m_lbl->isJoining() and !m_lbl->isConect()) {
-		 m_timer += IGameTime().GetFrameDeltaTime() * 10;
+		 m_timer += IGameTime().GetFrameDeltaTime();
 	 }
-	 if (m_lbl->isConect()) {
-		 m_timer = 0.f;
-	 }
+	 
+	 //if (m_lbl->isConect()) {
+		 //m_timer = 0.f;
+	 //}
+
+	 //タイムアウトしてしばらくしたら繋ぎ直してみる
 	 if(m_recTime == m_rcuTime)
 		Reconnect();
+	 char str[256];
+	 sprintf_s(str, "\n\n\nTIEMRERERERER %f\n\n\n", m_timer);
+	 OutputDebugString(str);
 	 if (m_isTimeout) m_rcuTime++;
-	 if (m_lbl->isEnemyAbandoned()) {
-		 m_lbl->DataReset();
-		 m_timer = 0.f;
+	 //敵がいなくなってしまったら色々リセット
+	 if (m_lbl->isEnemyAbandoned() and !m_lbl->CanStartGame()) {
+		 //m_lbl->DataReset();
+		 //m_isEnemyHere = false;
+		 //m_timer = 0.f;
+		 TimeOut();
 	 }
+	 //敵とつながったか
+	 if (m_lbl->isConect())
+		 m_isEnemyHere = true;
+	 else
+		 m_isEnemyHere = false;
+	 //敵がいるときはタイムアウト用のタイマーを進めない
+	 if (m_isEnemyHere)
+		 m_timer = 0.f;
 }
 
 void NetPVPMode::TimeOut() {
@@ -124,7 +143,8 @@ void NetPVPMode::TimeOut() {
 	int add = rnd() % 100;
 	m_recTime = 120 + add;
 	m_isTimeout = true;
-	m_font->Init(L"対戦相手を検索中", m_waitingFontPos, 0.f, CVector4::White, 1.f, { 1,1 });
+	m_isEnemyHere = false;
+	//m_font->Init(L"対戦相手を検索中", m_waitingFontPos, 0.f, CVector4::White, 1.f, { 1,1 });
 }
 
 void NetPVPMode::Reconnect() {
@@ -208,7 +228,6 @@ void NetPVPMode::RaiseAiTextData() {
 	}
 	m_lbl->raiseMonAIs();
 }
-
 
 void NetPVPMode::RaiseAiVaData() {
 	using namespace std;
@@ -312,7 +331,8 @@ void NetPVPMode::InitUI() {
 }
 
 void NetPVPMode::UiUpdate() {
-	if (m_lbl->isConect()) {
+	//if (m_lbl->isConect()) {
+	if (m_isEnemyHere) {
 		m_font->Init(L"対戦相手が見つかりました", m_findFontPos, 0.f, CVector4::White, 1.f, { 1,1 });
 	}
 	else {
