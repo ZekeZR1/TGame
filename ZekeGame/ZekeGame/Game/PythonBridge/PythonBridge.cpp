@@ -892,6 +892,8 @@ static PyMethodDef methods[] =
 	{"FindEnemyMonster",FindEnemyMonster,METH_VARARGS,"hehokon"},
 	{"FindBuddyMonsters",FindBuddyMonsters,METH_VARARGS,"hehokon"},
 	{"FindEnemyMonsters",FindEnemyMonsters,METH_VARARGS,"hehokon"},
+
+	{"addAction",addAction,METH_VARARGS,"hehokon"},
 	{NULL,NULL,0,NULL}
 };
 
