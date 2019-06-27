@@ -29,7 +29,7 @@ RedHead::RedHead()
 
 	MonsterInitParam prm;
 	prm.HP = 80;
-	prm.MP = 80;
+	prm.MP = 130;
 	prm.DefencePow = 5;
 	prm.ExDefensePow = 5;
 	prm.AttackPow = 10;
