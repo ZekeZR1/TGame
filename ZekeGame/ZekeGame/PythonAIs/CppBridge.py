@@ -74,8 +74,8 @@ class Monster:
         return nmon
 
 class ACTION(IntEnum):
-    Chase = 0
-    Atack = 1
+    Atack = 0
+    Chase = 1
     Leave = 2
     Defense = 3
     Fire = 4
@@ -84,6 +84,49 @@ class ACTION(IntEnum):
     Recovery = 7
 
 class GameData:
+    def fuck__init__(self):
+        self.me = Monster()
+        pos = SendGame.GetMyPosition();
+        self.me.SetPosition(pos[0],pos[1],pos[2])
+        self.me.HP = SendGame.GetMyHP()
+        self.me.MP = SendGame.GetMyMP()
+        self.me.num = SendGame.GetMyNum()
+        self.me.team = SendGame.GetMyTeam()
+
+        self.buddyCount = SendGame.GetBuddyCount()
+        self.enemyCount = SendGame.GetEnemyCount()
+
+        self.Buddy = []
+        #poss = SendGame.GetAllBuddyPosition()
+        #nums = SendGame.GetAllBuddyNum()
+        datas = SendGame.GetAllBuddyData()
+        #for i in range(self.buddyCount-1):
+        for i in range(self.buddyCount):
+            mon = Monster()
+            #mon.SetPosition(poss[i][0],poss[i][1],poss[i][2])
+            #mon.num = nums[i]
+            mon.ID = datas[i][0]
+            mon.num = datas[i][1]
+            mon.team = datas[i][2]
+            mon.HP = datas[i][3]
+            mon.MP = datas[i][4]
+            
+            pos = datas[i][5]
+            mon.SetPosition(pos[0],pos[1],pos[2])
+
+            self.Buddy.append(mon)
+
+        self.Enemys = []
+        poss = SendGame.GetAllEnemyPosition()
+        nums = SendGame.GetAllEnemyNum()
+        HPs = SendGame.GetAllEnemyHP()
+        for i in range(self.enemyCount):
+            mon = Monster()
+            mon.SetPosition(poss[i][0],poss[i][1],poss[i][2])
+            mon.num = nums[i]
+            mon.HP = HPs[i]
+            self.Enemys.append(mon)
+
     def init(self,num,team):
         """
         ゲームデータの初期化
@@ -149,6 +192,9 @@ class GameData:
         self.me.team = mm.team
         self.me.state = mm.state
 
+        
+    def tesGetEneNum():
+        return SendGame.GetAllEnemyNum()
 
     def GetFarMonster(self):
         farmon = None
@@ -341,6 +387,7 @@ def init(num,team):
     """ゲームデータの初期化
         必ず最初に使いましょう。
         """
+    #SendGame.gameData.init(num,team)
     gameData.init(num,team)
 
 
@@ -389,6 +436,9 @@ def GetEnemyHighHPMonster():
     """#一番HPの高い敵のモンスターを返します"""
     return gameData.GetEnemyHighHP()
 
+#def GetLowHPMonster():
+    #return gameData.GetLowHPMonster()
+
 def GetEnemyLowHPMonster():
     return gameData.GetEnemyLowHPMonster()
 
@@ -434,7 +484,7 @@ actions = []
 
 
 def addAction(target,action):
-    """モジュール外から使わないでね!"""
+    """外から使わないでね!"""
     #if len(actions) >= 3 or target == None:
     if target == None:
         return

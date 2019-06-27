@@ -889,9 +889,9 @@ static PyMethodDef methods[] =
 	{"GetBuddyHighHPMonster",GetBuddyHighHPMonster,METH_NOARGS,"hehokon"},
 	{"GetEnemyHighHPMonster",GetEnemyHighHPMonster,METH_NOARGS,"hehokon"},
 
-	{"GetRowHPMonster",GetRowHPMonster,METH_NOARGS,"hehokon"},
-	{"GetBuddyRowHPMonster",GetBuddyRowHPMonster,METH_NOARGS,"hehokon"},
-	{"GetEnemyRowHPMonster",GetEnemyRowHPMonster,METH_NOARGS,"hehokon"},
+	{"GetLowHPMonster",GetRowHPMonster,METH_NOARGS,"hehokon"},
+	{"GetBuddyLowHPMonster",GetBuddyRowHPMonster,METH_NOARGS,"hehokon"},
+	{"GetEnemyLowHPMonster",GetEnemyRowHPMonster,METH_NOARGS,"hehokon"},
 
 	{"FindBuddyMonster",FindBuddyMonster,METH_VARARGS,"hehokon"},
 	{"FindEnemyMonster",FindEnemyMonster,METH_VARARGS,"hehokon"},
@@ -965,7 +965,9 @@ static PyObject* initModule(void)
 	//MGameDataType.tp_init((PyObject*)gameData, arg, NULL);
 	//Py_XDECREF(arg);
 
-	//pData()->SetgameData(gameData);
+	/*MGameData* gameData = (MGameData*)MGameDataType.tp_new(&MGameDataType, NULL, NULL);
+	PyModule_AddObject(thisModule, "gameData", (PyObject*)gameData);
+	pData()->SetgameData(gameData);*/
 
 	return thisModule;
 }

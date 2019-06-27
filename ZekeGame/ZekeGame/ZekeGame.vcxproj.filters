@@ -2095,6 +2095,7 @@
     <None Include="Assets\Sprite\AIEdit\closeButton.png">
       <Filter>Assets\Sprite\AIEdit</Filter>
     </None>
+    <None Include="Assets\modelData\dungeon\gorgeousWall.fbx" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="act">
@@ -2258,6 +2259,5 @@
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\si_bug\si_bug.FBX" />
-    <MeshContentTask Include="Assets\modelData\dungeon\gorgeousWall.fbx" />
   </ItemGroup>
 </Project>
