@@ -1613,21 +1613,11 @@
   <ItemGroup>
     <CopyFileToFolders Include="Game\dlllib\python36.dll" />
     <CopyFileToFolders Include="Game\dlllib\python36_d.dll" />
-    <CopyFileToFolders Include="PythonAIs\ang.py">
-      <Filter>Game\PyAI</Filter>
-    </CopyFileToFolders>
-    <CopyFileToFolders Include="PythonAIs\testBrain.py">
-      <Filter>Game</Filter>
-    </CopyFileToFolders>
-    <CopyFileToFolders Include="PythonAIs\testBrain1.py">
-      <Filter>Game</Filter>
-    </CopyFileToFolders>
     <CopyFileToFolders Include="PythonAIs\CppBridge.py">
       <Filter>Game\PyAI</Filter>
     </CopyFileToFolders>
   </ItemGroup>
   <ItemGroup>
-    <None Include="PythonAIs\F.py" />
     <None Include="PythonAIs\_MiddleExecute.py">
       <Filter>Game\PyAI</Filter>
     </None>
@@ -1651,12 +1641,6 @@
     </None>
     <None Include="Assets\modelData\仮保管庫\move.tka">
       <Filter>Assets</Filter>
-    </None>
-    <None Include="PythonAIs\testBrain2.py">
-      <Filter>Game</Filter>
-    </None>
-    <None Include="PythonAIs\Threader.py">
-      <Filter>Game</Filter>
     </None>
     <None Include="C:\Users\kokoa\Pictures\Effekseer142cWin\shot.efk">
       <Filter>Assets</Filter>
@@ -2108,7 +2092,6 @@
     <None Include="Assets\modelData\shell\hotate.FBX">
       <Filter>Assets\model</Filter>
     </None>
-    <None Include="Assets\modelData\dungeon\gorgeousWall.fbx" />
     <None Include="Assets\Sprite\AIEdit\closeButton.png">
       <Filter>Assets\Sprite\AIEdit</Filter>
     </None>
@@ -2275,5 +2258,6 @@
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\si_bug\si_bug.FBX" />
+    <MeshContentTask Include="Assets\modelData\dungeon\gorgeousWall.fbx" />
   </ItemGroup>
 </Project>

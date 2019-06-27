@@ -310,31 +310,31 @@ const wchar_t* GameData::GetActionName(ActionID actID)
 		ws = L"SUPER BEAM";
 		break;
 	case enObstMove:
-		ws = L"Obst Move";
+		ws = L"Obst_Move";
 		break;
 	case enCleanse:
 		ws = L"Cleanse";
 		break;
 	case enBuffAtc:
-		ws = L"ATK Buff";
+		ws = L"ATK_Buff";
 		break;
 	case enDebuffAtc:
-		ws = L"ATK Debuff";
+		ws = L"ATK_Debuff";
 		break;
 	case enBuffDef:
-		ws = L"DEF Buff";
+		ws = L"DEF_Buff";
 		break;
 	case enDebuffDef:
-		ws = L"DEF Debuff";
+		ws = L"DEF_Debuff";
 		break;
 	case enClearStack:
-		ws = L"Clear Stack";
+		ws = L"Clear_Stack";
 		break;
 	case enMajinken:
 		ws = L"Majinken";
 		break;
 	case enManaHeal:
-		ws = L"MP Heal";
+		ws = L"MP_Heal";
 		break;
 	case enBlizzard:
 		ws = L"Blizzard";
