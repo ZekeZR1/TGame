@@ -841,8 +841,9 @@ me‚ÉƒAƒNƒVƒ‡ƒ“‚ð’Ç‰Á
 */
 static PyObject* addAction(PyObject* self, PyObject* args)
 {
-	MMonster* tar = (MMonster*)PyList_GetItem(args, 0);
-	int act = PyLong_AsLong(PyList_GetItem(args, 1));
+	
+	PyObject* tar = PyTuple_GetItem(args, 0);
+	int act = PyLong_AsLong(PyTuple_GetItem(args, 1));
 	
 	Monster* mon = NULL;
 	Monster* target = NULL;
@@ -856,7 +857,11 @@ static PyObject* addAction(PyObject* self, PyObject* args)
 			break;
 		}
 	}
-	mon->AddAction(MonsterActionManeger::LoadAction(act,tar->num));
+	if(tar->ob_type==&MMonsterType)
+		mon->AddAction(MonsterActionManeger::LoadAction(act,((MMonster*)tar)->num));
+	else
+		mon->AddAction(MonsterActionManeger::LoadAction(act,PyLong_AsLong(tar)));
+	return &_Py_NoneStruct;
 }
 
 //module“à‚ÌŠÖ”‚½‚¿
@@ -884,14 +889,16 @@ static PyMethodDef methods[] =
 	{"GetBuddyHighHPMonster",GetBuddyHighHPMonster,METH_NOARGS,"hehokon"},
 	{"GetEnemyHighHPMonster",GetEnemyHighHPMonster,METH_NOARGS,"hehokon"},
 
-	{"GetRowHPMonster",GetRowHPMonster,METH_NOARGS,"hehokon"},
-	{"GetBuddyRowHPMonster",GetBuddyRowHPMonster,METH_NOARGS,"hehokon"},
-	{"GetEnemyRowHPMonster",GetEnemyRowHPMonster,METH_NOARGS,"hehokon"},
+	{"GetLowHPMonster",GetRowHPMonster,METH_NOARGS,"hehokon"},
+	{"GetBuddyLowHPMonster",GetBuddyRowHPMonster,METH_NOARGS,"hehokon"},
+	{"GetEnemyLowHPMonster",GetEnemyRowHPMonster,METH_NOARGS,"hehokon"},
 
 	{"FindBuddyMonster",FindBuddyMonster,METH_VARARGS,"hehokon"},
 	{"FindEnemyMonster",FindEnemyMonster,METH_VARARGS,"hehokon"},
 	{"FindBuddyMonsters",FindBuddyMonsters,METH_VARARGS,"hehokon"},
 	{"FindEnemyMonsters",FindEnemyMonsters,METH_VARARGS,"hehokon"},
+
+	{"addAction",addAction,METH_VARARGS,"hehokon"},
 	{NULL,NULL,0,NULL}
 };
 
@@ -958,7 +965,9 @@ static PyObject* initModule(void)
 	//MGameDataType.tp_init((PyObject*)gameData, arg, NULL);
 	//Py_XDECREF(arg);
 
-	//pData()->SetgameData(gameData);
+	/*MGameData* gameData = (MGameData*)MGameDataType.tp_new(&MGameDataType, NULL, NULL);
+	PyModule_AddObject(thisModule, "gameData", (PyObject*)gameData);
+	pData()->SetgameData(gameData);*/
 
 	return thisModule;
 }
