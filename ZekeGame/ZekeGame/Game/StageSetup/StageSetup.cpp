@@ -342,9 +342,9 @@ std::vector<std::string> StageSetup::SetEnemyAI(int dun, int* monAI, MonsterID* 
 			monId[5] = enBook;
 		}
 		if (round == 1) {
-			filenames.push_back("05_armor");
-			filenames.push_back("04_uma");
-			filenames.push_back("01_gob");
+			filenames.push_back("zlarmor");
+			filenames.push_back("zluma");
+			filenames.push_back("zlgob");
 			monAI[3] = 5;
 			monId[3] = enArmor;
 			monAI[4] = 4;
