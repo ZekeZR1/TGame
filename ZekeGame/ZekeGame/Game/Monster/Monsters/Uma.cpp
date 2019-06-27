@@ -24,7 +24,7 @@ Uma::Uma()
 	prm.MP = 30;
 	prm.DefencePow = 10;
 	prm.ExDefensePow = 2;
-	prm.AttackPow = 15;
+	prm.AttackPow = 13;
 	prm.ExAttackPow = 5;
 	prm.Speed = 10;
 	prm.Radius = 50;
