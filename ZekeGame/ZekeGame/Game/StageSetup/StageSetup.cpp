@@ -272,9 +272,9 @@ std::vector<std::string> StageSetup::SetEnemyAI(int dun, int* monAI, MonsterID* 
 		break;
 	case 4: //2
 		if (round == 0) {
-			filenames.push_back("04_uma");
-			filenames.push_back("04_uma");
-			filenames.push_back("04_uma");
+			filenames.push_back("5_1");
+			filenames.push_back("5_1");
+			filenames.push_back("5_1");
 			monAI[3] = 4;
 			monId[3] = enUmataur;
 			monAI[4] = 4;
@@ -283,9 +283,9 @@ std::vector<std::string> StageSetup::SetEnemyAI(int dun, int* monAI, MonsterID* 
 			monId[5] = enUmataur;
 		}
 		if (round == 1) {
-			filenames.push_back("05_armor");
-			filenames.push_back("06_kikyo");
-			filenames.push_back("05_armor");
+			filenames.push_back("5_2");
+			filenames.push_back("5_2");
+			filenames.push_back("5_2");
 			monAI[3] = 5;
 			monId[3] = enArmor;
 			monAI[4] = 6;
@@ -296,20 +296,20 @@ std::vector<std::string> StageSetup::SetEnemyAI(int dun, int* monAI, MonsterID* 
 		break;
 	case 5: //3
 		if (round == 0) {
-			filenames.push_back("05_armor");
-			filenames.push_back("04_uma");
-			filenames.push_back("02_fairy");
-			monAI[3] = 5;
-			monId[3] = enArmor;
-			monAI[4] = 4;
-			monId[4] = enUmataur;
-			monAI[5] = 2;
-			monId[5] = enFairy;
+			filenames.push_back("6_3");
+			filenames.push_back("6_3");
+			filenames.push_back("6_3");
+			monAI[3] = 4;
+			monId[3] = enUmataur;
+			monAI[4] = 7;
+			monId[4] = enBook;
+			monAI[5] = 4;
+			monId[5] = enUmataur;
 		}
 		if (round == 1) {
-			filenames.push_back("02_fairy");
-			filenames.push_back("06_kikyo");
-			filenames.push_back("04_uma");
+			filenames.push_back("6_2");
+			filenames.push_back("6_2");
+			filenames.push_back("6_2");
 			monAI[3] = 2;
 			monId[3] = enFairy;
 			monAI[4] = 6;
@@ -318,28 +318,29 @@ std::vector<std::string> StageSetup::SetEnemyAI(int dun, int* monAI, MonsterID* 
 			monId[5] = enUmataur;
 		}
 		if (round == 2) {
-			filenames.push_back("04_uma");
-			filenames.push_back("07_book");
-			filenames.push_back("04_uma");
-			monAI[3] = 4;
-			monId[3] = enUmataur;
-			monAI[4] = 7;
-			monId[4] = enBook;
-			monAI[5] = 4;
-			monId[5] = enUmataur;
+			
+			filenames.push_back("6_1");
+			filenames.push_back("6_1");
+			filenames.push_back("6_1");
+			monAI[3] = 5;
+			monId[3] = enArmor;
+			monAI[4] = 4;
+			monId[4] = enUmataur;
+			monAI[5] = 2;
+			monId[5] = enFairy;
 		}
 		break;
 	case 6: //3
 		if (round == 0) {
-			filenames.push_back("07_book");
-			filenames.push_back("06_kikyo");
-			filenames.push_back("07_book");
-			monAI[3] = 7;
-			monId[3] = enBook;
-			monAI[4] = 6;
-			monId[4] = enKikyo;
-			monAI[5] = 7;
-			monId[5] = enBook;
+			filenames.push_back("7_1");
+			filenames.push_back("7_1");
+			filenames.push_back("7_1");
+			monAI[3] = 1;
+			monId[3] = enShikoChu;
+			monAI[4] = 1;
+			monId[4] = enShikoChu;
+			monAI[5] = 1;
+			monId[5] = enShikoChu;
 		}
 		if (round == 1) {
 			filenames.push_back("zlarmor");
@@ -353,15 +354,16 @@ std::vector<std::string> StageSetup::SetEnemyAI(int dun, int* monAI, MonsterID* 
 			monId[5] = enGoblin;
 		}
 		if (round == 2) {
-			filenames.push_back("01_gob");
-			filenames.push_back("01_gob");
-			filenames.push_back("01_gob");
-			monAI[3] = 1;
-			monId[3] = enShikoChu;
-			monAI[4] = 1;
-			monId[4] = enShikoChu;
-			monAI[5] = 1;
-			monId[5] = enShikoChu;
+			
+			filenames.push_back("7_2");
+			filenames.push_back("7_2");
+			filenames.push_back("7_2");
+			monAI[3] = 7;
+			monId[3] = enBook;
+			monAI[4] = 6;
+			monId[4] = enKikyo;
+			monAI[5] = 7;
+			monId[5] = enBook;
 		}
 		break;
 	case 7:	//3
@@ -388,9 +390,9 @@ std::vector<std::string> StageSetup::SetEnemyAI(int dun, int* monAI, MonsterID* 
 			monId[5] = enShikoChu;
 		}
 		if (round == 2) {
-			filenames.push_back("07_book");
-			filenames.push_back("10_chris");
-			filenames.push_back("02_fairy");
+			filenames.push_back("8_3");
+			filenames.push_back("8_3");
+			filenames.push_back("8_3");
 			monAI[3] = 7;
 			monId[3] = enBook;
 			monAI[4] = 10;
