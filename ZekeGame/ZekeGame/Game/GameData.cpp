@@ -306,6 +306,7 @@ const wchar_t* GameData::GetActionName(ActionID actID)
 	case enRecovery:
 		//ws = L"‰ñ•œ";
 		ws = L"HEAL";
+		break;
 	case enSuperBeam:
 		ws = L"SUPER_BEAM";
 		break;
