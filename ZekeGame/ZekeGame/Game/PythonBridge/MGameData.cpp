@@ -74,6 +74,54 @@ int MGameDataInitialize(MGameData* self, PyObject* args, PyObject* kwds)
 	return 0;
 }
 
+static PyObject* MGameData_Init(MGameData* self, PyObject* args)
+{
+	/*static char* kwlist[] = { (char*)"buddyCount",(char*)"enemyCount",(char*)"Buddys",(char*) "Enemys",(char*) "me" ,NULL};
+	if (!PyArg_ParseTupleAndKeywords(args, kwds, "|OOi", kwlist, &self->buddyCount, &self->enemyCount, &self->Buddys, &self->Enemys, &self->me))
+		return -1;*/
+
+	int num = PyLong_AsLong(PyTuple_GetItem(args, 0));
+	int team = PyLong_AsLong(PyTuple_GetItem(args, 1));
+
+	self->buddyCount = 0;
+	self->enemyCount = 0;
+	//self->Buddys = (PyListObject*)PyList_New(0);
+	//self->Enemys = (PyListObject*)PyList_New(0);
+
+	for (auto mon : g_mons)
+	{
+		if (mon == NULL)
+			break;
+		MMonster * mmon = CcreateMMonster(mon);
+		if (mmon->team == team)//buddy
+		{
+			if (mmon->num == num)//IT'S ME!!!
+			{
+				Py_INCREF(mmon);
+				//Py_DECREF(self->me);
+				//Py_CLEAR(self->me);
+				self->me = mmon;
+			}
+			PyList_Append((PyObject*)self->Buddys, (PyObject*)mmon);
+			//Py_DECREF(mmon);
+			self->buddyCount++;
+		}
+		else//enemy
+		{
+			PyList_Append((PyObject*)self->Enemys, (PyObject*)mmon);
+			//Py_DECREF(mmon);
+			self->enemyCount++;
+		}
+	}
+	return Py_None;
+}
+
+static PyMethodDef MGameDataMethods[] =
+{
+	{"init",(PyCFunction)MGameData_Init,METH_VARARGS,""},
+	{NULL}
+};
+
 static int MGameDataTraverse(MGameData* self, visitproc visit, void* arg)
 {
 	Py_VISIT(self->Buddys);
@@ -90,7 +138,7 @@ static int MGameDataClear(MGameData* self)
 	return 0;
 }
 
-void MGameDataDestruct(MGameData* self)
+static void MGameDataDestruct(MGameData* self)
 {
 	Py_XDECREF(self->me);
 	Py_XDECREF(self->Buddys);
@@ -177,11 +225,11 @@ void MGameDataInit()
 	MGameDataType.tp_doc = "";
 	MGameDataType.tp_basicsize = sizeof(MGameData);
 	MGameDataType.tp_itemsize = 0;
-	MGameDataType.tp_flags = Py_TPFLAGS_DEFAULT ;
+	MGameDataType.tp_flags = Py_TPFLAGS_DEFAULT;
 	//MGameDataType.tp_new = PyType_GenericNew;
 
 	MGameDataType.tp_members = MGameDataMembers;
-	//MMonsterType.tp_methods = MMonsterMethods;
+	MGameDataType.tp_methods = MGameDataMethods;
 	MGameDataType.tp_new = MGameDataNew;
 	MGameDataType.tp_init = (initproc)MGameDataInitialize;
 	MGameDataType.tp_dealloc = (destructor)MGameDataDestruct;
