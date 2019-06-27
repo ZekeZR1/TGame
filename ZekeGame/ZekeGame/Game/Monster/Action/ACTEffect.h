@@ -83,4 +83,5 @@ private:
 	float m_DoTParam = 0;
 	Monster* m_Invoker = nullptr;
 	float m_buffdebuffParam = 1.f;
+	float m_invokerExAtk = 1.f;
 };
