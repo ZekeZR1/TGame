@@ -21,7 +21,8 @@ void ACTEffectGrant::init(CEffect * effect, Monster * target, int state, float d
 	m_endTime = endTime;
 	m_Invoker = me;
 	m_DoTParam = DoTParam;
-	m_invokerExAtk = m_Invoker->GetExAttack();
+	if(me != nullptr)
+		m_invokerExAtk = m_Invoker->GetExAttack();
 	AddAct();
 }
 

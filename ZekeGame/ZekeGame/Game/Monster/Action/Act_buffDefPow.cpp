@@ -33,7 +33,7 @@ bool Act_buffDefPow::Action(Monster* me) {
 		m_efk->Play(L"Assets/effect/buff.efk");
 
 		ACTEffectGrant* actEG = NewGO<ACTEffectGrant>(0, "actEG");
-		actEG->init(m_efk, m_target, ACTEffectGrant::State::enBuffDefPow, 0, 0, 150);
+		actEG->init(m_efk, m_target, ACTEffectGrant::State::enBuffDefPow, 0, 0, 150,me);
 		actEG->SetBuffDebuffParam(2.0);
 		m_target->SetAbnormalState(actEG);
 
