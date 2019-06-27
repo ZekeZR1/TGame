@@ -47,10 +47,11 @@ bool Act_Guardian::Action(Monster * me)
 	{
 		if (mon == nullptr)
 			break;
-		if (mon == me || mon->Getactions().size() == 0)
+		if (mon == me || mon->Getactions().size() == 0 || mon->Getteam() == me->Getteam())
 			continue;
 		/*if (m_target == mon->Getactions()[0]->Gettarget())
 		{*/
+		
 		mon->Getactions()[0]->Settarget(me);
 		//}
 	}
