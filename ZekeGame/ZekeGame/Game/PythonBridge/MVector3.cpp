@@ -4,7 +4,7 @@
 
 
 PyTypeObject MVector3Type = {
-	PyVarObject_HEAD_INIT(NULL,0)
+	PyObject_HEAD_INIT(NULL,0)
 };
 
 
@@ -16,7 +16,7 @@ static PyMemberDef MVector3Members[] =
 	{NULL}
 };
 
-static PyObject* MVector3new(PyTypeObject* type, PyObject* args, PyObject* kwds)
+PyObject* MVector3new(PyTypeObject* type, PyObject* args, PyObject* kwds)
 {
 	MVector3* self;
 	self = (MVector3*)type->tp_alloc(type, 0);
@@ -25,7 +25,8 @@ static PyObject* MVector3new(PyTypeObject* type, PyObject* args, PyObject* kwds)
 		self->y = 0.f;
 		self->z = 0.f;
 	}
-	return (PyObject*)self;
+	//PyObject_GC_Track(self);
+	return PyObject_Init((PyObject*)self, self->ob_base.ob_type);;
 }
 
 int MVvector3Initialize(MVector3* self, PyObject* args, PyObject* kwds)
@@ -39,6 +40,8 @@ int MVvector3Initialize(MVector3* self, PyObject* args, PyObject* kwds)
 
 void MVector3Destruct(MVector3* self)
 {
+	//PyObject_GC_UnTrack(self);
+	//PyObject_Del(self);
 	Py_TYPE(self)->tp_free((PyObject*)self);
 }
 
@@ -117,14 +120,23 @@ void MVector3init()
 	MVector3Type.tp_basicsize = sizeof(MVector3);
 	MVector3Type.tp_itemsize = 0;
 	MVector3Type.tp_flags = Py_TPFLAGS_DEFAULT;
-	MVector3Type.tp_new = PyType_GenericNew;
+	//MVector3Type.tp_new = PyType_GenericNew;
 
 	MVector3Type.tp_members = MVector3Members;
 	MVector3Type.tp_methods = MVector3Methods;
 	MVector3Type.tp_new = MVector3new;
 	MVector3Type.tp_init = (initproc)MVvector3Initialize;
 	MVector3Type.tp_dealloc = (destructor)MVector3Destruct;
-	
+}
+
+CVector3 MVector3ToVector3(MVector3* mpos)
+{
+	CVector3 v;
+	v.x = mpos->x;
+	v.y = mpos->y;
+	v.z = mpos->z;
+
+	return v;
 }
 
 //•½•ûª‹‚ß‚é

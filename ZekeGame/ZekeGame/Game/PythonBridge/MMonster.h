@@ -23,6 +23,7 @@ typedef struct {
 }MMonster;
 
 extern PyTypeObject MMonsterType;
+PyObject* MMonsterNew(PyTypeObject* type, PyObject* args, PyObject* kwds);
 void MMonsterInit();
 
 class Monster;

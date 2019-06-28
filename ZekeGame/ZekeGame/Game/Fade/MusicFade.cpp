@@ -4,7 +4,8 @@
 
 void MusicFade::OnDestroy()
 {
-	m_Music->Stop();
+	if (m_Music != nullptr) 
+		m_Music->Stop();
 }
 
 void MusicFade::init(Sound * music,float vol,float speed)

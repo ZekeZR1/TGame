@@ -222,20 +222,29 @@ void Monster::execute()
 
 void Monster::Move()
 {
-	CVector3 oldPos = m_pos;
-	CVector3 move = m_movespeed + m_vKnockback;
-	move *= m_speed;
-	m_pos = m_cc.Execute(IGameTime().GetFrameDeltaTime(), move);
+	
 	
 	//ˆÚ“®§ŒÀ
 	auto v = m_pos - CVector3::Zero();
 	auto dist = v.Length();
 	if (abs(dist) > m_limitDist) {
-		static const int outSpeed = 300;
+		int outSpeed = 300;
+		if (m_movespeed.Length() > 0.f)
+		{
+			outSpeed = 0;
+		}
 		v.Normalize();
 		v *= -1;
 		v *= outSpeed;
+		v += m_vKnockback;
 		m_pos = m_cc.Execute(IGameTime().GetFrameDeltaTime(), v);
+	}
+	else
+	{
+		CVector3 oldPos = m_pos;
+		CVector3 move = m_movespeed + m_vKnockback;
+		move *= m_speed;
+		m_pos = m_cc.Execute(IGameTime().GetFrameDeltaTime(), move);
 	}
 
 	m_smr->SetPosition(m_pos);

@@ -27,7 +27,7 @@ Goblin::Goblin()
 		
 	MonsterInitParam prm;
 	prm.HP = 80;
-	prm.MP = 50;
+	prm.MP = 150;
 	prm.DefencePow = 10;
 	prm.ExDefensePow = 5;
 	prm.AttackPow = 8;

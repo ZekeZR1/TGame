@@ -29,7 +29,7 @@ Chris::Chris()
 		
 	MonsterInitParam prm;
 	prm.HP = 80;
-	prm.MP = 100;
+	prm.MP = 110;
 	prm.DefencePow = 10;
 	prm.ExDefensePow = 10;
 	prm.AttackPow = 10;

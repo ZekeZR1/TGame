@@ -21,6 +21,8 @@ void ACTEffectGrant::init(CEffect * effect, Monster * target, int state, float d
 	m_endTime = endTime;
 	m_Invoker = me;
 	m_DoTParam = DoTParam;
+	if(me != nullptr)
+		m_invokerExAtk = m_Invoker->GetExAttack();
 	AddAct();
 }
 
@@ -46,7 +48,7 @@ void ACTEffectGrant::Update()
 	case enDoT:
 	{
 		float hp = m_target->GetHP();
-		hp -= m_DoTParam * m_Invoker->GetExAttack();
+		hp -= m_DoTParam * m_invokerExAtk;
 		m_target->SetHP(hp);
 		break;
 	}
