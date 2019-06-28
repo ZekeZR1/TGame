@@ -371,7 +371,7 @@ FILE* MonAIPresetOpenSuper::initPreset()
 		for (int c = 0; c < 3; c++)
 		{
 			int z = 0;
-			int monNone = 999;
+			int monNone = 255;
 			int o = 1;
 			fwrite(&z, 1, 1, file);//AI‚ÌŽí—Þ 0‚Ípython 1‚ÍVisualAI
 			fwrite(&monNone, 1, 1, file);//ƒ‚ƒ“ƒXƒ^[‚ÌŽí—Þ
