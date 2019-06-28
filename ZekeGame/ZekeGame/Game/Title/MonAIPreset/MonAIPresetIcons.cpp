@@ -32,7 +32,7 @@ bool MonAIPresetIcons::Start()
 void MonAIPresetIcons::init(Preset* preset, CVector3 pos,GameCursor* cur)
 {
 	m_cursor = cur;
-
+	m_pos = pos;
 	CVector3 ipos = pos;
 	int cnt = 0;
 
@@ -45,6 +45,7 @@ void MonAIPresetIcons::init(Preset* preset, CVector3 pos,GameCursor* cur)
 		m_Nonefont->SetTextType(CFont::en_JapaneseBIG);
 		m_Nonefont->Init(L"‚È\n\n‚µ", iipos.ToTwo(), 0, { 0.6f,0.6f,0.6f,1.0f }, 0.7f, { 1,0 });
 		m_fontpos = iipos;
+		m_isNone = 1;
 	}
 	else for (auto p : preset->person)
 	{
@@ -82,6 +83,32 @@ void MonAIPresetIcons::init(Preset* preset, CVector3 pos,GameCursor* cur)
 
 void MonAIPresetIcons::UpdateIcon()
 {
+	if (m_isNone)
+	{
+		CVector3 ipos = m_pos;
+		int cnt = 0;
+		for (auto p : m_preset->person)
+		{
+			MonAIPresetIcon* mapicon = NewGO<MonAIPresetIcon>(0, "icon");
+
+			wchar_t ws[255];
+			setlocale(LC_ALL, "japanese");
+			size_t size = 0;
+			mbstowcs_s(&size, ws, 20, p->str, _TRUNCATE);
+
+			mapicon->init(p->monID, ws, ipos);
+			ipos.y -= 180;
+
+			m_mapi[cnt] = mapicon;
+			cnt++;
+		}
+		m_isNone = 0;
+
+		DeleteGO(m_Nonefont);
+		m_Nonefont = nullptr;
+		m_back->SetMulCol({1,1,1.f,1.0f });
+	}
+	
 	for (int i=0;i<3;i++)
 	{
 		wchar_t ws[255];

@@ -106,6 +106,7 @@ void MonAIPresetIcon::Setrot(float rot,CVector3 pos)
 
 void MonAIPresetIcon::UpdateAIMON(int monID, const wchar_t* pypath)
 {
+	
 	m_Icon->Init(GameData::GetMonsterIconPath(monID), 150, 170);
 	CVector3 pos = m_pos;
 
