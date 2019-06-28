@@ -34,7 +34,7 @@ bool Act_Fire::Action(Monster * me)
 		m_effect->Play(L"Assets/effect/fire1/fire1.efk");
 
 		Sound* sound = NewGO<Sound>(0, "snd");
-		sound->Init(L"Assets/sound/bom.wav");
+		sound->Init(L"Assets/sound/fire2.wav");
 		sound->Play();
 
 		CVector3 v = m_target->Getpos() - me->Getpos();
@@ -58,9 +58,9 @@ bool Act_Fire::Action(Monster * me)
 			if (mon == NULL)
 				break;
 			CVector3 len = m_pos - mon->Getpos();
-			if (len.Length() < 6*m_efs.x)
+			if (len.Length() < 50*m_efs.x)
 			{
-				mon->DamageEx(me->GetExAttack());
+				mon->DamageEx(me->GetExAttack()* 0.2);
 			}
 		}
 		m_efs += {0.02f, 0.02f, 0.02f};

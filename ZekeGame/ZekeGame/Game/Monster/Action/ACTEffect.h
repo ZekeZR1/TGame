@@ -23,6 +23,13 @@ public:
 	void init(CEffect* effect , Monster* target, int state = enNull, float dam = 0,float time = -1,float endTime = 0, Monster* me = nullptr, float dmgParam = 0.01);
 
 	/*
+		バフとデバフでデフォルト値を何倍するかのパラメータを設定する
+	*/
+	void SetBuffDebuffParam(float param) {
+		m_buffdebuffParam = param;
+	}
+
+	/*
 	Update
 	*/
 	void Update();
@@ -75,4 +82,6 @@ private:
 	Monster* m_target = nullptr;
 	float m_DoTParam = 0;
 	Monster* m_Invoker = nullptr;
+	float m_buffdebuffParam = 1.f;
+	float m_invokerExAtk = 1.f;
 };

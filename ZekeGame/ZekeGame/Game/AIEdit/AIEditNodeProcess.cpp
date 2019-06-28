@@ -40,7 +40,6 @@ bool AIEditNodeProcess::Start()
 	//m_aieditnodemenu = NewGO<AIEditNodeMenu>(0, "menu");
 	m_aieditnodeselectbuttons = NewGO<AIEditNodeSelectButtons>(0, "selectbuttons");
 
-
 	//‚·‚×‚Ä‚Ìflagkeep‚Énull‚ğ‘ã“ü‚µ‚Ä‚¨‚­B
 	for (int i = 0; i <= 7; i++) {
 
@@ -116,16 +115,15 @@ void AIEditNodeProcess::Click()
 				}
 
 			}
+
 			break;
 		}
 	}
-
 }
 
 
 void AIEditNodeProcess::Target()
 {
-
 	m_aieditnodetarget = NewGO<AIEditNodeTarget>(0, "target");
 	TechniqueCount += 1;
 
@@ -133,7 +131,6 @@ void AIEditNodeProcess::Target()
 
 void AIEditNodeProcess::Technique()
 {
-
 	m_aieditnodetechnique = NewGO<AIEditNodeTechnique>(0, "Technique");
 	TechniqueCount = 0;
 
@@ -141,8 +138,8 @@ void AIEditNodeProcess::Technique()
 
 void AIEditNodeProcess::DeleteKey(AIEditNodeOrder* a)
 {
-
 	bool isBreak = false;
+
 	for (int i = 0; i < 8; i++) {
 		for (int j = 0; j < 3; j++) {
 			if (m_orderkeep[i][j] == a) {
@@ -219,8 +216,8 @@ AIEditNodeOrder * AIEditNodeProcess::CreateOrder()
 					}
 				}
 			}
-			else if (j == 0)
-			{
+
+			else if (j == 0){
 				m_orderkeep[i][0] = m_aieditnodeorder;
 				flaflag = true;
 				break;
@@ -261,12 +258,11 @@ void AIEditNodeProcess::AISave(int num,int col)
 			}
 		}
 	}
+
 	fclose(f);
 }
 
 void AIEditNodeProcess::Update()
 {
 		
-
-
 }

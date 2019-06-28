@@ -222,11 +222,31 @@ void Monster::execute()
 
 void Monster::Move()
 {
-	CVector3 oldPos = m_pos;
-	CVector3 move = m_movespeed + m_vKnockback;
-	move *= m_speed;
-	m_pos = m_cc.Execute(IGameTime().GetFrameDeltaTime(), move);
 	
+	
+	//ˆÚ“®§ŒÀ
+	auto v = m_pos - CVector3::Zero();
+	auto dist = v.Length();
+	if (abs(dist) > m_limitDist) {
+		int outSpeed = 300;
+		if (m_movespeed.Length() > 0.f)
+		{
+			outSpeed = 0;
+		}
+		v.Normalize();
+		v *= -1;
+		v *= outSpeed;
+		v += m_vKnockback;
+		m_pos = m_cc.Execute(IGameTime().GetFrameDeltaTime(), v);
+	}
+	else
+	{
+		CVector3 oldPos = m_pos;
+		CVector3 move = m_movespeed + m_vKnockback;
+		move *= m_speed;
+		m_pos = m_cc.Execute(IGameTime().GetFrameDeltaTime(), move);
+	}
+
 	m_smr->SetPosition(m_pos);
 	if (m_isKnockback)
 	{
@@ -236,15 +256,6 @@ void Monster::Move()
 	{
 		Turn();
 		//TurnEx();
-	}
-
-	//ˆÚ“®§ŒÀ
-	auto v = m_pos - CVector3::Zero();
-	auto dist = v.Length();
-	if (abs(dist) > m_limitDist) {
-		v.Normalize();
-		auto np = v * m_limitDist;
-		m_pos = np;
 	}
 }
 
@@ -426,4 +437,10 @@ void Monster::anim_extra1()
 bool Monster::isAnimPlay()
 {
 	return m_smr->IsPlayingAnimation();
+}
+
+
+int Monster::GetAbnormalStateID(int num)
+{
+	return m_abnormalStates[num]->GetAbnormalState();
 }

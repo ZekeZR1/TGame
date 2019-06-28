@@ -9,7 +9,6 @@
 
 AIEditNodeMenuSave::~AIEditNodeMenuSave()
 {
-	
 
 }
 

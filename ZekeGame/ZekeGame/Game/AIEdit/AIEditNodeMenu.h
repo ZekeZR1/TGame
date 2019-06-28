@@ -37,19 +37,16 @@ public:
 
 	void SetMenuconf(bool a)
 	{
-
 		menuconf = a;
 	}
 
 	void SetMenu(bool a)
 	{
-
 		menu = a;
 	}
 
 	bool GetMenu()
 	{
-
 		return menu;
 	}
 
@@ -58,33 +55,34 @@ private:
 	bool menu = false;
 	bool menuconf = false;
 	bool isActive = true;
-	std::vector<FontRender*> m_fonts;
-	std::vector<SpriteRender*> sp;
+
 	CVector3 m_position = CVector3::Zero();
 	CVector3 m_positionselect = CVector3::Zero();
 
-	GameCursor* m_gamecursor;
-
-	SpriteRender* m_spriteRender = nullptr;
 	std::vector<SpriteRender*> m_buttons;
 	std::vector<SpriteRender*> m_spriteRender2;
+	std::vector<FontRender*> m_fonts;
+	std::vector<SpriteRender*> sp;
 
-	AIEditNodeProcess* m_aieditnodeprocess;
-	AIEditLine* m_aieditline;
-	AIEditNode* m_aieditnode;
-	AIEditNodeInequ* m_aieditnodeinequ;
-	AIEditNodeClick* m_aieditnodeclick;
-	AIEditNodeMass* m_aieditnodemass;
-	AIEditNodeNum* m_aieditnodenum;
-	AIEditNodeOrder*m_aieditnodeorder;
-	AIEditNodeTarget* m_aieditnodetarget;
-	AIEditNodeTechnique* m_aieditnodetechnique;
-	AIEditNodeAbnormalState* m_aieditnodeabnormalstate;
-	AIEditNodeMenuConfirmation* m_aieditnodemenuconfirmation;
-	AIEditNodeMenuWindow* m_aieditnodemenuwindow;
-	ModeSelect* m_modeselect;
-	AIEditNodeSelectFonts* m_aieditnodeselectfonts;
-	AIEditNodeSelectButtons* m_aieditnodeselectbuttons;
-	AIEditNodeDeleteKey* m_aieditnodedeletekey;
+	SpriteRender* m_spriteRender = nullptr;
+
+	AIEditNodeProcess* m_aieditnodeprocess = nullptr;
+	AIEditLine* m_aieditline = nullptr;
+	AIEditNode* m_aieditnode = nullptr;
+	AIEditNodeInequ* m_aieditnodeinequ = nullptr;
+	AIEditNodeClick* m_aieditnodeclick = nullptr;
+	AIEditNodeMass* m_aieditnodemass = nullptr;
+	AIEditNodeNum* m_aieditnodenum = nullptr;
+	AIEditNodeOrder*m_aieditnodeorder = nullptr;
+	AIEditNodeTarget* m_aieditnodetarget = nullptr;
+	AIEditNodeTechnique* m_aieditnodetechnique = nullptr;
+	AIEditNodeAbnormalState* m_aieditnodeabnormalstate = nullptr;
+	AIEditNodeMenuConfirmation* m_aieditnodemenuconfirmation = nullptr;
+	AIEditNodeMenuWindow* m_aieditnodemenuwindow = nullptr;
+	ModeSelect* m_modeselect = nullptr;
+	AIEditNodeSelectFonts* m_aieditnodeselectfonts = nullptr;
+	AIEditNodeSelectButtons* m_aieditnodeselectbuttons = nullptr;
+	AIEditNodeDeleteKey* m_aieditnodedeletekey = nullptr;
 	ShowMonsters* m_monstersInfo = nullptr;
+	GameCursor* m_gamecursor = nullptr;
 };

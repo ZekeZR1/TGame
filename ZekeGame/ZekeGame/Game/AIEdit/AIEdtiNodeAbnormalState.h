@@ -37,24 +37,27 @@ public:
 private:
 
 	Abnormal m_abnormal = ennull;
+
 	int button = 4;
+
 	bool Choice6 = false;
 	bool abnormalfont = false;
 	bool contact1 = false;
 	bool contact2 = false;
-	float scale = 0.8;
 
-	std::vector<FontRender*> m_fonts;
-	std::vector<FontRender*> m_font;
-	GameCursor* m_gamecursor;
-	SpriteRender* m_spriteRender;
-	AIEditNodeButton* m_aieditnodebutton;
-	AIEditNodeOrder* m_aieditnodeorder;
-	AIEditNodeProcess* m_aieditnodeprocess;
+	float scale = 0.8;
 
 	CVector3 m_position = CVector3::Zero();
 
+	std::vector<FontRender*> m_fonts;
+	std::vector<FontRender*> m_font;
 	std::vector<AIEditNodeButton*> m_nodebuttons;
-	
+
+	SpriteRender* m_spriteRender = nullptr;
+
+	GameCursor* m_gamecursor = nullptr;
+	AIEditNodeButton* m_aieditnodebutton = nullptr;
+	AIEditNodeOrder* m_aieditnodeorder = nullptr;
+	AIEditNodeProcess* m_aieditnodeprocess = nullptr;
 
 };

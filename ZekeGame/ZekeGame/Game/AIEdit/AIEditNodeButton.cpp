@@ -18,8 +18,6 @@ void AIEditNodeButton::Awake()
 
 }
 
-
-
 bool AIEditNodeButton::Start()
 {
 

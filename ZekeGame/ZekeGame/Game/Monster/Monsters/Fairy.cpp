@@ -31,13 +31,13 @@ Fairy::Fairy()
 
 	MonsterInitParam prm;
 	prm.HP = 60;
-	prm.MP = 100;
+	prm.MP = 600;
 	prm.DefencePow = 5;
 	prm.ExDefensePow = 15;
 	prm.AttackPow = 5;
 	prm.ExAttackPow = 10;
 	prm.Speed = 30;
-	prm.Radius = 20;
+	prm.Radius = 30;
 	prm.Height = 130;
 	prm.ModelRender = smr;
 	prm.NumAnimation = 7;

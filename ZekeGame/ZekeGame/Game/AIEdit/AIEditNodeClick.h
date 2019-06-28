@@ -21,44 +21,34 @@ public:
 
 	CVector3 GetPosition()
 	{
-
 		return m_position;
 	}
 
-	//void SetPosy(bool a) {
-
-	//	y = a;
-	//}
-
 	void SetPro(bool a)
 	{
-
 		process = a;
 	}
 
 private:
 
 	bool Choice0 = false;
-	bool process = false;
+	bool process = false;	
+	bool m_isFsc = true;						//font no scale
+	bool m_isOver = false;						//mouseover?
 
- //   int x = -446;
-	//int y = 288;
+	float m_fontS = 1.f;						//font Scale
 
-	//int y = 0;
-	
-
-	GameCursor * m_gamecursor;
-	SpriteRender * m_spriteRender;
 	CVector3 m_position = CVector3::Zero();
-	AIEditNode* m_aieditnode;
-	AIEditNodeTarget* m_aieditnodetarget;
-	AIEditNodeProcess* m_aieditnodeprocess;
-	AIEditNodeSelectButtons* m_aieditnodeselectbuttons = nullptr;
 
+	SpriteRender* m_spriteRender = nullptr;
 	SpriteRender* m_button = nullptr;			//botan
 	FontRender* m_font = nullptr;				//click MOJI
-	float m_fontS = 1.f;						//font Scale
-	bool m_isFsc = true;							//font no scale
 
-	bool m_isOver = false;						//mouseover?
+	GameCursor * m_gamecursor = nullptr;
+	AIEditNode* m_aieditnode = nullptr; 
+	AIEditNodeTarget* m_aieditnodetarget = nullptr;
+	AIEditNodeProcess* m_aieditnodeprocess = nullptr;
+	AIEditNodeSelectButtons* m_aieditnodeselectbuttons = nullptr;
+
+
 };

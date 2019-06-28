@@ -738,21 +738,9 @@
     <None Include="Assets\modelData\仮保管庫\move.tka" />
     <None Include="C:\Users\kokoa\Pictures\Effekseer142cWin\shot.efk" />
     <None Include="Game\PythonBridge\include\pydtrace.d" />
-    <CopyFileToFolders Include="PythonAIs\ang.py">
-      <FileType>Document</FileType>
-    </CopyFileToFolders>
     <CopyFileToFolders Include="PythonAIs\CppBridge.py">
       <FileType>Document</FileType>
     </CopyFileToFolders>
-    <CopyFileToFolders Include="PythonAIs\testBrain.py">
-      <FileType>Document</FileType>
-    </CopyFileToFolders>
-    <CopyFileToFolders Include="PythonAIs\testBrain1.py">
-      <FileType>Document</FileType>
-    </CopyFileToFolders>
-    <None Include="PythonAIs\F.py" />
-    <None Include="PythonAIs\testBrain2.py" />
-    <None Include="PythonAIs\Threader.py" />
     <None Include="PythonAIs\_MiddleExecute.py" />
   </ItemGroup>
   <ItemGroup>
@@ -1180,9 +1168,9 @@
     <None Include="Assets\modelData\RedHead\RedHead.fbx">
       <FileType>Document</FileType>
     </None>
-    <None Include="Assets\modelData\si_bug\si_bug.FBX">
+    <MeshContentTask Include="Assets\modelData\si_bug\si_bug.FBX">
       <FileType>Document</FileType>
-    </None>
+    </MeshContentTask>
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_redHead.png" />

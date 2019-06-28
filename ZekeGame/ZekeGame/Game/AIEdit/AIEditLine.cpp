@@ -34,6 +34,7 @@ bool AIEditLine::Start()
 	m_pos.x += 120;
 	m_spriteRender->SetPosition(m_pos);
 	m_spriteRender->SetPivot({ 0.0f, 0.5f });
+
 	return true;
 }
 

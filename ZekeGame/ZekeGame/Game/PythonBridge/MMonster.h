@@ -4,7 +4,7 @@
 
 typedef struct {
 	PyObject_HEAD
-		MVector3* position;
+	MVector3* position;
 	int ID;
 	int num;
 	int team;
@@ -23,6 +23,7 @@ typedef struct {
 }MMonster;
 
 extern PyTypeObject MMonsterType;
+PyObject* MMonsterNew(PyTypeObject* type, PyObject* args, PyObject* kwds);
 void MMonsterInit();
 
 class Monster;

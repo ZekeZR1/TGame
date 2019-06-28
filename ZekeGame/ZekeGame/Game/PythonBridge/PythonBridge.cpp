@@ -6,7 +6,7 @@
 
 #include "include/structmember.h"
 
-#include "MVector3.h"
+
 
 //#include "../GameData.h"
 //#include "../Monster/Monster.h"
@@ -157,6 +157,712 @@ static PyObject* SetAction(PyObject* self, PyObject* args)
 	return pnull;
 }
 
+//àÍî‘âìÇ¢ÉÇÉìÉXÉ^Å[ÇíTÇ∑
+static PyObject* GetFarMonster(PyObject* self, PyObject* args)
+{
+	int num = pData()->Getnum();
+	MGameData* mgameData = pData()->GetgameData();
+	CVector3 pos = MVector3ToVector3(mgameData->me->position);
+	float len=0;
+	int top=0;
+	int team=0;
+	for (auto mon : g_mons)
+	{
+		
+		if (mon == NULL)
+			break;
+		int mnum = mon->Getnum();
+		if (mnum == num)
+			continue;
+		float l = (mon->Getpos() - pos).Length();
+		if (l > len)
+		{
+			len = l;
+			top = mnum;
+			team = mon->Getteam();
+		}
+	}
+	MMonster* mmon=NULL;
+	if (mgameData->me->team == team)
+	{
+		int i = PyList_Size((PyObject*)mgameData->Buddys);
+		while (--i != -1)
+		{
+			MMonster* mon = (MMonster*)mgameData->Buddys->ob_item[i];
+			if (mon->num == top)
+			{
+				mmon = mon;
+				break;
+			}
+		}
+	}
+	else
+	{
+		int i = PyList_Size((PyObject*)mgameData->Enemys);
+		while (--i != -1)
+		{
+			MMonster* mon = (MMonster*)mgameData->Enemys->ob_item[i];
+			if (mon->num == top)
+			{
+				mmon = mon;
+				break;
+			}
+		}
+	}
+	Py_INCREF(mmon);
+	return (PyObject*)mmon;
+}
+
+//àÍî‘ãﬂÇ¢ÉÇÉìÉXÉ^Å[ÇíTÇ∑
+static PyObject* GetNeerMonster(PyObject* self, PyObject* args)
+{
+	int num = pData()->Getnum();
+	MGameData* mgameData = pData()->GetgameData();
+	CVector3 pos = MVector3ToVector3(mgameData->me->position);
+	float len = 999999999;
+	int top = 0;
+	int team;
+	for (auto mon : g_mons)
+	{
+
+		if (mon == NULL)
+			break;
+		int mnum = mon->Getnum();
+		if (mnum == num)
+			continue;
+		float l = (mon->Getpos() - pos).Length();
+		if (l < len)
+		{
+			len = l;
+			top = mnum;
+			team = mon->Getteam();
+		}
+	}
+	MMonster* mmon;
+	if (mgameData->me->team == team)
+	{
+		int i = PyList_Size((PyObject*)mgameData->Buddys);
+		while (--i != -1)
+		{
+			MMonster* mon = (MMonster*)mgameData->Buddys->ob_item[i];
+			if (mon->num == top)
+			{
+				mmon = mon;
+				break;
+			}
+		}
+	}
+	else
+	{
+		int i = PyList_Size((PyObject*)mgameData->Enemys);
+		while (--i != -1)
+		{
+			MMonster* mon = (MMonster*)mgameData->Enemys->ob_item[i];
+			if (mon->num == top)
+			{
+				mmon = mon;
+				Py_INCREF(mmon);
+				return (PyObject*)mmon;
+			}
+		}
+	}
+	
+	
+}
+
+//àÍî‘âìÇ¢íáä‘ÇíTÇ∑
+static PyObject* GetBuddyFarMonster(PyObject* self, PyObject* args)
+{
+	int num = pData()->Getnum();
+	MGameData* mgameData = pData()->GetgameData();
+	CVector3 pos = MVector3ToVector3(mgameData->me->position);
+	float len = 0;
+	int top = 0;
+	int team;
+	for (auto mon : g_mons)
+	{
+
+		if (mon == NULL)
+			break;
+		int mnum = mon->Getnum();
+		team = mon->Getteam();
+		if (mnum == num || team != mgameData->me->team)
+			continue;
+		float l = (mon->Getpos() - pos).Length();
+		if (l > len)
+		{
+			len = l;
+			top = mnum;
+			
+		}
+	}
+	MMonster* mmon;
+	int i = PyList_Size((PyObject*)mgameData->Buddys);
+	while (--i != -1)
+	{
+		MMonster* mon = (MMonster*)mgameData->Buddys->ob_item[i];
+		if (mon->num == top)
+		{
+			mmon = mon;
+			Py_INCREF(mmon);
+			return (PyObject*)mmon;
+		}
+	}
+	
+}
+//àÍî‘ãﬂÇ¢íáä‘ÇíTÇ∑
+static PyObject* GetBuddyNeerMonster(PyObject* self, PyObject* args)
+{
+	int num = pData()->Getnum();
+	MGameData* mgameData = pData()->GetgameData();
+	CVector3 pos = MVector3ToVector3(mgameData->me->position);
+	float len = 999999999;
+	int top = 0;
+	int team;
+	for (auto mon : g_mons)
+	{
+
+		if (mon == NULL)
+			break;
+		int mnum = mon->Getnum();
+		team = mon->Getteam();
+		if (mnum == num || team != mgameData->me->team)
+			continue;
+		float l = (mon->Getpos() - pos).Length();
+		if (l < len)
+		{
+			len = l;
+			top = mnum;
+
+		}
+	}
+	MMonster* mmon;
+	int i = PyList_Size((PyObject*)mgameData->Buddys);
+	while (--i != -1)
+	{
+		MMonster* mon = (MMonster*)mgameData->Buddys->ob_item[i];
+		if (mon->num == top)
+		{
+			mmon = mon;
+			Py_INCREF(mmon);
+			return (PyObject*)mmon;
+		}
+	}
+	
+	
+}
+
+//àÍî‘âìÇ¢ìGÇíTÇ∑
+static PyObject* GetEnemyFarMonster(PyObject* self, PyObject* args)
+{
+	int num = pData()->Getnum();
+	MGameData* mgameData = pData()->GetgameData();
+	CVector3 pos = MVector3ToVector3(mgameData->me->position);
+	float len = 0;
+	int top = 0;
+	int team;
+	for (auto mon : g_mons)
+	{
+
+		if (mon == NULL)
+			break;
+		int mnum = mon->Getnum();
+		team = mon->Getteam();
+		if (mnum == num || team == mgameData->me->team)
+			continue;
+		float l = (mon->Getpos() - pos).Length();
+		if (l > len)
+		{
+			len = l;
+			top = mnum;
+
+		}
+	}
+	MMonster* mmon;
+	int i = PyList_Size((PyObject*)mgameData->Buddys);
+	while (--i != -1)
+	{
+		MMonster* mon = (MMonster*)mgameData->Buddys->ob_item[i];
+		if (mon->num == top)
+		{
+			mmon = mon;
+			Py_INCREF(mmon);
+			return (PyObject*)mmon;
+		}
+	}
+	
+	
+}
+//àÍî‘ãﬂÇ¢ìGÇíTÇ∑
+static PyObject* GetEnemyNeerMonster(PyObject* self, PyObject* args)
+{
+	int num = pData()->Getnum();
+	MGameData* mgameData = pData()->GetgameData();
+	CVector3 pos = MVector3ToVector3(mgameData->me->position);
+	float len = 999999999;
+	int top = 0;
+	int team;
+	for (auto mon : g_mons)
+	{
+
+		if (mon == NULL)
+			break;
+		int mnum = mon->Getnum();
+		team = mon->Getteam();
+		if (mnum == num || team == mgameData->me->team)
+			continue;
+		float l = (mon->Getpos() - pos).Length();
+		if (l < len)
+		{
+			len = l;
+			top = mnum;
+
+		}
+	}
+	MMonster* mmon;
+	int i = PyList_Size((PyObject*)mgameData->Enemys);
+	while (--i != -1)
+	{
+		MMonster* mon = (MMonster*)mgameData->Enemys->ob_item[i];
+		if (mon->num == top)
+		{
+			mmon = mon;
+			Py_INCREF(mmon);
+			return (PyObject*)mmon;
+		}
+	}
+	
+	
+}
+
+//àÍî‘HPÇÃëΩÇ¢ÉÇÉìÉXÉ^Å[ÇíTÇ∑
+static PyObject* GetHighHPMonster(PyObject* self, PyObject* args)
+{
+	int num = pData()->Getnum();
+	MGameData* mgameData = pData()->GetgameData();
+	int topHP = 0;
+	int top = 0;
+	int team = 0;
+	for (auto mon : g_mons)
+	{
+		if (mon == NULL)
+			break;
+		int mnum = mon->Getnum();
+		int hp = mon->GetHP();
+		if (hp > topHP)
+		{
+			topHP = hp;
+			top = mnum;
+			team = mon->Getteam();
+		}
+	}
+	MMonster* mmon = NULL;
+	if (mgameData->me->team == team)
+	{
+		int i = PyList_Size((PyObject*)mgameData->Buddys);
+		while (--i != -1)
+		{
+			MMonster* mon = (MMonster*)mgameData->Buddys->ob_item[i];
+			if (mon->num == top)
+			{
+				mmon = mon;
+				break;
+			}
+		}
+	}
+	else
+	{
+		int i = PyList_Size((PyObject*)mgameData->Enemys);
+		while (--i != -1)
+		{
+			MMonster* mon = (MMonster*)mgameData->Enemys->ob_item[i];
+			if (mon->num == top)
+			{
+				mmon = mon;
+				break;
+			}
+		}
+	}
+	Py_INCREF(mmon);
+	return (PyObject*)mmon;
+}
+//àÍî‘HPÇÃè≠Ç»Ç¢ÉÇÉìÉXÉ^Å[ÇíTÇ∑
+static PyObject* GetRowHPMonster(PyObject* self, PyObject* args)
+{
+	int num = pData()->Getnum();
+	MGameData* mgameData = pData()->GetgameData();
+	int topHP = 9999999999;
+	int top = 0;
+	int team = 0;
+	for (auto mon : g_mons)
+	{
+		if (mon == NULL)
+			break;
+		int mnum = mon->Getnum();
+		int hp = mon->GetHP();
+		if (hp < topHP)
+		{
+			topHP = hp;
+			top = mnum;
+			team = mon->Getteam();
+		}
+	}
+	MMonster* mmon = NULL;
+	if (mgameData->me->team == team)
+	{
+		int i = PyList_Size((PyObject*)mgameData->Buddys);
+		while (--i != -1)
+		{
+			MMonster* mon = (MMonster*)mgameData->Buddys->ob_item[i];
+			if (mon->num == top)
+			{
+				mmon = mon;
+				break;
+			}
+		}
+	}
+	else
+	{
+		int i = PyList_Size((PyObject*)mgameData->Enemys);
+		while (--i != -1)
+		{
+			MMonster* mon = (MMonster*)mgameData->Enemys->ob_item[i];
+			if (mon->num == top)
+			{
+				mmon = mon;
+				break;
+			}
+		}
+	}
+	Py_INCREF(mmon);
+	return (PyObject*)mmon;
+}
+
+//àÍî‘HPÇÃëΩÇ¢íáä‘ÇíTÇ∑
+static PyObject* GetBuddyHighHPMonster(PyObject* self, PyObject* args)
+{
+	int num = pData()->Getnum();
+	MGameData* mgameData = pData()->GetgameData();
+	int topHP = 0;
+	int top = 0;
+	for (auto mon : g_mons)
+	{
+		if (mon == NULL)
+			break;
+		if (mon->Getteam() !=mgameData->me->team)
+			continue;
+		int mnum = mon->Getnum();
+		int hp = mon->GetHP();
+		if (hp > topHP)
+		{
+			topHP = hp;
+			top = mnum;
+		}
+	}
+	MMonster* mmon = NULL;
+	int i = PyList_Size((PyObject*)mgameData->Buddys);
+	while (--i != -1)
+	{
+		MMonster* mon = (MMonster*)mgameData->Buddys->ob_item[i];
+		if (mon->num == top)
+		{
+			mmon = mon;
+			break;
+		}
+	}
+	Py_INCREF(mmon);
+	return (PyObject*)mmon;
+}
+//àÍî‘HPÇÃè≠Ç»Ç¢íáä‘ÇíTÇ∑
+static PyObject* GetBuddyRowHPMonster(PyObject* self, PyObject* args)
+{
+	int num = pData()->Getnum();
+	MGameData* mgameData = pData()->GetgameData();
+	int topHP = 9999999999;
+	int top = 0;
+	for (auto mon : g_mons)
+	{
+		if (mon == NULL)
+			break;
+		if (mon->Getteam() != mgameData->me->team)
+			continue;
+		int mnum = mon->Getnum();
+		int hp = mon->GetHP();
+		if (hp < topHP)
+		{
+			topHP = hp;
+			top = mnum;
+		}
+	}
+	MMonster* mmon = NULL;
+	int i = PyList_Size((PyObject*)mgameData->Buddys);
+	while (--i != -1)
+	{
+		MMonster* mon = (MMonster*)mgameData->Buddys->ob_item[i];
+		if (mon->num == top)
+		{
+			mmon = mon;
+			break;
+		}
+	}
+	Py_INCREF(mmon);
+	return (PyObject*)mmon;
+}
+
+//àÍî‘HPÇÃëΩÇ¢ìGÇíTÇ∑
+static PyObject* GetEnemyHighHPMonster(PyObject* self, PyObject* args)
+{
+	int num = pData()->Getnum();
+	MGameData* mgameData = pData()->GetgameData();
+	int topHP = 0;
+	int top = 0;
+	for (auto mon : g_mons)
+	{
+		if (mon == NULL)
+			break;
+		if (mon->Getteam() == mgameData->me->team)
+			continue;
+		int mnum = mon->Getnum();
+		int hp = mon->GetHP();
+		if (hp > topHP)
+		{
+			topHP = hp;
+			top = mnum;
+		}
+	}
+	MMonster* mmon = NULL;
+	int i = PyList_Size((PyObject*)mgameData->Enemys);
+	while (--i != -1)
+	{
+		MMonster* mon = (MMonster*)mgameData->Enemys->ob_item[i];
+		if (mon->num == top)
+		{
+			mmon = mon;
+			break;
+		}
+	}
+	Py_INCREF(mmon);
+	return (PyObject*)mmon;
+}
+//àÍî‘HPÇÃè≠Ç»Ç¢ìGÇíTÇ∑
+static PyObject* GetEnemyRowHPMonster(PyObject* self, PyObject* args)
+{
+	int num = pData()->Getnum();
+	MGameData* mgameData = pData()->GetgameData();
+	int topHP = 9999999999;
+	int top = 0;
+	for (auto mon : g_mons)
+	{
+		if (mon == NULL)
+			break;
+		if (mon->Getteam() == mgameData->me->team)
+			continue;
+		int mnum = mon->Getnum();
+		int hp = mon->GetHP();
+		if (hp < topHP)
+		{
+			topHP = hp;
+			top = mnum;
+		}
+	}
+	MMonster* mmon = NULL;
+	int i = PyList_Size((PyObject*)mgameData->Enemys);
+	while (--i != -1)
+	{
+		MMonster* mon = (MMonster*)mgameData->Enemys->ob_item[i];
+		if (mon->num == top)
+		{
+			mmon = mon;
+			break;
+		}
+	}
+	Py_INCREF(mmon);
+	return (PyObject*)mmon;
+}
+
+
+
+
+/*
+éwíËÇµÇΩIDÇÃíáä‘ÇíTÇ∑
+arg: monID
+*/
+static PyObject* FindBuddyMonster(PyObject* self, PyObject* args)
+{
+	int monID = PyLong_AsLong(PyTuple_GetItem(args, 0));
+	int num = 0;
+	int team = pData()->Getteam();
+	for (auto mon : g_mons)
+	{
+		if (mon == NULL)
+			break;
+		if (mon->Getteam() != team)
+			continue;
+		if (mon->GetID() == monID)
+		{
+			num = mon->Getnum();
+			break;
+		}
+	}
+	PyObject* mon = Py_None;
+	PyListObject* enemys = pData()->GetgameData()->Enemys;
+	int i = PyList_Size((PyObject*)enemys);
+	while (--i != -1)
+	{
+		MMonster* m = (MMonster*)(enemys->ob_item[i]);
+		if (m->num == num)
+		{
+			mon = (PyObject*)m;
+			Py_INCREF(mon);
+			break;
+		}
+	}
+	return mon;
+}
+/*
+éwíËÇµÇΩIDÇÃìGíTÇ∑
+arg: monID
+*/
+static PyObject* FindEnemyMonster(PyObject* self, PyObject* args)
+{
+	int monID = PyLong_AsLong(PyTuple_GetItem(args, 0));
+	int num = 0;
+	int team = pData()->Getteam();
+	for (auto mon : g_mons)
+	{
+		if (mon == NULL)
+			break;
+		if (mon->Getteam() == team)
+			continue;
+		if (mon->GetID() == monID)
+		{
+			num = mon->Getnum();
+			break;
+		}
+	}
+	PyObject* mon = Py_None;
+	PyListObject* enemys = pData()->GetgameData()->Enemys;
+	int i = PyList_Size((PyObject*)enemys);
+	while (--i != -1)
+	{
+		MMonster* m = (MMonster*)(enemys->ob_item[i]);
+		if (m->num == num)
+		{
+			mon = (PyObject*)m;
+			Py_INCREF(mon);
+			break;
+		}
+	}
+	return mon;
+}
+
+/*
+éwíËÇµÇΩIDÇÃàÍívÇ∑ÇÈÇ∑Ç◊ÇƒÇÃìGÇíTÇ∑
+arg: monID
+*/
+static PyObject* FindEnemyMonsters(PyObject* self, PyObject* args)
+{
+	int monID = PyLong_AsLong(PyTuple_GetItem(args, 0));
+	int num[6] = {99};
+	int numc = 0;
+	int team = pData()->Getteam();
+	for (auto mon : g_mons)
+	{
+		if (mon == NULL)
+			break;
+		if (mon->Getteam() == team)
+			continue;
+		if (mon->GetID() == monID)
+		{
+			num[numc++] = mon->Getnum();
+		}
+	}
+	int size = numc;
+	PyObject* mons = PyList_New(0);
+	PyListObject* enemys = pData()->GetgameData()->Enemys;
+	int i = PyList_Size((PyObject*)enemys);
+	while (--i != -1)
+	{
+		MMonster* m = (MMonster*)(enemys->ob_item[i]);
+		while (--numc != -1)
+		{
+			if (m->num == num[numc])
+			{
+				PyList_Append(mons, (PyObject*)m);
+				numc = size;
+			}
+		}
+	}
+	return mons;
+}
+/*
+éwíËÇµÇΩIDÇÃàÍívÇ∑ÇÈÇ∑Ç◊ÇƒÇÃíáä‘ÇíTÇ∑
+arg: monID
+*/
+static PyObject* FindBuddyMonsters(PyObject* self, PyObject* args)
+{
+	int monID = PyLong_AsLong(PyTuple_GetItem(args, 0));
+	int num[6] = { 99 };
+	int numc = 0;
+	int team = pData()->Getteam();
+	for (auto mon : g_mons)
+	{
+		if (mon == NULL)
+			break;
+		if (mon->Getteam() != team)
+			continue;
+		if (mon->GetID() == monID)
+		{
+			num[numc++] = mon->Getnum();
+		}
+	}
+	int size = numc;
+	PyObject* mons = PyList_New(0);
+	PyListObject* enemys = pData()->GetgameData()->Buddys;
+	int i = PyList_Size((PyObject*)enemys);
+	while (--i != -1)
+	{
+		MMonster* m = (MMonster*)(enemys->ob_item[i]);
+		while (--numc != -1)
+		{
+			if (m->num == num[numc])
+			{
+				PyList_Append(mons, (PyObject*)m);
+				numc = size;
+			}
+		}
+	}
+	return mons;
+}
+
+
+/*
+meÇ…ÉAÉNÉVÉáÉìÇí«â¡
+*/
+static PyObject* addAction(PyObject* self, PyObject* args)
+{
+	
+	PyObject* tar = PyTuple_GetItem(args, 0);
+	int act = PyLong_AsLong(PyTuple_GetItem(args, 1));
+	
+	Monster* mon = NULL;
+	Monster* target = NULL;
+	for (auto m : g_mons)
+	{
+		if (m == NULL)
+			break;
+		if (pData()->Getnum() == m->Getnum())
+		{
+			mon = m;
+			break;
+		}
+	}
+	if(tar->ob_type==&MMonsterType)
+		mon->AddAction(MonsterActionManeger::LoadAction(act,((MMonster*)tar)->num));
+	else
+		mon->AddAction(MonsterActionManeger::LoadAction(act,PyLong_AsLong(tar)));
+	return &_Py_NoneStruct;
+}
 
 //moduleì‡ÇÃä÷êîÇΩÇø
 static PyMethodDef methods[] =
@@ -171,6 +877,28 @@ static PyMethodDef methods[] =
 	{"SetAction",SetAction,METH_VARARGS,"action wo settei simasu"},
 
 	{"sqrt",MSqrt,METH_VARARGS,"hehokon"},
+
+	{"GetFarMonster",GetFarMonster,METH_NOARGS,"hehokon"},
+	{"GetNeerMonster",GetNeerMonster,METH_NOARGS,"hehokon"},
+	{"GetBuddyFarMonster",GetBuddyFarMonster,METH_NOARGS,"hehokon"},
+	{"GetEnemyFarMonster",GetEnemyFarMonster,METH_NOARGS,"hehokon"},
+	{"GetBuddyNeerMonster",GetBuddyNeerMonster,METH_NOARGS,"hehokon"},
+	{"GetEnemyNeerMonster",GetEnemyNeerMonster,METH_NOARGS,"hehokon"},
+	
+	{"GetHighHPMonster",GetHighHPMonster,METH_NOARGS,"hehokon"},
+	{"GetBuddyHighHPMonster",GetBuddyHighHPMonster,METH_NOARGS,"hehokon"},
+	{"GetEnemyHighHPMonster",GetEnemyHighHPMonster,METH_NOARGS,"hehokon"},
+
+	{"GetLowHPMonster",GetRowHPMonster,METH_NOARGS,"hehokon"},
+	{"GetBuddyLowHPMonster",GetBuddyRowHPMonster,METH_NOARGS,"hehokon"},
+	{"GetEnemyLowHPMonster",GetEnemyRowHPMonster,METH_NOARGS,"hehokon"},
+
+	{"FindBuddyMonster",FindBuddyMonster,METH_VARARGS,"hehokon"},
+	{"FindEnemyMonster",FindEnemyMonster,METH_VARARGS,"hehokon"},
+	{"FindBuddyMonsters",FindBuddyMonsters,METH_VARARGS,"hehokon"},
+	{"FindEnemyMonsters",FindEnemyMonsters,METH_VARARGS,"hehokon"},
+
+	{"addAction",addAction,METH_VARARGS,"hehokon"},
 	{NULL,NULL,0,NULL}
 };
 
@@ -205,14 +933,41 @@ static PyObject* initModule(void)
 	{
 		PyModule_AddIntConstant(thisModule, GameData::GetMonsterNameMulti((MonsterID)i), i);
 	}
-	
-	
+
 	//ÉÇÉWÉÖÅ[ÉãÇ…ÉNÉâÉXí«â¡
 	MVector3init();
 	if (PyType_Ready(&MVector3Type) < 0)
 		return NULL;
 	Py_INCREF(&MVector3Type);
 	PyModule_AddObject(thisModule, "Vector3", (PyObject*)&MVector3Type);
+
+	MMonsterInit();
+	if (PyType_Ready(&MMonsterType) < 0)
+		return NULL;
+	Py_INCREF(&MMonsterType);
+	PyModule_AddObject(thisModule, "Monster", (PyObject*)& MMonsterType);
+
+	MGameDataInit();
+	if (PyType_Ready(&MGameDataType) < 0)
+		return NULL;
+	Py_INCREF(&MGameDataType);
+	PyModule_AddObject(thisModule, "GameData", (PyObject*)& MGameDataType);
+
+	//MGameData* gameData = (MGameData*)MGameDataType.tp_new(&MGameDataType,NULL,NULL);
+	////MGameData* gameData = PyObject_GC_New(MGameData, &MGameDataType);
+	////PyObject_Init((PyObject*)gameData, &MGameDataType);
+
+	//PyModule_AddObject(thisModule, "gameData", (PyObject*)gameData);
+	//
+	//PyObject* arg = PyTuple_New(2);
+	//PyTuple_SetItem(arg, 0, PyLong_FromLong(pData()->Getnum()));
+	//PyTuple_SetItem(arg, 1, PyLong_FromLong(pData()->Getteam()));
+	//MGameDataType.tp_init((PyObject*)gameData, arg, NULL);
+	//Py_XDECREF(arg);
+
+	/*MGameData* gameData = (MGameData*)MGameDataType.tp_new(&MGameDataType, NULL, NULL);
+	PyModule_AddObject(thisModule, "gameData", (PyObject*)gameData);
+	pData()->SetgameData(gameData);*/
 
 	return thisModule;
 }
@@ -233,6 +988,8 @@ void PythonBridge::py_exe(int num,int team,const char* file)
 	g_meTeam = team;
 	g_buddyCount = 0;
 	g_enemyCount = 0;
+	pData()->Setnum(num);
+	pData()->Setteam(team);
 	Monster* me;
 	QueryGOs<Monster>("monster", [&](Monster* obj)->bool
 	{
@@ -295,11 +1052,9 @@ void PythonBridge::py_exe(int num,int team,const char* file)
 	}
 
 	Py_DECREF(pValue);
+	
 	Py_Finalize();
-
-
 	SetCurrentDirectory("../");
-
 	end = true;
 }
 
