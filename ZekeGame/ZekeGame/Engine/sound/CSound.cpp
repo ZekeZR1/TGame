@@ -71,7 +71,7 @@ bool Sound::isPlaying() {
 
 void Sound::SetVolume(float vol) {
 	if (!m_isInited)	return;
-	volume = vol;
+	volume = vol * 1.f/8.f;
 	if (m_roofFlag)
-		effect->SetVolume(vol);
+		effect->SetVolume(volume);
 }
