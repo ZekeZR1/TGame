@@ -1,6 +1,6 @@
 #coding:utf-8
 
-import CppBridge as cb
+import PythonAIs.CppBridge as cb
 
 def Brain(num,team):
     cb.init(num,team)
