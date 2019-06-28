@@ -248,9 +248,9 @@ std::vector<std::string> StageSetup::SetEnemyAI(int dun, int* monAI, MonsterID* 
 		break;
 	case 3:	//2
 		if (round == 0) {
-			filenames.push_back("zyose2");
-			filenames.push_back("zuma1");
-			filenames.push_back("zyose");
+			filenames.push_back("4_1");
+			filenames.push_back("4_1");
+			filenames.push_back("4_1");
 			monAI[3] = 2;
 			monId[3] = enFairy;
 			monAI[4] = 4;
@@ -259,9 +259,9 @@ std::vector<std::string> StageSetup::SetEnemyAI(int dun, int* monAI, MonsterID* 
 			monId[5] = enFairy;
 		}
 		if (round == 1) {
-			filenames.push_back("zyose2");
-			filenames.push_back("zarmor");
-			filenames.push_back("zuma1");
+			filenames.push_back("4_2");
+			filenames.push_back("4_2");
+			filenames.push_back("4_2");
 			monAI[3] = 2;
 			monId[3] = enFairy;
 			monAI[4] = 5;
