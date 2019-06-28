@@ -24,7 +24,6 @@ bool AIEditNodeClick::Start()
 
 	m_spriteRender = NewGO<SpriteRender>(0, "mass");
 	m_spriteRender->Init(L"Assets/sprite/click.dds", 250, 80,true); //last
-	//m_spriteRender->Init(L"Assets/sprite/fade_black.dds", 250, 80,true); //last
 	m_spriteRender->SetPosition(m_position);
 
 	m_button = NewGO<SpriteRender>(0, "sp");
@@ -117,7 +116,6 @@ void AIEditNodeClick::Update()
 			CVector4 c = CVector4{ 1.0f,0.7f,0.3f,1 }*m_fontS;
 			c.w = 1;
 			m_font->SetColor(c);
-			//m_font->SetScale(m_fontS);
 		}
 		
 	}
