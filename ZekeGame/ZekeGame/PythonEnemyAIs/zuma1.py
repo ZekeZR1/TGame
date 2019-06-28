@@ -1,6 +1,6 @@
 #coding: utf-8
 
-import CppBridge as cb
+import PythonAIs.CppBridge as cb
 import SendGame
 
 def Brain(num,team):
