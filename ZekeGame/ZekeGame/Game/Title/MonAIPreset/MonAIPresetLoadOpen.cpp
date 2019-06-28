@@ -80,7 +80,7 @@ void MonAIPresetLoadOpen::Execute(int num)
 		}
 		i++;
 	}*/
-	if (m_presets[num]->person[0]->monID == 999)
+	if (m_presets[num]->person[0]->monID == 255)
 	{
 		return;
 	}
