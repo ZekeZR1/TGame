@@ -46,7 +46,7 @@ private:
 		enPy,
 		enVi,
 	};
-	int m_AImode = enPy;
+	int m_AImode = enVi;
 
 	SpriteRender* m_changeAI = nullptr;		//visualAIとpythonAIとの切り替え用のsprite
 	FontRender* m_CAfont = nullptr;			//visualAIとpythonAIとの切り替え用のフォント
