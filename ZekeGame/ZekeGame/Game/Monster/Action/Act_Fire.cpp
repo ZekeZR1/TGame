@@ -60,7 +60,7 @@ bool Act_Fire::Action(Monster * me)
 			CVector3 len = m_pos - mon->Getpos();
 			if (len.Length() < 25*m_efs.x)
 			{
-				mon->DamageEx(me->GetExAttack()* 0.2);
+				mon->DamageEx(me->GetExAttack()* 0.2/3.f);
 			}
 		}
 		m_efs += {0.02f, 0.02f, 0.02f};
