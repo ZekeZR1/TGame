@@ -5,7 +5,8 @@ import SendGame
 
 def Brain(num,team):
 	cb.init(num,team)
-	if(me.HP <= 20)
+	me = cb.GetMe()
+	if me.HP < 20:
 		mon = cb.GetEnemyNeerMonster()
 		cb.addAction(mon,SendGame.ESCAPE)
 		cb.addAction(me,SendGame.HEAL)
