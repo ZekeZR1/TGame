@@ -19,6 +19,8 @@
 #include "Fade/Fade.h"
 #include "Fade/MusicFade.h"
 
+#include "GameLog/GameLog.h"
+
 #include "Result/Draw.h"
 
 void Game::GamePVPmodeInit(std::vector<std::string> files, int monsterAI[6],MonsterID MonsterID[6])
@@ -81,6 +83,8 @@ bool Game::Start() {
 		m_dunInfoF->Init(str, { -360,370 });
 		m_dunInfoF->DrawShadow();
 	}
+
+	gameLog();
 	return true;
 }
 
