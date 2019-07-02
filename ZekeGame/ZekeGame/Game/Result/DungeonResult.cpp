@@ -230,7 +230,7 @@ void DungeonResult::ButtonUpdate() {
 	//if (m_buttonSp == nullptr)
 	//	return;
 	//m_buttonSp->SetCollisionTarget(m_cursor->GetCursor());
-	if (Mouse::isTrigger(enLeftClick)) {
+	if (Mouse::isTrigger(enLeftClick) and !m_fadeFlag) {
 		auto se = NewGO<Sound>(0);
 		se->Init(L"Assets/sound/se/button.wav", false);
 		se->Play();
