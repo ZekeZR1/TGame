@@ -152,7 +152,7 @@ void Monster::Update()
 				else
 					m_visualAI->Run();
 				//m_PB->py_exeEX(m_num, m_team, m_pyFile);
-				isLoading = true;
+				//isLoading = true;
 			}
 			if (m_actions.size() >= 1)
 			{
