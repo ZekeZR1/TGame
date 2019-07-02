@@ -110,6 +110,8 @@ void Game::OnDestroy() {
 	RatingSystem().ClosePopup();
 	//delete m_pi;
 
+	gameLog()->DelGameLog();
+
 	if(camera!=nullptr)
 		delete camera;
 }

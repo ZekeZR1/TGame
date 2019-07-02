@@ -20,6 +20,7 @@ public:
 	static void DelGameLog()
 	{
 		DeleteGO(instans);
+		instans = NULL;
 	}
 
 
