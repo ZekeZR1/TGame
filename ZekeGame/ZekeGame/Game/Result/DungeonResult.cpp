@@ -38,19 +38,54 @@ void DungeonResult::Update() {
 }
 
 void DungeonResult::SaveDungeonClearState() {
+	using namespace std;
 	//負けたらセーブデータをいじる必要はない
 	if (m_team != WIN) return;
-	//最終ラウンドで勝利したら次のステージを開放する
-	if (IDungeonData().isFinalRound(m_dunNum)) {
-		using namespace std;
-		int currentNum = IDungeonData().GetDungeonNum();
-		ofstream fout;
-		char ms0[256];
-		int cleared = currentNum + 1;
+
+	ifstream fin("Assets/saveData/clearstate.dd", ios::in | ios::binary);
+	if (!fin) {
+		OutputDebugStringA("clearstate.ddのオープンに失敗しました");
+		return;
+	}
+	int cleared = -1;
+	fin.read(reinterpret_cast<char*>(&cleared), sizeof(int));
+	char message[256];
+	sprintf_s(message, "pre cleared num is %d\n", cleared);
+	OutputDebugStringA(message);
+	fin.close();
+	ofstream fout;
+	//
+	char ms0[256];
+	sprintf_s(ms0, "now dungeon Number is %d\n", m_dunNum);
+	OutputDebugStringA(ms0);
+	//
+	//char ms1[256];
+	//sprintf_s(ms1, "now cleared num is %d\n", cleared);
+	//OutputDebugStringA(msg);
+	//
+
+	if (cleared < m_dunNum and IDungeonData().isFinalRound(m_dunNum)) {
+		cleared += 1;
 		fout.open("Assets/saveData/clearstate.dd", ios::out | ios::binary | ios::trunc);
 		fout.write((char*)& cleared, sizeof(int));
-		fout.close();
 	}
+	fout.close();
+	char msg[256];
+	sprintf_s(msg, "now cleared num is %d\n", cleared);
+	OutputDebugStringA(msg);
+	////負けたらセーブデータをいじる必要はない
+	//if (m_team != WIN) return;
+	////最終ラウンドで勝利したら次のステージを開放する
+	//if (IDungeonData().isFinalRound(m_dunNum)) {
+	//	using namespace std;
+	//	int currentNum = IDungeonData().GetDungeonNum();
+	//	ofstream fout;
+	//	char ms0[256];
+	//	int cleared = currentNum + 1;
+	//	fout.open("Assets/saveData/clearstate.dd", ios::out | ios::binary | ios::trunc);
+	//	fout.write((char*)& cleared, sizeof(int));
+	//	fout.close();
+	//}
 }
 
 void DungeonResult::ToNextRound() {
