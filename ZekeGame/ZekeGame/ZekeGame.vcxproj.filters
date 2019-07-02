@@ -647,6 +647,9 @@
     <ClCompile Include="Game\Monster\Action\cmp\CAct_FanShaped.cpp">
       <Filter>act</Filter>
     </ClCompile>
+    <ClCompile Include="Game\GameLog\GameLog.cpp">
+      <Filter>Game\GameLog</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\PythonBridge\include\unicodeobject.h" />
@@ -1602,6 +1605,9 @@
     <ClInclude Include="Game\Monster\Action\cmp\CAct_FanShaped.h">
       <Filter>act</Filter>
     </ClInclude>
+    <ClInclude Include="Game\GameLog\GameLog.h">
+      <Filter>Game\GameLog</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="python36.lib" />
@@ -2241,6 +2247,9 @@
     </Filter>
     <Filter Include="Game\fade\AIMonSelect\AIMonPreset\NObuild">
       <UniqueIdentifier>{6a9b7ea5-fac4-4ee0-bd82-41334b49fa63}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\GameLog">
+      <UniqueIdentifier>{8f024255-0f2f-4890-8d0e-1f9b45042262}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

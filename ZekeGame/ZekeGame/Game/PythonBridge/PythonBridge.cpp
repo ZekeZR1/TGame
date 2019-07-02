@@ -6,6 +6,7 @@
 
 #include "include/structmember.h"
 
+#include "../GameLog/GameLog.h"
 
 
 //#include "../GameData.h"
@@ -864,6 +865,18 @@ static PyObject* addAction(PyObject* self, PyObject* args)
 	return &_Py_NoneStruct;
 }
 
+static PyObject* MMprint(PyObject* self, PyObject* args)
+{
+	wchar_t ws[255] = {0};
+	PyObject* uc = PyTuple_GetItem(args, 0);
+	int size = PyUnicode_AsWideChar(uc, ws, PyUnicode_GetLength(uc));
+
+	std::wstring str = ws;
+	gameLog()->MMprint(str);
+
+	return Py_None;
+}
+
 //module“à‚ÌŠÖ”‚½‚¿
 static PyMethodDef methods[] =
 {
@@ -899,6 +912,7 @@ static PyMethodDef methods[] =
 	{"FindEnemyMonsters",FindEnemyMonsters,METH_VARARGS,"hehokon"},
 
 	{"addAction",addAction,METH_VARARGS,"hehokon"},
+	{"MMprint",MMprint,METH_VARARGS,"hehokon"},
 	{NULL,NULL,0,NULL}
 };
 
@@ -991,12 +1005,14 @@ void PythonBridge::py_exe(int num,int team,const char* file)
 	pData()->Setnum(num);
 	pData()->Setteam(team);
 	Monster* me;
-	QueryGOs<Monster>("monster", [&](Monster* obj)->bool
+	for (auto mon : g_mons)
 	{
-		if (obj->Getnum() == num)
-			me = obj;
+		if (mon == nullptr)
+			break;
+		if (mon->Getnum() == num)
+			me = mon;
 
-		if (obj->Getteam() == team)
+		if (mon->Getteam() == team)
 		{
 			g_buddyCount++;
 		}
@@ -1004,8 +1020,7 @@ void PythonBridge::py_exe(int num,int team,const char* file)
 		{
 			g_enemyCount++;
 		}
-		return true;
-	});
+	}
 	SetCurrentDirectory("Python36");
 	PyImport_AppendInittab("SendGame", initModule);
 	Py_InitializeEx(1);
