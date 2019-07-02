@@ -9,7 +9,7 @@ bool RatePopup::Start() {
 	if (m_isShowEnemyRate)
 		InitEnemyInfo();
 	m_backsp = NewGO<SpriteRender>(5);
-	m_backsp->Init(L"Assets/Sprite/popupback.dds", m_popupSca.x, m_popupSca.y);
+	m_backsp->Init(L"Assets/Sprite/syber1.dds", m_popupSca.x, m_popupSca.y);
 
 	RateInit();
 	return true;
