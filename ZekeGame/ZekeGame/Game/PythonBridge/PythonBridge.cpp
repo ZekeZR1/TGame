@@ -1047,7 +1047,7 @@ void PythonBridge::py_exe(int num,int team,const char* file)
 
 		SetCurrentDirectory("../");
 		Py_Finalize();
-		end = true;
+		//end = true;
 		return;
 	}
 
@@ -1055,7 +1055,7 @@ void PythonBridge::py_exe(int num,int team,const char* file)
 	
 	Py_Finalize();
 	SetCurrentDirectory("../");
-	end = true;
+	//end = true;
 }
 
 Pyinit::Pyinit()

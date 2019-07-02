@@ -47,7 +47,9 @@ bool AISelect::Start()
 	m_ppms = FindGO<SuperMonsterSelect>("pvp");
 	int count = m_ppms->GetFiles().size();
 
-	CVector3 pos = { -454,316.5f,0 };
+	CreateViAI();
+
+	/*CVector3 pos = { -454,316.5f,0 };
 	pos = { -454,230.5f,0 };
 	for (int i = 0; i < count; i++)
 	{
@@ -61,13 +63,13 @@ bool AISelect::Start()
 	}
 	m_minScroll = 316.5f;
 	m_minScroll = 230.5f;
-	m_maxScroll = pos.y * -1;
+	m_maxScroll = pos.y * -1;*/
 	m_scroll = m_minScroll;
 
 
 	//Ø‚è‘Ö‚¦ƒ{ƒ^ƒ“‚Ì•\Ž¦
 	m_changeAI = NewGO<SpriteRender>(28, "sp");
-	m_changeAI->Init(L"Assets/sprite/PVchenger_P.dds", 80, 38.5f, true);
+	m_changeAI->Init(L"Assets/sprite/PVchenger_V.dds", 80, 38.5f, true);
 	m_changeAI->SetPosition({ -350,330,0 });
 	m_changeAI->SetPivot({ 0,1 });
 

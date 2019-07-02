@@ -148,7 +148,7 @@ void Monster::Update()
 			if (!isLoading)
 			{
 				if (!m_isUseVSAI)
-					m_PB->py_exe(m_num, m_team, m_pyFile->c_str());
+					PythonBridge::py_exe(m_num, m_team, m_pyFile->c_str());
 				else
 					m_visualAI->Run();
 				//m_PB->py_exeEX(m_num, m_team, m_pyFile);
