@@ -49,7 +49,7 @@ Win::~Win()
 
 void Win::OnDestroy()
 {
-	m_BGM->Stop();
+	//m_BGM->Stop();
 }
 
 void Win::init(int team, Game::Mode mode)
