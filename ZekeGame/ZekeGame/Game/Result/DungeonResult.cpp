@@ -34,6 +34,20 @@ void DungeonResult::OnDestroy() {
 
 void DungeonResult::Update() {
 	ButtonUpdate();
+	if (m_fade->isFadeStop() && m_fadeFlag)
+	{
+		if (m_team == WIN) {
+			if (IDungeonData().isFinalRound(m_dunNum)) {
+				ToMonsterDrop();
+			}
+			else {
+				ToNextRound();
+			}
+		}
+		else {
+			Lose();
+		}
+	}
 	CameraUpdate();
 }
 
@@ -229,8 +243,9 @@ void DungeonResult::CameraSet() {
 void DungeonResult::ButtonUpdate() {
 	//if (m_buttonSp == nullptr)
 	//	return;
+	if (m_fadeFlag) return;
 	//m_buttonSp->SetCollisionTarget(m_cursor->GetCursor());
-	if (Mouse::isTrigger(enLeftClick) and !m_fadeFlag) {
+	if (Mouse::isTrigger(enLeftClick)) {
 		auto se = NewGO<Sound>(0);
 		se->Init(L"Assets/sound/se/button.wav", false);
 		se->Play();
@@ -242,23 +257,7 @@ void DungeonResult::ButtonUpdate() {
 		dgame->ClearInGameMode();
 		m_fadeFlag = true;
 		m_fade->FadeOut();
-				
 	}
-	if (m_fade->isFadeStop() && m_fadeFlag)
-	{
-		if (m_team == WIN) {
-			if (IDungeonData().isFinalRound(m_dunNum)) {
-				ToMonsterDrop();
-			}
-			else {
-				ToNextRound();
-			}
-		}
-		else {
-			Lose();
-		}
-	}
-		
 }
 
 void DungeonResult::CameraUpdate() {
