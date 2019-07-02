@@ -94,7 +94,6 @@ void NetPVPMode::Update() {
 			 m_isfade = true;
 			 m_fade->FadeOut();
 	 }
-	 if (g_pad[0].IsTrigger(enButtonA)) m_isfade = true;
 	 //í“¬ŠJŽn
 	 if (m_fade->isFadeStop() && m_isfade) {
 		 BattleStart();
