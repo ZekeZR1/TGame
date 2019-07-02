@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "../Fade/Fade.h"
+#include "../Fade/MusicFade.h"
 #include "../GameData.h"
 #include "../Game.h"
 #include "../Monster/Monster.h"
@@ -198,6 +199,8 @@ void DungeonResult::ButtonUpdate() {
 		auto se = NewGO<Sound>(0);
 		se->Init(L"Assets/sound/se/button.wav", false);
 		se->Play();
+		MusicFade* mf = NewGO<MusicFade>(0, "mf");
+		mf->init(m_BGM, 0.15f);
 		//if (m_buttonSp->isCollidingTarget()) {
 		SaveDungeonClearState();
 		auto dgame = FindGO<DungeonGame>("DungeonGame");
@@ -235,7 +238,12 @@ void DungeonResult::CameraUpdate() {
 		{
 			InitUI();
 			m_BGM = NewGO<Sound>(0, "BGM");
-			m_BGM->Init(L"Assets/sound/BGM/PerituneMaterial_OverWorld5_loop.wav", true);
+			if (m_team == WIN) {
+				m_BGM->Init(L"Assets/sound/BGM/PerituneMaterial_OverWorld5_loop.wav", true);
+			}
+			else {
+				m_BGM->Init(L"Assets/sound/losebgm.wav", true);
+			}
 			m_BGM->Play();
 			m_cmove = false;
 		}
