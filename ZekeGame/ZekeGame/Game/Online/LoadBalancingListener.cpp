@@ -197,10 +197,18 @@ void LoadBalancingListener::raiseMonData()
 
 
 void LoadBalancingListener::raiseRating() {
-	auto rate = RatingSystem().GetWinRate();
-	char str[256];
-	sprintf_s(str, "raise my Rate %f",rate);
-	mpLbc->opRaiseEvent(false,RatingSystem().GetWinRate(),enRateData);
+	Hashtable data;
+	int total = RatingSystem().GetTotalBattleNum();
+	int win = RatingSystem().GetTotalWinNum();
+
+	nByte coords[] = { static_cast<nByte>(total), static_cast<nByte>(win)};
+	data.put((nByte)1, coords, 2);
+	mpLbc->opRaiseEvent(false, data, enRateData);
+
+	//auto rate = RatingSystem().GetWinRate();
+	//char str[256];
+	//sprintf_s(str, "raise my Rate %f",rate);
+	//mpLbc->opRaiseEvent(false,RatingSystem().GetWinRate(),enRateData);
 }
 
 
@@ -515,11 +523,29 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 	break;
 	case enRateData:
 	{
-		float content = ExitGames::Common::ValueObject<float>(eventContentObj).getDataCopy();
+		ExitGames::Common::Hashtable eventContent = ExitGames::Common::ValueObject<ExitGames::Common::Hashtable>(eventContentObj).getDataCopy();
+		Object const* obj = eventContent.getValue("1");
+		if (!obj)
+			obj = eventContent.getValue((nByte)1);
+		if (!obj)
+			obj = eventContent.getValue(1);
+		if (!obj)
+			obj = eventContent.getValue(1.0);
+		if (obj && obj->getDimensions() == 1 && obj->getSizes()[0] == 3)
+		{
+			if (obj->getType() == TypeCode::INTEGER)
+			{
+				int* data = ((ValueObject<int*>*)obj)->getDataCopy();
+				int total = (int)data[0];
+				int win = (int)data[1];
+				RatingSystem().SetEnemyRate(RatingSystem().GetWinRate(total, win));
+			}
+		}
+		/*float content = ExitGames::Common::ValueObject<float>(eventContentObj).getDataCopy();
 		m_enemyRate = content;
 		RatingSystem().SetEnemyRate(content);
 		char str[256];
-		sprintf_s(str, "ENEMEYYYYYYY  Rate  IS %f\n", content);
+		sprintf_s(str, "ENEMEYYYYYYY  Rate  IS %f\n", content);*/
 		//OutputDebugString(str);
 		break;
 	}
