@@ -34,6 +34,11 @@ bool MonsterDrop::Start() {
 	}
 	m_egg = NewGO<DropEgg>(0);
 	auto id = static_cast<MonsterID>(m_stage + 2);
+	if (IMonsterBox().isGot(id)) {
+		ToDungeonSelect();
+		return true;
+	}
+
 	m_egg->SetDropMonster(id);
 	InitCamera();
 	InitUI();
