@@ -47,6 +47,11 @@ public:
 		m_isTargetAlive = flag;
 	}
 
+	//状態異常が解除される
+	void Clense() {
+		m_isTargetAlive = false;
+	}
+
 	//これを設定するとダメージを食らわせたりできる。
 	enum State
 	{

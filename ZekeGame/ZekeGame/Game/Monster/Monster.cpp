@@ -93,6 +93,23 @@ void Monster::SuddenDeath()
 	m_maxHP = hp;
 }
 
+void Monster::ClearAllAbnormalState() {
+	m_abnormalStates.clear();
+	for (auto abs : m_abnormalStates)
+		abs->Clense();
+}
+
+void Monster::ClearAbnormalState(ACTEffectGrant* abn) {
+	auto abss = m_abnormalStates;
+	auto result = std::find(abss.begin(), abss.end(), abn);
+	if (result == abss.end()) return;
+	m_abnormalStates.erase(result);
+	//else {
+//			m_abnormalStates.erase(remove(m_abnormalStates.begin(), m_abnormalStates.end(), abn));
+		//}
+}
+
+
 bool Monster::Start()
 {
 	m_smr->SetPosition(m_pos);
