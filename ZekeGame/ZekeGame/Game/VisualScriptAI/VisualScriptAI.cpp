@@ -433,7 +433,7 @@ void VisualScriptAI::whatAction(Target target, Action action)
 		m_me->AddAction(MonsterActionManeger::LoadAction(ua[enDefense], tarmon->Getnum()));
 		break;
 	case recovery:
-		m_me->AddAction(MonsterActionManeger::LoadAction(ua[enRecovery], tarmon->Getnum()));
+		m_me->AddAction(MonsterActionManeger::LoadAction(ua[4], tarmon->Getnum()));
 		break;
 	case ex1:
 		m_me->AddAction(MonsterActionManeger::LoadAction(ua[4], tarmon->Getnum()));
