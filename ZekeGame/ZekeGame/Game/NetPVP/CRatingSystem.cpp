@@ -37,8 +37,11 @@ void CRatingSystem::LoadMyRate() {
 
 void CRatingSystem::CalcRate(int team) {
 	m_total++;
+	m_enemy_total++;
 	if (team == 0)
 		m_nwin++;
+	else
+		m_enemy_win++;
 }
 
 void CRatingSystem::SetWinner(int team) {
@@ -63,6 +66,12 @@ const float CRatingSystem::GetWinRate() {
 	if (!m_total)
 		return 0.f;
 	return 100.0  * float(m_nwin) / float(m_total);
+}
+
+const float CRatingSystem::GetWinRate(int total, int win) {
+	if (!total)
+		return 0.f;
+	return 100.0 * float(win) / float(total);
 }
 
 void CRatingSystem::ShowMyWinRate(CVector3 pos) {

@@ -115,7 +115,12 @@ public:
 	void ClearAbnormalState(ACTEffectGrant* abn)
 	{
 		if (!m_abnormalStates.size()) return;
-		m_abnormalStates.erase(remove(m_abnormalStates.begin(), m_abnormalStates.end(), abn));
+		if (m_abnormalStates.size() == 1) {
+			m_abnormalStates.clear();
+		}
+		else {
+			m_abnormalStates.erase(remove(m_abnormalStates.begin(), m_abnormalStates.end(), abn));
+		}
 		//std::vector<ACTEffectGrant*>::iterator ite;
 		//ite = std::find(m_abnormalStates.begin(), m_abnormalStates.end(), abn);
 		//m_abnormalStates.erase(ite);

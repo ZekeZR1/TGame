@@ -156,7 +156,7 @@ void Win::Update()
 	else
 	{
 		
-		if (Mouse::isTrigger(enLeftClick))
+		if (Mouse::isTrigger(enLeftClick) && !m_isClick)
 		{
 			m_fade->FadeOut();
 			m_isClick = true;

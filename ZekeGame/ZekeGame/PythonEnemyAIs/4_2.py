@@ -6,6 +6,8 @@ def Brain(num,team):
     cb.init(num,team)
     me = cb.GetMe()
     tar = cb.GetEnemyLowHPMonster()
+    if tar == None:
+        return
     if me.ID == cb.SendGame.Yose:
         cb.SendGame.addAction(tar.num,cb.SendGame.FIRE)
         pass
@@ -15,4 +17,5 @@ def Brain(num,team):
     elif me.ID == cb.SendGame.Uma:
         cb.SendGame.addAction(tar.num,cb.SendGame.TACKLE)
         pass
+    
     cb.End()
