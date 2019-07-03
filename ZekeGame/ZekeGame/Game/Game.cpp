@@ -84,7 +84,7 @@ bool Game::Start() {
 		m_dunInfoF->DrawShadow();
 	}
 
-	gameLog();
+	GameLog::NewGameLog();
 	return true;
 }
 
@@ -110,7 +110,7 @@ void Game::OnDestroy() {
 	RatingSystem().ClosePopup();
 	//delete m_pi;
 
-	gameLog()->DelGameLog();
+	
 
 	if(camera!=nullptr)
 		delete camera;
@@ -300,6 +300,8 @@ void Game::Update() {
 			m_winTeam = g_mons[0]->Getteam();
 		DeleteGO(m_menu);
 		m_menu = nullptr;
+
+		gameLog()->DelGameLog();
 
 		QueryGOs<Monster>("monster", [&](auto obj)->bool
 		{

@@ -11,6 +11,7 @@ def Brain(num,team):
     elif me.ID == cb.SendGame.Kikyo:
         if me.MP < 40:
             cb.SendGame.addAction(me.num,cb.SendGame.MP_Heal)
-        cb.SendGame.addAction(me.num,cb.SendGame.SUPER_BEAM)
+        tar = cb.GetEnemyNeerMonster()
+        cb.SendGame.addAction(tar.num,cb.SendGame.SUPER_BEAM)
         pass
     cb.End()

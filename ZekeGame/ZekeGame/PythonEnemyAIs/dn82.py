@@ -1,6 +1,6 @@
 #coding: utf-8
 #ダンジョン８
-import PythonAIs.CppBridge as cb
+import CppBridge as cb
 
 def Brain(num,team):
     cb.init(num,team)
@@ -10,33 +10,26 @@ def Brain(num,team):
     red = cb.FindEnemy(cb.SendGame.RedHead)
     gob = cb.FindEnemy(cb.SendGame.Goblin)
 
-    if me.ID == cb.SendGame.Chris:
-        if me.MP >= 30:
-            tar = cb.GetEnemyHighATKMonster()
-            cb.addAction(tar,cb.SendGame.Blizzard)
+    if me.ID == cb.SendGame.kuri:
+        if me.MP >= 30
+            cb.addAction(cb.GetEnemyHighATKMonster,cb.SendGame.Blizzard)
 
-        if me.MP < 30:
-            tar = cb.GetEnemyLowHPMonster()
-            cb.addAction(tar,cb.SendGame.CHASE)
-            cb.addAction(tar,cb.SendGame.ATTACK)
+        if me.MP < 30
+            cb.addAction(cb.GetEnemyLowHPMonster,cb.SendGame.CHASE)
+            cb.addAction(cb.GetEnemyLowHPMonster,cb.SendGame.ATTACK)
 
-    if me.ID == cb.SendGame.RedHead:
-        tar = cb.GetEnemyLowHPMonster()
-        if me.MP >= 30:
-            cb.addAction(tar,cb.SendGame.Thunder)
+    if me.ID == cb.SendGame.red:
+        if me.MP >= 30
+            cb.addAction(cb.GetEnemyLowHPMonster,cb.SendGame.Thunder)
 
-        if me.MP < 30:
-            cb.addAction(tar,cb.SendGame.CHASE)
-            cb.addAction(tar,cb.SendGame.ATTACK)
+        if me.MP < 30
+            cb.addAction(cb.GetEnemyLowHPMonster,cb.SendGame.CHASE)
+            cb.addAction(cb.GetEnemyLowHPMonster,cb.SendGame.ATTACK)
 
-    if me.ID == cb.SendGame.Goblin:
-        if me.MP >= 20:
-            tar = cb.GetEnemyHighATKMonster()
-            cb.addAction(tar,cb.SendGame.CHASE)
-            cb.addAction(tar,cb.SendGame.Poison)
+    if me.ID == cb.SendGame.gob:
+        if me.MP >= 20
+            cb.AddAction(cb.GetEnemyHighATKMonster.cb.SendGame.Poison)
 
-        if me.MP < 20:
-            tar = cb.GetEnemyLowHPMonster()
-            cb.addAction(tar,cb.SendGame.CHASE)
-            cb.addAction(tar,cb.SendGame.ATTACK)
-    cb.End()
+        if me.MP < 20
+            cb.addAction(cb.GetEnemyLowHPMonster,cb.SendGame.CHASE)
+            cb.addAction(cb.GetEnemyLowHPMonster,cb.SendGame.ATTACK)

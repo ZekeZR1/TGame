@@ -16,7 +16,7 @@
 #include "../NetPVP/NetAISelect.h"
 
 #include "../Fade/Fade.h"
-
+#include "../GameLog/GameLog.h"
 GameMenu::~GameMenu()
 {
 	
@@ -53,6 +53,7 @@ void GameMenu::Update()
 	{
 		if (m_fade->isFadeStop())
 		{
+			GameLog::DelGameLog();
 			switch (m_bnum)
 			{
 			case 0:
