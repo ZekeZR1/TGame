@@ -42,6 +42,11 @@ public:
 		return m_abnormal;
 	}
 
+	//ターゲットが死んだ事をクラスに教える
+	void SetTargetAliveFlag(bool flag) {
+		m_isTargetAlive = flag;
+	}
+
 	//これを設定するとダメージを食らわせたりできる。
 	enum State
 	{
@@ -84,4 +89,5 @@ private:
 	Monster* m_Invoker = nullptr;
 	float m_buffdebuffParam = 1.f;
 	float m_invokerExAtk = 1.f;
+	bool m_isTargetAlive = true;
 };
