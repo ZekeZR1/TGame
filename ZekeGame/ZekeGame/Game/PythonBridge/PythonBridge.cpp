@@ -872,7 +872,7 @@ static PyObject* MMprint(PyObject* self, PyObject* args)
 	int size = PyUnicode_AsWideChar(uc, ws, PyUnicode_GetLength(uc));
 
 	std::wstring str = ws;
-	gameLog()->MMprint(str);
+	MMprint(str);
 
 	return Py_None;
 }
