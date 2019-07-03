@@ -31,8 +31,9 @@ bool DropEgg::Start() {
 	m_egg->SetDirLight({ 0, 0, -1, 0 }, 0);
 	m_egg->Init(L"Assets/modelData/egg.cmo", nullptr, 0, enFbxUpAxisY);
 	m_egg->SetPosition(m_eggPos);
-	std::random_device rnd;
-	m_monsterId = static_cast<MonsterID>(rnd() % enNumMonster);
+	//std::random_device rnd;
+	//m_monsterId = static_cast<MonsterID>(rnd() % enNumMonster);
+
 	IMonsterBox().GetMonster(m_monsterId);
 	auto se = NewGO<Sound>(0);
 	se->Init(L"Assets/sound/dungeon/puyon1.wav", false);
