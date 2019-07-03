@@ -28,7 +28,7 @@ bool Act_Cleanse::Action(Monster* me) {
 
 		ACTEffectGrant* actEG = NewGO<ACTEffectGrant>(0, "actEG");
 		actEG->init(eff, m_target);
-		//m_target->SetAbnormalState(actEG);
+		m_target->SetAbnormalState(actEG);
 
 		Sound* snd = NewGO<Sound>(0, "snd");
 		snd->Init(L"Assets/sound/kira2.wav");

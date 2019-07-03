@@ -26,6 +26,11 @@ Monster::~Monster()
 	delete m_visualAI;
 }
 
+void Monster::OnDestroy() {
+	for (auto i : m_abnormalStates)
+		DeleteGO(i);
+}
+
 void Monster::ReleaseMAL()
 {
 	if (!m_dmal)
@@ -94,20 +99,21 @@ void Monster::SuddenDeath()
 }
 
 void Monster::ClearAllAbnormalState() {
-	m_abnormalStates.clear();
 	for (auto abs : m_abnormalStates)
 		abs->Clense();
+	m_abnormalStates.clear();
 }
 
 void Monster::ClearAbnormalState(ACTEffectGrant* abn) {
-	auto abss = m_abnormalStates;
-	if (abss.size() == 1) {
+	DeleteGO(abn);
+	if (!m_abnormalStates.size()) return;
+	if (m_abnormalStates.size() == 1) {
 		m_abnormalStates.clear();
 		return;
 	}
-	auto result = std::find(abss.begin(), abss.end(), abn);
-	if (result == abss.end()) return;
-	m_abnormalStates.erase(std::find(abss.begin(), abss.end(), abn));
+	auto result = std::find(m_abnormalStates.begin(), m_abnormalStates.end(), abn);
+	if (result == m_abnormalStates.end()) return;
+	m_abnormalStates.erase(std::find(m_abnormalStates.begin(), m_abnormalStates.end(), abn));
 }
 
 

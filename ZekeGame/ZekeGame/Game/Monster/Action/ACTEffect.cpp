@@ -150,6 +150,7 @@ void ACTEffectGrant::Clear() {
 	case enHardCC: {
 		//m_target->SetSpeed(m_tarSpeed);
 		m_effect->Stop();
+		m_target->ClearAbnormalState(this);
 		DeleteGO(this);
 		break;
 	}

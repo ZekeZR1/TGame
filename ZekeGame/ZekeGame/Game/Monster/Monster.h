@@ -15,6 +15,7 @@ class Monster:public GameObject
 {
 public:
 	~Monster();
+	void OnDestroy() override;
 
 	struct MonsterInitParam {
 		float HP;
