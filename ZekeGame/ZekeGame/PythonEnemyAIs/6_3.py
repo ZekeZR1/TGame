@@ -22,7 +22,7 @@ def Brain(num,team):
             cb.SendGame.addAction(tar.num,cb.SendGame.Clear_Stack)
         elif me.HP <= 10:
             cb.SendGame.addAction(0,cb.SendGame.DEFENSE)
-        if len(cb.gameData.Buddys) > 1:
+        if len(cb.gameData.Buddy) > 1:
             cb.SendGame.addAction(3,cb.SendGame.CHASE)
         else:
             cb.SendGame.addAction(tar.num,cb.SendGame.CHASE)
