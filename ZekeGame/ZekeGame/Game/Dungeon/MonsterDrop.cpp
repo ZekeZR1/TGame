@@ -22,13 +22,19 @@ MonsterDrop::~MonsterDrop()
 
 
 bool MonsterDrop::Start() {
-	std::random_device rnd;
-	auto drop = rnd() % 100;
-	if (drop >= 50 - m_stage) {
+	//std::random_device rnd;
+	//auto drop = rnd() % 100;
+	//if (drop >= 50 - m_stage) {
+	//	ToDungeonSelect();
+	//	return true;
+	//}
+	if (m_stage == 7) {
 		ToDungeonSelect();
 		return true;
 	}
 	m_egg = NewGO<DropEgg>(0);
+	auto id = static_cast<MonsterID>(m_stage + 2);
+	m_egg->SetDropMonster(id);
 	InitCamera();
 	InitUI();
 	InitModels();

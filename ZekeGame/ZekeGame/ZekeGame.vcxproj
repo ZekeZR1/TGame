@@ -1170,9 +1170,9 @@
     <None Include="Assets\modelData\RedHead\RedHead.fbx">
       <FileType>Document</FileType>
     </None>
-    <MeshContentTask Include="Assets\modelData\si_bug\si_bug.FBX">
+    <None Include="Assets\modelData\si_bug\si_bug.FBX">
       <FileType>Document</FileType>
-    </MeshContentTask>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_redHead.png" />

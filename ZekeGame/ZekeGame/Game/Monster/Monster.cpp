@@ -19,8 +19,6 @@ Monster::~Monster()
 	DeleteGO(m_PB);
 	ReleaseMAL();
 	ReleaseMark();
-	for (auto a : m_abnormalStates)
-		DeleteGO(a);
 	for (auto a : m_actions)
 		DeleteGO(a);
 	delete[] m_UseAction;
@@ -136,6 +134,8 @@ void Monster::Update()
 		se->Play();
 
 		m_state = en_Dead;
+		for (auto a : m_abnormalStates)
+			a->SetTargetAliveFlag(false);
 		GameData::deletemons(this);
 		DeleteGO(this);
 	}
