@@ -18,10 +18,8 @@ bool Act_Cleanse::Action(Monster* me) {
 		me->SetMP(mp - m_cost);
 
 		me->anim_extra1();
-		auto state = m_target->GetAbnormalState();
-		for (auto s : state) {
-			m_target->ClearAbnormalState(s);
-		}
+
+		m_target->ClearAllAbnormalState();
 
 		auto eff = NewGO<CEffect>(0, "ef");
 		eff->SetScale({ 4,4,4 });
