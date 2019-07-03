@@ -12,6 +12,7 @@ GameLog::GameLog()
 	{
 		m_logs[i].font = NewGO<FontRender>(0, "fr");
 		m_logs[i].font->SetTextType(CFont::en_JPLog);
+		m_logs[i].font->DrawShadow({2,-2});
 		m_logs[i].font->Init(L"", pos, 0, { 1,1,1,1 }, 0.5f);
 		pos.y -= 25;
 	}

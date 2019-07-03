@@ -54,6 +54,12 @@ void GameMenu::Update()
 		if (m_fade->isFadeStop())
 		{
 			GameLog::DelGameLog();
+			QueryGOs<CEffect>("ef", [&](CEffect* ob)->bool
+			{
+				ob->Stop();
+				DeleteGO(ob);
+				return true;
+			});
 			switch (m_bnum)
 			{
 			case 0:
