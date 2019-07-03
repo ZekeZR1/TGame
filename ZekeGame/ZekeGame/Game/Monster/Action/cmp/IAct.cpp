@@ -12,7 +12,7 @@ void IAct::GrantAbnormalState(
 	float endTime,
 	float DoTParam) {
 
-	auto efk = NewGO<CEffect>(0);
+	auto efk = NewGO<CEffect>(0,"ef");
 	efk->SetScale(efs);
 	efk->Play(m_absEfkPath);
 
