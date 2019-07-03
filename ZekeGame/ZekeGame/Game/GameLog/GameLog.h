@@ -13,14 +13,16 @@ public:
 	void OnDestroy();
 	static GameLog* GetInst()
 	{
-		if (instans == NULL)
-			instans = NewGO<GameLog>(0, "GameLog");
 		return instans;
 	}
 	static void DelGameLog()
 	{
 		DeleteGO(instans);
 		instans = NULL;
+	}
+	static void NewGameLog()
+	{
+		instans = NewGO<GameLog>(0, "GameLog");
 	}
 
 
@@ -39,4 +41,11 @@ private:
 static GameLog* gameLog()
 {
 	return GameLog::GetInst();
+}
+
+static void MMprint(std::wstring str)
+{
+	GameLog* gl = gameLog();
+	if (gl != NULL)
+		gl->MMprint(str);
 }
