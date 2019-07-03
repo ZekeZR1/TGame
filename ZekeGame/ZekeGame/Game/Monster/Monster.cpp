@@ -101,12 +101,13 @@ void Monster::ClearAllAbnormalState() {
 
 void Monster::ClearAbnormalState(ACTEffectGrant* abn) {
 	auto abss = m_abnormalStates;
+	if (abss.size() == 1) {
+		m_abnormalStates.clear();
+		return;
+	}
 	auto result = std::find(abss.begin(), abss.end(), abn);
 	if (result == abss.end()) return;
-	m_abnormalStates.erase(result);
-	//else {
-//			m_abnormalStates.erase(remove(m_abnormalStates.begin(), m_abnormalStates.end(), abn));
-		//}
+	m_abnormalStates.erase(std::find(abss.begin(), abss.end(), abn));
 }
 
 
