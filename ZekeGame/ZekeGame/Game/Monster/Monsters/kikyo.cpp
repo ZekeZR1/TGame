@@ -30,8 +30,8 @@ Kikyo::Kikyo()
 	prm.MP = 180;
 	prm.DefencePow = 5;
 	prm.ExDefensePow = 10;
-	prm.AttackPow = 10;
-	prm.ExAttackPow = 6;
+	prm.AttackPow = 5;
+	prm.ExAttackPow = 9;
 	prm.Speed = 10;
 	prm.Radius = 50;
 	prm.Height = 150;
