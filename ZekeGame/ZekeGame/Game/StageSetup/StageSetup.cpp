@@ -126,7 +126,7 @@ void StageSetup::DungeonSetup(PyFile files, PyFile eneFiles, int monsterAI[6], M
 	poss[5] = { -250,0,-500 };
 
 	PyFile enemyfiles = SetEnemyAI(dunNumber,monsterAI, monids);
-
+	int rnd = IDungeonData().GetRound();
 	for (int i = 0; i < 6; i++)
 	{
 		if (i == 3)
@@ -144,6 +144,7 @@ void StageSetup::DungeonSetup(PyFile files, PyFile eneFiles, int monsterAI[6], M
 			mon = NewGO<Uma>(0, "monster");
 			break;
 		}*/
+		
 		mon->Setpos(poss[i]);
 		mon->Setnum(i);
 		mon->Setteam(team);
@@ -401,6 +402,9 @@ std::vector<std::string> StageSetup::SetEnemyAI(int dun, int* monAI, MonsterID* 
 			monId[5] = enBook;
 		}
 		break;
+	case 8:
+		filenames.push_back("Shell");
+		monId[3] = enShell;
 	}
 	return filenames;
 }
