@@ -44,7 +44,7 @@ void CRatingSystem::CalcRate(int team) {
 	else {
 		m_enemy_win++;
 	}
-	m_enemyWinRate = GetWinRate(m_enemy_total, m_enemy_win);
+	m_eneRating = GetWinRate(m_enemy_total, m_enemy_win);
 }
 
 void CRatingSystem::SetWinner(int team) {
