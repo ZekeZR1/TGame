@@ -24,7 +24,7 @@ std::vector<VisualAIState> VisualAIOpen::openVAs()
 
 	std::vector< VisualAIState> vass;
 	int count = 0;
-	do
+	while (FindNextFile(hfind, &win32d) && count < 12)
 	{
 		if (win32d.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY)
 		{
@@ -71,7 +71,8 @@ std::vector<VisualAIState> VisualAIOpen::openVAs()
 			//	col = mWhi;
 			//}
 
-			FILE* file = fopen((path + p).c_str(), "rb");
+			std::string filename = path + p;
+			FILE* file = fopen(filename.c_str(), "rb");
 			char he[6] = {'\0'};
 			fread(&he, 5, 1, file);
 			fseek(file, 1, SEEK_CUR);
@@ -104,7 +105,7 @@ std::vector<VisualAIState> VisualAIOpen::openVAs()
 			vass.push_back(vas);
 			count++;
 		}
-	} while (FindNextFile(hfind, &win32d) && count < 12);
+	} 
 	FindClose(hfind);
 	return vass;
 }
