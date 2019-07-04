@@ -10,6 +10,16 @@ VisualScriptAI::VisualScriptAI(Monster* me, std::string* path)
 
 	FILE* f = fopen(path->c_str(), "rb");
 
+	if (f == NULL)
+	{
+		VisualScriptLine line;
+		line.reserve(1);
+		line.push_back(VisualScriptOrder());
+		m_vsLines.reserve(1);
+		m_vsLines.push_back(line);
+		return;
+	}
+
 	char head[6];
 	fread(head, 6, 1, f);
 	int col = 0;
