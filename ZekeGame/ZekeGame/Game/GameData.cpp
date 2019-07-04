@@ -11,6 +11,7 @@
 #include "Monster/Monsters/ShikoChu.h"
 #include "Monster/Monsters/Ringo.h"
 #include "Monster/Monsters/Chris.h"
+#include "Monster/Monsters/Shell.h"
 
 
 Monster* g_mons[64];
@@ -82,6 +83,9 @@ Monster * GameData::LoadMonster(int monID)
 		break;
 	case enChris:
 		mon = NewGO<Chris>(0, "monster");
+		break;
+	case enShell:
+		mon = NewGO<Shell>(0, "monster");
 		break;
 	}
 	return mon;

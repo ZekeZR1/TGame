@@ -132,6 +132,9 @@ void StageSetup::DungeonSetup(PyFile files, PyFile eneFiles, int monsterAI[6], M
 		if (i == 3)
 			team++;
 
+		if (dunNumber == 8 && i >= 4)
+			break;
+
 		Monster* mon = GameData::LoadMonster(monids[i]);
 		auto vaFiles = VisualAiFileLoad::FilesLoad();
 
@@ -144,10 +147,10 @@ void StageSetup::DungeonSetup(PyFile files, PyFile eneFiles, int monsterAI[6], M
 			mon = NewGO<Uma>(0, "monster");
 			break;
 		}*/
-		
 		mon->Setpos(poss[i]);
 		mon->Setnum(i);
 		mon->Setteam(team);
+
 		if (team == 0) {
 			//team
 			//python‚ÆVisualScript‚ÌŽd•ª‚¯
@@ -165,12 +168,16 @@ void StageSetup::DungeonSetup(PyFile files, PyFile eneFiles, int monsterAI[6], M
 				mon->SetVisualScriptAI(path);
 			}
 		}
-		else{
+		else {
 			//enemy
 			std::string* path = new std::string("PythonEnemyAIs.");
 			//*path += eneFiles[monsterAI[i]];
-			*path += enemyfiles[i-3];
+			*path += enemyfiles[i - 3];
 			mon->SetpyFile(path);
+			if (dunNumber == 8)
+			{
+				mon->Setpos(poss[4]);
+			}
 		}
 		g_mons[i] = mon;
 	}

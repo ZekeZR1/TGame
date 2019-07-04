@@ -8,6 +8,7 @@ class MonAIPresetOpenSuper;
 class GObutton;
 class MonsterSelectBack;
 class GameCursor;
+enum MonsterID;
 class DungeonAISelect : public SuperMonsterSelect
 {
 public:

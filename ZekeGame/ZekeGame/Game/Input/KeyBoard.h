@@ -4,6 +4,7 @@ enum KeyboardEve
 {
 	enEnter = 0x0D,
 	enBackSpace = 0x08,
+	enDelete = 0x2E,
 };
 
 namespace Keyboard
