@@ -533,6 +533,14 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 			obj = eventContent.getValue(1.0);
 		if (obj && obj->getDimensions() == 1 && obj->getSizes()[0] == 2)
 		{
+			if (obj->getType() == TypeCode::INTEGER)
+			{
+				int* data = ((ValueObject<int*>*)obj)->getDataCopy();
+				int total = (int)data[0];
+				int win = (int)data[1];
+				RatingSystem().SetEnemyBattleInfo(total, win);
+				//RatingSystem().SetEnemyRate(RatingSystem().GetWinRate(total, win));
+			}
 			if (obj->getType() == TypeCode::BYTE)
 			{
 				nByte* data = ((ValueObject<nByte*>*)obj)->getDataCopy();

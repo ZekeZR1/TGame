@@ -2102,7 +2102,6 @@
       <Filter>Assets\Sprite\AIEdit</Filter>
     </None>
     <None Include="Assets\modelData\dungeon\gorgeousWall.fbx" />
-    <None Include="Assets\modelData\si_bug\si_bug.FBX" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="act">
@@ -2266,5 +2265,8 @@
     <Media Include="Assets\sound\BGM\PerituneMaterial_Strategy5_loop.wav">
       <Filter>Assets\BGM</Filter>
     </Media>
+  </ItemGroup>
+  <ItemGroup>
+    <MeshContentTask Include="Assets\modelData\si_bug\si_bug.FBX" />
   </ItemGroup>
 </Project>
