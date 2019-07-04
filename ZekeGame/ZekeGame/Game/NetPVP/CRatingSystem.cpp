@@ -52,7 +52,7 @@ void CRatingSystem::SetWinner(int team) {
 
 void CRatingSystem::PopupRate(float eneRate) {
 	auto p = NewGO<RatePopup>(0,"RatePopupKun");
-	p->setEnemyRating(m_enemyWinRate);
+	p->setEnemyRating(m_eneRating);
 }
 
 void CRatingSystem::ClosePopup() {

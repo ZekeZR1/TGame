@@ -545,7 +545,7 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 				nByte* data = ((ValueObject<nByte*>*)obj)->getDataCopy();
 				int total = (int)data[0];
 				int win = (int)data[1];
-				RatingSystem().SetEnemyRate(RatingSystem().GetWinRate(total, win));
+				RatingSystem().SetEnemeyRating(RatingSystem().GetWinRate(total, win));
 				char str[256];
 				OutputDebugString("-----------------------------------------------\n");
 				sprintf_s(str, "enemy total %d, enemy win %d, Rate %f", total, win, RatingSystem().GetWinRate(total, win));
