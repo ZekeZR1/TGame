@@ -345,28 +345,28 @@
       <Filter>Game\Dungeon</Filter>
     </ClCompile>
     <ClCompile Include="Game\Title\AIMSelect.cpp">
-      <Filter>Game\fade\AIMonSelect</Filter>
+      <Filter>Game\AIMonSelect</Filter>
     </ClCompile>
     <ClCompile Include="Game\Title\AISelect.cpp">
-      <Filter>Game\fade\AIMonSelect</Filter>
+      <Filter>Game\AIMonSelect</Filter>
     </ClCompile>
     <ClCompile Include="Game\Title\IconAI.cpp">
-      <Filter>Game\fade\AIMonSelect</Filter>
+      <Filter>Game\AIMonSelect</Filter>
     </ClCompile>
     <ClCompile Include="Game\Title\IconMon.cpp">
-      <Filter>Game\fade\AIMonSelect</Filter>
+      <Filter>Game\AIMonSelect</Filter>
     </ClCompile>
     <ClCompile Include="Game\GameMenu\MenuButton.cpp">
-      <Filter>Game\fade\AIMonSelect</Filter>
+      <Filter>Game\AIMonSelect</Filter>
     </ClCompile>
     <ClCompile Include="Game\Title\SuperMonsterSelect.cpp">
-      <Filter>Game\fade\AIMonSelect</Filter>
+      <Filter>Game\AIMonSelect</Filter>
     </ClCompile>
     <ClCompile Include="Game\Title\MonsterSelect.cpp">
-      <Filter>Game\fade\AIMonSelect</Filter>
+      <Filter>Game\AIMonSelect</Filter>
     </ClCompile>
     <ClCompile Include="Game\Title\PMMonster.cpp">
-      <Filter>Game\fade\AIMonSelect</Filter>
+      <Filter>Game\AIMonSelect</Filter>
     </ClCompile>
     <ClCompile Include="Game\AIEdit\AIEdtiNodeAbnormalState.cpp">
       <Filter>Game\AIEdite</Filter>
@@ -477,22 +477,22 @@
       <Filter>Game\AIEdite</Filter>
     </ClCompile>
     <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetIcon.cpp">
-      <Filter>Game\fade\AIMonSelect\AIMonPreset</Filter>
+      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
     </ClCompile>
     <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetIcons.cpp">
-      <Filter>Game\fade\AIMonSelect\AIMonPreset</Filter>
+      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
     </ClCompile>
     <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetLoadOpen.cpp">
-      <Filter>Game\fade\AIMonSelect\AIMonPreset</Filter>
+      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
     </ClCompile>
     <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetOpenSuper.cpp">
-      <Filter>Game\fade\AIMonSelect\AIMonPreset</Filter>
+      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
     </ClCompile>
     <ClCompile Include="Game\Title\MonAIPreset\MonAIPresets.cpp">
-      <Filter>Game\fade\AIMonSelect\AIMonPreset</Filter>
+      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
     </ClCompile>
     <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetSaveOpen.cpp">
-      <Filter>Game\fade\AIMonSelect\AIMonPreset</Filter>
+      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
     </ClCompile>
     <ClCompile Include="Game\NetPVP\CRatingSystem.cpp">
       <Filter>Game\NetPVP</Filter>
@@ -546,7 +546,7 @@
     </ClCompile>
     <ClCompile Include="Game\Title\GObutton.cpp" />
     <ClCompile Include="Game\Title\MonsterSelectBack.cpp">
-      <Filter>Game\fade\AIMonSelect</Filter>
+      <Filter>Game\AIMonSelect</Filter>
     </ClCompile>
     <ClCompile Include="Game\Title\ModeSelect\ModeSelectBack.cpp">
       <Filter>Game\ModeSelect</Filter>
@@ -1306,28 +1306,28 @@
       <Filter>Game\Dungeon</Filter>
     </ClInclude>
     <ClInclude Include="Game\Title\AIMSelect.h">
-      <Filter>Game\fade\AIMonSelect</Filter>
+      <Filter>Game\AIMonSelect</Filter>
     </ClInclude>
     <ClInclude Include="Game\Title\AISelect.h">
-      <Filter>Game\fade\AIMonSelect</Filter>
+      <Filter>Game\AIMonSelect</Filter>
     </ClInclude>
     <ClInclude Include="Game\Title\IconAI.h">
-      <Filter>Game\fade\AIMonSelect</Filter>
+      <Filter>Game\AIMonSelect</Filter>
     </ClInclude>
     <ClInclude Include="Game\Title\IconMon.h">
-      <Filter>Game\fade\AIMonSelect</Filter>
+      <Filter>Game\AIMonSelect</Filter>
     </ClInclude>
     <ClInclude Include="Game\GameMenu\MenuButton.h">
-      <Filter>Game\fade\AIMonSelect</Filter>
+      <Filter>Game\AIMonSelect</Filter>
     </ClInclude>
     <ClInclude Include="Game\Title\SuperMonsterSelect.h">
-      <Filter>Game\fade\AIMonSelect</Filter>
+      <Filter>Game\AIMonSelect</Filter>
     </ClInclude>
     <ClInclude Include="Game\Title\MonsterSelect.h">
-      <Filter>Game\fade\AIMonSelect</Filter>
+      <Filter>Game\AIMonSelect</Filter>
     </ClInclude>
     <ClInclude Include="Game\Title\PMMonster.h">
-      <Filter>Game\fade\AIMonSelect</Filter>
+      <Filter>Game\AIMonSelect</Filter>
     </ClInclude>
     <ClInclude Include="Game\AIEdit\AIEditNodeButton.h">
       <Filter>Game\AIEdite</Filter>
@@ -1438,22 +1438,22 @@
       <Filter>Game\AIEdite</Filter>
     </ClInclude>
     <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetIcon.h">
-      <Filter>Game\fade\AIMonSelect\AIMonPreset</Filter>
+      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
     </ClInclude>
     <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetIcons.h">
-      <Filter>Game\fade\AIMonSelect\AIMonPreset</Filter>
+      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
     </ClInclude>
     <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetLoadOpen.h">
-      <Filter>Game\fade\AIMonSelect\AIMonPreset</Filter>
+      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
     </ClInclude>
     <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetOpenSuper.h">
-      <Filter>Game\fade\AIMonSelect\AIMonPreset</Filter>
+      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
     </ClInclude>
     <ClInclude Include="Game\Title\MonAIPreset\MonAIPresets.h">
-      <Filter>Game\fade\AIMonSelect\AIMonPreset</Filter>
+      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
     </ClInclude>
     <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetSaveOpen.h">
-      <Filter>Game\fade\AIMonSelect\AIMonPreset</Filter>
+      <Filter>Game\AIMonSelect\AIMonPreset</Filter>
     </ClInclude>
     <ClInclude Include="Game\NetPVP\CRatingSystem.h">
       <Filter>Game\NetPVP</Filter>
@@ -1504,7 +1504,7 @@
     </ClInclude>
     <ClInclude Include="Game\Title\GObutton.h" />
     <ClInclude Include="Game\Title\MonsterSelectBack.h">
-      <Filter>Game\fade\AIMonSelect</Filter>
+      <Filter>Game\AIMonSelect</Filter>
     </ClInclude>
     <ClInclude Include="Game\Title\ModeSelect\ModeSelectBack.h">
       <Filter>Game\ModeSelect</Filter>
@@ -1652,34 +1652,34 @@
       <Filter>Assets</Filter>
     </None>
     <None Include="Game\Title\MonAIPreset\MonAIPreset.h">
-      <Filter>Game\fade\AIMonSelect\AIMonPreset\NObuild</Filter>
+      <Filter>Game\AIMonSelect\AIMonPreset\NObuild</Filter>
     </None>
     <None Include="Game\Title\MonAIPreset\MonAIPreset.cpp">
-      <Filter>Game\fade\AIMonSelect\AIMonPreset\NObuild</Filter>
+      <Filter>Game\AIMonSelect\AIMonPreset\NObuild</Filter>
     </None>
     <None Include="Game\Title\MonAIPreset\MonAIPresetClose.cpp">
-      <Filter>Game\fade\AIMonSelect\AIMonPreset\NObuild</Filter>
+      <Filter>Game\AIMonSelect\AIMonPreset\NObuild</Filter>
     </None>
     <None Include="Game\Title\MonAIPreset\MonAIPresetClose.h">
-      <Filter>Game\fade\AIMonSelect\AIMonPreset\NObuild</Filter>
+      <Filter>Game\AIMonSelect\AIMonPreset\NObuild</Filter>
     </None>
     <None Include="Game\Title\MonAIPreset\MonAIPresetLoad.cpp">
-      <Filter>Game\fade\AIMonSelect\AIMonPreset\NObuild</Filter>
+      <Filter>Game\AIMonSelect\AIMonPreset\NObuild</Filter>
     </None>
     <None Include="Game\Title\MonAIPreset\MonAIPresetLoad.h">
-      <Filter>Game\fade\AIMonSelect\AIMonPreset\NObuild</Filter>
+      <Filter>Game\AIMonSelect\AIMonPreset\NObuild</Filter>
     </None>
     <None Include="Game\Title\MonAIPreset\MonAIPresetOpen.cpp">
-      <Filter>Game\fade\AIMonSelect\AIMonPreset\NObuild</Filter>
+      <Filter>Game\AIMonSelect\AIMonPreset\NObuild</Filter>
     </None>
     <None Include="Game\Title\MonAIPreset\MonAIPresetOpen.h">
-      <Filter>Game\fade\AIMonSelect\AIMonPreset\NObuild</Filter>
+      <Filter>Game\AIMonSelect\AIMonPreset\NObuild</Filter>
     </None>
     <None Include="Game\Title\MonAIPreset\MonAIPresetSave.h">
-      <Filter>Game\fade\AIMonSelect\AIMonPreset\NObuild</Filter>
+      <Filter>Game\AIMonSelect\AIMonPreset\NObuild</Filter>
     </None>
     <None Include="Game\Title\MonAIPreset\MonAIPresetSave.cpp">
-      <Filter>Game\fade\AIMonSelect\AIMonPreset\NObuild</Filter>
+      <Filter>Game\AIMonSelect\AIMonPreset\NObuild</Filter>
     </None>
     <None Include="Assets\effect\PONG.efk" />
     <None Include="Assets\modelData\armor\armor.FBX">
@@ -2102,6 +2102,7 @@
       <Filter>Assets\Sprite\AIEdit</Filter>
     </None>
     <None Include="Assets\modelData\dungeon\gorgeousWall.fbx" />
+    <None Include="Assets\modelData\si_bug\si_bug.FBX" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="act">
@@ -2239,17 +2240,17 @@
     <Filter Include="Game\NetPVP">
       <UniqueIdentifier>{736400d6-d82f-4535-8980-f973e86efcf1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\fade\AIMonSelect">
-      <UniqueIdentifier>{3a3f97a9-bec5-46aa-9662-80a9b112ab5e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\fade\AIMonSelect\AIMonPreset">
-      <UniqueIdentifier>{8b2f22ae-5b7d-4128-8ee5-77b2561904bd}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\fade\AIMonSelect\AIMonPreset\NObuild">
-      <UniqueIdentifier>{6a9b7ea5-fac4-4ee0-bd82-41334b49fa63}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Game\GameLog">
       <UniqueIdentifier>{8f024255-0f2f-4890-8d0e-1f9b45042262}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\AIMonSelect">
+      <UniqueIdentifier>{3a3f97a9-bec5-46aa-9662-80a9b112ab5e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\AIMonSelect\AIMonPreset">
+      <UniqueIdentifier>{8b2f22ae-5b7d-4128-8ee5-77b2561904bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\AIMonSelect\AIMonPreset\NObuild">
+      <UniqueIdentifier>{6a9b7ea5-fac4-4ee0-bd82-41334b49fa63}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -2265,8 +2266,5 @@
     <Media Include="Assets\sound\BGM\PerituneMaterial_Strategy5_loop.wav">
       <Filter>Assets\BGM</Filter>
     </Media>
-  </ItemGroup>
-  <ItemGroup>
-    <MeshContentTask Include="Assets\modelData\si_bug\si_bug.FBX" />
   </ItemGroup>
 </Project>
