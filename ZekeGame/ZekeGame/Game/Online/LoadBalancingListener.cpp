@@ -533,19 +533,18 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 			obj = eventContent.getValue(1.0);
 		if (obj && obj->getDimensions() == 1 && obj->getSizes()[0] == 2)
 		{
-			if (obj->getType() == TypeCode::INTEGER)
-			{
-				int* data = ((ValueObject<int*>*)obj)->getDataCopy();
-				int total = (int)data[0];
-				int win = (int)data[1];
-				RatingSystem().SetEnemyRate(RatingSystem().GetWinRate(total, win));
-			}
 			if (obj->getType() == TypeCode::BYTE)
 			{
 				nByte* data = ((ValueObject<nByte*>*)obj)->getDataCopy();
 				int total = (int)data[0];
 				int win = (int)data[1];
-				RatingSystem().SetEnemyRate(RatingSystem().GetWinRate(total, win));
+				RatingSystem().SetEnemyBattleInfo(total, win);
+				//RatingSystem().SetEnemeyRating(RatingSystem().GetWinRate(total, win));
+				char str[256];
+				OutputDebugString("-----------------------------------------------\n");
+				sprintf_s(str, "enemy total %d, enemy win %d, Rate %f", total, win, RatingSystem().GetWinRate(total, win));
+				OutputDebugString(str);
+				OutputDebugString("-----------------------------------------------\n");
 			}
 		}
 		/*float content = ExitGames::Common::ValueObject<float>(eventContentObj).getDataCopy();
