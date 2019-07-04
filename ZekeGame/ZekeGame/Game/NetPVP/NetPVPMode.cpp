@@ -101,7 +101,7 @@ void NetPVPMode::Update() {
 	 }
 
 	 //敵が見つかってない時にタイマーを進める
-	 if (/*m_lbl->isJoining() and*/ !m_lbl->isConect()) {
+	 if (m_lbl->isJoining() and !m_lbl->isConect()) {
 		 m_timer += IGameTime().GetFrameDeltaTime();
 	 }
 
