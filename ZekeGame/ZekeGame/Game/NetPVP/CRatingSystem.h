@@ -22,12 +22,17 @@ public:
 		return m_eneRating;
 		//return m_enemyWinRate;
 	}
-	void SetEnemyRate(float rate){
-		m_enemyWinRate = rate;
-	}
+	//void SetEnemyRate(float rate){
+	//	m_enemyWinRate = rate;
+	//}
 
 	void SetEnemeyRating(float rating) {
 		m_eneRating = rating;
+	}
+
+	void SetEnemyBattleInfo(int total, int win) {
+		m_enemy_total = total;
+		m_enemy_win = win;
 	}
 
 	void SetEnemyPlayerInfo(int total, int win) {

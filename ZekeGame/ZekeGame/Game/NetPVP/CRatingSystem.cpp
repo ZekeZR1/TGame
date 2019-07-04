@@ -38,10 +38,13 @@ void CRatingSystem::LoadMyRate() {
 void CRatingSystem::CalcRate(int team) {
 	m_total++;
 	m_enemy_total++;
-	if (team == 0)
+	if (team == 0) {
 		m_nwin++;
-	else
+	}
+	else {
 		m_enemy_win++;
+	}
+	m_enemyWinRate = GetWinRate(m_enemy_total, m_enemy_win);
 }
 
 void CRatingSystem::SetWinner(int team) {
