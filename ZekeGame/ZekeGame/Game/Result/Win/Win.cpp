@@ -8,6 +8,7 @@
 #include "../../GameData.h"
 
 #include "../../Fade/Fade.h"
+#include "../../Fade/MusicFade.h"
 
 Win::Win(int team)
 {
@@ -48,7 +49,7 @@ Win::~Win()
 
 void Win::OnDestroy()
 {
-	m_BGM->Stop();
+	//m_BGM->Stop();
 }
 
 void Win::init(int team, Game::Mode mode)
@@ -131,7 +132,17 @@ void Win::Update()
 			m_srteam->SetPosition({ -620,-210,0 });
 
 			m_BGM = NewGO<Sound>(0, "BGM");
-			m_BGM->Init(L"Assets/sound/BGM/PerituneMaterial_OverWorld5_loop.wav", true);
+			if (m_mode == Game::enRandomPVP) {
+				m_BGM->Init(L"Assets/sound/BGM/PerituneMaterial_OverWorld5_loop.wav", true);
+			}
+			else if (m_mode == Game::enLocalPVP) {
+				if (m_team == 0) {
+					m_BGM->Init(L"Assets/sound/BGM/PerituneMaterial_OverWorld5_loop.wav", true);
+				}
+				else {
+					m_BGM->Init(L"Assets/sound/losebgm.wav", true);
+				}
+			}
 			m_BGM->Play();
 
 			m_nextfont = NewGO<FontRender>(5, "fr");
@@ -145,10 +156,12 @@ void Win::Update()
 	else
 	{
 		
-		if (Mouse::isTrigger(enLeftClick))
+		if (Mouse::isTrigger(enLeftClick) && !m_isClick)
 		{
 			m_fade->FadeOut();
 			m_isClick = true;
+			MusicFade* mf = NewGO<MusicFade>(0, "mf");
+			mf->init(m_BGM, 0.15f);
 		}
 		if (m_fade->isFadeStop() && m_isClick)
 		{

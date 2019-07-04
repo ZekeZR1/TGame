@@ -1,10 +1,11 @@
 #coding: utf-8
 
-import CppBridge as cb
+import PythonAIs.CppBridge as cb
 import SendGame
 
 def Brain(num,team):
 	cb.init(num,team)
+	me = cb.GetMe()
 	cb.addAction(me,SendGame.DEF_Buff)
 	cb.addAction(me,SendGame.GUARDIAN)
 	mon = cb.GetBuddyNeerMonster()
@@ -12,6 +13,6 @@ def Brain(num,team):
 	mon = cb.GetEnemyHighATKMonster()
 	cb.addAction(mon,SendGame.CHASE)
 	cb.addAction(me,SendGame.ATK_Buff)
-	mon = cb.GetNeerEnemyMonster()
+	mon = cb.GetEnemyNeerMonster()
 	cb.addAction(mon,SendGame.ATTACK)
 	cb.End()

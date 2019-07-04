@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "../Fade/Fade.h"
+#include "../Fade/MusicFade.h"
 #include "../GameData.h"
 #include "../Game.h"
 #include "../Monster/Monster.h"
@@ -28,53 +29,77 @@ void DungeonResult::OnDestroy() {
 	DeleteGO(FindGO<Game>("Game"));
 	DeleteGO(m_srwin);
 	DeleteGO(m_nextfont);
-	//DeleteGO(m_cursor);
 	DeleteGO(m_cam);
-	//DeleteGO(m_BGM);
-	//auto bgm = FindGO<Sound>("BGM");
-	//bgm->Stop();
 }
 
 void DungeonResult::Update() {
 	ButtonUpdate();
+	if (m_fade->isFadeStop() && m_fadeFlag)
+	{
+		if (m_team == WIN) {
+			if (IDungeonData().isFinalRound(m_dunNum)) {
+				ToMonsterDrop();
+			}
+			else {
+				ToNextRound();
+			}
+		}
+		else {
+			Lose();
+		}
+	}
 	CameraUpdate();
 }
 
-void DungeonResult::SaveDungeonClearState(){
-	{
-		using namespace std;
-		ifstream fin("Assets/saveData/clearstate.dd", ios::in | ios::binary);
-		if (!fin) {
-			OutputDebugStringA("clearstate.ddのオープンに失敗しました");
-			return;
-		}
-		int cleared = -1;
-		fin.read(reinterpret_cast<char *>(&cleared), sizeof(int));
-		char message[256];
-		sprintf_s(message, "pre cleared num is %d\n", cleared);
-		OutputDebugStringA(message);
-		fin.close();
-		ofstream fout;
-		//
-		char ms0[256];
-		sprintf_s(ms0, "now dungeon Number is %d\n", m_dunNum);
-		OutputDebugStringA(ms0);
-		//
-		//char ms1[256];
-		//sprintf_s(ms1, "now cleared num is %d\n", cleared);
-		//OutputDebugStringA(msg);
-		//
+void DungeonResult::SaveDungeonClearState() {
+	using namespace std;
+	//負けたらセーブデータをいじる必要はない
+	if (m_team != WIN) return;
 
-		if (cleared < m_dunNum and IDungeonData().isFinalRound(m_dunNum)) {
-			cleared += 1;
-			fout.open("Assets/saveData/clearstate.dd", ios::out | ios::binary | ios::trunc);
-			fout.write((char*)&cleared, sizeof(int));
-		}
-		fout.close();
-		char msg[256];
-		sprintf_s(msg, "now cleared num is %d\n", cleared);
-		OutputDebugStringA(msg);
+	ifstream fin("Assets/saveData/clearstate.dd", ios::in | ios::binary);
+	if (!fin) {
+		OutputDebugStringA("clearstate.ddのオープンに失敗しました");
+		return;
 	}
+	int cleared = -1;
+	fin.read(reinterpret_cast<char*>(&cleared), sizeof(int));
+	char message[256];
+	sprintf_s(message, "pre cleared num is %d\n", cleared);
+	OutputDebugStringA(message);
+	fin.close();
+	ofstream fout;
+	//
+	char ms0[256];
+	sprintf_s(ms0, "now dungeon Number is %d\n", m_dunNum);
+	OutputDebugStringA(ms0);
+	//
+	//char ms1[256];
+	//sprintf_s(ms1, "now cleared num is %d\n", cleared);
+	//OutputDebugStringA(msg);
+	//
+
+	if (cleared < m_dunNum and IDungeonData().isFinalRound(m_dunNum)) {
+		cleared += 1;
+		fout.open("Assets/saveData/clearstate.dd", ios::out | ios::binary | ios::trunc);
+		fout.write((char*)& cleared, sizeof(int));
+	}
+	fout.close();
+	char msg[256];
+	sprintf_s(msg, "now cleared num is %d\n", cleared);
+	OutputDebugStringA(msg);
+	////負けたらセーブデータをいじる必要はない
+	//if (m_team != WIN) return;
+	////最終ラウンドで勝利したら次のステージを開放する
+	//if (IDungeonData().isFinalRound(m_dunNum)) {
+	//	using namespace std;
+	//	int currentNum = IDungeonData().GetDungeonNum();
+	//	ofstream fout;
+	//	char ms0[256];
+	//	int cleared = currentNum + 1;
+	//	fout.open("Assets/saveData/clearstate.dd", ios::out | ios::binary | ios::trunc);
+	//	fout.write((char*)& cleared, sizeof(int));
+	//	fout.close();
+	//}
 }
 
 void DungeonResult::ToNextRound() {
@@ -218,34 +243,21 @@ void DungeonResult::CameraSet() {
 void DungeonResult::ButtonUpdate() {
 	//if (m_buttonSp == nullptr)
 	//	return;
+	if (m_fadeFlag) return;
 	//m_buttonSp->SetCollisionTarget(m_cursor->GetCursor());
 	if (Mouse::isTrigger(enLeftClick)) {
 		auto se = NewGO<Sound>(0);
 		se->Init(L"Assets/sound/se/button.wav", false);
 		se->Play();
+		MusicFade* mf = NewGO<MusicFade>(0, "mf");
+		mf->init(m_BGM, 0.15f);
 		//if (m_buttonSp->isCollidingTarget()) {
 		SaveDungeonClearState();
 		auto dgame = FindGO<DungeonGame>("DungeonGame");
 		dgame->ClearInGameMode();
 		m_fadeFlag = true;
 		m_fade->FadeOut();
-				
 	}
-	if (m_fade->isFadeStop() && m_fadeFlag)
-	{
-		if (m_team == WIN) {
-			if (IDungeonData().isFinalRound(m_dunNum)) {
-				ToMonsterDrop();
-			}
-			else {
-				ToNextRound();
-			}
-		}
-		else {
-			Lose();
-		}
-	}
-		
 }
 
 void DungeonResult::CameraUpdate() {
@@ -260,7 +272,12 @@ void DungeonResult::CameraUpdate() {
 		{
 			InitUI();
 			m_BGM = NewGO<Sound>(0, "BGM");
-			m_BGM->Init(L"Assets/sound/BGM/PerituneMaterial_OverWorld5_loop.wav", true);
+			if (m_team == WIN) {
+				m_BGM->Init(L"Assets/sound/BGM/PerituneMaterial_OverWorld5_loop.wav", true);
+			}
+			else {
+				m_BGM->Init(L"Assets/sound/losebgm.wav", true);
+			}
 			m_BGM->Play();
 			m_cmove = false;
 		}

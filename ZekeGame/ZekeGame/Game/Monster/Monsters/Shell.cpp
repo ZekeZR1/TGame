@@ -28,10 +28,10 @@ Shell::Shell()
 	MonsterInitParam prm;
 	prm.HP = 80;
 	prm.MP = 30;
-	prm.DefencePow = 10;
-	prm.ExDefensePow = 0;
+	prm.DefencePow = 50;
+	prm.ExDefensePow = 20;
 	prm.AttackPow = 10;
-	prm.ExAttackPow = 0;
+	prm.ExAttackPow = 10;
 	prm.Speed = 10;
 	prm.Radius = 50;
 	prm.Height = 300;

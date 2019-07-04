@@ -248,9 +248,9 @@ std::vector<std::string> StageSetup::SetEnemyAI(int dun, int* monAI, MonsterID* 
 		break;
 	case 3:	//2
 		if (round == 0) {
-			filenames.push_back("zyose2");
-			filenames.push_back("zuma1");
-			filenames.push_back("zyose");
+			filenames.push_back("4_1");
+			filenames.push_back("4_1");
+			filenames.push_back("4_1");
 			monAI[3] = 2;
 			monId[3] = enFairy;
 			monAI[4] = 4;
@@ -259,9 +259,9 @@ std::vector<std::string> StageSetup::SetEnemyAI(int dun, int* monAI, MonsterID* 
 			monId[5] = enFairy;
 		}
 		if (round == 1) {
-			filenames.push_back("zyose2");
-			filenames.push_back("zarmor");
-			filenames.push_back("zuma1");
+			filenames.push_back("4_2");
+			filenames.push_back("4_2");
+			filenames.push_back("4_2");
 			monAI[3] = 2;
 			monId[3] = enFairy;
 			monAI[4] = 5;
@@ -368,37 +368,37 @@ std::vector<std::string> StageSetup::SetEnemyAI(int dun, int* monAI, MonsterID* 
 		break;
 	case 7:	//3
 		if (round == 0) {
-			filenames.push_back("03_uma");
-			filenames.push_back("06_kikyo");
-			filenames.push_back("05_armor");
+			filenames.push_back("dn81");
+			filenames.push_back("dn81");
+			filenames.push_back("dn81");
 			monAI[3] = 3;
-			monId[3] = enUmataur;
+			monId[3] = enArmor;
 			monAI[4] = 6;
-			monId[4] = enKikyo;
+			monId[4] = enUmataur;
 			monAI[5] = 5;
-			monId[5] = enArmor;
+			monId[5] = enFairy;
 		}
 		if (round == 1) {
-			filenames.push_back("01_gob");
-			filenames.push_back("09_redHead");
-			filenames.push_back("08_si_bug");
+			filenames.push_back("dn82");
+			filenames.push_back("dn82");
+			filenames.push_back("dn82");
 			monAI[3] = 1;
 			monId[3] = enGoblin;
 			monAI[4] = 9;
 			monId[4] = enRedHead;
 			monAI[5] = 8;
-			monId[5] = enShikoChu;
+			monId[5] = enChris;
 		}
 		if (round == 2) {
 			filenames.push_back("8_3");
 			filenames.push_back("8_3");
 			filenames.push_back("8_3");
 			monAI[3] = 7;
-			monId[3] = enBook;
+			monId[3] = enArmor;
 			monAI[4] = 10;
-			monId[4] = enChris;
+			monId[4] = enUmataur;
 			monAI[5] = 2;
-			monId[5] = enFairy;
+			monId[5] = enBook;
 		}
 		break;
 	}

@@ -34,7 +34,7 @@ public:
 	PythonBridge();
 	//void Update() override;
 	//void pbInit();
-	void py_exe(int num,int team,const char* file);
+	static void py_exe(int num,int team,const char* file);
 	//void AddExe(int num, int team, const char* file);
 	//void py_exeEX(int num, int team, const char* file);
 

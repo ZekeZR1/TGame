@@ -19,6 +19,8 @@
 #include "Fade/Fade.h"
 #include "Fade/MusicFade.h"
 
+#include "GameLog/GameLog.h"
+
 #include "Result/Draw.h"
 
 void Game::GamePVPmodeInit(std::vector<std::string> files, int monsterAI[6],MonsterID MonsterID[6])
@@ -81,6 +83,8 @@ bool Game::Start() {
 		m_dunInfoF->Init(str, { -360,370 });
 		m_dunInfoF->DrawShadow();
 	}
+
+	GameLog::NewGameLog();
 	return true;
 }
 
@@ -105,6 +109,8 @@ void Game::OnDestroy() {
 	}
 	RatingSystem().ClosePopup();
 	//delete m_pi;
+
+	
 
 	if(camera!=nullptr)
 		delete camera;
@@ -294,6 +300,8 @@ void Game::Update() {
 			m_winTeam = g_mons[0]->Getteam();
 		DeleteGO(m_menu);
 		m_menu = nullptr;
+
+		gameLog()->DelGameLog();
 
 		QueryGOs<Monster>("monster", [&](auto obj)->bool
 		{

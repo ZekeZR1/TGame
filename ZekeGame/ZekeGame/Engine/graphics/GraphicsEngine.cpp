@@ -142,6 +142,7 @@ void GraphicsEngine::InitDirectX(HWND hwnd) {
 	m_spriteFont = std::make_unique<DirectX::SpriteFont>(m_pd3dDevice, L"Assets/font/myfile.spritefont");
 	m_spriteFontJa = std::make_unique<DirectX::SpriteFont>(m_pd3dDevice, L"Assets/font/myfileJa.spritefont");
 	m_spriteFontJaBig = std::make_unique<DirectX::SpriteFont>(m_pd3dDevice, L"Assets/font/myfileJaBig.spritefont");
+	m_spriteFontJPLog = std::make_unique<DirectX::SpriteFont>(m_pd3dDevice, L"Assets/font/MSmyfileJa.spritefont");
 
 	m_effectEngine.Init();
 }

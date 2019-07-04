@@ -12,7 +12,8 @@ CAct_Beam::~CAct_Beam() {
 void CAct_Beam::Fire(Monster* me, Monster* target, const wchar_t* effectPath, const wchar_t* soundPath, float range, float baseDamage, float cost, CVector3 effectScale) {
 	if (target == nullptr) return;
 	RotateToTarget(me, target);
-	m_beamefk = NewGO<CEffect>(0,"beamEffect");
+	//m_beamefk = NewGO<CEffect>(0,"beamEffect");
+	m_beamefk = NewGO<CEffect>(0,"ef");
 	auto ep = me->Getpos();
 	auto h = me->Getheight();
 	ep.y += h / 2;

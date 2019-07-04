@@ -13,6 +13,10 @@ public:
 	wchar_t* GetMonsterName(){
 		return m_monsterName;
 	}
+	void SetDropMonster(MonsterID id) {
+		m_monsterId = id;
+	}
+
 private:
 	CEffect* ef = nullptr;
 	CQuaternion rot = CQuaternion::Identity();

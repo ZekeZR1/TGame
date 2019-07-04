@@ -20,7 +20,7 @@ public:
 private:
 	bool m_isInited = false;
 	bool m_roofFlag = false;
-	float volume = 1.f;
+	float volume = 1.f * 1.f/8.f;
 	float pitch = 0.f;
 	float pan = 0.f;
 	std::unique_ptr<DirectX::SoundEffect> soundEffect;
