@@ -24,7 +24,7 @@ std::vector<VisualAIState> VisualAIOpen::openVAs()
 
 	std::vector< VisualAIState> vass;
 	int count = 0;
-	while (FindNextFile(hfind, &win32d) && count < 12)
+	do
 	{
 		if (win32d.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY)
 		{
@@ -34,6 +34,9 @@ std::vector<VisualAIState> VisualAIOpen::openVAs()
 			VisualAIState vas;
 
 			std::string p = win32d.cFileName;
+
+			if (p == "")
+				break;
 			
 			//ファイル名から番号を抽出する
 			int c = p.find(".");
@@ -105,7 +108,7 @@ std::vector<VisualAIState> VisualAIOpen::openVAs()
 			vass.push_back(vas);
 			count++;
 		}
-	} 
+	} while (FindNextFile(hfind, &win32d) && count < 12);
 	FindClose(hfind);
 	return vass;
 }
