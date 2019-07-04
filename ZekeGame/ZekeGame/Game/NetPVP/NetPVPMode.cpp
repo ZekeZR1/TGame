@@ -40,6 +40,7 @@ void NetPVPMode::init(std::vector<std::string> files, int monai[3], int moid[3],
 bool NetPVPMode::Start() {
 	std::random_device rnd;
 	 timeout  = rnd() % 20;
+	 timeout += 15;
 	InitUI();
 	return true;
 }
@@ -86,10 +87,10 @@ void NetPVPMode::Update() {
 			 m_moid[i] = m_enemyId[i - 3];
 			 m_aimode[i] = eneaimode[i - 3];
 		 }
-		 startTimer++;
+		 startTimer += IGameTime().GetFrameDeltaTime();
 	 }
 
-	 if (startTimer == 60) {
+	 if (startTimer == 3.5) {
 		 if (!m_isfade)
 			 m_isfade = true;
 			 m_fade->FadeOut();
@@ -98,15 +99,21 @@ void NetPVPMode::Update() {
 	 if (m_fade->isFadeStop() && m_isfade) {
 		 BattleStart();
 	 }
+
+	 //敵が見つかってない時にタイマーを進める
+	 if (/*m_lbl->isJoining() and*/ !m_lbl->isConect()) {
+		 m_timer += IGameTime().GetFrameDeltaTime();
+	 }
+
+	 //敵がいるときはタイムアウト用のタイマーを進めない
+	 if (m_lbl->isConect())
+		 m_timer = 0.f;
+
 	 //相手が全然見つからない場合は接続しなおす
 	 if (!m_lbl->CanStartGame() and m_timer > timeout) {
 		 TimeOut();
 	 }
-	 //敵が見つかってない時にタイマーを進める
-	 if (m_lbl->isJoining() and !m_lbl->isConect()) {
-		 m_timer += IGameTime().GetFrameDeltaTime();
-	 }
-	 
+
 	 //if (m_lbl->isConect()) {
 		 //m_timer = 0.f;
 	 //}
@@ -130,9 +137,6 @@ void NetPVPMode::Update() {
 		 m_isEnemyHere = true;
 	 else
 		 m_isEnemyHere = false;
-	 //敵がいるときはタイムアウト用のタイマーを進めない
-	 if (m_isEnemyHere)
-		 m_timer = 0.f;
 }
 
 void NetPVPMode::TimeOut() {
