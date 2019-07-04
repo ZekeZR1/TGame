@@ -44,5 +44,5 @@ char Keyboard::GetKeyChar()
 
 bool Keyboard::isTrriger(KeyboardEve ke)
 {
-	return false;
+	return g_Key == ke;
 }
