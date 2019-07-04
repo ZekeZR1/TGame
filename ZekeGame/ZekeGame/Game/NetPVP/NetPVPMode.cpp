@@ -39,8 +39,8 @@ void NetPVPMode::init(std::vector<std::string> files, int monai[3], int moid[3],
 
 bool NetPVPMode::Start() {
 	std::random_device rnd;
-	 timeout  = rnd() % 20;
-	 timeout += 15;
+	timeout  = rnd() % 20;
+	timeout += 10;
 	InitUI();
 	return true;
 }
@@ -90,21 +90,25 @@ void NetPVPMode::Update() {
 		 startTimer += IGameTime().GetFrameDeltaTime();
 	 }
 
-	 if (startTimer == 3.5) {
-		 if (!m_isfade)
+	 if (startTimer >=  3.5) {
+		 if (!m_isfade) {
 			 m_isfade = true;
 			 m_fade->FadeOut();
+		 }
 	 }
 	 //戦闘開始
 	 if (m_fade->isFadeStop() && m_isfade) {
 		 BattleStart();
 	 }
 
-	 //敵が見つかってない時にタイマーを進める
-	 if (/*m_lbl->isJoining() and*/ !m_lbl->isConect()) {
+	 //自分がルームに接続中で敵が見つかってない時にタイマーを進める
+	 if (m_lbl->isJoining() and !m_lbl->isConect()) {
 		 m_timer += IGameTime().GetFrameDeltaTime();
 	 }
-
+	 if(!m_lbl->isJoining()) {
+		 //エラーが発生していたらエラータイマーを進める
+		 errorTimer += IGameTime().GetFrameDeltaTime();
+	 }
 	 //敵がいるときはタイムアウト用のタイマーを進めない
 	 if (m_lbl->isConect())
 		 m_timer = 0.f;
@@ -122,11 +126,11 @@ void NetPVPMode::Update() {
 	 if(m_recTime == m_rcuTime)
 		Reconnect();
 	 char str[256];
-	 sprintf_s(str, "\n\n\nTIEMRERERERER %f\n\n\n", m_timer);
+	 sprintf_s(str, "\n\n\nTIEMRERERERER %f\n\n\nTIMER ERROR %f\n\n\n", m_timer,errorTimer);
 	 OutputDebugString(str);
 	 if (m_isTimeout) m_rcuTime++;
 	 //敵がいなくなってしまったら色々リセット
-	 if (m_lbl->isEnemyAbandoned() and !m_lbl->CanStartGame()) {
+	 if (m_lbl->isEnemyAbandoned() and !m_lbl->CanStartGame() or errorTimer >= 20.f) {
 		 //m_lbl->DataReset();
 		 //m_isEnemyHere = false;
 		 //m_timer = 0.f;
@@ -143,6 +147,7 @@ void NetPVPMode::TimeOut() {
 	m_lbl->disconnect();
 	m_lbl->DataReset();
 	m_timer = 0.f;
+	errorTimer = 0.f;
 	std::random_device rnd;
 	int add = rnd() % 100;
 	m_recTime = 120 + add;
@@ -336,7 +341,7 @@ void NetPVPMode::InitUI() {
 
 void NetPVPMode::UiUpdate() {
 	//if (m_lbl->isConect()) {
-	if (m_isEnemyHere) {
+	if (m_lbl->isConect()) {
 		m_font->Init(L"対戦相手が見つかりました", m_findFontPos, 0.f, CVector4::White, 1.f, { 1,1 });
 	}
 	else {
