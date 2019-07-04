@@ -34,7 +34,7 @@ bool AISelect::Start()
 
 	m_title = NewGO<FontRender>(27, "fr");
 	//m_title->SetTextType(CFont::en_JapaneseBIG);
-	m_title->Init(L"PythonAI", { -640,360 }, 0, { 1,1,1,1 }, 1.f);
+	m_title->Init(L"VisualAI", { -640,360 }, 0, { 1,1,1,1 }, 1.f);
 	m_title->DrawShadow();
 	
 
