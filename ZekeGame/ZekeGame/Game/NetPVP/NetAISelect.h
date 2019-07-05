@@ -31,7 +31,7 @@ private:
 	int curpos = 0;
 	bool sel = false;
 
-	GameCursor* m_cursor;
+	GameCursor* m_cursor = nullptr;
 
 	PMMonster* m_pmm = nullptr;
 	std::vector<PMMonster*> m_pmms;

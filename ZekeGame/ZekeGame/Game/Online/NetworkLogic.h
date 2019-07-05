@@ -20,7 +20,7 @@ public:
 	}
 private:
 	ExitGames::LoadBalancing::Client* mpLbc;
-	LoadBalancingListener* mpLbl;
+	LoadBalancingListener* mpLbl = nullptr;
 	TestView m_testview;
 };
 
