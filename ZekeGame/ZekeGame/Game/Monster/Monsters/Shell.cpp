@@ -30,8 +30,8 @@ Shell::Shell()
 	prm.MP = 800;
 	prm.DefencePow = 100;
 	prm.ExDefensePow = 100;
-	prm.AttackPow = 7;
-	prm.ExAttackPow = 7;
+	prm.AttackPow = 15;
+	prm.ExAttackPow = 10;
 	prm.Speed = 10;
 	prm.Radius = 50;
 	prm.Height = 300;

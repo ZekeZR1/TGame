@@ -13,7 +13,7 @@ ShikoChu::ShikoChu()
 	sr->SetPosition(CVector3::Zero());
 
 	MonsterInitParam prm;
-	prm.HP = 80;
+	prm.HP = 60;
 	prm.MP = 30;
 	prm.DefencePow = 10;
 	prm.ExDefensePow = 5;
