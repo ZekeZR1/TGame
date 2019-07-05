@@ -8,6 +8,7 @@ public:
 	Act_Blizzard();
 	~Act_Blizzard();
 	bool Action(Monster* me) override;
+
 private:
 	CAct_Beam m_cBeam;
 	CVector3 m_efs = CVector3::One() * 3.5;
