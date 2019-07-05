@@ -16,7 +16,6 @@
 Monster::~Monster()
 {
 	DeleteGO(m_smr);
-	DeleteGO(m_PB);
 	ReleaseMAL();
 	ReleaseMark();
 	for (auto a : m_actions)
@@ -121,7 +120,6 @@ bool Monster::Start()
 {
 	m_smr->SetPosition(m_pos);
 	m_cc.Init(m_radius, m_height, m_pos,enFbxUpAxisY);
-	m_PB = NewGO<PythonBridge>(0,"PB");
 
 	anim_idle();
 
@@ -393,17 +391,21 @@ void Monster::SetRotation(CQuaternion rot)
 
 void Monster::AddAction(MonsterAction * ma)
 {
+	bool isNOPushed = true;
 	if (ma != nullptr && m_actions.size() < 3)
 	{
 		for (int i = 0; i < m_useActionSize; i++)
 		{
 			if (m_UseAction[i] == ma->GetactionID())
 			{
+				isNOPushed = false;
 				m_actions.push_back(ma);
 				break;
 			}
 		}
 	}
+	if (isNOPushed)
+		DeleteGO(ma);
 }
 
 

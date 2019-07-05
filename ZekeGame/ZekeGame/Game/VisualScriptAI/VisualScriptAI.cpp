@@ -431,6 +431,7 @@ void VisualScriptAI::whatAction(Target target, Action action)
 	switch (action)
 	{
 	case attack:
+		//todo: ‚È‚ñ‚©ŒÄ‚Î‚ê‚Ä‚é
 		m_me->AddAction(MonsterActionManeger::LoadAction(ua[enAtack], tarmon->Getnum()));
 		break;
 	case leave:
@@ -443,7 +444,7 @@ void VisualScriptAI::whatAction(Target target, Action action)
 		m_me->AddAction(MonsterActionManeger::LoadAction(ua[enDefense], tarmon->Getnum()));
 		break;
 	case recovery:
-		m_me->AddAction(MonsterActionManeger::LoadAction(ua[4], tarmon->Getnum()));
+		m_me->AddAction(MonsterActionManeger::LoadAction(enRecovery, tarmon->Getnum()));
 		break;
 	case ex1:
 		m_me->AddAction(MonsterActionManeger::LoadAction(ua[4], tarmon->Getnum()));
@@ -473,7 +474,7 @@ void VisualScriptAI::whatAction(Monster * target, Action action)
 		m_me->AddAction(MonsterActionManeger::LoadAction(ua[enDefense], target->Getnum()));
 		break;
 	case recovery:
-		m_me->AddAction(MonsterActionManeger::LoadAction(ua[5], target->Getnum()));
+		m_me->AddAction(MonsterActionManeger::LoadAction(enRecovery, target->Getnum()));
 		break;
 	case ex1:
 		m_me->AddAction(MonsterActionManeger::LoadAction(ua[4], target->Getnum()));
