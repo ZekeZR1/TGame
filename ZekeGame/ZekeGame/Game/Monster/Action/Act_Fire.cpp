@@ -65,6 +65,7 @@ bool Act_Fire::Action(Monster * me)
 		}
 		m_efs += {0.02f, 0.02f, 0.02f};
 		m_effect->SetScale(m_efs);
+		m_timer += IGameTime().GetFrameDeltaTime();
 	}
 	else
 	{

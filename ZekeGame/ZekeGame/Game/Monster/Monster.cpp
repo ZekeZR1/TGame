@@ -320,7 +320,7 @@ void Monster::receiveDamage()
 		isdam = true;
 	}
 
-	if (m_DamageEx)
+	if (m_DamageEx > 0)
 	{
 		float dm = m_DamageEx - m_ExDefense;
 		if(dm <= 0)

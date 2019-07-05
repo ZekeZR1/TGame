@@ -6,6 +6,15 @@ public:
 	Act_Ignite();
 	bool Action(Monster* me) override;
 private:
+	bool Chase(Monster* me);
+	bool Attack(Monster* me);
+	enum state
+	{
+		enSChase,
+		enSAttack,
+	};
+	state m_state = enSChase;
+
 	bool m_first = true;
 	float m_cost = 20.f;
 	float m_timer = 0;
