@@ -45,7 +45,7 @@ private:
 	PyFile m_files;
 	PyFile m_enemyFiles;
 	MonsterID m_ids[6];
-	int m_monai[6];
+	int m_monai[6] = { 0 };
 	int m_dunNum = -1;
 	int m_currentR = -1;
 	int m_round = 0;
