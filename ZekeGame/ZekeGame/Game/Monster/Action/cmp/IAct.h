@@ -38,11 +38,11 @@ protected:
 	CVector3 efs = CVector3::One();
 	std::map<Monster*, bool> m_isAbnormal;
 	std::map<Monster*, float> m_timerForGrantAbs;
-	float m_DoTEndTime = 0;
-	float m_baseDamage = 0;
-	float m_DoTDamage = 0;
+	float m_DoTEndTime = 0.f;
+	float m_baseDamage = 0.f;
+	float m_DoTDamage = 0.f;
 	wchar_t m_absEfkPath[256];
-	float m_grantAbsTime = 0;
+	float m_grantAbsTime = 0.f;
 	ACTEffectGrant::State m_state = ACTEffectGrant::State::enNull;
 };
 
