@@ -496,9 +496,7 @@ protected:
 	//std::vector<AbnormalState> m_abnormalStates;
 	std::vector<ACTEffectGrant*> m_abnormalStates;
 
-	PythonBridge* m_PB;
-
-	ActionID* m_UseAction;
+	ActionID* m_UseAction = nullptr;
 	int m_useActionSize = 0;
 	std::vector<MonsterAction*> m_actions;		//使うアクション
 	en_State m_state = en_NowLoading;
@@ -509,7 +507,7 @@ protected:
 
 	MonsterMarker* m_marker = nullptr;
 
-	MonsterEffect* m_effect;
+	MonsterEffect* m_effect = nullptr;
 
 	int m_AnimNum = 0;							//アニメーションの個数
 
