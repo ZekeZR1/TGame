@@ -24,7 +24,7 @@ public:
 	void OnDestroy() override;
 private:
 	void InitUI();
-	void	UiUpdate();
+	void UiUpdate();
 	void RaiseData();
 	void RaiseRatingData();
 	void LoadEnemyData();
