@@ -32,7 +32,7 @@ public:
 
 private:
 	static GameLog* instans;
-	Log* m_logs;
+	Log* m_logs = nullptr;
 
 	int m_logMax = 18;
 	float m_timeMax = 15.f;
