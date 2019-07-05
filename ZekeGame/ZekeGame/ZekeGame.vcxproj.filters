@@ -2095,13 +2095,11 @@
     <None Include="Assets\modelData\chris\cri.FBX">
       <Filter>Assets\model</Filter>
     </None>
-    <None Include="Assets\modelData\shell\hotate.FBX">
-      <Filter>Assets\model</Filter>
-    </None>
     <None Include="Assets\Sprite\AIEdit\closeButton.png">
       <Filter>Assets\Sprite\AIEdit</Filter>
     </None>
     <None Include="Assets\modelData\dungeon\gorgeousWall.fbx" />
+    <None Include="Assets\modelData\si_bug\si_bug.FBX" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="act">
@@ -2267,6 +2265,8 @@
     </Media>
   </ItemGroup>
   <ItemGroup>
-    <MeshContentTask Include="Assets\modelData\si_bug\si_bug.FBX" />
+    <MeshContentTask Include="Assets\modelData\shell\hotate.FBX">
+      <Filter>Assets\model</Filter>
+    </MeshContentTask>
   </ItemGroup>
 </Project>
