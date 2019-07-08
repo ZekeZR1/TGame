@@ -169,8 +169,8 @@ private:
 		enLoadState,
 	};
 
-	int m_toRaiseTeamData[3] = { 0 };
-	int m_enemyTeamData[3] = { 0 };
+	int m_toRaiseTeamData[3] = { 0 , 0 , 0};
+	int m_enemyTeamData[3] = { -1 , -1 , -1 };
 	std::string m_pythonCode;
 	ExitGames::LoadBalancing::Client* mpLbc;
 	BaseView* mpView;

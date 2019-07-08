@@ -95,7 +95,11 @@ void NetPVPMode::Update() {
 	 if(m_lbl->CanStartGame()){
 		 if (!m_isfade) {
 			 m_isfade = true;
+			 OutputDebugString("\nSTART FADE !! LETS START BATTLE!!\n");
 			 m_fade->FadeOut();
+		 }
+		 else {
+			 OutputDebugString("\nfade outing\n");
 		 }
 	 }
 	 //í“¬ŠJŽn
@@ -162,6 +166,7 @@ void NetPVPMode::Reconnect() {
 	OutputDebugString("timeout...reconnecting...\n");
 	m_lbl->connect(JString(L"NV") + GETTIMEMS());
 	m_isTimeout = false;
+	m_isfade = false;
 	m_rcuTime = 0;
 }
 
@@ -186,7 +191,7 @@ void NetPVPMode::LoadEnemyData() {
 		return;
 	//Load Enemy Ids
 	auto ids = m_lbl->GetEnemyTeamIDs();
-	if (ids[0] == 0)
+	if (ids[0] == -1)
 		return;
 	for (int i = 0; i < 3; i++) {
 		m_enemyId[i] = ids[i];
@@ -300,7 +305,7 @@ void NetPVPMode::RaiseAiVaData() {
 		}
 	}
 	if (m_lbl->isConect()) {
-		if (isRaisedVA) return;
+		//if (isRaisedVA) return;
 		m_lbl->raiseVisualAIsData();
 		isRaisedVA = true;
 	}
