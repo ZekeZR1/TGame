@@ -196,7 +196,7 @@ private:
 	bool m_enemyAbandoned = false;
 	bool misHang = false;		//‰½‚©‘—‚ç‚ê‚Ä‚«‚Ä‚éH
 	bool m_isEnemyLoadedMyData = false;
-	bool m_isAiLoaded[3] = { false };
+	bool m_isAiLoaded[3] = { false, false, false };
 	float m_enemyRate = 0.f;
 	bool m_isJoining = false;
 	Hashtable m_datas[3];
