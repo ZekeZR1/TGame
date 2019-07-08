@@ -354,5 +354,6 @@ void NetPVPMode::UiUpdate() {
 	else {
 		m_font->Init(L"‘Îí‘ŠŽè‚ðŒŸõ’†", m_waitingFontPos, 0.f, CVector4::White, 1.f, { 1,1 });
 	}
-	m_returnButton->UpdateEx<NetAISelect>();
+	if(!m_isfade)
+		m_returnButton->UpdateEx<NetAISelect>();
 }
