@@ -54,7 +54,6 @@ void AIEditNodeClick::SetPosition(CVector3 m_pos)
 
 void AIEditNodeClick::Update()
 {
-
 	CVector3 cursorpos = m_gamecursor->GetCursor();
 	
 	if (m_aieditnodeselectbuttons->GetMenuSelect()) return;
@@ -91,7 +90,6 @@ void AIEditNodeClick::Update()
 		}
 		else
 		{
-
 			if (m_fontS > 1.3)
 			{
 				
@@ -113,11 +111,11 @@ void AIEditNodeClick::Update()
 			{
 				m_fontS -= 0.005f;
 			}
+
 			CVector4 c = CVector4{ 1.0f,0.7f,0.3f,1 }*m_fontS;
 			c.w = 1;
 			m_font->SetColor(c);
 		}
-		
 	}
 }
 

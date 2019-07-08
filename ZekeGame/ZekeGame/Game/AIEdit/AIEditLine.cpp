@@ -30,7 +30,6 @@ bool AIEditLine::Start()
 	m_aieditnodeprocess = FindGO<AIEditNodeProcess>("process");
 	m_spriteRender = NewGO<SpriteRender>(1, "line");
 	m_spriteRender->Init(L"Assets/sprite/arrow.dds", 1, 40);  //last
-	//m_spriteRender->Init(L"Assets/sprite/fade_black.dds", 1, 40);  //last
 	m_pos.x += 120;
 	m_spriteRender->SetPosition(m_pos);
 	m_spriteRender->SetPivot({ 0.0f, 0.5f });
@@ -42,7 +41,7 @@ void AIEditLine::Update()
 {
 	if (m_ismakeLine)
 		return;
-
+	//–îˆó‚ğŠg‘å‚µ‚Ä‚¢‚­‚æB
 	if (x <= 180) {
 
 		x += 6.0;
