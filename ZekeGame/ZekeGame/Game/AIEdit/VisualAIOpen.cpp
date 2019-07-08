@@ -54,7 +54,6 @@ std::vector<VisualAIState> VisualAIOpen::openVAs()
 			//{
 			//	cl[i] = p[i + c + 1];
 			//}
-
 			////F‚ğŒˆ’è‚·‚é
 			//CVector4 col;
 			//if (strcmp("red", cl) == 0)
