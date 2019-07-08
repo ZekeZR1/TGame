@@ -186,7 +186,7 @@ void NetPVPMode::LoadEnemyData() {
 		return;
 	//Load Enemy Ids
 	auto ids = m_lbl->GetEnemyTeamIDs();
-	if (ids[0] == 0)
+	if (ids[0] == -1)
 		return;
 	for (int i = 0; i < 3; i++) {
 		m_enemyId[i] = ids[i];
@@ -300,7 +300,7 @@ void NetPVPMode::RaiseAiVaData() {
 		}
 	}
 	if (m_lbl->isConect()) {
-		if (isRaisedVA) return;
+		//if (isRaisedVA) return;
 		m_lbl->raiseVisualAIsData();
 		isRaisedVA = true;
 	}
