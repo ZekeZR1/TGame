@@ -24,7 +24,7 @@ bool Act_Guardian::Action(Monster * me)
 		m_def = me->GetDefense();
 		m_Exdef = me->GetExDefense();
 
-		float magnification = 1.5f;
+		float magnification = 1.2f;
 		me->SetDefense(m_def * magnification);
 		me->SetExDefense(m_Exdef * magnification);
 
