@@ -95,7 +95,11 @@ void NetPVPMode::Update() {
 	 if(m_lbl->CanStartGame()){
 		 if (!m_isfade) {
 			 m_isfade = true;
+			 OutputDebugString("\nSTART FADE !! LETS START BATTLE!!\n");
 			 m_fade->FadeOut();
+		 }
+		 else {
+			 OutputDebugString("\nfade outing\n");
 		 }
 	 }
 	 //í“¬ŠJŽn
@@ -162,6 +166,7 @@ void NetPVPMode::Reconnect() {
 	OutputDebugString("timeout...reconnecting...\n");
 	m_lbl->connect(JString(L"NV") + GETTIMEMS());
 	m_isTimeout = false;
+	m_isfade = false;
 	m_rcuTime = 0;
 }
 
