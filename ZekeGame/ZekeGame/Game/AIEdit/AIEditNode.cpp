@@ -85,14 +85,15 @@ bool AIEditNode::Start()
 
 }
 
-
 void AIEditNode::Inequ()
 {
-		NewGO<AIEditNodeInequ>(0, "Inequality");
+	NewGO<AIEditNodeInequ>(0, "Inequality");
 			
-		Choice1 = true;
+	Choice1 = true;
+	Nodefont = true;
+	contact2 = true;
 
-		Nodefont = true;
+	PlayButtonSE();
 
 }
 
@@ -111,13 +112,12 @@ void AIEditNode::Technique()
 
 void AIEditNode::Abnormal()
 {
+	NewGO<AIEditNodeAbnormalState>(0, "Abnormal");
 
-		NewGO<AIEditNodeAbnormalState>(0, "Abnormal");
-
-		Choice1 = true;
-
-		Nodefont = true;
-	
+	Choice1 = true;
+	Nodefont = true;
+	contact2 = true;
+	PlayButtonSE();
 
 }
 
@@ -147,7 +147,6 @@ void AIEditNode::FontsConfirmation()
 		cont = false;
 	}
 
-
 	if (contact1 == true) {
 		if (cont == false) {
 			m_font[0]->Init(L"", { m_fontpos1 }, 0.0, CVector4::White, 0.8, { 0.0,0.0 });
@@ -176,16 +175,12 @@ void AIEditNode::Update()
 				m_Node = enHp;
 				m_aieditnodeprocess->Setkeeonode(enHp);
 				Inequ();
-				contact2 = true;
-				PlayButtonSE();
 			}
 
 			if (m_nodebuttons[button - 3]->GetSpriteRender()->isCollidingTarget()) {
 				m_Node = enMp;
 				m_aieditnodeprocess->Setkeeonode(enMp);
 				Inequ();
-				contact2 = true;
-				PlayButtonSE();
 
 			}
 
@@ -193,8 +188,6 @@ void AIEditNode::Update()
 				m_Node = enAb;
 				m_aieditnodeprocess->Setkeeonode(enAb);
 				Abnormal();
-				contact2 = true;
-				PlayButtonSE();
 
 			}
 
@@ -208,6 +201,5 @@ void AIEditNode::Update()
 			}
 		}
 	}
-
 }
 	

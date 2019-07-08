@@ -5,6 +5,7 @@
 #include "NetworkLogic.h"
 #include "../NetPVP/CRatingSystem.h"
 #include "Console.h"
+#include "..//GameData.h"
 #include "TestView.h"
 #include <fstream>
 #include <string>
@@ -190,9 +191,12 @@ void LoadBalancingListener::raiseMonData()
 	nByte coords[] = { static_cast<nByte>(m_toRaiseTeamData[0]), static_cast<nByte>(m_toRaiseTeamData[1]),static_cast<nByte>(m_toRaiseTeamData[2])};
 	data.put((nByte)1, coords, 3);
 	mpLbc->opRaiseEvent(false, data, enMonData);// , RaiseEventOptions().setInterestGroup(mSendGroup ? mSendGroup : mUseGroups ? getGroupByPos() : 0));
-	//char str[256];
-	////sprintf_s(str, "num is %d / raise data num ... %d \n", m_monNUM,data.getValue(1)[0]);
-	//OutputDebugString(str);
+	//for (int i = 0; i < 3; i++) {
+	//	auto name = GameData::GetMonsterName(static_cast<MonsterID>(m_toRaiseTeamData[i]));
+	//	OutputDebugString("**********************************************************\n");
+	//	OutputDebugStringW(name);
+	//	OutputDebugString("**********************************************************\n");
+	//}
 }
 
 
@@ -519,6 +523,12 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 		//m_hangMNUM = num;
 		//m_hangMID = monid;
 		//OutputDebugString(str);
+		for (int i = 0; i < 3; i++) {
+			auto name = GameData::GetMonsterName(static_cast<MonsterID>(m_enemyTeamData[i]));
+			OutputDebugString("--------------------------------------------------------------\n");
+			OutputDebugStringW(name);
+			OutputDebugString("\n--------------------------------------------------------------\n");
+		}
 	}
 	break;
 	case enRateData:

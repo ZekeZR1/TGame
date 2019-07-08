@@ -56,6 +56,7 @@ void NetPVPMode::OnDestroy()
 	for (auto p : m_particles) {
 		DeleteGO(p);
 	}
+	m_lbl->DataReset();
 }
 
 
@@ -90,7 +91,8 @@ void NetPVPMode::Update() {
 		 startTimer += IGameTime().GetFrameDeltaTime();
 	 }
 
-	 if (startTimer >=  3.5) {
+//	 if (startTimer >=  3.5) {
+	 if(m_lbl->CanStartGame()){
 		 if (!m_isfade) {
 			 m_isfade = true;
 			 m_fade->FadeOut();

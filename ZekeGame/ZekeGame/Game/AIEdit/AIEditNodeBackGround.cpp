@@ -65,9 +65,7 @@ bool AIEditNodeBackGround::Start()
 	return true;
 }
 
-
 void AIEditNodeBackGround::Update()
 {
-
 
 }

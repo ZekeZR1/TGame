@@ -27,9 +27,6 @@ bool AIEditMode::Start()
 	m_camera = new GameCamera;
 
 	m_cursor = NewGO<GameCursor>(0, "cursor");
-
-	/*m_spriteRender = NewGO<SpriteRender>(0, "win");
-	m_spriteRender->Init(L"Assets/sprite/haik.dds", 1280,720);*/
 	m_aieditnodebackground = NewGO<AIEditNodeBackGround>(0, "background");
 	m_aieditnodeprocess = NewGO<AIEditNodeProcess>(0, "process");
 

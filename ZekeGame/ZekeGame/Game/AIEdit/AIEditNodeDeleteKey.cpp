@@ -65,7 +65,6 @@ void AIEditNodeDeleteKey::deleteclick()
 				//—ñ‚·‚×‚Ä‚Ì‚à‚Ì‚ðDeleteB
 				m_aieditnodeprocess->DeleteKey(m_orderpoint);
 				m_aieditnodeprocess->Click();
-				//m_aieditnodeprocess->SetTechniqueGenerate(false);
 			}
 		}
 	}
@@ -73,10 +72,8 @@ void AIEditNodeDeleteKey::deleteclick()
 
 void AIEditNodeDeleteKey::Update() 
 {
-
 	if (m_aieditnodeprocess->GetTechniqueGenerate() == true) {
 		deleteclick();
 		
 	}
-
 }

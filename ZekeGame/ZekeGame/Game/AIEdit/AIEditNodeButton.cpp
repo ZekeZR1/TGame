@@ -15,7 +15,6 @@ AIEditNodeButton::~AIEditNodeButton()
 void AIEditNodeButton::Awake()
 {
 	m_gamecursor = FindGO<GameCursor>("cursor");
-
 }
 
 bool AIEditNodeButton::Start()
@@ -40,8 +39,6 @@ bool AIEditNodeButton::Start()
 
 	}*/
 
-
-
 	m_spriteRender = NewGO<SpriteRender>(priority, "button");
 	m_spriteRender->Init(L"Assets/sprite/buttyon.dds", sizex, sizey, true);
 	kari.x += x;
@@ -49,7 +46,6 @@ bool AIEditNodeButton::Start()
 	m_spriteRender->SetPosition(kari);          //âºç¿ïW
 
 	return true;
-
 
 }
 
@@ -66,7 +62,6 @@ bool AIEditNodeButton::Start()
 
 void AIEditNodeButton::Update()
 {
-
 
 }
 
