@@ -13,11 +13,15 @@ def Brain(num,team):
         pass
     elif me.ID == cb.SendGame.Kikyo:
         cb.SendGame.addAction(tar.num,cb.SendGame.SUPER_BEAM)
-        lm = cb.GetEnemyLowMPMonster()
+        lm = cb.GetBuddyLowMPMonster()
         cb.SendGame.addAction(lm.num,cb.SendGame.MP_Heal)
         pass
     elif me.ID == cb.SendGame.RedHead:
-        cb.SendGame.addAction(tar.num,cb.SendGame.Thunder)
-        cb.SendGame.addAction(tar.num,cb.SendGame.Ignite)
+        if len(cb.gameData.Enemys) != 0:
+            cb.SendGame.addAction(tar.num,cb.SendGame.Thunder)
+            cb.SendGame.addAction(tar.num,cb.SendGame.Ignite)
+        else:
+            cb.SendGame.addAction(0,cb.SendGame.ESCAPE)
+            cb.SendGame.addAction(tar.num,cb.SendGame.Thunder)
         pass
     cb.End()
