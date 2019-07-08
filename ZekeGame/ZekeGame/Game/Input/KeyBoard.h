@@ -16,4 +16,6 @@ namespace Keyboard
 	//arg:
 	//	ke: ƒL[‚Ìw’è
 	bool isTrriger(KeyboardEve ke);
+
+	extern int Key;
 }
