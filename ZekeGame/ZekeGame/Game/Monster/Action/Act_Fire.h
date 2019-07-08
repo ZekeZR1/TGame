@@ -16,6 +16,6 @@ private:
 	CVector3 m_efs = { 5,5,5 };
 
 	float m_timer = 0.f;
-	float m_limit = 10.f;
+	float m_limit = 5.f;
 	bool m_first = true;
 };
