@@ -1,6 +1,8 @@
 #include "stdafx.h"
 #include "KeyBoard.h"
 
+int Keyboard::Key = 0;
+
 char Keyboard::GetKeyChar()
 {
 	char res = 0;
@@ -38,11 +40,12 @@ char Keyboard::GetKeyChar()
 			break;
 		}
 	}
+	Key = g_Key;
 	g_Key = 0;
 	return res;
 }
 
 bool Keyboard::isTrriger(KeyboardEve ke)
 {
-	return g_Key == ke;
+	return Key == ke;
 }

@@ -138,13 +138,13 @@ void ModeSelect::Update()
 	if (Keyboard::isTrriger(enDelete))
 	{
 		int i = 256;
-		while (--i)
-			code[i] = 0;
+		while (i)
+			code[--i] = 0;
 	}
 	if (buf != 0)
 	{
 		int cur = 0;
-		if (strlen(code) == 255)
+		if (strlen(code) == 254)
 		{
 			
 			for (int i = 0; i < 255; i++)
