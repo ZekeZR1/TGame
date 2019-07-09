@@ -21,8 +21,6 @@ AIEditNodeAbnormalState::~AIEditNodeAbnormalState()
 		DeleteGO(fonts);
 }
 
-
-
 bool AIEditNodeAbnormalState::Start()
 {
 	m_gamecursor = FindGO<GameCursor>("cursor");
@@ -31,12 +29,10 @@ bool AIEditNodeAbnormalState::Start()
 	m_spriteRender = NewGO<SpriteRender>(9, "target");
 	m_spriteRender->Init(L"Assets/sprite/menu2.dds", 175, 275);
 	CVector3 cursorpos = m_gamecursor->GetCursor();
-	//cursorpos.x += 135.0f;
 	cursorpos.x += 87.5f;
 	cursorpos.y += -140.0f;
 	m_position = cursorpos;
 	m_spriteRender->SetPosition(m_position);	//AIEditNodeのボタンの座標座標
-
 
 	for (int i = 0; i < button; i++) {               //ボタンの数分ループする。
 		m_aieditnodebutton = NewGO<AIEditNodeButton>(10, "button");
@@ -95,7 +91,6 @@ void AIEditNodeAbnormalState::Order()
 
 void AIEditNodeAbnormalState::FontsConfirmation()
 {
-
 	CVector2 m_fontpos1 = CVector2::Zero();
 	m_fontpos1.x -= 72;
 	m_fontpos1.y += 360;
@@ -139,7 +134,6 @@ void AIEditNodeAbnormalState::FontsConfirmation()
 			contact1 = false;
 		}
 	}
-
 }
 
 void AIEditNodeAbnormalState::Update()
@@ -189,7 +183,6 @@ void AIEditNodeAbnormalState::Update()
 				PlayButtonSE();
 
 			}
-
 		}
 	}
 }
