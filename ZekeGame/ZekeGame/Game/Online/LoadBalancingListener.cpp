@@ -369,6 +369,7 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 			m_isAiLoaded[id] = true;
 			m_enemyAimode[id] = 1;
 			char str[256];
+			printf("\nLoad Visual AI %d\n", id);
 			sprintf_s(str, "%d is Visual AI Data", id);
 			OutputDebugString(str);
 		}
@@ -447,6 +448,7 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 	break;
 	case enMonData:
 	{
+		printf("\nLoad Enemy Monster Datas\n");
 		//nByte* pContent = ExitGames::Common::ValueObject<nByte*>(eventContentObj).getDataCopy();
 		////int** ppContent = ExitGames::Common::ValueObject<int*>(eventContentObj).getDataAddress();
 		//short contentElementCount = *ExitGames::Common::ValueObject<int*>(eventContentObj).getSizes();
@@ -577,6 +579,7 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 	{
 		int content = ExitGames::Common::ValueObject<int>(eventContentObj).getDataCopy();
 		if (content) {
+			printf("\nEnemy Loaded my AI Datas\n");
 			m_isEnemyLoadedMyData = true;
 			OutputDebugString("\n");
 			OutputDebugString("enemy is loaded my monster ai datas\n");

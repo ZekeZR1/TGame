@@ -90,9 +90,10 @@ void NetPVPMode::Update() {
 		 }
 		 startTimer += IGameTime().GetFrameDeltaTime();
 	 }
-
-//	 if (startTimer >=  3.5) {
-	 if(m_lbl->CanStartGame()){
+	 
+	
+	 if (startTimer >=  10.f) {
+	 //if(m_lbl->CanStartGame()){
 		 if (!m_isfade) {
 			 m_isfade = true;
 			 OutputDebugString("\nSTART FADE !! LETS START BATTLE!!\n");
@@ -153,6 +154,7 @@ void NetPVPMode::TimeOut() {
 	m_lbl->disconnect();
 	m_lbl->DataReset();
 	m_timer = 0.f;
+	startTimer = 0.f;
 	errorTimer = 0.f;
 	std::random_device rnd;
 	int add = rnd() % 100;
