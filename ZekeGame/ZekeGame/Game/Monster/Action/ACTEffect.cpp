@@ -31,18 +31,18 @@ void ACTEffectGrant::Update()
 		DeleteGO(this);
 		return;
 	}
-	if (m_time >= m_endTime and m_endTime != 0) {
+	if (m_time >= m_endTime and m_endTime != 0 or !m_effect->IsPlay()) {
 		m_target->ClearAbnormalState(this);
 		DeleteGO(this);
 		return;
 	}
-	else {
-		if (!m_effect->IsPlay()) {
-			m_target->ClearAbnormalState(this);
-			DeleteGO(this);
-			return;
-		}
-	}
+	//else {
+	//	if (!m_effect->IsPlay()) {
+	//		m_target->ClearAbnormalState(this);
+	//		DeleteGO(this);
+	//		return;
+	//	}
+	//}
 	switch (m_state)
 	{
 	case enDoT:
@@ -149,7 +149,6 @@ void ACTEffectGrant::Clear() {
 	}
 	case enHardCC: {
 		//m_target->SetSpeed(m_tarSpeed);
-		m_effect->Stop();
 		m_target->ClearAbnormalState(this);
 		DeleteGO(this);
 		break;

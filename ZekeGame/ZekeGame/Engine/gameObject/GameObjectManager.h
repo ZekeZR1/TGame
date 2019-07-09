@@ -13,10 +13,6 @@ class CTransform;
 class GameObjectManager : Noncopyable
 {
 private:
-	GameObjectManager() :
-		m_gameObjectPriorityMax(0)
-	{
-	}
 	~GameObjectManager() {
 		m_mainRenderTarget.ReleaseRenderTarget();
 		if (m_frameBufferRenderTargetView != nullptr) {
@@ -33,7 +29,7 @@ private:
 	static unsigned int MakeGameObjectNameKey(const char* objectName)
 	{
 		static const unsigned int defaultNameKey = CUtil::MakeHash("Undefined");	//名前キー。
-		unsigned int hash;
+		unsigned int hash = 0;
 		if (objectName == nullptr) {
 			hash = defaultNameKey;
 		}
@@ -226,7 +222,7 @@ private:
 	std::vector<GameObjectList>	m_gameObjectListArray;					//!<ゲームオブジェクトの優先度付きリスト。
 	std::vector<GameObjectList>	m_deleteObjectArray[2];					//!<削除するオブジェクトのリスト。削除処理を行っている最中にDeleteGameObjectが呼ばれる可能性が高いので、ダブルバッファ化。
 	std::list<CTransform*>		m_childrenOfRootTransformList;			//!<ルートの子供のTransformのリスト。
-	GameObjectPrio				m_gameObjectPriorityMax;				//!<ゲームオブジェクトの優先度の最大数。
+	GameObjectPrio				m_gameObjectPriorityMax = 0;				//!<ゲームオブジェクトの優先度の最大数。
 	int m_currentDeleteObjectBufferNo = 0;								//!<現在の削除オブジェクトのバッファ番号。
 	static const unsigned char 			GAME_OBJECT_PRIO_MAX = 255;
 };

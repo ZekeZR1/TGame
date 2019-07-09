@@ -23,6 +23,7 @@ private:
 	bool num = true;
 	bool technique = true;
 	bool abnormal = true;
+
 	float scale = 0.8;
 
 	CVector3 m_pos = CVector3::Zero();

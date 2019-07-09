@@ -32,7 +32,9 @@ public:
 
 private:
 
-	float x = 50;
+	float Expansion = 160.f;     //–îˆó‚ÌÅ‘åŠg‘å—¦B
+	float ExpansionRate = 6.f;   //–îˆó‚ÌŠg‘å—¦B
+	float x = 50;                //–îˆó‚ÌŠg‘å—¦‚ğŠi”[‚·‚éêŠB
 
 	bool Choice1 = false;
 	bool m_ismakeLine = false;

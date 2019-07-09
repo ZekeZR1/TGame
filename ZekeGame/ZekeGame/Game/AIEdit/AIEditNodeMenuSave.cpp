@@ -183,13 +183,11 @@ void AIEditNodeMenuSave::Awake()
 bool AIEditNodeMenuSave::Start()
 {
 	
-	
 	return true;
 }
 
 void AIEditNodeMenuSave::Confirmation()
 {
-
 	m_spriteRender2 = NewGO<SpriteRender>(22, "sp");
 	m_spriteRender2->Init(L"Assets/sprite/menu.dds", 260, 160, true);
 	m_spriteRender2->SetPosition(m_Confirmationposition);
@@ -198,8 +196,6 @@ void AIEditNodeMenuSave::Confirmation()
 	m_spriteRender3->Init(L"Assets/sprite/menuselectsieat.dds", 160, 80, true);
 	m_Confirmationposition.y -= 25.f;
 	m_spriteRender3->SetPosition(m_Confirmationposition);
-
-	
 
 	m_fonts4 = NewGO<FontRender>(23);
 	m_fonts4->SetTextType(CFont::en_Japanese);
@@ -213,13 +209,6 @@ void AIEditNodeMenuSave::Confirmation()
 
 	m_fonts4->Init(L"•Û‘¶‚µ‚Ü‚µ‚½", { m_fontpos2 }, 0.0, CVector4::Red, 0.8, { 0.0,0.0 });
 	m_fonts3->Init(L"‚Æ‚¶‚é", { m_fontpos3 }, 0.0, CVector4::White, 0.8, { 0.0,0.0 });
-
-	//if (Mouse::isTrigger(enLeftClick)) {
-	//	if (m_spriteRender3->isCollidingTarget())
-	//	{
-	//		DeleteGO(this);
-	//	}
-	//}
 
 }
 

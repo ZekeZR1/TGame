@@ -7,9 +7,7 @@
 
 AIEditNodeButton::~AIEditNodeButton()
 {
-
 	DeleteGO(m_spriteRender);
-
 }
 
 void AIEditNodeButton::Awake()
@@ -58,7 +56,6 @@ bool AIEditNodeButton::Start()
 //	m_aieditnodebutton->SetPos(m_position);
 //	m_nodebuttons.push_back(m_aieditnodebutton);
 //}
-
 
 void AIEditNodeButton::Update()
 {

@@ -35,7 +35,6 @@ bool AIEditNodeInequ::Start()
 	m_spriteRender->Init(L"Assets/sprite/menu2.dds", 175, 140);
 	m_spriteRender->SetPivot({ 0.5f, 0.1f });
 	CVector3 cursorpos = m_gamecursor->GetCursor();
-	//cursorpos.x += 135.0f;
 	cursorpos.x += 87.5f;
 	cursorpos.y += -140.0f;
 	m_position = cursorpos;
@@ -110,7 +109,6 @@ void AIEditNodeInequ::FontsConfirmation()
 		cont = false;
 	}
 
-
 	if (contact1 == true) {
 		if (cont == false) {
 			m_font[0]->Init(L"", { m_fontpos1 }, 0.0, CVector4::White, 0.8, { 0.0,0.0 });
@@ -128,7 +126,6 @@ void AIEditNodeInequ::Update()
 	for (int i = 0; i < button; i++) {
 		SpriteRender* sp = m_nodebuttons[i]->GetSpriteRender();
 		sp->SetCollisionTarget(cursorpos);
-
 	}
 
 	if (contact2 == false) {
@@ -142,7 +139,6 @@ void AIEditNodeInequ::Update()
 			Num();
 			contact2 = true;
 			PlayButtonSE();
-
 		}
 
 		if (m_nodebuttons[button - 1]->GetSpriteRender()->isCollidingTarget()) {
@@ -151,9 +147,6 @@ void AIEditNodeInequ::Update()
 			Num();
 			contact2 = true;
 			PlayButtonSE();
-
 		}
-
 	}
-		
 }
