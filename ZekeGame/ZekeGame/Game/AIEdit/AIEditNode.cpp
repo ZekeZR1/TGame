@@ -28,24 +28,20 @@ AIEditNode::~AIEditNode()
 
 bool AIEditNode::Start()
 {
-
 	m_gamecursor = FindGO<GameCursor>("cursor");
 	m_aieditnodeprocess = FindGO<AIEditNodeProcess>("process");
-	//m_aieditnodeoreder = FindGO<AIEditNodeOrder>("order");
-
 
 	//UIの基盤
 	m_spriteRender = NewGO<SpriteRender>(6, "firstwin");
 	m_spriteRender->Init(L"Assets/sprite/menu2.dds", 175, 280);
 	CVector3 cursorpos = m_gamecursor->GetCursor();
-	//cursorpos.x += 135.0f;
-	cursorpos.x += 87.5f;
+	cursorpos.x += 87.5f;                               //位置調整だよ。
 	cursorpos.y += -140.0f;
 	m_position = cursorpos;
 	m_spriteRender->SetPosition(m_position);			//カーソルの座標
 
 	//ぼたん。
-	for (int i = 0; i < button; i++) {               //ボタンの数分ループする。
+	for (int i = 0; i < button; i++) {                  //ボタンの数分ループする。
 		m_aieditnodebutton = NewGO<AIEditNodeButton>(7, "button");
 		m_aieditnodebutton->SetPri(7);
 		m_aieditnodebutton->SetButton(i + 1);
@@ -181,14 +177,12 @@ void AIEditNode::Update()
 				m_Node = enMp;
 				m_aieditnodeprocess->Setkeeonode(enMp);
 				Inequ();
-
 			}
 
 			if (m_nodebuttons[button - 2]->GetSpriteRender()->isCollidingTarget()) {
 				m_Node = enAb;
 				m_aieditnodeprocess->Setkeeonode(enAb);
 				Abnormal();
-
 			}
 
 			if (m_nodebuttons[button - 1]->GetSpriteRender()->isCollidingTarget()) {
@@ -197,7 +191,6 @@ void AIEditNode::Update()
 				Technique();
 				contact2 = true;
 				PlayButtonSE();
-
 			}
 		}
 	}

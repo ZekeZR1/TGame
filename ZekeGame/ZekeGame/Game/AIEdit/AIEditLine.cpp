@@ -42,32 +42,29 @@ void AIEditLine::Update()
 	if (m_ismakeLine)
 		return;
 	//矢印を拡大していくよ。
-	if (x <= 180) {
+	if (x <= Expansion) {
 
-		x += 6.0;
+		x += ExpansionRate;
 
 		m_spriteRender->SetScale({x,1,1});
 
 	}
 	
-
-	if (x >= 180) {
+	if (x >= Expansion) {
 	
 		if (Choice1 == false) {
 			
+			//「のとき」を矢印上に表示。
 			m_font = NewGO<FontRender>(1, "fr");
 			m_font->SetTextType(CFont::en_Japanese);
 			CVector2 v = m_pos.ToTwo();
 			v.x += 30;
 			v.y += 8;
 			m_font->Init(L"の と き", v, 0, { 0.f,0.f,0.f,1 }, 0.3f);
-			//m_font->DrawShadow();
 
 			m_aieditnodeprocess->Target();
 			Choice1 = true;
-
 		}
-
 	}
 }
 
@@ -75,8 +72,7 @@ void AIEditLine::makeLine()
 {
 	m_spriteRender = NewGO<SpriteRender>(1, "line");
 	m_spriteRender->Init(L"Assets/sprite/arrow.dds", 1, 40);  //last
-	//m_spriteRender->Init(L"Assets/sprite/fade_black.dds", 1, 250);  //last
-
+	
 	m_pos.x += 120;
 	m_spriteRender->SetPosition(m_pos);
 	m_spriteRender->SetPivot({ 0.0f, 0.5f });
@@ -89,5 +85,4 @@ void AIEditLine::makeLine()
 	v.x += 30;
 	v.y += 8;
 	m_font->Init(L"の と き", v, 0, { 0.f,0.f,0.f,1 }, 0.3f);
-	//m_font->DrawShadow({ 5,-5 }, 1.3f, 0, {1,1,1,1});
 }

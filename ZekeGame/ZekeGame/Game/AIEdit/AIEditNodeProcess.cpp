@@ -1,4 +1,6 @@
 //Clickを生成するクラス
+//ユーザーが選択したものを保持しておくクラス。
+//ゲームが終了するまでDeleteされない。
 #include "stdafx.h"
 
 #include "AIEditNode.h"
@@ -29,7 +31,6 @@ AIEditNodeProcess::~AIEditNodeProcess()
 
 bool AIEditNodeProcess::Start()
 {
-
 	m_aieditnodeclick = FindGO<AIEditNodeClick>("click");
 	m_aieditnodeorder = FindGO<AIEditNodeOrder>("order");
 
@@ -80,7 +81,6 @@ void AIEditNodeProcess::Setkeeptechnique(int n)
 	}
 }
 
-
 void AIEditNodeProcess::Click()
 {
 
@@ -90,7 +90,6 @@ void AIEditNodeProcess::Click()
 		DeleteGO(go);
 		return true;
 	});
-
 	
 	for (int i = 0; i <= 7; i++) {
 
@@ -113,7 +112,6 @@ void AIEditNodeProcess::Click()
 					keep1 = i;						 //状態を保存する行を設定する。
 					keep2 = 0;						 //列を１列目に設定する。
 				}
-
 			}
 
 			break;
@@ -232,7 +230,6 @@ AIEditNodeOrder * AIEditNodeProcess::CreateOrder()
 
 	return m_aieditnodeorder;
 }
-
 
 //フォルダに作成したAIを保存するための処理。
 void AIEditNodeProcess::AISave(int num,int col)

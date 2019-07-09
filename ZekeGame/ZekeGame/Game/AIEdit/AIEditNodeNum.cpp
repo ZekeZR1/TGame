@@ -199,7 +199,6 @@ void AIEditNodeNum::Update()
 			m_num = en1;
 			m_aieditnodeprocess->Setkeepnum(en1);
 			Order();
-			
 		}
 
 		if (m_nodebuttons[button - 6]->GetSpriteRender()->isCollidingTarget()) {
@@ -207,7 +206,6 @@ void AIEditNodeNum::Update()
 			m_aieditnodeprocess->Setkeepnum(en10);
 			Order();
 			PlayButtonSE();
-
 		}
 
 		if (m_nodebuttons[button - 5]->GetSpriteRender()->isCollidingTarget()) {
@@ -215,7 +213,6 @@ void AIEditNodeNum::Update()
 			m_aieditnodeprocess->Setkeepnum(en30);
 			Order();
 			PlayButtonSE();
-
 		}
 
 		if (m_nodebuttons[button - 4]->GetSpriteRender()->isCollidingTarget()) {
@@ -223,7 +220,6 @@ void AIEditNodeNum::Update()
 			m_aieditnodeprocess->Setkeepnum(en50);
 			Order();
 			PlayButtonSE();
-
 		}
 
 		if (m_nodebuttons[button - 3]->GetSpriteRender()->isCollidingTarget()) {
@@ -231,7 +227,6 @@ void AIEditNodeNum::Update()
 			m_aieditnodeprocess->Setkeepnum(en70);
 			Order();
 			PlayButtonSE();
-
 		}
 
 		if (m_nodebuttons[button - 2]->GetSpriteRender()->isCollidingTarget()) {
@@ -239,7 +234,6 @@ void AIEditNodeNum::Update()
 			m_aieditnodeprocess->Setkeepnum(en90);
 			Order();
 			PlayButtonSE();
-
 		}
 
 		if (m_nodebuttons[button - 1]->GetSpriteRender()->isCollidingTarget()) {
@@ -247,9 +241,6 @@ void AIEditNodeNum::Update()
 			m_aieditnodeprocess->Setkeepnum(en100);
 			Order();
 			PlayButtonSE();
-
 		}
-
 	}
-
 }

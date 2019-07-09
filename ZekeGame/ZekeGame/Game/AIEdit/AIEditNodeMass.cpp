@@ -21,7 +21,6 @@ bool AIEditNodeMass::Start()
 	return true;
 }
 
-
 void AIEditNodeMass::Update()
 {
 

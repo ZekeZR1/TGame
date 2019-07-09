@@ -83,7 +83,7 @@ void AIEditNodeTarget::Num()
 		fonttarget = true;
 	}
 
-	//3‚Â–Ú‚Ìƒm[ƒh‚Íâ‘Î‚É‹Z‚È‚Ì‚Å‚»‚Ì‚½‚ß‚Ìˆ—
+	//3‚Â–Ú‚Ìƒm[ƒh‚Íâ‘Î‚É‹Z‚È‚Ì‚Å‚»‚Ì‚½‚ß‚Ìˆ—(ƒ^[ƒQƒbƒg‚©‚ç‹Z‚É”ò‚Ô)B
 	if (m_aieditnodeprocess->GettechniqeCount() > 1) {
 		m_aieditnodeprocess->Technique();
 		m_aieditnodeprocess->Setkeeonode(AIEditNode::enTechnique);
@@ -101,9 +101,7 @@ void AIEditNodeTarget::Technique()
 		PlayButtonSE();
 
 		Choice0 = true;
-
 	}
-
 }
 
 void AIEditNodeTarget::FontsConfirmation()
