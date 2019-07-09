@@ -31,7 +31,7 @@ private:
 	SpriteRender* m_leftSp = nullptr;
 	SpriteRender* m_wallpaper = nullptr;
 	CVector2 m_fPivot = { 0.5f,0.5f };
-	GameCursor* m_cur;
+	GameCursor* m_cur = nullptr;
 	FontRender* m_backTx = nullptr;
 	CVector3 addPos = CVector3::Zero();
 	Fade* m_fade = nullptr;
