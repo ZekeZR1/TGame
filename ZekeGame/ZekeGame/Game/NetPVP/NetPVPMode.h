@@ -77,4 +77,6 @@ private:
 	GameCursor* m_cur = nullptr;
 	LoadBalancingListener* m_lbl = nullptr;
 	int timeout = 100;
+	float m_dataRaiseTimer = 0.f;
+	float m_raiseTimer = 0.f;
 };

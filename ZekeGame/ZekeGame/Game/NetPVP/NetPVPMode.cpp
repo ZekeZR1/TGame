@@ -74,8 +74,12 @@ void NetPVPMode::Update() {
 	 RaiseData();
 	 LoadEnemyData();
 	 UiUpdate();
-	 if (m_lbl->isGotEnemyPythonCodes()) {
+	 if (m_lbl->isGotEnemyPythonCodes())
+		 m_raiseTimer += IGameTime().GetFrameDeltaTime();
+	 if (m_lbl->isGotEnemyPythonCodes() and m_raiseTimer >= 1) {
 		 m_lbl->raiseMyLoadingState();
+		 printf("\n---------------------------------------------------------\nRAISE MY LOAD STATE LOAD COMPLETE\n---------------------------------------------------------\n");
+		 m_raiseTimer = 0.f;
 		 OutputDebugString("\n");
 		 OutputDebugString("I loaded enemy data. raise my load state to enemy\n");
 	 }
@@ -92,9 +96,16 @@ void NetPVPMode::Update() {
 	 }
 	 
 	
-	 if (startTimer >=  10.f) {
-	 //if(m_lbl->CanStartGame()){
+	 //if (startTimer >=  10.f) {
+	 if(m_lbl->CanStartGame() or m_dataLoaded and m_lbl->isEnemyAbandoned()){
 		 if (!m_isfade) {
+			 m_lbl->raiseMyLoadingState();
+			 auto eneaimode = m_lbl->GetEnemyAiModes();
+			 for (int i = 3; i < 6; i++) {
+				 m_monai[i] = i - 3;
+				 m_moid[i] = m_enemyId[i - 3];
+				 m_aimode[i] = eneaimode[i - 3];
+			 }
 			 m_isfade = true;
 			 OutputDebugString("\nSTART FADE !! LETS START BATTLE!!\n");
 			 m_fade->FadeOut();
@@ -160,6 +171,7 @@ void NetPVPMode::TimeOut() {
 	int add = rnd() % 100;
 	m_recTime = 120 + add;
 	m_isTimeout = true;
+	m_raiseTimer = 0.f;
 	m_isEnemyHere = false;
 	//m_font->Init(L"‘Îí‘Šè‚ğŒŸõ’†", m_waitingFontPos, 0.f, CVector4::White, 1.f, { 1,1 });
 }
@@ -173,19 +185,23 @@ void NetPVPMode::Reconnect() {
 }
 
 void NetPVPMode::RaiseData() {
-	//Raise Monster ids
-	int ids[3];
-	for (int i = 0; i < 3; i++) 
-		ids[i] = m_moid[i];
-	m_lbl->SetTeamMonsterInfo(ids);
-	m_lbl->raiseMonData();
-	for (int i = 0; i < 3; i++) {
-		m_lbl->SetAiMode(m_aimode[i],i);
+	if (m_dataRaiseTimer >= 1) {
+		//Raise Monster ids
+		int ids[3];
+		for (int i = 0; i < 3; i++)
+			ids[i] = m_moid[i];
+		m_lbl->SetTeamMonsterInfo(ids);
+		m_lbl->raiseMonData();
+		for (int i = 0; i < 3; i++) {
+			m_lbl->SetAiMode(m_aimode[i], i);
+		}
+		//Raise Monster AIs
+		RaiseAiVaData();
+		RaiseAiTextData();
+		RaiseRatingData();
+		m_dataRaiseTimer = 0.f;
 	}
-	//Raise Monster AIs
-	RaiseAiVaData();
-	RaiseAiTextData();
-	RaiseRatingData();
+	m_dataRaiseTimer += IGameTime().GetFrameDeltaTime();
 }
 
 void NetPVPMode::LoadEnemyData() {
