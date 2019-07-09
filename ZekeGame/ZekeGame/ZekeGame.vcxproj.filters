@@ -650,6 +650,9 @@
     <ClCompile Include="Game\PythonBridge\PythonBridge.cpp">
       <Filter>Game\PythonBridge</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Monster\Action\Act_Move.cpp">
+      <Filter>act</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\PythonBridge\include\unicodeobject.h" />
@@ -1607,6 +1610,9 @@
     </ClInclude>
     <ClInclude Include="Game\PythonBridge\PythonBridge.h">
       <Filter>Game\PythonBridge</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Monster\Action\Act_Move.h">
+      <Filter>act</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

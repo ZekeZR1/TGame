@@ -356,6 +356,9 @@ const wchar_t* GameData::GetActionName(ActionID actID)
 	case enSpecialAttack:
 		ws = L"Kamikaze";
 		break;
+	case enMove:
+		ws = L"MOVE";
+		break;
 	default:
 		ws = L"";
 	}
@@ -391,9 +394,10 @@ ActionID* GameData::GetMonsterActions(int monsterID, int& count)
 		ua[17] = enIgnite;
 		ua[18] = enPoison;
 		ua[19] = enThunder;
+		ua[20] = enMove;
 		break;
 	case enUmataur:
-		count = 6;
+		count = 7;
 		ua = new ActionID[count];
 		ua[enAtack] = enAtack;
 		ua[enChase] = enChase;
@@ -401,9 +405,10 @@ ActionID* GameData::GetMonsterActions(int monsterID, int& count)
 		ua[enDefense] = enDefense;
 		ua[4] = enTackle;
 		ua[5] = enMajinken;
+		ua[6] = enMove;
 		break;
 	case enFairy:
-		count = 6;
+		count = 7;
 		ua = new ActionID[count];
 		ua[enAtack] = enAtack;
 		ua[enChase] = enChase;
@@ -411,9 +416,10 @@ ActionID* GameData::GetMonsterActions(int monsterID, int& count)
 		ua[enDefense] = enDefense;
 		ua[4] = enRecovery;
 		ua[5] = enFire;
+		ua[6] = enMove;
 		break;
 	case enArmor:
-		count = 6;
+		count = 7;
 		ua = new ActionID[count];
 		ua[enAtack] = enAtack;
 		ua[enChase] = enChase;
@@ -421,9 +427,10 @@ ActionID* GameData::GetMonsterActions(int monsterID, int& count)
 		ua[enDefense] = enGuardian;
 		ua[4] = ActionID::enBuffDef;
 		ua[5] = ActionID::enBuffAtc;
+		ua[6] = enMove;
 		break;
 	case enGoblin:
-		count = 6;
+		count = 7;
 		ua = new ActionID[count];
 		ua[enAtack] = enAtack;
 		ua[enChase] = enChase;
@@ -431,9 +438,10 @@ ActionID* GameData::GetMonsterActions(int monsterID, int& count)
 		ua[enDefense] = enDefense;
 		ua[4] = enPoison;
 		ua[5] = enDebuffAtc;
+		ua[6] = enMove;
 		break;
 	case enBook:
-		count = 6;
+		count = 7;
 		ua = new ActionID[count];
 		ua[enAtack] = enAtack;
 		ua[enChase] = enChase;
@@ -441,9 +449,10 @@ ActionID* GameData::GetMonsterActions(int monsterID, int& count)
 		ua[enDefense] = enDefense;
 		ua[4] = enCleanse;
 		ua[5] = enClearStack;
+		ua[6] = enMove;
 		break;
 	case enRedHead:
-		count = 6;
+		count = 7;
 		ua = new ActionID[count];
 		ua[enAtack] = enAtack;
 		ua[enChase] = enChase;
@@ -451,9 +460,10 @@ ActionID* GameData::GetMonsterActions(int monsterID, int& count)
 		ua[enDefense] = enDefense;
 		ua[4] = enIgnite;
 		ua[5] = enThunder;
+		ua[6] = enMove;
 		break;
 	case enKikyo:
-		count = 6;
+		count = 7;
 		ua = new ActionID[count];
 		ua[enAtack] = enAtack;
 		ua[enChase] = enChase;
@@ -461,15 +471,21 @@ ActionID* GameData::GetMonsterActions(int monsterID, int& count)
 		ua[enDefense] = enDefense;
 		ua[4] = enSuperBeam;
 		ua[5] = enManaHeal;
+		ua[6] = enMove;
 		break;
 	case enShikoChu:
-		count = 2;
+		count = 7;
 		ua = new ActionID[count];
 		ua[enAtack] = enSpecialAttack;
 		ua[enChase] = enChase;
+		ua[enLeave] = enActNone;
+		ua[enDefense] = enActNone;
+		ua[4] = enActNone;
+		ua[5] = enActNone;
+		ua[6] = enMove;
 		break;
 	case enRingo:
-		count = 6;
+		count = 7;
 		ua = new ActionID[count];
 		ua[enAtack] = enAtack;
 		ua[enChase] = enChase;
@@ -477,9 +493,10 @@ ActionID* GameData::GetMonsterActions(int monsterID, int& count)
 		ua[enDefense] = enDefense;
 		ua[4] = enTackle;
 		ua[5] = enMajinken;
+		ua[6] = enMove;
 		break;
 	case enChris:
-		count = 6;
+		count = 7;
 		ua = new ActionID[count];
 		ua[enAtack] = enAtack;
 		ua[enChase] = enChase;
@@ -487,9 +504,10 @@ ActionID* GameData::GetMonsterActions(int monsterID, int& count)
 		ua[enDefense] = enDefense;
 		ua[4] = enBlizzard;
 		ua[5] = enSuperBeam;
+		ua[6] = enMove;
 		break;
 	case enShell:
-		count = 6;
+		count = 7;
 		ua = new ActionID[count];
 		ua[enAtack] = enAtack;
 		ua[enChase] = enChase;
@@ -497,7 +515,7 @@ ActionID* GameData::GetMonsterActions(int monsterID, int& count)
 		ua[enDefense] = enDefense;
 		ua[4] = enBlizzard;
 		ua[5] = enSuperBeam;
-		break;
+		ua[6] = enMove;
 		break;
 	}
 	return ua;

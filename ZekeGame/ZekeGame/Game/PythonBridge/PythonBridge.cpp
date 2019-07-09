@@ -222,7 +222,7 @@ static PyObject* GetNeerMonster(PyObject* self, PyObject* args)
 	CVector3 pos = MVector3ToVector3(mgameData->me->position);
 	float len = 999999999;
 	int top = 0;
-	int team;
+	int team = 0;
 	for (auto mon : g_mons)
 	{
 
@@ -865,6 +865,26 @@ static PyObject* addAction(PyObject* self, PyObject* args)
 	return &_Py_NoneStruct;
 }
 
+static PyObject* PyMMove(PyObject* self, PyObject* args)
+{
+	float x = PyFloat_AsDouble(PyTuple_GetItem(args, 0));
+	float y = PyFloat_AsDouble(PyTuple_GetItem(args, 1));
+
+	Monster* mon = NULL;
+	for (auto m : g_mons)
+	{
+		if (m == NULL)
+			break;
+		if (pData()->Getnum() == m->Getnum())
+		{
+			mon = m;
+			break;
+		}
+	}
+	mon->AddAction(MonsterActionManeger::LoadAction(enMove, 0,x,y));
+	return Py_None;
+}
+
 static PyObject* MMprint(PyObject* self, PyObject* args)
 {
 	wchar_t ws[255] = {0};
@@ -912,6 +932,7 @@ static PyMethodDef methods[] =
 	{"FindEnemyMonsters",FindEnemyMonsters,METH_VARARGS,"hehokon"},
 
 	{"addAction",addAction,METH_VARARGS,"hehokon"},
+	{"Move",PyMMove,METH_VARARGS,"hehokon"},
 	{"MMprint",MMprint,METH_VARARGS,"hehokon"},
 	{NULL,NULL,0,NULL}
 };

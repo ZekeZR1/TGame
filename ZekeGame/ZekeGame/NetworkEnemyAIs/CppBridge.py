@@ -74,8 +74,8 @@ class Monster:
         return nmon
 
 class ACTION(IntEnum):
-    Chase = 0
-    Atack = 1
+    Atack = 0
+    Chase = 1
     Leave = 2
     Defense = 3
     Fire = 4
@@ -368,8 +368,8 @@ TestmonsID = 0
 UmataurID = 1
 FairyID = 2
 
-Uma = 1
-Yousei = 2
+Uma = SendGame.Uma
+Yousei = SendGame.Yose
 
 def GetMonsStateHP(id):
     hp = 1
@@ -387,6 +387,7 @@ def init(num,team):
     """ゲームデータの初期化
         必ず最初に使いましょう。
         """
+    #SendGame.gameData.init(num,team)
     gameData.init(num,team)
 
 
@@ -435,6 +436,9 @@ def GetEnemyHighHPMonster():
     """#一番HPの高い敵のモンスターを返します"""
     return gameData.GetEnemyHighHP()
 
+#def GetLowHPMonster():
+    #return gameData.GetLowHPMonster()
+
 def GetEnemyLowHPMonster():
     return gameData.GetEnemyLowHPMonster()
 
@@ -480,13 +484,17 @@ actions = []
 
 
 def addAction(target,action):
-    """モジュール外から使わないでね!"""
-    if len(actions) >= 3 or target == None:
+    """外から使わないでね!"""
+    #if len(actions) >= 3 or target == None:
+    if target == None:
         return
-    for ac in MonsterUseAction[gameData.me.ID]:
-        if ac == action:
-            actions.append([int(action),target.num])
-            break
+    if False:
+        for ac in MonsterUseAction[gameData.me.ID]:
+            if ac == action:
+                actions.append([int(action),target.num])
+                break
+    else:
+        actions.append([int(action),target.num])
 
 def Chase(target):
     addAction(target,ACTION.Chase)
@@ -514,6 +522,10 @@ def Guardian(target):
 
 def Recovery(target):
     addAction(target,ACTION.Recovery)
+
+def Move(targetPosition):
+    """モンスターを指定したポジションに移動させる。"""
+    SendGame.Move(targetPosition.x,targetPosition.z)
 
 def End():
     SendGame.SetAction(actions,gameData.me.num);

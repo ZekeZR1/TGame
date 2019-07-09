@@ -12,7 +12,7 @@ std::vector<VisualAIState> VisualAIOpen::openVAs()
 	WIN32_FIND_DATA win32d;
 
 
-	char cs[255];
+	char cs[255] = {0};
 	std::string cd;
 	GetCurrentDirectory(255, cs);
 	cd = cs;
