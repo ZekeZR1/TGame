@@ -40,7 +40,7 @@ std::vector<VisualAIState> VisualAIOpen::openVAs()
 			
 			//ファイル名から番号を抽出する
 			int c = p.find(".");
-			char n[3] = {'\0'};
+			char n[4] = {'\0'};
 			for (int i = 0; i < c; i++)
 			{
 				n[i] = p[i];
