@@ -104,15 +104,10 @@ void Monster::ClearAllAbnormalState() {
 }
 
 void Monster::ClearAbnormalState(ACTEffectGrant* abn) {
-	DeleteGO(abn);
-	if (!m_abnormalStates.size()) return;
-	if (m_abnormalStates.size() == 1) {
-		m_abnormalStates.clear();
-		return;
-	}
 	auto result = std::find(m_abnormalStates.begin(), m_abnormalStates.end(), abn);
 	if (result == m_abnormalStates.end()) return;
 	m_abnormalStates.erase(std::find(m_abnormalStates.begin(), m_abnormalStates.end(), abn));
+	DeleteGO(abn);
 }
 
 
