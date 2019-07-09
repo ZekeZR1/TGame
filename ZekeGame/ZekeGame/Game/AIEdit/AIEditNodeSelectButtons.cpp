@@ -9,7 +9,6 @@
 
 AIEditNodeSelectButtons::~AIEditNodeSelectButtons()
 {
-
 	DeleteGO(m_spriterender2);
 	DeleteGO(m_spriterender3);
 	DeleteGO(m_spriterender4);
@@ -18,7 +17,6 @@ AIEditNodeSelectButtons::~AIEditNodeSelectButtons()
 	DeleteGO(m_fmenu);
 	DeleteGO(m_fopen);
 	DeleteGO(m_fsave);
-
 }
 
 bool AIEditNodeSelectButtons::Start()
@@ -89,7 +87,6 @@ bool AIEditNodeSelectButtons::Start()
 
 	return true;
 }
-
 
 void AIEditNodeSelectButtons::Update()
 {
@@ -165,7 +162,5 @@ void AIEditNodeSelectButtons::Update()
 			m_spriterender5->SetMulCol({ 1.f,1.f ,1.f ,1 });
 			m_bopen = false;
 		}
-
 	}
-
 }

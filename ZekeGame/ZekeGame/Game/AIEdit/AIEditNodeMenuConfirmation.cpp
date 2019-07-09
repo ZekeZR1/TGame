@@ -15,7 +15,6 @@ AIEditNodeMenuConfirmation::~AIEditNodeMenuConfirmation()
 	DeleteGO(m_fonts2);
 }
 
-
 bool AIEditNodeMenuConfirmation::Start()
 {
 	m_gamecursor = FindGO<GameCursor>("cursor");
@@ -70,7 +69,6 @@ bool AIEditNodeMenuConfirmation::Start()
 	return true;
 
 }
-
 
 void AIEditNodeMenuConfirmation::Update()
 {

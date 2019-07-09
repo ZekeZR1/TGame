@@ -165,40 +165,37 @@ void AIEditNodeMenu::BackMenu()
 void AIEditNodeMenu::Menuwin()
 {
 
-		if (menu == false) {
-			m_spriteRender = NewGO<SpriteRender>(15, "menu");
-			m_spriteRender->Init(L"Assets/sprite/menu.dds", 400, 400, true);
-			m_spriteRender->SetPosition(m_position);
-			m_positionselect = m_position;
-			m_positionselect.y += 260.f;
+	if (menu == false) {
+		m_spriteRender = NewGO<SpriteRender>(15, "menu");
+		m_spriteRender->Init(L"Assets/sprite/menu.dds", 400, 400, true);
+		m_spriteRender->SetPosition(m_position);
+		m_positionselect = m_position;
+		m_positionselect.y += 260.f;
 
-			for (int i = 0; i < button; i++) {
-				sp.push_back(NewGO<SpriteRender>(16, "menuselectsieat"));
-				sp[i]->Init(L"Assets/sprite/menuselectsieat.dds", 350, 120, true);
-				m_positionselect.y -= 130.f;
-				sp[i]->SetPosition(m_positionselect);
-				m_buttons.push_back(sp[i]);
-				m_fonts.push_back(NewGO<FontRender>(17));
-				m_fonts[i]->SetTextType(CFont::en_Japanese);
-			}
-
-			CVector2 m_fontpos = CVector2::Zero();
-			m_fontpos.x += m_positionselect.x -= 100;
-			m_fontpos.y += m_positionselect.y += 300;
-			CVector2 fp = m_fontpos;
-			fp.y -= 20;
-			fp.x -= 15;
-			m_fonts[0]->Init(L"タイトルへ", { fp }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
-			m_fontpos.y += m_positionselect.y -= 320;
-			m_fonts[1]->Init(L"特殊技一覧", { m_fontpos.x-15,m_fontpos.y }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
-			m_fontpos.y += m_positionselect.y += 20;
-			m_fonts[2]->Init(L"戻る", { m_fontpos.x+50,m_fontpos.y }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
-			menu = true;
-
+		for (int i = 0; i < button; i++) {
+			sp.push_back(NewGO<SpriteRender>(16, "menuselectsieat"));
+			sp[i]->Init(L"Assets/sprite/menuselectsieat.dds", 350, 120, true);
+			m_positionselect.y -= 130.f;
+			sp[i]->SetPosition(m_positionselect);
+			m_buttons.push_back(sp[i]);
+			m_fonts.push_back(NewGO<FontRender>(17));
+			m_fonts[i]->SetTextType(CFont::en_Japanese);
 		}
 
+		CVector2 m_fontpos = CVector2::Zero();
+		m_fontpos.x += m_positionselect.x -= 100;
+		m_fontpos.y += m_positionselect.y += 300;
+		CVector2 fp = m_fontpos;
+		fp.y -= 20;
+		fp.x -= 15;
+		m_fonts[0]->Init(L"タイトルへ", { fp }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
+		m_fontpos.y += m_positionselect.y -= 320;
+		m_fonts[1]->Init(L"特殊技一覧", { m_fontpos.x-15,m_fontpos.y }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
+		m_fontpos.y += m_positionselect.y += 20;
+		m_fonts[2]->Init(L"戻る", { m_fontpos.x+50,m_fontpos.y }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
+		menu = true;
+	}
 }
-
 
 void AIEditNodeMenu::Update()
 {

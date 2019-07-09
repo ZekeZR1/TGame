@@ -7,7 +7,6 @@
 #include "AIEditLine.h"
 #include "AIEditNodeTarget.h"
 #include "../GameCursor.h"
-
 #include "AIEditNodeOrder.h"
 #include "AIEditNodeProcess.h"
 #include "AIEditNodeTechnique.h"
@@ -277,11 +276,6 @@ void AIEditNodeOrder::DeleteGOs()
 		m_aieditnodeabnormalstate = nullptr;
 	}
 
-	//if (m_aieditnodedeletekey != nullptr) {
-	//	DeleteGO(m_aieditnodedeletekey);
-	//	m_aieditnodedeletekey = nullptr;
-	//}
-
 	if (m_aieditnodetechnique != nullptr) {
 		DeleteGO(m_aieditnodetechnique);
 		m_aieditnodetechnique = nullptr;
@@ -438,7 +432,6 @@ void AIEditNodeOrder::makeFonts(sOrder* order)
 		}
 	}
 
-
 	if (order->ine != 0)
 	{
 		CVector2 m_fontpos3 = CVector2::Zero();
@@ -453,7 +446,6 @@ void AIEditNodeOrder::makeFonts(sOrder* order)
 			m_fonts[2]->DrawShadow({ 5,-5 });
 		}
 	}
-
 
 	if (order->num != 0)
 	{
@@ -490,7 +482,6 @@ void AIEditNodeOrder::makeFonts(sOrder* order)
 		}
 	}
 
-
 	if (order->tec != 0)
 	{
 		CVector2 m_fontpos5 = CVector2::Zero();
@@ -526,7 +517,6 @@ void AIEditNodeOrder::makeFonts(sOrder* order)
 		}
 		techniqueOrder = true;
 	}
-
 
 	if (order->abn != 0)
 	{
