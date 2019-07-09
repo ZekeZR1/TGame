@@ -3,7 +3,7 @@
 struct Log
 {
 	float timeLim = 10.f;
-	FontRender* font;
+	FontRender* font = nullptr;
 	bool isDead = true;
 };
 class GameLog :public GameObject

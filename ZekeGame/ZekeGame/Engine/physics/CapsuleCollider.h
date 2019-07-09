@@ -58,7 +58,7 @@ private:
 	btCapsuleShape * shape = nullptr;
 	btCapsuleShapeZ * shapez = nullptr;
 	btCapsuleShapeX * shapex = nullptr;
-	EnFbxUpAxis m_axis;
+	EnFbxUpAxis m_axis = enFbxUpAxisY;
 	float radius = 0.0f;
 	float height = 0.0f;
 };
