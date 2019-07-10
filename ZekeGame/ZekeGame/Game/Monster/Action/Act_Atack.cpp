@@ -70,7 +70,7 @@ bool Act_Atack::Attack(Monster* me)
 		CVector3 v = m_target->Getpos() - me->Getpos();
 		if (v.Length() < me->Getradius() + m_target->Getradius() + 10)
 		{
-			float dm = 3 * me->GetAttack();
+			float dm = 1.5 * me->GetAttack();
 			m_target->Damage(dm);
 			v.Normalize();
 			v *= 50;
