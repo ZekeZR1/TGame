@@ -14,6 +14,7 @@
 #include "../Online/Console.h"
 #include "backParticle.h"
 #include "../Game.h"
+#include "..//Fade/MusicFade.h"
 #include "../ReturnButton/ReturnButton.h"
 
 NetPVPMode::NetPVPMode()
@@ -311,6 +312,12 @@ void NetPVPMode::CheckDatas() {
 			}
 			m_isfade = true;
 			m_fade->FadeOut();
+
+			auto mf = NewGO<MusicFade>(0);
+			auto bgm = FindGO<Sound>("BGM");
+			if (bgm != nullptr) {
+				mf->init(bgm, 1, 1);
+			}
 		}
 	}
 
