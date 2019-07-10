@@ -20,4 +20,5 @@ private:
 	SkinModelRender* m_monster = nullptr;
 	AnimationClip m_anim[6];		//anime
 	CVector3 camerapos;
+	CQuaternion m_rot = CQuaternion::Identity();
 };

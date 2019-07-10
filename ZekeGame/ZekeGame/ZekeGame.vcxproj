@@ -1166,12 +1166,13 @@
     <None Include="Assets\Sprite\GUI\returnButton\Rarrow2.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\modelData\kikyo_chan\hero.FBX">
+    <MeshContentTask Include="Assets\modelData\kikyo_chan\hero.FBX">
       <FileType>Document</FileType>
-    </None>
+    </MeshContentTask>
     <None Include="Assets\modelData\RedHead\RedHead.fbx">
       <FileType>Document</FileType>
     </None>
+    <MeshContentTask Include="Assets\modelData\kikyo_chan\kikyozup.FBX" />
     <MeshContentTask Include="Assets\modelData\si_bug\si_bug.FBX">
       <FileType>Document</FileType>
     </MeshContentTask>

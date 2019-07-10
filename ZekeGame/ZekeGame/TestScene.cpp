@@ -52,13 +52,14 @@ bool TestScene::Start() {
 	m_anim[Monster::en_defenseE].SetLoopFlag(true);
 
 	m_monster->Init(L"Assets/modelData/book.cmo", m_anim, 6);
+	m_monster->SetShadowReciever(false);
 	m_monster->PlayAnimation(0);
 
 
-	auto mon1 = NewGO<SkinModelRender>(0);
-	mon1->Init(L"Assets/modelData/hero.cmo",nullptr,0,enFbxUpAxisY);
-	mon1->SetPosition({ 300,0,0 });
-
+	m_monster = NewGO<SkinModelRender>(0);
+	m_monster->Init(L"Assets/modelData/hero.cmo",nullptr,0);
+	m_monster->SetPosition({ 300,0,0 });
+	m_monster->SetShadowReciever(false);
 	return true;
 }
 
@@ -69,26 +70,40 @@ void TestScene::OnDestroy() {
 
 
 void TestScene::Update() {
-	/*if (g_pad[0].IsPress(enButtonA)) {
-		camerapos.x += 100;
+	if (g_pad[0].IsPress(enButtonA)) {
+		auto pos = m_monster->GetPosition();
+		pos.y += 10;
+		m_monster->SetPosition(pos);
 	}
 	if (g_pad[0].IsPress(enButtonB)) {
-		camerapos.x -= 100;
+		auto pos = m_monster->GetPosition();
+		pos.y -= 10;
+		m_monster->SetPosition(pos);
 	}
 
 	if (g_pad[0].IsPress(enButtonLeft)) {
-		camerapos.z += 100;
+		CQuaternion rot = CQuaternion::Identity();
+		rot.SetRotationDeg(CVector3::AxisX(), 10.f);
+		m_rot.Multiply(rot);
+		m_monster->SetRotation(m_rot);
 	}
 	if (g_pad[0].IsPress(enButtonRight)) {
-		camerapos.z -= 100;
+		CQuaternion rot = CQuaternion::Identity();
+		rot.SetRotationDeg(CVector3::AxisX(), -10.f);
+		m_rot.Multiply(rot);
+		m_monster->SetRotation(m_rot);
 	}
 
 	if (g_pad[0].IsPress(enButtonUp)) {
-		camerapos.y += 100;
+		auto pos = m_monster->GetPosition();
+		pos.z -= 10;
+		m_monster->SetPosition(pos);
 	}
 	if (g_pad[0].IsPress(enButtonDown)) {
-		camerapos.y -= 100;
-	}*/
+		auto pos = m_monster->GetPosition();
+		pos.z += 10;
+		m_monster->SetPosition(pos);
+	}
 	camera3d->SetPosition(camerapos);
 	camera3d->Update();
 }
