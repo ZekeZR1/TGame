@@ -105,8 +105,17 @@ public:
 	}
 
 	bool CanStartGame() {
-		return m_isEnemyLoadedMyData and isGotEnemyPythonCodes();
+		return m_isEnemyLoadedMyData && isGotEnemyPythonCodes();
 	}
+	
+	bool isEnemyLoadedMydata() {
+		return m_isEnemyLoadedMyData;
+	}
+
+	void SetEnemyLoadedMyDate(bool flag) {
+		m_isEnemyLoadedMyData = flag;
+	}
+
 	bool raiseMyLoadingState();
 	//012 
 	void SetTeamMonsterInfo(int info[3]);
