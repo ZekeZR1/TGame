@@ -1172,7 +1172,6 @@
     <None Include="Assets\modelData\RedHead\RedHead.fbx">
       <FileType>Document</FileType>
     </None>
-    <MeshContentTask Include="Assets\modelData\kikyo_chan\kikyozup.FBX" />
     <MeshContentTask Include="Assets\modelData\si_bug\si_bug.FBX">
       <FileType>Document</FileType>
     </MeshContentTask>

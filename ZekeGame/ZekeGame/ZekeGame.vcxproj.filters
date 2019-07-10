@@ -2274,8 +2274,5 @@
       <Filter>Assets\model</Filter>
     </MeshContentTask>
     <MeshContentTask Include="Assets\modelData\si_bug\si_bug.FBX" />
-    <MeshContentTask Include="Assets\modelData\kikyo_chan\kikyozup.FBX">
-      <Filter>Assets\model</Filter>
-    </MeshContentTask>
   </ItemGroup>
 </Project>
