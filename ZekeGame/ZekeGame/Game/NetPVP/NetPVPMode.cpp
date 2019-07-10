@@ -92,7 +92,6 @@ void NetPVPMode::TimeOut() {
 	m_recTime = 120 + add;
 	m_isTimeout = true;
 	m_isEnemyHere = false;
-	//m_font->Init(L"‘Îí‘Šè‚ğŒŸõ’†", m_waitingFontPos, 0.f, CVector4::White, 1.f, { 1,1 });
 }
 
 void NetPVPMode::Reconnect() {
