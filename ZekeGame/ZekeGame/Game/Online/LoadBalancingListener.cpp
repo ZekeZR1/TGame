@@ -236,16 +236,7 @@ void LoadBalancingListener::raiseVisualAIsData() {
 }
 
 bool LoadBalancingListener::raiseMyLoadingState() {
-	const nByte NumKey = 101;
-	const nByte CodeKey = 102;
-	for (int i = 0; i < 3; i++) {
-		if (m_text[i] == nullptr) continue;
-		Hashtable ev;
-		ev.put(NumKey, i);
-		JString code = m_text[i];
-		ev.put(CodeKey, code);
-		mpLbc->opRaiseEvent(false, ev, 2);
-	}
+	mpLbc->opRaiseEvent(false, 1, enLoadState);
 	return true;
 }
 
@@ -295,7 +286,6 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 	// logging the string representation of the eventContent can be really useful for debugging, but use with care: for big events this might get expensive
 	//EGLOG(ExitGames::Common::DebugLevel::ALL, L"an event of type %d from player Nr %d with the following content has just arrived: %ls", eventCode, playerNr, eventContent.toString(true).cstr());
 	misConect = true;
-	printf("get custom event action %d\n", (int)eventCode);
 	switch (eventCode)
 	{
 	case 1:
@@ -310,8 +300,6 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 	{
 		////ペイロードはハッシュテーブルである必要はありません。
 		//float content = ExitGames::Common::ValueObject<float>(eventContentObj).getDataCopy();
-		printf("\nEnemy Loaded my AI Datas\n");
-		m_isEnemyLoadedMyData = true;
 	}
 	break;
 	case 3:
@@ -342,7 +330,7 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 			if (number == -1)
 				abort();
 			m_isAiLoaded[number] = true;
-			printf("\nLoad Python AI %d\n", number);
+			printf("\nGet Python AI %d\n", number);
 
 #if _DEBUG
 			char str[256];
@@ -383,7 +371,7 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 			m_isAiLoaded[id] = true;
 			m_enemyAimode[id] = 1;
 			char str[256];
-			printf("\nLoad Visual AI %d\n", id);
+			printf("\nGet Visual AI %d\n", id);
 			sprintf_s(str, "%d is Visual AI Data", id);
 			OutputDebugString(str);
 		}
@@ -462,7 +450,7 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 	break;
 	case enMonData:
 	{
-		printf("\nLoad Enemy Monster Datas\n");
+		printf("\nGet Enemy Monster Datas\n");
 		//nByte* pContent = ExitGames::Common::ValueObject<nByte*>(eventContentObj).getDataCopy();
 		////int** ppContent = ExitGames::Common::ValueObject<int*>(eventContentObj).getDataAddress();
 		//short contentElementCount = *ExitGames::Common::ValueObject<int*>(eventContentObj).getSizes();
@@ -549,6 +537,7 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 	break;
 	case enRateData:
 	{
+		printf("Get Enemy Rating\n");
 		ExitGames::Common::Hashtable eventContent = ExitGames::Common::ValueObject<ExitGames::Common::Hashtable>(eventContentObj).getDataCopy();
 		Object const* obj = eventContent.getValue("1");
 		if (!obj)
@@ -593,11 +582,6 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 	{
 		printf("\nEnemy Loaded my AI Datas\n");
 		m_isEnemyLoadedMyData = true;
-		int content = ExitGames::Common::ValueObject<int>(eventContentObj).getDataCopy();
-		if (content) {
-			OutputDebugString("\n");
-			OutputDebugString("enemy is loaded my monster ai datas\n");
-		}
 	}
 		break;
 	default:
