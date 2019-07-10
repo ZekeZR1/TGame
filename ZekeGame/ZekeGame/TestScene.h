@@ -15,6 +15,9 @@ public:
 	void OnDestroy() override;
 	void Update() override;
 private:
-	Sound* m_se = nullptr;
-	float vol = 1.f;
+	SkinModelRender* m_model = nullptr;
+	SkinModelRender* m_floor = nullptr;
+	SkinModelRender* m_monster = nullptr;
+	AnimationClip m_anim[6];		//anime
+	CVector3 camerapos;
 };
