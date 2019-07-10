@@ -6,8 +6,8 @@
 ShadowMap::ShadowMap()
 {
 	m_shadowMapRT.Create(
-		4096,
-		4096,
+		4096 * 2,
+		4096 * 2,
 		DXGI_FORMAT_R32_FLOAT
 	);
 }
