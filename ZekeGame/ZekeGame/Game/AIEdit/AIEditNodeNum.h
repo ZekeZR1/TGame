@@ -56,19 +56,23 @@ private:
 	bool contact1 = false;
 	bool contact2 = false;
 
+	CVector2 SetShadowPos = { 5.f,-5.f };
+
+	CVector3 m_position = CVector3::Zero();
+	CVector3 m_pointposition = CVector3::Zero();
+
 	std::vector<FontRender*> m_fonts;
 	std::vector<FontRender*> m_font;
+	std::vector<SpriteRender*> m_spriteRenders;
+	std::vector<AIEditNodeButton*> m_nodebuttons;
+
 	SpriteRender * m_spriteRender;
 	SpriteRender * sr;
+
 	AIEditNode * m_aieditnode;
 	GameCursor * m_gamecursor;
 	AIEditNodeOrder * m_aieditnodeorder;
 	AIEditLine * m_aieditline;
 	AIEditNodeButton* m_aieditnodebutton;
 	AIEditNodeProcess* m_aieditnodeprocess;
-	CVector3 m_position = CVector3::Zero();
-	CVector3 m_pointposition = CVector3::Zero();
-	std::vector<SpriteRender*> m_spriteRenders;
-
-	std::vector<AIEditNodeButton*> m_nodebuttons;
 };

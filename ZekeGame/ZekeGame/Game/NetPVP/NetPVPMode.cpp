@@ -59,109 +59,29 @@ void NetPVPMode::OnDestroy()
 	m_lbl->DataReset();
 }
 
-
 void NetPVPMode::Update() {
-	if(m_lbl == nullptr)
+	if (m_lbl == nullptr) {
 		m_lbl = NetSystem().GetNetworkLogic().GetLBL();
-#if _DEBUG
-	if (g_pad[0].IsTrigger(enButtonA)) {
+		if (m_lbl == nullptr)
+			return;
 	}
-	if (g_pad[0].IsTrigger(enButtonB)) {
-	}
-#endif
-	if (m_lbl == nullptr) return;
 	NetSystem().GetNetworkLogic().Update();
+	//AIやモンスターやレートなどのデータを送信
 	 RaiseData();
+	 //敵のデータを読み込む
 	 LoadEnemyData();
+	 //ボタンやテキストの更新
 	 UiUpdate();
-	 if (m_lbl->isGotEnemyPythonCodes())
-		 m_raiseTimer += IGameTime().GetFrameDeltaTime();
-	 if (m_lbl->isGotEnemyPythonCodes() and m_raiseTimer >= 1) {
-		 m_lbl->raiseMyLoadingState();
-		 printf("\n---------------------------------------------------------\nRAISE MY LOAD STATE LOAD COMPLETE\n---------------------------------------------------------\n");
-		 m_raiseTimer = 0.f;
-		 OutputDebugString("\n");
-		 OutputDebugString("I loaded enemy data. raise my load state to enemy\n");
-	 }
-	 if (m_lbl->CanStartGame()) {
-		 m_lbl->raiseMyLoadingState();
-		 OutputDebugString("\n I loaded Enemy data , enemy is loaded  too. can start battle\n");
-		 auto eneaimode = m_lbl->GetEnemyAiModes();
-		 for (int i = 3; i < 6; i++) {
-			 m_monai[i] = i - 3;
-			 m_moid[i] = m_enemyId[i - 3];
-			 m_aimode[i] = eneaimode[i - 3];
-		 }
-		 startTimer += IGameTime().GetFrameDeltaTime();
-	 }
-	 
-	
-	 //if (startTimer >=  10.f) {
-	 if(m_lbl->CanStartGame() or m_dataLoaded and m_lbl->isEnemyAbandoned()){
-		 if (!m_isfade) {
-			 m_lbl->raiseMyLoadingState();
-			 auto eneaimode = m_lbl->GetEnemyAiModes();
-			 for (int i = 3; i < 6; i++) {
-				 m_monai[i] = i - 3;
-				 m_moid[i] = m_enemyId[i - 3];
-				 m_aimode[i] = eneaimode[i - 3];
-			 }
-			 m_isfade = true;
-			 OutputDebugString("\nSTART FADE !! LETS START BATTLE!!\n");
-			 m_fade->FadeOut();
-		 }
-		 else {
-			 OutputDebugString("\nfade outing\n");
-		 }
-	 }
-	 //戦闘開始
-	 if (m_fade->isFadeStop() && m_isfade) {
-		 BattleStart();
-	 }
-
-	 //自分がルームに接続中で敵が見つかってない時にタイマーを進める
-	 if (m_lbl->isJoining() and !m_lbl->isConect()) {
-		 m_timer += IGameTime().GetFrameDeltaTime();
-	 }
-	 if(!m_lbl->isJoining()) {
-		 //エラーが発生していたらエラータイマーを進める
-		 errorTimer += IGameTime().GetFrameDeltaTime();
-	 }
-	 //敵がいるときはタイムアウト用のタイマーを進めない
-	 if (m_lbl->isConect())
-		 m_timer = 0.f;
-
-	 //相手が全然見つからない場合は接続しなおす
-	 if (!m_lbl->CanStartGame() and m_timer > timeout) {
-		 TimeOut();
-	 }
-
-	 //if (m_lbl->isConect()) {
-		 //m_timer = 0.f;
-	 //}
-
-	 //タイムアウトしてしばらくしたら繋ぎ直してみる
-	 if(m_recTime == m_rcuTime)
-		Reconnect();
-	 char str[256];
-	 sprintf_s(str, "\n\n\nTIEMRERERERER %f\n\n\nTIMER ERROR %f\n\n\n", m_timer,errorTimer);
-	 OutputDebugString(str);
-	 if (m_isTimeout) m_rcuTime++;
-	 //敵がいなくなってしまったら色々リセット
-	 if (m_lbl->isEnemyAbandoned() and !m_lbl->CanStartGame() or errorTimer >= 20.f) {
-		 //m_lbl->DataReset();
-		 //m_isEnemyHere = false;
-		 //m_timer = 0.f;
-		 TimeOut();
-	 }
-	 //敵とつながったか
-	 if (m_lbl->isConect())
-		 m_isEnemyHere = true;
-	 else
-		 m_isEnemyHere = false;
+	 //通信データの状態をチェックする
+	 CheckDatas();
+	 //フェード後に戦闘開始
+	 if (m_fade->isFadeStop() && m_isfade)  BattleStart();
+	//タイムアウト関係の処理
+	 UpdateTimeOutProc();
 }
 
 void NetPVPMode::TimeOut() {
+	printf("time out. disconnecting...\n");
 	m_lbl->disconnect();
 	m_lbl->DataReset();
 	m_timer = 0.f;
@@ -171,13 +91,12 @@ void NetPVPMode::TimeOut() {
 	int add = rnd() % 100;
 	m_recTime = 120 + add;
 	m_isTimeout = true;
-	m_raiseTimer = 0.f;
 	m_isEnemyHere = false;
-	//m_font->Init(L"対戦相手を検索中", m_waitingFontPos, 0.f, CVector4::White, 1.f, { 1,1 });
 }
 
 void NetPVPMode::Reconnect() {
-	OutputDebugString("timeout...reconnecting...\n");
+	printf("recconecting...\n");
+	OutputDebugString("reconnecting...\n");
 	m_lbl->connect(JString(L"NV") + GETTIMEMS());
 	m_isTimeout = false;
 	m_isfade = false;
@@ -185,20 +104,44 @@ void NetPVPMode::Reconnect() {
 }
 
 void NetPVPMode::RaiseData() {
-	if (m_dataRaiseTimer >= 1) {
-		//Raise Monster ids
-		int ids[3];
-		for (int i = 0; i < 3; i++)
-			ids[i] = m_moid[i];
-		m_lbl->SetTeamMonsterInfo(ids);
-		m_lbl->raiseMonData();
-		for (int i = 0; i < 3; i++) {
-			m_lbl->SetAiMode(m_aimode[i], i);
-		}
-		//Raise Monster AIs
+	//相手がいない時は何も送信しない
+	if (!m_isEnemyHere) return;
+	//ロードできてたら相手に伝える
+	if (m_dataLoaded) {
+		printf("loading enemy datas complete...\n");
+		m_lbl->raiseMyLoadingState();
+	}
+
+	//相手が自分のデータをロードできていたら送信は行わない
+	if (m_lbl->isEnemyLoadedMydata())
+		return;
+
+	//Monster情報
+	if (m_dataRaiseTimer >= 1 and !m_monsterDataRaised) {
+		printf("raise my monster ids...\n");
+		RaiseMonsterID();
+		m_monsterDataRaised = true;
+	}
+	//AIファイル
+	if (m_dataRaiseTimer >= 2 and !m_monsterAisRaised) {
+		printf("raise my ai datas...\n");
 		RaiseAiVaData();
 		RaiseAiTextData();
+		m_monsterAisRaised = true;
+	}
+	//レート情報
+	if (m_dataRaiseTimer >= 3.5 and !m_RateInfoRaised) {
+		printf("raise my rating info...\n");
 		RaiseRatingData();
+		m_RateInfoRaised = true;
+	}
+
+	//Timerリセット
+	if (m_dataRaiseTimer >= 5) {
+		printf("timer reset\n");
+		m_monsterDataRaised = false;
+		m_monsterAisRaised = false;
+		m_RateInfoRaised = false;
 		m_dataRaiseTimer = 0.f;
 	}
 	m_dataRaiseTimer += IGameTime().GetFrameDeltaTime();
@@ -279,26 +222,7 @@ void NetPVPMode::RaiseAiVaData() {
 			std::char_traits<char>::copy(cstr, path.c_str(), path.size() + 1);
 			strcat(cd, cstr);
 			delete[] cstr;
-			/*ifstream ifs(cd, ios::in | ios::binary);
-			if (!ifs) abort();
-			int datas[1024] = { 0 };
-			for (int k = 0; k < 1024; k++) {
-				int x;
-				ifs.read((char*)& x, sizeof(int));
-				datas[k] = x;
-			}
-			ifs.close();*/
-			/*FILE* fp;
-			fp = fopen(cd, "rb");
-			string data;
-			for (int i = 0; i < 1024; i++) {
-				int buf = 0;
-				fread(&buf, 1, 1, fp);
-				char ss[256];
-				sprintf_s(ss, "%02x", buf);
-				data += ss;
-			}
-			fclose(fp);*/
+
 			ifstream ifs;
 			JString data;
 			ifs.open(cd, ios::in | ios::binary);
@@ -323,9 +247,7 @@ void NetPVPMode::RaiseAiVaData() {
 		}
 	}
 	if (m_lbl->isConect()) {
-		//if (isRaisedVA) return;
 		m_lbl->raiseVisualAIsData();
-		isRaisedVA = true;
 	}
 }
 
@@ -337,7 +259,6 @@ void NetPVPMode::BackToMenu() {
 	//NewGO<NetAISelect>(0);
 	//DeleteGO(this);
 }
-
 
 void NetPVPMode::InitUI() {
 	m_wallpaper = NewGO<SpriteRender>(0);
@@ -374,4 +295,76 @@ void NetPVPMode::UiUpdate() {
 	}
 	if(!m_isfade)
 		m_returnButton->UpdateEx<NetAISelect>();
+}
+
+void NetPVPMode::CheckDatas() {
+
+	if (m_lbl->CanStartGame()/* or m_dataLoaded and m_lbl->isEnemyAbandoned()*/) {
+		if (!m_isfade) {
+
+			m_lbl->raiseMyLoadingState();
+			auto eneaimode = m_lbl->GetEnemyAiModes();
+			for (int i = 3; i < 6; i++) {
+				m_monai[i] = i - 3;
+				m_moid[i] = m_enemyId[i - 3];
+				m_aimode[i] = eneaimode[i - 3];
+			}
+			m_isfade = true;
+			m_fade->FadeOut();
+		}
+	}
+
+	//敵とつながったか
+	if (m_lbl->isConect())
+		m_isEnemyHere = true;
+	else
+		m_isEnemyHere = false;
+}
+
+void NetPVPMode::RaiseMonsterID() {
+	//モンスターのID
+	int ids[3];
+	for (int i = 0; i < 3; i++)
+		ids[i] = m_moid[i];
+	m_lbl->SetTeamMonsterInfo(ids);
+	m_lbl->raiseMonData();
+	//AIモード
+	for (int i = 0; i < 3; i++) {
+		m_lbl->SetAiMode(m_aimode[i], i);
+	}
+}
+
+void NetPVPMode::UpdateTimeOutTimer() {
+	//自分がルームに接続中で敵が見つかってない時にタイマーを進める
+	if (m_lbl->isJoining() and !m_lbl->isConect()) {
+		m_timer += IGameTime().GetFrameDeltaTime();
+	}
+	if (!m_lbl->isJoining()) {
+		//エラーが発生していたらエラータイマーを進める
+		errorTimer += IGameTime().GetFrameDeltaTime();
+	}
+	//敵がいるときはタイムアウト用のタイマーを進めない
+	if (m_lbl->isConect())
+		m_timer = 0.f;
+}
+
+void NetPVPMode::UpdateTimeOutProc() {
+	//タイムアウト用のタイマー更新
+	UpdateTimeOutTimer();
+
+	//相手が全然見つからない場合は接続しなおす
+	if (!m_lbl->CanStartGame() and m_timer > timeout) {
+		TimeOut();
+	}
+
+	//タイムアウトしてしばらくしたら繋ぎ直してみる
+	if (m_recTime == m_rcuTime)
+		Reconnect();
+
+	if (m_isTimeout) m_rcuTime++;
+
+	//敵がいなくなってしまったら色々リセット
+	if (m_lbl->isEnemyAbandoned() and !m_lbl->CanStartGame() or errorTimer >= 20.f) {
+		TimeOut();
+	}
 }
