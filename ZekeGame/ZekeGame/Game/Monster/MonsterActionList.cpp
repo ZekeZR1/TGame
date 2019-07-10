@@ -166,10 +166,10 @@ void MonsterActionList::init(Monster * mon)
 	swprintf_s(ws,L"%d", mon->Getnum() - (team == 0 ? -1 : 2));
 
 	m_SmonNum = NewGO<FontRender>(2,"fr");
-	m_SmonNum->Init(ws, { m_vh.x +6+ 3 + 2,m_vh.y - 9 + 50 - 2 }, 0, { 0,0,0,1 }, 0.5f, { 0,0 });
+	m_SmonNum->Init(ws, { m_vh.x +6+ 2 + 2,m_vh.y + 50 - 2 }, 0, { 0,0,0,1 }, 0.5f, { 0,0 });
 
 	m_monNum = NewGO<FontRender>(2, "fr");
-	m_monNum->Init(ws, { m_vh.x+6+3,m_vh.y - 9 + 50 }, 0, CVector4::White, 0.5f, { 0,0 });
+	m_monNum->Init(ws, { m_vh.x+6+2,m_vh.y + 50}, 0, CVector4::White, 0.5f, { 0,0 });
 
 	
 
