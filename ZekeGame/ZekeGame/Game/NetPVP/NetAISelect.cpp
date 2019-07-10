@@ -43,6 +43,14 @@ bool NetAISelect::Start()
 {
 	m_fade = FindGO<Fade>("fade");
 
+	auto m_BGM = FindGO<Sound>("BGM");
+	if (m_BGM == nullptr)
+	{
+		m_BGM = NewGO<Sound>(0, "BGM");
+		m_BGM->Init(L"Assets/sound/BGM/PerituneMaterial_Strategy5_loop.wav", true);
+		m_BGM->Play();
+	}
+
 	//m_back = NewGO<SpriteRender>(0, "sp");
 	//m_back->Init(L"Assets/sprite/monsel_back.dds", 1280, 720);
 	m_msback = NewGO<MonsterSelectBack>(0, "msb");
