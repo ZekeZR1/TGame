@@ -2,8 +2,8 @@
 
 import PythonAIs.CppBridge as cb
 
-def Brain(num,team):
-    cb.init(num,team)
+def Brain():
+    cb.Init()
     me = cb.GetMe()
     tar = cb.GetEnemyLowHPMonster()
     if me.ID == cb.SendGame.Goblin:

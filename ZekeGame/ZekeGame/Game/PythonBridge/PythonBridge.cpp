@@ -897,6 +897,17 @@ static PyObject* MMprint(PyObject* self, PyObject* args)
 	return Py_None;
 }
 
+static PyObject* MGetMyNum(PyObject* self, PyObject* args)
+{
+	PyObject* num = PyLong_FromLong(pData()->Getnum());
+	return num;
+}
+static PyObject* MGetMyTeam(PyObject* self, PyObject* args)
+{
+	PyObject* num = PyLong_FromLong(pData()->Getteam());
+	return num;
+}
+
 //moduleì‡ÇÃä÷êîÇΩÇø
 static PyMethodDef methods[] =
 {
@@ -934,6 +945,9 @@ static PyMethodDef methods[] =
 	{"addAction",addAction,METH_VARARGS,"hehokon"},
 	{"Move",PyMMove,METH_VARARGS,"hehokon"},
 	{"MMprint",MMprint,METH_VARARGS,"hehokon"},
+
+	{"GetMyNum",MGetMyNum,METH_NOARGS,"hehokon"},
+	{"GetMyTeam",MGetMyTeam,METH_NOARGS,"hehokon"},
 	{NULL,NULL,0,NULL}
 };
 

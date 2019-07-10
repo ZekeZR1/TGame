@@ -1,5 +1,4 @@
-#from multiprocessing import Process
-#import threading
+###PLAYER###
 from enum import IntEnum
 import SendGame
 
@@ -132,6 +131,74 @@ class GameData:
         ゲームデータの初期化
         必ず最初に使いましょう。
         """
+        self.buddyCount = SendGame.GetBuddyCount()
+        self.enemyCount = SendGame.GetEnemyCount()
+
+        self.Buddy = []
+        datas = SendGame.GetAllBuddyData(team)
+        for i in range(self.buddyCount):
+            mon = Monster()
+            mon.ID = datas[i][0]
+            mon.num = datas[i][1]
+            mon.team = datas[i][2]
+            mon.HP = datas[i][3]
+            mon.MP = datas[i][4]
+            
+            pos = datas[i][5]
+            mon.SetPosition(pos[0],pos[1],pos[2])
+
+            mon.Attack = datas[i][6]
+            mon.AttackEx = datas[i][7]
+            mon.Defence = datas[i][8]
+            mon.DefenceEx = datas[i][9]
+
+            mon.speed = datas[i][10]
+            pos = datas[i][11]
+            mon.movespeed.SetVector(pos[0],pos[1],pos[2])
+
+            self.Buddy.append(mon)
+
+        self.Enemys = []
+        datas = SendGame.GetAllEnemyData(team)
+        for i in range(self.enemyCount):
+            mon = Monster()
+            mon.ID = datas[i][0]
+            mon.num = datas[i][1]
+            mon.team = datas[i][2]
+            mon.HP = datas[i][3]
+            mon.MP = datas[i][4]
+            
+            pos = datas[i][5]
+            mon.SetPosition(pos[0],pos[1],pos[2])
+
+            self.Enemys.append(mon)
+
+        mm = None
+        for i in range(len(self.Buddy)):
+            mon = self.Buddy[i]
+            if mon.num == num:
+                mm = mon.copy()
+                del self.Buddy[i]
+                break
+        if mm == None:
+            return
+        self.me = Monster()
+        self.me.ID = mm.ID
+        self.me.position = mm.position
+        self.me.HP = mm.HP
+        self.me.MP = mm.MP
+        self.me.num = mm.num
+        self.me.team = mm.team
+        self.me.state = mm.state
+
+    def Init(self):
+        """
+        ゲームデータの初期化
+        必ず最初に使いましょう。
+        """
+        num = SendGame.GetMyNum()
+        team = SendGame.GetMyTeam()
+        
         self.buddyCount = SendGame.GetBuddyCount()
         self.enemyCount = SendGame.GetEnemyCount()
 
@@ -389,6 +456,9 @@ def init(num,team):
         """
     #SendGame.gameData.init(num,team)
     gameData.init(num,team)
+
+def Init():
+    gameData.Init()
 
 
 def GetMe():

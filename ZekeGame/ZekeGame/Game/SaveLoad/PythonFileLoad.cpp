@@ -32,7 +32,7 @@ std::vector<std::string> PythonFileLoad::FilesLoad()
 		else
 		{
 			std::string p = win32d.cFileName;
-			if (p == "_MiddleExecute.py" || p == "CppBridge.py")
+			if (p[0] == '_' || p == "CppBridge.py")
 				continue;
 				
 			//p.resize(p.length() - 3);

@@ -2,8 +2,8 @@
 
 import CppBridge as cb
 
-def Brain(num,team):
-    cb.init(num,team)
+def Brain():
+    cb.Init()
     me = cb.GetMe()
     pos = me.position
     pos.x += 300
