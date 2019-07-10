@@ -1,5 +1,4 @@
 ###PLAYER###
-from enum import IntEnum
 import SendGame
 
 
@@ -72,60 +71,8 @@ class Monster:
         nmon.state = self.state
         return nmon
 
-class ACTION(IntEnum):
-    Atack = 0
-    Chase = 1
-    Leave = 2
-    Defense = 3
-    Fire = 4
-    Tackle = 5
-    Guardian = 6
-    Recovery = 7
 
 class GameData:
-    def fuck__init__(self):
-        self.me = Monster()
-        pos = SendGame.GetMyPosition();
-        self.me.SetPosition(pos[0],pos[1],pos[2])
-        self.me.HP = SendGame.GetMyHP()
-        self.me.MP = SendGame.GetMyMP()
-        self.me.num = SendGame.GetMyNum()
-        self.me.team = SendGame.GetMyTeam()
-
-        self.buddyCount = SendGame.GetBuddyCount()
-        self.enemyCount = SendGame.GetEnemyCount()
-
-        self.Buddy = []
-        #poss = SendGame.GetAllBuddyPosition()
-        #nums = SendGame.GetAllBuddyNum()
-        datas = SendGame.GetAllBuddyData()
-        #for i in range(self.buddyCount-1):
-        for i in range(self.buddyCount):
-            mon = Monster()
-            #mon.SetPosition(poss[i][0],poss[i][1],poss[i][2])
-            #mon.num = nums[i]
-            mon.ID = datas[i][0]
-            mon.num = datas[i][1]
-            mon.team = datas[i][2]
-            mon.HP = datas[i][3]
-            mon.MP = datas[i][4]
-            
-            pos = datas[i][5]
-            mon.SetPosition(pos[0],pos[1],pos[2])
-
-            self.Buddy.append(mon)
-
-        self.Enemys = []
-        poss = SendGame.GetAllEnemyPosition()
-        nums = SendGame.GetAllEnemyNum()
-        HPs = SendGame.GetAllEnemyHP()
-        for i in range(self.enemyCount):
-            mon = Monster()
-            mon.SetPosition(poss[i][0],poss[i][1],poss[i][2])
-            mon.num = nums[i]
-            mon.HP = HPs[i]
-            self.Enemys.append(mon)
-
     def init(self,num,team):
         """
         ゲームデータの初期化
@@ -259,9 +206,6 @@ class GameData:
         self.me.team = mm.team
         self.me.state = mm.state
 
-        
-    def tesGetEneNum():
-        return SendGame.GetAllEnemyNum()
 
     def GetFarMonster(self):
         farmon = None
@@ -430,24 +374,16 @@ class GameData:
 
 gameData = GameData()
 
-
-TestmonsID = 0
-UmataurID = 1
-FairyID = 2
-
 Uma = SendGame.Uma
-Yousei = SendGame.Yose
-
-def GetMonsStateHP(id):
-    hp = 1
-    if TestmonsID == id:
-        hp = 10
-    elif UmataurID == id:
-        hp = 160
-    elif FairyID == id:
-        hp = 160
-
-    return hp
+Yose = SendGame.Yose
+Armor = SendGame.Armor
+Goblin = SendGame.Goblin
+Book = SendGame.Book
+RedHead = SendGame.RedHead
+Kikyo = SendGame.Kikyo
+SicoChu = SendGame.SicoChu
+Ringo = SendGame.Ringo
+Chris = SendGame.Chris
 
 
 def init(num,team):
@@ -463,13 +399,6 @@ def Init():
 
 def GetMe():
     return gameData.me
-
-def GetMePercentHP():
-    return gameData.me.HP / GetMonsStateHP(gameData.me.ID)
-
-def GetPercentHP(mon):
-    return mon.HP / GetMonsStateHP(mon.ID)
-
 
 
 def GetFarMonster():
@@ -544,54 +473,85 @@ def FindEnemyMonsterList(monID):
     return gameData.FindEnemyMonsters(monID)
 
 
-MonsterUseAction = [
-    [ACTION.Chase,ACTION.Atack,ACTION.Leave,ACTION.Defense,ACTION.Fire,ACTION.Tackle,ACTION.Guardian],
-    [ACTION.Chase,ACTION.Atack,ACTION.Defense,ACTION.Tackle,ACTION.Guardian],
-    [ACTION.Chase,ACTION.Atack,ACTION.Leave,ACTION.Defense,ACTION.Fire,ACTION.Recovery]
-    ]
-
 actions = []
 
 
 def addAction(target,action):
     """外から使わないでね!"""
-    #if len(actions) >= 3 or target == None:
     if target == None:
         return
-    if False:
-        for ac in MonsterUseAction[gameData.me.ID]:
-            if ac == action:
-                actions.append([int(action),target.num])
-                break
-    else:
-        actions.append([int(action),target.num])
+    actions.append([int(action),target.num])
 
 def Chase(target):
-    addAction(target,ACTION.Chase)
-
-def Atack(target):
-    """タイプミスの産物"""
-    addAction(target,ACTION.Atack)
+    SendGame.addAction(target.num,SendGame.CHASE)
+    
 def Attack(target):
-    addAction(target,ACTION.Atack)
+    SendGame.addAction(target.num,SendGame.ATTACK)
 
-def Leave(target):
-    addAction(target,ACTION.Leave)
+def Escape(target):
+    SendGame.addAction(target.num,SendGame.ESCAPE)
 
 def Defense(target):
-    addAction(target,ACTION.Defense)
+    SendGame.addAction(target.num,SendGame.DEFENSE)
 
 def Fire(target):
-    addAction(target,ACTION.Fire)
+    SendGame.addAction(target.num,SendGame.FIRE)
 
 def Tackle(target):
-    addAction(target,ACTION.Tackle)
+    SendGame.addAction(target.num,SendGame.TACKLE)
 
 def Guardian(target):
-    addAction(target,ACTION.Guardian)
+    SendGame.addAction(target.num,SendGame.GUARDIAN)
 
-def Recovery(target):
-    addAction(target,ACTION.Recovery)
+def Heal(target):
+    SendGame.addAction(target.num,SendGame.HEAL)
+
+def SUPER_BEAM(target):
+    SendGame.addAction(target.num,SendGame.SUPER_BEAM)
+
+def Obst_Move(target):
+    SendGame.addAction(target.num,SendGame.Obst_Move)
+
+def Cleanse(target):
+    SendGame.addAction(target.num,SendGame.Cleanse)
+
+def ATK_Buff(target):
+    SendGame.addAction(target.num,SendGame.ATK_Buff)
+
+def ATK_Debuff(target):
+    SendGame.addAction(target.num,SendGame.ATK_Debuff)
+
+def DEF_Buff(target):
+    SendGame.addAction(target.num,SendGame.DEF_Buff)
+
+def DEF_Debuff(target):
+    SendGame.addAction(target.num,SendGame.DEF_Debuff)
+
+def Clear_Stack(target):
+    SendGame.addAction(target.num,SendGame.Clear_Stack)
+
+def Majinken(target):
+    SendGame.addAction(target.num,SendGame.Majinken)
+
+def MP_Heal(target):
+    SendGame.addAction(target.num,SendGame.MP_Heal)
+
+def Blizzard(target):
+    SendGame.addAction(target.num,SendGame.Blizzard)
+
+def Ignite(target):
+    SendGame.addAction(target.num,SendGame.Ignite)
+
+def Poison(target):
+    SendGame.addAction(target.num,SendGame.Poison)
+
+def Thunder(target):
+    SendGame.addAction(target.num,SendGame.Thunder)
+
+def Kamikaze(target):
+    SendGame.addAction(target.num,SendGame.Kamikaze)
+
+    
 
 def Move(targetPosition):
     """モンスターを指定したポジションに移動させる。"""
@@ -601,8 +561,8 @@ def End():
     SendGame.SetAction(actions,gameData.me.num);
 
 
-def testBrain(MeNum,MeTeam):
-    #gameData.init(args)
-    return 1
+def Brain():
+    Init()
+    End()
 
 

@@ -1,5 +1,4 @@
 ###PLAYER###
-from enum import IntEnum
 import SendGame
 
 
@@ -207,9 +206,6 @@ class GameData:
         self.me.team = mm.team
         self.me.state = mm.state
 
-        
-    def tesGetEneNum():
-        return SendGame.GetAllEnemyNum()
 
     def GetFarMonster(self):
         farmon = None
@@ -388,17 +384,6 @@ Kikyo = SendGame.Kikyo
 SicoChu = SendGame.SicoChu
 Ringo = SendGame.Ringo
 Chris = SendGame.Chris
-
-def GetMonsStateHP(id):
-    hp = 1
-    if TestmonsID == id:
-        hp = 10
-    elif UmataurID == id:
-        hp = 160
-    elif FairyID == id:
-        hp = 160
-
-    return hp
 
 
 def init(num,team):
