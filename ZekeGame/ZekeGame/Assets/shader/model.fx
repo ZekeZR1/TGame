@@ -206,12 +206,26 @@ float4 PSMainStage( PSInput In ) : SV_Target0
 			//シャドウマップに書き込まれている深度値を取得。
 			float zInShadowMap = g_shadowMap.Sample(Sampler, shadowMapUV);
 
-			if (zInLVP > zInShadowMap + 0.01f) {
+			if (zInLVP > zInShadowMap - 0.01f) {
 				//影が落ちているので、光を弱くする
 				albedoColor.xyz = shadowColor.xyz;
 			}
 		}
 	}
+	return albedoColor;
+}
+float4 PSMainBook(PSInput In) : SV_Target0
+{
+	//テクスチャカラー
+	float4 albedoColor = albedoTexture.Sample(Sampler, In.TexCoord);
+	//ディレクションライト　
+	float3 lig = 0.0f;
+	
+	lig += max(0.0f, dot(In.Normal * -1.0f, float3( -0.707f, -0.707f, 0.0f) ) );
+	
+	//ambient
+	lig += albedoColor.xyz * ambientLight;
+	albedoColor.xyz *= lig;
 	return albedoColor;
 }
 //--------------------------------------------------------------------------------------
@@ -267,7 +281,7 @@ float4 PSMain(PSInput In) : SV_Target0
 				//シャドウマップに書き込まれている深度値を取得。
 				float zInShadowMap = g_shadowMap.Sample(Sampler, shadowMapUV);
 	
-				if (zInLVP > zInShadowMap + 0.01f) {
+				if (zInLVP > zInShadowMap + 0.002f) {
 					//影が落ちているので、光を弱くする
 					albedoColor.xyz = shadowColor.xyz;
 				}

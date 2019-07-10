@@ -36,7 +36,8 @@ Book::Book()
 	m_anim[Monster::en_defenseE].SetLoopFlag(true);
 
 	m_smr = NewGO<SkinModelRender>(0,"sr");
-	m_smr->Init(L"Assets/modelData/book.cmo", m_anim, 6);
+	m_smr->Init(L"Assets/modelData/book.cmo", m_anim, 6,enFbxUpAxisZ,"PSMainBook");
+	m_smr->SetShadowReciever(false);
 	m_AnimNum = 6;
 
 	MonsterInitParam prm;
