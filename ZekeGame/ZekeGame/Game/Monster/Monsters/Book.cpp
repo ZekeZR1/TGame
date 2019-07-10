@@ -18,7 +18,7 @@ Book::Book()
 
 	m_speed = 30;
 	m_radius = 30;
-	m_height = 70;
+	m_height = 180;
 
 	m_anim[Monster::en_idle].Load(L"Assets/modelData/book/book_idle.tka");
 	m_anim[Monster::en_idle].SetLoopFlag(true);

@@ -13,6 +13,7 @@
 #include "AIEdtiNodeAbnormalState.h"
 #include "AIEditNodeSelectFonts.h"
 #include "AIEditNodeDeleteKey.h"
+
 AIEditNodeOrder::~AIEditNodeOrder()
 {
 	
@@ -65,7 +66,6 @@ bool AIEditNodeOrder::Start()
 
 	m_spriteRender = NewGO<SpriteRender>(2, "mass");
 	m_spriteRender->Init(L"Assets/sprite/masss.dds", 280, 80);  //last
-	//m_spriteRender->Init(L"Assets/sprite/fade_black.dds", 280, 80);  //last
 	m_spriteRender->SetPosition(m_pos);
 	m_aieditnodeprocess->SetClickFlag(true);
 
@@ -107,31 +107,30 @@ void AIEditNodeOrder::Fonts()
 		m_fontpos1.y = m_pos.y + 38;
 		if (m_aieditnodetarget->GetTarget() == 100) {
 			m_fonts[0]->Init(L"じぶん", { m_fontpos1 }, 0.0, CVector4::White, scale, { 0.0,0.0 });
-			m_fonts[0]->DrawShadow({ 5,-5 });
+			m_fonts[0]->DrawShadow({ SetShadowPos });
 		}
 		
 		if (m_aieditnodetarget->GetTarget() == 101) {
 			m_fonts[0]->Init(L"みかた", { m_fontpos1 }, 0.0, CVector4::White, scale, { 0.0,0.0 });
-			m_fonts[0]->DrawShadow({ 5,-5 });
+			m_fonts[0]->DrawShadow({ SetShadowPos });
 		}
 		if (m_aieditnodetarget->GetTarget() == 102) {
 			m_fonts[0]->Init(L"てき", { m_fontpos1 }, 0.0, CVector4::White, scale, { 0.0,0.0 });
-			m_fonts[0]->DrawShadow({ 5,-5 });
+			m_fonts[0]->DrawShadow({ SetShadowPos });
 		}
 	}
 
 	if (m_aieditnode != nullptr) {
 		CVector2 m_fontpos2 = CVector2::Zero();
 		m_fontpos2.x = m_pos.x - 120;
-		//m_fontpos2.y = m_pos.y + 5;
 		m_fontpos2.y = m_pos.y + 38;
 		if (m_aieditnode->GetNode() == 200) {
 			m_fonts[1]->Init(L"　　　の\nHP", { m_fontpos2 }, 0.0, CVector4::White, scale, { 0.0,0.0 });
-			m_fonts[1]->DrawShadow({ 5,-5 });
+			m_fonts[1]->DrawShadow({ SetShadowPos });
 		}
 		if (m_aieditnode->GetNode() == 201) {
 			m_fonts[1]->Init(L"　　　の\nMP", { m_fontpos2 }, 0.0, CVector4::White, scale, { 0.0,0.0 });
-			m_fonts[1]->DrawShadow({ 5,-5 });
+			m_fonts[1]->DrawShadow({ SetShadowPos });
 		}
 	}
 
@@ -141,11 +140,11 @@ void AIEditNodeOrder::Fonts()
 		m_fontpos3.y = m_pos.y + 0;
 		if (m_aieditnodeinequ->GetInequ() == 300) {
 			m_fonts[2]->Init(L"以上", { m_fontpos3 }, 0.0, CVector4::White, scale, { 0.0,0.0 });
-			m_fonts[2]->DrawShadow({ 5,-5 });
+			m_fonts[2]->DrawShadow({ SetShadowPos });
 		}
 		if (m_aieditnodeinequ->GetInequ() == 301) {
 			m_fonts[2]->Init(L"以下", { m_fontpos3 }, 0.0, CVector4::White, scale, { 0.0,0.0 });
-			m_fonts[2]->DrawShadow({ 5,-5 });
+			m_fonts[2]->DrawShadow({ SetShadowPos });
 		}
 	}
 
@@ -155,31 +154,31 @@ void AIEditNodeOrder::Fonts()
 		m_fontpos4.y = m_pos.y + 0;
 		if (m_aieditnodenum->GetNum() == 400) {
 			m_fonts[3]->Init(L"1％", { m_fontpos4 }, 0.0, CVector4::White, scale, { 0.0,0.0 });
-			m_fonts[3]->DrawShadow({ 5,-5 });
+			m_fonts[3]->DrawShadow({ SetShadowPos });
 		}
 		if (m_aieditnodenum->GetNum() == 401) {
 			m_fonts[3]->Init(L"10％", { m_fontpos4 }, 0.0, CVector4::White, scale, { 0.0,0.0 });
-			m_fonts[3]->DrawShadow({ 5,-5 });
+			m_fonts[3]->DrawShadow({ SetShadowPos });
 		}
 		if (m_aieditnodenum->GetNum() == 402) {
 			m_fonts[3]->Init(L"30％", { m_fontpos4 }, 0.0, CVector4::White, scale, { 0.0,0.0 });
-			m_fonts[3]->DrawShadow({ 5,-5 });
+			m_fonts[3]->DrawShadow({ SetShadowPos });
 		}
 		if (m_aieditnodenum->GetNum() == 403) {
 			m_fonts[3]->Init(L"50％", { m_fontpos4 }, 0.0, CVector4::White, scale, { 0.0,0.0 });
-			m_fonts[3]->DrawShadow({ 5,-5 });
+			m_fonts[3]->DrawShadow({ SetShadowPos });
 		}\
 		if (m_aieditnodenum->GetNum() == 404) {
 			m_fonts[3]->Init(L"70％", { m_fontpos4 }, 0.0, CVector4::White, scale, { 0.0,0.0 });
-			m_fonts[3]->DrawShadow({ 5,-5 });
+			m_fonts[3]->DrawShadow({ SetShadowPos });
 		}
 		if (m_aieditnodenum->GetNum() == 405) {
 			m_fonts[3]->Init(L"90％", { m_fontpos4 }, 0.0, CVector4::White, scale, { 0.0,0.0 });
-			m_fonts[3]->DrawShadow({ 5,-5 });
+			m_fonts[3]->DrawShadow({ SetShadowPos });
 		}
 		if (m_aieditnodenum->GetNum() == 406) {
 			m_fonts[3]->Init(L"100％", { m_fontpos4 }, 0.0, CVector4::White, scale, { 0.0,0.0 });
-			m_fonts[3]->DrawShadow({ 5,-5 });
+			m_fonts[3]->DrawShadow({ SetShadowPos });
 		}
 	}
 
@@ -189,31 +188,31 @@ void AIEditNodeOrder::Fonts()
 		m_fontpos5.y = m_pos.y + 38;
 		if (m_aieditnodetechnique->Gettechnique() == 500) {
 			m_fonts[4]->Init(L"　　　に\n　　こうげき", { m_fontpos5 }, 0.0, CVector4::White, scale, { 0.0,0.0 });
-			m_fonts[4]->DrawShadow({ 5,-5 });
+			m_fonts[4]->DrawShadow({ SetShadowPos });
 		}
 		if (m_aieditnodetechnique->Gettechnique() == 501) {
 			m_fonts[4]->Init(L"　　　から\n　　にげる", { m_fontpos5 }, 0.0, CVector4::White, scale, { 0.0,0.0 });
-			m_fonts[4]->DrawShadow({ 5,-5 });
+			m_fonts[4]->DrawShadow({ SetShadowPos });
 		}
 		if (m_aieditnodetechnique->Gettechnique() == 502) {
 			m_fonts[4]->Init(L"　　　を\n　ついせき", { m_fontpos5 }, 0.0, CVector4::White, scale, { 0.0,0.0 });
-			m_fonts[4]->DrawShadow({ 5,-5 });
+			m_fonts[4]->DrawShadow({ SetShadowPos });
 		}
 		if (m_aieditnodetechnique->Gettechnique() == 503) {
 			m_fonts[4]->Init(L"ーーー\n　　まもる", { m_fontpos5 }, 0.0, CVector4::White, scale, { 0.0,0.0 });
-			m_fonts[4]->DrawShadow({ 5,-5 });
+			m_fonts[4]->DrawShadow({ SetShadowPos });
 		}
 		if (m_aieditnodetechnique->Gettechnique() == 504) {
 			m_fonts[4]->Init(L"　　　を\n　　かいふく", { m_fontpos5 }, 0.0, CVector4::White, scale, { 0.0,0.0 });
-			m_fonts[4]->DrawShadow({ 5,-5 });
+			m_fonts[4]->DrawShadow({ SetShadowPos });
 		}
 		if (m_aieditnodetechnique->Gettechnique() == 505) {
 			m_fonts[4]->Init(L"　　　に\n　　とくしゅ１", { m_fontpos5 }, 0.0, CVector4::White, scale, { 0.0,0.0 });
-			m_fonts[4]->DrawShadow({ 5,-5 });
+			m_fonts[4]->DrawShadow({ SetShadowPos });
 		}
 		if (m_aieditnodetechnique->Gettechnique() == 506) {
 			m_fonts[4]->Init(L"　　　に\n　　とくしゅ２", { m_fontpos5 }, 0.0, CVector4::White, scale, { 0.0,0.0 });
-			m_fonts[4]->DrawShadow({ 5,-5 });
+			m_fonts[4]->DrawShadow({ SetShadowPos });
 		}
 		techniqueOrder = true;
 
@@ -225,19 +224,19 @@ void AIEditNodeOrder::Fonts()
 		m_fontpos6.y = m_pos.y + 38;
 		if (m_aieditnodeabnormalstate->GetAbnormal() == 600) {
 			m_fonts[5]->Init(L"　　　が\n　　　どく", { m_fontpos6 }, 0.0, CVector4::White, scale, { 0.0,0.0 });
-			m_fonts[5]->DrawShadow({ 5,-5 });
+			m_fonts[5]->DrawShadow({ SetShadowPos });
 		}
 		if (m_aieditnodeabnormalstate->GetAbnormal() == 601) {
 			m_fonts[5]->Init(L"　　　が\n　　　やけど", { m_fontpos6 }, 0.0, CVector4::White, scale, { 0.0,0.0 });
-			m_fonts[5]->DrawShadow({ 5,-5 });
+			m_fonts[5]->DrawShadow({ SetShadowPos });
 		}
 		if (m_aieditnodeabnormalstate->GetAbnormal() == 602) {
 			m_fonts[5]->Init(L"　　　が\n　　　こおり", { m_fontpos6 }, 0.0, CVector4::White, scale, { 0.0,0.0 });
-			m_fonts[5]->DrawShadow({ 5,-5 });
+			m_fonts[5]->DrawShadow({ SetShadowPos });
 		}
 		if (m_aieditnodeabnormalstate->GetAbnormal() == 603) {
 			m_fonts[5]->Init(L"　　　が\n　　　まひ", { m_fontpos6 }, 0.0, CVector4::White, scale, { 0.0,0.0 });
-			m_fonts[5]->DrawShadow({ 5,-5 });
+			m_fonts[5]->DrawShadow({ SetShadowPos });
 		}
 	}
 
@@ -288,7 +287,6 @@ void AIEditNodeOrder::DeleteGOs()
 		}
 	}
 }
-
 
 void AIEditNodeOrder::Update()
 {
@@ -358,17 +356,13 @@ void AIEditNodeOrder::makeOrder(int l,int o,sOrder* order, bool isEnd)
 
 	//Clickがあるとき。
 	if (m_aieditnodeprocess->GetClickFlag() == false) {
-		//m_pos = m_aieditnodeclick->GetPosition();
-		//m_pos.x += 30;
 	}
 	CVector3 vp = { float(-400 + o * 420),float(275 - l * 85),0 };
 	m_pos = vp;
 
 	m_spriteRender = NewGO<SpriteRender>(2, "mass");
 	m_spriteRender->Init(L"Assets/sprite/masss.dds", 280, 80);  //last
-	//m_spriteRender->Init(L"Assets/sprite/fade_black.dds", 280, 80);  //last
 	m_spriteRender->SetPosition(m_pos);
-	//m_aieditnodeprocess->SetClickFlag(true);
 
 	//技を選択したらLineを出ないようにする。
 	if (!isEnd) {
@@ -403,15 +397,15 @@ void AIEditNodeOrder::makeFonts(sOrder* order)
 		m_fontpos1.y = m_pos.y + 38;
 		if (order->tar == 100) {
 			m_fonts[0]->Init(L"じぶん", { m_fontpos1 }, 0.0, CVector4::White, scale, { 0.0,0.0 });
-			m_fonts[0]->DrawShadow({ 5,-5 });
+			m_fonts[0]->DrawShadow({ SetShadowPos });
 		}
 		else if (order->tar == 101) {
 			m_fonts[0]->Init(L"みかた", { m_fontpos1 }, 0.0, CVector4::White, scale, { 0.0,0.0 });
-			m_fonts[0]->DrawShadow({ 5,-5 });
+			m_fonts[0]->DrawShadow({ SetShadowPos });
 		}
 		else if (order->tar == 102) {
 			m_fonts[0]->Init(L"てき", { m_fontpos1 }, 0.0, CVector4::White, scale, { 0.0,0.0 });
-			m_fonts[0]->DrawShadow({ 5,-5 });
+			m_fonts[0]->DrawShadow({ SetShadowPos });
 		}
 	}
 
@@ -420,15 +414,14 @@ void AIEditNodeOrder::makeFonts(sOrder* order)
 	{
 		CVector2 m_fontpos2 = CVector2::Zero();
 		m_fontpos2.x = m_pos.x - 120;
-		//m_fontpos2.y = m_pos.y + 5;
 		m_fontpos2.y = m_pos.y + 38;
 		if (order->nod == 200) {
 			m_fonts[1]->Init(L"　　　の\nHP", { m_fontpos2 }, 0.0, CVector4::White, scale, { 0.0,0.0 });
-			m_fonts[1]->DrawShadow({ 5,-5 });
+			m_fonts[1]->DrawShadow({ SetShadowPos });
 		}
 		else if (order->nod == 201) {
 			m_fonts[1]->Init(L"　　　の\nMP", { m_fontpos2 }, 0.0, CVector4::White, scale, { 0.0,0.0 });
-			m_fonts[1]->DrawShadow({ 5,-5 });
+			m_fonts[1]->DrawShadow({ SetShadowPos });
 		}
 	}
 
@@ -439,11 +432,11 @@ void AIEditNodeOrder::makeFonts(sOrder* order)
 		m_fontpos3.y = m_pos.y + 0;
 		if (order->ine == 300) {
 			m_fonts[2]->Init(L"以上", { m_fontpos3 }, 0.0, CVector4::White, scale, { 0.0,0.0 });
-			m_fonts[2]->DrawShadow({ 5,-5 });
+			m_fonts[2]->DrawShadow({ SetShadowPos });
 		}
 		else if (order->ine == 301) {
 			m_fonts[2]->Init(L"以下", { m_fontpos3 }, 0.0, CVector4::White, scale, { 0.0,0.0 });
-			m_fonts[2]->DrawShadow({ 5,-5 });
+			m_fonts[2]->DrawShadow({ SetShadowPos });
 		}
 	}
 
@@ -454,31 +447,31 @@ void AIEditNodeOrder::makeFonts(sOrder* order)
 		m_fontpos4.y = m_pos.y + 0;
 		if (order->num == 400) {
 			m_fonts[3]->Init(L"1％", { m_fontpos4 }, 0.0, CVector4::White, scale, { 0.0,0.0 });
-			m_fonts[3]->DrawShadow({ 5,-5 });
+			m_fonts[3]->DrawShadow({ SetShadowPos });
 		}
 		else if (order->num == 401) {
 			m_fonts[3]->Init(L"10％", { m_fontpos4 }, 0.0, CVector4::White, scale, { 0.0,0.0 });
-			m_fonts[3]->DrawShadow({ 5,-5 });
+			m_fonts[3]->DrawShadow({ SetShadowPos });
 		}
 		else if (order->num == 402) {
 			m_fonts[3]->Init(L"30％", { m_fontpos4 }, 0.0, CVector4::White, scale, { 0.0,0.0 });
-			m_fonts[3]->DrawShadow({ 5,-5 });
+			m_fonts[3]->DrawShadow({ SetShadowPos });
 		}
 		else if (order->num == 403) {
 			m_fonts[3]->Init(L"50％", { m_fontpos4 }, 0.0, CVector4::White, scale, { 0.0,0.0 });
-			m_fonts[3]->DrawShadow({ 5,-5 });
+			m_fonts[3]->DrawShadow({ SetShadowPos });
 		}
 		else if (order->num == 404) {
 			m_fonts[3]->Init(L"70％", { m_fontpos4 }, 0.0, CVector4::White, scale, { 0.0,0.0 });
-			m_fonts[3]->DrawShadow({ 5,-5 });
+			m_fonts[3]->DrawShadow({ SetShadowPos });
 		}
 		else if (order->num == 405) {
 			m_fonts[3]->Init(L"90％", { m_fontpos4 }, 0.0, CVector4::White, scale, { 0.0,0.0 });
-			m_fonts[3]->DrawShadow({ 5,-5 });
+			m_fonts[3]->DrawShadow({ SetShadowPos });
 		}
 		else if (order->num == 406) {
 			m_fonts[3]->Init(L"100％", { m_fontpos4 }, 0.0, CVector4::White, scale, { 0.0,0.0 });
-			m_fonts[3]->DrawShadow({ 5,-5 });
+			m_fonts[3]->DrawShadow({ SetShadowPos });
 		}
 	}
 
@@ -489,31 +482,31 @@ void AIEditNodeOrder::makeFonts(sOrder* order)
 		m_fontpos5.y = m_pos.y + 38;
 		if (order->tec == 500) {
 			m_fonts[4]->Init(L"　　　に\n　　こうげき", { m_fontpos5 }, 0.0, CVector4::White, scale, { 0.0,0.0 });
-			m_fonts[4]->DrawShadow({ 5,-5 });
+			m_fonts[4]->DrawShadow({ SetShadowPos });
 		}
 		else if (order->tec == 501) {
 			m_fonts[4]->Init(L"　　　から\n　　にげる", { m_fontpos5 }, 0.0, CVector4::White, scale, { 0.0,0.0 });
-			m_fonts[4]->DrawShadow({ 5,-5 });
+			m_fonts[4]->DrawShadow({ SetShadowPos });
 		}
 		else if (order->tec == 502) {
 			m_fonts[4]->Init(L"　　　を\n　ついせき", { m_fontpos5 }, 0.0, CVector4::White, scale, { 0.0,0.0 });
-			m_fonts[4]->DrawShadow({ 5,-5 });
+			m_fonts[4]->DrawShadow({ SetShadowPos });
 		}
 		else if (order->tec == 503) {
 			m_fonts[4]->Init(L"ーーー\n　　まもる", { m_fontpos5 }, 0.0, CVector4::White, scale, { 0.0,0.0 });
-			m_fonts[4]->DrawShadow({ 5,-5 });
+			m_fonts[4]->DrawShadow({ SetShadowPos });
 		}
 		else if (order->tec == 504) {
 			m_fonts[4]->Init(L"　　　を\n　　かいふく", { m_fontpos5 }, 0.0, CVector4::White, scale, { 0.0,0.0 });
-			m_fonts[4]->DrawShadow({ 5,-5 });
+			m_fonts[4]->DrawShadow({ SetShadowPos });
 		}
 		else if (order->tec == 505) {
 			m_fonts[4]->Init(L"　　　に\n　　とくしゅ１", { m_fontpos5 }, 0.0, CVector4::White, scale, { 0.0,0.0 });
-			m_fonts[4]->DrawShadow({ 5,-5 });
+			m_fonts[4]->DrawShadow({ SetShadowPos });
 		}
 		else if (order->tec == 506) {
 			m_fonts[4]->Init(L"　　　に\n　　とくしゅ２", { m_fontpos5 }, 0.0, CVector4::White, scale, { 0.0,0.0 });
-			m_fonts[4]->DrawShadow({ 5,-5 });
+			m_fonts[4]->DrawShadow({ SetShadowPos });
 		}
 		techniqueOrder = true;
 	}
@@ -525,19 +518,19 @@ void AIEditNodeOrder::makeFonts(sOrder* order)
 		m_fontpos6.y = m_pos.y + 38;
 		if (order->abn == 600) {
 			m_fonts[5]->Init(L"　　　が\n　　　どく", { m_fontpos6 }, 0.0, CVector4::White, scale, { 0.0,0.0 });
-			m_fonts[5]->DrawShadow({ 5,-5 });
+			m_fonts[5]->DrawShadow({ SetShadowPos });
 		}
 		else if (order->abn == 601) {
 			m_fonts[5]->Init(L"　　　が\n　　　やけど", { m_fontpos6 }, 0.0, CVector4::White, scale, { 0.0,0.0 });
-			m_fonts[5]->DrawShadow({ 5,-5 });
+			m_fonts[5]->DrawShadow({ SetShadowPos });
 		}
 		else if (order->abn == 602) {
 			m_fonts[5]->Init(L"　　　が\n　　　こおり", { m_fontpos6 }, 0.0, CVector4::White, scale, { 0.0,0.0 });
-			m_fonts[5]->DrawShadow({ 5,-5 });
+			m_fonts[5]->DrawShadow({ SetShadowPos });
 		}
 		else if (order->abn == 603) {
 			m_fonts[5]->Init(L"　　　が\n　　　まひ", { m_fontpos6 }, 0.0, CVector4::White, scale, { 0.0,0.0 });
-			m_fonts[5]->DrawShadow({ 5,-5 });
+			m_fonts[5]->DrawShadow({ SetShadowPos });
 		}
 	}
 }

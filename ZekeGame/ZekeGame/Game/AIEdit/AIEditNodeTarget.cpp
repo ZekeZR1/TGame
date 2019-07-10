@@ -60,14 +60,14 @@ bool AIEditNodeTarget::Start()
 	m_fontpos.x = bacon.x - 60.0;
 	m_fontpos.y = bacon.y + 105.0;
 	m_fonts[0]->Init(L"‚¶‚Ô‚ñ", { m_fontpos }, 0.0, CVector4::White, 0.8, { 0.0,0.0 });
-	m_fonts[0]->DrawShadow({ 5,-5 });
+	m_fonts[0]->DrawShadow({ SetShadowPos });
 	m_fontpos.y -= 55.f;
 	m_fonts[1]->Init(L"‚Ý‚©‚½", { m_fontpos }, 0.0, CVector4::White, 0.8, { 0.0,0.0 });
-	m_fonts[1]->DrawShadow({ 5,-5 });
+	m_fonts[1]->DrawShadow({ SetShadowPos });
 	m_fontpos.x += 15.f;
 	m_fontpos.y -= 55.f;
 	m_fonts[2]->Init(L"‚Ä‚«", { m_fontpos }, 0.0, CVector4::White, 0.8, { 0.0,0.0 });
-	m_fonts[2]->DrawShadow({ 5,-5 });
+	m_fonts[2]->DrawShadow({ SetShadowPos });
 	
 	m_font.push_back(NewGO<FontRender>(3));
 	m_font[0]->SetTextType(CFont::en_Japanese);
@@ -113,21 +113,21 @@ void AIEditNodeTarget::FontsConfirmation()
 
 	if (m_nodebuttons[button - 3]->GetSpriteRender()->isCollidingTarget()) {
 		m_font[0]->Init(L"‚¶‚Ô‚ñ", { m_fontpos1 }, 0.0, CVector4::White, 0.8, { 0.0,0.0 });
-		m_font[0]->DrawShadow({ 5,-5 });
+		m_font[0]->DrawShadow({ SetShadowPos });
 			
 		contact1 = true;
 	}
 
 	else if (m_nodebuttons[button - 2]->GetSpriteRender()->isCollidingTarget()) {
 		m_font[0]->Init(L"‚Ý‚©‚½", { m_fontpos1 }, 0.0, CVector4::White, 0.8, { 0.0,0.0 });
-		m_font[0]->DrawShadow({ 5,-5 });
+		m_font[0]->DrawShadow({ SetShadowPos });
 
 		contact1 = true;
 	}
 		
 	else if (m_nodebuttons[button - 1]->GetSpriteRender()->isCollidingTarget()) {
 		m_font[0]->Init(L"‚Ä‚«", { m_fontpos1 }, 0.0, CVector4::White, 0.8, { 0.0,0.0 });
-		m_font[0]->DrawShadow({ 5,-5 });
+		m_font[0]->DrawShadow({ SetShadowPos });
 
 		contact1 = true;
 	}

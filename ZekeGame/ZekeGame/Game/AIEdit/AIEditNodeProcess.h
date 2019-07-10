@@ -145,7 +145,7 @@ public:
 
 private:
 
-	AIEditNodeOrder* m_orderkeep[8][3];
+	AIEditNodeOrder* m_orderkeep[8][3]; //生成されたオーダーの位置を番号を保持する専用。
 
 	int flagkeep[8][3][6];   //各クラスで何を選択したかを保持しておくためのもの。
 	int keep1 = 0; //８行ある内の何個目か。
@@ -178,7 +178,6 @@ private:
 	AIEditNodeTechnique* m_aieditnodetechnique = nullptr;
 	AIEditNodeMenu* m_aieditnodemenu = nullptr;
 	AIEditNodeSelectButtons* m_aieditnodeselectbuttons = nullptr;
-	AIEditNodeDeleteKey* m_aieditnodedeletekey = nullptr
-		;
+	AIEditNodeDeleteKey* m_aieditnodedeletekey = nullptr;
 
 };
