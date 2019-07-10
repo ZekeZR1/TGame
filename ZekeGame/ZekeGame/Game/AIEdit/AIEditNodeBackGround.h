@@ -15,6 +15,8 @@ private:
 
 	int num = 9;
 
+	CVector2 SetShadowPos = { 5.f,-5.f };
+
 	CVector3 m_position = CVector3::Zero();
 	CVector3 m_pos = CVector3::Zero();
 

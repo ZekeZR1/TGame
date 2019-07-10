@@ -53,18 +53,18 @@ bool AIEditNodeAbnormalState::Start()
 	m_fontpos.x = bacon.x - 40.f;
 	m_fontpos.y = bacon.y + 107.f;
 	m_fonts[0]->Init(L"‚Ç‚­", { m_fontpos }, 0.0, CVector4::White, scale, { 0.0,0.0 });
-	m_fonts[0]->DrawShadow({ 5,-5 });
+	m_fonts[0]->DrawShadow({ SetShadowPos });
 	m_fontpos.x -= 20.f;
 	m_fontpos.y -= 57.f;
 	m_fonts[1]->Init(L"‚â‚¯‚Ç", { m_fontpos }, 0.0, CVector4::White, scale, { 0.0,0.0 });
-	m_fonts[1]->DrawShadow({ 5,-5 });
+	m_fonts[1]->DrawShadow({ SetShadowPos });
 	m_fontpos.y -= 55.f;
 	m_fonts[2]->Init(L"‚±‚¨‚è", { m_fontpos }, 0.0, CVector4::White, scale, { 0.0,0.0 });
-	m_fonts[2]->DrawShadow({ 5,-5 });
+	m_fonts[2]->DrawShadow({ SetShadowPos });
 	m_fontpos.x += 20.f;
 	m_fontpos.y -= 55.f;
 	m_fonts[3]->Init(L"‚Ü‚Ð", { m_fontpos }, 0.0, CVector4::White, scale, { 0.0,0.0 });
-	m_fonts[3]->DrawShadow({ 5,-5 });
+	m_fonts[3]->DrawShadow({ SetShadowPos });
 
 
 	m_font.push_back(NewGO<FontRender>(3));
@@ -98,28 +98,28 @@ void AIEditNodeAbnormalState::FontsConfirmation()
 
 	if (m_nodebuttons[button - 4]->GetSpriteRender()->isCollidingTarget()) {
 		m_font[0]->Init(L"‚ª‚Ç‚­", { m_fontpos1 }, 0.0, CVector4::White, 0.8, { 0.0,0.0 });
-		m_font[0]->DrawShadow({ 5,-5 });
+		m_font[0]->DrawShadow({ SetShadowPos });
 
 		contact1 = true;
 	}
 
 	else if (m_nodebuttons[button - 3]->GetSpriteRender()->isCollidingTarget()) {
 		m_font[0]->Init(L"‚ª‚â‚¯‚Ç", { m_fontpos1 }, 0.0, CVector4::White, 0.8, { 0.0,0.0 });
-		m_font[0]->DrawShadow({ 5,-5 });
+		m_font[0]->DrawShadow({ SetShadowPos });
 
 		contact1 = true;
 	}
 
 	else if (m_nodebuttons[button - 2]->GetSpriteRender()->isCollidingTarget()) {
 		m_font[0]->Init(L"‚ª‚±‚¨‚è", { m_fontpos1 }, 0.0, CVector4::White, 0.8, { 0.0,0.0 });
-		m_font[0]->DrawShadow({ 5,-5 });
+		m_font[0]->DrawShadow({ SetShadowPos });
 
 		contact1 = true;
 	}
 
 	else if (m_nodebuttons[button - 1]->GetSpriteRender()->isCollidingTarget()) {
 		m_font[0]->Init(L"‚ª‚Ü‚Ð", { m_fontpos1 }, 0.0, CVector4::White, 0.8, { 0.0,0.0 });
-		m_font[0]->DrawShadow({ 5,-5 });
+		m_font[0]->DrawShadow({ SetShadowPos });
 
 		contact1 = true;
 	}

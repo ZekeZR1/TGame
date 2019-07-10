@@ -47,6 +47,8 @@ private:
 	bool contact1 = false;
 	bool contact2 = false;
 
+	CVector2 SetShadowPos = { 5.f,-5.f };    //•¶š‚Ì‰e‚ÌÀ•WB
+
 	CVector3 m_position = CVector3::Zero();
 	CVector3 cursorpos = CVector3::Zero();
 

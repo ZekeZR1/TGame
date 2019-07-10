@@ -40,7 +40,7 @@ bool AIEditNodeInequ::Start()
 	m_position = cursorpos;
 	m_spriteRender->SetPosition(m_position);	//AIEditNodeのボタンの座標座標
 	
-
+	//ボタンの設定。
 	for (int i = 0; i < button; i++) {               //ボタンの数分ループする。
 		m_aieditnodebutton = NewGO<AIEditNodeButton>(10, "button ");
 		m_aieditnodebutton->SetPri(10);
@@ -55,14 +55,14 @@ bool AIEditNodeInequ::Start()
 		m_fonts[i]->SetTextType(CFont::en_Japanese);
 	}
 	auto bacon = m_nodebuttons[0]->GetPos();
-	CVector2 m_fontpos = CVector2::Zero();
+	CVector2 m_fontpos = CVector2::Zero();  //fontの座標。
 	m_fontpos.x = bacon.x - 60.0;
 	m_fontpos.y = bacon.y + 105.0;
 	m_fonts[0]->Init(L"より大", { m_fontpos }, 0.0, CVector4::White, 0.8, { 0.0,0.0 });
-	m_fonts[0]->DrawShadow({ 5,-5 });
+	m_fonts[0]->DrawShadow({ SetShadowPos });
 	m_fontpos.y -= 54.f;
 	m_fonts[1]->Init(L"より小", { m_fontpos }, 0.0, CVector4::White, 0.8, { 0.0,0.0 });
-	m_fonts[1]->DrawShadow({ 5,-5 });
+	m_fonts[1]->DrawShadow({ SetShadowPos });
 
 	m_font.push_back(NewGO<FontRender>(3));
 	m_font[0]->SetTextType(CFont::en_Japanese);
@@ -70,7 +70,6 @@ bool AIEditNodeInequ::Start()
 	return true;
 
 }
-
 
 
 void AIEditNodeInequ::Num()
@@ -93,14 +92,14 @@ void AIEditNodeInequ::FontsConfirmation()
 
 	if (m_nodebuttons[button - 2]->GetSpriteRender()->isCollidingTarget()) {
 		m_font[0]->Init(L"以上", { m_fontpos1 }, 0.0, CVector4::White, 0.8, { 0.0,0.0 });
-		m_font[0]->DrawShadow({ 5,-5 });
+		m_font[0]->DrawShadow({ SetShadowPos });
 
 		contact1 = true;
 	}
 
 	else if (m_nodebuttons[button - 1]->GetSpriteRender()->isCollidingTarget()) {
 		m_font[0]->Init(L"以下", { m_fontpos1 }, 0.0, CVector4::White, 0.8, { 0.0,0.0 });
-		m_font[0]->DrawShadow({ 5,-5 });
+		m_font[0]->DrawShadow({ SetShadowPos });
 
 		contact1 = true;
 	}
