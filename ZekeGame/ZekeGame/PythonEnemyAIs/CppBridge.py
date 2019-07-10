@@ -523,6 +523,10 @@ def Guardian(target):
 def Recovery(target):
     addAction(target,ACTION.Recovery)
 
+def Move(targetPosition):
+    """モンスターを指定したポジションに移動させる。"""
+    SendGame.Move(targetPosition.x,targetPosition.z)
+
 def End():
     SendGame.SetAction(actions,gameData.me.num);
 

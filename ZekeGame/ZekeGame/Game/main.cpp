@@ -16,6 +16,10 @@ int WINAPI wWinMain(
 	HINSTANCE hPrevInstance,
 	LPWSTR lpCmdLine,
 	int nCmdShow) {
+	AllocConsole();
+	freopen("CON", "r", stdin);     // •W€“ü—Í‚ÌŠ„‚è“–‚Ä
+	freopen("CON", "w", stdout);    // •W€o—Í‚ÌŠ„‚è“–‚Ä
+
 	//Initialize
 	Engine::IEngine().Init(hInstance, hPrevInstance, lpCmdLine, nCmdShow);
 

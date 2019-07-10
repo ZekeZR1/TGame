@@ -45,7 +45,7 @@ void MonAIPresetIcons::init(Preset* preset, CVector3 pos,GameCursor* cur)
 		m_Nonefont->SetTextType(CFont::en_JapaneseBIG);
 		m_Nonefont->Init(L"‚È\n\n‚µ", iipos.ToTwo(), 0, { 0.6f,0.6f,0.6f,1.0f }, 0.7f, { 1,0 });
 		m_fontpos = iipos;
-		m_isNone = 1;
+		m_isNone = true;
 	}
 	else for (auto p : preset->person)
 	{

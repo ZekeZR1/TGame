@@ -93,7 +93,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <WarningLevel>Level4</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
@@ -293,6 +293,7 @@
     <ClCompile Include="Game\Monster\Action\Act_Leave.cpp" />
     <ClCompile Include="Game\Monster\Action\Act_Majinken.cpp" />
     <ClCompile Include="Game\Monster\Action\Act_ManaHeal.cpp" />
+    <ClCompile Include="Game\Monster\Action\Act_Move.cpp" />
     <ClCompile Include="Game\Monster\Action\Act_ObstMove.cpp" />
     <ClCompile Include="Game\Monster\Action\Act_Poison.cpp" />
     <ClCompile Include="Game\Monster\Action\Act_Recovery.cpp" />
@@ -530,6 +531,7 @@
     <ClInclude Include="Game\Monster\Action\Act_Leave.h" />
     <ClInclude Include="Game\Monster\Action\Act_Majinken.h" />
     <ClInclude Include="Game\Monster\Action\Act_ManaHeal.h" />
+    <ClInclude Include="Game\Monster\Action\Act_Move.h" />
     <ClInclude Include="Game\Monster\Action\Act_ObstMove.h" />
     <ClInclude Include="Game\Monster\Action\Act_Poison.h" />
     <ClInclude Include="Game\Monster\Action\Act_Recovery.h" />

@@ -12,7 +12,7 @@ std::vector<VisualAIState> VisualAIOpen::openVAs()
 	WIN32_FIND_DATA win32d;
 
 
-	char cs[255];
+	char cs[255] = {0};
 	std::string cd;
 	GetCurrentDirectory(255, cs);
 	cd = cs;
@@ -40,7 +40,7 @@ std::vector<VisualAIState> VisualAIOpen::openVAs()
 			
 			//ファイル名から番号を抽出する
 			int c = p.find(".");
-			char n[3] = {'\0'};
+			char n[4] = {'\0'};
 			for (int i = 0; i < c; i++)
 			{
 				n[i] = p[i];
