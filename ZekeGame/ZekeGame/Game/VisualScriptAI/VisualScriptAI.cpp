@@ -375,7 +375,7 @@ bool VisualScriptAI::whatState(Target target, State state, Monster *& mon, Targe
 	}
 	else
 	{
-		if (target == buddy)
+		/*if (target == buddy)
 		{
 			team = m_me->Getteam();
 		}
@@ -391,6 +391,32 @@ bool VisualScriptAI::whatState(Target target, State state, Monster *& mon, Targe
 			{
 				tarmon = mon;
 			}
+		}*/
+		team = m_me->Getteam();
+
+		for (auto mon : g_mons)
+		{
+			if (mon == nullptr)
+				break;
+
+			bool isGet = false;
+			switch (target)
+			{
+			case buddy:
+				if (team == mon->Getteam())
+				{
+					tarmon = mon;
+				}
+				break;
+			case enemy:
+				if (team != mon->Getteam())
+				{
+					tarmon = mon;
+				}
+				break;
+			}
+			if (isGet)
+				break;
 		}
 	}
 	mon = tarmon;
@@ -407,22 +433,31 @@ void VisualScriptAI::whatAction(Target target, Action action)
 	}
 	else
 	{
-		if (target == buddy)
-		{
-			team = m_me->Getteam();
-		}
-		else
-		{
-			team = m_me->Getteam() == 0 ? 1 : 0;
-		}
+		team = m_me->Getteam();
+
 		for (auto mon : g_mons)
 		{
 			if (mon == nullptr)
 				break;
-			if (team == mon->Getteam())
+
+			bool isGet = false;
+			switch (target)
 			{
-				tarmon = mon;
+			case buddy:
+				if (team == mon->Getteam())
+				{
+					tarmon = mon;
+				}
+				break;
+			case enemy:
+				if (team != mon->Getteam())
+				{
+					tarmon = mon;
+				}
+				break;
 			}
+			if (isGet)
+				break;
 		}
 	}
 	if (tarmon == nullptr)
