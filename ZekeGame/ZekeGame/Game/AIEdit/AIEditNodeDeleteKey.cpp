@@ -20,7 +20,6 @@ void AIEditNodeDeleteKey::OnDestroy()
 bool AIEditNodeDeleteKey::Start()
 {
 	m_gamecursor = FindGO<GameCursor>("cursor");
-	//m_aieditnodeorder = FindGO<AIEditNodeOrder>("order");
 	m_aieditline = FindGO<AIEditLine>("Line");
 	m_aieditnodeprocess = FindGO<AIEditNodeProcess>("process");
 	m_aieditnodetechnique = FindGO<AIEditNodeTechnique>("techniqu");
@@ -38,7 +37,6 @@ bool AIEditNodeDeleteKey::Start()
 	m_spriteRender->Init(L"Assets/sprite/deletepoint.dds", 25, 25, true);
 	m_position.x += 160;
 	m_spriteRender->SetPosition(m_position);
-
 
 	return true;
 }

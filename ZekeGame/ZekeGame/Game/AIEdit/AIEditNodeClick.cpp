@@ -24,12 +24,13 @@ bool AIEditNodeClick::Start()
 
 	m_spriteRender = NewGO<SpriteRender>(0, "mass");
 	m_spriteRender->Init(L"Assets/sprite/click.dds", 250, 80,true); //last
+	m_position.y += 2.f;                                            //“ä‚Ì”÷’²®B
 	m_spriteRender->SetPosition(m_position);
 
 	m_button = NewGO<SpriteRender>(0, "sp");
 	m_button->Init(L"Assets/sprite/clickButton.dds", 57, 57);
 	CVector3 v = m_position;
-	v.x -= 80;
+	v.x -= 80.f;
 	m_button->SetPosition(v);
 
 	m_font = NewGO<FontRender>(0, "font");
@@ -50,7 +51,6 @@ void AIEditNodeClick::SetPosition(CVector3 m_pos)
 	m_position = m_pos;
 
 }
-
 
 void AIEditNodeClick::Update()
 {

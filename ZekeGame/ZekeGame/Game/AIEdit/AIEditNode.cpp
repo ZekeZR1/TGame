@@ -57,22 +57,22 @@ bool AIEditNode::Start()
 
 	auto bacon = m_nodebuttons[0]->GetPos();
 
-	CVector2 m_fontpos = CVector2::Zero();
+	CVector2 m_fontpos = CVector2::Zero();    //フォントの座標。
 	m_fontpos.x = bacon.x - 55.0;
 	m_fontpos.y = bacon.y + 108.0;
 	m_fonts[0]->Init(L" HP", { m_fontpos.x,m_fontpos.y-5 }, 0.0, CVector4::White, 0.8, { 0.0,0.0 });
-	m_fonts[0]->DrawShadow({ 5,-5 });
+	m_fonts[0]->DrawShadow({ SetShadowPos });
 	m_fontpos.y -= 57.f;
 	m_fonts[1]->Init(L" MP", { m_fontpos.x,m_fontpos.y-3 }, 0.0, CVector4::White, 0.8, { 0.0,0.0 });
-	m_fonts[1]->DrawShadow({ 5,-5 });
+	m_fonts[1]->DrawShadow({ SetShadowPos });
 	m_fontpos.x -= 10.f;
 	m_fontpos.y -= 63.f;
 	m_fonts[2]->Init(L"じょうたい", { m_fontpos }, 0.0, CVector4::White, 0.55, { 0.0,0.0 });
-	m_fonts[2]->DrawShadow({ 5,-5 });
+	m_fonts[2]->DrawShadow({ SetShadowPos });
 	m_fontpos.x += 4.f;
 	m_fontpos.y -= 48.f;
 	m_fonts[3]->Init(L" わざ", { m_fontpos }, 0.0, CVector4::White, 0.8, { 0.0,0.0 });
-	m_fonts[3]->DrawShadow({ 5,-5 });
+	m_fonts[3]->DrawShadow({ SetShadowPos });
 
 	m_font.push_back(NewGO<FontRender>(3));
 	m_font[0]->SetTextType(CFont::en_Japanese);
@@ -127,14 +127,14 @@ void AIEditNode::FontsConfirmation()
 
 	if (m_nodebuttons[button - 4]->GetSpriteRender()->isCollidingTarget()) {
 		m_font[0]->Init(L"のHPが", { m_fontpos1 }, 0.0, CVector4::White, 0.8, { 0.0,0.0 });
-		m_font[0]->DrawShadow({ 5,-5 });
+		m_font[0]->DrawShadow({ SetShadowPos });
 
 		contact1 = true;
 	}
 
 	else if (m_nodebuttons[button - 3]->GetSpriteRender()->isCollidingTarget()) {
 		m_font[0]->Init(L"のMPが", { m_fontpos1 }, 0.0, CVector4::White, 0.8, { 0.0,0.0 });
-		m_font[0]->DrawShadow({ 5,-5 });
+		m_font[0]->DrawShadow({ SetShadowPos });
 	
 		contact1 = true;
 	}
