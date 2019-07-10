@@ -130,7 +130,7 @@ void StageSetup::DungeonSetup(PyFile files, PyFile eneFiles, int monsterAI[6], M
 	for (int i = 0; i < 6; i++)
 	{
 		if (i == 3)
-			team++;
+			team = 256;
 
 		if (dunNumber == 8 && i >= 4)
 			break;
