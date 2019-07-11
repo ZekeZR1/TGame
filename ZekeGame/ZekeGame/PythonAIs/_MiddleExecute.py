@@ -1,10 +1,10 @@
-﻿
+﻿###PLAYER###
 import importlib
 
 def execute(num,team,file):
     try:
         mod = importlib.import_module(file)
-        mod.Brain(num,team)
+        mod.Brain()
     except:
         import sys
         import os

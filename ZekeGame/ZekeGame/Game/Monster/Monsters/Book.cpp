@@ -13,12 +13,12 @@ Book::Book()
 	m_Defense = 10;
 	m_ExDefense = 20;
 
-	m_Attack = 0;
+	m_Attack = 5;
 	m_ExAttack = 30;
 
 	m_speed = 30;
 	m_radius = 30;
-	m_height = 70;
+	m_height = 180;
 
 	m_anim[Monster::en_idle].Load(L"Assets/modelData/book/book_idle.tka");
 	m_anim[Monster::en_idle].SetLoopFlag(true);
@@ -36,7 +36,8 @@ Book::Book()
 	m_anim[Monster::en_defenseE].SetLoopFlag(true);
 
 	m_smr = NewGO<SkinModelRender>(0,"sr");
-	m_smr->Init(L"Assets/modelData/book.cmo", m_anim, 6);
+	m_smr->Init(L"Assets/modelData/book.cmo", m_anim, 6,enFbxUpAxisZ,"PSMainBook");
+	m_smr->SetShadowReciever(false);
 	m_AnimNum = 6;
 
 	MonsterInitParam prm;

@@ -5,6 +5,7 @@
 #include "NetworkLogic.h"
 #include "../NetPVP/CRatingSystem.h"
 #include "Console.h"
+#include "..//GameData.h"
 #include "TestView.h"
 #include <fstream>
 #include <string>
@@ -190,9 +191,12 @@ void LoadBalancingListener::raiseMonData()
 	nByte coords[] = { static_cast<nByte>(m_toRaiseTeamData[0]), static_cast<nByte>(m_toRaiseTeamData[1]),static_cast<nByte>(m_toRaiseTeamData[2])};
 	data.put((nByte)1, coords, 3);
 	mpLbc->opRaiseEvent(false, data, enMonData);// , RaiseEventOptions().setInterestGroup(mSendGroup ? mSendGroup : mUseGroups ? getGroupByPos() : 0));
-	//char str[256];
-	////sprintf_s(str, "num is %d / raise data num ... %d \n", m_monNUM,data.getValue(1)[0]);
-	//OutputDebugString(str);
+	//for (int i = 0; i < 3; i++) {
+	//	auto name = GameData::GetMonsterName(static_cast<MonsterID>(m_toRaiseTeamData[i]));
+	//	OutputDebugString("**********************************************************\n");
+	//	OutputDebugStringW(name);
+	//	OutputDebugString("**********************************************************\n");
+	//}
 }
 
 
@@ -294,8 +298,8 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 	break;
 	case 2:
 	{
-		//ペイロードはハッシュテーブルである必要はありません。
-		float content = ExitGames::Common::ValueObject<float>(eventContentObj).getDataCopy();
+		////ペイロードはハッシュテーブルである必要はありません。
+		//float content = ExitGames::Common::ValueObject<float>(eventContentObj).getDataCopy();
 	}
 	break;
 	case 3:
@@ -326,6 +330,8 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 			if (number == -1)
 				abort();
 			m_isAiLoaded[number] = true;
+			printf("\nGet Python AI %d\n", number);
+
 #if _DEBUG
 			char str[256];
 			sprintf_s(str, "%d is Python code", number);
@@ -365,6 +371,7 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 			m_isAiLoaded[id] = true;
 			m_enemyAimode[id] = 1;
 			char str[256];
+			printf("\nGet Visual AI %d\n", id);
 			sprintf_s(str, "%d is Visual AI Data", id);
 			OutputDebugString(str);
 		}
@@ -443,6 +450,7 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 	break;
 	case enMonData:
 	{
+		printf("\nGet Enemy Monster Datas\n");
 		//nByte* pContent = ExitGames::Common::ValueObject<nByte*>(eventContentObj).getDataCopy();
 		////int** ppContent = ExitGames::Common::ValueObject<int*>(eventContentObj).getDataAddress();
 		//short contentElementCount = *ExitGames::Common::ValueObject<int*>(eventContentObj).getSizes();
@@ -519,10 +527,17 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 		//m_hangMNUM = num;
 		//m_hangMID = monid;
 		//OutputDebugString(str);
+		for (int i = 0; i < 3; i++) {
+			auto name = GameData::GetMonsterName(static_cast<MonsterID>(m_enemyTeamData[i]));
+			OutputDebugString("--------------------------------------------------------------\n");
+			OutputDebugStringW(name);
+			OutputDebugString("\n--------------------------------------------------------------\n");
+		}
 	}
 	break;
 	case enRateData:
 	{
+		printf("Get Enemy Rating\n");
 		ExitGames::Common::Hashtable eventContent = ExitGames::Common::ValueObject<ExitGames::Common::Hashtable>(eventContentObj).getDataCopy();
 		Object const* obj = eventContent.getValue("1");
 		if (!obj)
@@ -531,14 +546,28 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 			obj = eventContent.getValue(1);
 		if (!obj)
 			obj = eventContent.getValue(1.0);
-		if (obj && obj->getDimensions() == 1 && obj->getSizes()[0] == 3)
+		if (obj && obj->getDimensions() == 1 && obj->getSizes()[0] == 2)
 		{
 			if (obj->getType() == TypeCode::INTEGER)
 			{
 				int* data = ((ValueObject<int*>*)obj)->getDataCopy();
 				int total = (int)data[0];
 				int win = (int)data[1];
-				RatingSystem().SetEnemyRate(RatingSystem().GetWinRate(total, win));
+				RatingSystem().SetEnemyBattleInfo(total, win);
+				//RatingSystem().SetEnemyRate(RatingSystem().GetWinRate(total, win));
+			}
+			if (obj->getType() == TypeCode::BYTE)
+			{
+				nByte* data = ((ValueObject<nByte*>*)obj)->getDataCopy();
+				int total = (int)data[0];
+				int win = (int)data[1];
+				RatingSystem().SetEnemyBattleInfo(total, win);
+				//RatingSystem().SetEnemeyRating(RatingSystem().GetWinRate(total, win));
+				char str[256];
+				OutputDebugString("-----------------------------------------------\n");
+				sprintf_s(str, "enemy total %d, enemy win %d, Rate %f", total, win, RatingSystem().GetWinRate(total, win));
+				OutputDebugString(str);
+				OutputDebugString("-----------------------------------------------\n");
 			}
 		}
 		/*float content = ExitGames::Common::ValueObject<float>(eventContentObj).getDataCopy();
@@ -551,12 +580,8 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 	}
 	case enLoadState:
 	{
-		int content = ExitGames::Common::ValueObject<int>(eventContentObj).getDataCopy();
-		if (content) {
-			m_isEnemyLoadedMyData = true;
-			OutputDebugString("\n");
-			OutputDebugString("enemy is loaded my monster ai datas\n");
-		}
+		printf("\nEnemy Loaded my AI Datas\n");
+		m_isEnemyLoadedMyData = true;
 	}
 		break;
 	default:

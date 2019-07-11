@@ -81,17 +81,17 @@ void RatePopup::InitEnemyInfo() {
 //
 
 bool RatingInfo::Start() {
-	m_backsp = NewGO<SpriteRender>(5);
+	m_backsp = NewGO<SpriteRender>(2);
 	m_backsp->Init(L"Assets/Sprite/syber1.dds", m_backSca.x * m_scale, m_backSca.y * m_scale);
 	m_backsp->SetPosition(m_pos);
 
-	m_info = NewGO<FontRender>(5);
+	m_info = NewGO<FontRender>(2);
 	m_info->SetTextType(CFont::en_Japanese);
 	m_info->Init(L"ステータス", { m_pos.x - 100 * m_scale, m_pos.y + 250.f * m_scale },0.f,CVector4::White,m_scale);
 	//m_info->SetPosition()
 	m_info->DrawShadow();
 	//my rate
-	m_myRate = NewGO<FontRender>(5);
+	m_myRate = NewGO<FontRender>(2);
 	m_myRate->SetTextType(CFont::en_Japanese);
 	std::wstring str = L"\n勝率\n ";
 	str += std::_Floating_to_wstring(L"%.2f", RatingSystem().GetWinRate());

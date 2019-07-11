@@ -135,16 +135,18 @@ public:
 private:
 
 	int num = 1;
-	int fonttimer = 25;          //上に表示されている確認用のfontを
+	int fonttimer = 25;                        //上に表示されている確認用のfontを
 
-	bool Technique = false;		//技を選択したときtrueになる。　
+	bool Technique = false;	                   //技を選択したときtrueになる。　
 	bool techniqueOrder = false;
 	bool timer = false;
-	bool key = false; //deletekeyに何かが入ったらtrueになる。
-	bool NextClickFlag = false;  //Deletekeyを使って列をDeleteしたと気にtrueになる。
-	bool m_isMakeOrder = false;				//makeOrderした場合はStart等を無視するためのフラグ
+	bool key = false;                          //deletekeyに何かが入ったらtrueになる。
+	bool NextClickFlag = false;                //Deletekeyを使って列をDeleteしたと気にtrueになる。
+	bool m_isMakeOrder = false;                //makeOrderした場合はStart等を無視するためのフラグ
 
-	float scale = 0.7;          //fontのスケール。
+	float scale = 0.7;                         //fontのスケール。
+
+	CVector2 SetShadowPos = { 5.f,-5.f };      //フォントの影の座標。
 	
 	CVector3 m_pos = CVector3::Zero();
 

@@ -10,6 +10,16 @@ VisualScriptAI::VisualScriptAI(Monster* me, std::string* path)
 
 	FILE* f = fopen(path->c_str(), "rb");
 
+	if (f == NULL)
+	{
+		VisualScriptLine line;
+		line.reserve(1);
+		line.push_back(VisualScriptOrder());
+		m_vsLines.reserve(1);
+		m_vsLines.push_back(line);
+		return;
+	}
+
 	char head[6];
 	fread(head, 6, 1, f);
 	int col = 0;
@@ -365,7 +375,7 @@ bool VisualScriptAI::whatState(Target target, State state, Monster *& mon, Targe
 	}
 	else
 	{
-		if (target == buddy)
+		/*if (target == buddy)
 		{
 			team = m_me->Getteam();
 		}
@@ -381,6 +391,32 @@ bool VisualScriptAI::whatState(Target target, State state, Monster *& mon, Targe
 			{
 				tarmon = mon;
 			}
+		}*/
+		team = m_me->Getteam();
+
+		for (auto mon : g_mons)
+		{
+			if (mon == nullptr)
+				break;
+
+			bool isGet = false;
+			switch (target)
+			{
+			case buddy:
+				if (team == mon->Getteam())
+				{
+					tarmon = mon;
+				}
+				break;
+			case enemy:
+				if (team != mon->Getteam())
+				{
+					tarmon = mon;
+				}
+				break;
+			}
+			if (isGet)
+				break;
 		}
 	}
 	mon = tarmon;
@@ -397,22 +433,31 @@ void VisualScriptAI::whatAction(Target target, Action action)
 	}
 	else
 	{
-		if (target == buddy)
-		{
-			team = m_me->Getteam();
-		}
-		else
-		{
-			team = m_me->Getteam() == 0 ? 1 : 0;
-		}
+		team = m_me->Getteam();
+
 		for (auto mon : g_mons)
 		{
 			if (mon == nullptr)
 				break;
-			if (team == mon->Getteam())
+
+			bool isGet = false;
+			switch (target)
 			{
-				tarmon = mon;
+			case buddy:
+				if (team == mon->Getteam())
+				{
+					tarmon = mon;
+				}
+				break;
+			case enemy:
+				if (team != mon->Getteam())
+				{
+					tarmon = mon;
+				}
+				break;
 			}
+			if (isGet)
+				break;
 		}
 	}
 	if (tarmon == nullptr)
@@ -421,6 +466,7 @@ void VisualScriptAI::whatAction(Target target, Action action)
 	switch (action)
 	{
 	case attack:
+		//todo: ‚È‚ñ‚©ŒÄ‚Î‚ê‚Ä‚é
 		m_me->AddAction(MonsterActionManeger::LoadAction(ua[enAtack], tarmon->Getnum()));
 		break;
 	case leave:
@@ -433,7 +479,7 @@ void VisualScriptAI::whatAction(Target target, Action action)
 		m_me->AddAction(MonsterActionManeger::LoadAction(ua[enDefense], tarmon->Getnum()));
 		break;
 	case recovery:
-		m_me->AddAction(MonsterActionManeger::LoadAction(ua[4], tarmon->Getnum()));
+		m_me->AddAction(MonsterActionManeger::LoadAction(enRecovery, tarmon->Getnum()));
 		break;
 	case ex1:
 		m_me->AddAction(MonsterActionManeger::LoadAction(ua[4], tarmon->Getnum()));
@@ -463,7 +509,7 @@ void VisualScriptAI::whatAction(Monster * target, Action action)
 		m_me->AddAction(MonsterActionManeger::LoadAction(ua[enDefense], target->Getnum()));
 		break;
 	case recovery:
-		m_me->AddAction(MonsterActionManeger::LoadAction(ua[5], target->Getnum()));
+		m_me->AddAction(MonsterActionManeger::LoadAction(enRecovery, target->Getnum()));
 		break;
 	case ex1:
 		m_me->AddAction(MonsterActionManeger::LoadAction(ua[4], target->Getnum()));

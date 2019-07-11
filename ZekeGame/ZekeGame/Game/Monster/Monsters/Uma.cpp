@@ -21,11 +21,11 @@ Uma::Uma()
 	
 	MonsterInitParam prm;
 	prm.HP = 100;
-	prm.MP = 30;
-	prm.DefencePow = 10;
-	prm.ExDefensePow = 2;
+	prm.MP = 80;
+	prm.DefencePow = 7;
+	prm.ExDefensePow = 1.7;
 	prm.AttackPow = 13;
-	prm.ExAttackPow = 5;
+	prm.ExAttackPow = 1;
 	prm.Speed = 10;
 	prm.Radius = 50;
 	prm.Height = 250;

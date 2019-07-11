@@ -14,7 +14,7 @@ bool Act_Guardian::Action(Monster * me)
 
 	if (m_first)
 	{
-		float CMP = 1;
+		float CMP = 10;
 		float mp = me->GetMP();
 		if (mp < CMP)
 			return true;
@@ -24,8 +24,9 @@ bool Act_Guardian::Action(Monster * me)
 		m_def = me->GetDefense();
 		m_Exdef = me->GetExDefense();
 
-		me->SetDefense(m_def * 3.f);
-		me->SetExDefense(m_Exdef * 3.f);
+		float magnification = 1.2f;
+		me->SetDefense(m_def * magnification);
+		me->SetExDefense(m_Exdef * magnification);
 
 
 		m_first = false;

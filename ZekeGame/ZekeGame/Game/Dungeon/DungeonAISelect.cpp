@@ -29,7 +29,6 @@ DungeonAISelect::DungeonAISelect()
 {
 }
 
-
 DungeonAISelect::~DungeonAISelect()
 {
 	

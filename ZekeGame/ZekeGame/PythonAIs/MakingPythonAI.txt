@@ -1,0 +1,8 @@
+Python AI のつくりかた。
+1.PythonAIs.CppBridgeをインポートします。
+2.Brain関数を作ります。引数は不要です。
+3.Brain関数内の最初の行でCppBridgeのInit()関数を使います。
+  CppBridge.Init()
+4.実行するスクリプトを書こう！
+5.Brain関数内の最後の行でCppBridgeのEnd()関数を使います。
+6.おわり

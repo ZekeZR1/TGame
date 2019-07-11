@@ -35,19 +35,19 @@ public:
 		float v[2];
 	};
 
-	double norm() { return (x * x) + (y * y); }
+	long norm() { return (long(x) * long(x)) + (long(y) * long(y)); }
 
 
-	static double cross(CVector2 a, CVector2 b) {
-		return (a.x * b.y) - (a.y * b.x);
+	static long cross(CVector2 a, CVector2 b) {
+		return (long(a.x) * long(b.y)) - (a.y * b.x);
 	}
 
-	static double dot(CVector2 a, CVector2 b) {
-		return (a.x * b.x) + (a.y * b.y);
+	static long dot(CVector2 a, CVector2 b) {
+		return long(long(a.x) * long(b.x)) + (long(a.y) * long(b.y));
 	}
 
 	static  CLOCKWISE ccw(CVector2 a, CVector2 b) {
-		const double EPS = 1e-9;
+		const float EPS = 1e-9;
 		if (cross(a, b) > EPS) return enCOUNTER_CLOCKWISE;
 		if (cross(a, b) < -EPS) return enCLOCKWISE;
 		if (dot(a, b) < -EPS) return enONLINE_BACK;

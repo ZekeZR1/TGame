@@ -8,6 +8,7 @@ class MonAIPresetOpenSuper;
 class GObutton;
 class MonsterSelectBack;
 class GameCursor;
+enum MonsterID;
 class DungeonAISelect : public SuperMonsterSelect
 {
 public:
@@ -30,7 +31,7 @@ private:
 	std::vector<std::string> m_files;
 	std::vector<std::string> m_enemyFiles;
 	int monai[6] = { 0 };
-	int aimode[6];
+	int aimode[6] = { 0 };
 	int curpos = 0;
 	bool sel = false;
 	GameCursor* m_cursor;

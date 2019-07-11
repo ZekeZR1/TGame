@@ -59,29 +59,29 @@ bool AIEditNodeTechnique::Start()
 	m_fontpos.x = bacon.x - 63.0;
 	m_fontpos.y = bacon.y + 100.0;
 	m_fonts[0]->Init(L"こうげき", { m_fontpos }, 0.0, CVector4::White, 0.65, { 0.0,0.0 });
-	m_fonts[0]->DrawShadow({ 5,-5 });
+	m_fonts[0]->DrawShadow({ SetShadowPos });
 	m_fontpos.x += 3.f;
 	m_fontpos.y -= 49.f;
 	m_fonts[1]->Init(L"にげる", { m_fontpos }, 0.0, CVector4::White, 0.8, { 0.0,0.0 });
-	m_fonts[1]->DrawShadow({ 5,-5 });
+	m_fonts[1]->DrawShadow({ SetShadowPos });
 	m_fontpos.x -= 3.f;
 	m_fontpos.y -= 60.f;
 	m_fonts[2]->Init(L"ついせき", { m_fontpos }, 0.0, CVector4::White, 0.65, { 0.0,0.0 });
-	m_fonts[2]->DrawShadow({ 5,-5 });
+	m_fonts[2]->DrawShadow({ SetShadowPos });
 	m_fontpos.x += 3.f;
 	m_fontpos.y -= 50.f;
 	m_fonts[3]->Init(L"まもる", { m_fontpos }, 0.0, CVector4::White, 0.8, { 0.0,0.0 });
-	m_fonts[3]->DrawShadow({ 5,-5 });
+	m_fonts[3]->DrawShadow({ SetShadowPos });
 	m_fontpos.y -= 60.f;
 	m_fonts[4]->Init(L"かいふく", { m_fontpos }, 0.0, CVector4::White, 0.65, { 0.0,0.0 });
-	m_fonts[4]->DrawShadow({ 5,-5 });
+	m_fonts[4]->DrawShadow({ SetShadowPos });
 	m_fontpos.x -= 4.f;
 	m_fontpos.y -= 55.f;
 	m_fonts[5]->Init(L"とくしゅ１", { m_fontpos }, 0.0, CVector4::White, 0.55, { 0.0,0.0 });
-	m_fonts[5]->DrawShadow({ 5,-5 });
+	m_fonts[5]->DrawShadow({ SetShadowPos });
 	m_fontpos.y -= 55.f;
 	m_fonts[6]->Init(L"とくしゅ２", { m_fontpos }, 0.0, CVector4::White, 0.55, { 0.0,0.0 });
-	m_fonts[6]->DrawShadow({ 5,-5 });
+	m_fonts[6]->DrawShadow({ SetShadowPos });
 	
 	m_font.push_back(NewGO<FontRender>(3));
 	m_font[0]->SetTextType(CFont::en_Japanese);
@@ -119,49 +119,49 @@ void AIEditNodeTechnique::FontsConfirmation()
 
 	if (m_nodebuttons[button - 7]->GetSpriteRender()->isCollidingTarget()) {
 		m_font[0]->Init(L"　　　に　こうげき", { m_fontpos1 }, 0.0, CVector4::White, 0.8, { 0.0,0.0 });
-		m_font[0]->DrawShadow({ 5,-5 });
+		m_font[0]->DrawShadow({ SetShadowPos });
 
 		contact1 = true;
 	}
 
 	else if (m_nodebuttons[button - 6]->GetSpriteRender()->isCollidingTarget()) {
 		m_font[0]->Init(L"　　　から　にげる", { m_fontpos1 }, 0.0, CVector4::White, 0.8, { 0.0,0.0 });
-		m_font[0]->DrawShadow({ 5,-5 });
+		m_font[0]->DrawShadow({ SetShadowPos });
 
 		contact1 = true;
 	}
 
 	else if (m_nodebuttons[button - 5]->GetSpriteRender()->isCollidingTarget()) {
 		m_font[0]->Init(L"　　　を　ついせき", { m_fontpos1 }, 0.0, CVector4::White, 0.8, { 0.0,0.0 });
-		m_font[0]->DrawShadow({ 5,-5 });
+		m_font[0]->DrawShadow({ SetShadowPos });
 
 		contact1 = true;
 	}
 
 	else if (m_nodebuttons[button - 4]->GetSpriteRender()->isCollidingTarget()) {
 		m_font[0]->Init(L"ーーーまもる", { m_fontpos1 }, 0.0, CVector4::White, 0.8, { 0.0,0.0 });
-		m_font[0]->DrawShadow({ 5,-5 });
+		m_font[0]->DrawShadow({ SetShadowPos });
 
 		contact1 = true;
 	}
 
 	else if (m_nodebuttons[button - 3]->GetSpriteRender()->isCollidingTarget()) {
 		m_font[0]->Init(L"　　　を　かいふく", { m_fontpos1 }, 0.0, CVector4::White, 0.8, { 0.0,0.0 });
-		m_font[0]->DrawShadow({ 5,-5 });
+		m_font[0]->DrawShadow({ SetShadowPos });
 
 		contact1 = true;
 	}
 
 	else if (m_nodebuttons[button - 2]->GetSpriteRender()->isCollidingTarget()) {
 		m_font[0]->Init(L"　　　に　とくしゅ1", { m_fontpos1 }, 0.0, CVector4::White, 0.8, { 0.0,0.0 });
-		m_font[0]->DrawShadow({ 5,-5 });
+		m_font[0]->DrawShadow({ SetShadowPos });
 
 		contact1 = true;
 	}
 
 	else if (m_nodebuttons[button - 1]->GetSpriteRender()->isCollidingTarget()) {
 		m_font[0]->Init(L"　　　に　とくしゅ2", { m_fontpos1 }, 0.0, CVector4::White, 0.8, { 0.0,0.0 });
-		m_font[0]->DrawShadow({ 5,-5 });
+		m_font[0]->DrawShadow({ SetShadowPos });
 
 		contact1 = true;
 	}
@@ -201,7 +201,6 @@ void AIEditNodeTechnique::Update()
 			m_aieditnodeprocess->Setkeeptechnique(enAttak);
 			Order();
 			PlayButtonSE();
-
 		}
 
 		if (m_nodebuttons[button - 6]->GetSpriteRender()->isCollidingTarget()) {
@@ -209,7 +208,6 @@ void AIEditNodeTechnique::Update()
 			m_aieditnodeprocess->Setkeeptechnique(enEscape);
 			Order();
 			PlayButtonSE();
-
 		}
 
 		if (m_nodebuttons[button - 5]->GetSpriteRender()->isCollidingTarget()) {
@@ -217,7 +215,6 @@ void AIEditNodeTechnique::Update()
 			m_aieditnodeprocess->Setkeeptechnique(enCase);
 			Order();
 			PlayButtonSE();
-
 		}
 
 		if (m_nodebuttons[button - 4]->GetSpriteRender()->isCollidingTarget()) {
@@ -225,7 +222,6 @@ void AIEditNodeTechnique::Update()
 			m_aieditnodeprocess->Setkeeptechnique(enProtect);
 			Order();
 			PlayButtonSE();
-
 		}
 
 		if (m_nodebuttons[button - 3]->GetSpriteRender()->isCollidingTarget()) {
@@ -233,7 +229,6 @@ void AIEditNodeTechnique::Update()
 			m_aieditnodeprocess->Setkeeptechnique(enHeel);
 			Order();
 			PlayButtonSE();
-
 		}
 
 		if (m_nodebuttons[button - 2]->GetSpriteRender()->isCollidingTarget()) {
@@ -241,7 +236,6 @@ void AIEditNodeTechnique::Update()
 			m_aieditnodeprocess->Setkeeptechnique(enSpecial1);
 			Order();
 			PlayButtonSE();
-
 		}
 
 		if (m_nodebuttons[button - 1]->GetSpriteRender()->isCollidingTarget()) {
@@ -249,7 +243,6 @@ void AIEditNodeTechnique::Update()
 			m_aieditnodeprocess->Setkeeptechnique(enSpecial2);
 			Order();
 			PlayButtonSE();
-
 		}
 	}
 }

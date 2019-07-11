@@ -26,6 +26,6 @@ public:
 	void writeLine(const ExitGames::Common::JString& str = ExitGames::Common::JString());
 	static Console& get(void);
 private:
-	ConsoleImplementation* mpImp;
+	ConsoleImplementation* mpImp = nullptr;
 };
 

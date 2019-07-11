@@ -7,7 +7,7 @@ public:
 	bool Start() override;
 	void Update() override;
 private:
-	GameCamera* m_camera;
-	SkinModelRender* m_model;
+	GameCamera* m_camera = nullptr;
+	SkinModelRender* m_model = nullptr;
 };
 

@@ -9,7 +9,7 @@ public:
 	//モンスターに技を加えるときに使うローダー
 	//id:		技のID
 	//target:	対象のモンスター
-	static MonsterAction* LoadAction(int id,int target);
+	static MonsterAction* LoadAction(int id,int target,...);
 
 	
 	/*enum en_action

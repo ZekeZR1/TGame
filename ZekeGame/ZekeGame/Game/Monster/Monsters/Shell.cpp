@@ -26,11 +26,11 @@ Shell::Shell()
 	sr->SetPosition(CVector3::Zero());
 		
 	MonsterInitParam prm;
-	prm.HP = 80;
-	prm.MP = 30;
-	prm.DefencePow = 50;
-	prm.ExDefensePow = 20;
-	prm.AttackPow = 10;
+	prm.HP = 30;
+	prm.MP = 800;
+	prm.DefencePow = 100;
+	prm.ExDefensePow = 100;
+	prm.AttackPow = 15;
 	prm.ExAttackPow = 10;
 	prm.Speed = 10;
 	prm.Radius = 50;

@@ -1,10 +1,12 @@
-﻿#coding: utf-8
+﻿#coding:utf-8
 
-import PythonAIs.CppBridge as cb
-import SendGame
+import CppBridge as cb
 
-def Brain(num,team):
-	cb.init(num,team)
-	mon = cb.GetEnemyNeerMonster()
-	cb.addAction(mon,SendGame.CHASE)
-	cb.End()
+def Brain():
+    cb.Init()
+    me = cb.GetMe()
+    pos = me.position
+    pos.x += 300
+    pos.z += 1000
+    cb.SendGame.Move(pos.x,pos.z)
+    cb.End()

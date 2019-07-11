@@ -4,21 +4,21 @@
 
 typedef struct {
 	PyObject_HEAD
-	MVector3* position;
-	int ID;
-	int num;
-	int team;
-	float maxHP;
-	float HP;
-	float maxMP;
-	float MP;
-	float Attack;
-	float AttackEx;
-	float Defence;
-	float DefenceEx;
-	float speed;
-	MVector3* movespeed;
-	PyListObject* stateList;
+	MVector3* position = nullptr;
+	int ID = 0;
+	int num = 0;
+	int team = 0;
+	float maxHP = 0.f;
+	float HP = 0.f;
+	float maxMP = 0.f;
+	float MP = 0.f;
+	float Attack = 0.f;
+	float AttackEx = 0.f;
+	float Defence = 0.f;
+	float DefenceEx = 0.f;
+	float speed = 0.f;
+	MVector3* movespeed = nullptr;
+	PyListObject* stateList = nullptr;
 
 }MMonster;
 

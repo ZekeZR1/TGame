@@ -3,7 +3,7 @@
 struct Log
 {
 	float timeLim = 10.f;
-	FontRender* font;
+	FontRender* font = nullptr;
 	bool isDead = true;
 };
 class GameLog :public GameObject
@@ -32,7 +32,7 @@ public:
 
 private:
 	static GameLog* instans;
-	Log* m_logs;
+	Log* m_logs = nullptr;
 
 	int m_logMax = 18;
 	float m_timeMax = 15.f;

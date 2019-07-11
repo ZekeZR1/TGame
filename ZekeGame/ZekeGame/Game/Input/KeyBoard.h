@@ -4,6 +4,7 @@ enum KeyboardEve
 {
 	enEnter = 0x0D,
 	enBackSpace = 0x08,
+	enDelete = 0x2E,
 };
 
 namespace Keyboard
@@ -15,4 +16,6 @@ namespace Keyboard
 	//arg:
 	//	ke: ÉLÅ[ÇÃéwíË
 	bool isTrriger(KeyboardEve ke);
+
+	extern int Key;
 }

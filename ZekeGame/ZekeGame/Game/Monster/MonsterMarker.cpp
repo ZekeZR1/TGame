@@ -64,12 +64,13 @@ void MonsterMarker::init(Monster * mon)
 	}
 	m_offsetY = mon->Getheight();
 
+	auto cameraForward = camera3d->GetForward() * -1.0f;
 	CVector3 pos = mon->Getpos();
 	pos.y += m_offsetY;
 
 	m_marker->SetPosition(pos);
 	pos.y += 12;
-	m_number->SetPosition(pos);
+	m_number->SetPosition(pos + cameraForward * 10.0f);
 
 	CQuaternion rot = CQuaternion::Identity();
 	rot.SetRotation(camera3d->GetCameraRotation());

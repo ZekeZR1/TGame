@@ -188,7 +188,6 @@ void ModeSelectBack::NetPVP()
 	DeleteGO(m_uia);
 	m_sprits.clear();
 	m_sprits.shrink_to_fit();
-	bool isgf = true;
 	m_uia = NewGO<UIAnimator>(0, "uia");
 	float pz = 0;
 	m_uia->loadUI(L"Assets/UI/modesel_netpvp.uip", [&](sUI * ui, bool& isfook)->SpriteRender *

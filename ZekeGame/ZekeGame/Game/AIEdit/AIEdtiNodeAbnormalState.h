@@ -47,6 +47,8 @@ private:
 
 	float scale = 0.8;
 
+	CVector2 SetShadowPos = { 0.5f,-0.5f };
+
 	CVector3 m_position = CVector3::Zero();
 
 	std::vector<FontRender*> m_fonts;

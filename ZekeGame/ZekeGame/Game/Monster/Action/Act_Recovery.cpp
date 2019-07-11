@@ -15,7 +15,7 @@ bool Act_Recovery::Action(Monster * me)
 		return true;
 	if (m_first)
 	{
-		float CMP = 0.1f;
+		float CMP = 50.f;
 		float mp = me->GetMP();
 		if (mp < CMP)
 			return true;
@@ -23,7 +23,7 @@ bool Act_Recovery::Action(Monster * me)
 		
 		float hp = m_target->GetHP();
 		//hp += 20;
-		hp += 80;
+		hp += 30;
 		m_target->SetHP(hp);
 
 		mp -= CMP;

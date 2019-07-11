@@ -45,7 +45,7 @@ bool Act_Tackle::Action(Monster * me)
 				knock *= 800;
 				mon->StartKnockback(knock);
 
-				float dam = 5.0f * me->GetAttack();
+				float dam = 2.0f * me->GetAttack();
 				mon->Damage(dam);
 				me->Setspeed(CVector3::Zero());
 

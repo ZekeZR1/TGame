@@ -6,8 +6,8 @@
 ShadowMap::ShadowMap()
 {
 	m_shadowMapRT.Create(
-		2048,
-		2048,
+		4096 * 2,
+		4096 * 2,
 		DXGI_FORMAT_R32_FLOAT
 	);
 }
@@ -33,9 +33,9 @@ void ShadowMap::UpdateFromLightDirection(CVector3 lightCameraPos, CVector3 light
 	);
 
 	m_lightProjMatrix.MakeOrthoProjectionMatrix(
-		3000,
-		3000,
-		0.1f,
+		3500,
+		3500,
+		10.0f,
 		5000.0f
 	);
 }

@@ -15,7 +15,6 @@ AIEditNodeMenuConfirmation::~AIEditNodeMenuConfirmation()
 	DeleteGO(m_fonts2);
 }
 
-
 bool AIEditNodeMenuConfirmation::Start()
 {
 	m_gamecursor = FindGO<GameCursor>("cursor");
@@ -56,21 +55,18 @@ bool AIEditNodeMenuConfirmation::Start()
 	m_fontpos2.x -= 370;
 	m_fontpos2.y += 120;
 	m_fonts2->Init(L"ŒxF•ÏX“à—e‚ª”jŠü‚³‚ê‚Ü‚·", { m_fontpos2 }, 0.0, CVector4::Red, 0.8, { 0.0,0.0 });
-	//m_fonts2->DrawShadow({ 5,-5 }, 1, 0, { 1,1,1,1 });
 
 	m_fontpos.y += 20;
 	m_fontpos.x -= 300.f;
 	m_fonts[0]->Init(L"‚Í‚¢", { m_fontpos }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
-	//m_fonts[0]->DrawShadow();
+
 
 	m_fontpos.x += 225;
 	m_fonts[1]->Init(L"‚¢‚¢‚¦", { m_fontpos }, 0.0, CVector4::White, 1.0, { 0.0,0.0 });
-	//m_fonts[1]->DrawShadow();
 
 	return true;
 
 }
-
 
 void AIEditNodeMenuConfirmation::Update()
 {

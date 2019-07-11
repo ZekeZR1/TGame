@@ -45,13 +45,13 @@ bool Act_Fire::Action(Monster * me)
 
 		m_first = false;
 	}
-	else if (!m_effect->IsPlay())
+	else if (!me->isAnimPlay())
 	{
 		me->anim_idle();
-		return true;
+		
 	}
 	
-	if (m_effect->IsPlay())
+	if (m_timer <= m_limit)
 	{
 		for (auto mon : g_mons)
 		{
@@ -65,6 +65,11 @@ bool Act_Fire::Action(Monster * me)
 		}
 		m_efs += {0.02f, 0.02f, 0.02f};
 		m_effect->SetScale(m_efs);
+		m_timer += IGameTime().GetFrameDeltaTime();
+	}
+	else
+	{
+		return true;
 	}
 	
 	return false;

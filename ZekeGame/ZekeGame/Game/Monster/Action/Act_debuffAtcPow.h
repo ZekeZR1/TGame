@@ -7,6 +7,7 @@ public:
 	Act_debuffAtcPow();
 	~Act_debuffAtcPow();
 	bool Action(Monster* me) override;
+
 private:
 	bool m_first = true;
 	float m_cost = 20.f;
