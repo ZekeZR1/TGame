@@ -382,7 +382,6 @@ Book = SendGame.Book
 RedHead = SendGame.RedHead
 Kikyo = SendGame.Kikyo
 SicoChu = SendGame.SicoChu
-Ringo = SendGame.Ringo
 Chris = SendGame.Chris
 
 
@@ -483,79 +482,132 @@ def addAction(target,action):
     actions.append([int(action),target.num])
 
 def Chase(target):
+    if type(target) != Monster:
+        return
     SendGame.addAction(target.num,SendGame.CHASE)
     
 def Attack(target):
+    if type(target) != Monster:
+        return
     SendGame.addAction(target.num,SendGame.ATTACK)
 
 def Escape(target):
+    if type(target) != Monster:
+        return
     SendGame.addAction(target.num,SendGame.ESCAPE)
 
 def Defense(target):
+    if type(target) != Monster:
+        return
     SendGame.addAction(target.num,SendGame.DEFENSE)
 
 def Fire(target):
+    if type(target) != Monster:
+        return
     SendGame.addAction(target.num,SendGame.FIRE)
 
 def Tackle(target):
+    if type(target) != Monster:
+        return
     SendGame.addAction(target.num,SendGame.TACKLE)
 
 def Guardian(target):
+    if type(target) != Monster:
+        return
     SendGame.addAction(target.num,SendGame.GUARDIAN)
 
 def Heal(target):
+    if type(target) != Monster:
+        return
     SendGame.addAction(target.num,SendGame.HEAL)
 
 def SUPER_BEAM(target):
+    if type(target) != Monster:
+        return
     SendGame.addAction(target.num,SendGame.SUPER_BEAM)
 
 def Obst_Move(target):
+    if type(target) != Monster:
+        return
     SendGame.addAction(target.num,SendGame.Obst_Move)
 
 def Cleanse(target):
+    if type(target) != Monster:
+        return
     SendGame.addAction(target.num,SendGame.Cleanse)
 
 def ATK_Buff(target):
+    if type(target) != Monster:
+        return
     SendGame.addAction(target.num,SendGame.ATK_Buff)
 
 def ATK_Debuff(target):
+    if type(target) != Monster:
+        return
     SendGame.addAction(target.num,SendGame.ATK_Debuff)
 
 def DEF_Buff(target):
+    if type(target) != Monster:
+        return
     SendGame.addAction(target.num,SendGame.DEF_Buff)
 
 def DEF_Debuff(target):
+    if type(target) != Monster:
+        return
     SendGame.addAction(target.num,SendGame.DEF_Debuff)
 
 def Clear_Stack(target):
+    if type(target) != Monster:
+        return
     SendGame.addAction(target.num,SendGame.Clear_Stack)
 
 def Majinken(target):
+    if type(target) != Monster:
+        return
     SendGame.addAction(target.num,SendGame.Majinken)
 
 def MP_Heal(target):
+    if type(target) != Monster:
+        return
     SendGame.addAction(target.num,SendGame.MP_Heal)
 
 def Blizzard(target):
+    if type(target) != Monster:
+        return
     SendGame.addAction(target.num,SendGame.Blizzard)
 
 def Ignite(target):
+    if type(target) != Monster:
+        return
     SendGame.addAction(target.num,SendGame.Ignite)
 
 def Poison(target):
+    if type(target) != Monster:
+        return
     SendGame.addAction(target.num,SendGame.Poison)
 
 def Thunder(target):
+    if type(target) != Monster:
+        return
     SendGame.addAction(target.num,SendGame.Thunder)
 
 def Kamikaze(target):
+    if type(target) != Monster:
+        return
     SendGame.addAction(target.num,SendGame.Kamikaze)
 
     
 
 def Move(targetPosition):
     """モンスターを指定したポジションに移動させる。"""
+    if type(targetPosition) != Vector3:
+        return
     SendGame.Move(targetPosition.x,targetPosition.z)
+
+def MMprint(st):
+    if type(st) != str:
+        return 
+    SendGame.MMprint(st)
 
 def End():
     SendGame.SetAction(actions,gameData.me.num);
