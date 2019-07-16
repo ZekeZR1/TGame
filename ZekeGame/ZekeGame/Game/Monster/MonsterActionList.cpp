@@ -197,12 +197,12 @@ void MonsterActionList::Update()
 	float mp = m_mon->GetMP();
 
 	wchar_t tx[255];
-	swprintf_s(tx, L"%.1f", hp);
+	swprintf_s(tx, L"%.1f", hp < 0 ? 0  : hp);
 	m_fhp->Init(tx, m_vh, 0, CVector4::White, 0.6f, { 0,0 });
 
 	m_Sfhp->Init(tx, { m_vh.x + 5,m_vh.y - 5 }, 0, { 0,0,0,1 }, 0.6f, { 0,0 });
 
-	swprintf_s(tx, L"%.1f", mp);
+	swprintf_s(tx, L"%.1f", mp < 0 ? 0 : mp);
 	m_fmp->Init(tx, m_vm, 0, CVector4::White, 0.6f, { 0,0 });
 	m_Sfmp->Init(tx, { m_vm.x + 5,m_vm.y - 5 }, 0, { 0,0,0,1 }, 0.6f, { 0,0 });
 	
