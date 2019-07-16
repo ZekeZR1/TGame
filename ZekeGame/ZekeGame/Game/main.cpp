@@ -13,9 +13,9 @@ int WINAPI wWinMain(
 	LPWSTR lpCmdLine,
 	int nCmdShow) {
 
-	//AllocConsole();
-	//freopen("CON", "r", stdin);     // 標準入力の割り当て
-	//freopen("CON", "w", stdout);    // 標準出力の割り当て
+	AllocConsole();
+	freopen("CON", "r", stdin);     // 標準入力の割り当て
+	freopen("CON", "w", stdout);    // 標準出力の割り当て
 
 	//Initialize
 	Engine::IEngine().Init(hInstance, hPrevInstance, lpCmdLine, nCmdShow);

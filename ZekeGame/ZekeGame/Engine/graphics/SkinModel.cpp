@@ -39,7 +39,12 @@ void SkinModel::Init(const wchar_t* filePath, EnFbxUpAxis enFbxUpAxis,
 	if (specularMap)
 		m_hasSpecularMap = true;
 	//SkinModelDataManagerを使用してCMOファイルのロード。
+	std::wstring w = filePath;
+	std::string fp = std::string(w.begin(), w.end());
+	printf("load start:%s\n",fp.c_str());
+
 	m_modelDx = g_skinModelDataManager.Load(filePath, m_skeleton, m_psmain, m_vsmain, normalMap, specularMap);
+	printf("load end\n");
 	m_enFbxUpAxis = enFbxUpAxis;
 }
 void SkinModel::InitSkeleton(const wchar_t* filePath)
