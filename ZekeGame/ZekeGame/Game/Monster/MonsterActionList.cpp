@@ -46,7 +46,7 @@ void MonsterActionList::init(Monster * mon)
 	m_back = NewGO<SpriteRender>(1, "sp");
 	float w = 215.0f;
 	float h = 144.0f;
-	h = 215.0f;
+	h = 222.0f;
 	if (mon->Getteam() == 0)
 	{
 		m_back->Init(L"Assets/Sprite/backRed.dds", w, h);
@@ -151,7 +151,7 @@ void MonsterActionList::init(Monster * mon)
 	m_HPfr->Init(L"HP:", { m_vh.x+10,m_vh.y + yfix}, 0, CVector4::White, 0.6f, { 0,0 });
 
 
-	m_monNumBack = NewGO<SpriteRender>(2, "sp");
+	m_monNumBack = NewGO<SpriteRender>(0, "sp");
 	int team = mon->Getteam();
 	if (team == 0)
 		m_monNumBack->Init(L"Assets/sprite/mark_red.dds", 50* 0.59375f, 50);
