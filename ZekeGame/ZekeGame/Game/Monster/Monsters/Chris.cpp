@@ -34,7 +34,7 @@ Chris::Chris()
 	prm.DefencePow = 8;
 	prm.ExDefensePow = 8;
 
-	prm.AttackPow = 5;
+	prm.AttackPow = 7;
 	prm.ExAttackPow = 10;
 
 	prm.Speed = 10;
