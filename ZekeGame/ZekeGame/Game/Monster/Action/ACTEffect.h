@@ -23,6 +23,13 @@ public:
 	void init(CEffect* effect , Monster* target, int state = enNull, float dam = 0,float time = -1,float endTime = 0, Monster* me = nullptr, float dmgParam = 0.01);
 
 	/*
+		バフとデバフでデフォルト値を何倍するかのパラメータを設定する
+	*/
+	void SetBuffDebuffParam(float param) {
+		m_buffdebuffParam = param;
+	}
+
+	/*
 	Update
 	*/
 	void Update();
@@ -33,6 +40,16 @@ public:
 	int GetAbnormalState()
 	{
 		return m_abnormal;
+	}
+
+	//ターゲットが死んだ事をクラスに教える
+	void SetTargetAliveFlag(bool flag) {
+		m_isTargetAlive = flag;
+	}
+
+	//状態異常が解除される
+	void Clense() {
+		m_isTargetAlive = false;
 	}
 
 	//これを設定するとダメージを食らわせたりできる。
@@ -75,4 +92,7 @@ private:
 	Monster* m_target = nullptr;
 	float m_DoTParam = 0;
 	Monster* m_Invoker = nullptr;
+	float m_buffdebuffParam = 1.f;
+	float m_invokerExAtk = 1.f;
+	bool m_isTargetAlive = true;
 };

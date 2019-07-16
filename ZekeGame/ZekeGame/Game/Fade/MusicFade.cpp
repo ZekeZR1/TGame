@@ -4,7 +4,8 @@
 
 void MusicFade::OnDestroy()
 {
-	m_Music->Stop();
+	if (m_Music != nullptr) 
+		m_Music->Stop();
 }
 
 void MusicFade::init(Sound * music,float vol,float speed)
@@ -23,14 +24,18 @@ void MusicFade::init(Sound * music,float vol,float speed)
 
 void MusicFade::Update()
 {
+	if (m_Music == nullptr) {
+		DeleteGO(this);
+		return;
+	}
+	else {
+		m_Music->SetVolume(m_vol);
+	}
 	m_vol -= m_speed * IGameTime().GetFrameDeltaTime();
 	if (m_vol <= 0)
 	{
+		m_Music->Stop();
 		DeleteGO(this);
 		m_vol = 0;
 	}
-	if (m_Music == nullptr)
-		DeleteGO(this);
-	else 
-		m_Music->SetVolume(m_vol);
 }

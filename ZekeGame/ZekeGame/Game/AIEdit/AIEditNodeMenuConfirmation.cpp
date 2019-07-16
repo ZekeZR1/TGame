@@ -2,6 +2,7 @@
 #include "../GameCursor.h"
 #include "AIEditNodeMenuConfirmation.h"
 #include "AIEditNodeMenu.h"
+#include "AIEditNodeSelectButtons.h"
 
 
 AIEditNodeMenuConfirmation::~AIEditNodeMenuConfirmation()
@@ -19,6 +20,8 @@ bool AIEditNodeMenuConfirmation::Start()
 {
 	m_gamecursor = FindGO<GameCursor>("cursor");
 	m_aieditnodemenu = FindGO<AIEditNodeMenu>("menu");
+	auto aieditnodeselectbuttons = FindGO<AIEditNodeSelectButtons>("selectbuttons");
+	aieditnodeselectbuttons->Setmenuselect(false);
 
 	m_spriteRender = NewGO<SpriteRender>(17, "menuconf");
 	m_spriteRender->Init(L"Assets/sprite/menu.dds", 520, 200, true);
@@ -26,6 +29,9 @@ bool AIEditNodeMenuConfirmation::Start()
 	m_positionselect = confpos;
 	m_positionselect.x -= 375;
 	m_positionselect.y -= 35;
+
+	auto aieditbuttons = FindGO<AIEditNodeMenu>("menu");
+	aieditbuttons->SetWindowActive(false);
 
 	for (int i = 0; i < button; i++) {
 
@@ -94,7 +100,8 @@ void AIEditNodeMenuConfirmation::Update()
 		{
 			m_aieditnodemenu->SetMenuconf(false);
 			PlayButtonSE();
-
+			auto aieditbuttons = FindGO<AIEditNodeMenu>("menu");
+			aieditbuttons->SetWindowActive(true);
 			DeleteGO(this);
 		}
 	}

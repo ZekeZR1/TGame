@@ -25,14 +25,15 @@ private:
 	bool abnormal = true;
 	float scale = 0.8;
 
-	std::vector<FontRender*> m_fonts;
 	CVector3 m_pos = CVector3::Zero();
 
-	AIEditNodeTarget* m_aieditnodetarget;
-	AIEditNode* m_aieditnode;
-	AIEditNodeInequ* m_aieditnodeinequ;
-	AIEditNodeNum* m_aieditnodenum;
-	AIEditNodeTechnique* m_aieditnodetechnique;
-	AIEditNodeAbnormalState* m_aieditnodeabnormalstate;
+	std::vector<FontRender*> m_fonts;
+
+	AIEditNodeTarget* m_aieditnodetarget = nullptr;
+	AIEditNode* m_aieditnode = nullptr;
+	AIEditNodeInequ* m_aieditnodeinequ = nullptr;
+	AIEditNodeNum* m_aieditnodenum = nullptr;
+	AIEditNodeTechnique* m_aieditnodetechnique = nullptr;
+	AIEditNodeAbnormalState* m_aieditnodeabnormalstate = nullptr;
 
 };

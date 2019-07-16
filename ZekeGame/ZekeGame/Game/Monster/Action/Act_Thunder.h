@@ -11,12 +11,12 @@ private:
 	CAct_Beam m_cBeam;
 	CVector3 m_efs = CVector3::One() * 3.5;
 	bool m_first = true;
-	float m_cost = 5;
+	float m_cost = 0.1;
 	float m_timer = 0;
 	int m_cooltime = 5;
 	float laserRange = 100;
 	float m_grantAbsTime = 0.5;
-	float m_damage = 0.001;
+	float m_damage = 0.06;
 	int m_DoTEndTime = 50;
 };
 

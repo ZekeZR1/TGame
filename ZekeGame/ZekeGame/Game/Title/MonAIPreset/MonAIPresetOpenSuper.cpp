@@ -321,12 +321,12 @@ void MonAIPresetOpenSuper::Open()
 	CVector3 p3 = { 540,-260 ,0};
 	p3 = { 800,-260,0 };
 	m_Closepos = p3;
-	m_close = NewGO<SpriteRender>(3,"sp");
+	m_close = NewGO<SpriteRender>(13,"sp");
 	m_close->Init(L"Assets/sprite/buttyon.dds", 140, 64, true);
 	m_close->SetPosition(p3);
 	m_close->SetMulCol({ 0.7f,0.7f, 0.7f, 1 });
 
-	m_fclose = NewGO<FontRender>(3, "fr");
+	m_fclose = NewGO<FontRender>(13, "fr");
 	m_fclose->SetTextType(CFont::en_Japanese);
 	CVector2 p2 = p3.ToTwo();
 	p2.x -= 75;
@@ -371,9 +371,10 @@ FILE* MonAIPresetOpenSuper::initPreset()
 		for (int c = 0; c < 3; c++)
 		{
 			int z = 0;
+			int monNone = 255;
 			int o = 1;
 			fwrite(&z, 1, 1, file);//AIの種類 0はpython 1はVisualAI
-			fwrite(&z, 1, 1, file);//モンスターの種類
+			fwrite(&monNone, 1, 1, file);//モンスターの種類
 			fwrite(&o, 4, 1, file);//ファイルの文字数
 			fwrite(&z, 1, 1, file);//ファイル名
 		}

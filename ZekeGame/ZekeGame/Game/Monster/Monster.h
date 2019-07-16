@@ -15,6 +15,7 @@ class Monster:public GameObject
 {
 public:
 	~Monster();
+	void OnDestroy() override;
 
 	struct MonsterInitParam {
 		float HP;
@@ -112,15 +113,28 @@ public:
 		m_abnormalStates.erase(ite);
 
 	}*/
-	void ClearAbnormalState(ACTEffectGrant* abn)
-	{
-		if (!m_abnormalStates.size()) return;
-		m_abnormalStates.erase(remove(m_abnormalStates.begin(), m_abnormalStates.end(), abn));
-		//std::vector<ACTEffectGrant*>::iterator ite;
-		//ite = std::find(m_abnormalStates.begin(), m_abnormalStates.end(), abn);
-		//m_abnormalStates.erase(ite);
-	}
+	void ClearAbnormalState(ACTEffectGrant* abn);
+//	{
+//		//if (!m_abnormalStates.size()) return;
+//		//if (abn->GetState() == ACTEffectGrant::State::enNull) return;
+//		//if (m_abnormalStates.size() == 1) {
+//			//m_abnormalStates.clear();
+//		//}
+//		auto abss = m_abnormalStates;
+//		auto result = std::find(abss.begin(), abss.end(), abn);
+//		if (result == abss.end()) return;
+//		//else {
+////			m_abnormalStates.erase(remove(m_abnormalStates.begin(), m_abnormalStates.end(), abn));
+//		//}
+//		//std::vector<ACTEffectGrant*>::iterator ite;
+//		//ite = std::find(m_abnormalStates.begin(), m_abnormalStates.end(), abn);
+//		//m_abnormalStates.erase(ite);
+//	}
 	
+	//自分に付与されている全ての状態異常を解除する
+	void ClearAllAbnormalState();
+
+
 	//状態異常の取得
 	//return 状態異常
 	/*std::vector<AbnormalState> GetAbnormalState()
@@ -131,6 +145,9 @@ public:
 	{
 		return m_abnormalStates;
 	}
+
+	//状態異常を返す(ID)
+	int GetAbnormalStateID(int num);
 	
 
 	//使うpythonのファイルを設定する
@@ -503,4 +520,6 @@ protected:
 
 	bool m_isUseVSAI = false;					//visualAIを使うかどうか
 	VisualScriptAI* m_visualAI = nullptr;		//visualAIのいんすたんす
+
+	float m_limitDist = 1036.f;
 };

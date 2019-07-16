@@ -5,9 +5,9 @@
 Book::Book()
 {
 
-	m_HP = 30;
+	m_HP = 50;
 	m_maxHP = 30;
-	m_MP = 60;
+	m_MP = 200;
 	m_maxMP = 60;
 
 	m_Defense = 10;

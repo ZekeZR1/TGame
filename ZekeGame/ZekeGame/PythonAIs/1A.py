@@ -1,9 +1,10 @@
 #coding: utf-8
 
 import CppBridge as cb
+import SendGame
 
 def Brain(num,team):
-   	cb.init(num,team)
+	cb.init(num,team)
 	mon = cb.GetEnemyNeerMonster()
-	cb.addAction(mon,8	)
-    cb.End()
+	cb.addAction(mon,SendGame.FIRE)
+	cb.End()

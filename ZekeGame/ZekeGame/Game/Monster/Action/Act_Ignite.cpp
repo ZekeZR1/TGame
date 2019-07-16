@@ -29,11 +29,11 @@ bool Act_Ignite::Action(Monster* me) {
 		m_efk->Play(L"Assets/effect/YKD.efk");
 
 		ACTEffectGrant* actEG = NewGO<ACTEffectGrant>(0, "actEG");
-		actEG->init(m_efk, m_target, ACTEffectGrant::State::enDoT, 0, 0, 100,me,0);
+		actEG->init(m_efk, m_target, ACTEffectGrant::State::enDoT, 0, 0, 100,me, m_damage);
 		m_target->SetAbnormalState(actEG);
 
 		Sound* snd = NewGO<Sound>(0, "snd");
-		snd->Init(L"Assets/sound/buff.wav");
+		snd->Init(L"Assets/sound/fire2.wav");
 		snd->SetVolume(1.2f);
 		snd->Play();
 
@@ -46,7 +46,7 @@ bool Act_Ignite::Action(Monster* me) {
 	}
 	else {
 		m_timer+= IGameTime().GetFrameDeltaTime();
-		if (!me->isAnimPlay() and m_timer >= m_cooltime)
+		if (m_timer >= m_cooltime)
 		{
 			me->anim_idle();
 			return true;

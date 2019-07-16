@@ -18,10 +18,8 @@ bool Act_Cleanse::Action(Monster* me) {
 		me->SetMP(mp - m_cost);
 
 		me->anim_extra1();
-		auto state = m_target->GetAbnormalState();
-		for (auto s : state) {
-			m_target->ClearAbnormalState(s);
-		}
+
+		m_target->ClearAllAbnormalState();
 
 		auto eff = NewGO<CEffect>(0, "ef");
 		eff->SetScale({ 4,4,4 });
@@ -30,9 +28,10 @@ bool Act_Cleanse::Action(Monster* me) {
 
 		ACTEffectGrant* actEG = NewGO<ACTEffectGrant>(0, "actEG");
 		actEG->init(eff, m_target);
+		m_target->SetAbnormalState(actEG);
 
 		Sound* snd = NewGO<Sound>(0, "snd");
-		snd->Init(L"Assets/sound/se_maoudamashii_magical11.wav");
+		snd->Init(L"Assets/sound/kira2.wav");
 		snd->SetVolume(1.2f);
 		snd->Play();
 
@@ -45,5 +44,10 @@ bool Act_Cleanse::Action(Monster* me) {
 
 		m_first = false;
 	}
+	if (m_timer >= m_cooltime) {
+		me->anim_idle();
+		return true;
+	}
+	m_timer +=  IGameTime().GetFrameDeltaTime();
 	return false;
 }

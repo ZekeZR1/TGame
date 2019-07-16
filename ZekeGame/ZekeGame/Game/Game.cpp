@@ -19,6 +19,8 @@
 #include "Fade/Fade.h"
 #include "Fade/MusicFade.h"
 
+#include "GameLog/GameLog.h"
+
 #include "Result/Draw.h"
 
 void Game::GamePVPmodeInit(std::vector<std::string> files, int monsterAI[6],MonsterID MonsterID[6])
@@ -55,10 +57,10 @@ bool Game::Start() {
 	}
 	camera = new GameCamera;
 
-	m_smd = NewGO<SkinModelDummy>(0, "smd");
+	/*m_smd = NewGO<SkinModelDummy>(0, "smd");
 	m_smd->Init(L"Assets/modelData/limit2.cmo", enFbxUpAxisZ);
 	m_smd->SetPosition(CVector3::Zero());
-	m_smd->CreatePhysicsStaticObject();
+	m_smd->CreatePhysicsStaticObject();*/
 
 	OutputDebugStringA("Start Battle");
 
@@ -81,6 +83,8 @@ bool Game::Start() {
 		m_dunInfoF->Init(str, { -360,370 });
 		m_dunInfoF->DrawShadow();
 	}
+
+	GameLog::NewGameLog();
 	return true;
 }
 
@@ -98,13 +102,15 @@ void Game::OnDestroy() {
 	DeleteGO(m_fr);
 	DeleteGO(m_frS);
 	DeleteGO(m_floor);
-	DeleteGO(m_smd);
+	//DeleteGO(m_smd);
 	DeleteGO(m_dunInfoF);
 	if (m_isOnlineGame) {
 		//Engine::IEngine().DestroyNetworkSystem();
 	}
 	RatingSystem().ClosePopup();
 	//delete m_pi;
+
+	
 
 	if(camera!=nullptr)
 		delete camera;
@@ -238,8 +244,9 @@ void Game::Update() {
 			}
 			SuddenDeath();
 			DeleteGO(m_fr);
+			DeleteGO(m_frS);
 			m_fr = nullptr;
-
+			m_frS = nullptr;
 			
 		}
 		else
@@ -293,6 +300,8 @@ void Game::Update() {
 			m_winTeam = g_mons[0]->Getteam();
 		DeleteGO(m_menu);
 		m_menu = nullptr;
+
+		gameLog()->DelGameLog();
 
 		QueryGOs<Monster>("monster", [&](auto obj)->bool
 		{

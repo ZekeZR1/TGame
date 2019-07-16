@@ -5,13 +5,15 @@
 #include "../../../GameData.h"
 
 CAct_Beam::~CAct_Beam() {
-	m_beamefk->Stop();
+	if(m_beamefk != nullptr)
+		m_beamefk->Stop();
 }
 
 void CAct_Beam::Fire(Monster* me, Monster* target, const wchar_t* effectPath, const wchar_t* soundPath, float range, float baseDamage, float cost, CVector3 effectScale) {
-
+	if (target == nullptr) return;
 	RotateToTarget(me, target);
-	m_beamefk = NewGO<CEffect>(0,"beamEffect");
+	//m_beamefk = NewGO<CEffect>(0,"beamEffect");
+	m_beamefk = NewGO<CEffect>(0,"ef");
 	auto ep = me->Getpos();
 	auto h = me->Getheight();
 	ep.y += h / 2;
@@ -23,9 +25,9 @@ void CAct_Beam::Fire(Monster* me, Monster* target, const wchar_t* effectPath, co
 	m_beamefk->SetScale(effectScale);
 	m_beamefk->Play(effectPath);
 
-	Sound* sound = NewGO<Sound>(0, "snd");
-	sound->Init(soundPath);
-	sound->Play();
+	m_se = NewGO<Sound>(0, "snd");
+	m_se->Init(soundPath);
+	m_se->Play();
 
 	crs = target->Getpos() - me->Getpos();
 	crs.Cross(CVector3::Up());
@@ -40,9 +42,11 @@ void CAct_Beam::Fire(Monster* me, Monster* target, const wchar_t* effectPath, co
 
 
 bool CAct_Beam::DamageCalc() {
-	if (!m_beamefk->IsPlay()) return true;
+	if (m_beamefk == nullptr or !m_beamefk->IsPlay()) return true;
 	if (m_me->GetMP() - m_cost <= 0) {
 		m_beamefk->Stop();
+		m_beamefk = nullptr;
+		m_se->Stop();
 		return true;
 	}
 	m_me->SetMP(m_me->GetMP() - m_cost);

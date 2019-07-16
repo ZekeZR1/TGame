@@ -5,6 +5,7 @@ public:
 		en_Japanese,
 		en_JapaneseBIG,
 		en_Alphabet,
+		en_JPLog,
 		en_numType
 	};
 	CFont();

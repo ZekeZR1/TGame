@@ -270,6 +270,7 @@
     <ClCompile Include="Game\GameCamera3D.cpp" />
     <ClCompile Include="Game\GameCursor.cpp" />
     <ClCompile Include="Game\GameData.cpp" />
+    <ClCompile Include="Game\GameLog\GameLog.cpp" />
     <ClCompile Include="Game\GameMenu\GameMenu.cpp" />
     <ClCompile Include="Game\GameMenu\MenuButton.cpp" />
     <ClCompile Include="Game\Input\KeyBoard.cpp" />
@@ -333,6 +334,9 @@
     <ClCompile Include="Game\Online\NetworkLogic.cpp" />
     <ClCompile Include="Game\Online\OutputListener.cpp" />
     <ClCompile Include="Game\Online\TestView.cpp" />
+    <ClCompile Include="Game\PythonBridge\MGameData.cpp" />
+    <ClCompile Include="Game\PythonBridge\MMonster.cpp" />
+    <ClCompile Include="Game\PythonBridge\MVector3.cpp" />
     <ClCompile Include="Game\PythonBridge\PythonBridge.cpp" />
     <ClCompile Include="Game\ReadyGO\ReadyGO.cpp" />
     <ClCompile Include="Game\Result\Draw.cpp" />
@@ -504,6 +508,7 @@
     <ClInclude Include="Game\GameCamera3D.h" />
     <ClInclude Include="Game\GameCursor.h" />
     <ClInclude Include="Game\GameData.h" />
+    <ClInclude Include="Game\GameLog\GameLog.h" />
     <ClInclude Include="Game\GameMenu\GameMenu.h" />
     <ClInclude Include="Game\GameMenu\MenuButton.h" />
     <ClInclude Include="Game\Input\KeyBoard.h" />
@@ -666,6 +671,9 @@
     <ClInclude Include="Game\PythonBridge\include\unicodeobject.h" />
     <ClInclude Include="Game\PythonBridge\include\warnings.h" />
     <ClInclude Include="Game\PythonBridge\include\weakrefobject.h" />
+    <ClInclude Include="Game\PythonBridge\MGameData.h" />
+    <ClInclude Include="Game\PythonBridge\MMonster.h" />
+    <ClInclude Include="Game\PythonBridge\MVector3.h" />
     <ClInclude Include="Game\PythonBridge\PythonBridge.h" />
     <ClInclude Include="Game\ReadyGO\ReadyGO.h" />
     <ClInclude Include="Game\Result\Draw.h" />
@@ -732,21 +740,9 @@
     <None Include="Assets\modelData\仮保管庫\move.tka" />
     <None Include="C:\Users\kokoa\Pictures\Effekseer142cWin\shot.efk" />
     <None Include="Game\PythonBridge\include\pydtrace.d" />
-    <CopyFileToFolders Include="PythonAIs\ang.py">
-      <FileType>Document</FileType>
-    </CopyFileToFolders>
     <CopyFileToFolders Include="PythonAIs\CppBridge.py">
       <FileType>Document</FileType>
     </CopyFileToFolders>
-    <CopyFileToFolders Include="PythonAIs\testBrain.py">
-      <FileType>Document</FileType>
-    </CopyFileToFolders>
-    <CopyFileToFolders Include="PythonAIs\testBrain1.py">
-      <FileType>Document</FileType>
-    </CopyFileToFolders>
-    <None Include="PythonAIs\F.py" />
-    <None Include="PythonAIs\testBrain2.py" />
-    <None Include="PythonAIs\Threader.py" />
     <None Include="PythonAIs\_MiddleExecute.py" />
   </ItemGroup>
   <ItemGroup>
@@ -1174,9 +1170,9 @@
     <None Include="Assets\modelData\RedHead\RedHead.fbx">
       <FileType>Document</FileType>
     </None>
-    <MeshContentTask Include="Assets\modelData\si_bug\si_bug.FBX">
+    <None Include="Assets\modelData\si_bug\si_bug.FBX">
       <FileType>Document</FileType>
-    </MeshContentTask>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_redHead.png" />
@@ -1213,10 +1209,12 @@
     <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_shell.png" />
   </ItemGroup>
   <ItemGroup>
-    <MeshContentTask Include="Assets\modelData\dungeon\gorgeousWall.fbx" />
+    <None Include="Assets\modelData\dungeon\gorgeousWall.fbx">
+      <FileType>Document</FileType>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\AIEdit\closeButton.png" />
+    <None Include="Assets\Sprite\AIEdit\closeButton.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

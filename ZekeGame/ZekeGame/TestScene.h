@@ -15,4 +15,6 @@ public:
 	void OnDestroy() override;
 	void Update() override;
 private:
+	Sound* m_se = nullptr;
+	float vol = 1.f;
 };

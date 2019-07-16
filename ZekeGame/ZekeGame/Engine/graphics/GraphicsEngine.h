@@ -50,6 +50,8 @@ public:
 			break;
 		case CFont::TextType::en_JapaneseBIG:
 			return m_spriteFontJaBig.get();
+		case CFont::TextType::en_JPLog:
+			return m_spriteFontJPLog.get();
 		}
 	}
 	int GetFrameBufferWidth() const
@@ -108,6 +110,7 @@ private:
 	std::unique_ptr<DirectX::SpriteFont>	m_spriteFont;
 	std::unique_ptr<DirectX::SpriteFont>	m_spriteFontJa;
 	std::unique_ptr<DirectX::SpriteFont>	m_spriteFontJaBig;
+	std::unique_ptr<DirectX::SpriteFont>	m_spriteFontJPLog;
 	CEffectEngine m_effectEngine;
 	int						m_2dSpaceScreenWidth = 1280;
 	int						m_2dSpaceScreenHeight = 720;

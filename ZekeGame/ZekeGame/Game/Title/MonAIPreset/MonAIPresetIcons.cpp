@@ -32,11 +32,11 @@ bool MonAIPresetIcons::Start()
 void MonAIPresetIcons::init(Preset* preset, CVector3 pos,GameCursor* cur)
 {
 	m_cursor = cur;
-
+	m_pos = pos;
 	CVector3 ipos = pos;
 	int cnt = 0;
 
-	if (preset->person[0]->monID == 0)
+	if (preset->person[0]->monID == 255)
 	{
 		CVector3 iipos = pos;
 		iipos.x -= 80;
@@ -44,7 +44,8 @@ void MonAIPresetIcons::init(Preset* preset, CVector3 pos,GameCursor* cur)
 		m_Nonefont = NewGO<FontRender>(6, "fr");
 		m_Nonefont->SetTextType(CFont::en_JapaneseBIG);
 		m_Nonefont->Init(L"‚È\n\n‚µ", iipos.ToTwo(), 0, { 0.6f,0.6f,0.6f,1.0f }, 0.7f, { 1,0 });
-		
+		m_fontpos = iipos;
+		m_isNone = 1;
 	}
 	else for (auto p : preset->person)
 	{
@@ -69,7 +70,7 @@ void MonAIPresetIcons::init(Preset* preset, CVector3 pos,GameCursor* cur)
 
 	m_back = NewGO<SpriteRender>(5, "sp");
 	m_back->Init(L"Assets/sprite/preset_back.dds", 157, 567);
-	if (preset->person[0]->monID == 0)
+	if (preset->person[0]->monID == 255)
 		m_back->SetMulCol({ 0.2f,0.2f,0.2f,1.0f });
 	m_back->SetPosition(ipos);
 
@@ -82,6 +83,32 @@ void MonAIPresetIcons::init(Preset* preset, CVector3 pos,GameCursor* cur)
 
 void MonAIPresetIcons::UpdateIcon()
 {
+	if (m_isNone)
+	{
+		CVector3 ipos = m_pos;
+		int cnt = 0;
+		for (auto p : m_preset->person)
+		{
+			MonAIPresetIcon* mapicon = NewGO<MonAIPresetIcon>(0, "icon");
+
+			wchar_t ws[255];
+			setlocale(LC_ALL, "japanese");
+			size_t size = 0;
+			mbstowcs_s(&size, ws, 20, p->str, _TRUNCATE);
+
+			mapicon->init(p->monID, ws, ipos);
+			ipos.y -= 180;
+
+			m_mapi[cnt] = mapicon;
+			cnt++;
+		}
+		m_isNone = 0;
+
+		DeleteGO(m_Nonefont);
+		m_Nonefont = nullptr;
+		m_back->SetMulCol({1,1,1.f,1.0f });
+	}
+	
 	for (int i=0;i<3;i++)
 	{
 		wchar_t ws[255];
@@ -123,7 +150,7 @@ void MonAIPresetIcons::Setpos(CVector3 pos)
 	CVector3 ipos = pos;
 	int cnt = 0;
 
-	if (m_preset->person[0]->monID == 0)
+	if (m_preset->person[0]->monID == 255)
 	{
 		CVector3 iipos = pos;
 		iipos.x -= 80;
@@ -150,8 +177,16 @@ void MonAIPresetIcons::Setrot(float rot)
 	qrot.SetRotationDeg(CVector3::AxisZ(), rot);
 
 	m_back->SetRotation(qrot);
-	for (auto icon : m_mapi)
+	if (m_preset->person[0]->monID == 255)
 	{
-		icon->Setrot(rot,m_back->GetPosition());
+		m_Nonefont->SetRotation(CMath::DegToRad(rot * -1));
+		//m_Nonefont->SetPosition((m_fontpos).ToTwo());
+	}
+	else
+	{
+		for (auto icon : m_mapi)
+		{
+			icon->Setrot(rot, m_back->GetPosition());
+		}
 	}
 }

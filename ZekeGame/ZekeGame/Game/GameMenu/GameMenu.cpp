@@ -4,6 +4,8 @@
 #include "../Game.h"
 #include "../GameCursor.h"
 
+#include "../Fade/MusicFade.h"
+
 #include "../Title/ModeSelect.h"
 #include "../Title/pvpModeSelect.h"
 #include "../Dungeon/DungeonAISelect.h"
@@ -14,7 +16,7 @@
 #include "../NetPVP/NetAISelect.h"
 
 #include "../Fade/Fade.h"
-
+#include "../GameLog/GameLog.h"
 GameMenu::~GameMenu()
 {
 	
@@ -51,6 +53,13 @@ void GameMenu::Update()
 	{
 		if (m_fade->isFadeStop())
 		{
+			GameLog::DelGameLog();
+			QueryGOs<CEffect>("ef", [&](CEffect* ob)->bool
+			{
+				ob->Stop();
+				DeleteGO(ob);
+				return true;
+			});
 			switch (m_bnum)
 			{
 			case 0:
@@ -97,10 +106,15 @@ void GameMenu::Update()
 				{
 				case 0:
 				case 1:
+				{
 					m_bnum = i;
 					m_isFade = true;
 					m_fade->FadeOut();
+					MusicFade* mf = NewGO<MusicFade>(0, "mf");
+					mf->init(FindGO<Sound>("BGM"), 1, 10);
+					PlayButtonSE();
 					break;
+				}
 				case 2:
 					for (auto go : m_buttons)
 						DeleteGO(go);
@@ -108,6 +122,7 @@ void GameMenu::Update()
 					m_buttons.shrink_to_fit();
 					DeleteGO(m_cursor);
 					m_cursor = nullptr;
+					PlayButtonSE();
 
 					m_isOpen = false;
 					break;
@@ -122,6 +137,7 @@ void GameMenu::Update()
 			m_buttons.shrink_to_fit();
 			DeleteGO(m_cursor);
 			m_cursor = nullptr;
+			PlayButtonSE();
 
 			m_isOpen = false;
 		}
@@ -159,6 +175,7 @@ void GameMenu::Update()
 
 				pos.y -= 110;
 			}
+			PlayButtonSE();
 
 			m_isOpen = true;
 		}

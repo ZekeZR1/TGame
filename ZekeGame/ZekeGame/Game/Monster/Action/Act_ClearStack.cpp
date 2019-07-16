@@ -28,7 +28,7 @@ bool Act_ClearStack::Action(Monster* me) {
 		m_target->ClearActionStack();
 
 		Sound* snd = NewGO<Sound>(0, "snd");
-		snd->Init(L"Assets/sound/buff.wav");
+		snd->Init(L"Assets/sound/shock1.wav");
 		snd->SetVolume(1.2f);
 		snd->Play();
 
@@ -40,8 +40,8 @@ bool Act_ClearStack::Action(Monster* me) {
 		m_first = false;
 	}
 	else {
-		m_timer++;
-		if (!me->isAnimPlay() and m_timer >= m_cooltime)
+		m_timer += IGameTime().GetFrameDeltaTime();
+		if (m_timer >= m_cooltime)
 		{
 			me->anim_idle();
 			return true;

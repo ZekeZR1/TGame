@@ -76,6 +76,7 @@ void LoadBalancingListener::connect(const JString& userName)
 
 void LoadBalancingListener::disconnect() {
 	mpLbc->disconnect();
+	misConect = false;
 }
 
 
@@ -196,10 +197,18 @@ void LoadBalancingListener::raiseMonData()
 
 
 void LoadBalancingListener::raiseRating() {
-	auto rate = RatingSystem().GetWinRate();
-	char str[256];
-	sprintf_s(str, "raise my Rate %f",rate);
-	mpLbc->opRaiseEvent(false,RatingSystem().GetWinRate(),enRateData);
+	Hashtable data;
+	int total = RatingSystem().GetTotalBattleNum();
+	int win = RatingSystem().GetTotalWinNum();
+
+	nByte coords[] = { static_cast<nByte>(total), static_cast<nByte>(win)};
+	data.put((nByte)1, coords, 2);
+	mpLbc->opRaiseEvent(false, data, enRateData);
+
+	//auto rate = RatingSystem().GetWinRate();
+	//char str[256];
+	//sprintf_s(str, "raise my Rate %f",rate);
+	//mpLbc->opRaiseEvent(false,RatingSystem().GetWinRate(),enRateData);
 }
 
 
@@ -272,6 +281,7 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 {
 	// logging the string representation of the eventContent can be really useful for debugging, but use with care: for big events this might get expensive
 	//EGLOG(ExitGames::Common::DebugLevel::ALL, L"an event of type %d from player Nr %d with the following content has just arrived: %ls", eventCode, playerNr, eventContent.toString(true).cstr());
+	misConect = true;
 	switch (eventCode)
 	{
 	case 1:
@@ -513,11 +523,29 @@ void LoadBalancingListener::customEventAction(int playerNr, nByte eventCode, con
 	break;
 	case enRateData:
 	{
-		float content = ExitGames::Common::ValueObject<float>(eventContentObj).getDataCopy();
+		ExitGames::Common::Hashtable eventContent = ExitGames::Common::ValueObject<ExitGames::Common::Hashtable>(eventContentObj).getDataCopy();
+		Object const* obj = eventContent.getValue("1");
+		if (!obj)
+			obj = eventContent.getValue((nByte)1);
+		if (!obj)
+			obj = eventContent.getValue(1);
+		if (!obj)
+			obj = eventContent.getValue(1.0);
+		if (obj && obj->getDimensions() == 1 && obj->getSizes()[0] == 3)
+		{
+			if (obj->getType() == TypeCode::INTEGER)
+			{
+				int* data = ((ValueObject<int*>*)obj)->getDataCopy();
+				int total = (int)data[0];
+				int win = (int)data[1];
+				RatingSystem().SetEnemyRate(RatingSystem().GetWinRate(total, win));
+			}
+		}
+		/*float content = ExitGames::Common::ValueObject<float>(eventContentObj).getDataCopy();
 		m_enemyRate = content;
 		RatingSystem().SetEnemyRate(content);
 		char str[256];
-		sprintf_s(str, "ENEMEYYYYYYY  Rate  IS %f\n", content);
+		sprintf_s(str, "ENEMEYYYYYYY  Rate  IS %f\n", content);*/
 		//OutputDebugString(str);
 		break;
 	}
@@ -710,20 +738,15 @@ void LoadBalancingListener::service()
 	{
 		mLocalPlayer.lastUpdateTime = t;
 		if (mpLbc->getState() == PeerStates::Joined) {
-			//毎フレーム呼ばれる
-			int cnt = mpLbc->getCountPlayersOnline();
-			if (cnt == 2) misConect = true;
-			else misConect = false;
-#if _DEBUG
-			if (misConect) {
-				OutputDebugString("enemy is here\n");
-			}
-			else {
-				OutputDebugString("enemy not found\n");
-			}
-#endif
 		}
 	}
+	//int cnt = mpLbc->getCountPlayersOnline();
+	//int cnt = mpLbc->getCountGamesRunning();
+	//if (cnt == 2) misConect = true;
+	//else misConect = false;
+	//char str[256];
+	//sprintf_s(str, "Player NUm is %d\n", cnt);
+	//OutputDebugString(str);
 }
 
 bool LoadBalancingListener::isGotEnemyPythonCodes() {

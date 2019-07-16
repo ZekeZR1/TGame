@@ -62,6 +62,7 @@ private:
 	int m_rcuTime = 0;
 	//UI
 	int m_numParticle = 20;
+	bool m_isEnemyHere = false;
 	std::vector<backParticle*> m_particles;
 	SpriteRender* m_informationSp = nullptr;
 	CVector3 m_informationPos = { 0.f,300.f,0.f };
@@ -69,7 +70,10 @@ private:
 	CVector3 m_bbPos = { -500,-300,0 };
 	FontRender* m_font = nullptr;
 	ReturnButton* m_returnButton = nullptr;			//–ß‚éƒ{ƒ^ƒ“
+	CVector2 m_waitingFontPos = { -180.f,320.f };
+	CVector2 m_findFontPos = { -270.f,320.f };
 	//other
 	GameCursor* m_cur = nullptr;
 	LoadBalancingListener* m_lbl = nullptr;
+	int timeout = 100;
 };

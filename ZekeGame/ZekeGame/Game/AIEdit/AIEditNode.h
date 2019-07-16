@@ -57,28 +57,32 @@ public:
 private:
 
 	Node m_Node = enNull;
+
 	int button = 4;						//É{É^ÉìÇÃêî
+
 	bool Choice1 = false;				//âΩÇ©ÇëIëÇ∑ÇÈÇ∆trueÇ…Ç»ÇÈ
 	bool Nodefont = false;
 	bool contact1 = false;
 	bool contact2 = false;
-	CVector3 cursorpos;
 
-	std::vector<FontRender*> m_fonts;
-	std::vector<FontRender*> m_font;
-
-	GameCursor * m_gamecursor;
-	AIEditNodeHp * m_aieditnodehp;
-	AIEditNodeInequ* m_aieditnodeinequ;
-	SpriteRender * m_spriteRender;
-	SpriteRender* sr;
-	AIEditNodeButton * m_aieditnodebutton;
-	AIEditNodeTechnique* m_aieditnodetechnique;
-	AIEditNodeAbnormalState* m_aieditnodeabnorimalstate;
-	AIEditNodeProcess* m_aieditnodeprocess;
-	AIEditNodeOrder* m_aieditnodeoreder;
+	CVector3 cursorpos = CVector3::Zero();
 	CVector3 m_position = CVector3::Zero();
 	CVector3 m_pointposition = CVector3::Zero();
 
+	std::vector<FontRender*> m_fonts;
+	std::vector<FontRender*> m_font;
 	std::vector<AIEditNodeButton*> m_nodebuttons;
+
+	SpriteRender* m_spriteRender = nullptr;
+	SpriteRender* sr = nullptr;
+
+	GameCursor * m_gamecursor = nullptr;
+	AIEditNodeHp * m_aieditnodehp = nullptr;
+	AIEditNodeInequ* m_aieditnodeinequ = nullptr;
+	AIEditNodeButton * m_aieditnodebutton = nullptr;
+	AIEditNodeTechnique* m_aieditnodetechnique = nullptr;
+	AIEditNodeAbnormalState* m_aieditnodeabnorimalstate = nullptr;
+	AIEditNodeProcess* m_aieditnodeprocess = nullptr;
+	AIEditNodeOrder* m_aieditnodeoreder = nullptr;
+	
 };

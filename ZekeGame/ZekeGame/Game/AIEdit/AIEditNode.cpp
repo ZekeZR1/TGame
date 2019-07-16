@@ -26,7 +26,6 @@ AIEditNode::~AIEditNode()
 }
 
 
-
 bool AIEditNode::Start()
 {
 
@@ -44,7 +43,6 @@ bool AIEditNode::Start()
 	cursorpos.y += -140.0f;
 	m_position = cursorpos;
 	m_spriteRender->SetPosition(m_position);			//カーソルの座標
-
 
 	//ぼたん。
 	for (int i = 0; i < button; i++) {               //ボタンの数分ループする。
@@ -80,7 +78,6 @@ bool AIEditNode::Start()
 	m_fonts[3]->Init(L" わざ", { m_fontpos }, 0.0, CVector4::White, 0.8, { 0.0,0.0 });
 	m_fonts[3]->DrawShadow({ 5,-5 });
 
-
 	m_font.push_back(NewGO<FontRender>(3));
 	m_font[0]->SetTextType(CFont::en_Japanese);
 
@@ -91,14 +88,11 @@ bool AIEditNode::Start()
 
 void AIEditNode::Inequ()
 {
-	//if (Mouse::isTrigger(enLeftClick))	//左クリック
-	//{
 		NewGO<AIEditNodeInequ>(0, "Inequality");
 			
 		Choice1 = true;
 
 		Nodefont = true;
-	//}
 
 }
 
@@ -109,7 +103,6 @@ void AIEditNode::Technique()
 	{
 		PlayButtonSE();
 
-		//NewGO<AIEditNodeTechnique>(0, "Technique");
 		m_aieditnodeprocess->Technique();
 		Choice1 = true;
 	}

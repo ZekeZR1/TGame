@@ -25,5 +25,5 @@ public:
 	static void StageSet(int stageNumber);
 private:
 	//dungeon enemy ai and id
-	static void SetEnemyAI(int, int* monAI, MonsterID* monId);
+	static PyFile SetEnemyAI(int, int* monAI, MonsterID* monId);
 };
