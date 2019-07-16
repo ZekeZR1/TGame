@@ -2072,9 +2072,6 @@
     <None Include="Assets\Sprite\AIEdit\AIEIcon.png">
       <Filter>Assets\Sprite\AIEdit</Filter>
     </None>
-    <None Include="Assets\modelData\kikyo_chan\hero.FBX">
-      <Filter>Assets\model</Filter>
-    </None>
     <None Include="Assets\modelData\RedHead\RedHead.fbx">
       <Filter>Assets\model</Filter>
     </None>
@@ -2104,7 +2101,8 @@
     <None Include="Assets\Sprite\AIEdit\closeButton.png">
       <Filter>Assets\Sprite\AIEdit</Filter>
     </None>
-    <None Include="Assets\modelData\dungeon\gorgeousWall.fbx" />
+    <None Include="Assets\modelData\kikyo_chan\hero.FBX" />
+    <None Include="Assets\modelData\si_bug\si_bug.FBX" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="act">
@@ -2273,6 +2271,6 @@
     <MeshContentTask Include="Assets\modelData\shell\hotate.FBX">
       <Filter>Assets\model</Filter>
     </MeshContentTask>
-    <MeshContentTask Include="Assets\modelData\si_bug\si_bug.FBX" />
+    <MeshContentTask Include="Assets\modelData\dungeon\gorgeousWall.fbx" />
   </ItemGroup>
 </Project>

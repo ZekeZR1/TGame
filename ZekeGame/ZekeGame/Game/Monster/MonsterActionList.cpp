@@ -246,7 +246,13 @@ void MonsterActionList::Update()
 			float len = wcslen(ws);
 			float sc = len <= 7 ? 0.7f : 0.7f - (((len - 7.f)*0.08f) - (len-7.f)*0.008f);
 
+			
 			float up = 3.f;
+			if (mas[i]->GetactionID() == enClearStack)
+			{
+				sc = 0.5f;
+				up = -10;
+			}
 
 			//todo: フォント変更座標変更
 			m_frs[i]->Init(ws, { p.x,p.y + 40 + 5.f + 8.f + up }, 0, CVector4::White, sc, { 0,0 });
