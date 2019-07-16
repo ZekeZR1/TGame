@@ -3,6 +3,7 @@
 #include "ShaderResources.h"
 #include "CShaderResource.h"
 
+
 GraphicsEngine::GraphicsEngine()
 {
 }
@@ -54,48 +55,6 @@ void GraphicsEngine::Release()
 		m_pd3dDevice->Release();
 		m_pd3dDevice = NULL;
 	}
-}
-
-void GraphicsEngine::Clear() {
-	D3D11_TEXTURE2D_DESC texDesc;
-	ZeroMemory(&texDesc, sizeof(texDesc));
-	texDesc.Width = (UINT)FRAME_BUFFER_W;
-	texDesc.Height = (UINT)FRAME_BUFFER_H;
-	texDesc.MipLevels = 1;
-	texDesc.ArraySize = 1;
-	texDesc.Format = DXGI_FORMAT_D32_FLOAT;
-	texDesc.SampleDesc.Count = 1;
-	texDesc.SampleDesc.Quality = 0;
-	texDesc.Usage = D3D11_USAGE_DEFAULT;
-	texDesc.BindFlags = D3D11_BIND_DEPTH_STENCIL;
-	texDesc.CPUAccessFlags = 0;
-	texDesc.MiscFlags = 0;
-	m_pd3dDevice->CreateTexture2D(&texDesc, NULL, &m_depthStencil);
-	//深度ステンシルビューを作成。
-	D3D11_DEPTH_STENCIL_VIEW_DESC descDSV;
-	ZeroMemory(&descDSV, sizeof(descDSV));
-	descDSV.Format = texDesc.Format;
-	descDSV.ViewDimension = D3D11_DSV_DIMENSION_TEXTURE2D;
-	descDSV.Texture2D.MipSlice = 0;
-	m_pd3dDevice->CreateDepthStencilView(m_depthStencil, &descDSV, &m_depthStencilView);
-
-	D3D11_RASTERIZER_DESC desc = {};
-	desc.CullMode = D3D11_CULL_NONE;
-	desc.FillMode = D3D11_FILL_SOLID;
-	desc.DepthClipEnable = true;
-	desc.MultisampleEnable = true;
-
-	m_pd3dDevice->CreateRasterizerState(&desc, &m_rasterizerState);
-
-	D3D11_VIEWPORT viewport;
-	viewport.Width = FRAME_BUFFER_W;
-	viewport.Height = FRAME_BUFFER_H;
-	viewport.TopLeftX = 0;
-	viewport.TopLeftY = 0;
-	viewport.MinDepth = 0.0f;
-	viewport.MaxDepth = 1.0f;
-	m_pd3dDeviceContext->RSSetViewports(1, &viewport);
-	m_pd3dDeviceContext->RSSetState(m_rasterizerState);
 }
 
 void GraphicsEngine::InitDirectX(HWND hwnd) {
@@ -181,6 +140,32 @@ void GraphicsEngine::InitDirectX(HWND hwnd) {
 
 	m_spriteBatch = std::make_unique<DirectX::SpriteBatch>(m_pd3dDeviceContext);
 	m_spriteFont = std::make_unique<DirectX::SpriteFont>(m_pd3dDevice, L"Assets/font/myfile.spritefont");
+	m_spriteFontJa = std::make_unique<DirectX::SpriteFont>(m_pd3dDevice, L"Assets/font/myfileJa.spritefont");
+	m_spriteFontJaBig = std::make_unique<DirectX::SpriteFont>(m_pd3dDevice, L"Assets/font/myfileJaBig.spritefont");
+	m_spriteFontJPLog = std::make_unique<DirectX::SpriteFont>(m_pd3dDevice, L"Assets/font/MSmyfileJa.spritefont");
 
 	m_effectEngine.Init();
+}
+
+
+void GraphicsEngine::ChangeRenderTarget(ID3D11RenderTargetView* renderTarget, ID3D11DepthStencilView* depthStensil, D3D11_VIEWPORT* viewport)
+{
+	ID3D11RenderTargetView* rtTbl[] = {
+		renderTarget
+	};
+	//レンダリングターゲットの切り替え。
+	m_pd3dDeviceContext->OMSetRenderTargets(1, rtTbl, depthStensil);
+	if (viewport != nullptr) {
+		//ビューポートが指定されていたら、ビューポートも変更する。
+		m_pd3dDeviceContext->RSSetViewports(1, viewport);
+	}
+}
+
+void GraphicsEngine::ChangeRenderTarget(RenderTarget* renderTarget, D3D11_VIEWPORT* viewport)
+{
+	ChangeRenderTarget(
+		renderTarget->GetRenderTargetView(),
+		renderTarget->GetDepthStensilView(),
+		viewport
+	);
 }

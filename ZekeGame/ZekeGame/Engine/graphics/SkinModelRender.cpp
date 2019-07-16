@@ -9,10 +9,14 @@ SkinModelRender::SkinModelRender()
 
 SkinModelRender::~SkinModelRender()
 {
+	IGameObjectManager().ClearACaster(&m_skinModel);
 }
 
 
 bool SkinModelRender::Start() {
+	if (m_isShadowCaster) {
+		IGameObjectManager().AddShadowCaster(&m_skinModel);
+	}
 	return true;
 }
 
@@ -23,11 +27,17 @@ void SkinModelRender::Update() {
 }
 
 void SkinModelRender::Render() {
-	m_skinModel.SetDirColor(m_dirCol);
-	m_skinModel.SetDirLight(m_dirLight);
-	m_skinModel.Draw();
-	m_skinModel.SetDirColor(m_defCol);
-	m_skinModel.SetDirLight(m_defDir);
+	for (int i = 0; i < NUM_DIRECTION_LIG; i++) {
+		m_skinModel.SetDirColor(m_DirCol[i], i);
+		m_skinModel.SetDirLight(m_DirLight[i], i);
+	}
+	m_skinModel.SetShadowMap(IGameObjectManager().GetShadowMap()->GetShadowMapSRV());
+	//m_skinModel.Draw(enRenderMode_Normal,
+	m_skinModel.Draw(enRenderMode_Normal,
+		camera3d->GetViewMatrix(),
+		camera3d->GetProjectionMatrix());
+	//m_skinModel.SetDirColor(m_defCol,0);
+	//m_skinModel.SetDirLight(m_defDir,0);
 }
 
 
@@ -36,11 +46,15 @@ void SkinModelRender::Init(const wchar_t* filePath,
 	int numAnimationClips,
 	EnFbxUpAxis fbxUpAxis,
 	const char* psmain,
-	const char* vsmain){
+	const char* vsmain,
+	const wchar_t* normalMap,
+	const wchar_t* specularMap
+	){
 	m_enFbxUpAxis = fbxUpAxis;
 	m_psmain = psmain;
 	m_vsmain = vsmain;
-	m_skinModel.Init(filePath,m_enFbxUpAxis, m_psmain, m_vsmain);
+
+	m_skinModel.Init(filePath,m_enFbxUpAxis, m_psmain, m_vsmain, normalMap, specularMap);
 	InitAnimation(animationClips, numAnimationClips);
 }
 

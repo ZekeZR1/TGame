@@ -4,12 +4,68 @@
 
 extern Monster* g_mons[64];
 
+enum MonsterID
+{
+	enUmataur,
+	enFairy,
+	enArmor,
+	enGoblin,
+	enBook,
+	enRedHead,
+	enKikyo,
+	enShikoChu,
+	enChris,
+	enNumMonster,
+	enRingo,
+	enTest,
+	enShell,
+};
+
+enum ActionID
+{
+	enAtack,
+	enChase,
+	enLeave,
+	enDefense,
+	enFire,
+	enTackle,
+	enGuardian,
+	enRecovery,
+	enSuperBeam,
+	enObstMove,
+	enCleanse,
+	enBuffAtc,
+	enDebuffAtc,
+	enBuffDef,
+	enDebuffDef,
+	enClearStack,
+	enMajinken,
+	enManaHeal,
+	enBlizzard,
+	enIgnite,
+	enPoison,
+	enThunder,
+	enSpecialAttack,
+	enMove,
+	enNumAction,
+	enActNone = 999
+};
+
+struct AIsetData
+{
+	int AInum =0;
+	int AImode = 0;
+};
+
 //static std::vector<Monster*> g_mons;
 extern int g_buddyCount;
 extern int g_enemyCount;
 extern int g_monsCount;
 extern int g_meNum;
 extern int g_meTeam;
+
+extern int g_monset[6];
+extern AIsetData g_AIset[6];
 static void deletemons(Monster* mon)
 {
 	for (Monster* gmon : g_mons)
@@ -30,6 +86,28 @@ static void deletemons(Monster* mon)
 class GameData
 {
 public:
-	void deletemons(Monster* mon);
-	
+	static void deletemons(Monster* mon);
+	static Monster* LoadMonster(int monID);
+	static const wchar_t* GetMonsterIconPath(int monID);
+	static const wchar_t* GetMonsterName(MonsterID monID);
+	static const char* GetMonsterNameMulti(MonsterID monID);
+	static const wchar_t* GetActionName(ActionID actID);
+	static const wchar_t* GetActionInfo(ActionID actID);
+	/*
+	モンスターが使用するActionIDを返す
+	注意:必ずデリートしてね。
+	args:
+		monsterID: モンスターのID
+		count: この中にモンスターが使用するActionの個数が入る
+	*/
+	static ActionID* GetMonsterActions(int monsterID, int& count);
+
+	/*
+	モンスターが使用する指定した位置のActionIDを返す
+	注意:失敗した場合はActionID::enActNoneを返す
+	args:
+		monsterID: モンスターのID
+		actionIndex: 何番目の技か
+	*/
+	static ActionID GetMonsterAction(int monsterID, int actionIndex);
 };

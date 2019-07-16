@@ -3,6 +3,8 @@ enum enMouseEve {
 	enLeftClick,
 	enMiddleClick,
 	enRightClick,
+	enNotchUp,
+	enNotchDown,
 	enNumMouseEve
 };
 namespace Mouse {
@@ -10,4 +12,5 @@ namespace Mouse {
 	void UpdateMouseInput();
 	bool isTrigger(enMouseEve);
 	bool isPress(enMouseEve);
+	CVector3 GetCursorPos();
 }

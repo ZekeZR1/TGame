@@ -22,32 +22,32 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{DD699856-A074-41E8-925F-5B771B6EC69E}</ProjectGuid>
     <RootNamespace>ZekeGame</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
@@ -93,7 +93,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <WarningLevel>Level4</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
@@ -101,6 +101,7 @@
       </AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
     </ClCompile>
     <Link>
       <AdditionalDependencies>DirectXTK.lib;kernel32.Lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;d3d11.lib;d3dcompiler.lib;%(AdditionalDependencies);xinput.lib;BulletCollision_Debug.lib;BulletDynamics_Debug.lib;LinearMath_Debug.lib;Effekseer.Debug.lib;EffekseerRendererDX11.Debug.lib;Photon-cpp_vc15_debug_windows_mt_x64.lib;Common-cpp_vc15_debug_windows_mt_x64.lib;LoadBalancing-cpp_vc15_debug_windows_mt_x64.lib;python36_d.lib</AdditionalDependencies>
@@ -139,6 +140,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PreprocessorDefinitions>_MBCS;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -167,6 +169,7 @@
     <ClCompile Include="Engine\graphics\CCameraCollisionSlover.cpp" />
     <ClCompile Include="Engine\graphics\CConstantBuffer.cpp" />
     <ClCompile Include="Engine\graphics\CIndexBuffer.cpp" />
+    <ClCompile Include="Engine\graphics\ConstantBufferGPU.cpp" />
     <ClCompile Include="Engine\graphics\CPrimitive.cpp" />
     <ClCompile Include="Engine\graphics\CRenderContext.cpp" />
     <ClCompile Include="Engine\graphics\CSamplerState.cpp" />
@@ -178,12 +181,19 @@
     <ClCompile Include="Engine\graphics\Effect\CEffect.cpp" />
     <ClCompile Include="Engine\graphics\Effect\CEffectEngine.cpp" />
     <ClCompile Include="Engine\graphics\font\CFONT.cpp" />
+    <ClCompile Include="Engine\graphics\font\FontRender.cpp" />
     <ClCompile Include="Engine\graphics\GPUBuffer\CGPUBuffer.cpp" />
     <ClCompile Include="Engine\graphics\GraphicsEngine.cpp" />
+    <ClCompile Include="Engine\graphics\postEffect\Bloom.cpp" />
+    <ClCompile Include="Engine\graphics\postEffect\Dof.cpp" />
+    <ClCompile Include="Engine\graphics\postEffect\GaussianBlur.cpp" />
+    <ClCompile Include="Engine\graphics\postEffect\PostEffect.cpp" />
+    <ClCompile Include="Engine\graphics\Primitive.cpp" />
     <ClCompile Include="Engine\graphics\RenderTarget.cpp" />
     <ClCompile Include="Engine\graphics\Shader.cpp" />
     <ClCompile Include="Engine\graphics\ShaderResouceView.cpp" />
     <ClCompile Include="Engine\graphics\ShaderResources.cpp" />
+    <ClCompile Include="Engine\graphics\ShadowMap.cpp" />
     <ClCompile Include="Engine\graphics\Skelton.cpp" />
     <ClCompile Include="Engine\graphics\SkinModel.cpp" />
     <ClCompile Include="Engine\graphics\SkinModelDataManager.cpp" />
@@ -205,20 +215,18 @@
     <ClCompile Include="Engine\math\kMath.cpp" />
     <ClCompile Include="Engine\math\Matrix.cpp" />
     <ClCompile Include="Engine\math\Vector.cpp" />
-    <ClCompile Include="Engine\Network\BaseView.cpp" />
-    <ClCompile Include="Engine\Network\Console.cpp" />
-    <ClCompile Include="Engine\Network\LoadBalancingListener.cpp" />
-    <ClCompile Include="Engine\Network\NetworkLogic.cpp" />
-    <ClCompile Include="Engine\Network\OutputListener.cpp" />
-    <ClCompile Include="Engine\Network\TestView.cpp" />
     <ClCompile Include="Engine\physics\CapsuleCollider.cpp" />
     <ClCompile Include="Engine\physics\CSphereCollider.cpp" />
     <ClCompile Include="Engine\physics\MeshCollider.cpp" />
     <ClCompile Include="Engine\physics\Physics.cpp" />
+    <ClCompile Include="Engine\physics\PhysicsDebugDraw.cpp" />
     <ClCompile Include="Engine\physics\PhysicsStaticObject.cpp" />
     <ClCompile Include="Engine\physics\RigitBody.cpp" />
     <ClCompile Include="Engine\physics\SpriteBoxCollider.cpp" />
-    <ClCompile Include="Engine\PreCompile.cpp" />
+    <ClCompile Include="Engine\PreCompile.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Engine\sound\CSound.cpp" />
     <ClCompile Include="Engine\sound\SoundEngine.cpp" />
     <ClCompile Include="Engine\time\GameTime.cpp" />
     <ClCompile Include="Engine\window\Window.cpp" />
@@ -226,35 +234,162 @@
     <ClCompile Include="Game\AIEdit\AIEditLine.cpp" />
     <ClCompile Include="Game\AIEdit\AIEditMode.cpp" />
     <ClCompile Include="Game\AIEdit\AIEditNode.cpp" />
-    <ClCompile Include="Game\AIEdit\AIEditNodeHp.cpp" />
+    <ClCompile Include="Game\AIEdit\AIEditNodeBackGround.cpp" />
+    <ClCompile Include="Game\AIEdit\AIEditNodeButton.cpp" />
+    <ClCompile Include="Game\AIEdit\AIEditNodeClick.cpp" />
+    <ClCompile Include="Game\AIEdit\AIEditNodeDeleteKey.cpp" />
+    <ClCompile Include="Game\AIEdit\AIEditNodeInequ.cpp" />
+    <ClCompile Include="Game\AIEdit\AIEditNodeMass.cpp" />
+    <ClCompile Include="Game\AIEdit\AIEditNodeMenu.cpp" />
+    <ClCompile Include="Game\AIEdit\AIEditNodeMenuConfirmation.cpp" />
+    <ClCompile Include="Game\AIEdit\AIEditNodeMenuOpen.cpp" />
+    <ClCompile Include="Game\AIEdit\AIEditNodeMenuSave.cpp" />
+    <ClCompile Include="Game\AIEdit\AIEditNodeNum.cpp" />
+    <ClCompile Include="Game\AIEdit\AIEditNodeOrder.cpp" />
+    <ClCompile Include="Game\AIEdit\AIEditNodeProcess.cpp" />
+    <ClCompile Include="Game\AIEdit\AIEditNodeSelectButtons.cpp" />
+    <ClCompile Include="Game\AIEdit\AIEditNodeSelectFonts.cpp" />
+    <ClCompile Include="Game\AIEdit\AIEditNodeTarget.cpp" />
+    <ClCompile Include="Game\AIEdit\AIEditNodeTechnique.cpp" />
+    <ClCompile Include="Game\AIEdit\AIEdtiNodeAbnormalState.cpp" />
+    <ClCompile Include="Game\AIEdit\ShowMonsters.cpp" />
+    <ClCompile Include="Game\AIEdit\ShowMonsterSkills.cpp" />
+    <ClCompile Include="Game\AIEdit\VisualAIOpen.cpp" />
+    <ClCompile Include="Game\Dungeon\DropEgg.cpp" />
+    <ClCompile Include="Game\Dungeon\DungeonAISelect.cpp" />
+    <ClCompile Include="Game\Dungeon\DungeonData.cpp" />
+    <ClCompile Include="Game\Dungeon\DungeonGame.cpp" />
+    <ClCompile Include="Game\Dungeon\DungeonSelect.cpp" />
+    <ClCompile Include="Game\Dungeon\DungeonTransition.cpp" />
+    <ClCompile Include="Game\Dungeon\MonsterDrop.cpp" />
+    <ClCompile Include="Game\ExchangeData\ExchangeData.cpp" />
+    <ClCompile Include="Game\Fade\Fade.cpp" />
+    <ClCompile Include="Game\Fade\MusicFade.cpp" />
     <ClCompile Include="Game\Game.cpp" />
     <ClCompile Include="Game\GameCamera2D.cpp" />
+    <ClCompile Include="Game\GameCamera3D.cpp" />
     <ClCompile Include="Game\GameCursor.cpp" />
     <ClCompile Include="Game\GameData.cpp" />
+    <ClCompile Include="Game\GameLog\GameLog.cpp" />
+    <ClCompile Include="Game\GameMenu\GameMenu.cpp" />
+    <ClCompile Include="Game\GameMenu\MenuButton.cpp" />
+    <ClCompile Include="Game\Input\KeyBoard.cpp" />
     <ClCompile Include="Game\main.cpp" />
+    <ClCompile Include="Game\MonsterBox\MonsterBox.cpp" />
+    <ClCompile Include="Game\Monster\Action\ACTEffect.cpp" />
     <ClCompile Include="Game\Monster\Action\Act_Atack.cpp" />
+    <ClCompile Include="Game\Monster\Action\Act_Blizzard.cpp" />
+    <ClCompile Include="Game\Monster\Action\Act_buffAtcPow.cpp" />
+    <ClCompile Include="Game\Monster\Action\Act_buffDefPow.cpp" />
     <ClCompile Include="Game\Monster\Action\Act_Chase.cpp" />
+    <ClCompile Include="Game\Monster\Action\Act_Cleanse.cpp" />
+    <ClCompile Include="Game\Monster\Action\Act_ClearStack.cpp" />
+    <ClCompile Include="Game\Monster\Action\Act_debuffAtcPow.cpp" />
+    <ClCompile Include="Game\Monster\Action\Act_debuffDefPow.cpp" />
+    <ClCompile Include="Game\Monster\Action\Act_Defense.cpp" />
+    <ClCompile Include="Game\Monster\Action\Act_Fire.cpp" />
+    <ClCompile Include="Game\Monster\Action\Act_Guardian.cpp" />
+    <ClCompile Include="Game\Monster\Action\Act_Ignite.cpp" />
     <ClCompile Include="Game\Monster\Action\Act_Leave.cpp" />
+    <ClCompile Include="Game\Monster\Action\Act_Majinken.cpp" />
+    <ClCompile Include="Game\Monster\Action\Act_ManaHeal.cpp" />
+    <ClCompile Include="Game\Monster\Action\Act_Move.cpp" />
+    <ClCompile Include="Game\Monster\Action\Act_ObstMove.cpp" />
+    <ClCompile Include="Game\Monster\Action\Act_Poison.cpp" />
+    <ClCompile Include="Game\Monster\Action\Act_Recovery.cpp" />
+    <ClCompile Include="Game\Monster\Action\Act_specialAttack.cpp" />
+    <ClCompile Include="Game\Monster\Action\Act_superBeam.cpp" />
+    <ClCompile Include="Game\Monster\Action\Act_Tackle.cpp" />
+    <ClCompile Include="Game\Monster\Action\Act_Thunder.cpp" />
+    <ClCompile Include="Game\Monster\Action\cmp\CAct_Beam.cpp" />
+    <ClCompile Include="Game\Monster\Action\cmp\CAct_Dist.cpp" />
+    <ClCompile Include="Game\Monster\Action\cmp\CAct_FanShaped.cpp" />
+    <ClCompile Include="Game\Monster\Action\cmp\IAct.cpp" />
+    <ClCompile Include="Game\Monster\Effect\EFire.cpp" />
     <ClCompile Include="Game\Monster\Monster.cpp" />
     <ClCompile Include="Game\Monster\MonsterAction.cpp" />
+    <ClCompile Include="Game\Monster\MonsterActionList.cpp" />
     <ClCompile Include="Game\Monster\MonsterActionManeger.cpp" />
     <ClCompile Include="Game\Monster\MonsterEffect.cpp" />
+    <ClCompile Include="Game\Monster\MonsterMarker.cpp" />
+    <ClCompile Include="Game\Monster\Monsters\Armor.cpp" />
+    <ClCompile Include="Game\Monster\Monsters\Book.cpp" />
+    <ClCompile Include="Game\Monster\Monsters\Chris.cpp" />
+    <ClCompile Include="Game\Monster\Monsters\Fairy.cpp" />
+    <ClCompile Include="Game\Monster\Monsters\Goblin.cpp" />
+    <ClCompile Include="Game\Monster\Monsters\kikyo.cpp" />
+    <ClCompile Include="Game\Monster\Monsters\RedHead.cpp" />
+    <ClCompile Include="Game\Monster\Monsters\Ringo.cpp" />
+    <ClCompile Include="Game\Monster\Monsters\Shell.cpp" />
+    <ClCompile Include="Game\Monster\Monsters\ShikoChu.cpp" />
     <ClCompile Include="Game\Monster\Monsters\TestMons.cpp" />
     <ClCompile Include="Game\Monster\Monsters\Uma.cpp" />
+    <ClCompile Include="Game\NetPVP\backParticle.cpp" />
+    <ClCompile Include="Game\NetPVP\CRatingSystem.cpp" />
+    <ClCompile Include="Game\NetPVP\NetAISelect.cpp" />
+    <ClCompile Include="Game\NetPVP\NetPVPMode.cpp" />
+    <ClCompile Include="Game\NetPVP\RatePopup.cpp" />
+    <ClCompile Include="Game\Online\BaseView.cpp" />
+    <ClCompile Include="Game\Online\Console.cpp" />
+    <ClCompile Include="Game\Online\LoadBalancingListener.cpp" />
+    <ClCompile Include="Game\Online\NetworkLogic.cpp" />
+    <ClCompile Include="Game\Online\OutputListener.cpp" />
+    <ClCompile Include="Game\Online\TestView.cpp" />
+    <ClCompile Include="Game\PythonBridge\MGameData.cpp" />
+    <ClCompile Include="Game\PythonBridge\MMonster.cpp" />
+    <ClCompile Include="Game\PythonBridge\MVector3.cpp" />
     <ClCompile Include="Game\PythonBridge\PythonBridge.cpp" />
+    <ClCompile Include="Game\ReadyGO\ReadyGO.cpp" />
+    <ClCompile Include="Game\Result\Draw.cpp" />
+    <ClCompile Include="Game\Result\DungeonResult.cpp" />
     <ClCompile Include="Game\Result\Lose\Lose.cpp" />
     <ClCompile Include="Game\Result\Lose\Lose_localPVP.cpp" />
     <ClCompile Include="Game\Result\Lose\Lose_randomPVP.cpp" />
     <ClCompile Include="Game\Result\ResultCamera.cpp" />
     <ClCompile Include="Game\Result\Win\Win.cpp" />
     <ClCompile Include="Game\Result\Win\Win_localPVP.cpp" />
-    <ClCompile Include="Game\Result\Win\Win_randomPVP.cpp" />
+    <ClCompile Include="Game\Result\Win\Win_randomPVP.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Game\ReturnButton\ReturnButton.cpp" />
     <ClCompile Include="Game\SaveLoad\PythonFileLoad.cpp" />
+    <ClCompile Include="Game\StageSetup\StageSelect.cpp" />
     <ClCompile Include="Game\StageSetup\StageSetup.cpp" />
+    <ClCompile Include="Game\SuddenDeath.cpp" />
+    <ClCompile Include="Game\Title\AIeditModeSelect.cpp" />
+    <ClCompile Include="Game\Title\AIMSelect.cpp" />
+    <ClCompile Include="Game\Title\AISelect.cpp" />
+    <ClCompile Include="Game\Title\GObutton.cpp" />
+    <ClCompile Include="Game\Title\IconAI.cpp" />
+    <ClCompile Include="Game\Title\IconMon.cpp" />
     <ClCompile Include="Game\Title\ModeSelect.cpp" />
+    <None Include="Assets\effect\PONG.efk" />
+    <None Include="Game\Title\MonAIPreset\MonAIPreset.cpp" />
+    <None Include="Game\Title\MonAIPreset\MonAIPresetClose.cpp" />
+    <ClCompile Include="Game\Title\ModeSelect\ModeSelectBack.cpp" />
+    <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetIcon.cpp" />
+    <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetIcons.cpp" />
+    <None Include="Game\Title\MonAIPreset\MonAIPresetLoad.cpp" />
+    <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetLoadOpen.cpp" />
+    <None Include="Game\Title\MonAIPreset\MonAIPresetOpen.cpp" />
+    <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetOpenSuper.cpp" />
+    <ClCompile Include="Game\Title\MonAIPreset\MonAIPresets.cpp" />
+    <None Include="Game\Title\MonAIPreset\MonAIPresetSave.cpp" />
+    <ClCompile Include="Game\Title\MonAIPreset\MonAIPresetSaveOpen.cpp" />
+    <ClCompile Include="Game\Title\MonsterSelect.cpp" />
+    <ClCompile Include="Game\Title\MonsterSelectBack.cpp" />
+    <ClCompile Include="Game\Title\PMMonster.cpp" />
     <ClCompile Include="Game\Title\pvpModeSelect.cpp" />
+    <ClCompile Include="Game\Title\SuperMonsterSelect.cpp" />
     <ClCompile Include="Game\Title\Title.cpp" />
-    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="Game\ToAiEditModeButton.cpp" />
+    <ClCompile Include="Game\UIAnimator\UIAnimator.cpp" />
+    <ClCompile Include="Game\VisualScriptAI\VisualScriptAI.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="TestScene.cpp" />
+    <ClCompile Include="TestScene2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\character\CharacterController.h" />
@@ -271,6 +406,7 @@
     <ClInclude Include="Engine\graphics\CCameraCollisionSlover.h" />
     <ClInclude Include="Engine\graphics\CConstantBuffer.h" />
     <ClInclude Include="Engine\graphics\CIndexBuffer.h" />
+    <ClInclude Include="Engine\graphics\ConstantBufferGPU.h" />
     <ClInclude Include="Engine\graphics\CPrimitive.h" />
     <ClInclude Include="Engine\graphics\CRenderContext.h" />
     <ClInclude Include="Engine\graphics\CSamplerState.h" />
@@ -282,13 +418,20 @@
     <ClInclude Include="Engine\graphics\Effect\CEffect.h" />
     <ClInclude Include="Engine\graphics\Effect\CEffectEngine.h" />
     <ClInclude Include="Engine\graphics\font\CFONT.h" />
+    <ClInclude Include="Engine\graphics\font\FontRender.h" />
     <ClInclude Include="Engine\graphics\GPUBuffer\CGPUBuffer.h" />
     <ClInclude Include="Engine\graphics\GraphicsEngine.h" />
     <ClInclude Include="Engine\graphics\Noncopyable.h" />
+    <ClInclude Include="Engine\graphics\postEffect\Bloom.h" />
+    <ClInclude Include="Engine\graphics\postEffect\Dof.h" />
+    <ClInclude Include="Engine\graphics\postEffect\GaussianBlur.h" />
+    <ClInclude Include="Engine\graphics\postEffect\PostEffect.h" />
+    <ClInclude Include="Engine\graphics\Primitive.h" />
     <ClInclude Include="Engine\graphics\RenderTarget.h" />
     <ClInclude Include="Engine\graphics\Shader.h" />
     <ClInclude Include="Engine\graphics\ShaderResouceView.h" />
     <ClInclude Include="Engine\graphics\ShaderResources.h" />
+    <ClInclude Include="Engine\graphics\ShadowMap.h" />
     <ClInclude Include="Engine\graphics\Skelton.h" />
     <ClInclude Include="Engine\graphics\SkinModel.h" />
     <ClInclude Include="Engine\graphics\SkinModelDataManager.h" />
@@ -310,22 +453,18 @@
     <ClInclude Include="Engine\math\kMath.h" />
     <ClInclude Include="Engine\math\Matrix.h" />
     <ClInclude Include="Engine\math\Vector.h" />
-    <ClInclude Include="Engine\Network\BaseView.h" />
-    <ClInclude Include="Engine\Network\Console.h" />
-    <ClInclude Include="Engine\Network\LoadBalancingListener.h" />
-    <ClInclude Include="Engine\Network\NetworkLogic.h" />
-    <ClInclude Include="Engine\Network\OutputListener.h" />
-    <ClInclude Include="Engine\Network\TestView.h" />
     <ClInclude Include="Engine\physics\CapsuleCollider.h" />
     <ClInclude Include="Engine\physics\CollisionAttr.h" />
     <ClInclude Include="Engine\physics\CSphereCollider.h" />
     <ClInclude Include="Engine\physics\ICollider.h" />
     <ClInclude Include="Engine\physics\MeshCollider.h" />
     <ClInclude Include="Engine\physics\Physics.h" />
+    <ClInclude Include="Engine\physics\PhysicsDebugDraw.h" />
     <ClInclude Include="Engine\physics\PhysicsStaticObject.h" />
     <ClInclude Include="Engine\physics\RigitBody.h" />
     <ClInclude Include="Engine\physics\SpriteBoxCollider.h" />
     <ClInclude Include="Engine\PreCompile.h" />
+    <ClInclude Include="Engine\sound\CSound.h" />
     <ClInclude Include="Engine\sound\SoundEngine.h" />
     <ClInclude Include="Engine\time\GameTime.h" />
     <ClInclude Include="Engine\util\Util.h" />
@@ -334,20 +473,106 @@
     <ClInclude Include="Game\AIEdit\AIEditLine.h" />
     <ClInclude Include="Game\AIEdit\AIEditMode.h" />
     <ClInclude Include="Game\AIEdit\AIEditNode.h" />
-    <ClInclude Include="Game\AIEdit\AIEditNodeHp.h" />
+    <ClInclude Include="Game\AIEdit\AIEditNodeBackGround.h" />
+    <ClInclude Include="Game\AIEdit\AIEditNodeButton.h" />
+    <ClInclude Include="Game\AIEdit\AIEditNodeClick.h" />
+    <ClInclude Include="Game\AIEdit\AIEditNodeDeleteKey.h" />
+    <ClInclude Include="Game\AIEdit\AIEditNodeInequ.h" />
+    <ClInclude Include="Game\AIEdit\AIEditNodeMass.h" />
+    <ClInclude Include="Game\AIEdit\AIEditNodeMenu.h" />
+    <ClInclude Include="Game\AIEdit\AIEditNodeMenuConfirmation.h" />
+    <ClInclude Include="Game\AIEdit\AIEditNodeMenuOpen.h" />
+    <ClInclude Include="Game\AIEdit\AIEditNodeMenuSave.h" />
+    <ClInclude Include="Game\AIEdit\AIEditNodeNum.h" />
+    <ClInclude Include="Game\AIEdit\AIEditNodeOrder.h" />
+    <ClInclude Include="Game\AIEdit\AIEditNodeProcess.h" />
+    <ClInclude Include="Game\AIEdit\AIEditNodeSelectButtons.h" />
+    <ClInclude Include="Game\AIEdit\AIEditNodeSelectFonts.h" />
+    <ClInclude Include="Game\AIEdit\AIEditNodeTarget.h" />
+    <ClInclude Include="Game\AIEdit\AIEditNodeTechnique.h" />
+    <ClInclude Include="Game\AIEdit\AIEdtiNodeAbnormalState.h" />
+    <ClInclude Include="Game\AIEdit\ShowMonsters.h" />
+    <ClInclude Include="Game\AIEdit\ShowMonsterSkills.h" />
+    <ClInclude Include="Game\AIEdit\VisualAIOpen.h" />
+    <ClInclude Include="Game\Dungeon\DropEgg.h" />
+    <ClInclude Include="Game\Dungeon\DungeonAISelect.h" />
+    <ClInclude Include="Game\Dungeon\DungeonData.h" />
+    <ClInclude Include="Game\Dungeon\DungeonGame.h" />
+    <ClInclude Include="Game\Dungeon\DungeonSelect.h" />
+    <ClInclude Include="Game\Dungeon\DungeonTransition.h" />
+    <ClInclude Include="Game\Dungeon\MonsterDrop.h" />
+    <ClInclude Include="Game\ExchangeData\ExchangeData.h" />
+    <ClInclude Include="Game\Fade\Fade.h" />
+    <ClInclude Include="Game\Fade\MusicFade.h" />
     <ClInclude Include="Game\Game.h" />
     <ClInclude Include="Game\GameCamera2D.h" />
+    <ClInclude Include="Game\GameCamera3D.h" />
     <ClInclude Include="Game\GameCursor.h" />
     <ClInclude Include="Game\GameData.h" />
+    <ClInclude Include="Game\GameLog\GameLog.h" />
+    <ClInclude Include="Game\GameMenu\GameMenu.h" />
+    <ClInclude Include="Game\GameMenu\MenuButton.h" />
+    <ClInclude Include="Game\Input\KeyBoard.h" />
+    <ClInclude Include="Game\MonsterBox\MonsterBox.h" />
+    <ClInclude Include="Game\Monster\Action\ACTEffect.h" />
     <ClInclude Include="Game\Monster\Action\Act_Atack.h" />
+    <ClInclude Include="Game\Monster\Action\Act_Blizzard.h" />
+    <ClInclude Include="Game\Monster\Action\Act_buffAtcPow.h" />
+    <ClInclude Include="Game\Monster\Action\Act_buffDefPow.h" />
     <ClInclude Include="Game\Monster\Action\Act_Chase.h" />
+    <ClInclude Include="Game\Monster\Action\Act_Cleanse.h" />
+    <ClInclude Include="Game\Monster\Action\Act_ClearStack.h" />
+    <ClInclude Include="Game\Monster\Action\Act_debuffAtcPow.h" />
+    <ClInclude Include="Game\Monster\Action\Act_debuffDefPow.h" />
+    <ClInclude Include="Game\Monster\Action\Act_Defense.h" />
+    <ClInclude Include="Game\Monster\Action\Act_Fire.h" />
+    <ClInclude Include="Game\Monster\Action\Act_Guardian.h" />
+    <ClInclude Include="Game\Monster\Action\Act_Ignite.h" />
     <ClInclude Include="Game\Monster\Action\Act_Leave.h" />
+    <ClInclude Include="Game\Monster\Action\Act_Majinken.h" />
+    <ClInclude Include="Game\Monster\Action\Act_ManaHeal.h" />
+    <ClInclude Include="Game\Monster\Action\Act_Move.h" />
+    <ClInclude Include="Game\Monster\Action\Act_ObstMove.h" />
+    <ClInclude Include="Game\Monster\Action\Act_Poison.h" />
+    <ClInclude Include="Game\Monster\Action\Act_Recovery.h" />
+    <ClInclude Include="Game\Monster\Action\Act_specialAttack.h" />
+    <ClInclude Include="Game\Monster\Action\Act_superBeam.h" />
+    <ClInclude Include="Game\Monster\Action\Act_Tackle.h" />
+    <ClInclude Include="Game\Monster\Action\Act_Thunder.h" />
+    <ClInclude Include="Game\Monster\Action\cmp\CAct_Beam.h" />
+    <ClInclude Include="Game\Monster\Action\cmp\CAct_Dist.h" />
+    <ClInclude Include="Game\Monster\Action\cmp\CAct_FanShaped.h" />
+    <ClInclude Include="Game\Monster\Action\cmp\IAct.h" />
+    <ClInclude Include="Game\Monster\Effect\EFire.h" />
     <ClInclude Include="Game\Monster\Monster.h" />
     <ClInclude Include="Game\Monster\MonsterAction.h" />
+    <ClInclude Include="Game\Monster\MonsterActionList.h" />
     <ClInclude Include="Game\Monster\MonsterActionManeger.h" />
     <ClInclude Include="Game\Monster\MonsterEffect.h" />
+    <ClInclude Include="Game\Monster\MonsterMarker.h" />
+    <ClInclude Include="Game\Monster\Monsters\Armor.h" />
+    <ClInclude Include="Game\Monster\Monsters\Book.h" />
+    <ClInclude Include="Game\Monster\Monsters\Chris.h" />
+    <ClInclude Include="Game\Monster\Monsters\Fairy.h" />
+    <ClInclude Include="Game\Monster\Monsters\Goblin.h" />
+    <ClInclude Include="Game\Monster\Monsters\kikyo.h" />
+    <ClInclude Include="Game\Monster\Monsters\RedHead.h" />
+    <ClInclude Include="Game\Monster\Monsters\Ringo.h" />
+    <ClInclude Include="Game\Monster\Monsters\Shell.h" />
+    <ClInclude Include="Game\Monster\Monsters\ShikoChu.h" />
     <ClInclude Include="Game\Monster\Monsters\TestMons.h" />
     <ClInclude Include="Game\Monster\Monsters\Uma.h" />
+    <ClInclude Include="Game\NetPVP\backParticle.h" />
+    <ClInclude Include="Game\NetPVP\CRatingSystem.h" />
+    <ClInclude Include="Game\NetPVP\NetAISelect.h" />
+    <ClInclude Include="Game\NetPVP\NetPVPMode.h" />
+    <ClInclude Include="Game\NetPVP\RatePopup.h" />
+    <ClInclude Include="Game\Online\BaseView.h" />
+    <ClInclude Include="Game\Online\Console.h" />
+    <ClInclude Include="Game\Online\LoadBalancingListener.h" />
+    <ClInclude Include="Game\Online\NetworkLogic.h" />
+    <ClInclude Include="Game\Online\OutputListener.h" />
+    <ClInclude Include="Game\Online\TestView.h" />
     <ClInclude Include="Game\PythonBridge\include\abstract.h" />
     <ClInclude Include="Game\PythonBridge\include\accu.h" />
     <ClInclude Include="Game\PythonBridge\include\asdl.h" />
@@ -448,7 +673,13 @@
     <ClInclude Include="Game\PythonBridge\include\unicodeobject.h" />
     <ClInclude Include="Game\PythonBridge\include\warnings.h" />
     <ClInclude Include="Game\PythonBridge\include\weakrefobject.h" />
+    <ClInclude Include="Game\PythonBridge\MGameData.h" />
+    <ClInclude Include="Game\PythonBridge\MMonster.h" />
+    <ClInclude Include="Game\PythonBridge\MVector3.h" />
     <ClInclude Include="Game\PythonBridge\PythonBridge.h" />
+    <ClInclude Include="Game\ReadyGO\ReadyGO.h" />
+    <ClInclude Include="Game\Result\Draw.h" />
+    <ClInclude Include="Game\Result\DungeonResult.h" />
     <ClInclude Include="Game\Result\Lose\Lose.h" />
     <ClInclude Include="Game\Result\Lose\Lose_localPVP.h" />
     <ClInclude Include="Game\Result\Lose\Lose_randomPVP.h" />
@@ -456,42 +687,42 @@
     <ClInclude Include="Game\Result\Win\Win.h" />
     <ClInclude Include="Game\Result\Win\Win_localPVP.h" />
     <ClInclude Include="Game\Result\Win\Win_randomPVP.h" />
+    <ClInclude Include="Game\ReturnButton\ReturnButton.h" />
     <ClInclude Include="Game\SaveLoad\PythonFileLoad.h" />
+    <ClInclude Include="Game\StageSetup\StageSelect.h" />
     <ClInclude Include="Game\StageSetup\StageSetup.h" />
+    <ClInclude Include="Game\SuddenDeath.h" />
+    <ClInclude Include="Game\Title\AIeditModeSelect.h" />
+    <ClInclude Include="Game\Title\AIMSelect.h" />
+    <ClInclude Include="Game\Title\AISelect.h" />
+    <ClInclude Include="Game\Title\GObutton.h" />
+    <ClInclude Include="Game\Title\IconAI.h" />
+    <ClInclude Include="Game\Title\IconMon.h" />
     <ClInclude Include="Game\Title\ModeSelect.h" />
+    <None Include="Game\Title\MonAIPreset\MonAIPreset.h" />
+    <None Include="Game\Title\MonAIPreset\MonAIPresetClose.h" />
+    <ClInclude Include="Game\Title\ModeSelect\ModeSelectBack.h" />
+    <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetIcon.h" />
+    <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetIcons.h" />
+    <None Include="Game\Title\MonAIPreset\MonAIPresetLoad.h" />
+    <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetLoadOpen.h" />
+    <None Include="Game\Title\MonAIPreset\MonAIPresetOpen.h" />
+    <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetOpenSuper.h" />
+    <ClInclude Include="Game\Title\MonAIPreset\MonAIPresets.h" />
+    <None Include="Game\Title\MonAIPreset\MonAIPresetSave.h" />
+    <ClInclude Include="Game\Title\MonAIPreset\MonAIPresetSaveOpen.h" />
+    <ClInclude Include="Game\Title\MonsterSelect.h" />
+    <ClInclude Include="Game\Title\MonsterSelectBack.h" />
+    <ClInclude Include="Game\Title\PMMonster.h" />
     <ClInclude Include="Game\Title\pvpModeSelect.h" />
+    <ClInclude Include="Game\Title\SuperMonsterSelect.h" />
     <ClInclude Include="Game\Title\Title.h" />
+    <ClInclude Include="Game\ToAiEditModeButton.h" />
+    <ClInclude Include="Game\UIAnimator\UIAnimator.h" />
+    <ClInclude Include="Game\VisualScriptAI\VisualScriptAI.h" />
     <ClInclude Include="stdafx.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <MeshContentTask Include="Assets\modelData\stage\map.FBX" />
-    <MeshContentTask Include="Assets\modelData\Test.FBX" />
-    <MeshContentTask Include="Assets\modelData\testMons\tesEnemy2.fbx" />
-    <MeshContentTask Include="Assets\modelData\testMons\tesEnemy3.fbx" />
-    <MeshContentTask Include="Assets\modelData\uma\uma.fbx" />
-  </ItemGroup>
-  <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\kariline.png" />
-    <ImageContentTask Include="Assets\Sprite\Mp.png" />
-    <ImageContentTask Include="Assets\Sprite\karipoint.png" />
-    <ImageContentTask Include="Assets\Sprite\winkari.png" />
-    <Image Include="Assets\modelData\boxTex.png" />
-    <Image Include="Assets\modelData\stage\handle010.jpg" />
-    <Image Include="Assets\modelData\testMons\asu.png" />
-    <ImageContentTask Include="Assets\Sprite\Hp.png">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\Sprite\GUI\clear.png" />
-    <ImageContentTask Include="Assets\modelData\uma\uma.png" />
-    <ImageContentTask Include="Assets\modelData\uma\uma_eye.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\cursor.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\AIeditG.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\AIeditW.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\localpvpG.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\localpvpW.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\randompvpG.png" />
-    <ImageContentTask Include="Assets\Sprite\GUI\modeSelect\randompvpW.png" />
-    <ImageContentTask Include="Assets\Sprite\Test.png" />
+    <ClInclude Include="TestScene.h" />
+    <ClInclude Include="TestScene2.h" />
   </ItemGroup>
   <ItemGroup>
     <CopyFileToFolders Include="Game\dlllib\python36.dll">
@@ -500,20 +731,21 @@
     <CopyFileToFolders Include="Game\dlllib\python36_d.dll">
       <FileType>Document</FileType>
     </CopyFileToFolders>
-    <None Include="Game\PythonBridge\include\pydtrace.d" />
-    <CopyFileToFolders Include="PythonAIs\ang.py">
+    <CustomBuild Include="Assets\modelData\uma.tks">
       <FileType>Document</FileType>
-    </CopyFileToFolders>
+    </CustomBuild>
+    <None Include="Assets\effect\fire1\fire1.efk" />
+    <None Include="Assets\modelData\fairy\hnd_atack.tka" />
+    <None Include="Assets\modelData\fairy\hnd_ex1.tka" />
+    <None Include="Assets\modelData\fairy\hnd_idle.tka" />
+    <None Include="Assets\modelData\hnd.tks" />
+    <None Include="Assets\modelData\仮保管庫\move.tka" />
+    <None Include="C:\Users\kokoa\Pictures\Effekseer142cWin\shot.efk" />
+    <None Include="Game\PythonBridge\include\pydtrace.d" />
     <CopyFileToFolders Include="PythonAIs\CppBridge.py">
       <FileType>Document</FileType>
     </CopyFileToFolders>
-    <CopyFileToFolders Include="PythonAIs\testBrain.py">
-      <FileType>Document</FileType>
-    </CopyFileToFolders>
-    <CopyFileToFolders Include="PythonAIs\testBrain1.py">
-      <FileType>Document</FileType>
-    </CopyFileToFolders>
-    <None Include="PythonAIs\Threader.py" />
+    <None Include="PythonAIs\_MiddleExecute.py" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="python36.lib">
@@ -522,6 +754,469 @@
     <CustomBuild Include="python36_d.lib">
       <FileType>Document</FileType>
     </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="Assets\sound\BGM\PerituneMaterial_Strategy5_loop.wav" />
+    <Media Include="Assets\sound\kick-low1.wav" />
+    <Media Include="Assets\sound\punch-high2.wav" />
+    <Media Include="Assets\sound\punch-middle2.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Sprite\AIEdit\arrow.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\AIEdit\buttyon.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\AIEdit\click.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\AIEdit\clickButton.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\AIEdit\deletepoint.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\AIEdit\haik.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\AIEdit\help.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\AIEdit\HOM.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\AIEdit\masss.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\AIEdit\menu.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\AIEdit\menu2.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\AIEdit\menuselectsieat.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\Fade\fade_black.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\button1.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\button\sb_cancel.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\button\sb_OK.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\button\simple_button.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\button\simple_button_blue.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\cursor.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\Dungeon\d1.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\Dungeon\d2.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\Dungeon\d3.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\Dungeon\d4.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\Dungeon\d5.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\Dungeon\dungeonAiSelectWallpaper.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\Dungeon\dungeonSelectWallpaper.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\Dungeon\DungeonSp.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\Dungeon\DungeonSpS.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\Dungeon\leftButton.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\Dungeon\nextDungeon.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\Dungeon\notifyLine.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\Dungeon\rightButton.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\GO.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\AIselect.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_back_R.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_even.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_sel.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\B_alpha.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\monsel_back.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\PVchenger_P.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\PVchenger_V.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\modesel_back.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\modesel_back_aiedit.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\modesel_back_dung.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\modesel_back_local.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\modesel_frame.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\Monselect.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\monsel_back.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_back.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_fairy.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_frame.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_frameBlue.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_frameRed.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_frameYellow.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_none.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_uma.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_armor.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\MonActList\actBlock.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\MonActList\backBlue.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\MonActList\backRed.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\Net\close.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\Net\popupback.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\Net\ready.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\Net\waiting.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\returnButton\returnArrow.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\returnButton\returnArrowLong.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\returnButton\returnButton.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\marker\mark_1.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\marker\mark_2.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\marker\mark_3.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\marker\mark_blue.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\marker\mark_red.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\monsho\dun_stage0.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\readyGO\Ready2.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\readyGO\r_go.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\result\res_blueteam.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\result\res_Lose.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\result\res_redteam.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\result\res_Win.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\modelData\dungeon\dungeonBack.FBX">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="Assets\modelData\fairy\hnd.FBX">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="Assets\modelData\stage\dun.fbx">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="Assets\modelData\stage\dun_yuka.fbx">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="Assets\modelData\stage\limit.FBX">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="Assets\modelData\stage\limit2.fbx">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="Assets\modelData\stage\map.FBX">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="Assets\modelData\testMons\tesEnemy2.fbx">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="Assets\modelData\door\door.fbx">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="Assets\modelData\book\book.FBX">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="Assets\modelData\gob\gob.FBX">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="Assets\modelData\testMons\tesEnemy3.fbx">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="Assets\modelData\uma\uma.bone.fbx">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="Assets\modelData\uma\uma.fbx">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="Assets\modelData\uma\uma.nobone.fbx">
+      <FileType>Document</FileType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\modelData\armor\armor.FBX">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="Assets\modelData\dungeon\dropwall.fbx">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="Assets\modelData\dungeon\egg.FBX">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="Assets\modelData\dungeon\testback.FBX">
+      <FileType>Document</FileType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_gob.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_book.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Sprite\GUI\check.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Sprite\GUI\AImark\aimk_attack.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\AImark\aimk_defense.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\AImark\aimk_heal.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+    <None Include="Assets\Sprite\GUI\AImark\aimk_magic.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Sprite\GUI\modeSelect\ai_sel\ai_evenV.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Sprite\GUI\modeSelect\modesel_back_net.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Sprite\Network\particle.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Sprite\Network\p4.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Sprite\Network\wallpaper2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Sprite\Network\wallpaper3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Sprite\Network\syber1.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Sprite\Network\hakkou1.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Sprite\GUI\modeSelect\aimon_preset\preset_back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Sprite\GUI\modeSelect\aimon_preset\preset_back_sel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_roku.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\modelData\ModeSelect\mdsel_None.fbx">
+      <FileType>Document</FileType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Sprite\GUI\modeSelect\gear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Sprite\GUI\modeSelect\modesel_blackF.png" />
+    <None Include="Assets\Sprite\GUI\modeSelect\modesel_brain.png" />
+    <None Include="Assets\Sprite\GUI\modeSelect\modesel_dun.png" />
+    <None Include="Assets\Sprite\GUI\modeSelect\modesel_earth.png" />
+    <None Include="Assets\Sprite\GUI\modeSelect\modesel_eye.png" />
+    <None Include="Assets\Sprite\GUI\modeSelect\modesel_p.png" />
+    <None Include="Assets\Sprite\GUI\modeSelect\modesel_txt.png" />
+    <None Include="Assets\Sprite\GUI\modeSelect\modesel_VS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Sprite\Network\testes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Sprite\AIEdit\AIbrawser.png" />
+    <None Include="Assets\Sprite\AIEdit\AIEIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Sprite\GUI\returnButton\Rarrow0.png" />
+    <None Include="Assets\Sprite\GUI\returnButton\Rarrow1.png" />
+    <None Include="Assets\Sprite\GUI\returnButton\Rarrow2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <MeshContentTask Include="Assets\modelData\kikyo_chan\hero.FBX">
+      <FileType>Document</FileType>
+    </MeshContentTask>
+    <None Include="Assets\modelData\RedHead\RedHead.fbx">
+      <FileType>Document</FileType>
+    </None>
+    <MeshContentTask Include="Assets\modelData\si_bug\si_bug.FBX">
+      <FileType>Document</FileType>
+    </MeshContentTask>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_redHead.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_kikyo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_bug.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Sprite\result\res_draw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\modelData\RingoChan\ringo.FBX">
+      <FileType>Document</FileType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_ringo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\modelData\chris\cri.FBX">
+      <FileType>Document</FileType>
+    </None>
+    <MeshContentTask Include="Assets\modelData\shell\hotate.FBX">
+      <FileType>Document</FileType>
+    </MeshContentTask>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_cri.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Sprite\GUI\modeSelect\mon_sel\mon_shell.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\modelData\dungeon\gorgeousWall.fbx">
+      <FileType>Document</FileType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Sprite\AIEdit\closeButton.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

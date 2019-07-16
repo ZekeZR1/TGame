@@ -2,6 +2,12 @@
 #include "Act_Chase.h"
 //#include "MonsterAction.h"
 #include "../Monster.h"
+#include "../../GameData.h"
+
+Act_Chase::Act_Chase()
+{
+	m_ActionId = ActionID::enChase;
+}
 
 bool Act_Chase::Action(Monster* me)
 {
@@ -12,9 +18,9 @@ bool Act_Chase::Action(Monster* me)
 		me->anim_idle();
 		return true;
 	}
-
-	CVector3 v = m_target->Getpos() - me->Getpos();
-	if (v.Length() < 30+m_target->Getradius())
+	CVector3 mepo = me->Getpos();
+	CVector3 v = m_target->Getpos() - mepo;
+	if (v.Length() < m_target->Getradius()+me->Getradius()+1)
 	{
 		me->Setspeed(CVector3::Zero());
 		//me->Setiswalk(false);
@@ -23,12 +29,14 @@ bool Act_Chase::Action(Monster* me)
 	}
 	me->anim_walk();
 	v.Normalize();
+	
+	
 	v *= 15;
 	me->Setspeed(v);
 	me->Setiswalk(true);
 
 	m_time += IGameTime().GetFrameDeltaTime();
-	if (m_time > 15.0f)
+	if (m_time > 10.0f)
 	{
 		me->Setspeed(CVector3::Zero());
 		me->anim_idle();

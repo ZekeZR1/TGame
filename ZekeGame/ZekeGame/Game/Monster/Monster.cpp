@@ -8,17 +8,75 @@
 #include "../GameData.h"
 //#include "MonsterAI.h"
 
+#include "MonsterActionList.h"
+#include "MonsterMarker.h"
+
+#include "Action/ACTEffect.h"
 
 Monster::~Monster()
 {
 	DeleteGO(m_smr);
-	DeleteGO(m_PB);
+	ReleaseMAL();
+	ReleaseMark();
+	for (auto a : m_actions)
+		DeleteGO(a);
+	delete[] m_UseAction;
+	delete m_pyFile;
+	delete m_visualAI;
 }
 
-void Monster::init(int HP, int MP, float speed, float radius, float height, SkinModelRender * smr, int animnum)
+void Monster::OnDestroy() {
+	for (auto i : m_abnormalStates)
+		DeleteGO(i);
+}
+
+void Monster::ReleaseMAL()
+{
+	if (!m_dmal)
+	{
+		DeleteGO(m_MAL);
+		m_dmal = true;
+	}
+}
+
+void Monster::ReleaseMark()
+{
+	if (m_marker != nullptr)
+	{
+		DeleteGO(m_marker);
+		m_marker = nullptr;
+	}
+}
+
+void Monster::init(MonsterInitParam param) {
+	init(
+		param.HP,
+		param.MP, 
+		param.DefencePow, 
+		param.ExDefensePow, 
+		param.AttackPow, 
+		param.ExAttackPow,
+		param.Speed,
+		param.Radius,
+		param.Height,
+		param.ModelRender,
+		param.NumAnimation
+	);
+}
+
+void Monster::init(float HP, float MP,float Defense,float ExDefense, float Attack, float ExAttack, float speed, float radius, float height, SkinModelRender * smr, int animnum)
 {
 	m_HP = HP;
+	m_maxHP = HP;
 	m_MP = MP;
+	m_maxMP = MP;
+
+	m_Defense = Defense;
+	m_ExDefense = ExDefense;
+
+	m_Attack = Attack;
+	m_ExAttack = ExAttack;
+
 	m_speed = speed;
 	m_radius = radius;
 	m_height = height;
@@ -26,63 +84,153 @@ void Monster::init(int HP, int MP, float speed, float radius, float height, Skin
 	m_AnimNum = animnum;
 }
 
+void Monster::SetUseAction(ActionID* ua,int size)
+{
+	m_UseAction = ua;
+	m_useActionSize = size;
+}
+
+void Monster::SuddenDeath()
+{
+	float hp = m_HP * 0.3f;
+	m_HP = hp;
+	m_maxHP = hp;
+}
+
+void Monster::ClearAllAbnormalState() {
+	for (auto abs : m_abnormalStates)
+		abs->Clense();
+	m_abnormalStates.clear();
+}
+
+void Monster::ClearAbnormalState(ACTEffectGrant* abn) {
+	if (!m_abnormalStates.size()) return;
+	if (m_abnormalStates.size() == 1) 
+		m_abnormalStates.clear();
+	auto result = std::find(m_abnormalStates.begin(), m_abnormalStates.end(), abn);
+	if (result == m_abnormalStates.end()) return;
+	m_abnormalStates.erase(std::find(m_abnormalStates.begin(), m_abnormalStates.end(), abn));
+	DeleteGO(abn);
+}
+
+
 bool Monster::Start()
 {
 	m_smr->SetPosition(m_pos);
 	m_cc.Init(m_radius, m_height, m_pos,enFbxUpAxisY);
-	m_PB = NewGO<PythonBridge>(0,"PB");
 
 	anim_idle();
+
+	m_MAL = NewGO<MonsterActionList>(0, "mal");
+	m_MAL->init(this);
+
+	m_marker = NewGO<MonsterMarker>(0, "mark");
+	m_marker->init(this);
+
+	if (m_team == 0)
+	{
+		CQuaternion q = CQuaternion::Identity();
+		q.SetRotationDeg(CVector3::Up(), 180);
+		m_smr->SetRotation(q);
+	}
 	return true;
 }
 
 void Monster::Update()
 {
+	if (m_end)
+		return;
 	if (m_HP <= 0)
 	{
+		CEffect* eff = NewGO<CEffect>(0, "ef");
+		CVector3 efp = m_pos;
+		efp.y += m_height/2;
+		eff->SetPosition(efp);
+		eff->SetScale({ 3,3,3 });
+		eff->Play(L"Assets/effect/PONG.efk",2);
+
+		Sound* se = NewGO<Sound>(0, "se");
+		se->Init(L"Assets/sound/ani_fa_mon07.wav");
+		se->Play();
+
 		m_state = en_Dead;
-		GameData* gd = new GameData();
-		gd->deletemons(this);
-		delete gd;
+		for (auto a : m_abnormalStates)
+			a->SetTargetAliveFlag(false);
+		GameData::deletemons(this);
 		DeleteGO(this);
 	}
 	switch (m_state)
 	{
 	case en_NowLoading:
-		if (m_time > 1)
+		if (m_actionTime > 2)
 		{
 			//m_PB->py_exe(m_num, m_team, m_pyFile);
 			if (!isLoading)
 			{
-				m_PB->py_exe(m_num, m_team, m_pyFile);
+				if (!m_isUseVSAI)
+					PythonBridge::py_exe(m_num, m_team, m_pyFile->c_str());
+				else
+					m_visualAI->Run();
 				//m_PB->py_exeEX(m_num, m_team, m_pyFile);
-				isLoading = true;
+				//isLoading = true;
 			}
 			if (m_actions.size() >= 1)
 			{
 				m_state = en_Execute;
 				isLoading = false;
 			}
-			m_time = 0;
+			m_actionTime = 0;
+			if (!m_smr->IsPlayingAnimation())
+			{
+				anim_idle();
+			}
 		}
 		break;
 	case en_Execute:
-		if(!m_isKnockback)
+	{
+		bool isAbnormal = true;
+		for (auto as : m_abnormalStates)
+		{
+			if (as->GetAbnormalState() == abStan)
+			{
+				isAbnormal = false;
+				m_movespeed = CVector3::Zero();
+				break;
+			}
+		}
+		if (!m_isKnockback && isAbnormal)
 			execute();
+	}
 		break;
 	case en_Dead:
 		break;
 	}
+	receiveDamage();
 	Move();
-	m_time += IGameTime().GetFrameDeltaTime();
+
+	if (m_MPRecvTime >= m_MPrecov)
+	{
+		if (m_MP < m_maxMP)
+		{
+			m_MP += 1;
+			m_MPRecvTime = 0;
+		}
+	}
+
+	
+
+	m_actionTime += IGameTime().GetFrameDeltaTime();
+	m_MPRecvTime += IGameTime().GetFrameDeltaTime();
 }
+
+
 
 void Monster::execute()
 {
 	if (m_actions.size() == 0)
 	{
 		m_state = en_NowLoading;
-		m_time = 0;
+		m_actionTime = 0;
 		return;
 	}
 	if (m_actions[0]->Action(this))
@@ -94,11 +242,20 @@ void Monster::execute()
 
 void Monster::Move()
 {
+	CVector3 oldPos = m_pos;
 	CVector3 move = m_movespeed + m_vKnockback;
-	move *= 50;
-	m_pos = m_cc.Execute(IGameTime().GetFrameDeltaTime(), move);
-	
-	
+	move *= m_speed;
+
+	CVector3 v = m_pos + move * IGameTime().GetFrameDeltaTime();
+	if (v.Length() > m_limitDist)
+	{
+		v.Normalize();
+		m_pos = v * m_limitDist;
+		m_cc.SetPosition(m_pos);
+	}
+	else
+		m_pos = m_cc.Execute(IGameTime().GetFrameDeltaTime(), move);
+
 	m_smr->SetPosition(m_pos);
 	if (m_isKnockback)
 	{
@@ -107,16 +264,67 @@ void Monster::Move()
 	else
 	{
 		Turn();
+		//TurnEx();
 	}
 }
 
 void Monster::Turn()
 {
+	if (m_turncount > 0)
+		return;
 	if (m_movespeed.Length() < 0.0001f)
 		return;
 	float angle = atan2(m_movespeed.x, m_movespeed.z);
+	//m_turncount = 5;
+	//m_rotangle = angle / m_turncount;
 	m_rot.SetRotation(CVector3::AxisY(), angle);
 	m_smr->SetRotation(m_rot);
+}
+
+void Monster::TurnEx()
+{
+	if (m_turncount <= 0)
+		return;
+	CQuaternion addrot = CQuaternion::Identity();
+	addrot.SetRotation(CVector3::AxisY(),m_rotangle);
+	m_rot.Multiply(addrot);
+	m_smr->SetRotation(m_rot);
+	m_turncount--;
+}
+
+void Monster::receiveDamage()
+{
+	bool isdam = false;
+	if (m_Damage > 0)
+	{
+		float dm = m_Damage - m_Defense;
+		if (dm <= 0)
+			dm = m_Damage / m_Defense;
+		if (dm > 0)
+			m_HP -= dm;
+		m_Damage = 0;
+
+		isdam = true;
+	}
+
+	if (m_DamageEx > 0)
+	{
+		float dm = m_DamageEx - m_ExDefense;
+		if(dm <= 0)
+			dm = m_DamageEx / m_ExDefense;
+		if (dm > 0)
+			m_HP -= dm;
+		m_DamageEx = 0;
+
+		isdam = true;
+	}
+
+	if (isdam)
+	{
+		Sound* se = NewGO<Sound>(0, "se");
+		se->Init(L"Assets/sound/ani_fa_mon03.wav");
+		se->Play();
+	}
 }
 
 void Monster::StartKnockback(CVector3 v)
@@ -124,6 +332,16 @@ void Monster::StartKnockback(CVector3 v)
 	m_vKnockback = v;
 	m_vSubKnock = v / 3;
 	m_isKnockback = true;
+}
+
+void Monster::SetKnockback(CVector3 v)
+{
+	m_vKnockback = v;
+	m_vSubKnock = v;
+	if (v.Length() < 1.f)
+	{
+		m_isKnockback = false;
+	}
 }
 
 void Monster::Knockback()
@@ -145,15 +363,39 @@ void Monster::Knockback()
 	}
 }
 
+void Monster::Setpos(CVector3 v)
+{
+	m_pos = v;
+	m_smr->SetPosition(v);
+	m_cc.SetPosition(v);
+}
+
 void Monster::SetRotation(CQuaternion rot)
 {
+	m_rot = rot;
 	m_smr->SetRotation(rot);
 }
 
 void Monster::AddAction(MonsterAction * ma)
 {
-	m_actions.push_back(ma);
+	bool isNOPushed = true;
+	if (ma != nullptr && m_actions.size() < 3)
+	{
+		for (int i = 0; i < m_useActionSize; i++)
+		{
+			if (m_UseAction[i] == ma->GetactionID())
+			{
+				isNOPushed = false;
+				m_actions.push_back(ma);
+				break;
+			}
+		}
+	}
+	if (isNOPushed)
+		DeleteGO(ma);
 }
+
+
 
 void Monster::anim_idle()
 {
@@ -176,16 +418,42 @@ void Monster::anim_atack()
 	m_smr->PlayAnimation(en_atack);
 }
 
-void Monster::anim_defense()
+
+void Monster::anim_defenseF()
 {
-	if (en_defense > m_AnimNum - 1)
+	if (en_defenseF > m_AnimNum - 1)
 		return;
-	m_smr->PlayAnimation(en_defense);
+	m_smr->PlayAnimation(en_defenseF);
 }
 
-void Monster::anim_recovery()
+void Monster::anim_defenseM()
 {
-	if (en_recovery > m_AnimNum - 1)
+	if (en_defenseM > m_AnimNum - 1)
 		return;
-	m_smr->PlayAnimation(en_recovery);
+	m_smr->PlayAnimation(en_defenseM);
+}
+
+void Monster::anim_defenseE()
+{
+	if (en_defenseM > m_AnimNum - 1)
+		return;
+	m_smr->PlayAnimation(en_defenseE);
+}
+
+void Monster::anim_extra1()
+{
+	if (en_extra1 > m_AnimNum - 1)
+		return;
+	m_smr->PlayAnimation(en_extra1);
+}
+
+bool Monster::isAnimPlay()
+{
+	return m_smr->IsPlayingAnimation();
+}
+
+
+int Monster::GetAbnormalStateID(int num)
+{
+	return m_abnormalStates[num]->GetAbnormalState();
 }

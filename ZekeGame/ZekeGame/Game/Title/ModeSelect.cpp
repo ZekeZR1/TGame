@@ -1,51 +1,194 @@
+// 名はmodesel
+
 #include "stdafx.h"
 #include "ModeSelect.h"
 
 #include "pvpModeSelect.h"
-#include "../AIEdit/AIEditMode.h"
-
+#include "AIeditModeSelect.h"
+#include "../Dungeon/DungeonSelect.h"
+#include "../NetPVP/NetPVPMode.h"
+#include "../NetPVP/NetAISelect.h"
 #include "../../GameCamera.h"
+#include "../GameCursor.h"
+
+#include "../Fade/Fade.h"
+#include "../Fade/MusicFade.h"
+
+#include "../Input/KeyBoard.h"
+#include "ModeSelect/ModeSelectBack.h"
+
+#include "../Dungeon/DungeonAISelect.h"
 
 ModeSelect::~ModeSelect()
 {
-	for (auto sp : m_selection)
+	//for (auto sp : m_selection)
+	//{
+	//	DeleteGO(sp);
+	//}
+
+	for (auto b : m_buttons)
 	{
-		DeleteGO(sp);
+		delete b;
 	}
+	m_buttons.clear();
+	m_buttons.shrink_to_fit();
+
+	//DeleteGO(m_back);
+	DeleteGO(m_cursor);
+
+	DeleteGO(m_msBack);
 }
 
 bool ModeSelect::Start()
 {
-	CVector3 vadd = { 25,100,0 };
-	vadd *= -1;
+	m_BGM = FindGO<Sound>("BGM");
+	if (m_BGM == nullptr)
+	{
+		m_BGM = NewGO<Sound>(0, "BGM");
+		m_BGM->Init(L"Assets/sound/BGM/PerituneMaterial_Strategy5_loop.wav", true);
+		m_BGM->Play();
+	}
 
-	SpriteRender* sp = NewGO<SpriteRender>(0, "ui");
-	sp->Init(L"Assets/Sprite/localpvpW.dds", 400, 100);
-	sp->SetPosition(m_standardpos);
-	CVector3 pos = m_standardpos + vadd;
+	m_fade = FindGO<Fade>("fade");
+	m_fade->FadeIn();
+	m_cursor = NewGO<GameCursor>(0, "cur");
+
+	m_msBack = NewGO<ModeSelectBack>(0, "msb");
+
+	//m_back = NewGO<SpriteRender>(0, "sp");
+	//m_back->Init(L"Assets/sprite/modesel_back.dds", 1280, 720);
+	
+	//m_back->ChangeCameraProjMatrix(Camera::enUpdateProjMatrixFunc_Perspective);
+	//m_back->SetPosition({ 0,0,50 });
+
+	/*CVector3 vadd = { 25,100,0 };
+	vadd *= -1;
+	CVector3 pos = m_standardpos;
+	SpriteRender* sp;
+	
+
+	pos = m_standardpos + vadd * enDungeon;
+	sp = NewGO<SpriteRender>(0, "ui");
+	sp->Init(L"Assets/Sprite/dungeonW.dds", 400, 100);
+	sp->SetPosition(pos);
 	m_selection.push_back(sp);
 
+	pos = m_standardpos + vadd*enLocalpvp;
+	sp = NewGO<SpriteRender>(0, "ui");
+	sp->Init(L"Assets/Sprite/localpvpG.dds", 400, 100);
+	sp->SetPosition(pos);
+	m_selection.push_back(sp);
+
+	pos = m_standardpos + vadd * enRandompvp;
 	sp = NewGO<SpriteRender>(0, "ui");
 	sp->Init(L"Assets/Sprite/randompvpG.dds", 400, 100);
 	sp->SetPosition(pos);
-	pos += vadd;
 	m_selection.push_back(sp);
 
+	pos = m_standardpos + vadd * enAIedit;
 	sp = NewGO<SpriteRender>(0, "ui");
 	sp->Init(L"Assets/Sprite/AIeditG.dds", 400, 100);
 	sp->SetPosition(pos);
-	pos += vadd;
-	m_selection.push_back(sp);
+	m_selection.push_back(sp);*/
+
+
+	button *b;
+	CVector3 pos = { 360,250,0 };
+	CVector3 add = { 0,(m_bSize.y + 20)*-1,0 };
+
+	b = new button();
+	b->frame->SetPosition(pos);
+	//b->moji->Init(L"Assets/sprite/modesel_dung.dds",m_bSize.x, m_bSize.y);
+	//b->moji->SetPosition(pos);
+	b->font->Init(L"ダンジョン", pos.ToTwo()+m_butoffs, 0, CVector4::White, 0.6f, { 1,1 });
+
+	m_buttons.push_back(b);
+	pos += add;
+
+	b = new button();
+	b->frame->SetPosition(pos);
+	//b->moji->Init(L"Assets/sprite/modesel_local.dds", m_bSize.x, m_bSize.y);
+	//b->moji->SetPosition(pos);
+	b->font->Init(L"対戦", pos.ToTwo()+m_butoffs, 0, CVector4::White, 0.6f, { 1,1 });
+	m_buttons.push_back(b);
+	pos += add;
+
+	b = new button();
+	b->frame->SetPosition(pos);
+	//b->moji->Init(L"Assets/sprite/modesel_world.dds", m_bSize.x, m_bSize.y);
+	//b->moji->SetPosition(pos);
+	b->font->Init(L"ネット対戦", pos.ToTwo() + m_butoffs, 0, CVector4::White, 0.6f, { 1,1 });
+	m_buttons.push_back(b);
+	pos += add;
+
+	b = new button();
+	b->frame->SetPosition(pos);
+	//b->moji->Init(L"Assets/sprite/modesel_aiedi.dds", m_bSize.x, m_bSize.y);
+	//b->moji->SetPosition(pos);
+	b->font->Init(L"AIつくる", pos.ToTwo() + m_butoffs, 0, CVector4::White, 0.6f, { 1,1 });
+	m_buttons.push_back(b);
 
 	return true;
 }
 
 void ModeSelect::Update()
 {
-	if (g_pad[0].IsTrigger(enButtonA))
+	static char code[256] = {0};
+	char buf = Keyboard::GetKeyChar();
+	if (Keyboard::isTrriger(enDelete))
+	{
+		int i = 256;
+		while (i)
+			code[--i] = 0;
+	}
+	if (buf != 0)
+	{
+		int cur = 0;
+		if (strlen(code) == 254)
+		{
+			
+			for (int i = 0; i < 255; i++)
+			{
+				code[i] = 0;
+			}
+		}
+		else
+		{
+			for (int i = 0; i < 255; i++)
+			{
+				if (code[i] == 0)
+				{
+					cur = i;
+					break;
+				}
+			}
+		}
+		code[cur] = buf;
+
+		char st[255];
+		sprintf(st, "%s\n", code);
+		OutputDebugStringA(st);
+
+		if (strcmp(code, "End") == 0)
+		{
+			exit(0);
+			return;
+		}
+		else if (strcmp(code, "ShellShell") == 0)
+		{
+			DungeonAISelect* ds = NewGO<DungeonAISelect>(0, "pvp");
+			ds->SetDungeonNumber(8);
+			DeleteGO(this);
+		}
+	}
+	/*if (g_pad[0].IsTrigger(enButtonA))
 	{
 		switch (m_sel)
 		{
+		case enDungeon:
+			NewGO<DungeonSelect>(0, "dan");
+			DeleteGO(this);
+			break;
 		case enLocalpvp:
 			NewGO<PvPModeSelect>(0, "pvp");
 			DeleteGO(this);
@@ -53,7 +196,7 @@ void ModeSelect::Update()
 		case enRandompvp:
 			break;
 		case enAIedit:
-			NewGO<AIEditMode>(0, "AIEM");
+			NewGO<AIEditModeSelect>(0, "AIedit");
 			DeleteGO(this);
 			break;
 		}
@@ -64,6 +207,10 @@ void ModeSelect::Update()
 		{
 			switch (m_sel)
 			{
+			case enDungeon:
+				m_selection[enDungeon]->Init(L"Assets/Sprite/dungeonG.dds", 400, 100);
+				m_selection[enLocalpvp]->Init(L"Assets/Sprite/localpvpW.dds", 400, 100);
+				break;
 			case enLocalpvp:
 				m_selection[enLocalpvp]->Init(L"Assets/Sprite/localpvpG.dds", 400, 100);
 				m_selection[enRandompvp]->Init(L"Assets/Sprite/randompvpW.dds", 400, 100);
@@ -86,7 +233,11 @@ void ModeSelect::Update()
 		{
 			switch (m_sel)
 			{
+			case enDungeon:
+				break;
 			case enLocalpvp:
+				m_selection[enDungeon]->Init(L"Assets/Sprite/dungeonW.dds", 400, 100);
+				m_selection[enLocalpvp]->Init(L"Assets/Sprite/localpvpG.dds", 400, 100);
 				break;
 			case enRandompvp:
 				m_selection[enLocalpvp]->Init(L"Assets/Sprite/localpvpW.dds", 400, 100);
@@ -99,5 +250,100 @@ void ModeSelect::Update()
 			}
 			m_sel--;
 		}
+	}*/
+
+
+
+	if (m_isfade)
+	{
+		if (m_fade->isFadeStop())
+		{
+			switch (m_mode)
+			{
+			case enDungeon:
+				NewGO<DungeonSelect>(0, "dan");
+				DeleteGO(this);
+				break;
+			case enLocalpvp:
+				NewGO<PvPModeSelect>(0, "pvp");
+				m_fade->FadeOut();
+				DeleteGO(this);
+				break;
+			case enRandompvp:
+				NewGO<NetAISelect>(0, "pvp");
+				DeleteGO(this);
+				break;
+			case enAIedit:
+				NewGO<AIEditModeSelect>(0, "AIedit");
+				DeleteGO(this);
+				break;
+			}
+		}
+		return;
 	}
+	CVector3 curpos = m_cursor->GetCursor();
+	int count = 0;
+	for (auto button : m_buttons)
+	{
+		SpriteRender* frame = button->frame;
+		frame->SetCollisionTarget(curpos);
+		if (frame->isCollidingTarget())
+		{
+			if (!button->isCursor)
+			{
+				button->isCursor = true;
+				CVector3 pos = frame->GetPosition();
+				pos.x -= 40;
+				frame->SetPosition(pos);
+				button->font->SetPosition(pos.ToTwo() + m_butoffs);
+				//button->moji->SetPosition(pos);
+				m_count = count;
+
+				switch (count)
+				{
+				case enDungeon:
+					//m_back->Init(L"Assets/sprite/modesel_back_dung.dds", 1280, 720);
+					m_msBack->Dungeon();
+					break;
+				case enLocalpvp:
+					//m_back->Init(L"Assets/sprite/modesel_back_local.dds", 1280, 720);
+					m_msBack->PVP();
+					break;
+				case enRandompvp:
+					//m_back->Init(L"Assets/sprite/modesel_back_net.dds", 1280, 720);
+					m_msBack->NetPVP();
+					
+					break;
+				case enAIedit:
+					//m_back->Init(L"Assets/sprite/modesel_back_AIedit.dds", 1280, 720);
+					m_msBack->AIedit();
+					break;
+				}
+			}
+			if (Mouse::isTrigger(enLeftClick))
+			{
+				m_fade->FadeOut();
+				m_mode = count;
+				m_isfade = true;
+				PlayButtonSE();
+			}
+		}
+		else
+		{
+			if (button->isCursor && m_count != count)
+			{
+				button->isCursor = false;
+				CVector3 pos = frame->GetPosition();
+				pos.x += 40;
+				frame->SetPosition(pos);
+				button->font->SetPosition(pos.ToTwo() + m_butoffs);
+				//button->moji->SetPosition(pos);
+
+			}
+		}
+
+		count++;
+	}
+
+
 }

@@ -1,6 +1,13 @@
 #pragma once
 class CFont {
 public:
+	enum TextType {
+		en_Japanese,
+		en_JapaneseBIG,
+		en_Alphabet,
+		en_JPLog,
+		en_numType
+	};
 	CFont();
 	~CFont();
 	/*!
@@ -41,8 +48,18 @@ public:
 		float scale = 1.0f,
 		CVector2 pivot = { 0.5f, 0.5f }
 	);
+	void SetTextType(TextType type) {
+		m_type = type;
+	}
 private:
+	TextType m_type = en_Alphabet;
 	DirectX::SpriteBatch*	m_spriteBatch = nullptr;	//!<スプライトバッチ。
 	DirectX::SpriteFont*	m_spriteFont = nullptr;		//!<スプライトフォント。
 	CMatrix m_scaleMat;
+	ID3D11BlendState* m_blendState = nullptr;
+	FLOAT m_BlendFactor[4];
+	UINT m_SampleMask;
+	ID3D11RasterizerState* m_rasterizerState;
+	ID3D11DepthStencilState* m_depthStencilState;
+	UINT m_StencilRef;
 };

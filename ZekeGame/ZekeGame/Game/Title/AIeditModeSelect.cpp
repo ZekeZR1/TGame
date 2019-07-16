@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "AIeditModeSelect.h"
-
+#include "../Fade/Fade.h"
 #include "ModeSelect.h"
 #include "../AIEdit/AIEditMode.h"
 
@@ -12,6 +12,12 @@ AIEditModeSelect::~AIEditModeSelect()
 
 bool AIEditModeSelect::Start()
 {
+
+	NewGO<AIEditMode>(0, "AIEM");
+	DeleteGO(this);
+
+	m_fade = FindGO<Fade>("fade");
+	m_fade->FadeIn();
 	CVector3 basepos = { 100,100,0 };
 	CVector3 addpos = { 25,100,0 };
 

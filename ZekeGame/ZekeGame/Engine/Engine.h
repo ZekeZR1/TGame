@@ -9,14 +9,16 @@ public:
 	void Final();
 	void GameRoop();
 	static Engine& GetInstance() {
-		static Engine* instance = nullptr;
-		if (instance != nullptr) {
+		/*static Engine* instance = nullptr;
+		if (instance == nullptr) {
 			instance = new Engine;
 		}
-		return *instance;
+		return *instance;*/
+		static Engine instance;
+		return instance;
 	}
-
 private:
+	//static Engine* instance;
 	void Update();
 	void Release();
 public:
@@ -24,9 +26,6 @@ public:
 	{
 		return Engine::GetInstance();
 	}
-	void CreateNetworkSystem();
-	void DestroyNetworkSystem();
-	void SetMouseNotch(int);
 };
 
 

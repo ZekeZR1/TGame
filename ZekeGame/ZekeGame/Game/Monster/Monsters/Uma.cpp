@@ -2,6 +2,8 @@
 #include "../Monster.h"
 #include "Uma.h"
 
+#include "../../GameData.h"
+
 Uma::Uma()
 {
 	m_anim[Monster::en_idle].Load(L"Assets/modelData/uma/anim_uma_idle.tka");
@@ -13,5 +15,27 @@ Uma::Uma()
 
 	SkinModelRender* sr = NewGO<SkinModelRender>(0, "smr");
 	sr->Init(L"Assets/modelData/uma.cmo",m_anim,3);
-	init(10, 10, 10, 20, 70, sr, 3);
+	//sr->SetScale({ 1.8f,1.8f,1.8f });
+	//sr->Init(L"Assets/modelData/uma.bone.cmo");
+	sr->SetPosition(CVector3::Zero());
+	
+	MonsterInitParam prm;
+	prm.HP = 100;
+	prm.MP = 80;
+	prm.DefencePow = 7;
+	prm.ExDefensePow = 1.7;
+	prm.AttackPow = 13;
+	prm.ExAttackPow = 1;
+	prm.Speed = 10;
+	prm.Radius = 50;
+	prm.Height = 250;
+	prm.ModelRender = sr;
+	prm.NumAnimation = 3;
+
+	init(prm);
+
+	m_ID = enUmataur;
+	int cnt = 0;
+	ActionID* ua = GameData::GetMonsterActions(m_ID, cnt);
+	SetUseAction(ua, cnt);
 }

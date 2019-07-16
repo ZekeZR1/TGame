@@ -1,7 +1,10 @@
 #include "stdafx.h"
 #include "AIEditMode.h"
 #include "AIEditNode.h"
+#include"AIEditNodeClick.h"
 #include "../GameCursor.h"
+#include "AIEditNodeProcess.h"
+#include "AIEditNodeBackGround.h"
 
 // THIS IS CAMERA.
 #include "../../GameCamera.h"
@@ -15,6 +18,7 @@ AIEditMode::~AIEditMode()
 
 	//CURSOR IS DEAD.
 	DeleteGO(m_cursor);
+	DeleteGO(m_spriteRender);
 }
 
 bool AIEditMode::Start()
@@ -23,17 +27,16 @@ bool AIEditMode::Start()
 	m_camera = new GameCamera;
 
 	m_cursor = NewGO<GameCursor>(0, "cursor");
+	m_aieditnodebackground = NewGO<AIEditNodeBackGround>(0, "background");
+	m_aieditnodeprocess = NewGO<AIEditNodeProcess>(0, "process");
 
 	//!!!--RETURN TRUE--!!!
+	//Å™ëê
 	return true;
 	//!!!--RETURN TRUE--!!!
 }
 
 void AIEditMode::Update()
 {
-
-	if (Mouse::isTrigger(enRightClick)) {
-		m_aieditnode = NewGO<AIEditNode>(0, "window");
-	}
 
 }

@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "SkinModel.h"
 #include "SkinModelDataManager.h"
+#include "SkinModelEffect.h"
 
 SkinModel::~SkinModel()
 {
@@ -13,12 +14,15 @@ SkinModel::~SkinModel()
 		m_samplerState->Release();
 	}
 }
-void SkinModel::Init(const wchar_t* filePath, EnFbxUpAxis enFbxUpAxis, const char* entryPS, const char* entryVS)
-{
 
+void SkinModel::Init(const wchar_t* filePath, EnFbxUpAxis enFbxUpAxis,
+	const char* entryPS, const char* entryVS, 
+	const wchar_t* normalMap, const wchar_t* specularMap)
+{
 	m_psmain = entryPS;
 	m_vsmain= entryVS;
 	//スケルトンのデータを読み込む。
+
 	InitSkeleton(filePath);
 
 	//定数バッファの作成。
@@ -26,9 +30,16 @@ void SkinModel::Init(const wchar_t* filePath, EnFbxUpAxis enFbxUpAxis, const cha
 
 	//サンプラステートの初期化。
 	InitSamplerState();
-
+	
+	//ディレクションライトの初期化
+	InitDirectionLight();
+	if (normalMap) {
+		m_hasNormalMap = true;
+	}
+	if (specularMap)
+		m_hasSpecularMap = true;
 	//SkinModelDataManagerを使用してCMOファイルのロード。
-	m_modelDx = g_skinModelDataManager.Load(filePath, m_skeleton, m_psmain, m_vsmain);
+	m_modelDx = g_skinModelDataManager.Load(filePath, m_skeleton, m_psmain, m_vsmain, normalMap, specularMap);
 	m_enFbxUpAxis = enFbxUpAxis;
 }
 void SkinModel::InitSkeleton(const wchar_t* filePath)
@@ -43,9 +54,8 @@ void SkinModel::InitSkeleton(const wchar_t* filePath)
 	//tksファイルをロードする。
 	bool result = m_skeleton.Load(skeletonFilePath.c_str());
 	if (result == false) {
+		//assert(false);
 		//スケルトンが読み込みに失敗した。
-		//アニメーションしないモデルは、スケルトンが不要なので
-		//読み込みに失敗することはあるので、ログ出力だけにしておく。
 #ifdef _DEBUG
 		char message[256];
 		//sprintf_s(message, "tksファイルの読み込みに失敗しました。%ls\n", skeletonFilePath.c_str());
@@ -72,6 +82,14 @@ void SkinModel::InitConstantBuffer()
 	bufferDesc.CPUAccessFlags = 0;
 	g_graphicsEngine->GetD3DDevice()->CreateBuffer(&bufferDesc, NULL, &m_cb);
 }
+
+void SkinModel::InitDirectionLight() {
+		for (int i = 0; i < NUM_DIRECTION_LIG; i++) {
+			m_DirLight[i] = m_defDir;
+			m_DirCol[i] = m_defCol;
+		}
+}
+
 void SkinModel::InitSamplerState()
 {
 	//テクスチャのサンプリング方法を指定するためのサンプラステートを作成。
@@ -107,6 +125,7 @@ void SkinModel::UpdateWorldMatrix(CVector3 position, CQuaternion rotation, CVect
 	//スケルトンの更新。
 	m_skeleton.Update(m_worldMatrix);
 }
+
 void SkinModel::Draw(CMatrix viewMatrix, CMatrix projMatrix)
 {
 	DirectX::CommonStates state(g_graphicsEngine->GetD3DDevice());
@@ -118,8 +137,10 @@ void SkinModel::Draw(CMatrix viewMatrix, CMatrix projMatrix)
 	vsCb.mWorld = m_worldMatrix;
 	vsCb.mProj = projMatrix;
 	vsCb.mView = viewMatrix;
-	vsCb.mCol = m_DirCol;
-	vsCb.mDir = m_DirLight;
+	for (int i = 0; i < NUM_DIRECTION_LIG; i++) {
+		vsCb.mCol[i] = m_DirCol[i];
+		vsCb.mDir[i] = m_DirLight[i];
+	}
 	d3dDeviceContext->UpdateSubresource(m_cb, 0, nullptr, &vsCb, 0, 0);
 	//定数バッファをGPUに転送。
 	d3dDeviceContext->VSSetConstantBuffers(0, 1, &m_cb);
@@ -138,6 +159,72 @@ void SkinModel::Draw(CMatrix viewMatrix, CMatrix projMatrix)
 	);
 }
 
+void SkinModel::Draw(EnRenderMode renderMode, CMatrix viewMatrix, CMatrix projMatrix)
+{
+	auto deviceContext = g_graphicsEngine->GetD3DDeviceContext();
+	DirectX::CommonStates state(g_graphicsEngine->GetD3DDevice());
+
+	//auto shadowMap = g_game->GetShadowMap();
+	auto shadowMap = IGameObjectManager().GetShadowMap();
+	//定数バッファを更新。
+	SVSConstantBuffer modelFxCb;
+	modelFxCb.mWorld = m_worldMatrix;
+	modelFxCb.mProj = projMatrix;
+	modelFxCb.mView = viewMatrix;
+
+	for (int i = 0; i < NUM_DIRECTION_LIG; i++) {
+		modelFxCb.mCol[i] = m_DirCol[i];
+		modelFxCb.mDir[i] = m_DirLight[i];
+	}
+	modelFxCb.eyePos = camera3d->GetPosition();
+	modelFxCb.specPow = m_specPow;
+	//todo ライトカメラのビュー、プロジェクション行列を送る。
+	modelFxCb.mLightProj = shadowMap->GetLightProjMatrix();
+	modelFxCb.mLightView = shadowMap->GetLighViewMatrix();
+	if (m_isShadowReciever) {
+		modelFxCb.isShadowReciever = 1;
+	}
+	else {
+		modelFxCb.isShadowReciever = 0;
+	}
+	if (m_hasNormalMap) {
+		modelFxCb.hasNormalMap = 1;
+	}
+	else {
+		modelFxCb.hasNormalMap = 0;
+	}
+	if (m_hasSpecularMap) {
+		modelFxCb.hasSpecularMap = 1;
+	}else{
+		modelFxCb.hasSpecularMap = 0;
+	}
+	modelFxCb.ambientLight = g_graphicsEngine->GetAmbientLight();
+	deviceContext->UpdateSubresource(m_cb, 0, nullptr, &modelFxCb, 0, 0);
+	//ライト用の定数バッファを更新。
+	//deviceContext->UpdateSubresource(m_lightCb, 0, nullptr, &m_dirLight, 0, 0);
+
+	//定数バッファをシェーダースロットに設定。
+	deviceContext->VSSetConstantBuffers(0, 1, &m_cb);
+	deviceContext->PSSetConstantBuffers(0, 1, &m_cb);
+	//deviceContext->PSSetConstantBuffers(1, 1, &m_lightCb);
+	//サンプラステートを設定する。
+	deviceContext->PSSetSamplers(0, 1, &m_samplerState);
+	//エフェクトにクエリを行う。
+	m_modelDx->UpdateEffects([&](DirectX::IEffect* material) {
+		auto modelMaterial = reinterpret_cast<ModelEffect*>(material);
+		modelMaterial->SetRenderMode(renderMode);
+		modelMaterial->SetShadoMapSRV(m_shadowMapSRV);
+	});
+	m_skeleton.SendBoneMatrixArrayToGPU();
+	m_modelDx->Draw(
+		deviceContext,
+		state,
+		m_worldMatrix,
+		camera3d->GetViewMatrix(),
+		camera3d->GetProjectionMatrix()
+	);
+}
+
 void SkinModel::Draw()
 {
 
@@ -153,8 +240,12 @@ void SkinModel::Draw()
 	vsCb.mWorld = m_worldMatrix;
 	vsCb.mProj = projMatrix;
 	vsCb.mView = viewMatrix;
-	vsCb.mCol = m_DirCol;
-	vsCb.mDir = m_DirLight;
+	for (int i = 0; i < NUM_DIRECTION_LIG; i++) {
+		vsCb.mCol[i] = m_DirCol[i];
+		vsCb.mDir[i] = m_DirLight[i];
+	}
+	vsCb.eyePos = camera3d->GetPosition();
+	vsCb.specPow = m_specPow;
 	d3dDeviceContext->UpdateSubresource(m_cb, 0, nullptr, &vsCb, 0, 0);
 	//定数バッファをGPUに転送。
 	d3dDeviceContext->VSSetConstantBuffers(0, 1, &m_cb);

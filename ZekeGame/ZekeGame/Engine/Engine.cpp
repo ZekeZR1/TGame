@@ -3,7 +3,7 @@
 #include "Engine/FPSCounter.h"
 
 CFPSCounter* FPS = nullptr;
-NetworkLogic* m_network = nullptr;
+
 int nNotch = 0;
 
 Engine::Engine()
@@ -21,7 +21,7 @@ void Engine::Init(HINSTANCE hInstance,
 	int nCmdShow) {
 	//SetCurrentDirectory("Resource");
 	InitWindow(hInstance, hPrevInstance, lpCmdLine, nCmdShow, "Game");
-	GameObjectManager().Init(32);
+	IGameObjectManager().Init(32);
 	FPS = new CFPSCounter(10);
 }
 
@@ -37,31 +37,10 @@ void Engine::Update() {
 
 	Mouse::UpdateMouseInput();
 
-	if (m_network != nullptr) {
-		m_network->Update();
-	}
-
-	GameObjectManager().Execute();
-	//output frame late to debug message
-	char message[256];
-	float fps = FPS->GetFPS();
-	sprintf_s(message, "%f\n", fps);
-	//OutputDebugStringA(message);
-}
-
-void Engine::CreateNetworkSystem() {
-	if (m_network == nullptr) {
-		m_network = new NetworkLogic;
-		m_network->Start();
-	}
-}
-
-void Engine::DestroyNetworkSystem() {
-	if (m_network != nullptr) {
-		m_network->Disconnect();
-		delete m_network;
-		m_network = nullptr;
-	}
+	IGameObjectManager().Execute();
+#if _DEBUG
+	FPS->Draw();
+#endif
 }
 
 void Engine::GameRoop() {

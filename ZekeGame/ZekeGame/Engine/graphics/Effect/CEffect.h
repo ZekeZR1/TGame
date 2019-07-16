@@ -11,7 +11,8 @@ public:
 	void Update() override;
 	void Render() override;
 	//„„†„Š„„…„Š
-	void Play(const wchar_t* filepath);
+	//Ž©“®‚ÅDelete‚³‚ê‚Ü‚·
+	void Play(const wchar_t* filepath, float speed = 1.f);
 	void Stop();
 
 	void SetPosition(const CVector3& pos) {
@@ -27,6 +28,7 @@ public:
 		return g_graphicsEngine->GetEffectEngine().GetEffekseerManager().GetShown(m_handle);
 	}
 private:
+	bool isPlayed = false;
 	::Effekseer::Effect*				m_effect = NULL;
 	::Effekseer::Handle				m_handle = -1;
 	CVector3								m_position = CVector3::Zero();

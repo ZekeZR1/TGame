@@ -1,0 +1,45 @@
+help 40 40
+#hozon 80 40
+#menuselect 80 40
+#open 80 40
+
+#menu2 
+175 280
+175 140
+175 470
+175 205
+175 470
+175 275
+
+#buttyon 140 50
+
+#click 250 80
+
+deletepoint 25 25
+
+mass
+150 250
+
+#masss 280 80
+
+#menu 
+400 400
+520 200
+
+#arrow 182 40
+
+#menuselectsieat
+350 120
+240 120
+
+AIbrawser
+740 700
+
+AIicon
+175 175
+
+AIbrawserClose
+160 64
+
+
+

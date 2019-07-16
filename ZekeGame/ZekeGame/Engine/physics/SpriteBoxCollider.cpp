@@ -10,11 +10,13 @@ SpriteBoxCollider::~SpriteBoxCollider()
 {
 }
 
-void SpriteBoxCollider::Init(float height, float width, CVector3 pos) 
+void SpriteBoxCollider::Init(float height, float width, CVector3 pos,CVector2 pivot) 
 {
 	m_hitbox.pos = pos;
 	m_hitbox.height = height;
 	m_hitbox.width = width;
+
+	m_pivot = pivot;
 	SideCalc();
 }
 
@@ -31,8 +33,13 @@ void SpriteBoxCollider::Execute(CVector3 tar) {
 }
 
 void SpriteBoxCollider::SideCalc() {
-	m_hitbox.upperSide = m_hitbox.pos.y + (m_hitbox.height/2);
+	/*m_hitbox.upperSide = m_hitbox.pos.y + (m_hitbox.height/2);
 	m_hitbox.downSide = m_hitbox.pos.y - (m_hitbox.height / 2);
 	m_hitbox.rightSide	= m_hitbox.pos.x + (m_hitbox.width/2);
-	m_hitbox.leftSide		= m_hitbox.pos.x - (m_hitbox.width/2);
+	m_hitbox.leftSide		= m_hitbox.pos.x - (m_hitbox.width/2);*/
+
+	m_hitbox.upperSide = m_hitbox.pos.y + (m_hitbox.height * (1.f - m_pivot.y));
+	m_hitbox.downSide = m_hitbox.pos.y - (m_hitbox.height * m_pivot.y);
+	m_hitbox.rightSide = m_hitbox.pos.x + (m_hitbox.width * (1.f-m_pivot.x));
+	m_hitbox.leftSide = m_hitbox.pos.x - (m_hitbox.width  * m_pivot.x);
 }

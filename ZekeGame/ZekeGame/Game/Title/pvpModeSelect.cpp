@@ -1,77 +1,239 @@
+// my name is pvp.
+
+
 #include "stdafx.h"
+#include "SuperMonsterSelect.h"
 #include "pvpModeSelect.h"
+
+
 #include <string>
+#include "../GameCursor.h"
 
 #include "ModeSelect.h"
 
+#include "../StageSetup/StageSetup.h"
 #include "../Game.h"
 
 #include "../SaveLoad/PythonFileLoad.h"
 
+#include "PMMonster.h"
+
+#include "../Fade/Fade.h"
+#include "../Fade/MusicFade.h"
+
+#include "../ReturnButton/ReturnButton.h"
+#include "..//ToAiEditModeButton.h"
+
+//#include "MonAIPreset/MonAIPresetSave.h"
+//#include "MonAIPreset/MonAIPresetLoad.h"
+//#include "MonAIPreset/MonAIPresetOpen.h"
+
+#include "MonAIPreset/MonAIPresetOpenSuper.h"
+#include "MonAIPreset/MonAIPresetSaveOpen.h"
+#include "MonAIPreset/MonAIPresetLoadOpen.h"
+
+#include "GObutton.h"
+
+#include "MonsterSelectBack.h"
+
+PvPModeSelect::~PvPModeSelect()
+{
+	
+}
+
+void PvPModeSelect::OnDestroy()
+{
+	DeleteGO(m_cursor);
+	for (auto go : m_pmms)
+	{
+		DeleteGO(go);
+	}
+	//DeleteGO(m_GO);
+	DeleteGO(m_back);
+	DeleteGO(m_return);
+	DeleteGO(m_returnMoji);
+	//DeleteGO(m_mapo);
+
+	DeleteGO(m_msRed);
+	DeleteGO(m_mlRed);
+	DeleteGO(m_msBlue);
+	DeleteGO(m_mlBlue);
+	DeleteGO(m_aibutton);
+
+	DeleteGO(m_returnButton);
+	DeleteGO(m_GOb);
+
+	DeleteGO(m_msb);
+}
+
 bool PvPModeSelect::Start()
 {
+	m_BGM = FindGO<Sound>("BGM");
+	if (m_BGM == nullptr)
+	{
+		m_BGM = NewGO<Sound>(0,"BGM");
+		m_BGM->Init(L"Assets/sound/BGM/PerituneMaterial_Strategy5_loop.wav", true);
+		m_BGM->SetVolume(m_vol);
+		m_BGM->Play();
+	}
+	m_aibutton = NewGO< ToAiEditModeButton>(0);
+	m_aibutton->SetCurrentScene(this);
+	m_fade = FindGO<Fade>("fade");
+	m_fade->FadeIn();
+
+	//m_back = NewGO<SpriteRender>(0, "sp");
+	//m_back->Init(L"Assets/sprite/monsel_back.dds", 1280, 720);
+
+	m_msb = NewGO<MonsterSelectBack>(0, "msb");
+
 	m_files = PythonFileLoad::FilesLoad();
+	m_cursor = NewGO<GameCursor>(0, "cursor");
+
+
+
+	//　紅組用のチームを保存するやつ
+	m_msRed = NewGO<MonAIPresetSaveOpen>(0, "mapso");
+	m_msRed->init(this, m_cursor, L"チームを保存", { 410,130,0 }, 0);
+	//　紅組用のチームを開くやつ
+	m_mlRed = NewGO<MonAIPresetLoadOpen>(0, "maplo");
+	m_mlRed->init(this, m_cursor, L"チームを開く", { 410,60,0 }, 0);
+
+	//　AO組用のチームを保存するやつ
+	m_msBlue = NewGO<MonAIPresetSaveOpen>(0, "mapso");
+	m_msBlue->init(this, m_cursor, L"チームを保存", { 410,-230,0 }, 1);
+	//　AO組用のチームを開くやつ
+	m_mlBlue = NewGO<MonAIPresetLoadOpen>(0, "maplo");
+	m_mlBlue->init(this, m_cursor, L"チームを開く", { 410,-300,0 }, 1);
+	
+	CVector3 pos = { -290,180,0 };
+	for (int i = 0; i < 6; i++)
+	{
+		if (i == 3)
+		{
+			pos = { -290,-180,0 };
+		}
+		PMMonster* pmm = NewGO<PMMonster>(0, "pmm");
+		pmm->init(i,pos);
+		pmm->Setteam(i >= 3);
+		pos += {260, 0, 0};
+		if (g_AIset[i].AImode == 0) //AImode python
+		{
+			std::wstring ws = std::wstring(m_files[g_AIset[i].AInum].begin(), m_files[g_AIset[i].AInum].end());
+			pmm->SetPython(ws.c_str(), g_AIset[i].AInum, g_AIset[i].AImode);
+		}
+		else //AImode visualAI
+		{
+			wchar_t ws[3];
+			swprintf_s(ws, L"%d", g_AIset[i].AInum);
+			pmm->SetPython(ws, g_AIset[i].AInum, g_AIset[i].AImode);
+		}
+		m_pmms.push_back(pmm);
+	}
+
+	CVector3 repo = { -520,-260,0 };
+
+	m_returnButton = NewGO<ReturnButton>(0, "rb");
+	m_returnButton->init(this, "modesel", m_cursor);
+
+	m_GOb = NewGO<GObutton>(0, "gb");
+	m_GOb->init(m_cursor, { 520,240,0 });
+
 	return true;
 }
 
 void PvPModeSelect::Update()
 {
-	if (g_pad[0].IsTrigger(enButtonA))
+	
+	if (m_isfade)
 	{
-		if (curpos == 6)
+		if (m_fade->isFadeStop())
 		{
+			MonsterID moid[6];
+			int AImodes[6];
+			for (int i = 0; i < 6; i++)
+			{
+				moid[i] = (MonsterID)m_pmms[i]->GetMonsterID();
+				monai[i] = m_pmms[i]->GetAI();
+				AImodes[i] = m_pmms[i]->GetAImode();
+			}
 			Game* game = NewGO<Game>(0, "Game");
-			game->GamePVPmodeInit(m_files, monai);
+			////game->GamePVPmodeInit(m_files, monai,moid);
+			StageSetup::PVPSetup(m_files, monai, moid,AImodes);
+			//m_BGM->Stop();
 			DeleteGO(this);
 		}
-		else if (!sel)
-		{
-			sel = true;
-		}
-		else
-		{
-			sel = false;
-		}
+		return;
 	}
-	if (!sel)
+
+	bool ispmm = false;
+	for (auto pmm : m_pmms)
 	{
-		if (g_pad[0].IsTrigger(enButtonB))
-		{
-			NewGO<ModeSelect>(0, "modesel");
-			DeleteGO(this);
-		}
-		else if (g_pad[0].IsTrigger(enButtonDown))
-		{
-			if (curpos < 5+1)
-			{
-				curpos++;
-			}
-		}
-		else if (g_pad[0].IsTrigger(enButtonUp))
-		{
-			if (curpos > 0)
-			{
-				curpos--;
-			}
-		}
+		ispmm = pmm->isOpen();
+		if (ispmm)
+			break;
 	}
-	else
+
+	static bool isopen = false;
+	if (m_aibutton->isFading())
+		return;
+	//何か開いていた場合は他のものはクリックしても反応しない。
+	if (!(m_msRed->IsOpen() || m_mlRed->IsOpen() || m_msBlue->IsOpen() || m_mlBlue->IsOpen() || ispmm || isopen))
 	{
-		if (g_pad[0].IsTrigger(enButtonLeft))
+		m_returnButton->UpdateEx<ModeSelect>();
+		m_aibutton->SetTarget(m_cursor->GetCursor());
+		m_msRed->UpdateEx();
+		m_mlRed->UpdateEx();
+		m_msBlue->UpdateEx();
+		m_mlBlue->UpdateEx();
+		//プリセットのセーブ
+		if (m_msRed->IsClick()) 
 		{
-			if (monai[curpos] > 0)
-			{
-				monai[curpos]--;
-			}
+			m_msRed->Open();
 		}
-		else if (g_pad[0].IsTrigger(enButtonRight))
+		if (m_mlRed->IsClick())
 		{
-			if (monai[curpos] < m_files.size()-1)
+			m_mlRed->Open();
+		}
+		if (m_msBlue->IsClick())
+		{
+			m_msBlue->Open();
+		}
+		if (m_mlBlue->IsClick())
+		{
+			m_mlBlue->Open();
+		}
+		for (auto pmm : m_pmms)
+		{
+			pmm->UpdateEX();
+		}
+
+
+		bool ismonsel = false;
+		int count = 0;
+		for (auto pmm : m_pmms)
+		{
+			ismonsel = pmm->isMonSel();
+			if (ismonsel || pmm->isSelect())
 			{
-				monai[curpos]++;
+				break;
 			}
+
+			count++;
+		}
+		if (ismonsel)
+			return;
+
+		m_GOb->UpdateEx();
+		if (m_GOb->isClick())
+		{
+			m_fade->FadeOut();
+			m_isfade = true;
+			MusicFade* mf = NewGO<MusicFade>(0, "mf");
+			mf->init(m_BGM, m_vol);
+			PlayButtonSE();
 		}
 	}
+	isopen = ispmm;
 }
 
 void PvPModeSelect::LoadFiles()
@@ -105,33 +267,4 @@ void PvPModeSelect::LoadFiles()
 
 void PvPModeSelect::PostRender()
 {
-	CVector4 colors[7];
-	for (CVector4& col : colors)
-	{
-		col = CVector4::White;
-	}
-	if(sel)
-		colors[curpos] = CVector4::Yellow;
-	else
-		colors[curpos] = CVector4::Red;
-	CVector2 pos = { -520,10};
-	font.Begin();
-	for (int i = 0; i < 7; i++)
-	{
-		if (i == 3)
-		{
-			pos = { -30,10 };
-		}
-		else if (i == 6)
-		{
-			pos = { 320,-210, };
-			font.Draw(L"GO!", pos, colors[i],0,2);
-			break;
-		}
-		std::wstring ws = std::wstring(m_files[monai[i]].begin(), m_files[monai[i]].end());
-		font.Draw(ws.c_str(), pos, colors[i]);
-
-		pos.y -= 50;
-	}
-	font.End();
 }

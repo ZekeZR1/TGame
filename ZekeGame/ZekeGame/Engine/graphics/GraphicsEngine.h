@@ -2,10 +2,18 @@
 
 #include "CShaderResource.h"
 #include "Effect\CEffectEngine.h"
+#include "../graphics/RenderTarget.h"
+#include "../graphics/font/CFONT.h"
 
 class CShaderResource;
 class CEffectEngine;
 
+enum EnRenderMode {
+	enRenderMode_Invalid,			//不正なレンダリングモード。
+	enRenderMode_CreateShadowMap,	//シャドウマップ生成。
+	enRenderMode_Normal,			//通常レンダリング。
+	enRenderMode_Num,				//レンダリングモードの数。
+};
 
 class GraphicsEngine
 {
@@ -14,7 +22,6 @@ public:
 	~GraphicsEngine();
 
 	void InitDirectX(HWND hwnd);
-	void Clear();
 	void Release();
 	CShaderResource &GetShaderResources()
 	{
@@ -32,9 +39,20 @@ public:
 	{
 		return m_spriteBatch.get();
 	}
-	DirectX::SpriteFont* GetSpriteFont() const
+	DirectX::SpriteFont* GetSpriteFont(CFont::TextType type) const
 	{
-		return m_spriteFont.get();
+		switch (type) {
+		case CFont::TextType::en_Alphabet:
+			return m_spriteFont.get();
+			break;
+		case CFont::TextType::en_Japanese:
+			return m_spriteFontJa.get();
+			break;
+		case CFont::TextType::en_JapaneseBIG:
+			return m_spriteFontJaBig.get();
+		case CFont::TextType::en_JPLog:
+			return m_spriteFontJPLog.get();
+		}
 	}
 	int GetFrameBufferWidth() const
 	{
@@ -66,6 +84,18 @@ public:
 
 	void BegineRender();
 	void EndRender();
+
+	void ChangeRenderTarget(RenderTarget* renderTarget, D3D11_VIEWPORT* viewport);
+	void ChangeRenderTarget(ID3D11RenderTargetView* renderTarget, ID3D11DepthStencilView* depthStensil, D3D11_VIEWPORT* viewport);
+
+	void SetAmbientLight(float amb) {
+		m_ambientLight = amb;
+	}
+
+	const float GetAmbientLight() {
+		return m_ambientLight;
+	}
+
 private:
 	CShaderResource m_shaderResources;
 	ID3D11Device* m_pd3dDevice = NULL;
@@ -78,10 +108,14 @@ private:
 	ID3D11DepthStencilView* m_depthStencilView = NULL;
 	std::unique_ptr<DirectX::SpriteBatch>	m_spriteBatch;
 	std::unique_ptr<DirectX::SpriteFont>	m_spriteFont;
+	std::unique_ptr<DirectX::SpriteFont>	m_spriteFontJa;
+	std::unique_ptr<DirectX::SpriteFont>	m_spriteFontJaBig;
+	std::unique_ptr<DirectX::SpriteFont>	m_spriteFontJPLog;
 	CEffectEngine m_effectEngine;
 	int						m_2dSpaceScreenWidth = 1280;
 	int						m_2dSpaceScreenHeight = 720;
 	int						m_frameBufferWidth = 0;
 	int						m_frameBufferHeight = 0;
+	float						m_ambientLight = 0.5f;
 };
 

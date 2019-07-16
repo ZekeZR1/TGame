@@ -3,7 +3,7 @@
 CFont::CFont()
 {
 	m_spriteBatch = g_graphicsEngine->GetSpriteBatch();
-	m_spriteFont = g_graphicsEngine->GetSpriteFont();
+	m_spriteFont = g_graphicsEngine->GetSpriteFont(m_type);
 	m_scaleMat.MakeScaling(
 		{
 			g_graphicsEngine->GetFrameBufferWidth() / static_cast<float>(g_graphicsEngine->Get2DSpaceScreenWidth()),
@@ -18,12 +18,26 @@ CFont::~CFont()
 
 void CFont::Begin()
 {
+	auto dc = g_graphicsEngine->GetD3DDeviceContext();
+	dc->OMGetBlendState(&m_blendState, m_BlendFactor, &m_SampleMask);
+	dc->RSGetState(&m_rasterizerState);
+	dc->OMGetDepthStencilState(&m_depthStencilState, &m_StencilRef);
 	m_spriteBatch->Begin();
+	m_spriteFont = g_graphicsEngine->GetSpriteFont(m_type);
+	/*if (m_type == en_Japanese)
+		m_spriteFont = g_graphicsEngine->GetSpriteFont(en_Japanese);*/
 }
 void CFont::End()
 {
 	m_spriteBatch->End();
-	g_graphicsEngine->Clear();
+	float blendFactor[4] = { 0.0f };
+	auto dc = g_graphicsEngine->GetD3DDeviceContext();
+	dc->OMSetBlendState(m_blendState,m_BlendFactor,m_SampleMask);
+	dc->RSSetState(m_rasterizerState);
+	dc->OMSetDepthStencilState(m_depthStencilState, m_StencilRef);
+	if (m_blendState != nullptr) {
+		m_blendState->Release();
+	}
 }
 void CFont::Draw(
 	wchar_t const* text,

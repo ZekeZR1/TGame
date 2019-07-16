@@ -16,5 +16,25 @@ TestMons::TestMons()
 	m_smr->Init(L"Assets/modelData/tesEnemy3.cmo");
 	m_smr->SetPosition(CVector3::Zero());
 
-	//m_PB = FindGO<PythonBridge>("PB");
+	
+
+	init
+	(
+		1000000000,		//HP
+		10000,		//MP
+		10,		//防御力
+		10,		//特殊防御力
+		10,		//攻撃力
+		10,		//特殊攻撃力
+		10,		//スピード
+		20,		//コリジョンの半径
+		120,		//高さ
+		m_smr,	//Ｓkin Ｍodel Ｒender
+		0		//アニメーションの数
+	);
+
+	m_ID = 0;
+	int cnt = 0;
+	ActionID* ua = GameData::GetMonsterActions(m_ID, cnt);
+	SetUseAction(ua, cnt);
 }

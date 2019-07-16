@@ -2,13 +2,16 @@
 
 HWND g_hwnd = NULL;
 GraphicsEngine* g_graphicsEngine = NULL;
-int notch;
+int notch = 0;
 bool mEve[10];
-
+int g_Key = 0;
+bool g_isPressShift = false;
 //TODO : フルスクリーン表示できるようにする
 LRESULT CALLBACK MsgProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 {
 	static int nWheelFraction = 0;	// 回転量の端数
+
+	
 	switch (msg)
 	{
 	case WM_DESTROY:
@@ -21,16 +24,18 @@ LRESULT CALLBACK MsgProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 
 	case WM_MOUSEWHEEL:
 	{
+		
 		DWORD fwKeys = GET_KEYSTATE_WPARAM(wParam);	// 同時に押されているキー情報
 		int zDelta = GET_WHEEL_DELTA_WPARAM(wParam);	// 回転量
 
 		// 前回の端数を追加
-		zDelta += nWheelFraction;
+		//zDelta += nWheelFraction;
 		// ノッチ数を求める
 		int nNotch = zDelta / WHEEL_DELTA;
 		notch = nNotch;
 		// 端数を保存する
 		nWheelFraction = zDelta % WHEEL_DELTA;
+		
 		break;
 	}
 	case WM_LBUTTONDOWN:
@@ -69,10 +74,43 @@ LRESULT CALLBACK MsgProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 		mEve[2] = false;
 		break;
 	}
-	default:
-		return DefWindowProc(hWnd, msg, wParam, lParam);
+	case WM_KEYDOWN:
+	{
+		
+		g_Key = wParam;
+		if (wParam == VK_SHIFT)
+		{
+			g_isPressShift = true;
+		}
+		/*switch (wParam)
+		{
+		case VK_RETURN:
+			break;
+		case VK_BACK:
+			break;
+		case VK_SHIFT:
+			break;
+		case VK_OEM_102:
+			break;
+		}*/
+		break;
 	}
-	return 0;
+	case WM_KEYUP:
+	{
+		
+		if (wParam == VK_SHIFT)
+		{
+			g_isPressShift = false;
+		}
+		break;
+	}
+	default:
+		break;
+	}
+	
+	
+	return DefWindowProc(hWnd, msg, wParam, lParam);
+	//return 0;
 }
 
 void InitWindow(

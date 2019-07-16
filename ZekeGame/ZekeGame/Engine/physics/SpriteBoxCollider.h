@@ -10,7 +10,7 @@ public:
 		*@param[in]	width		ボックスコライダーの幅
 		*@param[in]	position	初期位置(中心座標)
 	*/
-	void Init(float h, float w, CVector3 pos);
+	void Init(float h, float w, CVector3 pos,CVector2 pivot);
 
 	//ターゲット座標を更新
 	void Execute(CVector3 pos);
@@ -33,5 +33,7 @@ private:
 	CVector3 m_target;
 	bool m_isColliding = false;
 	void SideCalc();
+
+	CVector2 m_pivot = {0.5f,0.5f };
 };
 

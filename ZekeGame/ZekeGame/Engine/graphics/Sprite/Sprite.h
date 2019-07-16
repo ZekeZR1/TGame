@@ -2,8 +2,11 @@
 #include "Effect.h"
 #include "../ShaderResouceView.h"
 #include "../CRenderContext.h"
+#include "../Camera.h"
 #include "../CPrimitive.h"
 #include "../CShader.h"
+#include "../Shader.h"
+
 class Sprite : Noncopyable
 {
 public:
@@ -11,7 +14,7 @@ public:
 
 	Sprite();
 	~Sprite();
-
+	void Init(ID3D11ShaderResourceView* srv, float w, float h);
 	/*
 	*@brief	初期化。
 	*@param	texFilePath		テクスチャのファイルパス。
@@ -35,24 +38,49 @@ public:
 	*@brief	描画。
 	*/
 	void Draw();
+	void Draww();
 
+	void ChangeCameraProjMatrix(Camera::EnUpdateProjMatrixFunc cameraMode) {
+		m_cameraMode = cameraMode;
+	}
+
+	void SetMulColor(const CVector4& col) {
+		m_mulCol = col;
+	}
 	struct ConstantBuffer {
-		CMatrix WVP;		//ワールドビュープロジェクション行列。
+		CMatrix WVP;
+		CVector4 mulCol;
 	};
-	ID3D11Buffer*				m_vertexBuffer = NULL;					//頂点バッファ。
-	ID3D11Buffer*				m_indexBuffer = NULL;					//インデックスバッファ。
-	Effect						m_effect;								//エフェクト。気にしなくてよい。
-	ID3D11ShaderResourceView*	m_texture = NULL;						//テクスチャ。
-	ID3D11SamplerState*			m_samplerState = NULL;					//サンプラステート。
-	CVector3					m_position = CVector3::Zero();			//座標。
+	Camera::EnUpdateProjMatrixFunc m_cameraMode = Camera::enUpdateProjMatrixFunc_Ortho;
+	ID3D11Buffer*				m_vertexBuffer = NULL;				
+	ID3D11Buffer*				m_indexBuffer = NULL;				
+	ID3D11DepthStencilState* m_depthStencilState = NULL;
+	ID3D11DepthStencilState*	spriteRender = NULL;
+	ID3D11DepthStencilState*	zspriteRender = NULL;
+	ID3D11RasterizerState*	rspriteRender = NULL;
+
+	Effect						m_effect;								
+	ID3D11ShaderResourceView*	m_texture = NULL;						
+	ID3D11SamplerState*			m_samplerState = NULL;				
+	CVector3					m_position = CVector3::Zero();		
 	CQuaternion					m_rotation = CQuaternion::Identity();	//回転
 	CVector3					m_scale = CVector3::One();
 	CMatrix						m_world = CMatrix::Identity();			//ワールド行列。
 	CVector2					m_size = CVector2::Zero();				//画像のサイズ。
 	ID3D11Buffer*				m__cb = nullptr;							//定数バッファ。
+	Shader						m_vs;									//頂点シェーダー。
+	Shader						m_ps;									//ピクセルシェーダー。
+	Shader						m_pss;									//ピクセルシェーダー。
+	CVector4					m_mulCol = CVector4::White;
 private:
+	void InitCommon(float w, float h);
 	/*!
 	*@brief	定数バッファの初期化。
 	*/
 	void InitConstantBuffer();
+	void InitVertexBuffer(float w, float h);
+	void InitIndexBuffer();
+	void InitSamplerState();
+
+	ID3D11BlendState* pBlendState = NULL;
 };
