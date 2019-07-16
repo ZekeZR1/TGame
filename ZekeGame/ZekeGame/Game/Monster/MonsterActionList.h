@@ -41,4 +41,5 @@ private:
 	FontRender* m_SMPfr = nullptr;
 	FontRender* m_HPfr = nullptr;
 	FontRender* m_MPfr = nullptr;
+	const float yfix = 10.f;
 };
