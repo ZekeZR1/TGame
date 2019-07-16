@@ -158,7 +158,7 @@ void MonsterActionList::init(Monster * mon)
 	else
 		m_monNumBack->Init(L"Assets/sprite/mark_blue.dds", 50* 0.59375f, 50);
 
-	m_monNumBack->SetPosition({ m_vh.x+6,m_vh.y-5,0});
+	m_monNumBack->SetPosition({ m_vh.x+6,m_vh.y,0});
 	m_monNumBack->SetPivot({ 0,0 });
 
 	
@@ -166,10 +166,10 @@ void MonsterActionList::init(Monster * mon)
 	swprintf_s(ws,L"%d", mon->Getnum() - (team == 0 ? -1 : 2));
 
 	m_SmonNum = NewGO<FontRender>(2,"fr");
-	m_SmonNum->Init(ws, { m_vh.x +6+ 2 + 2,m_vh.y + 50 - 2 }, 0, { 0,0,0,1 }, 0.5f, { 0,0 });
+	m_SmonNum->Init(ws, { m_vh.x +6+ 2 + 2,m_vh.y + 50 - 2 + 5 }, 0, { 0,0,0,1 }, 0.5f, { 0,0 });
 
 	m_monNum = NewGO<FontRender>(2, "fr");
-	m_monNum->Init(ws, { m_vh.x+6+2,m_vh.y + 50}, 0, CVector4::White, 0.5f, { 0,0 });
+	m_monNum->Init(ws, { m_vh.x+6+2,m_vh.y + 50 +5}, 0, CVector4::White, 0.5f, { 0,0 });
 
 	
 
@@ -249,8 +249,8 @@ void MonsterActionList::Update()
 			float up = 3.f;
 
 			//todo: フォント変更座標変更
-			m_frs[i]->Init(ws, { p.x,p.y +40.f+8.f+up}, 0, CVector4::White, sc, { 0,0 });
-			m_Sfrs[i]->Init(ws, { p.x+5,p.y+40.f-5.f+8.f+up }, 0, {0,0,0,1}, sc, { 0,0 });
+			m_frs[i]->Init(ws, { p.x,p.y + 40 + 5.f + 8.f + up }, 0, CVector4::White, sc, { 0,0 });
+			m_Sfrs[i]->Init(ws, { p.x + 5,p.y + 40 + 5.f - 5.f + 8.f + up }, 0, { 0,0,0,1 }, sc, { 0,0 });
 		}
 
 		m_len = len;
