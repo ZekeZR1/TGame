@@ -12,7 +12,7 @@ std::vector<VisualAIState> VisualAIOpen::openVAs()
 	WIN32_FIND_DATA win32d;
 
 
-	char cs[255];
+	char cs[255] = {0};
 	std::string cd;
 	GetCurrentDirectory(255, cs);
 	cd = cs;
@@ -34,10 +34,13 @@ std::vector<VisualAIState> VisualAIOpen::openVAs()
 			VisualAIState vas;
 
 			std::string p = win32d.cFileName;
+
+			if (p == "")
+				break;
 			
 			//ファイル名から番号を抽出する
 			int c = p.find(".");
-			char n[3] = {'\0'};
+			char n[4] = {'\0'};
 			for (int i = 0; i < c; i++)
 			{
 				n[i] = p[i];
@@ -51,7 +54,6 @@ std::vector<VisualAIState> VisualAIOpen::openVAs()
 			//{
 			//	cl[i] = p[i + c + 1];
 			//}
-
 			////色を決定する
 			//CVector4 col;
 			//if (strcmp("red", cl) == 0)
@@ -71,7 +73,8 @@ std::vector<VisualAIState> VisualAIOpen::openVAs()
 			//	col = mWhi;
 			//}
 
-			FILE* file = fopen((path + p).c_str(), "rb");
+			std::string filename = path + p;
+			FILE* file = fopen(filename.c_str(), "rb");
 			char he[6] = {'\0'};
 			fread(&he, 5, 1, file);
 			fseek(file, 1, SEEK_CUR);

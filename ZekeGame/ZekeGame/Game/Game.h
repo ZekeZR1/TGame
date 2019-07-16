@@ -48,12 +48,12 @@ public:
 		m_eneRate = rate;
 	}
 private:
-	SkinModelRender* m_model;
-	SkinModelRender* m_floor;
+	SkinModelRender* m_model = nullptr;
+	SkinModelRender* m_floor = nullptr;
 
-	SpriteRender* m_sprite;
+	SpriteRender* m_sprite = nullptr;
 	GameCamera* camera = nullptr;
-	StageSetup* ss;
+	StageSetup* ss = nullptr;
 	int m_dunNum = -1;
 	float m_eneRate = 0;
 	GameMenu* m_menu = nullptr;

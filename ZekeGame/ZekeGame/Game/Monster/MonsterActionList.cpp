@@ -127,17 +127,17 @@ void MonsterActionList::init(Monster * mon)
 
 	m_vm = {pos.x,pos.y};
 	m_vm.y += 28;
-
 	m_SMPfr = NewGO<FontRender>(2, "fr");
-	m_SMPfr->Init(L"MP:", { m_vm.x+10 + 5 ,m_vm.y - 5 }, 0, { 0,0,0,1 }, 0.6f, { 0,0 });
+	m_SMPfr->Init(L"MP:", { m_vm.x+10 + 5 ,m_vm.y - 5  + yfix}, 0, { 0,0,0,1 }, 0.6f, { 0,0 });
 
 	m_MPfr = NewGO<FontRender>(2, "fr");
-	m_MPfr->Init(L"MP:", { m_vm.x+10,m_vm.y}, 0, CVector4::White, 0.6f, { 0,0 });
+	m_MPfr->Init(L"MP:", { m_vm.x+10,m_vm.y + yfix}, 0, CVector4::White, 0.6f, { 0,0 });
 
 	m_vm.x += 100;
+	m_vm.y += yfix;
 	
 
-	pos.y += 45;
+	pos.y += 45 + yfix;
 	//m_hp->SetPosition(pos);
 	
 
@@ -145,10 +145,10 @@ void MonsterActionList::init(Monster * mon)
 	m_vh.y += 14;
 
 	m_SHPfr = NewGO<FontRender>(2, "fr");
-	m_SHPfr->Init(L"HP:", { m_vh.x+10+5,m_vh.y-5}, 0, { 0,0,0,1 }, 0.6f, { 0,0 });
+	m_SHPfr->Init(L"HP:", { m_vh.x+10+5,m_vh.y-5 + yfix}, 0, { 0,0,0,1 }, 0.6f, { 0,0 });
 
 	m_HPfr = NewGO<FontRender>(2, "fr");
-	m_HPfr->Init(L"HP:", { m_vh.x+10,m_vh.y }, 0, CVector4::White, 0.6f, { 0,0 });
+	m_HPfr->Init(L"HP:", { m_vh.x+10,m_vh.y + yfix}, 0, CVector4::White, 0.6f, { 0,0 });
 
 
 	m_monNumBack = NewGO<SpriteRender>(2, "sp");
@@ -158,7 +158,7 @@ void MonsterActionList::init(Monster * mon)
 	else
 		m_monNumBack->Init(L"Assets/sprite/mark_blue.dds", 50* 0.59375f, 50);
 
-	m_monNumBack->SetPosition({ m_vh.x+6,m_vh.y-5,0 });
+	m_monNumBack->SetPosition({ m_vh.x+6,m_vh.y-5,0});
 	m_monNumBack->SetPivot({ 0,0 });
 
 	
@@ -166,14 +166,15 @@ void MonsterActionList::init(Monster * mon)
 	swprintf_s(ws,L"%d", mon->Getnum() - (team == 0 ? -1 : 2));
 
 	m_SmonNum = NewGO<FontRender>(2,"fr");
-	m_SmonNum->Init(ws, { m_vh.x +6+ 3 + 2,m_vh.y - 9 + 50 - 2 }, 0, { 0,0,0,1 }, 0.5f, { 0,0 });
+	m_SmonNum->Init(ws, { m_vh.x +6+ 2 + 2,m_vh.y + 50 - 2 }, 0, { 0,0,0,1 }, 0.5f, { 0,0 });
 
 	m_monNum = NewGO<FontRender>(2, "fr");
-	m_monNum->Init(ws, { m_vh.x+6+3,m_vh.y - 9 + 50 }, 0, CVector4::White, 0.5f, { 0,0 });
+	m_monNum->Init(ws, { m_vh.x+6+2,m_vh.y + 50}, 0, CVector4::White, 0.5f, { 0,0 });
 
 	
 
 	m_vh.x += 100;
+	m_vh.y += yfix;
 	
 
 	

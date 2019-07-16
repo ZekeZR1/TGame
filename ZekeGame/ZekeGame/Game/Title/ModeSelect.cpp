@@ -17,6 +17,8 @@
 #include "../Input/KeyBoard.h"
 #include "ModeSelect/ModeSelectBack.h"
 
+#include "../Dungeon/DungeonAISelect.h"
+
 ModeSelect::~ModeSelect()
 {
 	//for (auto sp : m_selection)
@@ -131,23 +133,28 @@ bool ModeSelect::Start()
 
 void ModeSelect::Update()
 {
-	static char code[4] = {0};
+	static char code[256] = {0};
 	char buf = Keyboard::GetKeyChar();
+	if (Keyboard::isTrriger(enDelete))
+	{
+		int i = 256;
+		while (i)
+			code[--i] = 0;
+	}
 	if (buf != 0)
 	{
-		
 		int cur = 0;
-		if (strlen(code) == 3)
+		if (strlen(code) == 254)
 		{
 			
-			for (int i = 0; i < 3; i++)
+			for (int i = 0; i < 255; i++)
 			{
 				code[i] = 0;
 			}
 		}
 		else
 		{
-			for (int i = 0; i < 3; i++)
+			for (int i = 0; i < 255; i++)
 			{
 				if (code[i] == 0)
 				{
@@ -166,6 +173,12 @@ void ModeSelect::Update()
 		{
 			exit(0);
 			return;
+		}
+		else if (strcmp(code, "ShellShell") == 0)
+		{
+			DungeonAISelect* ds = NewGO<DungeonAISelect>(0, "pvp");
+			ds->SetDungeonNumber(8);
+			DeleteGO(this);
 		}
 	}
 	/*if (g_pad[0].IsTrigger(enButtonA))

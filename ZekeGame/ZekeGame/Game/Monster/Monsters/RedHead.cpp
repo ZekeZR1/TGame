@@ -36,7 +36,7 @@ RedHead::RedHead()
 	prm.ExAttackPow = 7;
 	prm.Speed = 10;
 	prm.Radius = 50;
-	prm.Height = 150;
+	prm.Height = 190;
 	prm.ModelRender = sr;
 	prm.NumAnimation = 8;
 

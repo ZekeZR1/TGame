@@ -27,14 +27,14 @@ AISelect::~AISelect()
 
 bool AISelect::Start()
 {
-	m_AIsel = NewGO<SpriteRender>(27, "sp");
+	m_AIsel = NewGO<SpriteRender>(29, "sp");
 	m_AIsel->Init(L"Assets/sprite/AIselect.dds", 371, 84);
 	m_AIsel->SetPivot({ 0,1 });
 	m_AIsel->SetPosition({ -640,360,0 });
 
-	m_title = NewGO<FontRender>(27, "fr");
+	m_title = NewGO<FontRender>(29, "fr");
 	//m_title->SetTextType(CFont::en_JapaneseBIG);
-	m_title->Init(L"PythonAI", { -640,360 }, 0, { 1,1,1,1 }, 1.f);
+	m_title->Init(L"VisualAI", { -640,360 }, 0, { 1,1,1,1 }, 1.f);
 	m_title->DrawShadow();
 	
 
@@ -68,7 +68,7 @@ bool AISelect::Start()
 
 
 	//êÿÇËë÷Ç¶É{É^ÉìÇÃï\é¶
-	m_changeAI = NewGO<SpriteRender>(28, "sp");
+	m_changeAI = NewGO<SpriteRender>(29, "sp");
 	m_changeAI->Init(L"Assets/sprite/PVchenger_V.dds", 80, 38.5f, true);
 	m_changeAI->SetPosition({ -350,330,0 });
 	m_changeAI->SetPivot({ 0,1 });
@@ -77,7 +77,7 @@ bool AISelect::Start()
 	m_CAfont->Init(L"visAI", { -420,320 },0,CVector4::White,0.5f);
 	m_CAfont->DrawShadow();*/
 
-	m_check = NewGO<SpriteRender>(29, "sp");
+	m_check = NewGO<SpriteRender>(27, "sp");
 	m_check->Init(L"Assets/sprite/check.dds", 80, 80);
 	m_check->SetPosition({ 3000,0,0 });
 	
@@ -116,7 +116,6 @@ void AISelect::Update()
 				m_title->Init(L"PythonAI", { -640,360 }, 0, { 1,1,1,1 }, 1.f);
 				break;
 			}
-
 		}
 	}
 	////

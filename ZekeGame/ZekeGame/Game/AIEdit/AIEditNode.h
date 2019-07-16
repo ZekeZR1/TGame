@@ -61,9 +61,11 @@ private:
 	int button = 4;						//ボタンの数
 
 	bool Choice1 = false;				//何かを選択するとtrueになる
-	bool Nodefont = false;
+	bool Nodefont = false;              //AIEditNodeSelectFontsで使うよ。
 	bool contact1 = false;
-	bool contact2 = false;
+	bool contact2 = false;              //技を選択するとtrueになる。
+
+	CVector2 SetShadowPos = { 5.f,-5.f };
 
 	CVector3 cursorpos = CVector3::Zero();
 	CVector3 m_position = CVector3::Zero();

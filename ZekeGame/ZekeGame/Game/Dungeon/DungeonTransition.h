@@ -19,8 +19,8 @@ private:
 	std::vector<std::string> m_files;
 	std::vector<std::string> m_enemyFiles;
 	MonsterID m_ids[6];
-	int m_monai[6];
-	int m_aimode[6];
+	int m_monai[6] = { 0 };
+	int m_aimode[6] = { 0 };
 	int m_dunNum = -1;
 private:
 	void InitUI();

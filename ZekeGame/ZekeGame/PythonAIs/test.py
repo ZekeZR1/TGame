@@ -2,7 +2,8 @@
 
 import CppBridge as cb
 
-def Brain(num,team):
+def Brain():
+    cb.Init()
     cb.FindBuddyMonster(monID)
     cb.FindBuddyMonsterList(monID)
     cb.FindEnemyMonster(monID)

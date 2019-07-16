@@ -105,8 +105,17 @@ public:
 	}
 
 	bool CanStartGame() {
-		return m_isEnemyLoadedMyData and isGotEnemyPythonCodes();
+		return m_isEnemyLoadedMyData && isGotEnemyPythonCodes();
 	}
+	
+	bool isEnemyLoadedMydata() {
+		return m_isEnemyLoadedMyData;
+	}
+
+	void SetEnemyLoadedMyDate(bool flag) {
+		m_isEnemyLoadedMyData = flag;
+	}
+
 	bool raiseMyLoadingState();
 	//012 
 	void SetTeamMonsterInfo(int info[3]);
@@ -169,8 +178,8 @@ private:
 		enLoadState,
 	};
 
-	int m_toRaiseTeamData[3] = { 0 };
-	int m_enemyTeamData[3] = { 0 };
+	int m_toRaiseTeamData[3] = { 0 , 0 , 0};
+	int m_enemyTeamData[3] = { -1 , -1 , -1 };
 	std::string m_pythonCode;
 	ExitGames::LoadBalancing::Client* mpLbc;
 	BaseView* mpView;
@@ -196,7 +205,7 @@ private:
 	bool m_enemyAbandoned = false;
 	bool misHang = false;		//‰½‚©‘—‚ç‚ê‚Ä‚«‚Ä‚éH
 	bool m_isEnemyLoadedMyData = false;
-	bool m_isAiLoaded[3] = { false };
+	bool m_isAiLoaded[3] = { false, false, false };
 	float m_enemyRate = 0.f;
 	bool m_isJoining = false;
 	Hashtable m_datas[3];

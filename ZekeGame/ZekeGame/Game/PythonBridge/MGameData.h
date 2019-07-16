@@ -5,11 +5,11 @@
 typedef struct
 {
 	PyObject_HEAD
-	int buddyCount;
-	int enemyCount;
-	PyListObject* Buddys;
-	PyListObject* Enemys;
-	MMonster* me;
+	int buddyCount = 0;
+	int enemyCount = 0;
+	PyListObject* Buddys = nullptr;
+	PyListObject* Enemys = nullptr;
+	MMonster* me = nullptr;
 } MGameData;
 
 extern PyTypeObject MGameDataType;

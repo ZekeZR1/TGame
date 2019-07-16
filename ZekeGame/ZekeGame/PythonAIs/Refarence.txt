@@ -1,0 +1,312 @@
+クラス
+  Vector3
+    メソッド
+      __init__(self,x=0,y=0,z=0)
+        Vector3のコンストラクタ。
+      SetVector(self,x,y,z)
+        メンバ変数のx,y,zに引数のx,y,zをそれぞれ代入します。
+      __add__(self,o)
+        加算オペレーター 引数oはVector3です。
+      __sub__(self,o)
+        減算オペレーター 引数oはVector3です。
+      Lenght(self)
+        自身の長さを返します。
+      Normalize(self)
+        自身をノーマライズします。
+    メンバ変数
+      x
+      y
+      z
+      
+  Monster
+    メソッド
+      __init__(self)
+        Monsterのコンストラクタ
+      SetPosition(self,x,y,z)
+        自身のメンバ変数positionに代入します。
+      copy(self)
+        自身のコピーを作ります。
+    メンバ変数
+      position
+        自身の現在のポジションです。
+      ID
+        自分が何のモンスターなのかを表すものです。
+      team
+        自身のチームの番号
+      num
+        自分の番号
+      HP
+        自分のHP
+      MP
+        自分のMP
+      Attack
+        攻撃力(物理)
+      AttackEx
+        攻撃力(ビーム系)
+      Defence
+        防御力(物理)
+      DefenceEx
+        防御力(ビーム系)
+      speed
+        自身の速度
+      movespeed
+        今自分が進んでいる方向とスピードが入っているVector3
+      state
+      
+  GameData
+    メソッド
+      init(self,num,team)
+        初期化関数プレイヤーがこれを使うことはない
+        
+      Init(self)
+        GameDataの初期化します。
+        
+      GetFarMonster(self)
+        今このAIを使っているモンスターから
+        一番遠いモンスターをかえします
+        
+      GetNeerMonster(self)
+        今このAIを使っているモンスターから
+        一番近いモンスターをかえします
+        
+      GetBuddyFarMonster(self)
+        今このAIを使っているモンスターから
+        一番遠い味方モンスターをかえします
+        
+      GetEnemyFarMonster(self)
+        今このAIを使っているモンスターから
+        一番遠い敵モンスターをかえします
+        
+      GetBuddyNeerMonster(self)
+        今このAIを使っているモンスターから
+        一番近い味方モンスターをかえします
+        
+      GetEnemyNeerMonster(self)
+        今このAIを使っているモンスターから
+        一番近い敵モンスターをかえします
+        
+      GetHighHPMonster(self)
+        一番HPの多いモンスターをかえします
+        
+      GetBuddyHighHPMonster(self)
+        一番HPの多い味方モンスターをかえします
+        
+      GetEnemyHighHP(self)
+        一番HPの多い敵モンスターをかえします
+        
+      GetEnemyLowHPMonster(self)
+        一番HPの少ない敵モンスターをかえします
+        
+      GetBuddyLowHPMonster(self)
+        一番HPの少ない味方モンスターをかえします
+        
+      GetHighATKMonster(self)
+        一番攻撃力の高いモンスターをかえします
+        
+      GetEnemyHighATKMonster(self)
+        一番攻撃力の高い敵モンスターをかえします
+        
+      GetBuddyHighATKMonster(self)
+        一番攻撃力の高い味方モンスターをかえします
+        
+      FindEnemyMonster(self,monID)
+        引数で指定したモンスターIDと一致する敵モンスターを返します
+      FindBuddyMonster(self,monID)
+        引数で指定したモンスターIDと一致する味方モンスターを返します
+      FindEnemyMonsters(self,monID)
+        引数で指定したモンスターIDと一致する敵モンスターを全て返します
+        戻り値はListです
+      FindBuddyMonsters(self,monID)
+        引数で指定したモンスターIDと一致する味方モンスターを全て返します
+        戻り値はListです
+    メンバ変数
+      buddyCount
+        自分を含めた現存する仲間の数
+      enemyCount
+        現存する敵の数
+      Buddy
+        自分をのけた味方のデータが入ったList
+      Enemys
+        敵のデータが入ったList
+      me
+        自身のデータ
+関数
+  sqrt(v)
+    引数で渡した値のルートを返します
+    
+  init(num,team)
+    初期化関数プレイヤーがこれを使うことはない
+    
+  Init()
+    GamaData.Initをラッピングしたものです。
+    
+  End()
+    actionsに入ったデータをゲーム側に送ります。
+    
+  GetMe()
+    gameData.meを返します
+    
+  GetFarMonster()
+    gameData.GetFarMonsterをラッピングしたものです。
+    
+  GetBuddyFarMonster()
+    gameData.GetBuddyFarMonsterをラッピングしたものです。
+    
+  GetEnemyFarMonster()
+    gameData.GetEnemyFarMonsterをラッピングしたものです。
+    
+  GetNeerMonster()
+    gameData.GetNeerMonsterをラッピングしたものです。
+    
+  GetBuddyNeerMonster()
+    gameData.GetBuddyNeerMonsterをラッピングしたものです。
+    
+  GetEnemyNeerMonster()
+    gameData.GetEnemyNeerMonsterをラッピングしたものです。
+    
+  GetHighHPMonster()
+    gameData.GetHighHPMonsterをラッピングしたものです。
+    
+  GetBuddyHighHPMonster()
+    gameData.GetBuddyHighHPMonsterをラッピングしたものです。
+    
+  GetEnemyHighHPMonster()
+    gameData.GetEnemyHighHPMonsterをラッピングしたものです。
+    
+  GetEnemyLowHPMonster()
+    gameData.GetEnemyLowHPMonsterをラッピングしたものです。
+    
+  GetBuddyLowHPMonster()
+    gameData.GetBuddyLowHPMonsterをラッピングしたものです。
+    
+  GetHighATKMonster()
+    gameData.GetHighATKMonsterをラッピングしたものです。
+    
+  GetEnemyHighATKMonster()
+    gameData.GetEnemyHighATKMonsterをラッピングしたものです。
+    
+  GetBuddyHighATKMonster()
+    gameData.GetBuddyHighATKMonsterをラッピングしたものです。
+    
+  FindBuddyMonster(monID)
+    gameData.FindBuddyMonsterをラッピングしたものです。
+    
+  FindBuddyMonsterList(monID)
+    gameData.FindBuddyMonstersをラッピングしたものです。
+    
+  FindEnemyMonster(monID)
+    gameData.FindEnemyMonsterをラッピングしたものです。
+    
+  FindEnemy(monID)
+    gameData.FindEnemyMonsterをラッピングしたものです。
+    
+  FindEnemyMonsterList(monID)
+    gameData.FindEnemyMonstersをラッピングしたものです。
+    
+  addAction(target,action)
+    プレイヤーがこれを使うことはない
+    
+    
+  ####技####
+    
+  Chase(target)
+    敵を追いかけます
+    
+  Attack(target)
+    targetを攻撃します
+    
+  Escape(target)
+    targetから逃げます
+    
+  Defense(target)
+    防御します
+    
+  Fire(target)
+    targetにFireを使います
+    
+  Tackle(target)
+    targetにFireを使います
+    
+  Guardian(target)
+    敵の攻撃を自分に集めます
+    
+  Heal(target)
+    targetにHealを使います
+    
+  SUPER_BEAM(target)
+    targetにSUPER_BEAMを使います
+    
+  Obst_Move(target)
+    targetにObst_Moveを使います
+    
+  Cleanse(target)
+    targetにCleanseを使います
+    
+  ATK_Buff(target)
+    targetにATK_Buffを使います
+    
+  ATK_Debuff(target)
+    targetにATK_Debuffを使います
+    
+  DEF_Buff(target)
+    targetにDEF_Buffを使います
+    
+  DEF_Debuff(target)
+    targetにDEF_Debuffを使います
+    
+  Clear_Stack(target)
+    targetにClear_Stackを使います
+    
+  Majinken(target)
+    targetにMajinkenを使います
+    
+  MP_Heal(target)
+    targetにMP_Healを使います
+    
+  Blizzard(target)
+    targetにBlizzardを使います
+    
+  Ignite(target)
+    targetにIgniteを使います
+    
+  Poison(target)
+    targetにPoisonを使います
+    
+  Thunder(target)
+    targetにThunderを使います
+    
+  Kamikaze(target)
+    targetに特攻します
+    
+  Move(targetPosition)
+    指定してポジションに移動します。
+    引数はVector3です。
+    この技はすべてのモンスターが使うことができます。
+  
+グローバル変数
+  gameData
+    GameDataのインスタンスです
+  actions
+    ゲーム側に送る技が入っています
+    
+  
+  ####モンスターID####
+    
+  Uma
+    ウマタウロスのID
+  Yose
+    妖精のID
+  Armor
+    鎧の怪のID
+  Goblin
+    ゴブリンのID
+  Book
+    魔本のID
+  RedHead
+    レッドヘッドのID
+  Kikyo
+    キキョウのID
+  SicoChu
+    死光虫のID
+  Chris
+    クリスのID

@@ -26,8 +26,9 @@
 #include "Action/Act_Poison.h"
 #include "Action/Act_Thunder.h"
 #include "Action/Act_specialAttack.h"
+#include "Action/Act_Move.h"
 
-MonsterAction * MonsterActionManeger::LoadAction(int id,int target)
+MonsterAction * MonsterActionManeger::LoadAction(int id,int target,...)
 {
 	MonsterAction* ac;
 	switch (id)
@@ -128,6 +129,21 @@ MonsterAction * MonsterActionManeger::LoadAction(int id,int target)
 		ac = NewGO<Act_SpecialAttack>(0, "action");
 		ac->Settarget(target);
 		return ac;
+	case enMove:
+	{
+		Act_Move* move = NewGO<Act_Move>(0, "action");
+		move->Settarget(target);
+		float x = 0, y = 0;
+		va_list args;
+		va_start(args,target);
+		x = va_arg(args, double);
+		y = va_arg(args, double);
+		
+		va_end(args);
+		move->SetTargetPosition(x, y);
+		
+		return move;
+	}
 	}
 	return nullptr;
 }

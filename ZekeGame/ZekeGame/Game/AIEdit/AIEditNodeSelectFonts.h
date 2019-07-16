@@ -23,7 +23,10 @@ private:
 	bool num = true;
 	bool technique = true;
 	bool abnormal = true;
+
 	float scale = 0.8;
+
+	CVector2 SetShadowPos = { 5.f,-5.f };   //•¶š‚Ì‰e‚ÌÀ•WB
 
 	CVector3 m_pos = CVector3::Zero();
 

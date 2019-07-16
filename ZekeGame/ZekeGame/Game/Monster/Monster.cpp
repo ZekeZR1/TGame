@@ -16,7 +16,6 @@
 Monster::~Monster()
 {
 	DeleteGO(m_smr);
-	DeleteGO(m_PB);
 	ReleaseMAL();
 	ReleaseMark();
 	for (auto a : m_actions)
@@ -105,15 +104,13 @@ void Monster::ClearAllAbnormalState() {
 }
 
 void Monster::ClearAbnormalState(ACTEffectGrant* abn) {
-	DeleteGO(abn);
 	if (!m_abnormalStates.size()) return;
-	if (m_abnormalStates.size() == 1) {
+	if (m_abnormalStates.size() == 1) 
 		m_abnormalStates.clear();
-		return;
-	}
 	auto result = std::find(m_abnormalStates.begin(), m_abnormalStates.end(), abn);
 	if (result == m_abnormalStates.end()) return;
 	m_abnormalStates.erase(std::find(m_abnormalStates.begin(), m_abnormalStates.end(), abn));
+	DeleteGO(abn);
 }
 
 
@@ -121,7 +118,6 @@ bool Monster::Start()
 {
 	m_smr->SetPosition(m_pos);
 	m_cc.Init(m_radius, m_height, m_pos,enFbxUpAxisY);
-	m_PB = NewGO<PythonBridge>(0,"PB");
 
 	anim_idle();
 
@@ -246,30 +242,19 @@ void Monster::execute()
 
 void Monster::Move()
 {
-	
-	
-	//ˆÚ“®§ŒÀ
-	auto v = m_pos - CVector3::Zero();
-	auto dist = v.Length();
-	if (abs(dist) > m_limitDist) {
-		int outSpeed = 300;
-		if (m_movespeed.Length() > 0.f)
-		{
-			outSpeed = 0;
-		}
+	CVector3 oldPos = m_pos;
+	CVector3 move = m_movespeed + m_vKnockback;
+	move *= m_speed;
+
+	CVector3 v = m_pos + move * IGameTime().GetFrameDeltaTime();
+	if (v.Length() > m_limitDist)
+	{
 		v.Normalize();
-		v *= -1;
-		v *= outSpeed;
-		v += m_vKnockback;
-		m_pos = m_cc.Execute(IGameTime().GetFrameDeltaTime(), v);
+		m_pos = v * m_limitDist;
+		m_cc.SetPosition(m_pos);
 	}
 	else
-	{
-		CVector3 oldPos = m_pos;
-		CVector3 move = m_movespeed + m_vKnockback;
-		move *= m_speed;
 		m_pos = m_cc.Execute(IGameTime().GetFrameDeltaTime(), move);
-	}
 
 	m_smr->SetPosition(m_pos);
 	if (m_isKnockback)
@@ -322,7 +307,7 @@ void Monster::receiveDamage()
 		isdam = true;
 	}
 
-	if (m_DamageEx)
+	if (m_DamageEx > 0)
 	{
 		float dm = m_DamageEx - m_ExDefense;
 		if(dm <= 0)
@@ -393,17 +378,21 @@ void Monster::SetRotation(CQuaternion rot)
 
 void Monster::AddAction(MonsterAction * ma)
 {
+	bool isNOPushed = true;
 	if (ma != nullptr && m_actions.size() < 3)
 	{
 		for (int i = 0; i < m_useActionSize; i++)
 		{
 			if (m_UseAction[i] == ma->GetactionID())
 			{
+				isNOPushed = false;
 				m_actions.push_back(ma);
 				break;
 			}
 		}
 	}
+	if (isNOPushed)
+		DeleteGO(ma);
 }
 
 

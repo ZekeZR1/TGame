@@ -26,7 +26,7 @@ Armor::Armor()
 	prm.DefencePow = 12;
 	prm.ExDefensePow = 7;
 	prm.AttackPow = 5;
-	prm.ExAttackPow = 0;
+	prm.ExAttackPow = 1;
 	prm.Speed = 5;
 	prm.Radius = 10;
 	prm.Height = 300;

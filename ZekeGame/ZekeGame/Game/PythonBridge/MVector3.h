@@ -4,9 +4,9 @@
 typedef struct
 {
 	PyObject_HEAD
-	double x;
-	double y;
-	double z;
+	double x = 0.f;
+	double y = 0.f;
+	double z = 0.f;
 }MVector3;
 PyObject* MSqrt(PyObject* mod, PyObject* v);
 extern PyTypeObject MVector3Type;
