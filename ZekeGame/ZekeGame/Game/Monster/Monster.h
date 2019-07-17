@@ -475,7 +475,7 @@ protected:
 	float m_Damage = 0;							//ダメージ
 	float m_DamageEx = 0;						//特殊ダメージ
 
-	float m_MPrecov = 3;
+	float m_MPrecov = 1.f;                      //秒に一回MPを１回復する。
 
 	float m_speed = 0.0f;						//スピード
 	float m_gravity = 50.0f;					//重力
