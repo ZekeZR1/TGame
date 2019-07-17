@@ -121,36 +121,54 @@ bool DungeonAISelect::Start() {
 }
 
 void DungeonAISelect::Update() {
+
+	if (m_isfade && m_fade->isFadeStop()) {
+		auto dun = NewGO<DungeonGame>(0, "DungeonGame");
+		int i = 0;
+		for (auto p : m_pmms) {
+			aimode[i] = p->GetAImode();
+			i++;
+		}
+		dun->SetGameData(m_files, m_enemyFiles, monai, moid, m_dunNum, aimode);
+		OutputDebugStringA("AI Selected!! Start Transation!\n");
+		dun->StartTransition();
+		DeleteGO(this);
+	}
+	if (m_isfade)
+		return;
+
 	bool ismonsel = false;
 	int count = 0;
 	bool ispmm = false;
-	for (auto pmm : m_pmms)
-	{
-		ispmm = pmm->isOpen();
+	if (!m_isfade) {
+		for (auto pmm : m_pmms)
+		{
+			ispmm = pmm->isOpen();
+			if (ispmm)
+				break;
+		}
 		if (ispmm)
-			break;
-	}
-	if (ispmm)
-		return;
-	if (m_aiButton->isFading())
-		return;
+			return;
+		if (m_aiButton->isFading())
+			return;
 
-	/*for (auto pmm : m_pmms)
-	{
-		if (pmm->isClick())
+		/*for (auto pmm : m_pmms)
 		{
-			pmm->Open();
-		}
-	}*/
-	/*for (auto pmm : m_pmms)
-	{
-		ismonsel = pmm->isMonSel();
-		if (ismonsel || pmm->isSelect())
+			if (pmm->isClick())
+			{
+				pmm->Open();
+			}
+		}*/
+		/*for (auto pmm : m_pmms)
 		{
-			break;
-		}
-		count++;
-	}*/
+			ismonsel = pmm->isMonSel();
+			if (ismonsel || pmm->isSelect())
+			{
+				break;
+			}
+			count++;
+		}*/
+	}
 	if (ismonsel)
 		return;
 	if (!(m_msp->IsOpen() || m_mlp->IsOpen()))
@@ -204,19 +222,6 @@ void DungeonAISelect::Update() {
 			se->Init(L"Assets/sound/se/button.wav", false);
 			se->Play();
 		}
-		if (m_isfade && m_fade->isFadeStop()) {
-			auto dun = NewGO<DungeonGame>(0, "DungeonGame");
-			int i = 0;
-			for (auto p : m_pmms) {
-				aimode[i] = p->GetAImode();
-				i++;
-			}
-			dun->SetGameData(m_files, m_enemyFiles, monai, moid, m_dunNum, aimode);
-			OutputDebugStringA("AI Selected!! Start Transation!\n");
-			dun->StartTransition();
-			DeleteGO(this);
-		}
-
 		//	m_backSp->SetCollisionTarget(m_cursor->GetCursor());
 		////	if (g_pad[0].IsTrigger(enButtonA)) {
 		//	if(m_backSp->isCollidingTarget() && Mouse::isTrigger(enLeftClick)){
@@ -224,6 +229,7 @@ void DungeonAISelect::Update() {
 		//		isfade = true;
 		//	}
 	}
+
 	if (isfade && m_fade->isFadeStop()) {
 		NewGO<DungeonSelect>(0, "DungeonSelect");
 		auto dgame = FindGO<DungeonGame>("DungeonGame");

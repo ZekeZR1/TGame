@@ -153,7 +153,7 @@ void DropEgg::NewMonster() {
 		m_animClip[0].Load(L"Assets/modelData/armor/armor_idle.tka");
 		m_animClip[0].SetLoopFlag(true);
 		m_monster->SetScale(m_modelScale * 0.3);
-		m_monster->Init(L"Assets/modelData/armor.cmo", m_animClip, 1);
+		m_monster->Init(L"Assets/modelData/armor.cmo", m_animClip, 1,enFbxUpAxisZ, "PSMainBook");
 		m_monster->PlayAnimation(0);
 		break;
 	}
@@ -161,7 +161,7 @@ void DropEgg::NewMonster() {
 	{
 		m_animClip[0].Load(L"Assets/modelData/book/book_idle.tka");
 		m_animClip[0].SetLoopFlag(true);
-		m_monster->Init(L"Assets/modelData/book.cmo", m_animClip, 1);
+		m_monster->Init(L"Assets/modelData/book.cmo", m_animClip, 1,enFbxUpAxisZ,"PSMainBook");
 		m_monster->PlayAnimation(0);
 		break;
 	}

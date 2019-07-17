@@ -48,11 +48,31 @@ bool Act_Guardian::Action(Monster * me)
 	{
 		if (mon == nullptr)
 			break;
+
+		//printf("load start\n");
+
+
+
 		if (mon == me || mon->Getactions().size() == 0 || mon->Getteam() == me->Getteam())
+		{
+			//printf("load end\n");
 			continue;
+			
+		}
+		if (mon->Getactions()[0]->Gettarget() == NULL)
+		{
+			//printf("load end\n");
+			continue;
+		}
+		if (mon->Getactions()[0]->Gettarget()->Getteam() != me->Getteam())
+		{
+			//printf("load end\n");
+			continue;
+		}
+		//printf("mon:%d\n", mon->Getactions()[0]->Gettarget()->Getnum());
+		//printf("load end\n");
 		/*if (m_target == mon->Getactions()[0]->Gettarget())
 		{*/
-		
 		mon->Getactions()[0]->Settarget(me);
 		//}
 	}
