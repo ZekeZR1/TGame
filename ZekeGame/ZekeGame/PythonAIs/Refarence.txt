@@ -1,3 +1,8 @@
+
+ファイルの先頭に_を付けるとゲーム中に表示されなくなります。
+
+
+
 クラス
   Vector3
     メソッド
@@ -52,84 +57,7 @@
       movespeed
         今自分が進んでいる方向とスピードが入っているVector3
       state
-      
-  GameData
-    メソッド
-      init(self,num,team)
-        初期化関数プレイヤーがこれを使うことはない
-        
-      Init(self)
-        GameDataの初期化します。
-        
-      GetFarMonster(self)
-        今このAIを使っているモンスターから
-        一番遠いモンスターをかえします
-        
-      GetNeerMonster(self)
-        今このAIを使っているモンスターから
-        一番近いモンスターをかえします
-        
-      GetBuddyFarMonster(self)
-        今このAIを使っているモンスターから
-        一番遠い味方モンスターをかえします
-        
-      GetEnemyFarMonster(self)
-        今このAIを使っているモンスターから
-        一番遠い敵モンスターをかえします
-        
-      GetBuddyNeerMonster(self)
-        今このAIを使っているモンスターから
-        一番近い味方モンスターをかえします
-        
-      GetEnemyNeerMonster(self)
-        今このAIを使っているモンスターから
-        一番近い敵モンスターをかえします
-        
-      GetHighHPMonster(self)
-        一番HPの多いモンスターをかえします
-        
-      GetBuddyHighHPMonster(self)
-        一番HPの多い味方モンスターをかえします
-        
-      GetEnemyHighHP(self)
-        一番HPの多い敵モンスターをかえします
-        
-      GetEnemyLowHPMonster(self)
-        一番HPの少ない敵モンスターをかえします
-        
-      GetBuddyLowHPMonster(self)
-        一番HPの少ない味方モンスターをかえします
-        
-      GetHighATKMonster(self)
-        一番攻撃力の高いモンスターをかえします
-        
-      GetEnemyHighATKMonster(self)
-        一番攻撃力の高い敵モンスターをかえします
-        
-      GetBuddyHighATKMonster(self)
-        一番攻撃力の高い味方モンスターをかえします
-        
-      FindEnemyMonster(self,monID)
-        引数で指定したモンスターIDと一致する敵モンスターを返します
-      FindBuddyMonster(self,monID)
-        引数で指定したモンスターIDと一致する味方モンスターを返します
-      FindEnemyMonsters(self,monID)
-        引数で指定したモンスターIDと一致する敵モンスターを全て返します
-        戻り値はListです
-      FindBuddyMonsters(self,monID)
-        引数で指定したモンスターIDと一致する味方モンスターを全て返します
-        戻り値はListです
-    メンバ変数
-      buddyCount
-        自分を含めた現存する仲間の数
-      enemyCount
-        現存する敵の数
-      Buddy
-        自分をのけた味方のデータが入ったList
-      Enemys
-        敵のデータが入ったList
-      me
-        自身のデータ
+
 関数
   sqrt(v)
     引数で渡した値のルートを返します
@@ -146,70 +74,90 @@
   GetMe()
     gameData.meを返します
     
+  GetBuddyCount()
+    自分を除けた味方の数を返します
+  
+  GetEnemyCount()
+    敵の数を返します
+  
+  GetBuddyList()
+    自分を除いた味方のモンスターリストを返します
+  
+  GetEnemyList()
+    敵のモンスターリスト
+    
   GetFarMonster()
-    gameData.GetFarMonsterをラッピングしたものです。
-    
-  GetBuddyFarMonster()
-    gameData.GetBuddyFarMonsterをラッピングしたものです。
-    
-  GetEnemyFarMonster()
-    gameData.GetEnemyFarMonsterをラッピングしたものです。
+    今このAIを使っているモンスターから
+    一番遠いモンスターをかえします
     
   GetNeerMonster()
-    gameData.GetNeerMonsterをラッピングしたものです。
+    今このAIを使っているモンスターから
+    一番近いモンスターをかえします
+    
+  GetBuddyFarMonster()
+    今このAIを使っているモンスターから
+    一番遠い味方モンスターをかえします
+    
+  GetEnemyFarMonster()
+    今このAIを使っているモンスターから
+    一番遠い敵モンスターをかえします
     
   GetBuddyNeerMonster()
-    gameData.GetBuddyNeerMonsterをラッピングしたものです。
+    今このAIを使っているモンスターから
+    一番近い味方モンスターをかえします
     
   GetEnemyNeerMonster()
-    gameData.GetEnemyNeerMonsterをラッピングしたものです。
+    今このAIを使っているモンスターから
+    一番近い敵モンスターをかえします
     
   GetHighHPMonster()
-    gameData.GetHighHPMonsterをラッピングしたものです。
+    一番HPの多いモンスターをかえします
     
   GetBuddyHighHPMonster()
-    gameData.GetBuddyHighHPMonsterをラッピングしたものです。
+    一番HPの多い味方モンスターをかえします
     
-  GetEnemyHighHPMonster()
-    gameData.GetEnemyHighHPMonsterをラッピングしたものです。
+  GetEnemyHighHP()
+    一番HPの多い敵モンスターをかえします
     
   GetEnemyLowHPMonster()
-    gameData.GetEnemyLowHPMonsterをラッピングしたものです。
+    一番HPの少ない敵モンスターをかえします
     
   GetBuddyLowHPMonster()
-    gameData.GetBuddyLowHPMonsterをラッピングしたものです。
+    一番HPの少ない味方モンスターをかえします
     
   GetHighATKMonster()
-    gameData.GetHighATKMonsterをラッピングしたものです。
+    一番攻撃力の高いモンスターをかえします
     
   GetEnemyHighATKMonster()
-    gameData.GetEnemyHighATKMonsterをラッピングしたものです。
+    一番攻撃力の高い敵モンスターをかえします
     
   GetBuddyHighATKMonster()
-    gameData.GetBuddyHighATKMonsterをラッピングしたものです。
-    
-  FindBuddyMonster(monID)
-    gameData.FindBuddyMonsterをラッピングしたものです。
-    
-  FindBuddyMonsterList(monID)
-    gameData.FindBuddyMonstersをラッピングしたものです。
+    一番攻撃力の高い味方モンスターをかえします
     
   FindEnemyMonster(monID)
-    gameData.FindEnemyMonsterをラッピングしたものです。
+    引数で指定したモンスターIDと一致する敵モンスターを返します
     
-  FindEnemy(monID)
-    gameData.FindEnemyMonsterをラッピングしたものです。
+  FindBuddyMonster(monID)
+    引数で指定したモンスターIDと一致する味方モンスターを返します
     
   FindEnemyMonsterList(monID)
-    gameData.FindEnemyMonstersをラッピングしたものです。
+    引数で指定したモンスターIDと一致する敵モンスターを全て返します
+    戻り値はListです
     
-  addAction(target,action)
-    プレイヤーがこれを使うことはない
+  FindBuddyMonsterList(monID)
+    引数で指定したモンスターIDと一致する味方モンスターを全て返します
+    戻り値はListです
     
+  FindEnemy(monID)
+    FindEnemyMonsterと同じです。
+    
+  MMprint(st)
+    ゲーム中に文字列stを表示します
     
   ####技####
     
   Chase(target)
+    targetはモンスター型です
     敵を追いかけます
     
   Attack(target)
@@ -283,13 +231,7 @@
     引数はVector3です。
     この技はすべてのモンスターが使うことができます。
   
-グローバル変数
-  gameData
-    GameDataのインスタンスです
-  actions
-    ゲーム側に送る技が入っています
-    
-  
+グローバル変数  
   ####モンスターID####
     
   Uma

@@ -399,6 +399,18 @@ def Init():
 def GetMe():
     return gameData.me
 
+def GetBuddyCount():
+    return gameData.buddyCount
+
+def GetEnemyCount():
+    return gameData.enemyCount
+
+def GetBuddyList():
+    return gameData.Buddy
+
+def GetEnemyList():
+    return gameData.Enemys
+
 
 def GetFarMonster():
     return gameData.GetFarMonster()
