@@ -9,9 +9,9 @@ ACTEffectGrant::~ACTEffectGrant()
 
 void ACTEffectGrant::OnDestroy() {
 	m_effect->Stop();
-	//if (m_isTargetAlive and m_target != nullptr) {
-		//m_target->ClearAbnormalState(this);
-//	}
+	if (m_isTargetAlive and m_target != nullptr) {
+		m_target->ClearAbnormalState(this);
+	}
 	puts("acteffect grant Destroy");
 }
 
@@ -29,7 +29,7 @@ void ACTEffectGrant::init(CEffect * effect, Monster * target, int state, float d
 	if(me != nullptr)
 		m_invokerExAtk = m_Invoker->GetExAttack();
 	AddAct();
-	printf("ACTEffect add, target is %d, me is %d state is %d\n",target->Getnum(), me->Getnum(), state);
+	//printf("ACTEffect add, target is %d, me is %d state is %d\n",target->Getnum(), me->Getnum(), state);
 }
 
 void ACTEffectGrant::Update()
