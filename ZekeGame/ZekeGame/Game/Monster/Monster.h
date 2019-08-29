@@ -104,6 +104,7 @@ public:
 	void SetAbnormalState(ACTEffectGrant* abn)
 	{
 		m_abnormalStates.push_back(abn);
+		printf("abnormal state num is %d\n", m_abnormalStates.size());
 	}
 
 	/*void ClearAbnormalState(int abn)

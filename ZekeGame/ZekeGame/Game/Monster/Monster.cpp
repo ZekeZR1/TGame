@@ -26,8 +26,7 @@ Monster::~Monster()
 }
 
 void Monster::OnDestroy() {
-	for (auto i : m_abnormalStates)
-		DeleteGO(i);
+	printf("Destroy %d monster\n", Getnum());
 }
 
 void Monster::ReleaseMAL()
@@ -98,26 +97,19 @@ void Monster::SuddenDeath()
 }
 
 void Monster::ClearAllAbnormalState() {
+	printf("clear all monster abnormal state\n");
 	for (auto abs : m_abnormalStates)
 		abs->Clense();
 	m_abnormalStates.clear();
 }
 
 void Monster::ClearAbnormalState(ACTEffectGrant* abn) {
-	auto it = m_abnormalStates.begin();
-	while (it != m_abnormalStates.end()) {
-		if (*it == abn)
-		it = m_abnormalStates.erase(std::find(m_abnormalStates.begin(), m_abnormalStates.end(), abn));
-		else
-			it++;
-	}
-	/*if (!m_abnormalStates.size()) return;
-	if (m_abnormalStates.size() == 1) 
-		m_abnormalStates.clear();
-	auto result = std::find(m_abnormalStates.begin(), m_abnormalStates.end(), abn);
-	if (result == m_abnormalStates.end()) return;
-	m_abnormalStates.erase(std::find(m_abnormalStates.begin(), m_abnormalStates.end(), abn));*/
-	DeleteGO(abn);
+	auto it = std::find(m_abnormalStates.begin(), m_abnormalStates.end(), abn);
+	if(it != m_abnormalStates.end())
+		m_abnormalStates.erase(it); 
+
+	printf("id is %d : abnormal state num is %d\n", Getnum(),m_abnormalStates.size());
+
 }
 
 

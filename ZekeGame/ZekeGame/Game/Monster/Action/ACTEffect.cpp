@@ -5,7 +5,14 @@
 
 ACTEffectGrant::~ACTEffectGrant()
 {
+}
+
+void ACTEffectGrant::OnDestroy() {
 	m_effect->Stop();
+	//if (m_isTargetAlive and m_target != nullptr) {
+		//m_target->ClearAbnormalState(this);
+//	}
+	puts("acteffect grant Destroy");
 }
 
 void ACTEffectGrant::init(CEffect * effect, Monster * target, int state, float dam, float time,float endTime, Monster* me,float DoTParam)
@@ -22,27 +29,18 @@ void ACTEffectGrant::init(CEffect * effect, Monster * target, int state, float d
 	if(me != nullptr)
 		m_invokerExAtk = m_Invoker->GetExAttack();
 	AddAct();
+	printf("ACTEffect add, target is %d, me is %d state is %d\n",target->Getnum(), me->Getnum(), state);
 }
 
 void ACTEffectGrant::Update()
 {
 	if (m_target == nullptr or !m_isTargetAlive)
 	{
+		puts("target is null or dead delete");
 		DeleteGO(this);
 		return;
 	}
-	if (m_time >= m_endTime and m_endTime != 0 or !m_effect->IsPlay()) {
-		m_target->ClearAbnormalState(this);
-		DeleteGO(this);
-		return;
-	}
-	//else {
-	//	if (!m_effect->IsPlay()) {
-	//		m_target->ClearAbnormalState(this);
-	//		DeleteGO(this);
-	//		return;
-	//	}
-	//}
+	
 	switch (m_state)
 	{
 	case enDoT:
@@ -64,7 +62,6 @@ void ACTEffectGrant::Update()
 			m_target->SetHP(HP - m_dam);
 			break;
 			m_time = 0;
-			m_target->ClearAbnormalState(this);
 			DeleteGO(this);
 			break;
 		}
@@ -143,13 +140,13 @@ void ACTEffectGrant::Clear() {
 	case enCC:
 	{
 		m_target->SetSpeed(m_tarSpeed);
-		m_target->ClearAbnormalState(this);
+		puts("cc delete");
 		DeleteGO(this);
 		break;
 	}
 	case enHardCC: {
 		//m_target->SetSpeed(m_tarSpeed);
-		m_target->ClearAbnormalState(this);
+		puts("hard cc delete");
 		DeleteGO(this);
 		break;
 	}
@@ -157,7 +154,7 @@ void ACTEffectGrant::Clear() {
 	{
 		m_target->SetAttackPower(m_pow);
 		m_target->SetExAttackPower(m_ExPow);
-		m_target->ClearAbnormalState(this);
+		puts("buff atc delete");
 		DeleteGO(this);
 		break;
 	}
@@ -165,7 +162,6 @@ void ACTEffectGrant::Clear() {
 	{
 		m_target->SetDefensePower(m_pow);
 		m_target->SetExDefense(m_ExPow);
-		m_target->ClearAbnormalState(this);
 		DeleteGO(this);
 		break;
 	}
@@ -173,7 +169,6 @@ void ACTEffectGrant::Clear() {
 	{
 		m_target->SetAttackPower(m_pow);
 		m_target->SetExAttackPower(m_ExPow);
-		m_target->ClearAbnormalState(this);
 		DeleteGO(this);
 		break;
 	}
@@ -181,7 +176,6 @@ void ACTEffectGrant::Clear() {
 	{
 		m_target->SetDefensePower(m_pow);
 		m_target->SetExDefense(m_ExPow);
-		m_target->ClearAbnormalState(this);
 		DeleteGO(this);
 		break;
 	}
