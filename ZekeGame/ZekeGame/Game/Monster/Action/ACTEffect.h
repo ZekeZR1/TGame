@@ -10,6 +10,8 @@ public:
 	*/
 	~ACTEffectGrant();
 
+
+	void OnDestroy() override;
 	/*
 	初期化
 	インスタンスを生成した時には必ずこれを使う。

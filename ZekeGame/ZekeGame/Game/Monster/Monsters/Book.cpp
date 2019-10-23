@@ -13,7 +13,7 @@ Book::Book()
 	m_Defense = 10;
 	m_ExDefense = 20;
 
-	m_Attack = 5;
+	m_Attack = 7;
 	m_ExAttack = 30;
 
 	m_speed = 30;

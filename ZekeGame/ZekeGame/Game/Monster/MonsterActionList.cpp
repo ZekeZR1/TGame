@@ -46,7 +46,7 @@ void MonsterActionList::init(Monster * mon)
 	m_back = NewGO<SpriteRender>(1, "sp");
 	float w = 215.0f;
 	float h = 144.0f;
-	h = 215.0f;
+	h = 222.0f;
 	if (mon->Getteam() == 0)
 	{
 		m_back->Init(L"Assets/Sprite/backRed.dds", w, h);
@@ -127,17 +127,17 @@ void MonsterActionList::init(Monster * mon)
 
 	m_vm = {pos.x,pos.y};
 	m_vm.y += 28;
-
 	m_SMPfr = NewGO<FontRender>(2, "fr");
-	m_SMPfr->Init(L"MP:", { m_vm.x+10 + 5 ,m_vm.y - 5 }, 0, { 0,0,0,1 }, 0.6f, { 0,0 });
+	m_SMPfr->Init(L"MP:", { m_vm.x+10 + 5 ,m_vm.y - 5  + yfix}, 0, { 0,0,0,1 }, 0.6f, { 0,0 });
 
 	m_MPfr = NewGO<FontRender>(2, "fr");
-	m_MPfr->Init(L"MP:", { m_vm.x+10,m_vm.y}, 0, CVector4::White, 0.6f, { 0,0 });
+	m_MPfr->Init(L"MP:", { m_vm.x+10,m_vm.y + yfix}, 0, CVector4::White, 0.6f, { 0,0 });
 
 	m_vm.x += 100;
+	m_vm.y += yfix;
 	
 
-	pos.y += 45;
+	pos.y += 45 + yfix;
 	//m_hp->SetPosition(pos);
 	
 
@@ -145,20 +145,20 @@ void MonsterActionList::init(Monster * mon)
 	m_vh.y += 14;
 
 	m_SHPfr = NewGO<FontRender>(2, "fr");
-	m_SHPfr->Init(L"HP:", { m_vh.x+10+5,m_vh.y-5}, 0, { 0,0,0,1 }, 0.6f, { 0,0 });
+	m_SHPfr->Init(L"HP:", { m_vh.x+10+5,m_vh.y-5 + yfix}, 0, { 0,0,0,1 }, 0.6f, { 0,0 });
 
 	m_HPfr = NewGO<FontRender>(2, "fr");
-	m_HPfr->Init(L"HP:", { m_vh.x+10,m_vh.y }, 0, CVector4::White, 0.6f, { 0,0 });
+	m_HPfr->Init(L"HP:", { m_vh.x+10,m_vh.y + yfix}, 0, CVector4::White, 0.6f, { 0,0 });
 
 
-	m_monNumBack = NewGO<SpriteRender>(2, "sp");
+	m_monNumBack = NewGO<SpriteRender>(0, "sp");
 	int team = mon->Getteam();
 	if (team == 0)
 		m_monNumBack->Init(L"Assets/sprite/mark_red.dds", 50* 0.59375f, 50);
 	else
 		m_monNumBack->Init(L"Assets/sprite/mark_blue.dds", 50* 0.59375f, 50);
 
-	m_monNumBack->SetPosition({ m_vh.x+6,m_vh.y-5,0 });
+	m_monNumBack->SetPosition({ m_vh.x+6,m_vh.y,0});
 	m_monNumBack->SetPivot({ 0,0 });
 
 	
@@ -166,14 +166,15 @@ void MonsterActionList::init(Monster * mon)
 	swprintf_s(ws,L"%d", mon->Getnum() - (team == 0 ? -1 : 2));
 
 	m_SmonNum = NewGO<FontRender>(2,"fr");
-	m_SmonNum->Init(ws, { m_vh.x +6+ 2 + 2,m_vh.y + 50 - 2 }, 0, { 0,0,0,1 }, 0.5f, { 0,0 });
+	m_SmonNum->Init(ws, { m_vh.x +6+ 2 + 2,m_vh.y + 50 - 2 + 5 }, 0, { 0,0,0,1 }, 0.5f, { 0,0 });
 
 	m_monNum = NewGO<FontRender>(2, "fr");
-	m_monNum->Init(ws, { m_vh.x+6+2,m_vh.y + 50}, 0, CVector4::White, 0.5f, { 0,0 });
+	m_monNum->Init(ws, { m_vh.x+6+2,m_vh.y + 50 +5}, 0, CVector4::White, 0.5f, { 0,0 });
 
 	
 
 	m_vh.x += 100;
+	m_vh.y += yfix;
 	
 
 	
@@ -196,12 +197,12 @@ void MonsterActionList::Update()
 	float mp = m_mon->GetMP();
 
 	wchar_t tx[255];
-	swprintf_s(tx, L"%.1f", hp);
+	swprintf_s(tx, L"%.1f", hp < 0 ? 0  : hp);
 	m_fhp->Init(tx, m_vh, 0, CVector4::White, 0.6f, { 0,0 });
 
 	m_Sfhp->Init(tx, { m_vh.x + 5,m_vh.y - 5 }, 0, { 0,0,0,1 }, 0.6f, { 0,0 });
 
-	swprintf_s(tx, L"%.1f", mp);
+	swprintf_s(tx, L"%.1f", mp < 0 ? 0 : mp);
 	m_fmp->Init(tx, m_vm, 0, CVector4::White, 0.6f, { 0,0 });
 	m_Sfmp->Init(tx, { m_vm.x + 5,m_vm.y - 5 }, 0, { 0,0,0,1 }, 0.6f, { 0,0 });
 	
@@ -245,11 +246,17 @@ void MonsterActionList::Update()
 			float len = wcslen(ws);
 			float sc = len <= 7 ? 0.7f : 0.7f - (((len - 7.f)*0.08f) - (len-7.f)*0.008f);
 
+			
 			float up = 3.f;
+			if (mas[i]->GetactionID() == enClearStack)
+			{
+				sc = 0.5f;
+				up = -10;
+			}
 
 			//todo: フォント変更座標変更
-			m_frs[i]->Init(ws, { p.x,p.y +40.f+8.f+up}, 0, CVector4::White, sc, { 0,0 });
-			m_Sfrs[i]->Init(ws, { p.x+5,p.y+40.f-5.f+8.f+up }, 0, {0,0,0,1}, sc, { 0,0 });
+			m_frs[i]->Init(ws, { p.x,p.y + 40 + 5.f + 8.f + up }, 0, CVector4::White, sc, { 0,0 });
+			m_Sfrs[i]->Init(ws, { p.x + 5,p.y + 40 + 5.f - 5.f + 8.f + up }, 0, { 0,0,0,1 }, sc, { 0,0 });
 		}
 
 		m_len = len;

@@ -102,7 +102,7 @@ void DungeonTransition::InitModel() {
 		{
 			m_animClip[i][0].Load(L"Assets/modelData/book/book_idle.tka");
 			m_animClip[i][0].SetLoopFlag(true);
-			m_monsters[i]->Init(L"Assets/modelData/book.cmo", m_animClip[i], 1);
+			m_monsters[i]->Init(L"Assets/modelData/book.cmo", m_animClip[i], 1, enFbxUpAxisZ, "PSMainBook");
 			m_monsters[i]->PlayAnimation(0);
 			m_monsters[i]->SetScale(CVector3::One() * 0.8);
 			auto p = m_monsters[i]->GetPosition();
