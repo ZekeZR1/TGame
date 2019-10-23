@@ -27,6 +27,11 @@ private:
 
 class INetworkSystem : Noncopyable {
 public:
+	static INetworkSystem& GetInstance() {
+		static INetworkSystem instance;
+		return instance;
+	}
+
 	NetworkLogic& GetNetworkLogic(){
 		return m_network;
 	}
@@ -40,10 +45,6 @@ private:
 	NetworkLogic m_network;
 };
 
-static INetworkSystem& NetSystem() {
-	static INetworkSystem* instance = nullptr;
-	if (instance == nullptr) {
-		instance = new INetworkSystem;
-	}
-	return *instance;
+static inline INetworkSystem& NetSystem() {
+	return INetworkSystem::GetInstance();
 }
